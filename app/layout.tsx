@@ -2,18 +2,20 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { DockWrapper } from '@/components/DockWrapper'
+import { Navbar } from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Meu Site - Portfolio Profissional',
-  description: 'Portfolio profissional com foco em UX/UI Design e desenvolvimento web moderno',
-  keywords: 'portfolio, UX, UI, design, desenvolvimento, web, Next.js, React',
-  authors: [{ name: 'Seu Nome' }],
-  creator: 'Seu Nome',
+  title: 'Elias Santos - Professional Portfolio',
+  description: 'Professional portfolio focused on UX/UI Design and modern web development',
+  keywords: 'portfolio, UX, UI, design, development, web, Next.js, React',
+  authors: [{ name: 'Elias Santos' }],
+  creator: 'Elias Santos',
   openGraph: {
-    title: 'Meu Site - Portfolio Profissional',
-    description: 'Portfolio profissional com foco em UX/UI Design e desenvolvimento web moderno',
+    title: 'Elias Santos - Professional Portfolio',
+    description: 'Professional portfolio focused on UX/UI Design and modern web development',
     type: 'website',
   },
 }
@@ -32,7 +34,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
+          <DockWrapper />
         </ThemeProvider>
       </body>
     </html>

@@ -4,6 +4,8 @@
 
 Siga o documento de design system 
 
+Se tiver um componente do MAGIC UI, não precisa CRIAR NOVOS COMPONENTES BASEADO
+
 ### **1. Gerenciador de Pacotes**
 - ✅ **SEMPRE use `pnpm`** para instalar, remover ou gerenciar dependências
 - ❌ NUNCA use `npm` ou `yarn`
