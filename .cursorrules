@@ -1,0 +1,79 @@
+# 🚀 Regras do Projeto ChatAI
+
+## 📋 **REGRAS FUNDAMENTAIS**
+
+Siga o documento de design system 
+
+### **1. Gerenciador de Pacotes**
+- ✅ **SEMPRE use `pnpm`** para instalar, remover ou gerenciar dependências
+- ❌ NUNCA use `npm` ou `yarn`
+- ✅ Use `pnpm install` para instalar dependências
+- ✅ Use `pnpm add <package>` para adicionar novos pacotes
+- ✅ Use `pnpm remove <package>` para remover pacotes
+
+### **2. Segurança do Projeto**
+- ✅ **SEMPRE tome cuidado para não quebrar o projeto**
+- ✅ Teste cada mudança antes de prosseguir
+- ✅ Faça builds frequentes para verificar se tudo funciona
+- ✅ Mantenha compatibilidade com código existente
+- ✅ Use refatoração gradual e segura
+- ❌ NUNCA faça mudanças grandes sem testar
+
+### **3. Variáveis de Ambiente**
+- ✅ **SEMPRE use `npx dotenv-cli -e .env.local`** para visualizar o .env.local
+- ✅ As configurações no .env.local estão corretas!
+- ✅ NUNCA commite o arquivo .env.local
+- ✅ Use .env.example como referência
+ commit
+
+## 🎯 **REGRAS DE REFATORAÇÃO**
+
+### **7. Mudanças Seguras**
+- ✅ Faça uma mudança por vez
+- ✅ Teste após cada mudança
+- ✅ Mantenha backups ou use Git para rollback
+- ✅ Documente mudanças importantes
+
+### **8. Compatibilidade**
+- ✅ Mantenha funções antigas funcionando durante transição
+- ✅ Use deprecation warnings quando necessário
+- ✅ Atualize imports gradualmente
+
+## 📚 **REGRAS DE DOCUMENTAÇÃO**
+
+### **9. Atualização de Docs**
+- ✅ Atualize documentação quando mudar APIs
+- ✅ Mantenha exemplos de uso atualizados
+- ✅ Documente novos providers e funcionalidades
+
+## 🚨 **COMANDOS IMPORTANTES**
+
+```bash
+# Gerenciamento de pacotes
+pnpm install
+pnpm add <package>
+pnpm remove <package>
+
+# Visualizar variáveis de ambiente
+npx dotenv-cli -e .env.local
+
+# Build e testes
+pnpm run build
+pnpm run dev
+
+# Verificar configurações
+pnpm run check-env
+pnpm run check-replicate
+```
+
+## ⚠️ **LEMBRETES CRÍTICOS**
+
+1. **SEMPRE use pnpm** - nunca npm ou yarn
+2. **NUNCA quebre o projeto** - teste tudo antes
+3. **Use dotenv-cli** para ver .env.local
+4. **As configurações estão corretas** - não mude sem necessidade
+5. **Mantenha compatibilidade** durante refatorações
+
+---
+
+**💡 Dica:** Sempre que estiver em dúvida, execute `pnpm run build` para verificar se tudo está funcionando! 
