@@ -676,7 +676,7 @@ function AboutMe() {
   ]
 
   return (
-    <section className="relative py-24 px-4 bg-gradient-to-b from-transparent to-muted/5">
+    <section className="relative py-24 px-4 bg-background">
       <div className="max-w-4xl mx-auto space-y-16">
         {/* Header */}
           <motion.div 
@@ -847,6 +847,15 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-background">
+      {/* Efeito de Brilho Fixo no Scroll */}
+      <motion.div
+        style={{ y }}
+        className="fixed inset-0 pointer-events-none z-0"
+      >
+        <div className="absolute inset-0 bg-gradient-radial from-white/3 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/2 via-transparent to-transparent" />
+      </motion.div>
+      
       {/* Elementos de Fundo */}
       <FloatingParticles />
       <DynamicGradient />
@@ -858,8 +867,7 @@ export default function Home() {
       <ScrollIndicator />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col justify-start overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/5" />
+      <section className="relative min-h-screen flex flex-col justify-start overflow-hidden pt-20 bg-background">
         {/* Grid Pattern Simples */}
         <div className="absolute inset-0 opacity-20">
           <div className="w-full h-full" style={{
@@ -868,40 +876,46 @@ export default function Home() {
           }} />
         </div>
         
-        {/* Gradient transicionado embaixo do grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1.5 }}
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent"
-        />
-        
-        {/* Gradient dinâmico que se move */}
-        <motion.div
-          animate={{
-            background: [
-              "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background)/0.8) 50%, transparent 100%)",
-              "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background)/0.9) 30%, transparent 100%)",
-              "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background)/0.8) 50%, transparent 100%)"
-            ]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        />
-        
         {/* Partículas flutuantes no Hero */}
         <HeroParticles />
         
         {/* Conteúdo do Hero */}
+        {/* Foto do Elias - Posicionada no topo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 flex justify-center mb-8"
+        >
+          <div className="relative">
+            {/* Efeito de brilho atrás da foto */}
+            <div className="absolute inset-0 -inset-3 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-full blur-xl" />
+            
+            {/* Container da foto */}
+            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-border/30 shadow-2xl">
+              <Image
+                src="/images/WhatsApp Image 2025-07-18 at 02.01.50_8d26a9db.jpg"
+                alt="Elias Santos - UX/UI Designer & Full Stack Developer"
+                fill
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+            
+            {/* Efeito de borda animada */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 -inset-1 border-2 border-border/20 rounded-full"
+            />
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto mt-16"
+          className="relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto"
         >
           {/* Badge Animado */}
           <motion.div 
@@ -1180,7 +1194,7 @@ export default function Home() {
       </section>
 
       {/* Companies Section - Movido para logo após o Hero */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-muted/5 to-transparent">
+      <section className="relative py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-12">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -1206,7 +1220,6 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted/10 to-transparent" />
             <CompanyCarousel />
           </motion.div>
         </div>
@@ -1215,7 +1228,7 @@ export default function Home() {
       
 
       {/* Case de Sucesso - Ventu Chat */}
-      <section className="relative py-24 px-4 bg-gradient-to-b from-transparent to-muted/5">
+      <section className="relative py-24 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -1375,7 +1388,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-20 px-4">
+      <section className="relative py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -1474,7 +1487,7 @@ export default function Home() {
       </section>
           
       {/* Tech Stack Section */}
-      <section className="relative py-20 px-4 bg-muted/20">
+      <section className="relative py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -1500,7 +1513,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="relative py-20 px-4">
+      <section className="relative py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
               <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -1525,7 +1538,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative py-20 px-4 bg-muted/20">
+      <section className="relative py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
                   <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -1549,7 +1562,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-20 px-4">
+      <section className="relative py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
         <motion.div 
             initial={{ opacity: 0, y: 50 }}
