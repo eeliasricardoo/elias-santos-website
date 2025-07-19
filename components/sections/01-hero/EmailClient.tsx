@@ -15,9 +15,6 @@ export function EmailClient() {
       className="relative z-10 mt-16 px-4"
     >
       <div className="max-w-7xl mx-auto relative">
-        {/* Brilho de fundo - ATRÁS do card */}
-        <div className="absolute inset-0 -bottom-40 -left-40 -right-40 -top-20 bg-gradient-to-t from-white/10 via-white/30 to-transparent rounded-full blur-3xl -z-10" />
-        
         <Card className="border-border/50 bg-card/40 backdrop-blur-xl relative overflow-hidden shadow-2xl">
           
           <CardContent className="p-0">

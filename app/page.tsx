@@ -60,10 +60,15 @@ import { HeroSection, CompaniesSection, CaseStudySection } from "@/components/se
 
 // Componente de Gradiente Dinâmico
 function DynamicGradient() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (isClient) {
       const handleMouseMove = (e: MouseEvent) => {
         setMousePosition({
           x: e.clientX / window.innerWidth,
@@ -74,13 +79,13 @@ function DynamicGradient() {
       window.addEventListener('mousemove', handleMouseMove)
       return () => window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [])
+  }, [isClient])
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
       <div 
-        className="absolute inset-0 opacity-10"
-              style={{
+        className="absolute inset-0 opacity-10 transition-opacity duration-300"
+        style={{
           background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, 
             hsl(var(--muted-foreground) / 0.2) 0%, 
             hsl(var(--muted-foreground) / 0.05) 25%, 
@@ -95,17 +100,35 @@ function DynamicGradient() {
 
 // Componente de Progress Indicator
 function ProgressIndicator() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (isClient) {
+      const handleScroll = () => {
+        const scrollTop = window.scrollY
+        const docHeight = document.body.scrollHeight - window.innerHeight
+        const scrollPercent = scrollTop / docHeight
+        setScrollProgress(scrollPercent)
+      }
+
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isClient])
+
+  if (!isClient) {
+    return null
+  }
 
   return (
-        <motion.div
+    <motion.div
       className="fixed top-0 left-0 right-0 h-1 bg-foreground origin-left z-50"
-      style={{ scaleX }}
+      style={{ scaleX: scrollProgress }}
     />
   )
 }
@@ -114,9 +137,14 @@ function ProgressIndicator() {
 function ScrollIndicator() {
   const [scrollY, setScrollY] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (isClient) {
       const handleScroll = () => {
         const scrollY = window.scrollY
         const scrollHeight = document.body.scrollHeight - window.innerHeight
@@ -129,7 +157,11 @@ function ScrollIndicator() {
       window.addEventListener('scroll', handleScroll)
       return () => window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [isClient])
+
+  if (!isClient) {
+    return null
+  }
 
   return (
         <motion.div
@@ -658,17 +690,34 @@ function AboutMe() {
   )
 }
 
-
+// Componente de Loading
+function LoadingScreen() {
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-center space-y-4">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-foreground mx-auto"></div>
+        <p className="text-muted-foreground">Carregando...</p>
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  })
+  const [isClient, setIsClient] = useState(false)
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0])
+  useEffect(() => {
+    // Pequeno delay para garantir que a hidratação seja completa
+    const timer = setTimeout(() => {
+      setIsClient(true)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isClient) {
+    return <LoadingScreen />
+  }
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-background">
@@ -774,11 +823,12 @@ export default function Home() {
               <Card className="border-border/50 bg-card/40 backdrop-blur-xl overflow-hidden">
                 <CardContent className="p-0">
                   <Image
-                    src="/images/profile-photo.jpg"
+                    src="/placeholder-user.jpg"
                     alt="Profile"
                     width={500}
                     height={600}
                     className="w-full h-auto object-cover"
+                    priority
                   />
                 </CardContent>
               </Card>

@@ -1,10 +1,21 @@
 "use client"
 
+import { useState, useEffect } from 'react'
 import { Dock, DockIcon } from '@/components/magicui/dock'
 import { Linkedin, Github, MessageCircle, Mail, BookOpen } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 export function DockWrapper() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) {
+    return null
+  }
+
   return (
     <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
       <TooltipProvider>

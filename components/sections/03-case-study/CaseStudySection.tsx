@@ -17,6 +17,8 @@ import {
   CheckCircle2
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+
 
 const metrics = [
   { icon: <Zap className="w-5 h-5 text-primary" />, label: "Dias", value: "5" },
@@ -53,27 +55,10 @@ export function CaseStudySection() {
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(180px,1fr)]">
-          {/* Vídeo Demo - destaque maior */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden shadow-xl border border-border/20 bg-card/80 flex flex-col justify-center items-center relative"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-muted/40 via-transparent to-transparent pointer-events-none" />
-            <div className="flex-1 flex flex-col justify-center items-center p-8">
-              <motion.div
-                whileHover={{ scale: 1.08 }}
-                className="w-24 h-24 mx-auto rounded-full bg-muted/60 flex items-center justify-center cursor-pointer shadow-lg border-2 border-primary/30 mb-4"
-              >
-                <Play className="w-12 h-12 text-primary" />
-              </motion.div>
-              <p className="text-muted-foreground font-medium text-center">Vídeo Demo - Ventu Chat</p>
-            </div>
-          </motion.div>
 
+
+        {/* Cards de Informações */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(180px,1fr)]">
           {/* Métricas - 4 cards pequenos */}
           {metrics.map((m, i) => (
             <motion.div
@@ -125,9 +110,11 @@ export function CaseStudySection() {
               <Button size="sm" className="bg-primary text-background hover:bg-primary/90">
                 Ver Demo
               </Button>
-              <Button variant="outline" size="sm" className="border-border text-foreground hover:bg-muted/50">
-                Case Completo
-              </Button>
+              <Link href="/ventuschat">
+                <Button variant="outline" size="sm" className="border-border text-foreground hover:bg-muted/50">
+                  Case Completo
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
