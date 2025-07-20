@@ -58,13 +58,8 @@ export function GetInTouch() {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background elements - atrás do componente */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-muted/10 rounded-full blur-3xl" />
-      </div>
 
-      <div className="relative container mx-auto px-4">
+      <div className="relative z-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,8 +78,11 @@ export function GetInTouch() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="border-border/30 bg-card/50 backdrop-blur-sm shadow-2xl">
+        <div className="max-w-4xl mx-auto relative">
+          {/* Luz atrás do card - igual ao MiniChat */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10"></div>
+          
+          <Card className="border-border/30 bg-card shadow-2xl shadow-primary/5 relative z-10">
             <CardContent className="p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,7 +106,7 @@ export function GetInTouch() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="border-border/50 focus:border-primary"
+                      className="border-border/50 focus:border-primary h-12 text-base"
                     />
                   </motion.div>
 
