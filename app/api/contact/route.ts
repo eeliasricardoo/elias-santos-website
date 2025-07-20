@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Enviar e-mail usando Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Site Portfolio <onboarding@resend.dev>', // Você pode mudar para seu domínio verificado
       to: ['eeliasricardoo@gmail.com'],
       subject: `Novo contato do site: ${subject}`,

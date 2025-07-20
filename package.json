@@ -6,7 +6,17 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "start": "next start",
+    "analyze": "ANALYZE=true next build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "quality": "pnpm lint && pnpm type-check && pnpm format:check",
+    "quality:fix": "pnpm lint:fix && pnpm format"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -67,7 +77,19 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.7.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
     "postcss": "^8.5",
+    "prettier": "^3.0.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
