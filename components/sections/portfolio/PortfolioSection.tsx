@@ -42,12 +42,12 @@ function PortfolioCard({ card, index, totalCards }: {
     offset: ["start center", "end center"]
   })
 
-  // Efeito de stacking corrigido - sobreposição funcionando
-  const cardY = useTransform(scrollYProgress, [0, 0.2, 1], [0, 0, -100 * (totalCards - index - 1)])
-  const cardOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.8, 0.3])
-  const cardScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.95, 0.9])
-  const cardZIndex = useTransform(scrollYProgress, [0, 0.2, 0.5, 1], [index, index, index + 10, index + 20])
-  const cardBlur = useTransform(scrollYProgress, [0, 0.8, 1], [0, 1, 3])
+  // Efeito de stacking com scroll da página
+  const cardY = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0, -80 * (totalCards - index - 1)])
+  const cardOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.7, 0.2])
+  const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.96, 0.88])
+  const cardZIndex = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [index, index, index + 15, index + 25])
+  const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4])
 
 
 
@@ -64,7 +64,7 @@ function PortfolioCard({ card, index, totalCards }: {
         zIndex: cardZIndex,
         filter: `blur(${cardBlur}px)`
       }}
-      className="sticky top-4 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
+      className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
     >
               <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-500">
           <CardContent className="p-16">
@@ -116,39 +116,28 @@ export function PortfolioSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center px-4 overflow-hidden"
+      className="relative py-24 px-4 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto w-full">
-        {/* Header fixo no top */}
+      <div className="max-w-7xl mx-auto space-y-16">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center space-y-6 mb-16"
+          className="text-center space-y-6"
         >
-          <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
-            Portfolio
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Projetos em Destaque
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Soluções inovadoras desenvolvidas com foco em experiência do usuário e resultados excepcionais
-          </p>
         </motion.div>
 
-        {/* Container dos cards com scroll próprio */}
-        <div className="relative h-[70vh] overflow-y-auto scroll-smooth">
-          <div className="relative space-y-16 pb-20 pt-8">
-            {portfolioCards.map((card, index) => (
-              <PortfolioCard
-                key={card.id}
-                card={card}
-                index={index}
-                totalCards={portfolioCards.length}
-              />
-            ))}
-          </div>
+        {/* Cards com scroll da página */}
+        <div className="relative space-y-8 min-h-[80vh]">
+          {portfolioCards.map((card, index) => (
+            <PortfolioCard
+              key={card.id}
+              card={card}
+              index={index}
+              totalCards={portfolioCards.length}
+            />
+          ))}
         </div>
 
         {/* Elementos decorativos de fundo com parallax */}
