@@ -12,7 +12,7 @@ import {
 import Image from "next/image"
 
 // Importando componentes de seções
-import { HeroSection, CompaniesSection, PortfolioSection, AboutMeSection } from "@/components/sections"
+import { HeroSection, CompaniesSection, PortfolioSection } from "@/components/sections"
 
 // Componente de Background Animado
 function AnimatedBackground() {
@@ -184,9 +184,6 @@ export default function Home() {
 
       {/* Portfolio Section */}
       <PortfolioSection />
-
-      {/* About Me Section */}
-      <AboutMeSection />
     </div>
   )
 }

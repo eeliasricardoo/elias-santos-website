@@ -1,260 +1,142 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { 
-  ExternalLink, 
-  Github, 
-  Eye, 
-  ArrowRight,
-  MessageSquare,
-  Building2,
-  Truck,
-  ShoppingCart,
-  Globe,
-  Smartphone,
-  Palette,
-  Trophy
-} from "lucide-react"
-import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowRight } from "lucide-react"
 
-const featuredCard = {
-  title: "Ventus Chat",
-  description: "Chat inteligente com IA para atendimento ao cliente",
-  icon: MessageSquare,
-    category: "MVP em 7 dias",
-  image: "/ventus/video.gif"
-}
-
+// Dados dos cards de portfolio
 const portfolioCards = [
   {
-    title: "UX Case Study: Ranking System for Gamification",
-    description: "Sistema de gamificação com ranking e recompensas",
-    icon: Trophy,
-    category: "UX/UI Design",
-    image: "/portfolios/ranking.gif"
+    id: 1,
+    title: "Ranking: Gamified Engagement and Competitiveness",
+    description: "A solution to create personalized rankings, helping institutions track performance and motivate students and teams with flexible criteria for engagement and competition.",
+    buttonText: "Check"
   },
   {
-    title: "Case de estudo UI Framer",
-    description: "Design de interface moderna e responsiva",
-    icon: Palette,
-    category: "UI/UX Design",
-    image: "/portfolios/framer ui.gif"
+    id: 2,
+    title: "Weighted Average: Greater Flexibility for Test Configuration",
+    description: "A solution designed to simplify the configuration of assessments by enabling flexible weight attribution. Institutions can customize the value of tests and questions to better align with their educational goals and specific needs, enhancing precision and fairness in evaluations.",
+    buttonText: "Soon..."
   },
   {
-    title: "Migration Oliver Spain to Latam Wordpress",
-    description: "Migração e adaptação para mercado latino-americano",
-    icon: Globe,
-    category: "WordPress Migration",
-    image: "/portfolios/oliver.gif"
+    id: 3,
+    title: "UX Research & Service Design",
+    description: "Comprehensive research methodologies and service design solutions to create user-centered experiences that drive business value and user satisfaction.",
+    buttonText: "Explore"
   }
 ]
 
-export function PortfolioSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+// Componente de card individual
+function PortfolioCard({ card, index, totalCards }: { 
+  card: typeof portfolioCards[0], 
+  index: number, 
+  totalCards: number 
+}) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Animação de sobreposição baseada no scroll
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50 * (totalCards - index - 1)])
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.02, 1])
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.7, 1, 1, 0.8])
+  const zIndex = useTransform(scrollYProgress, [0, 0.5, 1], [totalCards - index, totalCards - index + 10, totalCards - index])
+
+
 
   return (
-    <section ref={ref} className="relative py-24 overflow-hidden">
-      <div className="w-full px-4">
+    <motion.div
+      ref={cardRef}
+      style={{ y, scale, opacity, zIndex }}
+      className="relative w-full max-w-5xl mx-auto"
+    >
+      <Card className="border-border/50 bg-card/20 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <CardContent className="p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Lado Esquerdo - Conteúdo */}
+            <div className="space-y-8">
+              {/* Título e Descrição */}
+              <div className="space-y-6">
+                <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                  {card.title}
+                </h3>
+                <p className="text-white/80 leading-relaxed text-lg">
+                  {card.description}
+                </p>
+              </div>
+
+              {/* Botão */}
+              <Button 
+                size="lg"
+                className="bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg px-8 py-3"
+              >
+                {card.buttonText}
+              </Button>
+            </div>
+
+            {/* Lado Direito - Área de mídia */}
+            <div className="space-y-6">
+              {/* Área de mídia - placeholder escuro */}
+              <div className="w-full h-64 bg-black/30 rounded-2xl border border-white/10" />
+              
+              {/* Indicadores de navegação - 3 pontos */}
+              <div className="flex justify-center space-x-2">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                <div className="w-2 h-2 bg-white/30 rounded-full" />
+                <div className="w-2 h-2 bg-white/30 rounded-full" />
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  )
+}
+
+export function PortfolioSection() {
+  return (
+    <section className="relative py-24 px-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-16">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center space-y-6"
         >
-          <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium mb-6">
+          <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
             Portfolio
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Projetos em Destaque
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Projetos desenvolvidos em tempo recorde com foco em inovação e resultados excepcionais
+            Soluções inovadoras desenvolvidas com foco em experiência do usuário e resultados excepcionais
           </p>
         </motion.div>
 
-        {/* Featured Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
-        >
-          <div className="relative group">
-            <div className="relative h-[450px] rounded-3xl bg-card/10 backdrop-blur-xl border border-border/50 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] cursor-pointer group-hover:border-border max-w-5xl mx-auto">
-              {/* Background Image */}
-              {featuredCard.image && (
-                <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src={featuredCard.image}
-                    alt={featuredCard.title}
-                    fill
-                    className="object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                    priority
-                  />
-                  </div>
-              )}
-              {/* Card Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                {/* Top Section - Badge */}
-                <div className="flex justify-end">
-                  <Badge className="text-sm px-4 py-2 bg-white/20 text-white border-white/30">
-                    {featuredCard.category}
-                    </Badge>
-                </div>
-
-                {/* Content - Title and Description */}
-                {featuredCard.image && (
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-4xl font-bold mb-3 text-white">
-                        {featuredCard.title}
-                    </h3>
-                      <div className="w-16 h-1 mb-4 bg-white/30"></div>
-                      <p className="text-lg leading-relaxed text-white/90">
-                        {featuredCard.description}
-                      </p>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex justify-end">
-                      <Button size="lg" className="backdrop-blur-sm bg-white/20 hover:bg-white/30 text-white border-white/30">
-                        <Eye className="w-5 h-5 mr-2" />
-                        Ver case completo
-                      </Button>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20"></div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Other Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-          {portfolioCards.map((card, index) => {
-            const CardIcon = card.icon
-            return (
-              <motion.div 
-                key={card.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                className="group relative"
-              >
-                <div className="relative h-96 rounded-2xl bg-card/10 backdrop-blur-xl border border-border/50 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] cursor-pointer group-hover:border-border">
-                                    {/* Background Image */}
-                  {card.image && (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <Image
-                        src={card.image}
-                        alt={card.title}
-                        fill
-                        className="object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    </div>
-                  )}
-                  {/* Card Content */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                    {/* Top Section - Badge */}
-                    <div className="flex justify-end">
-                      <Badge className={`text-xs px-3 py-1 ${card.image ? 'bg-white/20 text-white border-white/30' : 'bg-primary/20 text-primary border-primary/30'}`}>
-                        {card.category}
-                      </Badge>
-                    </div>
-
-                    {/* Center Content - Icon for cards without image */}
-                    {!card.image && (
-                      <div className="flex justify-center items-center flex-1">
-                        <div className="relative">
-                          <CardIcon className="w-24 h-24 text-primary/80 group-hover:text-primary transition-colors duration-300" />
-                          {/* Floating Elements */}
-                          <div className="absolute -top-2 -right-2 w-3 h-3 bg-primary/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                          <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-primary/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"></div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Content - Title and Description */}
-                    {card.image && (
-                      <div className="space-y-3">
-                        <div>
-                          <h3 className="text-2xl font-bold mb-2 text-white">
-                            {card.title}
-                          </h3>
-                          <div className="w-12 h-0.5 mb-3 bg-white/30"></div>
-                          <p className="text-sm leading-relaxed text-white/90">
-                            {card.description}
-                          </p>
-                        </div>
-                        
-                        {/* Action Buttons */}
-                        <div className="flex justify-end">
-                          <Button size="sm" className="backdrop-blur-sm bg-white/20 hover:bg-white/30 text-white border-white/30">
-                            <Eye className="w-4 h-4 mr-2" />
-                            Ver case completo
-                          </Button>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Non-image cards content */}
-                    {!card.image && (
-                      <div className="space-y-3">
-                        <div>
-                          <h3 className="text-2xl font-bold mb-2 text-foreground">
-                            {card.title}
-                          </h3>
-                          <div className="w-12 h-0.5 mb-3 bg-border"></div>
-                          <p className="text-sm leading-relaxed text-muted-foreground">
-                            {card.description}
-                          </p>
-                        </div>
-                        
-                        {/* Action Buttons */}
-                        <div className="flex justify-end">
-                          <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <Button size="sm" className="backdrop-blur-sm bg-primary/20 hover:bg-primary/30 text-primary border-primary/30">
-                          <Eye className="w-4 h-4" />
-                        </Button>
-                            <Button size="sm" variant="outline" className="backdrop-blur-sm border-primary/30 text-primary hover:bg-primary/20">
-                          <Github className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
-                    </div>
-                    )}
-                  </div>
-
-                  {/* Hover Overlay */}
-                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${card.image ? 'bg-black/20' : 'bg-primary/5'}`}></div>
-                    </div>
-              </motion.div>
-            )
-          })}
+        {/* Cards com animação de sobreposição */}
+        <div className="relative space-y-8">
+          {portfolioCards.map((card, index) => (
+            <PortfolioCard
+              key={card.id}
+              card={card}
+              index={index}
+              totalCards={portfolioCards.length}
+            />
+          ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 font-medium">
-            Ver Todos os Projetos
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-        </motion.div>
+        {/* Elementos decorativos de fundo */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-muted/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        </div>
       </div>
     </section>
   )
