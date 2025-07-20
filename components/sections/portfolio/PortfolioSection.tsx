@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { ShineBorder } from "@/components/magicui/shine-border"
 
 // Dados dos cards de portfolio
 const portfolioCards = [
@@ -66,7 +67,18 @@ function PortfolioCard({ card, index, totalCards }: {
       }}
       className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
     >
-              <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-500">
+      {index === 0 && (
+        /* Luz dourada atrás do card */
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/10 via-[#FFD700]/10 to-[#FFD700]/20 blur-2xl rounded-2xl transform scale-20 -z-100"></div>
+      )}
+      <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10">
+        {index === 0 && (
+          <ShineBorder 
+            borderWidth={1}
+            duration={8}
+            shineColor="#FFD700"
+          />
+        )}
           <CardContent className="p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Lado Esquerdo - Conteúdo */}
