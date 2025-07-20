@@ -1,4 +1,4 @@
-export { HeroSection } from './01-hero'
-export { CompaniesSection } from './02-companies'
-export { PortfolioSection } from './06-portfolio'
-export { AboutMeSection } from './09-about-me' 
+export { HeroSection } from './hero'
+export { CompaniesSection } from './companies'
+export { PortfolioSection } from './portfolio'
+export { AboutMeSection } from './about-me' 

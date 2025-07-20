@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Sparkles, Eye, Mail, ArrowRight } from "lucide-react"
+import { Sparkles } from "lucide-react"
 
 export function HeroContent() {
   return (
@@ -54,30 +53,7 @@ export function HeroContent() {
         </motion.p>
       </div>
         
-      {/* Botões de Ação */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.8 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-      >
-                  <Button 
-            size="lg" 
-            className="bg-foreground text-background hover:bg-foreground/90 group px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <Eye className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-            View Portfolio
-            <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="border-2 border-border text-foreground hover:bg-muted/50 px-8 py-6 text-lg font-medium backdrop-blur-sm transition-all duration-300"
-          >
-            <Mail className="mr-3 h-6 w-6" />
-            Get in Touch
-          </Button>
-      </motion.div>
+
     </motion.div>
   )
 } 

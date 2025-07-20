@@ -186,7 +186,7 @@ function MethodologyCard() {
 
 export function AboutMeSection() {
   return (
-    <section className="relative py-20 px-4 bg-background">
+    <section className="relative py-20 px-4">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header */}
         <motion.div 

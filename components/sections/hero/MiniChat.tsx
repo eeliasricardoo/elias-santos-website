@@ -1,9 +1,11 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { motion } from "framer-motion"
+import { motion, MotionStyle, Transition } from "framer-motion"
 import { Bot, User } from "lucide-react"
 import { Card } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
+import { ShineBorder } from "@/components/magicui/shine-border"
 
 // Componente de digitação otimizado
 function TypewriterText({ text, speed = 25, onComplete }: { text: string; speed?: number; onComplete?: () => void }) {
@@ -78,6 +80,76 @@ function ChatMessage({ message, isUser = false }: { message: string; isUser?: bo
     </motion.div>
   )
 }
+
+// Componente BorderBeam
+interface BorderBeamProps {
+  size?: number;
+  duration?: number;
+  delay?: number;
+  colorFrom?: string;
+  colorTo?: string;
+  transition?: Transition;
+  className?: string;
+  style?: React.CSSProperties;
+  reverse?: boolean;
+  initialOffset?: number;
+  borderWidth?: number;
+}
+
+const BorderBeam = ({
+  className,
+  size = 50,
+  delay = 0,
+  duration = 6,
+  colorFrom = "#ffaa40",
+  colorTo = "#9c40ff",
+  transition,
+  style,
+  reverse = false,
+  initialOffset = 0,
+  borderWidth = 1,
+}: BorderBeamProps) => {
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 rounded-[inherit] border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)] border-(length:--border-beam-width)"
+      style={
+        {
+          "--border-beam-width": `${borderWidth}px`,
+        } as React.CSSProperties
+      }
+    >
+      <motion.div
+        className={cn(
+          "absolute aspect-square",
+          "bg-gradient-to-l from-[var(--color-from)] via-[var(--color-to)] to-transparent",
+          className,
+        )}
+        style={
+          {
+            width: size,
+            offsetPath: `rect(0 auto auto 0 round ${size}px)`,
+            "--color-from": colorFrom,
+            "--color-to": colorTo,
+            ...style,
+          } as MotionStyle
+        }
+        initial={{ offsetDistance: `${initialOffset}%` }}
+        animate={{
+          offsetDistance: reverse
+            ? [`${100 - initialOffset}%`, `${-initialOffset}%`]
+            : [`${initialOffset}%`, `${100 + initialOffset}%`],
+        }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration,
+          delay: -delay,
+          ...transition,
+        }}
+      />
+    </div>
+  );
+};
 
 export function EmailClient() {
   const [chatMessages, setChatMessages] = useState<Array<{ id: number; text: string; isUser: boolean }>>([])
@@ -231,6 +303,18 @@ export function EmailClient() {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-100"></div>
       
       <Card className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-border/30 shadow-2xl shadow-primary/5 relative z-10">
+        <ShineBorder 
+          borderWidth={1}
+          duration={32}
+          shineColor="hsl(var(--primary))"
+        />
+        <BorderBeam 
+          size={60}
+          duration={4}
+          colorFrom="hsl(var(--primary))"
+          colorTo="hsl(var(--primary) / 0.5)"
+          borderWidth={2}
+        />
         {/* Header Simplificado */}
         <div className="flex items-center justify-between p-6 border-b border-border/20 bg-gradient-to-r from-background/50 to-background/30">
           <div className="flex items-center gap-4">

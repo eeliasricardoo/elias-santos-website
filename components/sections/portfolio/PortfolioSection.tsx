@@ -24,7 +24,7 @@ const featuredCard = {
   title: "Ventus Chat",
   description: "Chat inteligente com IA para atendimento ao cliente",
   icon: MessageSquare,
-  category: "MVP em 7 dias",
+    category: "MVP em 7 dias",
   image: "/ventus/video.gif"
 }
 
@@ -57,7 +57,7 @@ export function PortfolioSection() {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref} className="relative py-24 bg-background overflow-hidden">
+    <section ref={ref} className="relative py-24 overflow-hidden">
       <div className="w-full px-4">
         {/* Header */}
         <motion.div
@@ -97,7 +97,7 @@ export function PortfolioSection() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                     priority
                   />
-                </div>
+                  </div>
               )}
               {/* Card Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-between">
@@ -105,7 +105,7 @@ export function PortfolioSection() {
                 <div className="flex justify-end">
                   <Badge className="text-sm px-4 py-2 bg-white/20 text-white border-white/30">
                     {featuredCard.category}
-                  </Badge>
+                    </Badge>
                 </div>
 
                 {/* Content - Title and Description */}
@@ -114,7 +114,7 @@ export function PortfolioSection() {
                     <div>
                       <h3 className="text-4xl font-bold mb-3 text-white">
                         {featuredCard.title}
-                      </h3>
+                    </h3>
                       <div className="w-16 h-1 mb-4 bg-white/30"></div>
                       <p className="text-lg leading-relaxed text-white/90">
                         {featuredCard.description}
@@ -224,20 +224,20 @@ export function PortfolioSection() {
                         <div className="flex justify-end">
                           <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <Button size="sm" className="backdrop-blur-sm bg-primary/20 hover:bg-primary/30 text-primary border-primary/30">
-                              <Eye className="w-4 h-4" />
-                            </Button>
+                          <Eye className="w-4 h-4" />
+                        </Button>
                             <Button size="sm" variant="outline" className="backdrop-blur-sm border-primary/30 text-primary hover:bg-primary/20">
-                              <Github className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        </div>
+                          <Github className="w-4 h-4" />
+                        </Button>
                       </div>
+                    </div>
+                    </div>
                     )}
                   </div>
 
                   {/* Hover Overlay */}
                   <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${card.image ? 'bg-black/20' : 'bg-primary/5'}`}></div>
-                </div>
+                    </div>
               </motion.div>
             )
           })}

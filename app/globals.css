@@ -145,6 +145,11 @@
   animation: gradient-shift 3s ease infinite;
 }
 
+/* Gradiente Radial */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 /* Efeitos de Pulse */
 @keyframes pulse-glow {
   0%, 100% {
