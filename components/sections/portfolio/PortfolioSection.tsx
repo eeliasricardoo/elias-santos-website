@@ -42,12 +42,12 @@ function PortfolioCard({ card, index, totalCards }: {
     offset: ["start center", "end center"]
   })
 
-  // Efeito de stacking refinado - card de baixo vai para frente
-  const cardY = useTransform(scrollYProgress, [0, 0.2, 1], [0, 0, -120 * (totalCards - index - 1)])
-  const cardOpacity = useTransform(scrollYProgress, [0, 0.2, 0.7, 0.9, 1], [1, 1, 1, 0.6, 0.2])
-  const cardScale = useTransform(scrollYProgress, [0, 0.2, 0.7, 0.9, 1], [1, 1, 1, 0.98, 0.92])
-  const cardZIndex = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.7, 1], [index, index, index + 5, index + 15, index + 20])
-  const cardBlur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 0, 0, 2])
+  // Efeito de stacking corrigido - sobreposição funcionando
+  const cardY = useTransform(scrollYProgress, [0, 0.2, 1], [0, 0, -100 * (totalCards - index - 1)])
+  const cardOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.8, 0.3])
+  const cardScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.95, 0.9])
+  const cardZIndex = useTransform(scrollYProgress, [0, 0.2, 0.5, 1], [index, index, index + 10, index + 20])
+  const cardBlur = useTransform(scrollYProgress, [0, 0.8, 1], [0, 1, 3])
 
 
 
@@ -64,9 +64,9 @@ function PortfolioCard({ card, index, totalCards }: {
         zIndex: cardZIndex,
         filter: `blur(${cardBlur}px)`
       }}
-      className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
+      className="sticky top-4 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
     >
-              <Card className="border-border/50 bg-card/10 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-500">
+              <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-500">
           <CardContent className="p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Lado Esquerdo - Conteúdo */}
