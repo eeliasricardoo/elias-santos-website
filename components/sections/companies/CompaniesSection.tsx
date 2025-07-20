@@ -20,6 +20,11 @@ function CompanyCarousel() {
 
   return (
     <div className="relative overflow-hidden py-8">
+      {/* Gradiente lateral esquerdo */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      {/* Gradiente lateral direito */}
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      
       <div className="flex animate-scroll space-x-16">
         {[...companies, ...companies].map((logo, index) => (
           <div

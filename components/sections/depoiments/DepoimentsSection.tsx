@@ -78,12 +78,12 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="flex-shrink-0 w-80 bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+      className="flex-shrink-0 w-72 bg-card rounded-xl p-5 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
     >
-      <div className="flex items-start space-x-4">
-        <Avatar className="w-12 h-12">
+      <div className="flex items-start space-x-3">
+        <Avatar className="w-10 h-10 flex-shrink-0">
           <AvatarFallback 
-            className={`bg-gradient-to-br ${testimonial.avatarGradient} text-white font-semibold`}
+            className={`bg-gradient-to-br ${testimonial.avatarGradient} text-white font-semibold text-sm`}
           >
             {testimonial.name.charAt(0)}
           </AvatarFallback>
@@ -91,15 +91,15 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         
         <div className="flex-1 min-w-0">
           <div className="flex items-center space-x-2 mb-2">
-            <h4 className="font-semibold text-gray-900 text-sm">
+            <h4 className="font-semibold text-card-foreground text-sm">
               {testimonial.name}
             </h4>
-            <span className="text-gray-500 text-xs">
+            <span className="text-muted-foreground text-xs">
               {testimonial.username}
             </span>
           </div>
           
-          <p className="text-gray-700 text-sm leading-relaxed">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             {testimonial.content}
           </p>
         </div>
@@ -110,56 +110,71 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
 export function DepoimentsSection() {
   return (
-    <section id="depoiments" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-4">
+    <section id="depoiments" className="relative py-20 px-4">
+      <div className="max-w-6xl mx-auto space-y-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            O que dizem sobre mim
+          <h2 className="sm:text-2xl font-regular text-foreground tracking-tight">
+            Depoimentos de clientes e colegas que trabalharam comigo em projetos incríveis:
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Depoimentos de clientes e colegas que trabalharam comigo em projetos incríveis
-          </p>
         </motion.div>
 
         {/* Marquee com depoimentos - Duas linhas com movimento cruzado */}
-        <div className="relative space-y-8">
-          {/* Primeira linha - 3 cards (movimento para direita) */}
-          <Marquee 
-            className="py-4"
-            pauseOnHover={true}
-            repeat={3}
-            reverse={false}
-          >
-            {testimonials.slice(0, 3).map((testimonial) => (
-              <TestimonialCard 
-                key={testimonial.id} 
-                testimonial={testimonial} 
-              />
-            ))}
-          </Marquee>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative"
+        >
+          <div className="relative space-y-1a">
+            {/* Primeira linha - 3 cards (movimento para direita) */}
+            <div className="relative overflow-hidden py-4">
+              {/* Gradiente lateral esquerdo */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+              {/* Gradiente lateral direito */}
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+              
+              <div className="flex animate-marquee-reverse">
+                {Array(3).fill(0).map((_, i) => (
+                  <div key={i} className="flex space-x-6 px-6">
+                    {testimonials.slice(0, 3).map((testimonial) => (
+                      <TestimonialCard 
+                        key={`${testimonial.id}-${i}`} 
+                        testimonial={testimonial} 
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          {/* Segunda linha - 3 cards (movimento para esquerda) */}
-          <Marquee 
-            className="py-4"
-            pauseOnHover={true}
-            repeat={3}
-            reverse={true}
-          >
-            {testimonials.slice(3, 6).map((testimonial) => (
-              <TestimonialCard 
-                key={testimonial.id} 
-                testimonial={testimonial} 
-              />
-            ))}
-          </Marquee>
-        </div>
+            {/* Segunda linha - 3 cards (movimento para esquerda) */}
+            <div className="relative overflow-hidden py-4">
+              {/* Gradiente lateral esquerdo */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+              {/* Gradiente lateral direito */}
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+              
+              <div className="flex animate-marquee">
+                {Array(3).fill(0).map((_, i) => (
+                  <div key={i} className="flex space-x-6 px-6">
+                    {testimonials.slice(3, 6).map((testimonial) => (
+                      <TestimonialCard 
+                        key={`${testimonial.id}-${i}`} 
+                        testimonial={testimonial} 
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

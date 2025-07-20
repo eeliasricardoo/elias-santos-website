@@ -115,7 +115,7 @@
 }
 
 .animate-scroll {
-  animation: scroll 20s linear infinite;
+  animation: scroll 10s linear infinite;
 }
 
 /* Efeitos de Partículas */
@@ -381,6 +381,15 @@
   }
 }
 
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 @keyframes marquee-vertical {
   0% {
     transform: translateY(0%);
@@ -391,7 +400,11 @@
 }
 
 .animate-marquee {
-  animation: marquee var(--duration) linear infinite;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
 }
 
 .animate-marquee-vertical {

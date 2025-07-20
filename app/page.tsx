@@ -188,11 +188,11 @@ export default function Home() {
       {/* Portfolio Section */}
       <PortfolioSection />
 
-      {/* Depoiments Section */}
-      <DepoimentsSection />
-
       {/* About Me Section */}
       <AboutMeSection />
+
+      {/* Depoiments Section */}
+      <DepoimentsSection />
 
       {/* Get in Touch Section */}
       <GetInTouch />
