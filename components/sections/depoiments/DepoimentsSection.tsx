@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Marquee } from '@/components/magicui/marquee'
+
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 interface Testimonial {

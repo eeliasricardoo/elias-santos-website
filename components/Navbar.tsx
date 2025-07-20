@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Globe } from "lucide-react"
+
 import Image from "next/image"
 import { BR, ES, US } from "country-flag-icons/react/3x2"
 
@@ -72,8 +72,12 @@ export function Navbar() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                  <selectedLanguage.flag className="w-4 h-3" />
-                  <span className="text-sm">{selectedLanguage.name}</span>
+                  {selectedLanguage && (
+                    <>
+                      <selectedLanguage.flag className="w-4 h-3" />
+                      <span className="text-sm">{selectedLanguage.name}</span>
+                    </>
+                  )}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">

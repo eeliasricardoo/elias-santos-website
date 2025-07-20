@@ -8,8 +8,7 @@ import {
   Linkedin, 
   Mail, 
   Heart,
-  ArrowUp,
-  MessageCircle
+  ArrowUp
 } from "lucide-react"
 
 export function Footer() {

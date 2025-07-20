@@ -1,15 +1,11 @@
 "use client"
 
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion"
+import { motion } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
 import { 
   ChevronDown
 } from "lucide-react"
-import Image from "next/image"
 
 // Importando componentes de seções
 import { HeroSection, CompaniesSection, PortfolioSection, DepoimentsSection } from "@/components/sections"
@@ -58,17 +54,17 @@ function ProgressIndicator() {
   }, [])
 
   useEffect(() => {
-    if (isClient) {
-      const handleScroll = () => {
-        const scrollTop = window.scrollY
-        const docHeight = document.body.scrollHeight - window.innerHeight
-        const scrollPercent = scrollTop / docHeight
-        setScrollProgress(scrollPercent)
-      }
+    if (!isClient) return
 
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.body.scrollHeight - window.innerHeight
+      const scrollPercent = scrollTop / docHeight
+      setScrollProgress(scrollPercent)
     }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [isClient])
 
   if (!isClient) {
@@ -94,19 +90,19 @@ function ScrollIndicator() {
   }, [])
 
   useEffect(() => {
-    if (isClient) {
-      const handleScroll = () => {
-        const scrollY = window.scrollY
-        const scrollHeight = document.body.scrollHeight - window.innerHeight
-        const progress = Math.min((scrollY / scrollHeight) * 100, 100)
-        
-        setScrollY(scrollY)
-        setScrollProgress(progress)
-      }
+    if (!isClient) return
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const scrollHeight = document.body.scrollHeight - window.innerHeight
+      const progress = Math.min((scrollY / scrollHeight) * 100, 100)
       
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
+      setScrollY(scrollY)
+      setScrollProgress(progress)
     }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [isClient])
 
   if (!isClient) {

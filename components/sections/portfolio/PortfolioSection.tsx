@@ -2,10 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { ShineBorder } from "@/components/magicui/shine-border"
 

@@ -25,6 +25,7 @@ function TypewriterText({ text, speed = 25, onComplete }: { text: string; speed?
     } else if (onComplete) {
       onComplete()
     }
+    return undefined
   }, [currentIndex, text, speed, onComplete])
 
   return (
@@ -224,6 +225,8 @@ export function EmailClient() {
 
     isProcessingRef.current = true
     const message = messageQueue[currentMessageIndexRef.current]
+    
+    if (!message) return
     
     if (message.isUser) {
       if (message.shouldTypeInInput) {
