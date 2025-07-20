@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
-import { DockWrapper } from '@/components/DockWrapper'
 import { Navbar } from '@/components/Navbar'
 
 export const metadata: Metadata = {
@@ -33,7 +32,6 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
-          <DockWrapper />
         </ThemeProvider>
       </body>
     </html>

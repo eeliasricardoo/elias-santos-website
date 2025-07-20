@@ -12,7 +12,7 @@ import {
 import Image from "next/image"
 
 // Importando componentes de seções
-import { HeroSection, CompaniesSection, PortfolioSection } from "@/components/sections"
+import { HeroSection, CompaniesSection, PortfolioSection, DepoimentsSection } from "@/components/sections"
 import { AboutMeSection } from "@/components/sections/about-me"
 import { Footer } from "@/components/Footer"
 import { GetInTouch } from "@/components/get-in-touch"
@@ -187,6 +187,9 @@ export default function Home() {
 
       {/* Portfolio Section */}
       <PortfolioSection />
+
+      {/* Depoiments Section */}
+      <DepoimentsSection />
 
       {/* About Me Section */}
       <AboutMeSection />
