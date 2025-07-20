@@ -40,24 +40,33 @@ export function GetInTouch() {
     setSubmitStatus('idle')
 
     try {
-      // Simular envio de e-mail (você pode integrar com um serviço real como EmailJS, SendGrid, etc.)
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Aqui você pode adicionar a lógica real de envio de e-mail
-      // Por exemplo, usando EmailJS:
-      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY')
-      
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+        console.error('Erro:', result.error)
+      }
     } catch (error) {
       setSubmitStatus('error')
+      console.error('Erro ao enviar:', error)
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="get-in-touch" className="relative py-24 overflow-hidden">
 
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
@@ -67,9 +76,6 @@ export function GetInTouch() {
           viewport={{ once: true }}
           className="text-center space-y-6 mb-16"
         >
-          <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
-            Contact
-          </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             Get in Touch
           </h2>
@@ -94,7 +100,7 @@ export function GetInTouch() {
                     viewport={{ once: true }}
                     className="space-y-2"
                   >
-                    <label htmlFor="name" className="text-sm font-medium text-foreground flex items-center">
+                    <label htmlFor="name" className="text-lg font-medium text-foreground flex items-center">
                       <User className="w-4 h-4 mr-2" />
                       Name
                     </label>
@@ -118,7 +124,7 @@ export function GetInTouch() {
                     viewport={{ once: true }}
                     className="space-y-2"
                   >
-                    <label htmlFor="email" className="text-sm font-medium text-foreground flex items-center">
+                    <label htmlFor="email" className="text-lg font-medium text-foreground flex items-center">
                       <Mail className="w-4 h-4 mr-2" />
                       Email
                     </label>
@@ -130,7 +136,7 @@ export function GetInTouch() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="border-border/50 focus:border-primary"
+                      className="border-border/50 focus:border-primary h-12 text-base"
                     />
                   </motion.div>
                 </div>
@@ -143,7 +149,7 @@ export function GetInTouch() {
                   viewport={{ once: true }}
                   className="space-y-2"
                 >
-                  <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                  <label htmlFor="subject" className="text-lg font-medium text-foreground">
                     Subject
                   </label>
                   <Input
@@ -154,7 +160,7 @@ export function GetInTouch() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="border-border/50 focus:border-primary"
+                    className="border-border/50 focus:border-primary h-12 text-base"
                   />
                 </motion.div>
 
@@ -166,7 +172,7 @@ export function GetInTouch() {
                   viewport={{ once: true }}
                   className="space-y-2"
                 >
-                  <label htmlFor="message" className="text-sm font-medium text-foreground flex items-center">
+                  <label htmlFor="message" className="text-lg font-medium text-foreground flex items-center">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Message
                   </label>
@@ -177,8 +183,8 @@ export function GetInTouch() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={6}
-                    className="border-border/50 focus:border-primary resize-none"
+                    rows={8}
+                    className="border-border/50 focus:border-primary resize-none text-base min-h-[200px]"
                   />
                 </motion.div>
 

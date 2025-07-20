@@ -52,7 +52,7 @@ function PortfolioCard({ card, index, totalCards }: {
 
 
   return (
-    <motion.div
+        <motion.div
       ref={cardRef}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -74,21 +74,21 @@ function PortfolioCard({ card, index, totalCards }: {
               {/* Título e Descrição */}
               <div className="space-y-2">
                 <h3 className="lg:text-4xl font-normal text-white">
-                  {card.title}
-                </h3>
+                            {card.title}
+                          </h3>
                 <p className="text-white/60 leading-relaxed text-base font-light">
-                  {card.description}
-                </p>
-              </div>
-
+                            {card.description}
+                          </p>
+                        </div>
+                        
               {/* Botão */}
               <Button 
                 size="lg"
                 className="bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-6 py-2.5 text-sm font-medium"
               >
                 {card.buttonText}
-              </Button>
-            </div>
+                          </Button>
+                        </div>
 
             {/* Lado Direito - Imagem fixa */}
             <div className="relative w-full h-full overflow-hidden">
@@ -98,12 +98,12 @@ function PortfolioCard({ card, index, totalCards }: {
                 fill
                 className="object-contain"
               />
-            </div>
-          </div>
+                      </div>
+                    </div>
         </CardContent>
       </Card>
-    </motion.div>
-  )
+              </motion.div>
+            )
 }
 
 export function PortfolioSection() {
@@ -115,6 +115,7 @@ export function PortfolioSection() {
 
   return (
     <section 
+      id="portfolio"
       ref={sectionRef}
       className="relative py-24 px-4 overflow-hidden"
     >

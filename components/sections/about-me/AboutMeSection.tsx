@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 
 export function AboutMeSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="about-me" className="relative py-24 overflow-hidden">
       {/* Background removido */}
       
       {/* Floating elements */}
