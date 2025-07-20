@@ -26,20 +26,41 @@ function CompanyCarousel() {
       <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
       
       <div className="flex animate-scroll space-x-16">
-        {[...companies, ...companies].map((logo, index) => (
+        {/* Primeira sequência */}
+        {companies.map((logo, index) => (
           <div
-            key={index}
+            key={`first-${index}`}
             className="flex-shrink-0 flex items-center justify-center"
             style={{
-              width: `${Math.min(120 + (index % companies.length) * 20, 200)}px`,
-              height: `${Math.min(60 + (index % companies.length) * 10, 100)}px`
+              width: `${Math.min(120 + index * 20, 200)}px`,
+              height: `${Math.min(60 + index * 10, 100)}px`
             }}
           >
             <Image
               src={logo}
               alt={`Empresa ${index + 1}`}
-              width={Math.min(120 + (index % companies.length) * 20, 200)}
-              height={Math.min(60 + (index % companies.length) * 10, 100)}
+              width={Math.min(120 + index * 20, 200)}
+              height={Math.min(60 + index * 10, 100)}
+              className="hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+        ))}
+        
+        {/* Segunda sequência (duplicada para loop infinito) */}
+        {companies.map((logo, index) => (
+          <div
+            key={`second-${index}`}
+            className="flex-shrink-0 flex items-center justify-center"
+            style={{
+              width: `${Math.min(120 + index * 20, 200)}px`,
+              height: `${Math.min(60 + index * 10, 100)}px`
+            }}
+          >
+            <Image
+              src={logo}
+              alt={`Empresa ${index + 1}`}
+              width={Math.min(120 + index * 20, 200)}
+              height={Math.min(60 + index * 10, 100)}
               className="hover:opacity-100 transition-opacity duration-300"
             />
           </div>
@@ -51,7 +72,7 @@ function CompanyCarousel() {
 
 export function CompaniesSection() {
   return (
-    <section id="companies" className="relative py-20 px-4">
+    <section id="companies" className="relative py-12 px-4">
       <div className="max-w-6xl mx-auto space-y-12">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
