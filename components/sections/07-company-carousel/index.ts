@@ -1,1 +1,0 @@
-export { CompanyCarouselSection } from "./CompanyCarouselSection" 

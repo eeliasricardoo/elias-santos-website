@@ -58,6 +58,11 @@ Um portfolio moderno e interativo construído com Next.js, TypeScript, Tailwind 
 - **Radix UI** - Primitivos acessíveis
 - **Framer Motion** - Animações (opcional)
 
+## 📚 Documentação
+
+- **[Design System](./DESIGN_SYSTEM.md)** - Documentação completa do design system
+- **[Regras do Design System](./DESIGN_SYSTEM_RULES.md)** - Regras obrigatórias para manter consistência
+
 ## 📦 Instalação
 
 ```bash

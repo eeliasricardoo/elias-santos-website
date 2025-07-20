@@ -35,7 +35,7 @@ function CompanyCarousel() {
               alt={`Empresa ${index + 1}`}
               width={Math.min(120 + (index % companies.length) * 20, 200)}
               height={Math.min(60 + (index % companies.length) * 10, 100)}
-              className="filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+              className="hover:opacity-100 transition-opacity duration-300"
             />
           </div>
         ))}
@@ -54,16 +54,10 @@ export function CompaniesSection() {
           transition={{ duration: 0.8 }}
           className="text-center space-y-6"
         >
-          <Badge className="bg-muted/50 text-muted-foreground border-border/50 px-4 py-2 text-sm font-medium">
-            Parceiros
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-            Empresas que Confiam no Meu Trabalho
+
+          <h2 className="sm:text-2xl font-regular text-foreground tracking-tight">
+            Brands and institutions that I collaborated with:
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Colaborações com empresas de diversos setores, sempre entregando 
-            resultados excepcionais em tempo recorde.
-          </p>
         </motion.div>
         
         <motion.div 

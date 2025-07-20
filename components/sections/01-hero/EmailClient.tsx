@@ -1,178 +1,311 @@
 "use client"
 
+import { useState, useEffect, useCallback, useRef } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Mail, Users, Code, Rocket, Target } from "lucide-react"
+import { Bot, User } from "lucide-react"
+import { Card } from "@/components/ui/card"
 
-export function EmailClient() {
+// Componente de digitação otimizado
+function TypewriterText({ text, speed = 25, onComplete }: { text: string; speed?: number; onComplete?: () => void }) {
+  const [displayText, setDisplayText] = useState("")
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayText(text.slice(0, currentIndex + 1))
+        setCurrentIndex(currentIndex + 1)
+      }, speed)
+      return () => clearTimeout(timer)
+    } else if (onComplete) {
+      onComplete()
+    }
+  }, [currentIndex, text, speed, onComplete])
+
+  return (
+    <span>
+      {displayText}
+      {currentIndex < text.length && <span className="animate-pulse">|</span>}
+    </span>
+  )
+}
+
+// Componente de Mensagem do Chat otimizado
+function ChatMessage({ message, isUser = false }: { message: string; isUser?: boolean }) {
+  const [isTyping, setIsTyping] = useState(true)
+
+  const handleComplete = useCallback(() => {
+    setIsTyping(false)
+  }, [])
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.5, duration: 1.2 }}
-      className="relative z-10 mt-16 px-4"
+      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className={`flex gap-4 p-4 ${isUser ? 'justify-end' : 'justify-start'}`}
     >
-      <div className="max-w-7xl mx-auto relative">
-        <Card className="border-border/50 bg-card/40 backdrop-blur-xl relative overflow-hidden shadow-2xl">
-          
-          <CardContent className="p-0">
-            {/* Header do Email Client */}
-            <div className="flex items-center justify-between p-6 border-b border-border/30">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center">
-                  <Mail className="w-4 h-4 text-muted-foreground" />
-                </div>
-                <span className="font-semibold text-foreground">Elias Santos</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                  Log in
-                </Button>
-                <Button size="sm" className="bg-foreground text-background hover:bg-foreground/90">
-                  Sign up
-                </Button>
-              </div>
-            </div>
-
-            <div className="flex h-[500px]">
-              {/* Sidebar */}
-              <div className="w-64 bg-muted/20 border-r border-border/30 p-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
-                    <div className="w-6 h-6 rounded bg-muted/50 flex items-center justify-center">
-                      <Users className="w-3 h-3 text-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-foreground font-medium">UX/UI Design</span>
-                    <Badge variant="secondary" className="ml-auto text-xs">12</Badge>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/30 cursor-pointer">
-                    <div className="w-6 h-6 rounded bg-muted/50 flex items-center justify-center">
-                      <Code className="w-3 h-3 text-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">Development</span>
-                    <Badge variant="secondary" className="ml-auto text-xs">8</Badge>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/30 cursor-pointer">
-                    <div className="w-6 h-6 rounded bg-muted/50 flex items-center justify-center">
-                      <Rocket className="w-3 h-3 text-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">MVPs</span>
-                    <Badge variant="secondary" className="ml-auto text-xs">15</Badge>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/30 cursor-pointer">
-                    <div className="w-6 h-6 rounded bg-muted/50 flex items-center justify-center">
-                      <Target className="w-3 h-3 text-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">Case Studies</span>
-                    <Badge variant="secondary" className="ml-auto text-xs">6</Badge>
-                  </div>
-                </div>
-              </div>
-
-              {/* Lista de Projetos */}
-              <div className="flex-1 border-r border-border/30">
-                <div className="p-4 border-b border-border/30">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-foreground">UX/UI Design</h3>
-                    <div className="flex gap-2">
-                      <Button variant="ghost" size="sm" className="text-xs">All projects</Button>
-                      <Button variant="ghost" size="sm" className="text-xs">Featured</Button>
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <input 
-                      type="text" 
-                      placeholder="Search projects..." 
-                      className="w-full px-4 py-2 bg-muted/30 border border-border/30 rounded-lg text-sm text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                </div>
-                
-                <div className="p-4 space-y-4">
-                  {/* Projeto 1 */}
-                  <div className="p-4 rounded-lg hover:bg-muted/20 cursor-pointer border border-transparent hover:border-border/30 relative overflow-hidden">
-                    {/* Border Effect Simples */}
-                    <div className="absolute inset-0 border border-border/20 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h4 className="font-medium text-foreground">Ventu Chat</h4>
-                        <p className="text-sm text-muted-foreground mt-1">Intelligent chatbot for customer service</p>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          MVP developed in 5 days using Next.js, OpenAI API and Supabase. 
-                          Intuitive interface with real-time dashboard.
-                        </p>
-                        <div className="flex gap-2 mt-3">
-                          <Badge variant="secondary" className="text-xs">MVP</Badge>
-                          <Badge variant="secondary" className="text-xs">AI</Badge>
-                          <Badge variant="secondary" className="text-xs">Chatbot</Badge>
-                        </div>
-                      </div>
-                      <span className="text-xs text-muted-foreground">5 days ago</span>
-                    </div>
-                  </div>
-
-                  {/* Projeto 2 */}
-                  <div className="p-4 rounded-lg hover:bg-muted/20 cursor-pointer border border-transparent hover:border-border/30 relative overflow-hidden">
-                    {/* Border Effect Simples */}
-                    <div className="absolute inset-0 border border-border/20 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h4 className="font-medium text-foreground">E-commerce Platform</h4>
-                        <p className="text-sm text-muted-foreground mt-1">Complete e-commerce platform</p>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          Complete design system with reusable components. 
-                          Focus on conversion and user experience.
-                        </p>
-                        <div className="flex gap-2 mt-3">
-                          <Badge variant="secondary" className="text-xs">E-commerce</Badge>
-                          <Badge variant="secondary" className="text-xs">Design System</Badge>
-                          <Badge variant="secondary" className="text-xs">UX</Badge>
-                        </div>
-                      </div>
-                      <span className="text-xs text-muted-foreground">2 weeks ago</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Detalhes do Projeto */}
-              <div className="w-80 p-6">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">Ventu Chat</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Intelligent chatbot for customer service</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Technologies</h4>
-                    <p className="text-sm text-muted-foreground">Next.js, OpenAI API, Supabase, Tailwind CSS</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Results</h4>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Functional MVP in 5 days</li>
-                      <li>• 95% user satisfaction</li>
-                      <li>• 80% reduction in response time</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="flex gap-3 pt-4">
-                    <Button size="sm" className="bg-foreground text-background hover:bg-foreground/90">
-                      View Demo
-                    </Button>
-                    <Button variant="outline" size="sm" className="border-border text-foreground hover:bg-muted/50">
-                      Full Case Study
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      {!isUser && (
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0">
+          <Bot className="w-4 h-4 text-primary-foreground" />
+        </div>
+      )}
+      <div className={`max-w-[75%] ${isUser ? 'order-first' : ''}`}>
+        <div className={`rounded-2xl px-4 py-3 text-sm shadow-sm backdrop-blur-sm ${
+          isUser 
+            ? 'bg-gradient-to-r from-primary to-primary/90 text-primary-foreground shadow-primary/20' 
+            : 'bg-muted/40 text-foreground border border-border/20'
+        }`}>
+          {isTyping ? (
+            <TypewriterText 
+              text={message} 
+              speed={isUser ? 10 : 25}
+              onComplete={handleComplete}
+            />
+          ) : (
+            <span className="leading-relaxed">{message}</span>
+          )}
+        </div>
+        <div className={`text-xs text-muted-foreground mt-2 ${isUser ? 'text-right' : 'text-left'}`}>
+          {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+        </div>
       </div>
+      {isUser && (
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-muted to-muted/80 flex items-center justify-center shadow-md flex-shrink-0">
+          <User className="w-4 h-4 text-muted-foreground" />
+        </div>
+      )}
     </motion.div>
+  )
+}
+
+export function EmailClient() {
+  const [chatMessages, setChatMessages] = useState<Array<{ id: number; text: string; isUser: boolean }>>([])
+  const [isTyping, setIsTyping] = useState(false)
+  const [showInputTyping, setShowInputTyping] = useState(true)
+  const [inputText, setInputText] = useState("")
+  const messageIdRef = useRef(0)
+  const currentMessageIndexRef = useRef(0)
+  const isProcessingRef = useRef(false)
+  const chatContainerRef = useRef<HTMLDivElement>(null)
+
+  const userMessage = "Me fale alguma curiosidade sobre o Elias"
+  const botResponse = "Atualmente, o Elias está com um streak de 389 dias no Duolingo. Ele também criou um script que atualiza automaticamente esse número aqui no site todos os dias."
+  
+  const userMessage2 = "por que deveriamos trabalhar com ele?"
+  const botResponse2 = "Elias, além de ser um excelente profissional de tecnologia, anda de skate há mais de 15 anos — e isso ensinou muita coisa sobre resiliência, encarar desafios e seguir em frente mesmo quando parece difícil. Ele é movido por resolver problemas e tem uma bagagem interdisciplinar que passa por Product Design, desenvolvimento de SaaS, front e back-end. No fim das contas, é um profissional completo, que entende de produto, código e, principalmente, de gente."
+
+  const messageQueue = [
+    { text: userMessage, isUser: true, shouldTypeInInput: false },
+    { text: botResponse, isUser: false, shouldTypeInInput: false },
+    { text: userMessage2, isUser: true, shouldTypeInInput: true },
+    { text: botResponse2, isUser: false, shouldTypeInInput: false }
+  ]
+
+  // Função para scroll automático
+  const scrollToBottom = useCallback(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  }, [])
+
+  // Função otimizada para gerar ID único
+  const getNextMessageId = useCallback(() => {
+    messageIdRef.current += 1
+    return messageIdRef.current
+  }, [])
+
+  // Função otimizada para reiniciar o loop
+  const restartLoop = useCallback(() => {
+    setChatMessages([])
+    setShowInputTyping(true)
+    setInputText("")
+    currentMessageIndexRef.current = 0
+    isProcessingRef.current = false
+  }, [])
+
+  // Função otimizada para adicionar mensagens
+  const addMessage = useCallback((text: string, isUser: boolean) => {
+    setChatMessages(prev => [...prev, { 
+      id: getNextMessageId(), 
+      text, 
+      isUser 
+    }])
+    setTimeout(scrollToBottom, 100)
+  }, [getNextMessageId, scrollToBottom])
+
+  // Função para processar a próxima mensagem na fila
+  const processNextMessage = useCallback(() => {
+    if (isProcessingRef.current) return
+    if (currentMessageIndexRef.current >= messageQueue.length) {
+      setTimeout(() => {
+        restartLoop()
+      }, 15000)
+      return
+    }
+
+    isProcessingRef.current = true
+    const message = messageQueue[currentMessageIndexRef.current]
+    
+    if (message.isUser) {
+      if (message.shouldTypeInInput) {
+        // Digita no input
+        setShowInputTyping(true)
+        setInputText("")
+        let currentIndex = 0
+        const typeInInput = () => {
+          if (currentIndex < message.text.length) {
+            setInputText(message.text.slice(0, currentIndex + 1))
+            currentIndex++
+            setTimeout(typeInInput, 50)
+          } else {
+            setTimeout(() => {
+              addMessage(message.text, true)
+              setShowInputTyping(false)
+              setInputText("")
+              currentMessageIndexRef.current += 1
+              
+              setTimeout(() => {
+                isProcessingRef.current = false
+                processNextMessage()
+              }, 3000)
+            }, 1000)
+          }
+        }
+        typeInInput()
+      } else {
+        addMessage(message.text, true)
+        currentMessageIndexRef.current += 1
+        
+        setTimeout(() => {
+          isProcessingRef.current = false
+          processNextMessage()
+        }, 3000)
+      }
+    } else {
+      setIsTyping(true)
+      setTimeout(scrollToBottom, 100)
+      setTimeout(() => {
+        addMessage(message.text, false)
+        setIsTyping(false)
+        currentMessageIndexRef.current += 1
+        
+        setTimeout(() => {
+          isProcessingRef.current = false
+          processNextMessage()
+        }, 5000)
+      }, 800)
+    }
+  }, [messageQueue, addMessage, restartLoop, scrollToBottom])
+
+  // Inicia o fluxo quando o componente monta
+  useEffect(() => {
+    if (showInputTyping && inputText === "" && currentMessageIndexRef.current === 0) {
+      let currentIndex = 0
+      const typeInInput = () => {
+        if (currentIndex < userMessage.length) {
+          setInputText(userMessage.slice(0, currentIndex + 1))
+          currentIndex++
+          setTimeout(typeInInput, 50)
+        } else {
+          setTimeout(() => {
+            setShowInputTyping(false)
+            setInputText("")
+            
+            setTimeout(() => {
+              processNextMessage()
+            }, 1000)
+          }, 1000)
+        }
+      }
+      typeInInput()
+    }
+  }, [showInputTyping, inputText, userMessage, processNextMessage])
+
+  return (
+    <div className="w-full max-w-6xl mx-auto mt-24 mb-24 relative">
+      {/* Luz atrás do card */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-100"></div>
+      
+      <Card className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-border/30 shadow-2xl shadow-primary/5 relative z-10">
+        {/* Header Simplificado */}
+        <div className="flex items-center justify-between p-6 border-b border-border/20 bg-gradient-to-r from-background/50 to-background/30">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
+                <Bot className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background animate-pulse"></div>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                Chat Elias
+              </h3>
+              <p className="text-sm text-muted-foreground flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                Online agora
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Chat Area */}
+        <div className="h-[420px] overflow-y-auto p-4 bg-gradient-to-b from-background/20 to-background/10" ref={chatContainerRef}>
+          <div className="space-y-4">
+            {chatMessages.map((message) => (
+              <ChatMessage 
+                key={message.id}
+                message={message.text} 
+                isUser={message.isUser} 
+              />
+            ))}
+            {isTyping && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex gap-3 p-4"
+              >
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md">
+                  <Bot className="w-4 h-4 text-primary-foreground" />
+                </div>
+                <div className="bg-muted/40 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-sm">
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        </div>
+
+        {/* Input Area Simplificado */}
+        <div className="p-6 border-t border-border/20 bg-gradient-to-r from-background/30 to-background/20">
+          <div className="flex items-center gap-4 bg-muted/20 backdrop-blur-sm rounded-2xl p-4 border border-border/20 shadow-inner">
+            <div className="flex-1">
+              <div className="relative">
+                {showInputTyping ? (
+                  <div className="text-foreground text-sm min-h-[24px] flex items-center">
+                    {inputText}
+                    <span className="ml-1 w-0.5 h-4 bg-foreground animate-pulse"></span>
+                  </div>
+                ) : (
+                  <div className="text-muted-foreground text-sm">
+                    Pergunte alguma coisa...
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 flex items-center justify-center">
+              <div className="w-3 h-3 bg-primary/40 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
   )
 } 
