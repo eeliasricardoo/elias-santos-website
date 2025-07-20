@@ -50,11 +50,9 @@ export function PerformanceOptimizer({ children }: PerformanceOptimizerProps) {
 
 // ✅ Componente de Lazy Loading
 export function LazyComponent({ 
-  children, 
-  fallback = <div className="animate-pulse bg-muted rounded h-32" /> 
+  children
 }: { 
   children: React.ReactNode
-  fallback?: React.ReactNode 
 }) {
   return (
     <div className="lazy-component">

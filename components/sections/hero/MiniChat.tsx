@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback, useRef, useMemo } from "react"
 import { motion, MotionStyle, Transition } from "framer-motion"
 import { Bot, User } from "lucide-react"
 import { Card } from "@/components/ui/card"
@@ -171,12 +171,12 @@ export function EmailClient() {
   const userMessage2 = "por que deveriamos trabalhar com ele?"
   const botResponse2 = "Elias, além de ser um excelente profissional de tecnologia, anda de skate há mais de 15 anos — e isso ensinou muita coisa sobre resiliência, encarar desafios e seguir em frente mesmo quando parece difícil. Ele é movido por resolver problemas e tem uma bagagem interdisciplinar que passa por Product Design, desenvolvimento de SaaS, front e back-end. No fim das contas, é um profissional completo, que entende de produto, código e, principalmente, de gente."
 
-  const messageQueue = [
+  const messageQueue = useMemo(() => [
     { text: userMessage, isUser: true, shouldTypeInInput: false },
     { text: botResponse, isUser: false, shouldTypeInInput: false },
     { text: userMessage2, isUser: true, shouldTypeInInput: true },
     { text: botResponse2, isUser: false, shouldTypeInInput: false }
-  ]
+  ], [userMessage, botResponse, userMessage2, botResponse2])
 
   // Função para scroll automático
   const scrollToBottom = useCallback(() => {

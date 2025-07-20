@@ -70,6 +70,7 @@ export class PerformanceMonitor {
         
         // Log in development
         if (process.env.NODE_ENV === 'development') {
+          // eslint-disable-next-line no-console
           console.log(`⏱️ ${name}: ${duration.toFixed(2)}ms`)
         }
         
@@ -188,6 +189,7 @@ export function monitorCoreWebVitals(): void {
       
       if (lastEntry) {
         const lcp = lastEntry.startTime
+        // eslint-disable-next-line no-console
         console.log(`🎯 LCP: ${lcp.toFixed(2)}ms`)
         
         // Report to analytics
@@ -215,6 +217,7 @@ export function monitorCoreWebVitals(): void {
       
       entries.forEach((entry) => {
         const fid = entry.processingStart - entry.startTime
+        // eslint-disable-next-line no-console
         console.log(`⚡ FID: ${fid.toFixed(2)}ms`)
         
         // Report to analytics
@@ -241,6 +244,7 @@ export function trackError(
   error: Error,
   context?: Record<string, any>
 ): void {
+  // eslint-disable-next-line no-console
   console.error('🚨 Error tracked:', error, context)
   
   // Report to analytics
