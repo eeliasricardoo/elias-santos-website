@@ -42,11 +42,11 @@ function PortfolioCard({ card, index, totalCards }: {
     offset: ["start center", "end center"]
   })
 
-  // Efeito de stacking refinado - primeiro card não é cortado
+  // Efeito de stacking refinado - card de baixo vai para frente
   const cardY = useTransform(scrollYProgress, [0, 0.2, 1], [0, 0, -120 * (totalCards - index - 1)])
   const cardOpacity = useTransform(scrollYProgress, [0, 0.2, 0.7, 0.9, 1], [1, 1, 1, 0.6, 0.2])
   const cardScale = useTransform(scrollYProgress, [0, 0.2, 0.7, 0.9, 1], [1, 1, 1, 0.98, 0.92])
-  const cardZIndex = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.7, 1], [totalCards - index, totalCards - index, totalCards - index + 5, totalCards - index + 15, totalCards - index])
+  const cardZIndex = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.7, 1], [index, index, index + 5, index + 15, index + 20])
   const cardBlur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 0, 0, 2])
 
 
