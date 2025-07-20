@@ -6,6 +6,9 @@ import { Bot, User } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { ShineBorder } from "@/components/magicui/shine-border"
+import { Inter } from "next/font/google"
+
+const inter = Inter({ subsets: ['latin'] })
 
 // Componente de digitação otimizado
 function TypewriterText({ text, speed = 25, onComplete }: { text: string; speed?: number; onComplete?: () => void }) {
@@ -298,7 +301,7 @@ export function EmailClient() {
   }, [showInputTyping, inputText, userMessage, processNextMessage])
 
   return (
-    <div className="w-full max-w-6xl mx-auto mt-24 mb-24 relative">
+    <div className={`w-full max-w-6xl mx-auto mt-24 mb-24 relative ${inter.className}`}>
       {/* Luz atrás do card */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-100"></div>
       
