@@ -80,7 +80,7 @@ export function GetInTouch() {
             Get in Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Let's work together! Send me a message and I'll get back to you as soon as possible.
+            Let&apos;s work together! Send me a message and I&apos;ll get back to you as soon as possible.
           </p>
         </motion.div>
 

@@ -53,7 +53,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         ) {
           return React.cloneElement(child, {
             ...child.props,
-            mouseX: mouseX,
+            mouseX,
             size: iconSize,
             magnification: iconMagnification,
             distance: iconDistance,

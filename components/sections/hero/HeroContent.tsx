@@ -30,7 +30,7 @@ export function HeroContent() {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight"
         >
-          Hi, I'm{" "}
+          Hi, I&apos;m{" "}
           <span className="relative">
             <span className="text-foreground">Elias Santos</span>
             <motion.div

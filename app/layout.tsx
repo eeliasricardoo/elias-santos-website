@@ -15,6 +15,15 @@ export const metadata: Metadata = {
     description: 'Professional portfolio focused on UX/UI Design and modern web development',
     type: 'website',
   },
+  // ✅ Otimizações de SEO e performance
+  robots: {
+    index: true,
+    follow: true,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
 }
 
 export default function RootLayout({
