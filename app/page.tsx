@@ -14,6 +14,8 @@ import Image from "next/image"
 // Importando componentes de seções
 import { HeroSection, CompaniesSection, PortfolioSection } from "@/components/sections"
 import { AboutMeSection } from "@/components/sections/about-me"
+import { Footer } from "@/components/Footer"
+import { GetInTouch } from "@/components/get-in-touch"
 
 // Componente de Background Animado
 function AnimatedBackground() {
@@ -188,6 +190,12 @@ export default function Home() {
 
       {/* About Me Section */}
       <AboutMeSection />
+
+      {/* Get in Touch Section */}
+      <GetInTouch />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

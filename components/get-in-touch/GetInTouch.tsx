@@ -1,0 +1,249 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { 
+  Mail, 
+  User, 
+  MessageSquare,
+  Send,
+  CheckCircle,
+  AlertCircle
+} from "lucide-react"
+
+export function GetInTouch() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Simular envio de e-mail (você pode integrar com um serviço real como EmailJS, SendGrid, etc.)
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Aqui você pode adicionar a lógica real de envio de e-mail
+      // Por exemplo, usando EmailJS:
+      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY')
+      
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch (error) {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <section className="relative py-24 overflow-hidden">
+      {/* Background elements - atrás do componente */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-muted/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center space-y-6 mb-16"
+        >
+          <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
+            Contact
+          </Badge>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            Get in Touch
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Let's work together! Send me a message and I'll get back to you as soon as possible.
+          </p>
+        </motion.div>
+
+        <div className="max-w-4xl mx-auto">
+          <Card className="border-border/30 bg-card/50 backdrop-blur-sm shadow-2xl">
+            <CardContent className="p-8 md:p-12">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Name */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    viewport={{ once: true }}
+                    className="space-y-2"
+                  >
+                    <label htmlFor="name" className="text-sm font-medium text-foreground flex items-center">
+                      <User className="w-4 h-4 mr-2" />
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="border-border/50 focus:border-primary"
+                    />
+                  </motion.div>
+
+                  {/* Email */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="space-y-2"
+                  >
+                    <label htmlFor="email" className="text-sm font-medium text-foreground flex items-center">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="border-border/50 focus:border-primary"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Subject */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="space-y-2"
+                >
+                  <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    placeholder="What's this about?"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    className="border-border/50 focus:border-primary"
+                  />
+                </motion.div>
+
+                {/* Message */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="space-y-2"
+                >
+                  <label htmlFor="message" className="text-sm font-medium text-foreground flex items-center">
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell me about your project, idea, or just say hello!"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={6}
+                    className="border-border/50 focus:border-primary resize-none"
+                  />
+                </motion.div>
+
+                {/* Submit Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex justify-center"
+                >
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base font-medium transition-all duration-300 min-w-[200px]"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2" />
+                        Sending...
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircle className="w-4 h-4 mr-2" />
+                        Message Sent!
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex items-center justify-center space-x-2 text-green-600 bg-green-50 border border-green-200 rounded-lg p-4"
+                  >
+                    <CheckCircle className="w-5 h-5" />
+                    <span className="font-medium">Message sent successfully! I'll get back to you soon.</span>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex items-center justify-center space-x-2 text-red-600 bg-red-50 border border-red-200 rounded-lg p-4"
+                  >
+                    <AlertCircle className="w-5 h-5" />
+                    <span className="font-medium">Something went wrong. Please try again.</span>
+                  </motion.div>
+                )}
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  )
+} 
