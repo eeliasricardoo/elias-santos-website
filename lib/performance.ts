@@ -216,7 +216,7 @@ export function monitorCoreWebVitals(): void {
       const entries = list.getEntries()
       
       entries.forEach((entry) => {
-        const fid = entry.processingStart - entry.startTime
+        const fid = (entry as any).processingStart - entry.startTime
         // eslint-disable-next-line no-console
         console.log(`⚡ FID: ${fid.toFixed(2)}ms`)
         
