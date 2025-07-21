@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { ShineBorder } from "@/components/magicui/shine-border"
+import { PortfolioCard } from "./PortfolioCard"
 
 // Dados dos cards de portfolio
 const portfolioCards = [
@@ -28,93 +29,6 @@ const portfolioCards = [
     buttonText: "Explore Work"
   }
 ]
-
-// Componente de card individual com efeito de stacking
-function PortfolioCard({ card, index, totalCards }: { 
-  card: typeof portfolioCards[0], 
-  index: number, 
-  totalCards: number 
-}) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start center", "end center"]
-  })
-
-  // Efeito de stacking com scroll da página
-  const cardY = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0, -80 * (totalCards - index - 1)])
-  const cardOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.7, 0.2])
-  const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.96, 0.88])
-  const cardZIndex = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [index, index, index + 15, index + 25])
-  const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4])
-
-
-
-  return (
-        <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      style={{ 
-        opacity: cardOpacity,
-        scale: cardScale,
-        y: cardY,
-        zIndex: cardZIndex,
-        filter: `blur(${cardBlur}px)`
-      }}
-      className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
-    >
-      {index === 0 && (
-        /* Luz dourada atrás do card */
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/10 via-[#FFD700]/10 to-[#FFD700]/20 blur-2xl rounded-2xl transform scale-20 -z-100"></div>
-      )}
-      <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10">
-        {index === 0 && (
-          <ShineBorder 
-            borderWidth={1}
-            duration={8}
-            shineColor="#FFD700"
-          />
-        )}
-          <CardContent className="p-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Lado Esquerdo - Conteúdo */}
-            <div className="space-y-16">
-              {/* Título e Descrição */}
-              <div className="space-y-2">
-                <h3 className="lg:text-4xl font-normal text-white">
-                            {card.title}
-                          </h3>
-                <p className="text-white/60 leading-relaxed text-base font-light">
-                            {card.description}
-                          </p>
-                        </div>
-                        
-              {/* Botão */}
-              <Button 
-                size="lg"
-                className="bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-6 py-2.5 text-sm font-medium"
-              >
-                {card.buttonText}
-                          </Button>
-                        </div>
-
-            {/* Lado Direito - Imagem fixa */}
-            <div className="relative w-full h-full overflow-hidden">
-              <Image
-                src="/portoflio-card/ranking.png"
-                alt="Ranking: Gamified Engagement and Competitiveness"
-                fill
-                className="object-contain"
-              />
-                      </div>
-                    </div>
-        </CardContent>
-      </Card>
-              </motion.div>
-            )
-}
 
 export function PortfolioSection() {
   const sectionRef = useRef<HTMLElement>(null)
