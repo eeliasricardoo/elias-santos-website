@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { AnimatedMockup } from "./AnimatedMockup"
@@ -19,6 +20,7 @@ interface PortfolioCardProps {
 
 export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start center", "end center"]
@@ -29,6 +31,10 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.96, 0.88])
   const cardZIndex = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [index, index, index + 15, index + 25])
   const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4])
+
+  const handleCardClick = () => {
+    router.push('/portfolio/ranking')
+  }
 
   return (
     <motion.div
@@ -43,13 +49,16 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
         zIndex: cardZIndex,
         filter: `blur(${cardBlur}px)`
       }}
-      className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
+      className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group"
     >
-      {/* Removido: brilho/fundo gradiente e ShineBorder */}
-      <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10 group">
-        {/* Removido: <ShineBorder ... /> */}
-        {/* Removido: <motion.div ... className="absolute inset-0 bg-primary/5 ... blur-xl ..." /> */}
-        <CardContent className="p-16 group-hover:p-20 transition-all duration-500">
+      {/* Luz atrás do card - aparece no hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      <Card 
+        className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10 group cursor-pointer"
+        onClick={handleCardClick}
+      >
+        <CardContent className="p-16 transition-all duration-500">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Lado Esquerdo - Conteúdo */}
             <div className="space-y-16">
@@ -67,6 +76,10 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               <Button 
                 size="lg"
                 className="bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 py-2.5 text-sm font-medium"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  router.push('/portfolio/ranking')
+                }}
               >
                 {card.buttonText}
               </Button>
