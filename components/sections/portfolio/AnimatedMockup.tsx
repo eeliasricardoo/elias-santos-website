@@ -9,8 +9,6 @@ interface AnimatedMockupProps {
 
 export function AnimatedMockup({ type }: AnimatedMockupProps) {
   const [currentScore, setCurrentScore] = useState(0)
-  const [currentMessage, setCurrentMessage] = useState("")
-  const [isTyping, setIsTyping] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,38 +17,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
     return () => clearInterval(interval)
   }, [])
 
-  useEffect(() => {
-    const messages = [
-      "Olá! Como posso ajudar você hoje?",
-      "Vou analisar seu código e sugerir melhorias...",
-      "Aqui está uma solução otimizada para seu problema:",
-      "Que tal implementarmos essa funcionalidade?"
-    ]
-    
-    let messageIndex = 0
-    let charIndex = 0
-    
-    const typeMessage = () => {
-      if (charIndex < messages[messageIndex].length) {
-        setCurrentMessage(messages[messageIndex].slice(0, charIndex + 1))
-        charIndex++
-        setTimeout(typeMessage, 50)
-      } else {
-        setTimeout(() => {
-          setIsTyping(true)
-          setTimeout(() => {
-            messageIndex = (messageIndex + 1) % messages.length
-            charIndex = 0
-            setCurrentMessage("")
-            setIsTyping(false)
-            typeMessage()
-          }, 2000)
-        }, 3000)
-      }
-    }
-    
-    typeMessage()
-  }, [])
+  // Remover o useEffect de simulação de digitação, pois não é mais usado
 
   if (type === "ventus-chat") {
     return (
