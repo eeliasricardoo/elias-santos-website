@@ -11,7 +11,7 @@ import {
 import { HeroSection, CompaniesSection, PortfolioSection, DepoimentsSection } from "@/components/sections"
 import { AboutMeSection } from "@/components/sections/about-me"
 import { Footer } from "@/components/Footer"
-import { GetInTouch } from "@/components/get-in-touch"
+import { GetInTouch } from "@/components/sections/get-in-touch"
 
 // Componente de Background Animado
 function AnimatedBackground() {

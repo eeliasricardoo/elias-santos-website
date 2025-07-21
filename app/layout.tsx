@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
 import { Navbar } from '@/components/Navbar'
 import { ErrorBoundary } from '@/components/error-boundary'
 
@@ -34,17 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className="font-satoshi" suppressHydrationWarning>
+      <body className="font-satoshi dark" suppressHydrationWarning>
         <ErrorBoundary>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            {children}
-          </ThemeProvider>
+          <Navbar />
+          {children}
         </ErrorBoundary>
       </body>
     </html>
