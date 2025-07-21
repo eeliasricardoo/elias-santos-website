@@ -2,10 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import Image from "next/image"
-import { ShineBorder } from "@/components/magicui/shine-border"
 import { PortfolioCard } from "./PortfolioCard"
 
 // Dados dos cards de portfolio
