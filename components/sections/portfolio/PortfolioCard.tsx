@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ShineBorder } from "@/components/magicui/shine-border"
 import { AnimatedMockup } from "./AnimatedMockup"
 
 interface PortfolioCardProps {
@@ -46,31 +45,10 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       }}
       className="sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out"
     >
-      {index === 0 && (
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/10 via-[#FFD700]/10 to-[#FFD700]/20 blur-2xl rounded-2xl transform scale-20 -z-100"></div>
-      )}
+      {/* Removido: brilho/fundo gradiente e ShineBorder */}
       <Card className="border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10 group">
-        {index === 0 && (
-          <ShineBorder 
-            borderWidth={1}
-            duration={8}
-            shineColor="#FFD700"
-          />
-        )}
-        {index === 0 && (
-          <motion.div
-            animate={{ 
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.02, 1]
-            }}
-            transition={{ 
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute inset-0 bg-primary/5 rounded-lg blur-xl -z-10"
-          />
-        )}
+        {/* Removido: <ShineBorder ... /> */}
+        {/* Removido: <motion.div ... className="absolute inset-0 bg-primary/5 ... blur-xl ..." /> */}
         <CardContent className="p-16 group-hover:p-20 transition-all duration-500">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Lado Esquerdo - Conteúdo */}
