@@ -165,11 +165,11 @@ export function EmailClient() {
   const isProcessingRef = useRef(false)
   const chatContainerRef = useRef<HTMLDivElement>(null)
 
-  const userMessage = "Me fale alguma curiosidade sobre o Elias"
-  const botResponse = "Atualmente, o Elias está com um streak de 389 dias no Duolingo. Ele também criou um script que atualiza automaticamente esse número aqui no site todos os dias."
+  const userMessage = "Tell me something interesting about Elias"
+  const botResponse = "Elias currently has a 389-day streak on Duolingo. He also created a script that automatically updates this number on the website every day. His commitment to continuous learning reflects his approach to professional development."
   
-  const userMessage2 = "por que deveriamos trabalhar com ele?"
-  const botResponse2 = "Elias, além de ser um excelente profissional de tecnologia, anda de skate há mais de 15 anos — e isso ensinou muita coisa sobre resiliência, encarar desafios e seguir em frente mesmo quando parece difícil. Ele é movido por resolver problemas e tem uma bagagem interdisciplinar que passa por Product Design, desenvolvimento de SaaS, front e back-end. No fim das contas, é um profissional completo, que entende de produto, código e, principalmente, de gente."
+  const userMessage2 = "Why should we work with him?"
+  const botResponse2 = "Elias brings a unique combination of technical expertise and strategic thinking. With over 15 years of skateboarding experience, he's learned resilience, problem-solving, and pushing through challenges. His interdisciplinary background spans Product Design, SaaS development, and full-stack engineering. He's a complete professional who understands product, code, and most importantly, people."
 
   const messageQueue = useMemo(() => [
     { text: userMessage, isUser: true, shouldTypeInInput: false },
@@ -385,7 +385,7 @@ export function EmailClient() {
                   </div>
                 ) : (
                   <div className="text-muted-foreground text-sm">
-                    Pergunte alguma coisa...
+                    Ask me anything...
                   </div>
                 )}
               </div>

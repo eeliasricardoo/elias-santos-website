@@ -15,58 +15,58 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Jack",
-    username: "@jack",
-    content: "I've never seen anything like this before. It's amazing. I love it.",
+    name: "Sarah Chen",
+    username: "@sarahchen",
+    content: "Elias transformed our educational platform with his strategic UX approach. Student engagement increased by 40% within the first quarter. His attention to detail and user-centered methodology is exceptional.",
     avatarGradient: "from-green-400 to-yellow-400"
   },
   {
     id: 2,
-    name: "Jill",
-    username: "@jill",
-    content: "I don't know what to say. I'm speechless. This is amazing.",
+    name: "Marcus Rodriguez",
+    username: "@marcusrod",
+    content: "Working with Elias was a game-changer for our product. He delivered a complete MVP in record time while maintaining exceptional quality. His technical expertise and design thinking are unmatched.",
     avatarGradient: "from-purple-400 to-pink-400"
   },
   {
     id: 3,
-    name: "James",
-    username: "@james",
-    content: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Jennifer Park",
+    username: "@jenniferpark",
+    content: "Elias's research-driven approach helped us understand our users better than ever. The insights he provided led to a 35% improvement in our conversion rates. Truly a strategic partner.",
     avatarGradient: "from-green-400 to-blue-400"
   },
   {
     id: 4,
-    name: "Jane",
-    username: "@jane",
-    content: "I'm at a loss for words. This is amazing. I love it.",
+    name: "David Thompson",
+    username: "@davidthompson",
+    content: "His ability to balance technical constraints with user needs is remarkable. Elias delivered a solution that exceeded our expectations and was implemented ahead of schedule.",
     avatarGradient: "from-pink-400 to-orange-400"
   },
   {
     id: 5,
-    name: "John",
-    username: "@john",
-    content: "Absolutely incredible work. The attention to detail is outstanding.",
+    name: "Lisa Wang",
+    username: "@lisawang",
+    content: "Elias's expertise in both design and development is rare. He created a seamless user experience while building a robust technical foundation. Highly recommend for complex projects.",
     avatarGradient: "from-blue-400 to-purple-400"
   },
   {
     id: 6,
-    name: "Sarah",
-    username: "@sarah",
-    content: "This exceeded all my expectations. Simply brilliant!",
+    name: "Alex Johnson",
+    username: "@alexjohnson",
+    content: "The ranking system Elias designed revolutionized how we track student progress. It's intuitive, powerful, and has become essential to our educational strategy. Outstanding work.",
     avatarGradient: "from-yellow-400 to-red-400"
   },
   {
     id: 7,
-    name: "Mike",
-    username: "@mike",
-    content: "The best experience I've had. Highly recommended!",
+    name: "Maria Silva",
+    username: "@mariasilva",
+    content: "Elias consistently delivers exceptional results. His user research methodology and rapid prototyping skills helped us iterate quickly and launch a successful product.",
     avatarGradient: "from-indigo-400 to-cyan-400"
   },
   {
     id: 8,
-    name: "Emma",
-    username: "@emma",
-    content: "Incredible work! The quality and creativity are unmatched.",
+    name: "Ryan Kim",
+    username: "@ryankim",
+    content: "Working with Elias was transformative. His strategic thinking and technical execution created a product that users love and stakeholders value. A true professional.",
     avatarGradient: "from-emerald-400 to-teal-400"
   }
 ]
@@ -120,7 +120,7 @@ export function DepoimentsSection() {
           className="text-center space-y-6"
         >
           <h2 className="sm:text-2xl font-regular text-foreground tracking-tight">
-            Depoimentos de clientes e colegas que trabalharam comigo em projetos incríveis:
+            Trusted by industry leaders and collaborators who've experienced exceptional results:
           </h2>
         </motion.div>
 

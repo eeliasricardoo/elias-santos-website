@@ -9,6 +9,11 @@ import { BR, ES, US } from "country-flag-icons/react/3x2"
 
 const languages = [
   {
+    code: "en",
+    name: "English", 
+    flag: US
+  },
+  {
     code: "pt",
     name: "Portuguese",
     flag: BR
@@ -17,11 +22,6 @@ const languages = [
     code: "es", 
     name: "Spanish",
     flag: ES
-  },
-  {
-    code: "en",
-    name: "English", 
-    flag: US
   }
 ]
 

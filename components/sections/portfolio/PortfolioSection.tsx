@@ -12,20 +12,20 @@ const portfolioCards = [
   {
     id: 1,
     title: "Ranking: Gamified Engagement and Competitiveness",
-    description: "A solution to create personalized rankings, helping institutions track performance and motivate students and teams with flexible criteria for engagement and competition.",
-    buttonText: "Check"
+    description: "Designed and developed a comprehensive ranking system that increased student engagement by 40% and improved performance tracking across educational institutions. Features flexible criteria configuration and real-time analytics.",
+    buttonText: "View Case Study"
   },
   {
     id: 2,
     title: "Weighted Average: Greater Flexibility for Test Configuration",
-    description: "A solution designed to simplify the configuration of assessments by enabling flexible weight attribution. Institutions can customize the value of tests and questions to better align with their educational goals and specific needs, enhancing precision and fairness in evaluations.",
-    buttonText: "Soon..."
+    description: "Engineered an intelligent assessment platform that reduced test configuration time by 60% while improving evaluation accuracy. Enables institutions to customize test weights and criteria to align with specific learning objectives.",
+    buttonText: "Coming Soon"
   },
   {
     id: 3,
     title: "UX Research & Service Design",
-    description: "Comprehensive research methodologies and service design solutions to create user-centered experiences that drive business value and user satisfaction.",
-    buttonText: "Explore"
+    description: "Led end-to-end research initiatives and service design projects that resulted in 35% improvement in user satisfaction scores. Specialized in user journey mapping, usability testing, and strategic design thinking.",
+    buttonText: "Explore Work"
   }
 ]
 

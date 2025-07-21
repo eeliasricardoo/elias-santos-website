@@ -46,8 +46,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed text-base max-w-md">
-              Product Designer passionate about creating meaningful user experiences 
-              and innovative digital solutions that make a difference.
+              Strategic Product Designer with a proven track record of delivering user-centered solutions that drive business growth and user engagement. Specialized in EdTech innovation and rapid product development.
             </p>
             <div className="flex items-center space-x-3">
               <Badge variant="secondary" className="bg-green-500/10 text-green-600 border-green-500/20">

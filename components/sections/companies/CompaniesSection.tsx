@@ -82,7 +82,7 @@ export function CompaniesSection() {
         >
 
           <h2 className="sm:text-2xl font-regular text-foreground tracking-tight">
-            Brands and institutions that I collaborated with:
+          Brands and institutions that I collaborated with:
           </h2>
         </motion.div>
         

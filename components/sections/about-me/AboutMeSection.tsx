@@ -27,38 +27,38 @@ export function AboutMeSection() {
           {/* Main content */}
           <div className="space-y-6 text-xl md:text-2xl text-foreground max-w-4xl mx-auto">
             <div>
-              Product Designer specialized in{" "}
+              Product Designer specializing in{" "}
               <Badge className="bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full">
-                UX/UI Design
+                User-Centered Design
               </Badge>
             </div>
             
             <div>
-              Passionate about{" "}
+              Driven by{" "}
               <Badge className="bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full">
-                Research
+                Data-Driven Insights
               </Badge>
             </div>
             
             <div>
-              With solid experience in the field of{" "}
+              With proven expertise in{" "}
               <Badge className="bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full">
-                Education
+                EdTech Innovation
               </Badge>
             </div>
             
             <div>
-              Skilled in{" "}
+              Expert in{" "}
               <Badge className="bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full">
-                Low-code
+                Rapid Prototyping
               </Badge>{" "}
-              development
+              & development
             </div>
             
             <div>
-              Extensive knowledge in{" "}
+              Leveraging{" "}
               <Badge className="bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full">
-                Artificial Intelligence
+                AI-Powered Solutions
               </Badge>
             </div>
           </div>
