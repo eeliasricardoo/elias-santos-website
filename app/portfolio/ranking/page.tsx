@@ -915,6 +915,101 @@ export default function RankingCasePage() {
           </p>
         </div>
 
+        {/* Administrator Managing the Ranking */}
+        <div className="space-y-8">
+          <div className="text-center">
+            <h3 className="text-xl font-semibold mb-4">Administrator Managing the Ranking</h3>
+            <p className="text-muted-foreground mb-6">Complete workflow for administrators to manage the ranking system</p>
+          </div>
+          
+          <div className="relative">
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-500/5 via-gray-500/5 to-gray-500/5 rounded-2xl blur-3xl"></div>
+            
+            {/* Timeline Container */}
+            <div className="relative bg-gray-100 dark:bg-zinc-800/50 backdrop-blur-xl border border-gray-200 dark:border-zinc-700/50 rounded-2xl p-6">
+              {/* Main timeline - vertical */}
+              <div className="flex flex-col items-center gap-6">
+                {/* Step 1: Access the admin panel */}
+                <div className="relative bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gray-100/80 dark:bg-gray-800/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-base mb-1">Access the admin panel</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">Carla navigates to the ranking section.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 2: Enable the ranking */}
+                <div className="relative bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100/80 dark:bg-green-800/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-base mb-1">Enable the ranking</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">She decides to activate the ranking system for the institution.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3: Configure the ranking */}
+                <div className="relative bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100/80 dark:bg-blue-800/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-base mb-1">Configure the ranking</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">Chooses whether to use historical data and sets tie-breaking rules.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 4: Monitor the ranking */}
+                <div className="relative bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100/80 dark:bg-purple-800/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-base mb-1">Monitor the ranking</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">Analyzes reports and checks student performance.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 5: Manage students */}
+                <div className="relative bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6 shadow-lg w-full max-w-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-orange-100/80 dark:bg-orange-800/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-base mb-1">Manage students</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">Can see which students participate and manually add or remove them if necessary.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* System Screenshots */}
         <div className="space-y-8">
           <div className="text-center">
@@ -1106,188 +1201,191 @@ export default function RankingCasePage() {
           </div>
         </div>
         
-        {/* TESTING & ITERATIONS */}
+        {/* Solution Details */}
         <div className="space-y-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Testing & Iterations</h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive testing and iterative improvements based on user feedback and accessibility requirements.
-            </p>
+          {/* 1. Ranking Rules */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">1. Ranking Rules</h3>
+            <div className="space-y-4 text-lg">
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">XP-Based Ranking</h4>
+                <p className="text-gray-600 dark:text-gray-300">Students are ranked by their total accumulated experience points (XP). The more XP you earn, the higher your position in the ranking.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Tie-Breaking System</h4>
+                <p className="text-gray-600 dark:text-gray-300">When two students have the same XP, the one who earned their last XP most recently gets the higher position.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Flexible Filtering</h4>
+                <p className="text-gray-600 dark:text-gray-300">Students can view rankings by different time periods: total XP, weekly, monthly, yearly, or custom date ranges.</p>
+              </div>
+            </div>
           </div>
 
-          {/* Tests Conducted */}
+          {/* 2. Student Participation */}
           <div className="space-y-4">
-            <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Tests Conducted</h4>
+            <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">2. Student Participation</h3>
             <div className="space-y-4 text-lg">
-              <div className="bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6">
-                <div className="grid gap-6 md:grid-cols-3">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
-                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Usability Tests</h5>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Comprehensive testing with students and administrators to validate user experience and workflow efficiency.</p>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Privacy-First Approach</h4>
+                <p className="text-gray-600 dark:text-gray-300">All students start excluded from the ranking by default for privacy protection. They must actively choose to participate.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Opt-in Process</h4>
+                <p className="text-gray-600 dark:text-gray-300">On first access, students see a friendly modal asking if they want to participate. If they accept, their profile picture and name appear in the ranking.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Flexible Control</h4>
+                <p className="text-gray-600 dark:text-gray-300">Students can change their participation status anytime through their settings panel, with a 24-hour delay to prevent abuse.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Admin Access */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">3. Admin Access</h3>
+            <div className="space-y-4 text-lg">
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Complete Control</h4>
+                <p className="text-gray-600 dark:text-gray-300">Administrators can enable or disable the entire ranking system for their institution with one click.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Historical Data Management</h4>
+                <p className="text-gray-600 dark:text-gray-300">When activating the ranking, administrators can choose whether to include past XP data or start fresh.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Granular Activation</h4>
+                <p className="text-gray-600 dark:text-gray-300">The ranking can be activated for specific schools or departments within the institution, allowing for targeted implementation.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. User Interface */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">4. User Interface</h3>
+            <div className="space-y-4 text-lg">
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Student Panel</h4>
+                <p className="text-gray-600 dark:text-gray-300">Students see the top 10 ranked students with their own position highlighted. The interface is designed to be motivating and easy to understand.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Admin Dashboard</h4>
+                <p className="text-gray-600 dark:text-gray-300">Administrators have access to a comprehensive dashboard with ranking management, student oversight, and detailed performance reports.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Intuitive Navigation</h4>
+                <p className="text-gray-600 dark:text-gray-300">Simple date filters allow users to view rankings by different time periods, making navigation and visualization straightforward.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTING & ITERATIONS */}
+      <section className="space-y-8">
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4">Testing & Iterations</h3>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Comprehensive testing and iterative improvements based on user feedback and accessibility requirements.
+          </p>
+        </div>
+
+        {/* Tests Conducted */}
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Tests Conducted</h4>
+          <div className="space-y-4 text-lg">
+            <div className="bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6">
+              <div className="grid gap-6 md:grid-cols-3">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                    </div>
-                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Accessibility Validation</h5>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Thorough testing of keyboard navigation and screen reader compatibility to ensure inclusive design.</p>
+                  <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Usability Tests</h5>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Comprehensive testing with students and administrators to validate user experience and workflow efficiency.</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Performance Tests</h5>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Optimization testing to ensure fast loading times and smooth user interactions across all devices.</p>
+                  <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Accessibility Validation</h5>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Thorough testing of keyboard navigation and screen reader compatibility to ensure inclusive design.</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Performance Tests</h5>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Optimization testing to ensure fast loading times and smooth user interactions across all devices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Adjustments */}
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Key Adjustments</h4>
+          <div className="space-y-4 text-lg">
+            <div className="bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">Improved Opt-in Clarity</h5>
+                    <p className="text-gray-600 dark:text-gray-300">Added clear explanations about privacy protection and what information will be displayed in the ranking.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">Reorganized Filters</h5>
+                    <p className="text-gray-600 dark:text-gray-300">Restructured filter options in a more intuitive order, making it easier for users to find and apply their desired filters.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">Highlighting Student&apos;s Ranking</h5>
+                    <p className="text-gray-600 dark:text-gray-300">Enhanced visibility of the student&apos;s current position in the ranking to provide better context and motivation.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Key Adjustments */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Key Adjustments</h4>
-            <div className="space-y-4 text-lg">
-              <div className="bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6">
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">Improved Opt-in Clarity</h5>
-                      <p className="text-gray-600 dark:text-gray-300">Added clear explanations about privacy protection and what information will be displayed in the ranking.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">Reorganized Filters</h5>
-                      <p className="text-gray-600 dark:text-gray-300">Restructured filter options in a more intuitive order, making it easier for users to find and apply their desired filters.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-4 h-4 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">Highlighting Student&apos;s Ranking</h5>
-                      <p className="text-gray-600 dark:text-gray-300">Enhanced visibility of the student&apos;s current position in the ranking to provide better context and motivation.</p>
-                    </div>
-                  </div>
-                </div>
+        {/* Conclusion */}
+        <div className="space-y-4">
+          <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Conclusion</h4>
+          <div className="space-y-4 text-lg">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-xl border border-blue-200 dark:border-blue-700/50 rounded-xl p-6">
+              <div className="space-y-4">
+                <p className="text-gray-800 dark:text-gray-200 leading-relaxed">
+                  The ranking system provides gamified engagement, allowing students to track their progress while admins encourage active participation.
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  This case study demonstrates the importance of user-centered design, with decisions based on research and testing, ensuring a functional and accessible solution.
+                </p>
               </div>
-            </div>
-          </div>
-
-          {/* Conclusion */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Conclusion</h4>
-            <div className="space-y-4 text-lg">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-xl border border-blue-200 dark:border-blue-700/50 rounded-xl p-6">
-                <div className="space-y-4">
-                  <p className="text-gray-800 dark:text-gray-200 leading-relaxed">
-                    The ranking system provides gamified engagement, allowing students to track their progress while admins encourage active participation.
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    This case study demonstrates the importance of user-centered design, with decisions based on research and testing, ensuring a functional and accessible solution.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* 1. Ranking Rules */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">1. Ranking Rules</h3>
-          <div className="space-y-4 text-lg">
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">XP-Based Ranking</h4>
-              <p className="text-gray-600 dark:text-gray-300">Students are ranked by their total accumulated experience points (XP). The more XP you earn, the higher your position in the ranking.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Tie-Breaking System</h4>
-              <p className="text-gray-600 dark:text-gray-300">When two students have the same XP, the one who earned their last XP most recently gets the higher position.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Flexible Filtering</h4>
-              <p className="text-gray-600 dark:text-gray-300">Students can view rankings by different time periods: total XP, weekly, monthly, yearly, or custom date ranges.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 2. Student Participation */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">2. Student Participation</h3>
-          <div className="space-y-4 text-lg">
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Privacy-First Approach</h4>
-              <p className="text-gray-600 dark:text-gray-300">All students start excluded from the ranking by default for privacy protection. They must actively choose to participate.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Opt-in Process</h4>
-              <p className="text-gray-600 dark:text-gray-300">On first access, students see a friendly modal asking if they want to participate. If they accept, their profile picture and name appear in the ranking.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Flexible Control</h4>
-              <p className="text-gray-600 dark:text-gray-300">Students can change their participation status anytime through their settings panel, with a 24-hour delay to prevent abuse.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. Admin Access */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">3. Admin Access</h3>
-          <div className="space-y-4 text-lg">
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Complete Control</h4>
-              <p className="text-gray-600 dark:text-gray-300">Administrators can enable or disable the entire ranking system for their institution with one click.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Historical Data Management</h4>
-              <p className="text-gray-600 dark:text-gray-300">When activating the ranking, administrators can choose whether to include past XP data or start fresh.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Granular Activation</h4>
-              <p className="text-gray-600 dark:text-gray-300">The ranking can be activated for specific schools or departments within the institution, allowing for targeted implementation.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. User Interface */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2">4. User Interface</h3>
-          <div className="space-y-4 text-lg">
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Student Panel</h4>
-              <p className="text-gray-600 dark:text-gray-300">Students see the top 10 ranked students with their own position highlighted. The interface is designed to be motivating and easy to understand.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Admin Dashboard</h4>
-              <p className="text-gray-600 dark:text-gray-300">Administrators have access to a comprehensive dashboard with ranking management, student oversight, and detailed performance reports.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Intuitive Navigation</h4>
-              <p className="text-gray-600 dark:text-gray-300">Simple date filters allow users to view rankings by different time periods, making navigation and visualization straightforward.</p>
             </div>
           </div>
         </div>
