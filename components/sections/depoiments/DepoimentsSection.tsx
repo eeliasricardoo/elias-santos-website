@@ -120,7 +120,7 @@ export function DepoimentsSection() {
           className="text-center space-y-6"
         >
           <h2 className="sm:text-2xl font-regular text-foreground tracking-tight">
-            Trusted by industry leaders and collaborators who've experienced exceptional results:
+            Trusted by industry leaders and collaborators who&#39;ve experienced exceptional results:
           </h2>
         </motion.div>
 
