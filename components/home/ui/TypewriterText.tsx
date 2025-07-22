@@ -1,14 +1,20 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface TypewriterTextProps {
   text: string;
   speed?: number;
   onComplete?: () => void;
+  className?: string;
 }
 
-export function TypewriterText({ text, speed = 25, onComplete }: TypewriterTextProps) {
+export function TypewriterText({ 
+  text, 
+  speed = 25, 
+  onComplete,
+  className = ""
+}: TypewriterTextProps) {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -26,7 +32,7 @@ export function TypewriterText({ text, speed = 25, onComplete }: TypewriterTextP
   }, [currentIndex, text, speed, onComplete]);
 
   return (
-    <span>
+    <span className={className}>
       {displayText}
       {currentIndex < text.length && <span className="animate-pulse">|</span>}
     </span>

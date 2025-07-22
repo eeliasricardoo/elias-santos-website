@@ -1,6 +1,6 @@
 "use client"
 
-import { EmailClient } from "./EmailClient"
+import { EmailClient } from "../ui"
 
 export function MiniChat() {
   return (

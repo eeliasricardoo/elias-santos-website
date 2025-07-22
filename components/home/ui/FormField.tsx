@@ -14,28 +14,31 @@ interface FormFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   required?: boolean;
   animationDelay?: number;
+  className?: string;
 }
 
-export function FormField({
-  label,
-  name,
-  type = "text",
-  placeholder = "",
-  value,
-  onChange,
+export function FormField({ 
+  label, 
+  name, 
+  type = "text", 
+  placeholder, 
+  value, 
+  onChange, 
   required = false,
   animationDelay = 0,
+  className = ""
 }: FormFieldProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: animationDelay }}
       viewport={{ once: true }}
-      className="space-y-2"
+      className={`space-y-2 ${className}`}
     >
-      <label htmlFor={name} className="text-lg font-medium text-foreground">
+      <label htmlFor={name} className="text-sm font-medium text-foreground">
         {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
       </label>
       {type === "textarea" ? (
         <Textarea
@@ -45,8 +48,7 @@ export function FormField({
           value={value}
           onChange={onChange}
           required={required}
-          rows={8}
-          className="border-border/50 focus:border-primary resize-none text-base min-h-[200px]"
+          className="min-h-[120px] resize-none"
         />
       ) : (
         <Input
@@ -57,7 +59,6 @@ export function FormField({
           value={value}
           onChange={onChange}
           required={required}
-          className="border-border/50 focus:border-primary h-12 text-base"
         />
       )}
     </motion.div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CompanyLogo } from "./CompanyLogo"
+import { CompanyLogo } from "../ui"
 
 // Componente de Carrossel de Empresas
 function CompanyCarousel() {
@@ -31,6 +31,7 @@ function CompanyCarousel() {
             key={`first-${index}`}
             src={logo}
             alt={`Empresa ${index + 1}`}
+            index={index}
           />
         ))}
         
@@ -40,6 +41,7 @@ function CompanyCarousel() {
             key={`second-${index}`}
             src={logo}
             alt={`Empresa ${index + 1}`}
+            index={index}
           />
         ))}
       </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { AnimatedBadge } from "./AnimatedBadge"
+import { AnimatedBadge } from "../ui"
 
 export function HeroContent() {
   return (
@@ -12,9 +12,10 @@ export function HeroContent() {
       className="relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto"
     >
       {/* Badge Animado */}
-      <AnimatedBadge animationDelay={0.5}>
-        Elias Santos
-      </AnimatedBadge>
+      <AnimatedBadge 
+        text="Elias Santos"
+        animationDelay={0.5}
+      />
 
       {/* Título Principal */}
       <div className="space-y-4">

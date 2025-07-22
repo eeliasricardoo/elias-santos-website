@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { TestimonialCard } from "./TestimonialCard"
+import { TestimonialCard } from '../ui'
 
 interface Testimonial {
   id: number
@@ -107,15 +107,10 @@ export function DepoimentsSection() {
                 {Array(3).fill(0).map((_, i) => (
                   <div key={i} className="flex space-x-6 px-6">
                     {testimonials.slice(0, 3).map((testimonial) => (
-                      <TestimonialCard
-                        key={`${testimonial.id}-${i}`}
-                        name={testimonial.name}
-                        role={testimonial.username}
-                        company=""
-                        photo="/placeholder-user.jpg"
-                      >
-                        {testimonial.content}
-                      </TestimonialCard>
+                      <TestimonialCard 
+                        key={`${testimonial.id}-${i}`} 
+                        testimonial={testimonial} 
+                      />
                     ))}
                   </div>
                 ))}
@@ -133,15 +128,10 @@ export function DepoimentsSection() {
                 {Array(3).fill(0).map((_, i) => (
                   <div key={i} className="flex space-x-6 px-6">
                     {testimonials.slice(3, 6).map((testimonial) => (
-                      <TestimonialCard
-                        key={`${testimonial.id}-${i}`}
-                        name={testimonial.name}
-                        role={testimonial.username}
-                        company=""
-                        photo="/placeholder-user.jpg"
-                      >
-                        {testimonial.content}
-                      </TestimonialCard>
+                      <TestimonialCard 
+                        key={`${testimonial.id}-${i}`} 
+                        testimonial={testimonial} 
+                      />
                     ))}
                   </div>
                 ))}

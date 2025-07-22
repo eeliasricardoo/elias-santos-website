@@ -8,9 +8,10 @@ import { TypewriterText } from "./TypewriterText";
 interface ChatMessageProps {
   message: string;
   isUser?: boolean;
+  className?: string;
 }
 
-export function ChatMessage({ message, isUser = false }: ChatMessageProps) {
+export function ChatMessage({ message, isUser = false, className = "" }: ChatMessageProps) {
   const [isTyping, setIsTyping] = useState(true);
 
   const handleComplete = useCallback(() => {
@@ -22,7 +23,7 @@ export function ChatMessage({ message, isUser = false }: ChatMessageProps) {
       initial={{ opacity: 0, y: 10, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className={`flex gap-4 p-4 ${isUser ? 'justify-end' : 'justify-start'}`}
+      className={`flex gap-4 p-4 ${isUser ? 'justify-end' : 'justify-start'} ${className}`}
     >
       {!isUser && (
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0">

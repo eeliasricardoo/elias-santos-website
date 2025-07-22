@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { Section } from "../ui"
-import { FastForwardIcon } from "./FastForwardIcon"
+import { Section, FastForwardIcon } from "../ui"
 
 export function AboutMeSection() {
   return (

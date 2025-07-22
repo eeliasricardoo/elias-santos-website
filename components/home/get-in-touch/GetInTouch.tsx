@@ -9,7 +9,7 @@ import {
   CheckCircle,
   AlertCircle
 } from "lucide-react"
-import { FormField } from "./FormField"
+import { FormField } from "../ui/FormField"
 
 export function GetInTouch() {
   const [formData, setFormData] = useState({
