@@ -13,7 +13,7 @@ import {
   RankingSolution,
   RankingTesting,
   RankingAuthor
-} from "@/components/sections/ranking";
+} from "@/components/ranking";
 
 export default function RankingCasePage() {
   return (

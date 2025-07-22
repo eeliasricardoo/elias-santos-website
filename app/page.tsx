@@ -8,10 +8,10 @@ import {
 } from "lucide-react"
 
 // Importando componentes de seções
-import { HeroSection, CompaniesSection, PortfolioSection, DepoimentsSection } from "@/components/sections"
-import { AboutMeSection } from "@/components/sections/about-me"
+import { HeroSection, CompaniesSection, PortfolioSection, DepoimentsSection } from "@/components/home"
+import { AboutMeSection } from "@/components/home/about-me"
 import { Footer } from "@/components/Footer"
-import { GetInTouch } from "@/components/sections/get-in-touch"
+import { GetInTouch } from "@/components/home/get-in-touch"
 
 // Componente de Background Animado
 function AnimatedBackground() {
