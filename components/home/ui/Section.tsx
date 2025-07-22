@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface SectionProps {
   id?: string;
@@ -10,7 +10,12 @@ interface SectionProps {
   animationDelay?: number;
 }
 
-export function Section({ id, children, className = "", animationDelay = 0 }: SectionProps) {
+export function Section({
+  id,
+  children,
+  className = '',
+  animationDelay = 0,
+}: SectionProps) {
   return (
     <motion.section
       id={id}
@@ -22,4 +27,4 @@ export function Section({ id, children, className = "", animationDelay = 0 }: Se
       {children}
     </motion.section>
   );
-} 
+}

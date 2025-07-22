@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import React from "react";
+import React from 'react';
 
 interface SectionProps {
   title: string;
@@ -8,11 +8,11 @@ interface SectionProps {
   className?: string;
 }
 
-export function Section({ title, children, className = "" }: SectionProps) {
+export function Section({ title, children, className = '' }: SectionProps) {
   return (
     <section className={`space-y-4 ${className}`}>
-      <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+      <h2 className='text-2xl font-semibold mb-2'>{title}</h2>
       {children}
     </section>
   );
-} 
+}

@@ -1,6 +1,7 @@
 # 🏠 Componentes da Home
 
-Esta pasta contém todos os componentes relacionados à página inicial (home) do site, organizados em seções específicas para melhor manutenibilidade.
+Esta pasta contém todos os componentes relacionados à página inicial (home) do
+site, organizados em seções específicas para melhor manutenibilidade.
 
 ## 📁 Estrutura de Pastas
 
@@ -36,37 +37,44 @@ components/home/
 ## 🎯 Seções
 
 ### **Hero**
-Seção principal da página inicial, incluindo apresentação, foto de perfil e chat interativo.
+
+Seção principal da página inicial, incluindo apresentação, foto de perfil e chat
+interativo.
 
 ### **About Me**
+
 Seção com informações sobre o autor/desenvolvedor.
 
 ### **Companies**
+
 Seção mostrando empresas parceiras ou clientes.
 
 ### **Portfolio**
+
 Seção de projetos e trabalhos realizados.
 
 ### **Depoiments**
+
 Seção com depoimentos de clientes ou colegas.
 
 ### **Get In Touch**
+
 Seção de contato e formulário.
 
 ## 📦 Uso
 
 ```typescript
 // Importar todos os componentes
-import { 
-  HeroSection, 
-  CompaniesSection, 
-  PortfolioSection, 
-  DepoimentsSection 
-} from "@/components/home";
+import {
+  HeroSection,
+  CompaniesSection,
+  PortfolioSection,
+  DepoimentsSection,
+} from '@/components/home';
 
 // Importar componentes específicos
-import { AboutMeSection } from "@/components/home/about-me";
-import { GetInTouch } from "@/components/home/get-in-touch";
+import { AboutMeSection } from '@/components/home/about-me';
+import { GetInTouch } from '@/components/home/get-in-touch';
 ```
 
 ## 🔧 Manutenção
@@ -74,4 +82,4 @@ import { GetInTouch } from "@/components/home/get-in-touch";
 - Cada seção tem seu próprio `index.ts` para exportações
 - O arquivo principal `index.ts` centraliza todas as exportações
 - Mantenha a organização por responsabilidade
-- Adicione novos componentes na seção apropriada 
+- Adicione novos componentes na seção apropriada

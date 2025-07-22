@@ -1,68 +1,68 @@
 // Configuração de Analytics e Monitoramento
 export interface AnalyticsEvent {
-  action: string
-  category: string
-  label?: string
-  value?: number
-  custom_parameters?: Record<string, any>
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+  custom_parameters?: Record<string, any>;
 }
 
 export interface PageViewEvent {
-  page_title: string
-  page_location: string
-  page_referrer?: string
+  page_title: string;
+  page_location: string;
+  page_referrer?: string;
 }
 
 // Google Analytics 4
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 // Função para inicializar GA4
 export const initGA = () => {
   if (typeof window !== 'undefined' && GA_TRACKING_ID) {
     // Carregar GA4 script
-    const script = document.createElement('script')
-    script.async = true
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`
-    document.head.appendChild(script)
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+    document.head.appendChild(script);
 
     // Configurar GA4
-    window.dataLayer = window.dataLayer || []
+    window.dataLayer = window.dataLayer || [];
     function gtag(...args: any[]) {
-      window.dataLayer.push(args)
+      window.dataLayer.push(args);
     }
-    gtag('js', new Date())
+    gtag('js', new Date());
     gtag('config', GA_TRACKING_ID, {
       page_title: document.title,
       page_location: window.location.href,
-    })
+    });
 
     // Expor gtag globalmente
-    ;(window as any).gtag = gtag
+    (window as any).gtag = gtag;
   }
-}
+};
 
 // Função para trackear eventos
 export const trackEvent = (event: AnalyticsEvent) => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    ;(window as any).gtag('event', event.action, {
+    (window as any).gtag('event', event.action, {
       event_category: event.category,
       event_label: event.label,
       value: event.value,
       ...event.custom_parameters,
-    })
+    });
   }
-}
+};
 
 // Função para trackear page views
 export const trackPageView = (event: PageViewEvent) => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    ;(window as any).gtag('config', GA_TRACKING_ID, {
+    (window as any).gtag('config', GA_TRACKING_ID, {
       page_title: event.page_title,
       page_location: event.page_location,
       page_referrer: event.page_referrer,
-    })
+    });
   }
-}
+};
 
 // Eventos pré-definidos
 export const AnalyticsEvents = {
@@ -124,17 +124,17 @@ export const AnalyticsEvents = {
     category: 'error',
     label: error,
   }),
-}
+};
 
 // Hook para usar analytics
 export const useAnalytics = () => {
   const track = (event: AnalyticsEvent) => {
-    trackEvent(event)
-  }
+    trackEvent(event);
+  };
 
   const trackPage = (event: PageViewEvent) => {
-    trackPageView(event)
-  }
+    trackPageView(event);
+  };
 
-  return { track, trackPage }
-} 
+  return { track, trackPage };
+};

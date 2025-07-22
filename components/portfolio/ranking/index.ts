@@ -5,7 +5,11 @@ export * from '../ui';
 export { RankingHeader } from './header';
 
 // Content
-export { RankingIntroduction, RankingProblem, RankingObjectives } from './content';
+export {
+  RankingIntroduction,
+  RankingProblem,
+  RankingObjectives,
+} from './content';
 
 // Research
 export { RankingResearch, RankingInsights } from './research';
@@ -20,4 +24,4 @@ export { RankingSolution } from './solution';
 export { RankingTesting } from './testing';
 
 // Author
-export { RankingAuthor } from './author'; 
+export { RankingAuthor } from './author';

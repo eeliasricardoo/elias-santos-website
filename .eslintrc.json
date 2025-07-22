@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "next/core-web-vitals"
-  ],
+  "extends": ["next/core-web-vitals"],
   "rules": {
     // React
     "react-hooks/rules-of-hooks": "error",
@@ -9,7 +7,7 @@
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    
+
     // General
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-debugger": "error",
@@ -28,4 +26,4 @@
     "*.config.js",
     "*.config.mjs"
   ]
-} 
+}

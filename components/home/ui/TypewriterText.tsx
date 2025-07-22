@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 interface TypewriterTextProps {
   text: string;
@@ -9,13 +9,13 @@ interface TypewriterTextProps {
   className?: string;
 }
 
-export function TypewriterText({ 
-  text, 
-  speed = 25, 
+export function TypewriterText({
+  text,
+  speed = 25,
   onComplete,
-  className = ""
+  className = '',
 }: TypewriterTextProps) {
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function TypewriterText({
   return (
     <span className={className}>
       {displayText}
-      {currentIndex < text.length && <span className="animate-pulse">|</span>}
+      {currentIndex < text.length && <span className='animate-pulse'>|</span>}
     </span>
   );
-} 
+}

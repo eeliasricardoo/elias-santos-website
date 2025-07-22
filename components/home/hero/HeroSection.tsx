@@ -1,13 +1,13 @@
-"use client"
+'use client';
 
-import { ProfilePhoto, HeroContent, EmailClient } from "."
+import { ProfilePhoto, HeroContent, EmailClient } from '.';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-start overflow-hidden pt-24">
+    <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24'>
       <ProfilePhoto />
       <HeroContent />
-              <EmailClient />
+      <EmailClient />
     </section>
-  )
-} 
+  );
+}

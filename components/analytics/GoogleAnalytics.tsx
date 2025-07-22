@@ -1,18 +1,18 @@
-"use client"
+'use client';
 
-import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { initGA, trackPageView, useAnalytics } from '@/lib/analytics'
+import { useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { initGA, useAnalytics } from '@/lib/analytics';
 
 export function GoogleAnalytics() {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const { trackPage } = useAnalytics()
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const { trackPage } = useAnalytics();
 
   useEffect(() => {
     // Inicializar GA4
-    initGA()
-  }, [])
+    initGA();
+  }, []);
 
   useEffect(() => {
     // Trackear mudanças de página
@@ -21,9 +21,9 @@ export function GoogleAnalytics() {
         page_title: document.title,
         page_location: window.location.href,
         page_referrer: document.referrer,
-      })
+      });
     }
-  }, [pathname, searchParams, trackPage])
+  }, [pathname, searchParams, trackPage]);
 
-  return null
-} 
+  return null;
+}

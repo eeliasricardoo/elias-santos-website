@@ -25,36 +25,37 @@ components/portfolio/
 
 ```tsx
 // Importar todos os componentes do ranking
-import { 
-  RankingHeader, 
+import {
+  RankingHeader,
   RankingIntroduction,
   RankingProblem,
   // ... outros componentes
-} from "@/components/portfolio";
+} from '@/components/portfolio';
 
 // Ou importar componentes específicos
-import { RankingHeader } from "@/components/portfolio/ranking/header";
+import { RankingHeader } from '@/components/portfolio/ranking/header';
 ```
 
 ### Importar componentes UI reutilizáveis:
 
 ```tsx
-import { 
-  Section, 
-  StatsCard, 
+import {
+  Section,
+  StatsCard,
   InfoCard,
   // ... outros componentes UI
-} from "@/components/portfolio/ranking/ui";
+} from '@/components/portfolio/ranking/ui';
 ```
 
 ## Benefícios da Organização
 
 1. **Estrutura Clara**: Cada projeto tem sua própria pasta
-2. **Componentes Reutilizáveis**: UI components podem ser usados em outros projetos
+2. **Componentes Reutilizáveis**: UI components podem ser usados em outros
+   projetos
 3. **Imports Limpos**: Caminhos organizados e fáceis de entender
 4. **Escalabilidade**: Fácil adicionar novos projetos do portfólio
 
 ## Próximos Projetos
 
 - `ventus/` - Projeto Ventus (preparado para futuras implementações)
-- Outros projetos podem ser adicionados seguindo a mesma estrutura 
+- Outros projetos podem ser adicionados seguindo a mesma estrutura

@@ -1,6 +1,7 @@
 # 📊 Componentes de Ranking
 
-Esta pasta contém todos os componentes relacionados ao case study de ranking, organizados em categorias lógicas para melhor manutenibilidade e escalabilidade.
+Esta pasta contém todos os componentes relacionados ao case study de ranking,
+organizados em categorias lógicas para melhor manutenibilidade e escalabilidade.
 
 ## 📁 Estrutura de Pastas
 
@@ -38,24 +39,35 @@ components/ranking/
 ## 🎯 Categorias
 
 ### **Header**
-Componentes relacionados ao cabeçalho da página, incluindo navegação e métricas principais.
+
+Componentes relacionados ao cabeçalho da página, incluindo navegação e métricas
+principais.
 
 ### **Content**
-Conteúdo principal do case study, incluindo introdução, problema identificado e objetivos.
+
+Conteúdo principal do case study, incluindo introdução, problema identificado e
+objetivos.
 
 ### **Research**
+
 Componentes relacionados à pesquisa de mercado, benchmarking e insights obtidos.
 
 ### **User Experience**
-Componentes focados na experiência do usuário, incluindo personas e user journey maps.
+
+Componentes focados na experiência do usuário, incluindo personas e user journey
+maps.
 
 ### **Solution**
-Definição e detalhes da solução implementada, incluindo screenshots e especificações.
+
+Definição e detalhes da solução implementada, incluindo screenshots e
+especificações.
 
 ### **Testing**
+
 Componentes relacionados aos testes realizados e iterações do projeto.
 
 ### **Author**
+
 Informações sobre o autor do case study.
 
 ## 📦 Uso
@@ -73,12 +85,15 @@ import {
   RankingUserJourney,
   RankingSolution,
   RankingTesting,
-  RankingAuthor
-} from "@/components/ranking";
+  RankingAuthor,
+} from '@/components/ranking';
 
 // Ou importar por categoria
-import { RankingHeader } from "@/components/ranking/header";
-import { RankingIntroduction, RankingProblem } from "@/components/ranking/content";
+import { RankingHeader } from '@/components/ranking/header';
+import {
+  RankingIntroduction,
+  RankingProblem,
+} from '@/components/ranking/content';
 ```
 
 ## 🔧 Manutenção
@@ -86,4 +101,4 @@ import { RankingIntroduction, RankingProblem } from "@/components/ranking/conten
 - Cada categoria tem seu próprio `index.ts` para exportações
 - O arquivo principal `index.ts` centraliza todas as exportações
 - Mantenha a organização por responsabilidade
-- Adicione novos componentes na categoria apropriada 
+- Adicione novos componentes na categoria apropriada

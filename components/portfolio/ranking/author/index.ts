@@ -1,1 +1,1 @@
-export { default as RankingAuthor } from './RankingAuthor'; 
+export { default as RankingAuthor } from './RankingAuthor';

@@ -1,1 +1,1 @@
-export { DepoimentsSection } from './DepoimentsSection' 
+export { DepoimentsSection } from './DepoimentsSection';

@@ -1,6 +1,7 @@
 # Portfolio UX/UI Designer & Developer
 
-Um portfolio moderno e interativo construído com Next.js, TypeScript, Tailwind CSS e Shadcn UI, focado em mostrar cases de UX/UI e desenvolvimento.
+Um portfolio moderno e interativo construído com Next.js, TypeScript, Tailwind
+CSS e Shadcn UI, focado em mostrar cases de UX/UI e desenvolvimento.
 
 ## 🚀 Funcionalidades
 
@@ -13,17 +14,20 @@ Um portfolio moderno e interativo construído com Next.js, TypeScript, Tailwind 
 ## 🎨 Elementos Visuais
 
 ### Glassmorphism
+
 - Containers com backdrop-blur e transparência
 - Bordas sutis com gradientes
 - Efeitos de profundidade e camadas
 
 ### Magic UI
+
 - Animações de entrada suaves
 - Efeitos de hover interativos
 - Transições fluidas entre estados
 - Elementos flutuantes animados
 
 ### Animações
+
 - **Scroll Reveal**: Elementos aparecem conforme o scroll
 - **Float Animation**: Elementos flutuam suavemente
 - **Hover Effects**: Interações responsivas ao mouse
@@ -32,18 +36,21 @@ Um portfolio moderno e interativo construído com Next.js, TypeScript, Tailwind 
 ## 📸 Seu Portfolio
 
 ### Hero Section
+
 - **Foto de Perfil**: Sua foto em container glassmorphism
 - **Badge de Status**: "Available for work" com indicador animado
 - **CTA Buttons**: Botões de ação principais
 - **Efeitos Interativos**: Glow effect que segue o mouse
 
 ### Featured Work
+
 - **Cards de Projetos**: 3 projetos em destaque
 - **Tags de Tecnologia**: Stack usado em cada projeto
 - **Hover Effects**: Cards se elevam e brilham
 - **Scroll Animation**: Aparecem conforme o scroll
 
 ### Skills & Tools
+
 - **Grid de Habilidades**: 12 tecnologias principais
 - **Ícones Visuais**: Emojis para cada tecnologia
 - **Interatividade**: Cards respondem ao hover
@@ -60,8 +67,10 @@ Um portfolio moderno e interativo construído com Next.js, TypeScript, Tailwind 
 
 ## 📚 Documentação
 
-- **[Design System](./DESIGN_SYSTEM.md)** - Documentação completa do design system
-- **[Regras do Design System](./DESIGN_SYSTEM_RULES.md)** - Regras obrigatórias para manter consistência
+- **[Design System](./DESIGN_SYSTEM.md)** - Documentação completa do design
+  system
+- **[Regras do Design System](./DESIGN_SYSTEM_RULES.md)** - Regras obrigatórias
+  para manter consistência
 
 ## 📦 Instalação
 
@@ -79,6 +88,7 @@ pnpm build
 ## 🎯 Personalização
 
 ### Adicionar Projetos
+
 Edite o array de projetos no `app/page.tsx`:
 
 ```tsx
@@ -92,6 +102,7 @@ Edite o array de projetos no `app/page.tsx`:
 ```
 
 ### Modificar Skills
+
 Atualize o array de skills:
 
 ```tsx
@@ -99,6 +110,7 @@ Atualize o array de skills:
 ```
 
 ### Cores e Temas
+
 Personalize no `tailwind.config.ts`:
 
 ```ts
@@ -114,6 +126,7 @@ theme: {
 ## 🚀 Deploy
 
 O projeto está pronto para deploy em:
+
 - **Vercel** (recomendado)
 - **Netlify**
 - **Railway**
@@ -129,6 +142,7 @@ O projeto está pronto para deploy em:
 ## 🎨 Animações CSS
 
 ### Classes Disponíveis
+
 - `.animate-float` - Flutuação suave
 - `.animate-glow-pulse` - Pulso com brilho
 - `.hover-lift` - Elevação no hover
@@ -136,6 +150,7 @@ O projeto está pronto para deploy em:
 - `.scroll-reveal` - Aparece no scroll
 
 ### Customização
+
 Edite as animações no `app/globals.css`:
 
 ```css

@@ -1,2 +1,2 @@
 export { default as RankingResearch } from './RankingResearch';
-export { default as RankingInsights } from './RankingInsights'; 
+export { default as RankingInsights } from './RankingInsights';

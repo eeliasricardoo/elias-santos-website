@@ -1,32 +1,34 @@
-"use client"
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 interface FormFieldProps {
   label: string;
   name: string;
-  type?: "text" | "email" | "textarea";
+  type?: 'text' | 'email' | 'textarea';
   placeholder?: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   required?: boolean;
   animationDelay?: number;
   className?: string;
 }
 
-export function FormField({ 
-  label, 
-  name, 
-  type = "text", 
-  placeholder, 
-  value, 
-  onChange, 
+export function FormField({
+  label,
+  name,
+  type = 'text',
+  placeholder,
+  value,
+  onChange,
   required = false,
   animationDelay = 0,
-  className = ""
+  className = '',
 }: FormFieldProps) {
   return (
     <motion.div
@@ -36,11 +38,11 @@ export function FormField({
       viewport={{ once: true }}
       className={`space-y-2 ${className}`}
     >
-      <label htmlFor={name} className="text-sm font-medium text-foreground">
+      <label htmlFor={name} className='text-sm font-medium text-foreground'>
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className='text-red-500 ml-1'>*</span>}
       </label>
-      {type === "textarea" ? (
+      {type === 'textarea' ? (
         <Textarea
           id={name}
           name={name}
@@ -48,7 +50,7 @@ export function FormField({
           value={value}
           onChange={onChange}
           required={required}
-          className="min-h-[120px] resize-none"
+          className='min-h-[120px] resize-none'
         />
       ) : (
         <Input
@@ -63,4 +65,4 @@ export function FormField({
       )}
     </motion.div>
   );
-} 
+}

@@ -1,1 +1,1 @@
-export { GetInTouch } from './GetInTouch' 
+export { GetInTouch } from './GetInTouch';

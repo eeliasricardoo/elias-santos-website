@@ -1,94 +1,96 @@
 # Home UI Components
 
-Esta pasta contém componentes reutilizáveis extraídos dos componentes específicos da home para evitar duplicação de código.
+Esta pasta contém componentes reutilizáveis extraídos dos componentes
+específicos da home para evitar duplicação de código.
 
 ## Componentes Disponíveis
 
 ### `Section`
+
 Componente base para todas as seções da home com animação padronizada.
 
 ```tsx
-<Section id="about" className="py-24">
+<Section id='about' className='py-24'>
   {/* Conteúdo da seção */}
 </Section>
 ```
 
 ### `SectionHeader`
+
 Cabeçalho padronizado para seções com título e subtítulo opcional.
 
 ```tsx
-<SectionHeader 
+<SectionHeader
   title="Let's Build Something Amazing"
-  subtitle="Ready to transform your ideas into exceptional digital experiences?"
+  subtitle='Ready to transform your ideas into exceptional digital experiences?'
 />
 ```
 
 ### `AnimatedBadge`
+
 Badge animado com ícone e texto.
 
 ```tsx
-<AnimatedBadge 
-  text="Elias Santos"
-  icon={<Sparkles className="w-4 h-4" />}
+<AnimatedBadge
+  text='Elias Santos'
+  icon={<Sparkles className='w-4 h-4' />}
   animationDelay={0.5}
 />
 ```
 
 ### `TypewriterText`
+
 Efeito de digitação para textos.
 
 ```tsx
-<TypewriterText 
-  text="Hello, World!"
+<TypewriterText
+  text='Hello, World!'
   speed={25}
   onComplete={() => console.log('Done!')}
 />
 ```
 
 ### `ChatMessage`
+
 Mensagem de chat com suporte a usuário/bot.
 
 ```tsx
-<ChatMessage 
-  message="Hello! How can I help you?"
-  isUser={false}
-/>
+<ChatMessage message='Hello! How can I help you?' isUser={false} />
 ```
 
 ### `TestimonialCard`
+
 Card para depoimentos com avatar e informações.
 
 ```tsx
-<TestimonialCard 
+<TestimonialCard
   testimonial={{
     id: 1,
-    name: "Sarah Chen",
-    username: "@sarahchen",
-    content: "Amazing work!",
-    avatarGradient: "from-green-400 to-yellow-400"
+    name: 'Sarah Chen',
+    username: '@sarahchen',
+    content: 'Amazing work!',
+    avatarGradient: 'from-green-400 to-yellow-400',
   }}
 />
 ```
 
 ### `CompanyLogo`
+
 Logo de empresa com tamanho dinâmico baseado no índice.
 
 ```tsx
-<CompanyLogo 
-  src="/empresas/logo.png"
-  alt="Company Name"
-  index={0}
-/>
+<CompanyLogo src='/empresas/logo.png' alt='Company Name' index={0} />
 ```
 
 ### `FormField`
+
 Campo de formulário com suporte a input e textarea.
 
 ```tsx
-<FormField 
-  label="Name"
-  name="name"
-  type="text"
+<FormField
+  label='Name'
+  name='name'
+  type='text'
   value={formData.name}
   onChange={handleChange}
   required
@@ -109,15 +111,15 @@ Campo de formulário com suporte a input e textarea.
 Importe os componentes do arquivo de índice:
 
 ```tsx
-import { 
-  Section, 
-  SectionHeader, 
+import {
+  Section,
+  SectionHeader,
   AnimatedBadge,
   TypewriterText,
   ChatMessage,
   TestimonialCard,
   CompanyLogo,
-  FormField
+  FormField,
 } from '@/components/home/ui';
 ```
 
@@ -126,4 +128,4 @@ import {
 - Quebrar `MiniChat.tsx` em componentes menores
 - Refatorar `GetInTouch.tsx` para usar `FormField`
 - Criar componentes para `AnimatedMockup.tsx`
-- Adicionar mais componentes reutilizáveis conforme necessário 
+- Adicionar mais componentes reutilizáveis conforme necessário

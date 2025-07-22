@@ -1,1 +1,1 @@
-export { default as RankingHeader } from './RankingHeader'; 
+export { default as RankingHeader } from './RankingHeader';

@@ -1,1 +1,1 @@
-export { default as RankingTesting } from './RankingTesting'; 
+export { default as RankingTesting } from './RankingTesting';

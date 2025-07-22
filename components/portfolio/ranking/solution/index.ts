@@ -1,1 +1,1 @@
-export { default as RankingSolution } from './RankingSolution'; 
+export { default as RankingSolution } from './RankingSolution';

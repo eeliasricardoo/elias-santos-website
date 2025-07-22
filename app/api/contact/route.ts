@@ -1,18 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json()
+    const { name, email, subject, message } = await request.json();
 
     // Validação dos campos
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'Todos os campos são obrigatórios' },
         { status: 400 }
-      )
+      );
     }
 
     // Enviar e-mail usando Resend
@@ -75,37 +75,36 @@ export async function POST(request: NextRequest) {
               Este e-mail foi enviado através do formulário de contato do seu portfolio
             </p>
             <p style="color: #999; margin: 5px 0 0 0; font-size: 12px;">
-              Data: ${new Date().toLocaleString('pt-BR', { 
-                day: '2-digit', 
-                month: '2-digit', 
-                year: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit' 
+              Data: ${new Date().toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
               })}
             </p>
           </div>
         </div>
-      `
-    })
+      `,
+    });
 
     if (error) {
-      console.error('Erro do Resend:', error)
+      console.error('Erro do Resend:', error);
       return NextResponse.json(
         { error: 'Erro ao enviar e-mail. Tente novamente.' },
         { status: 500 }
-      )
+      );
     }
 
     return NextResponse.json(
       { message: 'E-mail enviado com sucesso!' },
       { status: 200 }
-    )
-
+    );
   } catch (error) {
-    console.error('Erro ao enviar e-mail:', error)
+    console.error('Erro ao enviar e-mail:', error);
     return NextResponse.json(
       { error: 'Erro ao enviar e-mail. Tente novamente.' },
       { status: 500 }
-    )
+    );
   }
-} 
+}

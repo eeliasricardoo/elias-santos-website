@@ -7,4 +7,4 @@ export { PlatformCard } from './PlatformCard';
 export { PersonaCard } from './PersonaCard';
 export { AnimatedContainer } from './AnimatedContainer';
 export { TestCard } from './TestCard';
-export { AdjustmentCard } from './AdjustmentCard'; 
+export { AdjustmentCard } from './AdjustmentCard';

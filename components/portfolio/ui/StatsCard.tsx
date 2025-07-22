@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import React from "react";
+import React from 'react';
 
 interface StatsCardProps {
   value: string;
@@ -8,11 +8,15 @@ interface StatsCardProps {
   className?: string;
 }
 
-export function StatsCard({ value, label, className = "" }: StatsCardProps) {
+export function StatsCard({ value, label, className = '' }: StatsCardProps) {
   return (
-    <div className={`bg-muted text-foreground rounded-lg px-6 py-4 text-center flex-1 shadow-md border border-border ${className}`}>
-      <div className="text-2xl font-bold">{value}</div>
-      <div className="text-xs uppercase tracking-wide text-muted-foreground">{label}</div>
+    <div
+      className={`bg-muted text-foreground rounded-lg px-6 py-4 text-center flex-1 shadow-md border border-border ${className}`}
+    >
+      <div className='text-2xl font-bold'>{value}</div>
+      <div className='text-xs uppercase tracking-wide text-muted-foreground'>
+        {label}
+      </div>
     </div>
   );
-} 
+}

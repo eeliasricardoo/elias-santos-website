@@ -93,11 +93,16 @@ space-y-8  /* 32px */
 
 ```tsx
 // ✅ Componentes obrigatórios
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 
 // ❌ NUNCA crie componentes básicos do zero
 // Use os componentes existentes do Shadcn/ui
@@ -148,16 +153,14 @@ focus:ring-2 focus:ring-primary/50
 ### **1. Card Layout Padrão**
 
 ```tsx
-<Card className="border-border/50 bg-card/50 hover:bg-card/70 transition-colors">
-  <CardHeader className="pb-3">
-    <CardTitle className="flex items-center gap-2 text-sm font-medium">
-      <Icon className="h-4 w-4 text-primary" />
+<Card className='border-border/50 bg-card/50 hover:bg-card/70 transition-colors'>
+  <CardHeader className='pb-3'>
+    <CardTitle className='flex items-center gap-2 text-sm font-medium'>
+      <Icon className='h-4 w-4 text-primary' />
       Título do Card
     </CardTitle>
   </CardHeader>
-  <CardContent className="space-y-4">
-    {/* Conteúdo */}
-  </CardContent>
+  <CardContent className='space-y-4'>{/* Conteúdo */}</CardContent>
 </Card>
 ```
 
@@ -165,23 +168,21 @@ focus:ring-2 focus:ring-primary/50
 
 ```tsx
 <Dialog open={open} onOpenChange={setOpen}>
-  <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto backdrop-blur-xl bg-card/95 border-border/50 z-[60]">
-    <DialogHeader className="pb-6">
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-primary/10 rounded-lg">
-          <Icon className="h-5 w-5 text-primary" />
+  <DialogContent className='max-w-2xl max-h-[90vh] overflow-y-auto backdrop-blur-xl bg-card/95 border-border/50 z-[60]'>
+    <DialogHeader className='pb-6'>
+      <div className='flex items-center gap-3'>
+        <div className='p-2 bg-primary/10 rounded-lg'>
+          <Icon className='h-5 w-5 text-primary' />
         </div>
         <div>
-          <DialogTitle className="text-xl font-semibold">Título</DialogTitle>
-          <DialogDescription className="text-sm text-muted-foreground">
+          <DialogTitle className='text-xl font-semibold'>Título</DialogTitle>
+          <DialogDescription className='text-sm text-muted-foreground'>
             Descrição
           </DialogDescription>
         </div>
       </div>
     </DialogHeader>
-    <div className="space-y-6">
-      {/* Conteúdo */}
-    </div>
+    <div className='space-y-6'>{/* Conteúdo */}</div>
   </DialogContent>
 </Dialog>
 ```
@@ -189,18 +190,20 @@ focus:ring-2 focus:ring-primary/50
 ### **3. Form Layout Padrão**
 
 ```tsx
-<form onSubmit={handleSubmit} className="space-y-4">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div className="space-y-2">
-      <Label htmlFor="field" className="text-sm font-medium">Campo</Label>
-      <Input 
-        id="field"
-        className="bg-background/50 border-border/50 focus:border-primary/50"
-        placeholder="Digite aqui..."
+<form onSubmit={handleSubmit} className='space-y-4'>
+  <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+    <div className='space-y-2'>
+      <Label htmlFor='field' className='text-sm font-medium'>
+        Campo
+      </Label>
+      <Input
+        id='field'
+        className='bg-background/50 border-border/50 focus:border-primary/50'
+        placeholder='Digite aqui...'
       />
     </div>
   </div>
-  <Button type="submit" className="w-full">
+  <Button type='submit' className='w-full'>
     Enviar
   </Button>
 </form>
@@ -216,17 +219,13 @@ focus:ring-2 focus:ring-primary/50
 // ✅ Estrutura obrigatória
 export function ComponentName({ prop1, prop2 }: ComponentProps) {
   // 1. Hooks (useState, useEffect, etc.)
-  const [state, setState] = useState()
-  
+  const [state, setState] = useState();
+
   // 2. Handlers (funções de evento)
-  const handleClick = () => {}
-  
+  const handleClick = () => {};
+
   // 3. Render (JSX)
-  return (
-    <div className="space-y-4">
-      {/* Conteúdo */}
-    </div>
-  )
+  return <div className='space-y-4'>{/* Conteúdo */}</div>;
 }
 ```
 
@@ -252,21 +251,21 @@ custom-spacing
 ```tsx
 // ✅ Imports organizados
 // 1. React e Next.js
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 // 2. Componentes UI
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 // 3. Ícones
-import { Loader2, Mail, Phone } from "lucide-react"
+import { Loader2, Mail, Phone } from 'lucide-react';
 
 // 4. Utilitários
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 // 5. Tipos
-import type { ComponentProps } from "./types"
+import type { ComponentProps } from './types';
 ```
 
 ---
@@ -276,6 +275,7 @@ import type { ComponentProps } from "./types"
 Antes de commitar qualquer mudança, verifique:
 
 ### **✅ Design**
+
 - [ ] Cores seguem o padrão Shadcn/ui
 - [ ] Glassmorphism aplicado em cards/modais
 - [ ] Espaçamentos consistentes (space-y-4 padrão)
@@ -283,6 +283,7 @@ Antes de commitar qualquer mudança, verifique:
 - [ ] Animações suaves (transition-colors)
 
 ### **✅ Código**
+
 - [ ] Componentes Shadcn/ui utilizados
 - [ ] Estrutura de componente seguida
 - [ ] Imports organizados
@@ -290,12 +291,14 @@ Antes de commitar qualquer mudança, verifique:
 - [ ] Estados de loading/erro implementados
 
 ### **✅ Performance**
+
 - [ ] `pnpm run build` executado com sucesso
 - [ ] Sem erros de TypeScript
 - [ ] Imagens otimizadas (next/image)
 - [ ] Lazy loading para componentes pesados
 
 ### **✅ Acessibilidade**
+
 - [ ] Contraste adequado
 - [ ] Navegação por teclado
 - [ ] Labels semânticos
@@ -308,24 +311,20 @@ Antes de commitar qualquer mudança, verifique:
 ### **✅ Card de Produto**
 
 ```tsx
-<Card className="border-border/50 bg-card/50 hover:bg-card/70 transition-colors">
-  <CardHeader className="pb-3">
-    <CardTitle className="flex items-center gap-2 text-sm font-medium">
-      <Package className="h-4 w-4 text-primary" />
+<Card className='border-border/50 bg-card/50 hover:bg-card/70 transition-colors'>
+  <CardHeader className='pb-3'>
+    <CardTitle className='flex items-center gap-2 text-sm font-medium'>
+      <Package className='h-4 w-4 text-primary' />
       Nome do Produto
     </CardTitle>
   </CardHeader>
-  <CardContent className="space-y-4">
-    <p className="text-sm text-muted-foreground">
-      Descrição do produto
-    </p>
-    <div className="flex items-center justify-between">
-      <Badge className="bg-green-500/10 text-green-500 border-green-500/30">
+  <CardContent className='space-y-4'>
+    <p className='text-sm text-muted-foreground'>Descrição do produto</p>
+    <div className='flex items-center justify-between'>
+      <Badge className='bg-green-500/10 text-green-500 border-green-500/30'>
         Disponível
       </Badge>
-      <Button size="sm">
-        Ver Detalhes
-      </Button>
+      <Button size='sm'>Ver Detalhes</Button>
     </div>
   </CardContent>
 </Card>
@@ -335,25 +334,27 @@ Antes de commitar qualquer mudança, verifique:
 
 ```tsx
 <Dialog open={open} onOpenChange={setOpen}>
-  <DialogContent className="backdrop-blur-xl bg-card/95 border-border/50 z-[60]">
-    <DialogHeader className="pb-6">
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-destructive/10 rounded-lg">
-          <AlertTriangle className="h-5 w-5 text-destructive" />
+  <DialogContent className='backdrop-blur-xl bg-card/95 border-border/50 z-[60]'>
+    <DialogHeader className='pb-6'>
+      <div className='flex items-center gap-3'>
+        <div className='p-2 bg-destructive/10 rounded-lg'>
+          <AlertTriangle className='h-5 w-5 text-destructive' />
         </div>
         <div>
-          <DialogTitle className="text-xl font-semibold">Confirmar Ação</DialogTitle>
-          <DialogDescription className="text-sm text-muted-foreground">
+          <DialogTitle className='text-xl font-semibold'>
+            Confirmar Ação
+          </DialogTitle>
+          <DialogDescription className='text-sm text-muted-foreground'>
             Esta ação não pode ser desfeita.
           </DialogDescription>
         </div>
       </div>
     </DialogHeader>
-    <div className="flex gap-3">
-      <Button variant="outline" onClick={() => setOpen(false)}>
+    <div className='flex gap-3'>
+      <Button variant='outline' onClick={() => setOpen(false)}>
         Cancelar
       </Button>
-      <Button variant="destructive" onClick={handleConfirm}>
+      <Button variant='destructive' onClick={handleConfirm}>
         Confirmar
       </Button>
     </div>
@@ -382,6 +383,7 @@ pnpm run format
 ---
 
 **🎨 Design System Rules v1.0.0**  
-*Regras obrigatórias para manter consistência no projeto*
+_Regras obrigatórias para manter consistência no projeto_
 
-**⚠️ IMPORTANTE:** Sempre siga estas regras para manter a qualidade e consistência do projeto! 
+**⚠️ IMPORTANTE:** Sempre siga estas regras para manter a qualidade e
+consistência do projeto!

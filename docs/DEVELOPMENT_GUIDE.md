@@ -8,6 +8,7 @@
 ## 🚀 **Início Rápido**
 
 ### **Comandos Essenciais:**
+
 ```bash
 # Verificar qualidade antes de commitar
 pnpm run lint:check    # ESLint sem warnings
@@ -24,6 +25,7 @@ pnpm run quality:fix   # Corrigir tudo
 ## 📋 **Workflow de Desenvolvimento**
 
 ### **1. Antes de Começar:**
+
 ```bash
 # Instalar dependências
 pnpm install
@@ -33,6 +35,7 @@ pnpm run build
 ```
 
 ### **2. Durante o Desenvolvimento:**
+
 ```bash
 # Desenvolvimento local
 pnpm run dev
@@ -43,6 +46,7 @@ pnpm run type-check    # Ver erros TypeScript
 ```
 
 ### **3. Antes de Commitar:**
+
 ```bash
 # Checklist obrigatório
 pnpm run lint:check    # ✅ Sem erros ESLint
@@ -51,6 +55,7 @@ pnpm run build         # ✅ Build funcionando
 ```
 
 ### **4. Se Houver Problemas:**
+
 ```bash
 # Corrigir automaticamente
 pnpm run lint:fix      # Corrigir ESLint
@@ -68,72 +73,78 @@ pnpm run type-check
 ### **ESLint Rules (Obrigatórias):**
 
 #### **React Hooks:**
+
 ```tsx
 // ✅ CORRETO
 useEffect(() => {
   // lógica
-  return () => cleanup()
-}, [dependencies])
+  return () => cleanup();
+}, [dependencies]);
 
 // ❌ INCORRETO
 useEffect(() => {
   // lógica sem return
-}, [dependencies])
+}, [dependencies]);
 ```
 
 #### **Console Statements:**
+
 ```tsx
 // ✅ PERMITIDO
-console.warn('Aviso importante')
-console.error('Erro crítico')
+console.warn('Aviso importante');
+console.error('Erro crítico');
 
 // ❌ NÃO PERMITIDO
-console.log('Debug info')  // Warning
-console.debug('Debug')     // Warning
+console.log('Debug info'); // Warning
+console.debug('Debug'); // Warning
 ```
 
 #### **Object Shorthand:**
+
 ```tsx
 // ✅ CORRETO
-const obj = { name, age }
+const obj = { name, age };
 
 // ❌ INCORRETO
-const obj = { name: name, age: age }
+const obj = { name: name, age: age };
 ```
 
 #### **Const vs Let:**
+
 ```tsx
 // ✅ CORRETO
-const data = fetchData()
-const items = data.map(item => item.id)
+const data = fetchData();
+const items = data.map(item => item.id);
 
 // ❌ INCORRETO
-let data = fetchData()  // Se não vai reatribuir
+let data = fetchData(); // Se não vai reatribuir
 ```
 
 ### **TypeScript Rules (Obrigatórias):**
 
 #### **Imports Não Utilizados:**
+
 ```tsx
 // ❌ NÃO PERMITIDO
-import { useState, useEffect, useMemo } from 'react'  // useEffect não usado
-import { Button, Card, Badge } from '@/components/ui' // Badge não usado
+import { useState, useEffect, useMemo } from 'react'; // useEffect não usado
+import { Button, Card, Badge } from '@/components/ui'; // Badge não usado
 
 // ✅ CORRETO
-import { useState, useMemo } from 'react'
-import { Button, Card } from '@/components/ui'
+import { useState, useMemo } from 'react';
+import { Button, Card } from '@/components/ui';
 ```
 
 #### **Variáveis Undefined:**
+
 ```tsx
 // ❌ PROBLEMÁTICO
-const user = users.find(u => u.id === id)
-console.log(user.name)  // user pode ser undefined
+const user = users.find(u => u.id === id);
+console.log(user.name); // user pode ser undefined
 
 // ✅ SEGURO
-const user = users.find(u => u.id === id)
+const user = users.find(u => u.id === id);
 if (user) {
-  console.log(user.name)
+  console.log(user.name);
 }
 ```
 
@@ -142,6 +153,7 @@ if (user) {
 ## 🔧 **Correções Comuns**
 
 ### **1. Imports Não Utilizados:**
+
 ```bash
 # Remover automaticamente
 pnpm run lint:fix
@@ -151,6 +163,7 @@ pnpm run lint:fix
 ```
 
 ### **2. Apostrofes em JSX:**
+
 ```tsx
 // ❌ PROBLEMA
 <p>Let's work together!</p>
@@ -160,31 +173,33 @@ pnpm run lint:fix
 ```
 
 ### **3. Object Shorthand:**
+
 ```tsx
 // ❌ PROBLEMA
-const props = { name: name, age: age }
+const props = { name: name, age: age };
 
 // ✅ SOLUÇÃO
-const props = { name, age }
+const props = { name, age };
 ```
 
 ### **4. useEffect sem Return:**
+
 ```tsx
 // ❌ PROBLEMA
 useEffect(() => {
   if (condition) {
     // lógica
-    return cleanup()
+    return cleanup();
   }
-}, [condition])
+}, [condition]);
 
 // ✅ SOLUÇÃO
 useEffect(() => {
-  if (!condition) return
-  
+  if (!condition) return;
+
   // lógica
-  return cleanup()
-}, [condition])
+  return cleanup();
+}, [condition]);
 ```
 
 ---
@@ -192,6 +207,7 @@ useEffect(() => {
 ## 📁 **Estrutura de Arquivos**
 
 ### **Organização Recomendada:**
+
 ```
 components/
 ├── ui/                    # Componentes Shadcn/ui
@@ -209,18 +225,19 @@ app/
 ```
 
 ### **Convenções de Nomenclatura:**
+
 ```tsx
 // ✅ Componentes
-export function HeroSection() { }
-export function AboutMeSection() { }
+export function HeroSection() {}
+export function AboutMeSection() {}
 
 // ✅ Hooks
-export function useScrollAnimation() { }
-export function useMobile() { }
+export function useScrollAnimation() {}
+export function useMobile() {}
 
 // ✅ Utilitários
-export function formatDate() { }
-export function validateEmail() { }
+export function formatDate() {}
+export function validateEmail() {}
 ```
 
 ---
@@ -228,30 +245,33 @@ export function validateEmail() { }
 ## 🎨 **Design System**
 
 ### **Cores (Obrigatório):**
+
 ```tsx
 // ✅ SEMPRE use variáveis CSS
-className="bg-background text-foreground"
-className="bg-primary text-primary-foreground"
-className="bg-muted text-muted-foreground"
+className = 'bg-background text-foreground';
+className = 'bg-primary text-primary-foreground';
+className = 'bg-muted text-muted-foreground';
 
 // ❌ NUNCA use cores hardcoded
-className="bg-white text-black"  // ❌
-className="bg-gray-100"          // ❌
+className = 'bg-white text-black'; // ❌
+className = 'bg-gray-100'; // ❌
 ```
 
 ### **Espaçamentos (Obrigatório):**
+
 ```tsx
 // ✅ Espaçamentos consistentes
-className="space-y-4"     // 16px - PADRÃO
-className="space-y-6"     // 24px
-className="space-y-8"     // 32px
+className = 'space-y-4'; // 16px - PADRÃO
+className = 'space-y-6'; // 24px
+className = 'space-y-8'; // 32px
 
 // ✅ Responsividade
-className="p-4 md:p-6 lg:p-8"
-className="text-lg md:text-xl lg:text-2xl"
+className = 'p-4 md:p-6 lg:p-8';
+className = 'text-lg md:text-xl lg:text-2xl';
 ```
 
 ### **Componentes (Obrigatório):**
+
 ```tsx
 // ✅ SEMPRE use Shadcn/ui
 import { Button } from "@/components/ui/button"
@@ -267,6 +287,7 @@ import { Badge } from "@/components/ui/badge"
 ## 🚨 **Problemas Comuns e Soluções**
 
 ### **1. ESLint não funciona:**
+
 ```bash
 # Verificar dependências
 pnpm install
@@ -280,6 +301,7 @@ pnpm add -D eslint-config-next
 ```
 
 ### **2. TypeScript com muitos erros:**
+
 ```bash
 # Verificar configuração
 cat tsconfig.json
@@ -290,6 +312,7 @@ pnpm run build
 ```
 
 ### **3. Build falha:**
+
 ```bash
 # Verificar erros
 pnpm run type-check
@@ -302,6 +325,7 @@ pnpm run build
 ```
 
 ### **4. Imports não resolvidos:**
+
 ```tsx
 // ✅ Verificar paths no tsconfig.json
 {
@@ -321,12 +345,14 @@ import { Button } from "../../ui/button"         // ❌
 ## 📊 **Métricas de Qualidade**
 
 ### **Status Atual:**
+
 - ✅ **TypeScript:** 14 erros (78% redução)
 - ✅ **ESLint:** 8 erros menores
 - ✅ **Build:** Funcionando perfeitamente
 - ✅ **Performance:** Mantida
 
 ### **Metas:**
+
 - 🎯 **TypeScript:** < 10 erros
 - 🎯 **ESLint:** < 5 erros
 - 🎯 **Build:** Sempre funcionando
@@ -337,6 +363,7 @@ import { Button } from "../../ui/button"         // ❌
 ## 🔄 **Integração com IDE**
 
 ### **VS Code Extensions Recomendadas:**
+
 ```json
 {
   "recommendations": [
@@ -349,6 +376,7 @@ import { Button } from "../../ui/button"         // ❌
 ```
 
 ### **Configurações VS Code:**
+
 ```json
 {
   "editor.formatOnSave": true,
@@ -364,11 +392,13 @@ import { Button } from "../../ui/button"         // ❌
 ## 📚 **Recursos Adicionais**
 
 ### **Documentação:**
+
 - [Melhorias de Qualidade](./CODE_QUALITY_IMPROVEMENTS.md)
 - [Design System Rules](../DESIGN_SYSTEM_RULES.md)
 - [Regras do Projeto](../README.md)
 
 ### **Comandos Úteis:**
+
 ```bash
 # Verificar tudo
 pnpm run quality
@@ -389,17 +419,20 @@ pnpm run analyze
 ## 🎯 **Checklist Diário**
 
 ### **Antes de Começar:**
+
 - [ ] `pnpm install` (se necessário)
 - [ ] `pnpm run dev` funcionando
 - [ ] ESLint configurado no IDE
 
 ### **Durante Desenvolvimento:**
+
 - [ ] Seguir design system
 - [ ] Usar componentes Shadcn/ui
 - [ ] Verificar responsividade
 - [ ] Testar funcionalidades
 
 ### **Antes de Commitar:**
+
 - [ ] `pnpm run lint:check`
 - [ ] `pnpm run type-check`
 - [ ] `pnpm run build`
@@ -409,4 +442,4 @@ pnpm run analyze
 
 **📅 Última Atualização:** Janeiro 2025  
 **👨‍💻 Responsável:** Assistente AI  
-**📋 Versão:** 1.0.0 
+**📋 Versão:** 1.0.0
