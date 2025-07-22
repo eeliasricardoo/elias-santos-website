@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Sparkles } from "lucide-react"
+import { AnimatedBadge } from "./AnimatedBadge"
 
 export function HeroContent() {
   return (
@@ -12,15 +12,9 @@ export function HeroContent() {
       className="relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto"
     >
       {/* Badge Animado */}
-      <motion.div 
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-        className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 border border-border/50 backdrop-blur-sm shadow-sm"
-      >
-        <Sparkles className="w-4 h-4 text-muted-foreground" />
-        <span className="text-sm font-medium text-muted-foreground tracking-wide">Elias Santos</span>
-      </motion.div>
+      <AnimatedBadge animationDelay={0.5}>
+        Elias Santos
+      </AnimatedBadge>
 
       {/* Título Principal */}
       <div className="space-y-4">
@@ -42,8 +36,6 @@ export function HeroContent() {
           Strategic UX/UI Designer & Full Stack Developer. I transform complex business challenges into elegant, user-centered solutions that drive measurable results and accelerate time-to-market.
         </motion.p>
       </div>
-        
-
     </motion.div>
   )
 } 

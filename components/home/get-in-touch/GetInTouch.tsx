@@ -3,18 +3,13 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { 
-  Mail, 
-  User, 
-  MessageSquare,
   Send,
   CheckCircle,
   AlertCircle
 } from "lucide-react"
+import { FormField } from "./FormField"
 
 export function GetInTouch() {
   const [formData, setFormData] = useState({
@@ -67,7 +62,6 @@ export function GetInTouch() {
 
   return (
     <section id="get-in-touch" className="relative py-24 overflow-hidden">
-
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,10 +71,10 @@ export function GetInTouch() {
           className="text-center space-y-6 mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Let&#39;s Build Something Amazing
+            Let&apos;s Build Something Amazing
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Ready to transform your ideas into exceptional digital experiences? Let&#39;s discuss how we can create value together and bring your vision to life.
+            Ready to transform your ideas into exceptional digital experiences? Let&apos;s discuss how we can create value together and bring your vision to life.
           </p>
         </motion.div>
 
@@ -93,100 +87,53 @@ export function GetInTouch() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="space-y-2"
-                  >
-                    <label htmlFor="name" className="text-lg font-medium text-foreground flex items-center">
-                      <User className="w-4 h-4 mr-2" />
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="border-border/50 focus:border-primary h-12 text-base"
-                    />
-                  </motion.div>
+                  <FormField
+                    label="Name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    animationDelay={0.1}
+                  />
 
                   {/* Email */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="space-y-2"
-                  >
-                    <label htmlFor="email" className="text-lg font-medium text-foreground flex items-center">
-                      <Mail className="w-4 h-4 mr-2" />
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="border-border/50 focus:border-primary h-12 text-base"
-                    />
-                  </motion.div>
+                  <FormField
+                    label="Email"
+                    name="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    animationDelay={0.2}
+                  />
                 </div>
 
                 {/* Subject */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="space-y-2"
-                >
-                  <label htmlFor="subject" className="text-lg font-medium text-foreground">
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    placeholder="What&#39;s this about?"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="border-border/50 focus:border-primary h-12 text-base"
-                  />
-                </motion.div>
+                <FormField
+                  label="Subject"
+                  name="subject"
+                  type="text"
+                  placeholder="What's this about?"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                  animationDelay={0.3}
+                />
 
                 {/* Message */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="space-y-2"
-                >
-                  <label htmlFor="message" className="text-lg font-medium text-foreground flex items-center">
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Share your project vision, challenges, or let&#39;s explore collaboration opportunities..."
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={8}
-                    className="border-border/50 focus:border-primary resize-none text-base min-h-[200px]"
-                  />
-                </motion.div>
+                <FormField
+                  label="Message"
+                  name="message"
+                  type="textarea"
+                  placeholder="Share your project vision, challenges, or let's explore collaboration opportunities..."
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  animationDelay={0.4}
+                />
 
                 {/* Submit Button */}
                 <motion.div

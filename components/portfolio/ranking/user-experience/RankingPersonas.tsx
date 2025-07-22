@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import { Section, PersonaCard } from '../../ui';
 
 export default function RankingPersonas() {
   const personas = [
@@ -31,30 +32,20 @@ export default function RankingPersonas() {
   ];
 
   return (
-    <section className="space-y-4">
-      <h2 className="text-2xl font-semibold mb-2">Personas</h2>
+    <Section title="Personas">
       <div className="space-y-4">
         {personas.map((persona) => (
-          <div key={persona.name} className="bg-muted/20 rounded-lg p-6 border border-border/20">
-            <div className="font-semibold text-foreground text-lg mb-2">{persona.name} — {persona.role}</div>
-            <div className="text-muted-foreground text-sm mb-3">Age: {persona.age}</div>
-            <div className="space-y-2 text-lg">
-              <div>
-                <span className="font-semibold text-foreground">Goal:</span>
-                <span className="text-muted-foreground"> {persona.goal}</span>
-              </div>
-              <div>
-                <span className="font-semibold text-foreground">Needs:</span>
-                <span className="text-muted-foreground"> {persona.needs}</span>
-              </div>
-              <div>
-                <span className="font-semibold text-foreground">Pain Points:</span>
-                <span className="text-muted-foreground"> {persona.painPoints}</span>
-              </div>
-            </div>
-          </div>
+          <PersonaCard
+            key={persona.name}
+            name={persona.name}
+            role={persona.role}
+            age={persona.age}
+            goal={persona.goal}
+            needs={persona.needs}
+            painPoints={persona.painPoints}
+          />
         ))}
       </div>
-    </section>
+    </Section>
   );
 } 

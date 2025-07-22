@@ -1,3 +1,6 @@
+// UI Components
+export * from '../ui';
+
 // Header
 export { RankingHeader } from './header';
 

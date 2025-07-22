@@ -2,12 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Section, AnimatedContainer } from '../../ui';
 
 export default function RankingIntroduction() {
   return (
-    <section className="space-y-6">
-      <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
-      
+    <Section title="Introduction">
       <p className="text-muted-foreground text-lg">
         In digital education platforms, gamification has been an effective tool for engaging students. One of the main gamified mechanisms is the ranking system, which allows students to track their progress and compare their performance with peers.
       </p>
@@ -16,9 +15,9 @@ export default function RankingIntroduction() {
       </p>
       
       {/* Animação de Gamificação */}
-      <div className="relative mt-8 p-6 bg-muted/20 rounded-lg border border-border/20">
+      <AnimatedContainer>
         {/* Barra de progresso animada */}
-        <div className="relative z-10 mb-6">
+        <div className="mb-6">
           <div className="bg-gray-800 rounded-full h-4 overflow-hidden border border-border/30">
             <motion.div
               initial={{ width: 0 }}
@@ -45,7 +44,7 @@ export default function RankingIntroduction() {
         </div>
         
         {/* Ranking animado */}
-        <div className="relative z-10 space-y-3">
+        <div className="space-y-3">
           {[{
             pos: 1, label: 'Top Student', level: 15, xp: '8,500', color: 'bg-gray-700'
           }, {
@@ -74,7 +73,7 @@ export default function RankingIntroduction() {
           </div>
           ))}
         </div>
-      </div>
-    </section>
+      </AnimatedContainer>
+    </Section>
   );
 } 

@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
+import { Section } from "../ui"
+import { FastForwardIcon } from "./FastForwardIcon"
 
 export function AboutMeSection() {
   return (
-    <section id="about-me" className="relative py-24 overflow-hidden">
-      {/* Background removido */}
-      
+    <Section id="about-me">
       {/* Floating elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
@@ -64,31 +64,9 @@ export function AboutMeSection() {
           </div>
 
           {/* Fast forward icon */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="flex justify-end mt-12"
-          >
-            <div className="w-8 h-8 border-2 border-muted-foreground/30 rounded-full flex items-center justify-center">
-              <svg 
-                className="w-4 h-4 text-muted-foreground/60" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M13 5l7 7-7 7M5 5l7 7-7 7" 
-                />
-              </svg>
-            </div>
-          </motion.div>
+          <FastForwardIcon animationDelay={0.3} />
         </motion.div>
       </div>
-    </section>
+    </Section>
   )
 } 

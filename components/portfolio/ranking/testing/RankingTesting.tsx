@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import { TestCard, AdjustmentCard } from '../../ui';
 
 export default function RankingTesting() {
   const tests = [
@@ -55,15 +56,12 @@ export default function RankingTesting() {
           <div className="bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6">
             <div className="grid gap-6 md:grid-cols-3">
               {tests.map((test) => (
-                <div key={test.title} className="text-center">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={test.icon} />
-                    </svg>
-                  </div>
-                  <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">{test.title}</h5>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{test.description}</p>
-                </div>
+                <TestCard
+                  key={test.title}
+                  icon={test.icon}
+                  title={test.title}
+                  description={test.description}
+                />
               ))}
             </div>
           </div>
@@ -74,20 +72,15 @@ export default function RankingTesting() {
       <div className="space-y-4">
         <h4 className="text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2">Key Adjustments</h4>
         <div className="space-y-4 text-lg">
-          <div className="bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6">
+          <div className="bg-white/10 dark:bg-zinc-700/50 rounded-xl p-6">
             <div className="space-y-4">
               {adjustments.map((adjustment) => (
-                <div key={adjustment.title} className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={adjustment.icon} />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-gray-800 dark:text-gray-100 mb-1">{adjustment.title}</h5>
-                    <p className="text-gray-600 dark:text-gray-300">{adjustment.description}</p>
-                  </div>
-                </div>
+                <AdjustmentCard
+                  key={adjustment.title}
+                  icon={adjustment.icon}
+                  title={adjustment.title}
+                  description={adjustment.description}
+                />
               ))}
             </div>
           </div>

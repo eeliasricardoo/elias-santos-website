@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-
-import Image from "next/image"
+import { CompanyLogo } from "./CompanyLogo"
 
 // Componente de Carrossel de Empresas
 function CompanyCarousel() {
@@ -28,42 +27,20 @@ function CompanyCarousel() {
       <div className="flex animate-scroll space-x-16">
         {/* Primeira sequência */}
         {companies.map((logo, index) => (
-          <div
+          <CompanyLogo
             key={`first-${index}`}
-            className="flex-shrink-0 flex items-center justify-center"
-            style={{
-              width: `${Math.min(120 + index * 20, 200)}px`,
-              height: `${Math.min(60 + index * 10, 100)}px`
-            }}
-          >
-            <Image
-              src={logo}
-              alt={`Empresa ${index + 1}`}
-              width={Math.min(120 + index * 20, 200)}
-              height={Math.min(60 + index * 10, 100)}
-              className="hover:opacity-100 transition-opacity duration-300"
-            />
-          </div>
+            src={logo}
+            alt={`Empresa ${index + 1}`}
+          />
         ))}
         
         {/* Segunda sequência (duplicada para loop infinito) */}
         {companies.map((logo, index) => (
-          <div
+          <CompanyLogo
             key={`second-${index}`}
-            className="flex-shrink-0 flex items-center justify-center"
-            style={{
-              width: `${Math.min(120 + index * 20, 200)}px`,
-              height: `${Math.min(60 + index * 10, 100)}px`
-            }}
-          >
-            <Image
-              src={logo}
-              alt={`Empresa ${index + 1}`}
-              width={Math.min(120 + index * 20, 200)}
-              height={Math.min(60 + index * 10, 100)}
-              className="hover:opacity-100 transition-opacity duration-300"
-            />
-          </div>
+            src={logo}
+            alt={`Empresa ${index + 1}`}
+          />
         ))}
       </div>
     </div>
