@@ -19,6 +19,7 @@ export function AnimatedBadge({
 }: AnimatedBadgeProps) {
   return (
     <motion.div
+      data-testid="animated-badge"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: animationDelay, type: 'spring', stiffness: 200 }}

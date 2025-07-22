@@ -190,7 +190,7 @@ export function EmailClient() {
 
   const userMessage = 'Tell me something interesting about Elias';
   const botResponse =
-    'Elias currently has a 389-day streak on Duolingo. He also created a script that automatically updates this number on the website every day. His commitment to continuous learning reflects his approach to professional development.';
+    'Elias currently has a 592-day streak on Duolingo. He also created a script that automatically updates this number on the website every day. His commitment to continuous learning reflects his approach to professional development.';
 
   const userMessage2 = 'Why should we work with him?';
   const botResponse2 =
