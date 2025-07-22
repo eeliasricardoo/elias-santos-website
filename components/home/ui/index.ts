@@ -7,6 +7,4 @@ export { ChatMessage } from './ChatMessage';
 export { TestimonialCard } from './TestimonialCard';
 export { CompanyLogo } from './CompanyLogo';
 export { FormField } from './FormField';
-export { FastForwardIcon } from './FastForwardIcon';
-export { BorderBeam } from './BorderBeam';
-export { EmailClient } from './EmailClient'; 
+export { FastForwardIcon } from './FastForwardIcon'; 

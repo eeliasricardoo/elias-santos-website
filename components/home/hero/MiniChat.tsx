@@ -113,12 +113,6 @@ const BorderBeam = ({
   initialOffset = 0,
   borderWidth = 1,
 }: BorderBeamProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay * 1000);
-    return () => clearTimeout(timer);
-  }, [delay]);
 
   return (
     <div
