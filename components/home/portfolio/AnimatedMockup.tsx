@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { CarrosselBuilderCard } from '@/components/portfolio/carrossel-builder';
 
 interface AnimatedMockupProps {
-  type: 'ranking' | 'weighted' | 'ux-research' | 'ventus-chat';
+  type: 'ranking' | 'weighted' | 'ux-research' | 'ventus-chat' | 'carrossel-builder';
 }
 
 export function AnimatedMockup({ type }: AnimatedMockupProps) {
@@ -267,6 +268,14 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             ))}
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (type === 'carrossel-builder') {
+    return (
+      <div className='w-full h-full flex items-center justify-center'>
+        <CarrosselBuilderCard />
       </div>
     );
   }

@@ -49,7 +49,14 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4]);
 
   const handleCardClick = () => {
-    router.push('/portfolio/ranking');
+    // Navegação baseada no índice do card
+    if (index === 0) {
+      router.push('/portfolio/ranking');
+    } else if (index === 1) {
+      router.push('/portfolio/carrossel-builder');
+    } else {
+      router.push('/portfolio/ranking'); // Fallback
+    }
   };
 
   return (
@@ -94,7 +101,14 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
                 className='bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 py-2.5 text-sm font-medium'
                 onClick={e => {
                   e.stopPropagation();
-                  router.push('/portfolio/ranking');
+                  // Navegação baseada no índice do card
+                  if (index === 0) {
+                    router.push('/portfolio/ranking');
+                  } else if (index === 1) {
+                    router.push('/portfolio/carrossel-builder');
+                  } else {
+                    router.push('/portfolio/ranking'); // Fallback
+                  }
                 }}
               >
                 {card.buttonText}
@@ -102,7 +116,13 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
             </div>
             {/* Lado Direito - Mockup Animado */}
             <div className='relative w-full h-full overflow-hidden'>
-              <AnimatedMockup type={index === 0 ? 'ranking' : 'ventus-chat'} />
+              <AnimatedMockup 
+                type={
+                  index === 0 ? 'ranking' : 
+                  index === 1 ? 'carrossel-builder' : 
+                  'ventus-chat'
+                } 
+              />
             </div>
           </div>
         </CardContent>

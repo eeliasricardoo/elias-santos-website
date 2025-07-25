@@ -15,13 +15,20 @@ const portfolioCards = [
   },
   {
     id: 2,
+    title: 'Carrossel Builder AI: Intelligent Story Creation',
+    description:
+      'Developed an AI-powered carousel builder that generates engaging social media content automatically. Features intelligent story sequencing, dynamic content adaptation, and seamless integration with Instagram and LinkedIn.',
+    buttonText: 'View Case Study',
+  },
+  {
+    id: 3,
     title: 'Weighted Average: Greater Flexibility for Test Configuration',
     description:
       'Engineered an intelligent assessment platform that reduced test configuration time by 60% while improving evaluation accuracy. Enables institutions to customize test weights and criteria to align with specific learning objectives.',
     buttonText: 'Coming Soon',
   },
   {
-    id: 3,
+    id: 4,
     title: 'UX Research & Service Design',
     description:
       'Led end-to-end research initiatives and service design projects that resulted in 35% improvement in user satisfaction scores. Specialized in user journey mapping, usability testing, and strategic design thinking.',
