@@ -53,7 +53,9 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
     if (index === 0) {
       router.push('/portfolio/ranking');
     } else if (index === 1) {
-      router.push('/portfolio/carrossel-builder');
+      router.push('/portfolio/carousel-builder');
+    } else if (index === 2) {
+      router.push('/portfolio/ventuschat');
     } else {
       router.push('/portfolio/ranking'); // Fallback
     }
@@ -105,7 +107,9 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
                   if (index === 0) {
                     router.push('/portfolio/ranking');
                   } else if (index === 1) {
-                    router.push('/portfolio/carrossel-builder');
+                    router.push('/portfolio/carousel-builder');
+                  } else if (index === 2) {
+                    router.push('/portfolio/ventuschat');
                   } else {
                     router.push('/portfolio/ranking'); // Fallback
                   }
@@ -119,7 +123,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               <AnimatedMockup 
                 type={
                   index === 0 ? 'ranking' : 
-                  index === 1 ? 'carrossel-builder' : 
+                  index === 1 ? 'carousel-builder' : 
                   'ventus-chat'
                 } 
               />

@@ -22,18 +22,12 @@ const portfolioCards = [
   },
   {
     id: 3,
-    title: 'Weighted Average: Greater Flexibility for Test Configuration',
+    title: 'ChatAI: Personal AI Ecosystem',
     description:
-      'Engineered an intelligent assessment platform that reduced test configuration time by 60% while improving evaluation accuracy. Enables institutions to customize test weights and criteria to align with specific learning objectives.',
-    buttonText: 'Coming Soon',
+      'Built my own AI tool in one week to solve a real problem: creating a personal AI ecosystem that&apos;s 75% cheaper, fully customizable, and superior to existing workflows. Features unified chat interface, screenshot analysis, and multimodal generation.',
+    buttonText: 'View Case Study',
   },
-  {
-    id: 4,
-    title: 'UX Research & Service Design',
-    description:
-      'Led end-to-end research initiatives and service design projects that resulted in 35% improvement in user satisfaction scores. Specialized in user journey mapping, usability testing, and strategic design thinking.',
-    buttonText: 'Explore Work',
-  },
+
 ];
 
 export function PortfolioSection() {

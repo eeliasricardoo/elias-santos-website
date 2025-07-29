@@ -1,3 +1,3 @@
 // Portfolio Components
 export * from './ranking';
-export * from './carrossel-builder';
+export * from './carousel-builder';

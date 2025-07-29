@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-export function CarrosselBuilderCard() {
+export function CarouselBuilderCard() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Dados do carrossel

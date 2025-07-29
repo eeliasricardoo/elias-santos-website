@@ -2,7 +2,7 @@
 
 ## 📋 Descrição
 
-O componente `CarrosselBuilderCard` simula um carrossel infinito de stories, similar aos encontrados no Instagram e LinkedIn. Ele demonstra uma interface de criação de conteúdo automatizada com IA.
+O componente `CarouselBuilderCard` simula um carrossel infinito de stories, similar aos encontrados no Instagram e LinkedIn. Ele demonstra uma interface de criação de conteúdo automatizada com IA.
 
 ## 🎯 Funcionalidades
 
@@ -22,7 +22,7 @@ O componente `CarrosselBuilderCard` simula um carrossel infinito de stories, sim
 ## 📱 Estrutura do Componente
 
 ```
-CarrosselBuilderCard/
+CarouselBuilderCard/
 ├── Header com informações do AI Builder
 ├── Conteúdo do carrossel com slides
 ├── Ações de interação (like, comentário, compartilhar)
@@ -32,10 +32,10 @@ CarrosselBuilderCard/
 ## 🔧 Uso
 
 ```tsx
-import { CarrosselBuilderCard } from '@/components/portfolio/carrossel-builder';
+import { CarouselBuilderCard } from '@/components/portfolio/carousel-builder';
 
 // No componente
-<CarrosselBuilderCard />
+<CarouselBuilderCard />
 ```
 
 ## 🎭 Animações

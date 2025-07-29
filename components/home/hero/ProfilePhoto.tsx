@@ -15,7 +15,7 @@ export function ProfilePhoto() {
         {/* Container da foto */}
         <div className='relative w-48 h-48 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
           <Image
-            src='/images/WhatsApp Image 2025-07-18 at 02.01.50_8d26a9db.jpg'
+            src='/profile-photo.png'
             alt='Elias Santos - UX/UI Designer & Full Stack Developer'
             fill
             className='object-cover object-center'

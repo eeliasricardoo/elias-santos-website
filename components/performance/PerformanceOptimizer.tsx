@@ -19,7 +19,7 @@ export function PerformanceOptimizer({ children }: PerformanceOptimizerProps) {
     const preloadCriticalResources = async () => {
       try {
         // Preload de imagens críticas
-        const criticalImages = ['/logo.png', '/placeholder-user.jpg'];
+        const criticalImages = ['/logo.png', '/profile-photo.png'];
 
         for (const image of criticalImages) {
           const link = document.createElement('link');
