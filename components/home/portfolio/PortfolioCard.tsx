@@ -120,12 +120,14 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
             </div>
             {/* Lado Direito - Mockup Animado */}
             <div className='relative w-full h-full overflow-hidden'>
-              <AnimatedMockup 
+              <AnimatedMockup
                 type={
-                  index === 0 ? 'ranking' : 
-                  index === 1 ? 'carousel-builder' : 
-                  'ventus-chat'
-                } 
+                  index === 0
+                    ? 'ranking'
+                    : index === 1
+                      ? 'carousel-builder'
+                      : 'ventus-chat'
+                }
               />
             </div>
           </div>

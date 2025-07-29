@@ -272,7 +272,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
     );
   }
 
-      if (type === 'carousel-builder') {
+  if (type === 'carousel-builder') {
     return (
       <div className='w-full h-full flex items-center justify-center'>
         <CarouselBuilderCard />

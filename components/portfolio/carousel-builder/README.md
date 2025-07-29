@@ -2,7 +2,9 @@
 
 ## 📋 Descrição
 
-O componente `CarouselBuilderCard` simula um carrossel infinito de stories, similar aos encontrados no Instagram e LinkedIn. Ele demonstra uma interface de criação de conteúdo automatizada com IA.
+O componente `CarouselBuilderCard` simula um carrossel infinito de stories,
+similar aos encontrados no Instagram e LinkedIn. Ele demonstra uma interface de
+criação de conteúdo automatizada com IA.
 
 ## 🎯 Funcionalidades
 
@@ -35,7 +37,7 @@ CarouselBuilderCard/
 import { CarouselBuilderCard } from '@/components/portfolio/carousel-builder';
 
 // No componente
-<CarouselBuilderCard />
+<CarouselBuilderCard />;
 ```
 
 ## 🎭 Animações
@@ -48,6 +50,7 @@ import { CarouselBuilderCard } from '@/components/portfolio/carousel-builder';
 ## 📊 Dados do Carrossel
 
 O componente inclui 5 slides de exemplo com:
+
 - Títulos únicos
 - Conteúdo variado
 - Gradientes coloridos diferentes
@@ -55,4 +58,6 @@ O componente inclui 5 slides de exemplo com:
 
 ## 🚀 Integração
 
-O componente está integrado ao sistema de portfolio e pode ser usado como mockup animado nos cards de portfolio, demonstrando capacidades de desenvolvimento de interfaces de carrossel com IA. 
+O componente está integrado ao sistema de portfolio e pode ser usado como mockup
+animado nos cards de portfolio, demonstrando capacidades de desenvolvimento de
+interfaces de carrossel com IA.

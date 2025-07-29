@@ -1,2 +1,2 @@
 // Carrossel Builder AI Components
-export * from './CarouselBuilderCard'; 
+export * from './CarouselBuilderCard';

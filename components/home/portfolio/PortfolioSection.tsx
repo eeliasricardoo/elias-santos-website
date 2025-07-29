@@ -27,7 +27,6 @@ const portfolioCards = [
       'Built my own AI tool in one week to solve a real problem: creating a personal AI ecosystem that&apos;s 75% cheaper, fully customizable, and superior to existing workflows. Features unified chat interface, screenshot analysis, and multimodal generation.',
     buttonText: 'View Case Study',
   },
-
 ];
 
 export function PortfolioSection() {

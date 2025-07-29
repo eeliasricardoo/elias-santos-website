@@ -42,7 +42,7 @@ export function CarouselBuilderCard() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+      setCurrentSlide(prev => (prev + 1) % carouselItems.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [carouselItems.length]);
@@ -220,4 +220,4 @@ export function CarouselBuilderCard() {
       />
     </div>
   );
-} 
+}

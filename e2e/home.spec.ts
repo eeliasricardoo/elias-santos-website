@@ -6,7 +6,7 @@ test.describe('Home Page', () => {
 
     // Aguardar a página carregar completamente
     await page.waitForLoadState('networkidle');
-    
+
     // Aguardar as animações terminarem
     await page.waitForTimeout(3000);
 
@@ -19,7 +19,9 @@ test.describe('Home Page', () => {
     );
 
     // Aguardar e verificar se o badge "Elias Santos" está visível
-    await expect(page.locator('[data-testid="animated-badge"]')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('[data-testid="animated-badge"]')).toBeVisible({
+      timeout: 10000,
+    });
   });
 
   test('should display hero section correctly', async ({ page }) => {
@@ -37,10 +39,14 @@ test.describe('Home Page', () => {
     ).toBeVisible({ timeout: 10000 });
 
     // Aguardar e verificar se o badge "Elias Santos" está visível
-    await expect(page.locator('[data-testid="animated-badge"]')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('[data-testid="animated-badge"]')).toBeVisible({
+      timeout: 10000,
+    });
 
     // Verificar se a foto de perfil está presente
-    await expect(page.locator('img[alt*="Elias"], img[alt*="Profile"]')).toBeVisible({ timeout: 10000 });
+    await expect(
+      page.locator('img[alt*="Elias"], img[alt*="Profile"]')
+    ).toBeVisible({ timeout: 10000 });
   });
 
   test('should have working navigation', async ({ page }) => {
@@ -70,8 +76,12 @@ test.describe('Home Page', () => {
     await page.waitForTimeout(3000);
 
     // Verificar se o conteúdo é legível em mobile
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 10000 });
-    await expect(page.locator('[data-testid="animated-badge"]')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible({
+      timeout: 10000,
+    });
+    await expect(page.locator('[data-testid="animated-badge"]')).toBeVisible({
+      timeout: 10000,
+    });
   });
 
   test('should have proper meta tags', async ({ page }) => {
@@ -105,7 +115,11 @@ test.describe('Home Page', () => {
     await page.waitForTimeout(2000);
 
     // Verificar se há indicadores de scroll (usando seletor mais flexível)
-    await expect(page.locator('.fixed.top-0.left-0.right-0.h-1, [data-testid="scroll-progress"]')).toBeVisible({ timeout: 10000 });
+    await expect(
+      page.locator(
+        '.fixed.top-0.left-0.right-0.h-1, [data-testid="scroll-progress"]'
+      )
+    ).toBeVisible({ timeout: 10000 });
   });
 
   test('should load all sections correctly', async ({ page }) => {

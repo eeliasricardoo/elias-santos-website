@@ -11,6 +11,7 @@ import {
 
 import Image from 'next/image';
 import { BR, ES, US } from 'country-flag-icons/react/3x2';
+import { MessageCircle } from 'lucide-react';
 
 const languages = [
   {
@@ -37,6 +38,13 @@ export function Navbar() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('get-in-touch');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   if (!isClient) {
     return (
@@ -71,8 +79,19 @@ export function Navbar() {
             />
           </div>
 
-          {/* Right side - Language selector */}
-          <div className='flex items-center'>
+          {/* Right side - Contact button and Language selector */}
+          <div className='flex items-center gap-4'>
+            {/* Contact Button */}
+            <Button
+              onClick={scrollToContact}
+              variant='outline'
+              size='sm'
+              className='flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors'
+            >
+              <MessageCircle className='w-4 h-4' />
+              <span className='hidden sm:inline'>Contact</span>
+            </Button>
+
             {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
