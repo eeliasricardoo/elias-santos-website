@@ -33,10 +33,10 @@ const languages = [
 
 export function Navbar() {
   const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
-  const [isClient, setIsClient] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
   const scrollToContact = () => {
@@ -45,23 +45,6 @@ export function Navbar() {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  if (!isClient) {
-    return (
-      <nav className='fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='flex items-center justify-between h-16'>
-            <div className='flex items-center'>
-              <div className='w-10 h-10 bg-muted rounded animate-pulse'></div>
-            </div>
-            <div className='flex items-center'>
-              <div className='w-20 h-8 bg-muted rounded animate-pulse'></div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    );
-  }
 
   return (
     <nav className='fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50'>
@@ -100,7 +83,7 @@ export function Navbar() {
                   size='sm'
                   className='flex items-center gap-2'
                 >
-                  {selectedLanguage && (
+                  {mounted && selectedLanguage && (
                     <>
                       <selectedLanguage.flag className='w-4 h-3' />
                       <span className='text-sm'>{selectedLanguage.name}</span>

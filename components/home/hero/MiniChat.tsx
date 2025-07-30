@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { ShineBorder } from '@/components/magicui/shine-border';
 import { Inter } from 'next/font/google';
+import { useMounted } from '@/hooks/use-mounted';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -177,6 +178,7 @@ const BorderBeam = ({
 };
 
 export function EmailClient() {
+  const mounted = useMounted();
   const [chatMessages, setChatMessages] = useState<
     Array<{ id: number; text: string; isUser: boolean }>
   >([]);
@@ -315,6 +317,8 @@ export function EmailClient() {
 
   // Inicia o fluxo quando o componente monta
   useEffect(() => {
+    if (!mounted) return;
+    
     if (
       showInputTyping &&
       inputText === '' &&
@@ -339,7 +343,11 @@ export function EmailClient() {
       };
       typeInInput();
     }
-  }, [showInputTyping, inputText, userMessage, processNextMessage]);
+  }, [mounted, showInputTyping, inputText, userMessage, processNextMessage]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div

@@ -2,8 +2,22 @@
 
 import { motion } from 'framer-motion';
 import { AnimatedBadge } from '../ui';
+import { useMounted } from '@/hooks/use-mounted';
 
 export function HeroContent() {
+  const mounted = useMounted();
+
+  if (!mounted) {
+    return (
+      <div className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'>
+        <div className='space-y-4'>
+          <div className='h-16 bg-muted/20 rounded animate-pulse'></div>
+          <div className='h-8 bg-muted/20 rounded animate-pulse max-w-2xl mx-auto'></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

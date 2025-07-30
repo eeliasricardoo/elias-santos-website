@@ -1,34 +1,46 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { useMounted } from '@/hooks/use-mounted';
 
 interface AnimatedBadgeProps {
   text: string;
-  icon?: React.ReactNode;
-  className?: string;
   animationDelay?: number;
 }
 
-export function AnimatedBadge({
-  text,
-  icon = <Sparkles className='w-4 h-4 text-muted-foreground' />,
-  className = '',
-  animationDelay = 0,
-}: AnimatedBadgeProps) {
+export function AnimatedBadge({ text, animationDelay = 0 }: AnimatedBadgeProps) {
+  const mounted = useMounted();
+
+  if (!mounted) {
+    return (
+      <div className='inline-flex items-center px-4 py-2 rounded-full bg-muted/20 border border-border/20'>
+        <div className='w-24 h-4 bg-muted/40 rounded animate-pulse'></div>
+      </div>
+    );
+  }
+
   return (
     <motion.div
-      data-testid='animated-badge'
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: animationDelay, type: 'spring', stiffness: 200 }}
-      className={`inline-flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 border border-border/50 backdrop-blur-sm shadow-sm ${className}`}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        delay: animationDelay,
+        duration: 0.6,
+        ease: 'easeOut',
+      }}
+      className='inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm'
     >
-      {icon}
-      <span className='text-sm font-medium text-muted-foreground tracking-wide'>
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: animationDelay + 0.2,
+          duration: 0.4,
+        }}
+        className='text-sm font-medium text-primary'
+      >
         {text}
-      </span>
+      </motion.span>
     </motion.div>
   );
 }

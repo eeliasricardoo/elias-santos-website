@@ -68,14 +68,14 @@ function AnimatedBackground() {
 // Componente de Progress Indicator
 function ProgressIndicator() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isClient, setIsClient] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!isClient) return;
+    if (!mounted) return;
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -86,9 +86,9 @@ function ProgressIndicator() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isClient]);
+  }, [mounted]);
 
-  if (!isClient) {
+  if (!mounted) {
     return null;
   }
 
@@ -104,14 +104,14 @@ function ProgressIndicator() {
 function ScrollIndicator() {
   const [scrollY, setScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isClient, setIsClient] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!isClient) return;
+    if (!mounted) return;
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -124,9 +124,9 @@ function ScrollIndicator() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isClient]);
+  }, [mounted]);
 
-  if (!isClient) {
+  if (!mounted) {
     return null;
   }
 
@@ -156,34 +156,8 @@ function ScrollIndicator() {
   );
 }
 
-// Componente de Loading
-function LoadingScreen() {
-  return (
-    <div className='min-h-screen bg-background flex items-center justify-center'>
-      <div className='text-center space-y-4'>
-        <div className='animate-spin rounded-full h-16 w-16 border-b-2 border-foreground mx-auto'></div>
-        <p className='text-muted-foreground'>Loading...</p>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    // Pequeno delay para garantir que a hidratação seja completa
-    const timer = setTimeout(() => {
-      setIsClient(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!isClient) {
-    return <LoadingScreen />;
-  }
 
   return (
     <div ref={containerRef} className='relative min-h-screen'>
