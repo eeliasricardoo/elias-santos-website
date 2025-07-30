@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Elias Santos - Professional Portfolio',
@@ -40,6 +41,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   );
