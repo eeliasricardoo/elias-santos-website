@@ -1,11 +1,12 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { AnimatedMockup } from './AnimatedMockup';
+import { Loader2 } from 'lucide-react';
 
 interface PortfolioCardProps {
   card: {
@@ -21,6 +22,7 @@ interface PortfolioCardProps {
 export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ['start center', 'end center'],
@@ -48,18 +50,48 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   );
   const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4]);
 
-  const handleCardClick = () => {
-    // Navegação baseada no índice do card
-    if (index === 0) {
-      router.push('/portfolio/ranking');
-    } else if (index === 1) {
-      router.push('/portfolio/carousel-builder');
-    } else if (index === 2) {
-      router.push('/portfolio/ventuschat');
-    } else {
-      router.push('/portfolio/ranking'); // Fallback
+  // Mapeamento de rotas para otimização
+  const getRoute = useCallback(() => {
+    switch (index) {
+      case 0:
+        return '/portfolio/ranking';
+      case 1:
+        return '/portfolio/carousel-builder';
+      case 2:
+        return '/portfolio/ventuschat';
+      default:
+        return '/portfolio/ranking';
     }
-  };
+  }, [index]);
+
+  // Pré-carregamento da página
+  const preloadPage = useCallback(() => {
+    const route = getRoute();
+    router.prefetch(route);
+  }, [router, getRoute]);
+
+  const handleCardClick = useCallback(async () => {
+    if (isLoading) return;
+    
+    setIsLoading(true);
+    
+    // Reduzido o delay para 100ms para feedback mais rápido
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    router.push(getRoute());
+  }, [isLoading, router, getRoute]);
+
+  const handleButtonClick = useCallback(async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isLoading) return;
+    
+    setIsLoading(true);
+    
+    // Reduzido o delay para 100ms para feedback mais rápido
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    router.push(getRoute());
+  }, [isLoading, router, getRoute]);
 
   return (
     <motion.div
@@ -75,14 +107,33 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
         filter: `blur(${cardBlur}px)`,
       }}
       className='sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group'
+      onMouseEnter={preloadPage}
     >
       {/* Luz atrás do card - aparece no hover */}
       <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
 
       <Card
-        className='border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10 group cursor-pointer'
+        className={`border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10 group ${
+          isLoading ? 'cursor-wait' : 'cursor-pointer'
+        }`}
         onClick={handleCardClick}
       >
+        {/* Overlay de loading */}
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className='absolute inset-0 bg-background/80 backdrop-blur-sm rounded-lg flex items-center justify-center z-20'
+          >
+            <div className='flex flex-col items-center space-y-4'>
+              <Loader2 className='w-8 h-8 animate-spin text-primary' />
+              <p className='text-sm text-muted-foreground font-medium'>
+                Carregando...
+              </p>
+            </div>
+          </motion.div>
+        )}
+
         <CardContent className='p-16 transition-all duration-500'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
             {/* Lado Esquerdo - Conteúdo */}
@@ -100,22 +151,18 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               {/* Botão */}
               <Button
                 size='lg'
+                disabled={isLoading}
                 className='bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 py-2.5 text-sm font-medium'
-                onClick={e => {
-                  e.stopPropagation();
-                  // Navegação baseada no índice do card
-                  if (index === 0) {
-                    router.push('/portfolio/ranking');
-                  } else if (index === 1) {
-                    router.push('/portfolio/carousel-builder');
-                  } else if (index === 2) {
-                    router.push('/portfolio/ventuschat');
-                  } else {
-                    router.push('/portfolio/ranking'); // Fallback
-                  }
-                }}
+                onClick={handleButtonClick}
               >
-                {card.buttonText}
+                {isLoading ? (
+                  <div className='flex items-center space-x-2'>
+                    <Loader2 className='w-4 h-4 animate-spin' />
+                    <span>Carregando...</span>
+                  </div>
+                ) : (
+                  card.buttonText
+                )}
               </Button>
             </div>
             {/* Lado Direito - Mockup Animado */}

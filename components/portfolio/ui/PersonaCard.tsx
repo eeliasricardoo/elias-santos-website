@@ -1,44 +1,32 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 interface PersonaCardProps {
   name: string;
   role: string;
-  age: string;
-  goal: string;
-  needs: string;
-  painPoints: string;
+  image?: string;
 }
 
 export function PersonaCard({
   name,
   role,
-  age,
-  goal,
-  needs,
-  painPoints,
+  image,
 }: PersonaCardProps) {
   return (
-    <div className='bg-muted/20 rounded-lg p-6 border border-border/20'>
-      <div className='font-semibold text-foreground text-lg mb-2'>
-        {name} — {role}
-      </div>
-      <div className='text-muted-foreground text-sm mb-3'>Age: {age}</div>
-      <div className='space-y-2 text-lg'>
-        <div>
-          <span className='font-semibold text-foreground'>Goal:</span>
-          <span className='text-muted-foreground'> {goal}</span>
+    <div className='bg-muted/20 rounded-lg p-4 border border-border/20'>
+      {image && (
+        <div className='w-full'>
+          <Image
+            src={image}
+            alt={`${name} - ${role}`}
+            width={1090}
+            height={200}
+            className='w-full h-auto rounded-lg object-cover border border-border/20'
+          />
         </div>
-        <div>
-          <span className='font-semibold text-foreground'>Needs:</span>
-          <span className='text-muted-foreground'> {needs}</span>
-        </div>
-        <div>
-          <span className='font-semibold text-foreground'>Pain Points:</span>
-          <span className='text-muted-foreground'> {painPoints}</span>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

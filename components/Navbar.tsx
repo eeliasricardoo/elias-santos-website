@@ -1,44 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-
 import Image from 'next/image';
-import { BR, ES, US } from 'country-flag-icons/react/3x2';
+import Link from 'next/link';
 import { MessageCircle } from 'lucide-react';
 
-const languages = [
-  {
-    code: 'en',
-    name: 'English',
-    flag: US,
-  },
-  {
-    code: 'pt',
-    name: 'Portuguese',
-    flag: BR,
-  },
-  {
-    code: 'es',
-    name: 'Spanish',
-    flag: ES,
-  },
-];
-
 export function Navbar() {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('get-in-touch');
     if (contactSection) {
@@ -52,17 +19,19 @@ export function Navbar() {
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
           <div className='flex items-center'>
-            <Image
-              src='/logo.png'
-              alt='ES Logo'
-              width={40}
-              height={40}
-              className='w-10 h-10 object-contain'
-              priority
-            />
+            <Link href='/'>
+              <Image
+                src='/logo.png'
+                alt='ES Logo'
+                width={40}
+                height={40}
+                className='w-10 h-10 object-contain cursor-pointer'
+                priority
+              />
+            </Link>
           </div>
 
-          {/* Right side - Contact button and Language selector */}
+          {/* Right side - Contact button only */}
           <div className='flex items-center gap-4'>
             {/* Contact Button */}
             <Button
@@ -74,39 +43,6 @@ export function Navbar() {
               <MessageCircle className='w-4 h-4' />
               <span className='hidden sm:inline'>Contact</span>
             </Button>
-
-            {/* Language Selector */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant='ghost'
-                  size='sm'
-                  className='flex items-center gap-2'
-                >
-                  {mounted && selectedLanguage && (
-                    <>
-                      <selectedLanguage.flag className='w-4 h-3' />
-                      <span className='text-sm'>{selectedLanguage.name}</span>
-                    </>
-                  )}
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align='end' className='w-48'>
-                {languages.map(language => {
-                  const FlagComponent = language.flag;
-                  return (
-                    <DropdownMenuItem
-                      key={language.code}
-                      onClick={() => setSelectedLanguage(language)}
-                      className='flex items-center gap-3 cursor-pointer'
-                    >
-                      <FlagComponent className='w-5 h-4' />
-                      <span>{language.name}</span>
-                    </DropdownMenuItem>
-                  );
-                })}
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
         </div>
       </div>
