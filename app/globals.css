@@ -114,6 +114,14 @@
   .contain-paint {
     contain: paint;
   }
+
+  /* ✅ Line clamp para truncar texto */
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* ✅ Animações CSS otimizadas - reduzidas para melhor performance */
@@ -295,8 +303,22 @@
   }
 }
 
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .animate-marquee {
   animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
   will-change: transform;
 }
 
