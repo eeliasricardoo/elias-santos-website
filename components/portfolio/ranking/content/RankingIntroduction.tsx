@@ -19,6 +19,8 @@ export default function RankingIntroduction() {
         platform.
       </p>
 
+
+
       {/* Animação de Gamificação */}
       <AnimatedContainer>
         {/* Barra de progresso animada */}

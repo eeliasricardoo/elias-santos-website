@@ -3,7 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { AppProvider } from '@/components/providers/app-provider';
-// import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Elias Santos - Professional Portfolio',
@@ -58,7 +58,7 @@ export default function RootLayout({
             {children}
           </AppProvider>
         </ErrorBoundary>
-        {/* <Analytics /> */}
+        <Analytics />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { PortfolioLayout } from '@/components/portfolio';
+import { PageAnalytics } from '@/components/analytics/page-analytics';
 
 // Lazy loading dos componentes
 const RankingHeader = dynamic(() => import('@/components/portfolio/ranking/header').then(mod => ({ default: mod.RankingHeader })), {
@@ -41,17 +42,19 @@ const RankingSolution = dynamic(() => import('@/components/portfolio/ranking/sol
   loading: () => <div className="h-48 bg-muted/20 rounded-lg animate-pulse" />
 });
 
-const RankingTesting = dynamic(() => import('@/components/portfolio/ranking/testing').then(mod => ({ default: mod.RankingTesting })), {
-  loading: () => <div className="h-48 bg-muted/20 rounded-lg animate-pulse" />
-});
-
-const RankingAuthor = dynamic(() => import('@/components/portfolio/ranking/author').then(mod => ({ default: mod.RankingAuthor })), {
-  loading: () => <div className="h-48 bg-muted/20 rounded-lg animate-pulse" />
-});
-
 export default function RankingCasePage() {
   return (
     <PortfolioLayout>
+      {/* Analytics */}
+      <PageAnalytics 
+        pageName="Ranking Case Study" 
+        pagePath="/portfolio/ranking" 
+        customProperties={{
+          section: "portfolio",
+          project: "ranking",
+          type: "ux_research_case"
+        }}
+      />
       <main className='max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24'>
         <Suspense fallback={<div className="h-32 bg-muted/20 rounded-lg animate-pulse" />}>
           <RankingHeader />
@@ -87,14 +90,6 @@ export default function RankingCasePage() {
         
         <Suspense fallback={<div className="h-48 bg-muted/20 rounded-lg animate-pulse" />}>
           <RankingSolution />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-48 bg-muted/20 rounded-lg animate-pulse" />}>
-          <RankingTesting />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-48 bg-muted/20 rounded-lg animate-pulse" />}>
-          <RankingAuthor />
         </Suspense>
       </main>
     </PortfolioLayout>

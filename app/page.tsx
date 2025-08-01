@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 
 import { ChevronDown } from 'lucide-react';
+import { PageAnalytics } from '@/components/analytics/page-analytics';
 
 // Importando componentes de seções
 import {
@@ -161,6 +162,16 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className='relative min-h-screen'>
+      {/* Analytics */}
+      <PageAnalytics 
+        pageName="Home" 
+        pagePath="/" 
+        customProperties={{
+          section: "main",
+          language: "pt-BR"
+        }}
+      />
+
       {/* Background Animado */}
       <AnimatedBackground />
 
