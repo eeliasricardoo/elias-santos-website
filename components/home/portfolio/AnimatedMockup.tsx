@@ -20,17 +20,15 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
     return () => clearInterval(interval);
   }, []);
 
-  // Remover o useEffect de simulação de digitação, pois não é mais usado
-
   if (type === 'ventus-chat') {
     return (
-      <div className='relative w-full h-full flex items-center justify-center'>
+      <div className='relative w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8'>
         {/* Background Particles */}
         <div className='absolute inset-0 overflow-hidden'>
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className='absolute w-2 h-2 bg-primary/30 rounded-full'
+              className='absolute w-1.5 h-1.5 md:w-2 md:h-2 lg:w-2.5 lg:h-2.5 bg-primary/30 rounded-full'
               style={{
                 left: `${20 + i * 15}%`,
                 top: `${30 + i * 10}%`,
@@ -55,24 +53,24 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 rounded-2xl overflow-hidden backdrop-blur-xl border border-border/20 shadow-2xl'
+          className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 rounded-xl md:rounded-2xl overflow-hidden backdrop-blur-xl border border-border/20 shadow-xl'
         >
           {/* Chat Messages */}
-          <div className='flex-1 p-4 space-y-3 overflow-hidden h-[calc(100%-5rem)]'>
+          <div className='flex-1 p-4 md:p-5 lg:p-6 space-y-3 md:space-y-4 lg:space-y-5 overflow-hidden h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] lg:h-[calc(100%-6rem)]'>
             {/* AI Message 1 */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className='flex items-end space-x-2'
+              className='flex items-end space-x-2 md:space-x-3'
             >
-              <div className='w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center'>
-                <span className='text-xs font-bold text-primary-foreground'>
+              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
+                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
                   AI
                 </span>
               </div>
-              <div className='bg-card/70 backdrop-blur-sm rounded-2xl rounded-bl-md p-3 border border-border/20 shadow-sm max-w-[80%]'>
-                <p className='text-xs text-foreground leading-relaxed'>
+              <div className='bg-card/70 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-bl-md p-3 md:p-4 lg:p-5 border border-border/20 shadow-sm max-w-[80%]'>
+                <p className='text-xs md:text-sm lg:text-base text-foreground leading-relaxed'>
                   Olá! Como posso ajudar você hoje?
                 </p>
               </div>
@@ -83,15 +81,15 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className='flex items-end space-x-2 justify-end'
+              className='flex items-end space-x-2 md:space-x-3 justify-end'
             >
-              <div className='bg-primary/80 backdrop-blur-sm rounded-2xl rounded-br-md p-3 border border-primary/20 shadow-sm max-w-[80%]'>
-                <p className='text-xs text-primary-foreground leading-relaxed'>
+              <div className='bg-primary/80 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-br-md p-3 md:p-4 lg:p-5 border border-primary/20 shadow-sm max-w-[80%]'>
+                <p className='text-xs md:text-sm lg:text-base text-primary-foreground leading-relaxed'>
                   Preciso de ajuda com React
                 </p>
               </div>
-              <div className='w-6 h-6 rounded-full bg-muted-foreground/60 flex items-center justify-center'>
-                <span className='text-xs font-bold text-primary-foreground'>
+              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-muted-foreground/60 flex items-center justify-center flex-shrink-0'>
+                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
                   U
                 </span>
               </div>
@@ -102,15 +100,15 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 2, duration: 0.6 }}
-              className='flex items-end space-x-2'
+              className='flex items-end space-x-2 md:space-x-3'
             >
-              <div className='w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center'>
-                <span className='text-xs font-bold text-primary-foreground'>
+              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
+                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
                   AI
                 </span>
               </div>
-              <div className='bg-card/70 backdrop-blur-sm rounded-2xl rounded-bl-md p-3 border border-border/20 shadow-sm max-w-[80%]'>
-                <p className='text-xs text-foreground leading-relaxed'>
+              <div className='bg-card/70 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-bl-md p-3 md:p-4 lg:p-5 border border-border/20 shadow-sm max-w-[80%]'>
+                <p className='text-xs md:text-sm lg:text-base text-foreground leading-relaxed'>
                   Claro! O que você quer saber sobre React?
                 </p>
               </div>
@@ -121,15 +119,15 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 3, duration: 0.6 }}
-              className='flex items-end space-x-2 justify-end'
+              className='flex items-end space-x-2 md:space-x-3 justify-end'
             >
-              <div className='bg-primary/80 backdrop-blur-sm rounded-2xl rounded-br-md p-3 border border-primary/20 shadow-sm max-w-[80%]'>
-                <p className='text-xs text-primary-foreground leading-relaxed'>
+              <div className='bg-primary/80 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-br-md p-3 md:p-4 lg:p-5 border border-primary/20 shadow-sm max-w-[80%]'>
+                <p className='text-xs md:text-sm lg:text-base text-primary-foreground leading-relaxed'>
                   Como criar um componente?
                 </p>
               </div>
-              <div className='w-6 h-6 rounded-full bg-muted-foreground/60 flex items-center justify-center'>
-                <span className='text-xs font-bold text-primary-foreground'>
+              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-muted-foreground/60 flex items-center justify-center flex-shrink-0'>
+                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
                   U
                 </span>
               </div>
@@ -140,29 +138,29 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 4, duration: 0.6 }}
-              className='flex items-end space-x-2'
+              className='flex items-end space-x-2 md:space-x-3'
             >
-              <div className='w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center'>
-                <span className='text-xs font-bold text-primary-foreground'>
+              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
+                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
                   AI
                 </span>
               </div>
-              <div className='bg-card/70 backdrop-blur-sm rounded-2xl rounded-bl-md p-3 border border-border/20 shadow-sm'>
-                <div className='flex space-x-1'>
+              <div className='bg-card/70 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-bl-md p-3 md:p-4 lg:p-5 border border-border/20 shadow-sm'>
+                <div className='flex space-x-1 md:space-x-1.5'>
                   <motion.div
                     animate={{ opacity: [0.3, 1, 0.3] }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-                    className='w-2 h-2 bg-muted-foreground rounded-full'
+                    className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full'
                   />
                   <motion.div
                     animate={{ opacity: [0.3, 1, 0.3] }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-                    className='w-2 h-2 bg-muted-foreground rounded-full'
+                    className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full'
                   />
                   <motion.div
                     animate={{ opacity: [0.3, 1, 0.3] }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-                    className='w-2 h-2 bg-muted-foreground rounded-full'
+                    className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full'
                   />
                 </div>
               </div>
@@ -170,10 +168,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
           </div>
 
           {/* Input Bar */}
-          <div className='p-4 border-t border-border/20'>
-            <div className='flex items-center space-x-2'>
-              <div className='flex-1 bg-muted/50 rounded-full px-4 py-2'>
-                <p className='text-sm text-muted-foreground'>
+          <div className='p-4 md:p-5 lg:p-6 border-t border-border/20'>
+            <div className='flex items-center space-x-2 md:space-x-3'>
+              <div className='flex-1 bg-muted/50 rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3'>
+                <p className='text-sm md:text-base lg:text-lg text-muted-foreground'>
                   Digite uma mensagem...
                 </p>
               </div>
@@ -181,9 +179,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                 whileHover={{ scale: 1.1 }}
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className='w-8 h-8 bg-primary/80 rounded-full flex items-center justify-center'
+                className='w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-primary/80 rounded-full flex items-center justify-center'
               >
-                <span className='text-xs text-primary-foreground'>→</span>
+                <span className='text-sm md:text-base lg:text-lg text-primary-foreground'>→</span>
               </motion.button>
             </div>
           </div>
@@ -209,35 +207,35 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
   if (type === 'ranking') {
     return (
-      <div className='w-full h-full flex items-center justify-center bg-transparent'>
-        <div className='w-full max-w-xs mx-auto p-4 bg-card/80 rounded-xl border border-border/20 shadow-none space-y-6'>
+      <div className='w-full h-full flex items-center justify-center bg-transparent p-4 md:p-6 lg:p-8'>
+        <div className='w-full max-w-sm mx-auto p-4 md:p-5 lg:p-6 bg-card/80 rounded-xl md:rounded-2xl border border-border/20 shadow-none space-y-4 md:space-y-5 lg:space-y-6'>
           {/* Título */}
-          <div className='text-center space-y-1'>
-            <h3 className='text-lg font-semibold text-foreground'>Ranking</h3>
-            <p className='text-xs text-muted-foreground'>Engagement Score</p>
+          <div className='text-center space-y-2'>
+            <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-foreground'>Ranking</h3>
+            <p className='text-sm md:text-base lg:text-lg text-muted-foreground'>Engagement Score</p>
           </div>
 
           {/* Score */}
           <div className='text-center'>
-            <div className='text-3xl font-bold text-primary'>
+            <div className='text-3xl md:text-4xl lg:text-5xl font-bold text-primary'>
               {currentScore}
             </div>
-            <div className='text-xs text-muted-foreground'>points</div>
+            <div className='text-sm md:text-base lg:text-lg text-muted-foreground'>points</div>
           </div>
 
           {/* Progress Bar */}
-          <div className='space-y-1'>
-            <div className='flex justify-between text-xs text-muted-foreground'>
+          <div className='space-y-2'>
+            <div className='flex justify-between text-sm md:text-base lg:text-lg text-muted-foreground'>
               <span>Progress</span>
               <span>75%</span>
             </div>
-            <div className='h-2 bg-muted/50 rounded-full overflow-hidden'>
+            <div className='h-2 md:h-3 lg:h-4 bg-muted/50 rounded-full overflow-hidden'>
               <div className='h-full w-3/4 bg-primary/60 rounded-full transition-all duration-700' />
             </div>
           </div>
 
           {/* Lista de Usuários */}
-          <div className='space-y-2'>
+          <div className='space-y-2 md:space-y-3 lg:space-y-4'>
             {[
               { name: 'Ana Silva', score: 892, emoji: '👑' },
               { name: 'João Costa', score: 756, emoji: '🥈' },
@@ -245,24 +243,24 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             ].map((user, index) => (
               <div
                 key={user.name}
-                className='flex items-center space-x-2 bg-card/60 rounded-lg px-3 py-2'
+                className='flex items-center space-x-3 md:space-x-4 bg-card/60 rounded-lg md:rounded-xl px-3 md:px-4 lg:px-5 py-2 md:py-3 lg:py-4'
               >
-                <div className='w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary'>
+                <div className='w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full bg-primary/10 flex items-center justify-center text-sm md:text-base lg:text-lg font-bold text-primary flex-shrink-0'>
                   {index + 1}
                 </div>
-                <div className='flex-1'>
-                  <div className='text-xs font-medium text-foreground'>
+                <div className='flex-1 min-w-0'>
+                  <div className='text-sm md:text-base lg:text-lg font-medium text-foreground truncate'>
                     {user.name}
                   </div>
-                  <div className='text-[10px] text-muted-foreground'>
+                  <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>
                     {user.emoji} Top
                   </div>
                 </div>
-                <div className='text-right'>
-                  <div className='text-xs font-bold text-foreground'>
+                <div className='text-right flex-shrink-0'>
+                  <div className='text-sm md:text-base lg:text-lg font-bold text-foreground'>
                     {user.score}
                   </div>
-                  <div className='text-[10px] text-muted-foreground'>pts</div>
+                  <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>pts</div>
                 </div>
               </div>
             ))}
@@ -274,7 +272,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
   if (type === 'carousel-builder') {
     return (
-      <div className='w-full h-full flex items-center justify-center'>
+      <div className='w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8'>
         <CarouselBuilderCard />
       </div>
     );

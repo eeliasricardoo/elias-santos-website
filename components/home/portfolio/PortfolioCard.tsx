@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { AnimatedMockup } from './AnimatedMockup';
 import { Loader2 } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface PortfolioCardProps {
   card: {
@@ -23,6 +24,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ['start center', 'end center'],
@@ -113,7 +115,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
 
       <Card
-        className={`border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-100 relative z-10 group ${
+        className={`border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group ${
           isLoading ? 'cursor-wait' : 'cursor-pointer'
         }`}
         onClick={handleCardClick}
@@ -134,39 +136,43 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
           </motion.div>
         )}
 
-        <CardContent className='p-16 transition-all duration-500'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
-            {/* Lado Esquerdo - Conteúdo */}
-            <div className='space-y-16'>
+        <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 items-center'>
+            {/* Conteúdo - Primeiro no desktop, segundo no mobile */}
+            <div className={`space-y-6 md:space-y-8 lg:space-y-10 ${isMobile ? 'order-2' : 'order-1'}`}>
               {/* Título e Descrição */}
-              <div className='space-y-2'>
-                <h3 className='lg:text-4xl font-normal text-foreground'>
+              <div className='space-y-4 md:space-y-5 lg:space-y-6'>
+                <h3 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-foreground leading-tight'>
                   {card.title}
                 </h3>
-                <p className='text-muted-foreground leading-relaxed text-base font-light'>
+                <p className='text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl font-light max-w-lg'>
                   {card.description}
                 </p>
               </div>
 
               {/* Botão */}
-              <Button
-                size='lg'
-                disabled={isLoading}
-                className='bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 py-2.5 text-sm font-medium'
-                onClick={handleButtonClick}
-              >
-                {isLoading ? (
-                  <div className='flex items-center space-x-2'>
-                    <Loader2 className='w-4 h-4 animate-spin' />
-                    <span>Carregando...</span>
-                  </div>
-                ) : (
-                  card.buttonText
-                )}
-              </Button>
+              <div className='pt-2 md:pt-3 lg:pt-4'>
+                <Button
+                  size='lg'
+                  disabled={isLoading}
+                  className='bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full md:w-auto'
+                  onClick={handleButtonClick}
+                >
+                  {isLoading ? (
+                    <div className='flex items-center space-x-2'>
+                      <Loader2 className='w-4 h-4 animate-spin' />
+                      <span>Carregando...</span>
+                    </div>
+                  ) : (
+                    card.buttonText
+                  )}
+                </Button>
+              </div>
             </div>
-            {/* Lado Direito - Mockup Animado */}
-            <div className='relative w-full h-full overflow-hidden'>
+            
+            {/* Mockup Animado - Segundo no desktop, primeiro no mobile */}
+            <div className={`relative w-full ${isMobile ? 'order-1 min-h-[280px] h-[320px] md:h-[380px]' : 'order-2 h-[380px] md:h-[420px] lg:h-[460px] xl:h-[500px]'} overflow-hidden rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/20`}>
+              <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5'></div>
               <AnimatedMockup
                 type={
                   index === 0
