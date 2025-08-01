@@ -25,10 +25,21 @@ import {
   Cpu,
 } from 'lucide-react';
 import Link from 'next/link';
+import { PageAnalytics } from '@/components/analytics/page-analytics';
 
 export default function VentusChatPage() {
   return (
     <main className='max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24'>
+      {/* Analytics */}
+      <PageAnalytics 
+        pageName="Portfolio VentuChat" 
+        pagePath="/portfolio/ventuschat" 
+        customProperties={{
+          section: "portfolio",
+          project: "ventuchat",
+          type: "detailed_case"
+        }}
+      />
       {/* Header */}
       <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mb-8'>
         <div className='container flex h-14 max-w-screen-2xl items-center'>
