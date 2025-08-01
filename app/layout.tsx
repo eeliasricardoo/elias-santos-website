@@ -6,28 +6,119 @@ import { AppProvider } from '@/components/providers/app-provider';
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  title: 'Elias Santos - Professional Portfolio',
-  description:
-    'Professional portfolio focused on UX/UI Design and modern web development',
-  keywords: 'portfolio, UX, UI, design, development, web, Next.js, React',
-  authors: [{ name: 'Elias Santos' }],
-  creator: 'Elias Santos',
-  openGraph: {
-    title: 'Elias Santos - Professional Portfolio',
-    description:
-      'Professional portfolio focused on UX/UI Design and modern web development',
-    type: 'website',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev'),
+  title: {
+    default: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
+    template: '%s | Elias Santos'
   },
-  // ✅ Otimizações de SEO e performance
+  description:
+    'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno. Projetos inovadores em React, Next.js e design de interfaces.',
+  keywords: [
+    'Elias Santos',
+    'UX Design',
+    'UI Design', 
+    'Desenvolvedor Full Stack',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Portfolio',
+    'Design de Interfaces',
+    'Desenvolvimento Web',
+    'Frontend',
+    'Backend',
+    'Brasil'
+  ],
+  authors: [{ name: 'Elias Santos', url: 'https://eliassantos.dev' }],
+  creator: 'Elias Santos',
+  publisher: 'Elias Santos',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://eliassantos.dev',
+    title: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
+    description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno. Projetos inovadores em React, Next.js e design de interfaces.',
+    siteName: 'Elias Santos Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Elias Santos - Portfolio Profissional',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
+    description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno.',
+    images: ['/og-image.jpg'],
+    creator: '@eliassantos',
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+  alternates: {
+    canonical: 'https://eliassantos.dev',
+  },
+  category: 'technology',
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+};
+
+// Structured Data para SEO
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Elias Santos',
+  url: 'https://eliassantos.dev',
+  image: 'https://eliassantos.dev/profile-photo.png',
+  sameAs: [
+    'https://linkedin.com/in/eliassantos',
+    'https://github.com/eliassantos',
+    'https://twitter.com/eliassantos',
+  ],
+  jobTitle: 'UX/UI Designer & Desenvolvedor Full Stack',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Freelancer',
+  },
+  knowsAbout: [
+    'UX Design',
+    'UI Design',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'JavaScript',
+    'Web Development',
+    'User Experience',
+    'Interface Design',
+  ],
+  description: 'Especialista em UX/UI Design e desenvolvimento web moderno com foco em experiências digitais excepcionais.',
 };
 
 export default function RootLayout({
@@ -44,6 +135,20 @@ export default function RootLayout({
           href='https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap'
           as='style'
         />
+        
+        {/* ✅ Preload de recursos críticos */}
+        <link rel='preload' href='/profile-photo.png' as='image' />
+        
+        {/* ✅ DNS Prefetch para domínios externos */}
+        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+        <link rel='dns-prefetch' href='//api.fontshare.com' />
+        
+        {/* ✅ Structured Data */}
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        
         <noscript>
           <link
             rel='stylesheet'

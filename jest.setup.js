@@ -1,5 +1,28 @@
 import '@testing-library/jest-dom';
 
+// Mock do Next.js Image
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: ({ src, alt, width, height, className, priority, sizes, quality, onLoad, placeholder, blurDataURL, ...props }) => {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        priority={priority}
+        sizes={sizes}
+        quality={quality}
+        onLoad={onLoad}
+        placeholder={placeholder}
+        blurDataURL={blurDataURL}
+        {...props}
+      />
+    );
+  },
+}));
+
 // Mock do Next.js router
 jest.mock('next/navigation', () => ({
   useRouter() {

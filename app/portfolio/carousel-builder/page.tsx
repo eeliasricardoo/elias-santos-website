@@ -29,20 +29,69 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
+import { PageSEO } from '@/components/seo/PageSEO';
+import { ProjectStructuredData } from '@/components/seo/ProjectStructuredData';
 
 export default function CarouselBuilderPage() {
   return (
-    <main className='max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24'>
-      {/* Analytics */}
-      <PageAnalytics 
-        pageName="Carousel Builder" 
-        pagePath="/portfolio/carousel-builder" 
-        customProperties={{
-          section: "portfolio",
-          project: "carousel_builder",
-          type: "ux_case"
-        }}
+    <>
+      {/* SEO */}
+      <PageSEO
+        title="Post & Carousel Generator - Case Study"
+        description="Case study completo do Post & Carousel Generator, uma ferramenta de IA que revoluciona a criação de carrosséis para redes sociais. Redução de 90% no tempo de criação."
+        keywords={[
+          'Post & Carousel Generator',
+          'IA para criação de conteúdo',
+          'Carrosséis LinkedIn',
+          'UX Design Case Study',
+          'Ferramenta de IA',
+          'Criação de conteúdo',
+          'Design de interfaces',
+          'Next.js',
+          'React',
+          'OpenRouter API'
+        ]}
+        url="/portfolio/carousel-builder"
+        type="article"
+        publishedTime="2024-01-15T00:00:00Z"
+        modifiedTime="2024-12-19T00:00:00Z"
+        author="Elias Santos"
+        section="Portfolio"
+        tags={[
+          'UX Design',
+          'IA',
+          'Criação de Conteúdo',
+          'Carrosséis',
+          'LinkedIn',
+          'Next.js',
+          'React'
+        ]}
       />
+      
+      {/* Structured Data */}
+      <ProjectStructuredData
+        name="Post & Carousel Generator"
+        description="Ferramenta de IA que revoluciona a criação de carrosséis para redes sociais, reduzindo o tempo de criação em 90% com templates profissionais e geração inteligente de conteúdo."
+        image="/portfolios/carousel-builder/demo.mp4"
+        url="/portfolio/carousel-builder"
+        technologies={['Next.js', 'React', 'TypeScript', 'OpenRouter API', 'TipTap', 'Tailwind CSS']}
+        category="UX/UI Design"
+        datePublished="2024-01-15T00:00:00Z"
+        dateModified="2024-12-19T00:00:00Z"
+        author="Elias Santos"
+      />
+
+      <main className='max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24'>
+        {/* Analytics */}
+        <PageAnalytics 
+          pageName="Carousel Builder" 
+          pagePath="/portfolio/carousel-builder" 
+          customProperties={{
+            section: "portfolio",
+            project: "carousel_builder",
+            type: "ux_case"
+          }}
+        />
       {/* Header */}
       <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mb-8'>
         <div className='container flex h-14 max-w-screen-2xl items-center'>
@@ -1287,6 +1336,7 @@ export default function CarouselBuilderPage() {
           </div>
         </motion.div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
