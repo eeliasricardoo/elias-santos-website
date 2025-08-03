@@ -20,7 +20,7 @@ export function PageSEO({
   title,
   description,
   keywords = [],
-  image = '/oq-image.png',
+  image = '/api/og',
   url,
   type = 'website',
   publishedTime,
@@ -52,14 +52,16 @@ export function PageSEO({
       <meta property="og:image" content={fullImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${title} - Elias Santos Portfolio`} />
       <meta property="og:site_name" content="Elias Santos Portfolio" />
-      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:locale" content="en_US" />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
+      <meta name="twitter:image:alt" content={`${title} - Elias Santos Portfolio`} />
       <meta name="twitter:creator" content="@eliassantos" />
       
       {/* Article specific meta tags */}

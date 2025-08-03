@@ -8,25 +8,25 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev'),
   title: {
-    default: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
+    default: 'Elias Santos - UX/UI Designer & Frontend Developer',
     template: '%s | Elias Santos'
   },
   description:
-    'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno. Projetos inovadores em React, Next.js e design de interfaces.',
+    'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
   keywords: [
     'Elias Santos',
     'UX Design',
     'UI Design', 
-    'Desenvolvedor Full Stack',
+    'Frontend Developer',
     'React',
     'Next.js',
     'TypeScript',
     'Portfolio',
-    'Design de Interfaces',
-    'Desenvolvimento Web',
+    'Interface Design',
+    'Web Development',
     'Frontend',
-    'Backend',
-    'Brasil'
+    'User Experience',
+    'Brazil'
   ],
   authors: [{ name: 'Elias Santos', url: 'https://eliassantos.dev' }],
   creator: 'Elias Santos',
@@ -38,25 +38,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'pt_BR',
+    locale: 'en_US',
     url: 'https://eliassantos.dev',
-    title: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
-    description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno. Projetos inovadores em React, Next.js e design de interfaces.',
+    title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+    description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
     siteName: 'Elias Santos Portfolio',
     images: [
       {
-        url: '/oq-image.png',
+        url: '/api/og',
         width: 1200,
         height: 630,
-        alt: 'Elias Santos - Portfolio Profissional',
+        alt: 'Elias Santos - Professional Portfolio',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
-    description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno.',
-    images: ['/oq-image.png'],
+    title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+    description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
+    images: ['/api/og'],
     creator: '@eliassantos',
   },
   robots: {
@@ -90,7 +91,7 @@ export const viewport: Viewport = {
   ],
 };
 
-// Structured Data para SEO
+// Structured Data for SEO
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -102,7 +103,7 @@ const structuredData = {
     'https://github.com/eliassantos',
     'https://twitter.com/eliassantos',
   ],
-  jobTitle: 'UX/UI Designer & Desenvolvedor Full Stack',
+  jobTitle: 'UX/UI Designer & Frontend Developer',
   worksFor: {
     '@type': 'Organization',
     name: 'Freelancer',
@@ -114,11 +115,11 @@ const structuredData = {
     'Next.js',
     'TypeScript',
     'JavaScript',
-    'Web Development',
+    'Frontend Development',
     'User Experience',
     'Interface Design',
   ],
-  description: 'Especialista em UX/UI Design e desenvolvimento web moderno com foco em experiências digitais excepcionais.',
+  description: 'UX/UI Designer and Frontend Developer specializing in modern web development with focus on exceptional digital experiences.',
 };
 
 export default function RootLayout({

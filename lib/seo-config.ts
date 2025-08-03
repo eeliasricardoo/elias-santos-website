@@ -2,10 +2,10 @@ export const SEO_CONFIG = {
   site: {
     name: 'Elias Santos',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev',
-    description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno.',
+    description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
     author: 'Elias Santos',
-    language: 'pt-BR',
-    locale: 'pt_BR',
+    language: 'en-US',
+    locale: 'en_US',
   },
   
   social: {
@@ -15,51 +15,51 @@ export const SEO_CONFIG = {
   },
   
   defaultMeta: {
-    title: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
-    description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno. Projetos inovadores em React, Next.js e design de interfaces.',
+    title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+    description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
     keywords: [
       'Elias Santos',
       'UX Design',
       'UI Design',
-      'Desenvolvedor Full Stack',
+      'Frontend Developer',
       'React',
       'Next.js',
       'TypeScript',
       'Portfolio',
-      'Design de Interfaces',
-      'Desenvolvimento Web',
+      'Interface Design',
+      'Web Development',
       'Frontend',
-      'Backend',
-      'Brasil'
+      'User Experience',
+      'Brazil'
     ],
-    image: '/oq-image.png',
+    image: '/api/og',
     type: 'website',
   },
   
   pages: {
     home: {
-      title: 'Elias Santos - UX/UI Designer & Desenvolvedor Full Stack',
-      description: 'Portfolio profissional de Elias Santos, especialista em UX/UI Design e desenvolvimento web moderno. Projetos inovadores em React, Next.js e design de interfaces.',
-      keywords: ['Portfolio', 'UX Design', 'UI Design', 'Desenvolvedor', 'React', 'Next.js'],
+      title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+      description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+      keywords: ['Portfolio', 'UX Design', 'UI Design', 'Frontend Developer', 'React', 'Next.js'],
     },
     portfolio: {
       title: 'Portfolio - Elias Santos',
-      description: 'Conheça os projetos de Elias Santos em UX/UI Design e desenvolvimento web. Cases completos e soluções inovadoras.',
-      keywords: ['Portfolio', 'Projetos', 'UX Design', 'UI Design', 'Cases'],
+      description: 'Discover Elias Santos projects in UX/UI Design and web development. Complete case studies and innovative solutions.',
+      keywords: ['Portfolio', 'Projects', 'UX Design', 'UI Design', 'Case Studies'],
     },
     carouselBuilder: {
       title: 'Post & Carousel Generator - Case Study',
-      description: 'Case study completo do Post & Carousel Generator, uma ferramenta de IA que revoluciona a criação de carrosséis para redes sociais.',
-      keywords: ['Post & Carousel Generator', 'IA', 'Criação de Conteúdo', 'Carrosséis', 'LinkedIn'],
+      description: 'Complete case study of the Post & Carousel Generator, an AI tool that revolutionizes carousel creation for social media.',
+      keywords: ['Post & Carousel Generator', 'AI', 'Content Creation', 'Carousels', 'LinkedIn'],
     },
     ranking: {
       title: 'Ranking App - Case Study',
-      description: 'Case study do aplicativo de ranking desenvolvido por Elias Santos, focado em UX/UI Design e experiência do usuário.',
+      description: 'Case study of the ranking app developed by Elias Santos, focused on UX/UI Design and user experience.',
       keywords: ['Ranking App', 'UX Design', 'Mobile App', 'Case Study'],
     },
     ventuschat: {
       title: 'VentusChat - Case Study',
-      description: 'Case study do VentusChat, uma plataforma de chat inovadora desenvolvida por Elias Santos.',
+      description: 'Case study of VentusChat, an innovative chat platform developed by Elias Santos.',
       keywords: ['VentusChat', 'Chat Platform', 'UX Design', 'Case Study'],
     },
   },
@@ -76,7 +76,7 @@ export const SEO_CONFIG = {
         'https://github.com/eliassantos',
         'https://twitter.com/eliassantos',
       ],
-      jobTitle: 'UX/UI Designer & Desenvolvedor Full Stack',
+      jobTitle: 'UX/UI Designer & Frontend Developer',
       worksFor: {
         '@type': 'Organization',
         name: 'Freelancer',
@@ -88,11 +88,11 @@ export const SEO_CONFIG = {
         'Next.js',
         'TypeScript',
         'JavaScript',
-        'Web Development',
+        'Frontend Development',
         'User Experience',
         'Interface Design',
       ],
-      description: 'Especialista em UX/UI Design e desenvolvimento web moderno com foco em experiências digitais excepcionais.',
+      description: 'UX/UI Designer and Frontend Developer specializing in modern web development with focus on exceptional digital experiences.',
     },
     
     website: {
@@ -100,7 +100,7 @@ export const SEO_CONFIG = {
       '@type': 'WebSite',
       name: 'Elias Santos Portfolio',
       url: 'https://eliassantos.dev',
-      description: 'Portfolio profissional de Elias Santos',
+      description: 'Professional portfolio of Elias Santos',
       author: {
         '@type': 'Person',
         name: 'Elias Santos',
@@ -111,7 +111,7 @@ export const SEO_CONFIG = {
   performance: {
     preloadImages: [
       '/profile-photo.png',
-      '/oq-image.png',
+      '/api/og',
     ],
     preloadFonts: [
       'https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap',
