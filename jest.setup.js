@@ -4,6 +4,9 @@ import '@testing-library/jest-dom';
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ src, alt, width, height, className, priority, sizes, quality, onLoad, placeholder, blurDataURL, ...props }) => {
+    // Remove props específicas do Next.js Image que não são válidas para img
+    const { blurDataURL: _, placeholder: __, ...imgProps } = props;
+    
     return (
       <img
         src={src}
@@ -11,13 +14,11 @@ jest.mock('next/image', () => ({
         width={width}
         height={height}
         className={className}
-        priority={priority}
+        priority={priority ? 'true' : undefined}
         sizes={sizes}
         quality={quality}
         onLoad={onLoad}
-        placeholder={placeholder}
-        blurDataURL={blurDataURL}
-        {...props}
+        {...imgProps}
       />
     );
   },
