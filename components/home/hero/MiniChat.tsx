@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { ShineBorder } from '@/components/magicui/shine-border';
 import { Inter } from 'next/font/google';
 import { useMounted } from '@/hooks/use-mounted';
+import { getCurrentStreak } from '@/lib/duolingo-streak';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -191,8 +192,7 @@ export function EmailClient() {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const userMessage = 'Tell me something interesting about Elias';
-  const botResponse =
-    'Elias currently has a 592-day streak on Duolingo. He also created a script that automatically updates this number on the website every day. His commitment to continuous learning reflects his approach to professional development.';
+  const botResponse = `Elias currently has a ${getCurrentStreak()}-day streak on Duolingo. He also created a script that automatically updates this number on the website every day. His commitment to continuous learning reflects his approach to professional development.`;
 
   const userMessage2 = 'Why should we work with him?';
   const botResponse2 =

@@ -1,0 +1,26 @@
+name: Update Duolingo Streak
+
+on:
+  schedule:
+    # Executa todos os dias às 00:05 UTC (21:05 horário de Brasília do dia anterior)
+    - cron: '5 0 * * *'
+  workflow_dispatch: # Permite execução manual
+
+jobs:
+  update-streak:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Update Duolingo streak
+        run: node scripts/update-duolingo-streak.js
+        
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add lib/duolingo-streak.ts
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-update Duolingo streak"
+          git push 
