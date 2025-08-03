@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
-  ArrowLeft,
   Github,
   Brain,
   Palette,
@@ -24,10 +23,10 @@ import {
   Globe,
   Cpu,
 } from 'lucide-react';
-import Link from 'next/link';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
 import { PageSEO } from '@/components/seo/PageSEO';
 import { ProjectStructuredData } from '@/components/seo/ProjectStructuredData';
+import { BackButton } from '@/components/portfolio/ui/BackButton';
 
 export default function VentusChatPage() {
   return (
@@ -92,13 +91,8 @@ export default function VentusChatPage() {
           }}
         />
       {/* Header */}
-      <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mb-8'>
-        <div className='container flex h-14 max-w-screen-2xl items-center'>
-          <Link href='/' className='flex items-center space-x-2'>
-            <ArrowLeft className='h-4 w-4' />
-            <span className='font-bold'>Back to Portfolio</span>
-          </Link>
-        </div>
+      <header className='mb-10 text-left'>
+        <BackButton />
       </header>
 
       {/* Hero Section */}
