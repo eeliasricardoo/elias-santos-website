@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { track } from '@vercel/analytics';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -18,7 +17,7 @@ export async function POST(request: NextRequest) {
 
     // Enviar e-mail usando Resend
     const { error } = await resend.emails.send({
-      from: 'Site Portfolio <onboarding@resend.dev>', // Você pode mudar para seu domínio verificado
+      from: 'Site Portfolio <contato@eeliasricardoo.com>', // Domínio verificado
       to: ['eeliasricardoo@gmail.com'],
       subject: `Novo contato do site: ${subject}`,
       html: `
@@ -91,28 +90,11 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Erro do Resend:', error);
-      
-      // Analytics - Erro no envio
-      track('contact_form_error', {
-        error_type: 'resend_error',
-        subject,
-        has_name: !!name,
-        has_email: !!email
-      });
-      
       return NextResponse.json(
         { error: 'Erro ao enviar e-mail. Tente novamente.' },
         { status: 500 }
       );
     }
-
-    // Analytics - Sucesso no envio
-    track('contact_form_success', {
-      subject,
-      has_name: !!name,
-      has_email: !!email,
-      message_length: message.length
-    });
 
     return NextResponse.json(
       { message: 'E-mail enviado com sucesso!' },
