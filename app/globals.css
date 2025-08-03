@@ -92,14 +92,7 @@
     @apply bg-background;
   }
 
-  /* ✅ Otimização de carregamento de fontes */
-  @font-face {
-    font-family: 'Satoshi';
-    font-display: swap;
-    font-weight: 300 900;
-    src: url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap')
-      format('woff2');
-  }
+  /* ✅ Otimização de carregamento de fontes - removido para evitar CORS */
 }
 
 @layer utilities {
@@ -393,8 +386,7 @@
   }
 }
 
-/* ✅ Fontes carregadas de forma otimizada */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap');
+/* ✅ Fontes carregadas de forma otimizada - removido para evitar CORS */
 
 /* ✅ Rainbow Button Animation */
 @keyframes rainbow {

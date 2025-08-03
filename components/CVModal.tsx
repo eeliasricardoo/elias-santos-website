@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 
@@ -22,6 +22,12 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>Curriculum Vitae - Elias Ricardo</DialogTitle>
+          <DialogDescription>
+            Visualize e baixe o currículo completo de Elias Ricardo Araujo Santos
+          </DialogDescription>
+        </DialogHeader>
 
         <div className="space-y-6">
           {/* Download Button */}

@@ -83,7 +83,7 @@ export function CarouselBuilderCard() {
                     initial={{ opacity: 0, x: 100, scale: 0.8 }}
                     animate={{
                       opacity: index === activeSlide ? 1 : 0,
-                      x: index === activeSlide ? 0 : (index > activeSlide ? 100 : -100),
+                      x: index === activeSlide ? 0 : 100,
                       scale: index === activeSlide ? 1 : 0.9,
                     }}
                     transition={{ 
@@ -138,11 +138,11 @@ export function CarouselBuilderCard() {
               </div>
 
               {/* Botões de ação */}
-              <div className='flex space-x-2'>
-                <div className='flex-1 py-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg font-medium text-sm'>
+              <div className='flex space-x-3'>
+                <div className='flex-1 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg font-semibold text-base text-center shadow-lg hover:shadow-xl transition-all duration-200'>
                   Generate
                 </div>
-                <div className='px-4 py-2 bg-muted/20 backdrop-blur-sm text-foreground rounded-lg font-medium text-sm border border-border/20'>
+                <div className='px-6 py-3 bg-muted/20 backdrop-blur-sm text-foreground rounded-lg font-medium text-sm border border-border/20 hover:bg-muted/30 transition-colors duration-200'>
                   Export
                 </div>
               </div>

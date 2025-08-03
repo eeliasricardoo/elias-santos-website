@@ -140,34 +140,19 @@ export default function RootLayout({
         <link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
         <link rel='apple-touch-icon' sizes='180x180' href='/favicon.png' />
 
-        {/* ✅ Preload de fontes críticas */}
-        <link
-          rel='preload'
-          href='https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap'
-          as='style'
-        />
-
         {/* ✅ Preload de recursos críticos */}
         <link rel='preload' href='/profile-photo.png' as='image' />
 
         {/* ✅ DNS Prefetch para domínios externos */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//api.fontshare.com' />
 
         {/* ✅ Structured Data */}
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-
-        <noscript>
-          <link
-            rel='stylesheet'
-            href='https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap'
-          />
-        </noscript>
       </head>
-      <body className='font-satoshi dark' suppressHydrationWarning>
+      <body className='dark' suppressHydrationWarning>
         <ErrorBoundary>
           <AppProvider>
             <Navbar />
