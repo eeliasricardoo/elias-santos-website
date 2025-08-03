@@ -38,15 +38,15 @@ export default function CarouselBuilderPage() {
       {/* SEO */}
       <PageSEO
         title="Post & Carousel Generator - Case Study"
-        description="Case study completo do Post & Carousel Generator, uma ferramenta de IA que revoluciona a criação de carrosséis para redes sociais. Redução de 90% no tempo de criação."
+        description="Complete case study of Post & Carousel Generator, an AI tool that revolutionizes carousel creation for social media. 90% reduction in creation time."
         keywords={[
           'Post & Carousel Generator',
-          'IA para criação de conteúdo',
-          'Carrosséis LinkedIn',
+          'AI for content creation',
+          'LinkedIn Carousels',
           'UX Design Case Study',
-          'Ferramenta de IA',
-          'Criação de conteúdo',
-          'Design de interfaces',
+          'AI Tool',
+          'Content Creation',
+          'Interface Design',
           'Next.js',
           'React',
           'OpenRouter API'
@@ -60,7 +60,7 @@ export default function CarouselBuilderPage() {
         tags={[
           'UX Design',
           'IA',
-          'Criação de Conteúdo',
+          'Content Creation',
           'Carrosséis',
           'LinkedIn',
           'Next.js',
@@ -71,7 +71,7 @@ export default function CarouselBuilderPage() {
       {/* Structured Data */}
       <ProjectStructuredData
         name="Post & Carousel Generator"
-        description="Ferramenta de IA que revoluciona a criação de carrosséis para redes sociais, reduzindo o tempo de criação em 90% com templates profissionais e geração inteligente de conteúdo."
+        description="AI tool that revolutionizes carousel creation for social media, reducing creation time by 90% with professional templates and intelligent content generation."
         image="/portfolios/carousel-builder/demo.mp4"
         url="/portfolio/carousel-builder"
         technologies={['Next.js', 'React', 'TypeScript', 'OpenRouter API', 'TipTap', 'Tailwind CSS']}
@@ -122,66 +122,25 @@ export default function CarouselBuilderPage() {
           </p>
         </motion.div>
 
-        {/* Video Demo */}
+        {/* Main Interface Highlight */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className='w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
+          className='w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
         >
-          <div className='relative w-full'>
-            <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className='absolute top-0 left-0 w-full h-full object-cover'
-              >
-                <source
-                  src='/portfolios/carousel-builder/demo.mp4'
-                  type='video/mp4'
-                />
-              </video>
-            </div>
-          </div>
+          <Image
+            src='/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png'
+            alt='Main interface of Post & Carousel Generator showing AI Assistant, carousel editor and template system'
+            width={1400}
+            height={900}
+            className='w-full h-auto'
+            priority
+          />
         </motion.div>
       </section>
 
-      {/* Main Interface Screenshot */}
-      <section className='space-y-8'>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className='space-y-6'
-        >
-          <div className='text-center space-y-4'>
-            <h2 className='text-3xl font-bold text-foreground'>
-              Interface Principal
-            </h2>
-            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-              A ferramenta completa com IA Assistant, editor visual e sistema de templates profissionais
-            </p>
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className='w-full rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
-          >
-            <Image
-              src='/portfolios/carousel-builder/Captura de tela 2025-08-01 001743.png'
-              alt='Interface principal do Post & Carousel Generator mostrando IA Assistant, editor de carrosséis e sistema de templates'
-              width={1200}
-              height={800}
-              className='w-full h-auto'
-              priority
-            />
-          </motion.div>
-        </motion.div>
-      </section>
 
       {/* Introduction */}
       <section className='space-y-8'>
