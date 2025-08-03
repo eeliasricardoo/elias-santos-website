@@ -2,13 +2,16 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, FileText } from 'lucide-react';
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
+import { CVModal } from '@/components/CVModal';
 
 export function Navbar() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
   const openContactModal = () => {
     setIsContactModalOpen(true);
@@ -16,6 +19,14 @@ export function Navbar() {
 
   const closeContactModal = () => {
     setIsContactModalOpen(false);
+  };
+
+  const openCVModal = () => {
+    setIsCVModalOpen(true);
+  };
+
+  const closeCVModal = () => {
+    setIsCVModalOpen(false);
   };
 
   return (
@@ -37,18 +48,29 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Right side - Contact button only */}
+            {/* Right side - CV and Contact buttons */}
             <div className='flex items-center gap-4'>
-              {/* Contact Button */}
+              {/* CV Button */}
               <Button
-                onClick={openContactModal}
+                onClick={openCVModal}
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors'
               >
+                <FileText className='w-4 h-4' />
+                <span className='hidden sm:inline'>Curriculum Vitae</span>
+              </Button>
+
+              {/* Contact Button */}
+              <RainbowButton
+                onClick={openContactModal}
+                variant='outline'
+                size='sm'
+                className='flex items-center gap-2'
+              >
                 <MessageCircle className='w-4 h-4' />
                 <span className='hidden sm:inline'>Contact</span>
-              </Button>
+              </RainbowButton>
             </div>
           </div>
         </div>
@@ -56,6 +78,9 @@ export function Navbar() {
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
+      
+      {/* CV Modal */}
+      <CVModal isOpen={isCVModalOpen} onClose={closeCVModal} />
     </>
   );
 }
