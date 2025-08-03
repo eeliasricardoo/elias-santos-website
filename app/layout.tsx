@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: 'Elias Santos Portfolio',
     images: [
       {
-        url: '/api/og',
+        url: '/oq-image.png',
         width: 1200,
         height: 630,
         alt: 'Elias Santos - Professional Portfolio',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Elias Santos - UX/UI Designer & Frontend Developer',
     description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
-    images: ['/api/og'],
+    images: ['/oq-image.png'],
     creator: '@eliassantos',
   },
   robots: {

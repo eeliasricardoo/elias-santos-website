@@ -20,7 +20,7 @@ export function PageSEO({
   title,
   description,
   keywords = [],
-  image = '/api/og',
+  image = '/oq-image.png',
   url,
   type = 'website',
   publishedTime,
