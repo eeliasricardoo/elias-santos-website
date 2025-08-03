@@ -22,7 +22,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
   if (type === 'ventus-chat') {
     return (
-      <div className='relative w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8'>
+      <div className='relative w-full h-full flex items-center justify-center'>
         {/* Background Particles */}
         <div className='absolute inset-0 overflow-hidden'>
           {[...Array(6)].map((_, i) => (
@@ -53,10 +53,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 rounded-xl md:rounded-2xl overflow-hidden backdrop-blur-xl border border-border/20 shadow-xl'
+          className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 overflow-hidden backdrop-blur-xl border border-border/20 shadow-xl'
         >
           {/* Chat Messages */}
-          <div className='flex-1 p-4 md:p-5 lg:p-6 space-y-3 md:space-y-4 lg:space-y-5 overflow-hidden h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] lg:h-[calc(100%-6rem)]'>
+          <div className='flex-1 p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3 lg:space-y-4 overflow-hidden h-[calc(100%-3rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-5rem)]'>
             {/* AI Message 1 */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -168,7 +168,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
           </div>
 
           {/* Input Bar */}
-          <div className='p-4 md:p-5 lg:p-6 border-t border-border/20'>
+          <div className='p-3 md:p-4 lg:p-5 border-t border-border/20'>
             <div className='flex items-center space-x-2 md:space-x-3'>
               <div className='flex-1 bg-muted/50 rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3'>
                 <p className='text-sm md:text-base lg:text-lg text-muted-foreground'>
@@ -207,35 +207,35 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
   if (type === 'ranking') {
     return (
-      <div className='w-full h-full flex items-center justify-center bg-transparent p-4 md:p-6 lg:p-8'>
-        <div className='w-full max-w-sm mx-auto p-4 md:p-5 lg:p-6 bg-card/80 rounded-xl md:rounded-2xl border border-border/20 shadow-none space-y-4 md:space-y-5 lg:space-y-6'>
+      <div className='w-full h-full flex items-center justify-center bg-transparent'>
+        <div className='w-full h-full p-3 md:p-4 lg:p-5 bg-card/80 border border-border/20 shadow-none flex flex-col'>
           {/* Título */}
-          <div className='text-center space-y-2'>
-            <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-foreground'>Ranking</h3>
-            <p className='text-sm md:text-base lg:text-lg text-muted-foreground'>Engagement Score</p>
+          <div className='text-center space-y-1 md:space-y-2 flex-shrink-0'>
+            <h3 className='text-base md:text-lg lg:text-xl font-semibold text-foreground'>Ranking</h3>
+            <p className='text-xs md:text-sm lg:text-base text-muted-foreground'>Engagement Score</p>
           </div>
 
           {/* Score */}
-          <div className='text-center'>
-            <div className='text-3xl md:text-4xl lg:text-5xl font-bold text-primary'>
+          <div className='text-center flex-shrink-0 py-1 md:py-2'>
+            <div className='text-xl md:text-2xl lg:text-3xl font-bold text-primary'>
               {currentScore}
             </div>
-            <div className='text-sm md:text-base lg:text-lg text-muted-foreground'>points</div>
+            <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>points</div>
           </div>
 
           {/* Progress Bar */}
-          <div className='space-y-2'>
-            <div className='flex justify-between text-sm md:text-base lg:text-lg text-muted-foreground'>
+          <div className='space-y-1 md:space-y-2 flex-shrink-0'>
+            <div className='flex justify-between text-xs md:text-sm lg:text-base text-muted-foreground'>
               <span>Progress</span>
               <span>75%</span>
             </div>
-            <div className='h-2 md:h-3 lg:h-4 bg-muted/50 rounded-full overflow-hidden'>
+            <div className='h-1.5 md:h-2 lg:h-2.5 bg-muted/50 rounded-full overflow-hidden'>
               <div className='h-full w-3/4 bg-primary/60 rounded-full transition-all duration-700' />
             </div>
           </div>
 
           {/* Lista de Usuários */}
-          <div className='space-y-2 md:space-y-3 lg:space-y-4'>
+          <div className='space-y-1 md:space-y-1.5 lg:space-y-2 flex-1 overflow-hidden mt-2 md:mt-3'>
             {[
               { name: 'Ana Silva', score: 892, emoji: '👑' },
               { name: 'João Costa', score: 756, emoji: '🥈' },
@@ -243,24 +243,24 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             ].map((user, index) => (
               <div
                 key={user.name}
-                className='flex items-center space-x-3 md:space-x-4 bg-card/60 rounded-lg md:rounded-xl px-3 md:px-4 lg:px-5 py-2 md:py-3 lg:py-4'
+                className='flex items-center space-x-2 md:space-x-3 bg-card/60 rounded-md md:rounded-lg px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-2.5'
               >
-                <div className='w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full bg-primary/10 flex items-center justify-center text-sm md:text-base lg:text-lg font-bold text-primary flex-shrink-0'>
+                <div className='w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-primary/10 flex items-center justify-center text-xs md:text-sm lg:text-base font-bold text-primary flex-shrink-0'>
                   {index + 1}
                 </div>
                 <div className='flex-1 min-w-0'>
-                  <div className='text-sm md:text-base lg:text-lg font-medium text-foreground truncate'>
+                  <div className='text-xs md:text-sm lg:text-base font-medium text-foreground truncate'>
                     {user.name}
                   </div>
-                  <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>
+                  <div className='text-xs md:text-xs lg:text-sm text-muted-foreground'>
                     {user.emoji} Top
                   </div>
                 </div>
                 <div className='text-right flex-shrink-0'>
-                  <div className='text-sm md:text-base lg:text-lg font-bold text-foreground'>
+                  <div className='text-xs md:text-sm lg:text-base font-bold text-foreground'>
                     {user.score}
                   </div>
-                  <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>pts</div>
+                  <div className='text-xs md:text-xs lg:text-sm text-muted-foreground'>pts</div>
                 </div>
               </div>
             ))}
@@ -272,7 +272,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
   if (type === 'carousel-builder') {
     return (
-      <div className='w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8'>
+      <div className='w-full h-full flex items-center justify-center'>
         <CarouselBuilderCard />
       </div>
     );

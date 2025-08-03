@@ -151,23 +151,21 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               </div>
 
               {/* Botão */}
-              <div className='pt-2 md:pt-3 lg:pt-4'>
-                <Button
-                  size='lg'
-                  disabled={isLoading}
-                  className='bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full md:w-auto'
-                  onClick={handleButtonClick}
-                >
-                  {isLoading ? (
-                    <div className='flex items-center space-x-2'>
-                      <Loader2 className='w-4 h-4 animate-spin' />
-                      <span>Carregando...</span>
-                    </div>
-                  ) : (
-                    card.buttonText
-                  )}
-                </Button>
-              </div>
+              <Button
+                size='lg'
+                disabled={isLoading}
+                className='bg-foreground border border-border text-background hover:bg-background hover:text-foreground transition-all duration-300 px-6 py-2.5 text-sm font-medium'
+                onClick={handleButtonClick}
+              >
+                {isLoading ? (
+                  <div className='flex items-center space-x-2'>
+                    <Loader2 className='w-4 h-4 animate-spin' />
+                    <span>Carregando...</span>
+                  </div>
+                ) : (
+                  card.buttonText
+                )}
+              </Button>
             </div>
             
             {/* Mockup Animado - Segundo no desktop, primeiro no mobile */}

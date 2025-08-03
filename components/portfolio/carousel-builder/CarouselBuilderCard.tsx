@@ -79,10 +79,10 @@ export function CarouselBuilderCard() {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 rounded-2xl overflow-hidden backdrop-blur-xl border border-border/20 shadow-2xl'
+        className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 overflow-hidden backdrop-blur-xl border border-border/20 shadow-2xl'
       >
         {/* Header do Carrossel */}
-        <div className='p-4 border-b border-border/20 bg-card/50 backdrop-blur-sm'>
+        <div className='p-3 md:p-4 border-b border-border/20 bg-card/50 backdrop-blur-sm'>
           <div className='flex items-center justify-between'>
             <div className='flex items-center space-x-2'>
               <div className='w-8 h-8 rounded-full bg-gradient-to-r from-primary to-primary/60 flex items-center justify-center'>
@@ -118,7 +118,7 @@ export function CarouselBuilderCard() {
         </div>
 
         {/* Carrossel Content */}
-        <div className='flex-1 p-4 overflow-hidden'>
+        <div className='flex-1 p-3 md:p-4 overflow-hidden'>
           <div className='relative w-full h-full'>
             {carouselItems.map((item, index) => (
               <motion.div
@@ -183,7 +183,7 @@ export function CarouselBuilderCard() {
         </div>
 
         {/* Navigation Dots */}
-        <div className='p-4 border-t border-border/20 bg-card/50 backdrop-blur-sm'>
+        <div className='p-3 md:p-4 border-t border-border/20 bg-card/50 backdrop-blur-sm'>
           <div className='flex justify-center space-x-2'>
             {carouselItems.map((_, index) => (
               <motion.button
