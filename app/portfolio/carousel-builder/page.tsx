@@ -148,6 +148,41 @@ export default function CarouselBuilderPage() {
         </motion.div>
       </section>
 
+      {/* Main Interface Screenshot */}
+      <section className='space-y-8'>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className='space-y-6'
+        >
+          <div className='text-center space-y-4'>
+            <h2 className='text-3xl font-bold text-foreground'>
+              Interface Principal
+            </h2>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
+              A ferramenta completa com IA Assistant, editor visual e sistema de templates profissionais
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className='w-full rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
+          >
+            <Image
+              src='/portfolios/carousel-builder/Captura de tela 2025-08-01 001743.png'
+              alt='Interface principal do Post & Carousel Generator mostrando IA Assistant, editor de carrosséis e sistema de templates'
+              width={1200}
+              height={800}
+              className='w-full h-auto'
+              priority
+            />
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* Introduction */}
       <section className='space-y-8'>
         <motion.div
