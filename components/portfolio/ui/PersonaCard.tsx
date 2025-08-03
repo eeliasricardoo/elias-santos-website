@@ -9,11 +9,7 @@ interface PersonaCardProps {
   image?: string;
 }
 
-export function PersonaCard({
-  name,
-  role,
-  image,
-}: PersonaCardProps) {
+export function PersonaCard({ name, role, image }: PersonaCardProps) {
   return (
     <div className='bg-muted/20 rounded-lg p-4 border border-border/20'>
       {image && (

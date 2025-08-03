@@ -49,4 +49,4 @@ export function SEOImage({
       />
     </div>
   );
-} 
+}

@@ -36,7 +36,7 @@ describe('useIsMobile', () => {
       writable: true,
       value: 375,
     });
-    
+
     const { result } = renderHook(() => useIsMobile());
     expect(result.current).toBe(true);
   });
@@ -52,4 +52,4 @@ describe('useIsMobile', () => {
     // Restore window
     global.window = originalWindow;
   });
-}); 
+});

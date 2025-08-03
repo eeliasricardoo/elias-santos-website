@@ -52,4 +52,4 @@ export * from './use-mobile';
 
 // Componentes SEO
 export * from './seo-image';
-export * from './breadcrumbs'; 
+export * from './breadcrumbs';

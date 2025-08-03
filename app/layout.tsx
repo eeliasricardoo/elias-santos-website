@@ -6,17 +6,19 @@ import { AppProvider } from '@/components/providers/app-provider';
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev'
+  ),
   title: {
     default: 'Elias Santos - UX/UI Designer & Frontend Developer',
-    template: '%s | Elias Santos'
+    template: '%s | Elias Santos',
   },
   description:
     'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
   keywords: [
     'Elias Santos',
     'UX Design',
-    'UI Design', 
+    'UI Design',
     'Frontend Developer',
     'React',
     'Next.js',
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     'Web Development',
     'Frontend',
     'User Experience',
-    'Brazil'
+    'Brazil',
   ],
   authors: [{ name: 'Elias Santos', url: 'https://eliassantos.dev' }],
   creator: 'Elias Santos',
@@ -41,7 +43,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://eliassantos.dev',
     title: 'Elias Santos - UX/UI Designer & Frontend Developer',
-    description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+    description:
+      'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
     siteName: 'Elias Santos Portfolio',
     images: [
       {
@@ -56,7 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Elias Santos - UX/UI Designer & Frontend Developer',
-    description: 'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
+    description:
+      'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
     images: ['/oq-image.png'],
     creator: '@eliassantos',
   },
@@ -119,7 +123,8 @@ const structuredData = {
     'User Experience',
     'Interface Design',
   ],
-  description: 'UX/UI Designer and Frontend Developer specializing in modern web development with focus on exceptional digital experiences.',
+  description:
+    'UX/UI Designer and Frontend Developer specializing in modern web development with focus on exceptional digital experiences.',
 };
 
 export default function RootLayout({
@@ -134,27 +139,27 @@ export default function RootLayout({
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
         <link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
         <link rel='apple-touch-icon' sizes='180x180' href='/favicon.png' />
-        
+
         {/* ✅ Preload de fontes críticas */}
         <link
           rel='preload'
           href='https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap'
           as='style'
         />
-        
+
         {/* ✅ Preload de recursos críticos */}
         <link rel='preload' href='/profile-photo.png' as='image' />
-        
+
         {/* ✅ DNS Prefetch para domínios externos */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//api.fontshare.com' />
-        
+
         {/* ✅ Structured Data */}
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        
+
         <noscript>
           <link
             rel='stylesheet'

@@ -74,26 +74,29 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
 
   const handleCardClick = useCallback(async () => {
     if (isLoading) return;
-    
+
     setIsLoading(true);
-    
+
     // Reduzido o delay para 100ms para feedback mais rápido
     await new Promise(resolve => setTimeout(resolve, 100));
-    
+
     router.push(getRoute());
   }, [isLoading, router, getRoute]);
 
-  const handleButtonClick = useCallback(async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (isLoading) return;
-    
-    setIsLoading(true);
-    
-    // Reduzido o delay para 100ms para feedback mais rápido
-    await new Promise(resolve => setTimeout(resolve, 100));
-    
-    router.push(getRoute());
-  }, [isLoading, router, getRoute]);
+  const handleButtonClick = useCallback(
+    async (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (isLoading) return;
+
+      setIsLoading(true);
+
+      // Reduzido o delay para 100ms para feedback mais rápido
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      router.push(getRoute());
+    },
+    [isLoading, router, getRoute]
+  );
 
   return (
     <motion.div
@@ -139,7 +142,9 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
         <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 items-center'>
             {/* Conteúdo - Primeiro no desktop, segundo no mobile */}
-            <div className={`space-y-6 md:space-y-8 lg:space-y-10 ${isMobile ? 'order-2' : 'order-1'}`}>
+            <div
+              className={`space-y-6 md:space-y-8 lg:space-y-10 ${isMobile ? 'order-2' : 'order-1'}`}
+            >
               {/* Título e Descrição */}
               <div className='space-y-4 md:space-y-5 lg:space-y-6'>
                 <h3 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-foreground leading-tight'>
@@ -167,9 +172,11 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
                 )}
               </Button>
             </div>
-            
+
             {/* Mockup Animado - Segundo no desktop, primeiro no mobile */}
-            <div className={`relative w-full ${isMobile ? 'order-1 min-h-[280px] h-[320px] md:h-[380px]' : 'order-2 h-[380px] md:h-[420px] lg:h-[460px] xl:h-[500px]'} overflow-hidden rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/20`}>
+            <div
+              className={`relative w-full ${isMobile ? 'order-1 min-h-[280px] h-[320px] md:h-[380px]' : 'order-2 h-[380px] md:h-[420px] lg:h-[460px] xl:h-[500px]'} overflow-hidden rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/20`}
+            >
               <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5'></div>
               <AnimatedMockup
                 type={

@@ -2,7 +2,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, Calendar, ChevronDown, Sparkles, RefreshCw, Users, TrendingUp } from 'lucide-react';
+import {
+  Search,
+  Calendar,
+  ChevronDown,
+  Sparkles,
+  RefreshCw,
+  Users,
+  TrendingUp,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
@@ -41,16 +49,16 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
     >
       {/* Header com gradiente */}
       <div className='bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 px-8 py-6 border-b border-gray-200'>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
           className='flex items-center justify-between'
         >
           <div className='flex items-center space-x-4'>
-            <motion.div 
+            <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               className='flex items-center space-x-2'
             >
               <div className='w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg'></div>
@@ -100,7 +108,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
       {/* Main Content */}
       <div className='p-8 space-y-8 bg-gradient-to-br from-white to-gray-50'>
         {/* Ranking System Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -117,16 +125,13 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
               </p>
             </div>
             <div className='flex items-center space-x-3'>
-              <motion.span 
+              <motion.span
                 animate={{ opacity: rankingEnabled ? 1 : 0.5 }}
                 className='text-sm text-gray-600'
               >
                 {rankingEnabled ? 'Ativo' : 'Inativo'}
               </motion.span>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Switch
                   checked={rankingEnabled}
                   onCheckedChange={setRankingEnabled}
@@ -138,7 +143,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
         </motion.div>
 
         {/* Classification Table Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -158,7 +163,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
           {/* Filters and Controls */}
           <div className='space-y-4'>
             {/* Timeframe Buttons */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -174,7 +179,9 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Button
-                    variant={selectedTimeframe === timeframe.id ? 'default' : 'outline'}
+                    variant={
+                      selectedTimeframe === timeframe.id ? 'default' : 'outline'
+                    }
                     size='sm'
                     onClick={() => setSelectedTimeframe(timeframe.id)}
                     className={
@@ -190,7 +197,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             </motion.div>
 
             {/* Search and Filters Row */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -199,7 +206,10 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
               <div className='relative flex-1 max-w-md'>
                 <motion.div
                   animate={{ rotate: isSearching ? 360 : 0 }}
-                  transition={{ duration: 1, repeat: isSearching ? Infinity : 0 }}
+                  transition={{
+                    duration: 1,
+                    repeat: isSearching ? Infinity : 0,
+                  }}
                 >
                   <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400' />
                 </motion.div>
@@ -213,20 +223,28 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
 
               <div className='flex items-center space-x-2'>
                 <motion.div whileHover={{ scale: 1.05 }}>
-                  <Button variant='outline' size='sm' className='border-gray-300 rounded-xl'>
+                  <Button
+                    variant='outline'
+                    size='sm'
+                    className='border-gray-300 rounded-xl'
+                  >
                     Top 10
                     <ChevronDown className='w-4 h-4 ml-1' />
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }}>
-                  <Button variant='outline' size='sm' className='border-gray-300 rounded-xl'>
+                  <Button
+                    variant='outline'
+                    size='sm'
+                    className='border-gray-300 rounded-xl'
+                  >
                     Filtrar por unidade
                     <ChevronDown className='w-4 h-4 ml-1' />
                   </Button>
                 </motion.div>
               </div>
 
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 className='flex items-center space-x-2 text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-xl'
               >
@@ -247,15 +265,15 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
           className='flex flex-col items-center justify-center py-20 space-y-8 bg-gradient-to-br from-gray-50 to-white rounded-3xl border-2 border-dashed border-gray-200'
         >
           {/* Carro animado */}
-          <motion.div 
+          <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
             whileHover={{ scale: 1.05 }}
             className='relative'
           >
             {/* Linhas de movimento animadas */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -264,14 +282,14 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
               {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
-                  animate={{ 
+                  animate={{
                     opacity: [0.3, 1, 0.3],
-                    scaleY: [0.5, 1, 0.5]
+                    scaleY: [0.5, 1, 0.5],
                   }}
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    delay: i * 0.2
+                    delay: i * 0.2,
                   }}
                   className='w-1 h-3 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full'
                 />
@@ -282,57 +300,57 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             <div className='relative w-32 h-20'>
               {/* Sombra */}
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3]
+                  opacity: [0.3, 0.5, 0.3],
                 }}
                 transition={{
                   duration: 2,
-                  repeat: Infinity
+                  repeat: Infinity,
                 }}
                 className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-gray-300 rounded-full blur-sm'
               />
-              
+
               {/* Corpo do carro */}
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, -2, 0],
-                  rotateY: [0, 5, 0]
+                  rotateY: [0, 5, 0],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: 'easeInOut',
                 }}
                 className='w-full h-full bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-2xl shadow-lg relative overflow-hidden'
               >
                 {/* Efeito de brilho */}
                 <motion.div
-                  animate={{ 
+                  animate={{
                     x: [-100, 100],
-                    opacity: [0, 0.5, 0]
+                    opacity: [0, 0.5, 0],
                   }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
-                    delay: 1
+                    delay: 1,
                   }}
                   className='absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent'
                 />
-                
+
                 {/* Janelas */}
                 <div className='absolute top-2 left-3 right-3 h-3 bg-blue-200 rounded-lg opacity-80'></div>
                 <div className='absolute top-6 left-4 right-4 h-2 bg-blue-100 rounded opacity-60'></div>
-                
+
                 {/* Rodas */}
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   className='absolute bottom-1 left-2 w-4 h-4 bg-gray-800 rounded-full border-2 border-gray-600'
                 />
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   className='absolute bottom-1 right-2 w-4 h-4 bg-gray-800 rounded-full border-2 border-gray-600'
                 />
               </motion.div>
@@ -349,20 +367,20 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
-                animate={{ 
+                animate={{
                   y: [0, -20, 0],
                   opacity: [0, 1, 0],
-                  scale: [0.5, 1, 0.5]
+                  scale: [0.5, 1, 0.5],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  delay: i * 0.5
+                  delay: i * 0.5,
                 }}
                 className='absolute text-blue-500 text-xs font-bold'
                 style={{
                   left: `${20 + i * 15}%`,
-                  top: `${30 + (i % 2) * 20}%`
+                  top: `${30 + (i % 2) * 20}%`,
                 }}
               >
                 {['📊', '📈', '🏆', '⭐', '🎯', '💎'][i]}
@@ -371,7 +389,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
           </motion.div>
 
           {/* Empty State Text */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
@@ -386,14 +404,17 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
           </motion.div>
 
           {/* Action Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4 }}
             className='flex space-x-4'
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant='outline' className='border-gray-300 text-gray-700 rounded-xl px-6'>
+              <Button
+                variant='outline'
+                className='border-gray-300 text-gray-700 rounded-xl px-6'
+              >
                 <RefreshCw className='w-4 h-4 mr-2' />
                 Limpar filtros
               </Button>
@@ -409,7 +430,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
       </div>
 
       {/* Footer com gradiente */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
@@ -421,4 +442,4 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
       </motion.div>
     </motion.div>
   );
-} 
+}

@@ -28,7 +28,9 @@ export function TestimonialCard({
 
   if (!mounted) {
     return (
-      <div className={`flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border ${className}`}>
+      <div
+        className={`flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border ${className}`}
+      >
         <div className='flex items-start space-x-3'>
           <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
           <div className='flex-1 space-y-2'>

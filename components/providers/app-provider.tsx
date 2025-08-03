@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
 
 interface AppContextType {
   isLoaded: boolean;
@@ -27,7 +33,7 @@ export function AppProvider({ children }: AppProviderProps) {
   useEffect(() => {
     // Marca como carregado quando o componente monta
     setIsLoaded(true);
-    
+
     // Pequeno delay para garantir que a hidratação seja completa
     const timer = setTimeout(() => {
       setIsHydrated(true);
@@ -41,4 +47,4 @@ export function AppProvider({ children }: AppProviderProps) {
       {children}
     </AppContext.Provider>
   );
-} 
+}

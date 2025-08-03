@@ -9,17 +9,17 @@ interface PageAnalyticsProps {
   customProperties?: Record<string, string | number | boolean>;
 }
 
-export function PageAnalytics({ 
-  pageName, 
-  pagePath, 
-  customProperties = {} 
+export function PageAnalytics({
+  pageName,
+  pagePath,
+  customProperties = {},
 }: PageAnalyticsProps) {
   useEffect(() => {
     // Rastrear visualização da página
     track('page_view', {
       page_name: pageName,
       page_path: pagePath,
-      ...customProperties
+      ...customProperties,
     });
   }, [pageName, pagePath, customProperties]);
 
@@ -29,45 +29,45 @@ export function PageAnalytics({
 // Hook para rastrear eventos customizados
 export function useAnalytics() {
   const trackEvent = (
-    eventName: string, 
+    eventName: string,
     properties?: Record<string, string | number | boolean>
   ) => {
     track(eventName, properties);
   };
 
   const trackPageView = (
-    pageName: string, 
+    pageName: string,
     pagePath: string,
     properties?: Record<string, string | number | boolean>
   ) => {
     track('page_view', {
       page_name: pageName,
       page_path: pagePath,
-      ...properties
+      ...properties,
     });
   };
 
   const trackButtonClick = (
-    buttonName: string, 
+    buttonName: string,
     pagePath: string,
     properties?: Record<string, string | number | boolean>
   ) => {
     track('button_click', {
       button_name: buttonName,
       page_path: pagePath,
-      ...properties
+      ...properties,
     });
   };
 
   const trackFormSubmission = (
-    formName: string, 
+    formName: string,
     pagePath: string,
     properties?: Record<string, string | number | boolean>
   ) => {
     track('form_submission', {
       form_name: formName,
       page_path: pagePath,
-      ...properties
+      ...properties,
     });
   };
 
@@ -75,6 +75,6 @@ export function useAnalytics() {
     trackEvent,
     trackPageView,
     trackButtonClick,
-    trackFormSubmission
+    trackFormSubmission,
   };
-} 
+}

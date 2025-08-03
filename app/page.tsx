@@ -163,12 +163,12 @@ export default function Home() {
   return (
     <div ref={containerRef} className='relative min-h-screen'>
       {/* Analytics */}
-      <PageAnalytics 
-        pageName="Home" 
-        pagePath="/" 
+      <PageAnalytics
+        pageName='Home'
+        pagePath='/'
         customProperties={{
-          section: "main",
-          language: "pt-BR"
+          section: 'main',
+          language: 'pt-BR',
         }}
       />
 

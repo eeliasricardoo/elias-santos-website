@@ -14,11 +14,11 @@ interface ContactFormProps {
   showTitle?: boolean;
 }
 
-export function ContactForm({ 
-  onSuccess, 
-  onError, 
+export function ContactForm({
+  onSuccess,
+  onError,
   className = '',
-  showTitle = true 
+  showTitle = true,
 }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
@@ -193,8 +193,8 @@ export function ContactForm({
                 >
                   <CheckCircle className='w-5 h-5' />
                   <span className='font-medium'>
-                    Message sent successfully! I&#39;ll respond within 24
-                    hours with next steps.
+                    Message sent successfully! I&#39;ll respond within 24 hours
+                    with next steps.
                   </span>
                 </motion.div>
               )}
@@ -217,4 +217,4 @@ export function ContactForm({
       </div>
     </div>
   );
-} 
+}

@@ -181,7 +181,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                 transition={{ duration: 2, repeat: Infinity }}
                 className='w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-primary/80 rounded-full flex items-center justify-center'
               >
-                <span className='text-sm md:text-base lg:text-lg text-primary-foreground'>→</span>
+                <span className='text-sm md:text-base lg:text-lg text-primary-foreground'>
+                  →
+                </span>
               </motion.button>
             </div>
           </div>
@@ -211,8 +213,12 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
         <div className='w-full h-full p-3 md:p-4 lg:p-5 bg-card/80 border border-border/20 shadow-none flex flex-col'>
           {/* Título */}
           <div className='text-center space-y-1 md:space-y-2 flex-shrink-0'>
-            <h3 className='text-base md:text-lg lg:text-xl font-semibold text-foreground'>Ranking</h3>
-            <p className='text-xs md:text-sm lg:text-base text-muted-foreground'>Engagement Score</p>
+            <h3 className='text-base md:text-lg lg:text-xl font-semibold text-foreground'>
+              Ranking
+            </h3>
+            <p className='text-xs md:text-sm lg:text-base text-muted-foreground'>
+              Engagement Score
+            </p>
           </div>
 
           {/* Score */}
@@ -220,7 +226,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             <div className='text-xl md:text-2xl lg:text-3xl font-bold text-primary'>
               {currentScore}
             </div>
-            <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>points</div>
+            <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>
+              points
+            </div>
           </div>
 
           {/* Progress Bar */}
@@ -260,7 +268,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   <div className='text-xs md:text-sm lg:text-base font-bold text-foreground'>
                     {user.score}
                   </div>
-                  <div className='text-xs md:text-xs lg:text-sm text-muted-foreground'>pts</div>
+                  <div className='text-xs md:text-xs lg:text-sm text-muted-foreground'>
+                    pts
+                  </div>
                 </div>
               </div>
             ))}

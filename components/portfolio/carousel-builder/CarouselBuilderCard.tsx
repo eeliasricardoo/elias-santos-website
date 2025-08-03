@@ -7,15 +7,35 @@ export function CarouselBuilderCard() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = [
-    { id: 1, color: 'from-primary/20 to-primary/10', icon: '✨', title: 'Slide 1' },
-    { id: 2, color: 'from-primary/15 to-primary/5', icon: '🚀', title: 'Slide 2' },
-    { id: 3, color: 'from-primary/20 to-primary/10', icon: '💡', title: 'Slide 3' },
-    { id: 4, color: 'from-primary/15 to-primary/5', icon: '🎯', title: 'Slide 4' },
+    {
+      id: 1,
+      color: 'from-primary/20 to-primary/10',
+      icon: '✨',
+      title: 'Slide 1',
+    },
+    {
+      id: 2,
+      color: 'from-primary/15 to-primary/5',
+      icon: '🚀',
+      title: 'Slide 2',
+    },
+    {
+      id: 3,
+      color: 'from-primary/20 to-primary/10',
+      icon: '💡',
+      title: 'Slide 3',
+    },
+    {
+      id: 4,
+      color: 'from-primary/15 to-primary/5',
+      icon: '🎯',
+      title: 'Slide 4',
+    },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % slides.length);
+      setActiveSlide(prev => (prev + 1) % slides.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -25,14 +45,15 @@ export function CarouselBuilderCard() {
       <div className='w-full h-full max-w-md mx-auto'>
         {/* Interface Principal */}
         <div className='relative w-full h-full bg-card/90 backdrop-blur-xl border border-border/30 rounded-2xl overflow-hidden shadow-2xl'>
-          
           {/* Header com efeito de vidro */}
           <div className='relative p-4 border-b border-border/20 bg-card/50 backdrop-blur-sm'>
             <div className='flex items-center justify-between'>
               <div className='flex items-center space-x-3'>
                 <div className='relative'>
                   <div className='w-10 h-10 bg-gradient-to-r from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg'>
-                    <span className='text-primary-foreground font-bold text-sm'>AI</span>
+                    <span className='text-primary-foreground font-bold text-sm'>
+                      AI
+                    </span>
                   </div>
                   <motion.div
                     className='absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-card'
@@ -41,8 +62,12 @@ export function CarouselBuilderCard() {
                   />
                 </div>
                 <div>
-                  <h3 className='text-foreground font-semibold text-lg'>Carousel Creator</h3>
-                  <p className='text-muted-foreground text-sm'>AI-Powered Builder</p>
+                  <h3 className='text-foreground font-semibold text-lg'>
+                    Carousel Creator
+                  </h3>
+                  <p className='text-muted-foreground text-sm'>
+                    AI-Powered Builder
+                  </p>
                 </div>
               </div>
               <div className='flex space-x-1'>
@@ -50,7 +75,9 @@ export function CarouselBuilderCard() {
                   <motion.div
                     key={index}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === activeSlide ? 'bg-primary' : 'bg-muted-foreground/30'
+                      index === activeSlide
+                        ? 'bg-primary'
+                        : 'bg-muted-foreground/30'
                     }`}
                     animate={{
                       scale: index === activeSlide ? 1.3 : 1,
@@ -80,20 +107,30 @@ export function CarouselBuilderCard() {
                     }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
                   >
-                    <div className={`w-full h-full bg-gradient-to-br ${slide.color} rounded-xl flex flex-col items-center justify-center text-foreground relative overflow-hidden border border-border/20`}>
+                    <div
+                      className={`w-full h-full bg-gradient-to-br ${slide.color} rounded-xl flex flex-col items-center justify-center text-foreground relative overflow-hidden border border-border/20`}
+                    >
                       {/* Padrão de fundo animado */}
                       <div className='absolute inset-0 opacity-10'>
                         <div className='w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:20px_20px] animate-pulse' />
                       </div>
-                      
+
                       <motion.div
                         className='relative z-10 text-center space-y-2'
                         animate={{ y: [0, -5, 0] }}
-                        transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: index * 0.5,
+                        }}
                       >
                         <div className='text-4xl'>{slide.icon}</div>
-                        <div className='text-lg font-semibold text-foreground'>{slide.title}</div>
-                        <div className='text-sm text-muted-foreground'>Generated Content</div>
+                        <div className='text-lg font-semibold text-foreground'>
+                          {slide.title}
+                        </div>
+                        <div className='text-sm text-muted-foreground'>
+                          Generated Content
+                        </div>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -128,7 +165,9 @@ export function CarouselBuilderCard() {
                 <motion.div
                   className='h-full bg-gradient-to-r from-primary to-primary/80 rounded-full'
                   initial={{ width: 0 }}
-                  animate={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }}
+                  animate={{
+                    width: `${((activeSlide + 1) / slides.length) * 100}%`,
+                  }}
                   transition={{ duration: 0.5 }}
                 />
               </div>
@@ -152,8 +191,6 @@ export function CarouselBuilderCard() {
               </div>
             </div>
           </div>
-
-
 
           {/* Efeito de brilho sutil */}
           <motion.div

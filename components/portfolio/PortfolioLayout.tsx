@@ -112,4 +112,4 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
       {children}
     </div>
   );
-} 
+}

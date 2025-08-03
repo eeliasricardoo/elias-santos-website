@@ -57,7 +57,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
               {/* Content */}
               <div className='p-6'>
-                <ContactForm 
+                <ContactForm
                   onSuccess={handleSuccess}
                   showTitle={false}
                   className='w-full'
@@ -69,4 +69,4 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       )}
     </AnimatePresence>
   );
-} 
+}

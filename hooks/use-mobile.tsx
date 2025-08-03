@@ -8,7 +8,7 @@ export function useIsMobile() {
 
   React.useEffect(() => {
     setIsMounted(true);
-    
+
     const checkMobile = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     };
@@ -23,7 +23,7 @@ export function useIsMobile() {
     };
 
     mql.addEventListener('change', onChange);
-    
+
     return () => {
       mql.removeEventListener('change', onChange);
     };

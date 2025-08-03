@@ -8,7 +8,11 @@ describe('utils', () => {
     });
 
     it('handles conditional classes', () => {
-      const result = cn('base-class', true && 'conditional-class', false && 'hidden-class');
+      const result = cn(
+        'base-class',
+        true && 'conditional-class',
+        false && 'hidden-class'
+      );
       expect(result).toBe('base-class conditional-class');
     });
 
@@ -43,7 +47,9 @@ describe('utils', () => {
         { 'object-class': true },
         ['array-class1', 'array-class2']
       );
-      expect(result).toBe('base-class string-class conditional-class object-class array-class1 array-class2');
+      expect(result).toBe(
+        'base-class string-class conditional-class object-class array-class1 array-class2'
+      );
     });
   });
-}); 
+});

@@ -55,10 +55,7 @@ export function Navbar() {
       </nav>
 
       {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen}
-        onClose={closeContactModal}
-      />
+      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
     </>
   );
 }

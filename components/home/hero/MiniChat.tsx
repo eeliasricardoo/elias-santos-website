@@ -318,7 +318,7 @@ export function EmailClient() {
   // Inicia o fluxo quando o componente monta
   useEffect(() => {
     if (!mounted) return;
-    
+
     if (
       showInputTyping &&
       inputText === '' &&

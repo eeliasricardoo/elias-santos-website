@@ -104,8 +104,8 @@ export function DepoimentsSection() {
             <div className='h-8 bg-muted/20 rounded animate-pulse max-w-2xl mx-auto'></div>
           ) : (
             <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
-              Trusted by industry leaders and collaborators who&#39;ve experienced
-              exceptional results:
+              Trusted by industry leaders and collaborators who&#39;ve
+              experienced exceptional results:
             </h2>
           )}
         </motion.div>
@@ -123,46 +123,56 @@ export function DepoimentsSection() {
                 {/* Primeira linha skeleton */}
                 <div className='relative overflow-hidden py-4'>
                   <div className='flex space-x-6 px-6'>
-                    {Array(3).fill(0).map((_, i) => (
-                      <div key={i} className='flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border'>
-                        <div className='flex items-start space-x-3'>
-                          <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
-                          <div className='flex-1 space-y-2'>
-                            <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
-                            <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
-                            <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
-                            <div className='space-y-1'>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
+                    {Array(3)
+                      .fill(0)
+                      .map((_, i) => (
+                        <div
+                          key={i}
+                          className='flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border'
+                        >
+                          <div className='flex items-start space-x-3'>
+                            <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
+                            <div className='flex-1 space-y-2'>
+                              <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
+                              <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
+                              <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
+                              <div className='space-y-1'>
+                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
+                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
+                                <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 </div>
 
                 {/* Segunda linha skeleton */}
                 <div className='relative overflow-hidden py-4'>
                   <div className='flex space-x-6 px-6'>
-                    {Array(3).fill(0).map((_, i) => (
-                      <div key={i} className='flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border'>
-                        <div className='flex items-start space-x-3'>
-                          <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
-                          <div className='flex-1 space-y-2'>
-                            <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
-                            <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
-                            <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
-                            <div className='space-y-1'>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
+                    {Array(3)
+                      .fill(0)
+                      .map((_, i) => (
+                        <div
+                          key={i}
+                          className='flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border'
+                        >
+                          <div className='flex items-start space-x-3'>
+                            <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
+                            <div className='flex-1 space-y-2'>
+                              <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
+                              <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
+                              <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
+                              <div className='space-y-1'>
+                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
+                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
+                                <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 </div>
               </div>

@@ -8,7 +8,10 @@ interface AnimatedBadgeProps {
   animationDelay?: number;
 }
 
-export function AnimatedBadge({ text, animationDelay = 0 }: AnimatedBadgeProps) {
+export function AnimatedBadge({
+  text,
+  animationDelay = 0,
+}: AnimatedBadgeProps) {
   const mounted = useMounted();
 
   if (!mounted) {

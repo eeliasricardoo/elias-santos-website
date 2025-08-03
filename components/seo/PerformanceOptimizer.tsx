@@ -17,7 +17,7 @@ export function PerformanceOptimizer({
 }: PerformanceOptimizerProps) {
   useEffect(() => {
     // Preload critical images
-    preloadImages.forEach((src) => {
+    preloadImages.forEach(src => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
@@ -26,7 +26,7 @@ export function PerformanceOptimizer({
     });
 
     // Preload critical fonts
-    preloadFonts.forEach((src) => {
+    preloadFonts.forEach(src => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'font';
@@ -36,7 +36,7 @@ export function PerformanceOptimizer({
     });
 
     // DNS prefetch for external domains
-    dnsPrefetch.forEach((domain) => {
+    dnsPrefetch.forEach(domain => {
       const link = document.createElement('link');
       link.rel = 'dns-prefetch';
       link.href = domain;
@@ -44,7 +44,7 @@ export function PerformanceOptimizer({
     });
 
     // Preconnect to external domains
-    preconnect.forEach((domain) => {
+    preconnect.forEach(domain => {
       const link = document.createElement('link');
       link.rel = 'preconnect';
       link.href = domain;
@@ -54,8 +54,10 @@ export function PerformanceOptimizer({
     // Cleanup function
     return () => {
       // Remove dynamically added links on unmount
-      const links = document.querySelectorAll('link[rel="preload"], link[rel="dns-prefetch"], link[rel="preconnect"]');
-      links.forEach((link) => {
+      const links = document.querySelectorAll(
+        'link[rel="preload"], link[rel="dns-prefetch"], link[rel="preconnect"]'
+      );
+      links.forEach(link => {
         if (link.getAttribute('data-dynamic') === 'true') {
           link.remove();
         }
@@ -64,4 +66,4 @@ export function PerformanceOptimizer({
   }, [preloadImages, preloadFonts, dnsPrefetch, preconnect]);
 
   return null;
-} 
+}
