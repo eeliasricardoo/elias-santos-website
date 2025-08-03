@@ -32,7 +32,7 @@ export const SEO_CONFIG = {
       'Backend',
       'Brasil'
     ],
-    image: '/og-image.jpg',
+    image: '/oq-image.png',
     type: 'website',
   },
   
@@ -111,7 +111,7 @@ export const SEO_CONFIG = {
   performance: {
     preloadImages: [
       '/profile-photo.png',
-      '/og-image.jpg',
+      '/oq-image.png',
     ],
     preloadFonts: [
       'https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap',
