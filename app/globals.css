@@ -324,6 +324,28 @@
   will-change: transform;
 }
 
+/* ✅ Animações do Marquee mais rápidas para mobile */
+.animate-marquee-fast {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse-fast {
+  animation: marquee-reverse 20s linear infinite;
+  will-change: transform;
+}
+
+/* ✅ Animações do Marquee ainda mais rápidas para mobile pequeno */
+.animate-marquee-ultra-fast {
+  animation: marquee 15s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse-ultra-fast {
+  animation: marquee-reverse 15s linear infinite;
+  will-change: transform;
+}
+
 /* ✅ Transições suaves */
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -382,6 +404,28 @@
     }
     100% {
       transform: translateZ(0) rotate(360deg);
+    }
+  }
+  @keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+    }
+  25% {
+    background-position: 50% 100%;
+    transform: rotate(5deg) scale(1.1);
+    }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(-3deg) scale(0.95);
+    }
+  75% {
+    background-position: 50% 0%;
+    transform: rotate(3deg) scale(1.05);
+    }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
     }
   }
 }

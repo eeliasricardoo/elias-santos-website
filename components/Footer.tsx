@@ -18,33 +18,33 @@ export function Footer() {
         <div className='absolute bottom-0 right-1/4 w-40 h-40 bg-muted/10 rounded-full blur-3xl' />
       </div>
 
-      <div className='relative z-10 container mx-auto px-4 py-20'>
+      <div className='relative z-10 container mx-auto px-4 py-12 md:py-16 lg:py-20'>
         {/* Main Content */}
-        <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 mb-12 md:mb-16'>
           {/* Brand Section - 5 colunas */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className='lg:col-span-5 space-y-6'
+            className='md:col-span-2 lg:col-span-5 space-y-4 md:space-y-6'
           >
             <div className='flex items-center space-x-3'>
-              <div className='w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg'>
-                <span className='text-primary-foreground font-bold text-lg'>
+              <div className='w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg'>
+                <span className='text-primary-foreground font-bold text-base md:text-lg'>
                   ES
                 </span>
               </div>
               <div>
-                <h2 className='text-2xl font-bold text-foreground'>
+                <h2 className='text-xl md:text-2xl font-bold text-foreground'>
                   Elias Santos
                 </h2>
-                <p className='text-muted-foreground text-sm'>
+                <p className='text-muted-foreground text-xs md:text-sm'>
                   UX/UI Designer & Frontend
                 </p>
               </div>
             </div>
-            <p className='text-muted-foreground leading-relaxed text-base max-w-md'>
+            <p className='text-muted-foreground leading-relaxed text-sm md:text-base max-w-md'>
               UX/UI Designer & Frontend Developer with a proven track record of
               delivering user-centered solutions that drive business growth and
               user engagement. Specialized in EdTech innovation and rapid
@@ -53,7 +53,7 @@ export function Footer() {
             <div className='flex items-center space-x-3'>
               <Badge
                 variant='secondary'
-                className='bg-green-500/10 text-green-600 border-green-500/20'
+                className='bg-green-500/10 text-green-600 border-green-500/20 text-xs'
               >
                 <div className='w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse'></div>
                 Available for work
@@ -67,15 +67,15 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className='lg:col-span-4 space-y-6'
+            className='md:col-span-1 lg:col-span-4 space-y-4 md:space-y-6'
           >
-            <h3 className='text-xl font-semibold text-foreground'>
+            <h3 className='text-lg md:text-xl font-semibold text-foreground'>
               Navigation
             </h3>
-            <div className='grid grid-cols-1 gap-3'>
+            <div className='grid grid-cols-1 gap-2 md:gap-3'>
               <Button
                 variant='ghost'
-                className='justify-start p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all'
+                className='justify-start p-2 md:p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
                 onClick={() => {
                   const aboutSection = document.querySelector('#about-me');
                   aboutSection?.scrollIntoView({ behavior: 'smooth' });
@@ -85,7 +85,7 @@ export function Footer() {
               </Button>
               <Button
                 variant='ghost'
-                className='justify-start p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all'
+                className='justify-start p-2 md:p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
                 onClick={() => {
                   const portfolioSection = document.querySelector('#portfolio');
                   portfolioSection?.scrollIntoView({ behavior: 'smooth' });
@@ -95,7 +95,7 @@ export function Footer() {
               </Button>
               <Button
                 variant='ghost'
-                className='justify-start p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all'
+                className='justify-start p-2 md:p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
                 onClick={() => {
                   const companiesSection = document.querySelector('#companies');
                   companiesSection?.scrollIntoView({ behavior: 'smooth' });
@@ -105,7 +105,7 @@ export function Footer() {
               </Button>
               <Button
                 variant='ghost'
-                className='justify-start p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all'
+                className='justify-start p-2 md:p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
                 onClick={() => {
                   const contactSection =
                     document.querySelector('#get-in-touch');
@@ -123,14 +123,14 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className='lg:col-span-3 space-y-6'
+            className='md:col-span-1 lg:col-span-3 space-y-4 md:space-y-6'
           >
-            <h3 className='text-xl font-semibold text-foreground'>Connect</h3>
+            <h3 className='text-lg md:text-xl font-semibold text-foreground'>Connect</h3>
             <div className='grid grid-cols-1 gap-2'>
               <Button
                 variant='outline'
                 size='sm'
-                className='w-full justify-start h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all'
+                className='w-full justify-start h-9 md:h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all text-sm'
                 onClick={() =>
                   window.open('https://linkedin.com/in/elias-santos', '_blank')
                 }
@@ -141,7 +141,7 @@ export function Footer() {
               <Button
                 variant='outline'
                 size='sm'
-                className='w-full justify-start h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all'
+                className='w-full justify-start h-9 md:h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all text-sm'
                 onClick={() =>
                   window.open('https://github.com/elias-santos', '_blank')
                 }
@@ -152,7 +152,7 @@ export function Footer() {
               <Button
                 variant='outline'
                 size='sm'
-                className='w-full justify-start h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all'
+                className='w-full justify-start h-9 md:h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all text-sm'
                 onClick={() =>
                   window.open('https://medium.com/@elias-santos', '_blank')
                 }
@@ -169,7 +169,7 @@ export function Footer() {
               <Button
                 variant='outline'
                 size='sm'
-                className='w-full justify-start h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all'
+                className='w-full justify-start h-9 md:h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all text-sm'
                 onClick={() =>
                   window.open('https://wa.me/5511999999999', '_blank')
                 }
@@ -186,7 +186,7 @@ export function Footer() {
               <Button
                 variant='outline'
                 size='sm'
-                className='w-full justify-start h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all'
+                className='w-full justify-start h-9 md:h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all text-sm'
                 onClick={() =>
                   window.open('mailto:eeliasricardoo@gmail.com', '_blank')
                 }
@@ -204,21 +204,23 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className='pt-8 border-t border-border/30 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0'
+          className='pt-6 md:pt-8 border-t border-border/30 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0'
         >
-          <div className='flex items-center space-x-3 text-sm text-muted-foreground'>
+          <div className='flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 text-xs sm:text-sm text-muted-foreground text-center sm:text-left'>
             <span>© 2024 Elias Santos. All rights reserved.</span>
-            <div className='w-1 h-1 bg-muted-foreground/30 rounded-full'></div>
-            <span>Made with</span>
-            <Heart className='w-4 h-4 text-red-500 fill-current animate-pulse' />
-            <span>and Next.js</span>
+            <div className='hidden sm:block w-1 h-1 bg-muted-foreground/30 rounded-full'></div>
+            <div className='flex items-center space-x-1 sm:space-x-2'>
+              <span>Made with</span>
+              <Heart className='w-3 h-3 sm:w-4 sm:h-4 text-red-500 fill-current animate-pulse' />
+              <span>and Next.js</span>
+            </div>
           </div>
 
           <Button
             variant='ghost'
             size='sm'
             onClick={scrollToTop}
-            className='text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all'
+            className='text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
           >
             <ArrowUp className='w-4 h-4 mr-2' />
             Back to top
