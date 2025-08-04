@@ -3,6 +3,7 @@
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Download, MapPin, Phone, Mail, Linkedin, Globe, Github, Briefcase, GraduationCap, Award, Code, Languages, Calendar, Building2, Users, Palette, Database, Brain, Zap } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 interface CVModalProps {
   isOpen: boolean;
@@ -10,14 +11,26 @@ interface CVModalProps {
 }
 
 export function CVModal({ isOpen, onClose }: CVModalProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume_eeliasricardoo.pdf';
-    link.download = 'Elias_Ricardo_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    if (typeof window !== 'undefined') {
+      const link = document.createElement('a');
+      link.href = '/resume_eeliasricardoo.pdf';
+      link.download = 'Elias_Ricardo_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   };
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

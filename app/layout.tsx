@@ -1,68 +1,64 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/Navbar';
-import { ErrorBoundary } from '@/components/error-boundary';
-import { AppProvider } from '@/components/providers/app-provider';
 import { Analytics } from '@vercel/analytics/react';
+import { Navbar } from '@/components/Navbar';
+import { AppProvider } from '@/components/providers/app-provider';
+import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev'
-  ),
-  title: {
-    default: 'Elias Santos - UX/UI Designer & Frontend Developer',
-    template: '%s | Elias Santos',
-  },
+  title: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
   description:
-    'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+    'Desenvolvedor Full Stack e UX Designer apaixonado por criar experiências digitais excepcionais. Especializado em React, Next.js, TypeScript e design centrado no usuário.',
   keywords: [
-    'Elias Santos',
-    'UX Design',
-    'UI Design',
-    'Frontend Developer',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Portfolio',
-    'Interface Design',
-    'Web Development',
-    'Frontend',
-    'User Experience',
-    'Brazil',
+    'desenvolvedor full stack',
+    'ux designer',
+    'react',
+    'next.js',
+    'typescript',
+    'portfolio',
+    'frontend',
+    'backend',
+    'design',
   ],
-  authors: [{ name: 'Elias Santos', url: 'https://eliassantos.dev' }],
-  creator: 'Elias Santos',
-  publisher: 'Elias Santos',
+  authors: [{ name: 'Elias Ricardo' }],
+  creator: 'Elias Ricardo',
+  publisher: 'Elias Ricardo',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
+  metadataBase: new URL('https://eliasricardo.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://eliassantos.dev',
-    title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+    locale: 'pt_BR',
+    url: 'https://eliasricardo.com',
+    title: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
     description:
-      'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
-    siteName: 'Elias Santos Portfolio',
+      'Desenvolvedor Full Stack e UX Designer apaixonado por criar experiências digitais excepcionais. Especializado em React, Next.js, TypeScript e design centrado no usuário.',
+    siteName: 'Elias Ricardo Portfolio',
     images: [
       {
         url: '/oq-image.png',
         width: 1200,
         height: 630,
-        alt: 'Elias Santos - Professional Portfolio',
-        type: 'image/png',
+        alt: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+    title: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
     description:
-      'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
+      'Desenvolvedor Full Stack e UX Designer apaixonado por criar experiências digitais excepcionais. Especializado em React, Next.js, TypeScript e design centrado no usuário.',
     images: ['/oq-image.png'],
-    creator: '@eliassantos',
+    creator: '@eliasricardo',
   },
   robots: {
     index: true,
@@ -76,89 +72,23 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
+    google: 'google-site-verification-code',
   },
-  alternates: {
-    canonical: 'https://eliassantos.dev',
-  },
-  category: 'technology',
-};
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
-};
-
-// Structured Data for SEO
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Elias Santos',
-  url: 'https://eliassantos.dev',
-  image: 'https://eliassantos.dev/profile-photo.png',
-  sameAs: [
-    'https://linkedin.com/in/eliassantos',
-    'https://github.com/eliassantos',
-    'https://twitter.com/eliassantos',
-  ],
-  jobTitle: 'UX/UI Designer & Frontend Developer',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Freelancer',
-  },
-  knowsAbout: [
-    'UX Design',
-    'UI Design',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'JavaScript',
-    'Frontend Development',
-    'User Experience',
-    'Interface Design',
-  ],
-  description:
-    'UX/UI Designer and Frontend Developer specializing in modern web development with focus on exceptional digital experiences.',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang='pt-BR' suppressHydrationWarning>
-      <head>
-        {/* ✅ Favicon */}
-        <link rel='icon' type='image/x-icon' href='/favicon.ico' />
-        <link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
-        <link rel='apple-touch-icon' sizes='180x180' href='/favicon.png' />
-
-        {/* ✅ Preload de recursos críticos */}
-        <link rel='preload' href='/profile-photo.png' as='image' />
-
-        {/* ✅ DNS Prefetch para domínios externos */}
-        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-
-        {/* ✅ Structured Data */}
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </head>
-      <body className='dark' suppressHydrationWarning>
-        <ErrorBoundary>
-          <AppProvider>
-            <Navbar />
-            {children}
-          </AppProvider>
-        </ErrorBoundary>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${inter.className} dark`} suppressHydrationWarning>
+        <MicrosoftClarity />
+        <AppProvider>
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+        </AppProvider>
         <Analytics />
       </body>
     </html>
