@@ -37,14 +37,14 @@ export function CarouselBuilderCard() {
           <div className='relative p-4 border-b border-border/20 bg-gradient-to-r from-background/50 to-background/30'>
             <div className='flex items-center justify-between'>
               <div className='flex items-center space-x-3'>
-                                  <div className='relative'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg'>
-                      <span className='text-primary-foreground font-bold text-sm'>
-                        AI
-                      </span>
-                    </div>
-                    <div className='absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-card' />
+                <div className='relative'>
+                  <div className='w-10 h-10 bg-gradient-to-r from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg'>
+                    <span className='text-primary-foreground font-bold text-sm'>
+                      AI
+                    </span>
                   </div>
+                  <div className='absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-card' />
+                </div>
                 <div>
                   <h3 className='text-foreground font-semibold text-lg'>
                     Carousel Creator
@@ -86,16 +86,14 @@ export function CarouselBuilderCard() {
                       x: index === activeSlide ? 0 : 100,
                       scale: index === activeSlide ? 1 : 0.9,
                     }}
-                    transition={{ 
-                      duration: 0.5, 
-                      ease: 'easeInOut'
+                    transition={{
+                      duration: 0.5,
+                      ease: 'easeInOut',
                     }}
                   >
                     <div
                       className={`w-full h-full bg-gradient-to-br ${slide.color} rounded-xl flex flex-col items-center justify-center text-foreground relative overflow-hidden border border-border/20`}
                     >
-
-
                       <div className='relative z-10 text-center space-y-2'>
                         <div className='text-4xl'>{slide.icon}</div>
                         <div className='text-lg font-semibold text-foreground'>
@@ -148,8 +146,6 @@ export function CarouselBuilderCard() {
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>

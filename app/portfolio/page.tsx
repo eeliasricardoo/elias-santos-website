@@ -32,7 +32,7 @@ const projects = [
     id: 'carousel-builder',
     title: 'Post & Carousel Generator',
     description:
-      'Ferramenta de IA que revoluciona a criação de carrosséis para redes sociais, reduzindo o tempo de criação em 90%.',
+      'AI tool that revolutionizes carousel creation for social media, reducing creation time by 90%.',
     category: 'UX/UI Design',
     technologies: ['Next.js', 'React', 'OpenRouter API', 'TipTap'],
     image: '/portfolios/carousel-builder/demo.mp4',
@@ -48,29 +48,29 @@ const projects = [
     id: 'ranking',
     title: 'Ranking App',
     description:
-      'Aplicativo de ranking com foco em gamificação e experiência do usuário. Pesquisa de UX completa com personas e jornada do usuário.',
+      'Ranking application focused on gamification and user experience. Complete UX research with personas and user journey.',
     category: 'UX Research',
     technologies: ['React Native', 'TypeScript', 'UX Research', 'Figma'],
     image: '/portfolios/ranking/ranking.png',
     link: '/portfolio/ranking',
     stats: {
-      research: 'Completa',
+      research: 'Complete',
       personas: '3',
-      testing: 'Sim',
+      testing: 'Yes',
     },
   },
   {
     id: 'ventuschat',
     title: 'ChatAI',
     description:
-      'Ferramenta de IA personalizada desenvolvida em uma semana. Solução mais barata e customizável para chat com IA.',
-    category: 'Desenvolvimento Web',
+      'Personalized AI tool developed in one week. Cheaper and more customizable solution for AI chat.',
+    category: 'Web Development',
     technologies: ['Next.js', 'React', 'OpenAI API', 'TypeScript'],
     image: '/portfolios/ventuschat/demo.mp4',
     link: '/portfolio/ventuschat',
     stats: {
-      development: '1 semana',
-      cost: 'Reduzido',
+      development: '1 week',
+      cost: 'Reduced',
       features: '6',
     },
   },
@@ -78,9 +78,9 @@ const projects = [
 
 const categories = [
   { name: 'UX/UI Design', icon: <Palette className='w-4 h-4' />, count: 2 },
-  { name: 'Desenvolvimento Web', icon: <Code className='w-4 h-4' />, count: 2 },
+  { name: 'Web Development', icon: <Code className='w-4 h-4' />, count: 2 },
   { name: 'UX Research', icon: <Users className='w-4 h-4' />, count: 1 },
-  { name: 'IA & Automação', icon: <Brain className='w-4 h-4' />, count: 2 },
+  { name: 'AI & Automation', icon: <Brain className='w-4 h-4' />, count: 2 },
 ];
 
 export default function PortfolioPage() {
@@ -88,26 +88,26 @@ export default function PortfolioPage() {
     <>
       {/* SEO */}
       <PageSEO
-        title='Portfolio - Projetos e Cases'
-        description='Conheça os projetos de Elias Santos em UX/UI Design e desenvolvimento web. Cases completos com pesquisa de UX, desenvolvimento de aplicativos e ferramentas de IA.'
+        title='Portfolio - Projects and Cases'
+        description='Discover Elias Santos projects in UX/UI Design and web development. Complete cases with UX research, app development and AI tools.'
         keywords={[
           'Portfolio',
-          'Projetos',
+          'Projects',
           'UX Design',
           'UI Design',
-          'Desenvolvimento Web',
+          'Web Development',
           'Case Study',
           'React',
           'Next.js',
           'TypeScript',
-          'IA',
+          'AI',
           'UX Research',
         ]}
         url='/portfolio'
         type='website'
         author='Elias Santos'
         section='Portfolio'
-        tags={['Portfolio', 'UX Design', 'Desenvolvimento Web', 'Case Study']}
+        tags={['Portfolio', 'UX Design', 'Web Development', 'Case Study']}
       />
 
       <main className='max-w-6xl mx-auto py-12 px-4 space-y-16 pt-24'>
@@ -133,15 +133,14 @@ export default function PortfolioPage() {
             className='space-y-6'
           >
             <Badge className='bg-muted/50 text-muted-foreground border-border/50 px-4 py-2 text-sm font-medium'>
-              Portfolio Profissional
+              Professional Portfolio
             </Badge>
             <h1 className='text-5xl md:text-6xl font-bold text-foreground tracking-tight'>
-              Projetos & Cases
+              Projects & Cases
             </h1>
             <p className='text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-              Conheça meus projetos em UX/UI Design e desenvolvimento web. Cases
-              completos com foco em experiência do usuário e soluções
-              inovadoras.
+              Discover my projects in UX/UI Design and web development. Complete
+              cases focused on user experience and innovative solutions.
             </p>
           </motion.div>
 
@@ -155,17 +154,17 @@ export default function PortfolioPage() {
             {[
               {
                 icon: <Code className='w-6 h-6' />,
-                label: 'Projetos',
+                label: 'Projects',
                 value: '3',
               },
               {
                 icon: <Palette className='w-6 h-6' />,
-                label: 'Categorias',
+                label: 'Categories',
                 value: '4',
               },
               {
                 icon: <TrendingUp className='w-6 h-6' />,
-                label: 'Tecnologias',
+                label: 'Technologies',
                 value: '8+',
               },
               {
@@ -195,9 +194,9 @@ export default function PortfolioPage() {
             transition={{ duration: 0.8 }}
             className='text-center space-y-4'
           >
-            <h2 className='text-3xl font-bold text-foreground'>Categorias</h2>
+            <h2 className='text-3xl font-bold text-foreground'>Categories</h2>
             <p className='text-muted-foreground max-w-2xl mx-auto'>
-              Projetos organizados por área de especialização e tecnologia
+              Projects organized by area of specialization and technology
             </p>
           </motion.div>
 
@@ -220,7 +219,7 @@ export default function PortfolioPage() {
                     <p className='text-2xl font-bold text-foreground'>
                       {category.count}
                     </p>
-                    <p className='text-sm text-muted-foreground'>projetos</p>
+                    <p className='text-sm text-muted-foreground'>projects</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -237,7 +236,7 @@ export default function PortfolioPage() {
             className='text-center space-y-4'
           >
             <Badge className='bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium'>
-              Projeto em Destaque
+              Featured Project
             </Badge>
             <h2 className='text-3xl font-bold text-foreground'>
               Post & Carousel Generator
@@ -272,7 +271,7 @@ export default function PortfolioPage() {
                       <div className='space-y-4'>
                         <div>
                           <h4 className='font-semibold text-foreground mb-2'>
-                            Tecnologias
+                            Technologies
                           </h4>
                           <div className='flex flex-wrap gap-2'>
                             {project.technologies.map(tech => (
@@ -289,7 +288,7 @@ export default function PortfolioPage() {
 
                         <div>
                           <h4 className='font-semibold text-foreground mb-2'>
-                            Resultados
+                            Results
                           </h4>
                           <div className='grid grid-cols-3 gap-4'>
                             {Object.entries(project.stats).map(
@@ -310,7 +309,7 @@ export default function PortfolioPage() {
 
                       <Link href={project.link}>
                         <Button className='w-full'>
-                          Ver Case Completo
+                          View Full Case
                           <ArrowRight className='w-4 h-4 ml-2' />
                         </Button>
                       </Link>
@@ -344,10 +343,10 @@ export default function PortfolioPage() {
             className='text-center space-y-4'
           >
             <h2 className='text-3xl font-bold text-foreground'>
-              Todos os Projetos
+              All Projects
             </h2>
             <p className='text-muted-foreground max-w-2xl mx-auto'>
-              Explore todos os cases e projetos desenvolvidos
+              Explore all cases and projects developed
             </p>
           </motion.div>
 
@@ -388,7 +387,7 @@ export default function PortfolioPage() {
                   <CardContent className='space-y-4'>
                     <div>
                       <h4 className='font-semibold text-foreground text-sm mb-2'>
-                        Tecnologias
+                        Technologies
                       </h4>
                       <div className='flex flex-wrap gap-1'>
                         {project.technologies.slice(0, 3).map(tech => (
@@ -410,7 +409,7 @@ export default function PortfolioPage() {
 
                     <Link href={project.link}>
                       <Button variant='outline' className='w-full'>
-                        Ver Detalhes
+                        View Details
                         <ArrowRight className='w-4 h-4 ml-2' />
                       </Button>
                     </Link>
@@ -430,21 +429,21 @@ export default function PortfolioPage() {
             className='space-y-6'
           >
             <h2 className='text-3xl font-bold text-foreground'>
-              Interessado em Colaborar?
+              Interested in Collaborating?
             </h2>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Vamos criar algo incrível juntos! Entre em contato para discutir
-              seu projeto.
+              Let&apos;s create something amazing together! Get in touch to discuss
+              your project.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link href='/'>
                 <Button size='lg' className='bg-primary hover:bg-primary/90'>
-                  Voltar ao Início
+                  Back to Home
                 </Button>
               </Link>
               <Button size='lg' variant='outline'>
                 <Github className='w-4 h-4 mr-2' />
-                Ver GitHub
+                View GitHub
               </Button>
             </div>
           </motion.div>

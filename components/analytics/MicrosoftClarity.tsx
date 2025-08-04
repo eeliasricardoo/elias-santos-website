@@ -16,8 +16,8 @@ export function MicrosoftClarity() {
 
   return (
     <Script
-      id="microsoft-clarity"
-      strategy="afterInteractive"
+      id='microsoft-clarity'
+      strategy='afterInteractive'
       dangerouslySetInnerHTML={{
         __html: `
           (function(c,l,a,r,i,t,y){
@@ -29,4 +29,4 @@ export function MicrosoftClarity() {
       }}
     />
   );
-} 
+}

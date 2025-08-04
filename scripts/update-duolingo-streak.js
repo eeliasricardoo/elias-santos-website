@@ -24,4 +24,4 @@ const newContent = content.replace(
 
 fs.writeFileSync(configPath, newContent, 'utf8');
 
-console.log(`✅ Streak atualizado: ${currentStreak} → ${newStreak}`); 
+console.log(`✅ Streak atualizado: ${currentStreak} → ${newStreak}`);

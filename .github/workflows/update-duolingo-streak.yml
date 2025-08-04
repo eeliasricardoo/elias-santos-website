@@ -9,18 +9,18 @@ on:
 jobs:
   update-streak:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Update Duolingo streak
         run: node scripts/update-duolingo-streak.js
-        
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add lib/duolingo-streak.ts
           git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-update Duolingo streak"
-          git push 
+          git push

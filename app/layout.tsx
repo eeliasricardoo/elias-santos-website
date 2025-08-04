@@ -9,23 +9,22 @@ import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
+  title: 'Elias Santos - UX/UI Designer & Frontend',
   description:
-    'Desenvolvedor Full Stack e UX Designer apaixonado por criar experiências digitais excepcionais. Especializado em React, Next.js, TypeScript e design centrado no usuário.',
+    'UX/UI Designer & Frontend Developer creating exceptional digital experiences. Specialized in user-centered design, React, Next.js, and TypeScript.',
   keywords: [
-    'desenvolvedor full stack',
-    'ux designer',
+    'ux ui designer',
+    'frontend developer',
     'react',
     'next.js',
     'typescript',
     'portfolio',
     'frontend',
-    'backend',
     'design',
   ],
-  authors: [{ name: 'Elias Ricardo' }],
-  creator: 'Elias Ricardo',
-  publisher: 'Elias Ricardo',
+  authors: [{ name: 'Elias Santos' }],
+  creator: 'Elias Santos',
+  publisher: 'Elias Santos',
   formatDetection: {
     email: false,
     address: false,
@@ -37,26 +36,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'pt_BR',
+    locale: 'en_US',
     url: 'https://eliasricardo.com',
-    title: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
+    title: 'Elias Santos - UX/UI Designer & Frontend',
     description:
-      'Desenvolvedor Full Stack e UX Designer apaixonado por criar experiências digitais excepcionais. Especializado em React, Next.js, TypeScript e design centrado no usuário.',
-    siteName: 'Elias Ricardo Portfolio',
+      'UX/UI Designer & Frontend Developer creating exceptional digital experiences. Specialized in user-centered design, React, Next.js, and TypeScript.',
+    siteName: 'Elias Santos Portfolio',
     images: [
       {
         url: '/oq-image.png',
         width: 1200,
         height: 630,
-        alt: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
+        alt: 'Elias Santos - UX/UI Designer & Frontend',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elias Ricardo - Desenvolvedor Full Stack & UX Designer',
+    title: 'Elias Santos - UX/UI Designer & Frontend',
     description:
-      'Desenvolvedor Full Stack e UX Designer apaixonado por criar experiências digitais excepcionais. Especializado em React, Next.js, TypeScript e design centrado no usuário.',
+      'UX/UI Designer & Frontend Developer creating exceptional digital experiences. Specialized in user-centered design, React, Next.js, and TypeScript.',
     images: ['/oq-image.png'],
     creator: '@eliasricardo',
   },
@@ -82,12 +81,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${inter.className} dark`} suppressHydrationWarning>
         <MicrosoftClarity />
         <AppProvider>
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className='min-h-screen'>{children}</main>
         </AppProvider>
         <Analytics />
       </body>

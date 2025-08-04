@@ -25,18 +25,18 @@ export default function RankingCasePage() {
       {/* SEO */}
       <PageSEO
         title='Ranking App - UX Research Case Study'
-        description='Case study completo do aplicativo de ranking desenvolvido por Elias Santos. Pesquisa de UX, personas, jornada do usuário e soluções inovadoras para gamificação.'
+        description='Complete case study of the ranking application developed by Elias Santos. UX research, personas, user journey and innovative solutions for gamification.'
         keywords={[
           'Ranking App',
           'UX Research',
           'UX Design',
           'Mobile App',
-          'Gamificação',
+          'Gamification',
           'Case Study',
           'Personas',
           'User Journey',
-          'Design de Interfaces',
-          'Pesquisa de Usuário',
+          'Interface Design',
+          'User Research',
         ]}
         url='/portfolio/ranking'
         type='article'
@@ -47,8 +47,8 @@ export default function RankingCasePage() {
         tags={[
           'UX Research',
           'Mobile App',
-          'Gamificação',
-          'Design de Interfaces',
+          'Gamification',
+          'Interface Design',
           'Case Study',
         ]}
       />
@@ -56,7 +56,7 @@ export default function RankingCasePage() {
       {/* Structured Data */}
       <ProjectStructuredData
         name='Ranking App'
-        description='Aplicativo de ranking com foco em gamificação e experiência do usuário. Desenvolvido com pesquisa de UX completa, incluindo personas, jornada do usuário e testes de usabilidade.'
+        description='Ranking application focused on gamification and user experience. Developed with complete UX research, including personas, user journey and usability testing.'
         image='/portfolios/ranking/ranking.png'
         url='/portfolio/ranking'
         technologies={[

@@ -27,9 +27,9 @@ export default function RankingHeader() {
       </div>
 
       <div className='flex gap-4 mb-8 justify-start'>
-        <StatsCard value='+40%' label='Engajamento' />
-        <StatsCard value='+12.000' label='Usuários' />
-        <StatsCard value='18' label='Instituições' />
+        <StatsCard value='+40%' label='Engagement' />
+        <StatsCard value='+12.000' label='Users' />
+        <StatsCard value='18' label='Institutions' />
       </div>
     </header>
   );

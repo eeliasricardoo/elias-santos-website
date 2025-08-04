@@ -40,12 +40,12 @@ export function Footer() {
                   Elias Santos
                 </h2>
                 <p className='text-muted-foreground text-sm'>
-                  Product Designer
+                  UX/UI Designer & Frontend
                 </p>
               </div>
             </div>
             <p className='text-muted-foreground leading-relaxed text-base max-w-md'>
-              Strategic Product Designer with a proven track record of
+              UX/UI Designer & Frontend Developer with a proven track record of
               delivering user-centered solutions that drive business growth and
               user engagement. Specialized in EdTech innovation and rapid
               product development.

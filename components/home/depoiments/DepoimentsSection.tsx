@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
     name: 'Felipe Feliciano',
     role: 'PHP | Typescript | Javascript',
     content:
-      'Trabalhei com o Elias e ele é um designer que entende de experiência de verdade. Ultimamente vem se aproximando bastante do código, pegando gosto por entender como tudo funciona. Isso tem deixado o trabalho dele ainda mais completo, entender a parte técnica facilita muito na hora de passar a visão pro time de desenvolvimento. É alguém que soma, aprende rápido e tá sempre presente no que o time precisa.',
+      'I worked with Elias and he is a designer who truly understands user experience. Lately he has been getting closer to code, developing a taste for understanding how everything works. This has made his work even more complete - understanding the technical side makes it much easier to pass the vision to the development team. He is someone who adds value, learns quickly and is always present in what the team needs.',
     avatarGradient: 'from-green-400 to-blue-400',
     date: 'July 5, 2025',
     image: '/depoiments/feh.jpeg',
@@ -28,9 +28,9 @@ const testimonials: Testimonial[] = [
   {
     id: 2,
     name: 'Nikolas Soares Faria',
-    role: 'Criador do Toolzz e co-fundador da Edulabzz',
+    role: 'Creator of Toolzz and co-founder of Edulabzz',
     content:
-      'Trabalhei com o Elias por anos e posso dizer sem hesitar: é um profissional fora da curva. Um UX Designer com visão estratégica, domínio técnico e uma habilidade incrível de transformar problemas complexos em soluções simples e eficientes. Além disso, manda muito bem em front-end, sempre colaborativo com o time de produto, devs e stakeholders. É comprometido, organizado e proativo, daqueles que elevam o nível de qualquer projeto.',
+      'I worked with Elias for years and can say without hesitation: he is an exceptional professional. A UX Designer with strategic vision, technical mastery and an incredible ability to transform complex problems into simple and efficient solutions. Additionally, he excels in front-end development, always collaborative with the product team, developers and stakeholders. He is committed, organized and proactive - one of those who elevates the level of any project.',
     avatarGradient: 'from-purple-400 to-pink-400',
     date: 'July 4, 2025',
     image: '/depoiments/niko.jpeg',
@@ -38,9 +38,9 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     name: 'Rafael Mattara',
-    role: 'Analista de Dados | Product Owner | Analista de Teste IA',
+    role: 'Data Analyst | Product Owner | AI Test Analyst',
     content:
-      'Elias é um designer fenomenal e muito orientado a deadline e resultados. Tem um conhecimento profundo na criação e um senso crítico que tornam dele um dos profissionais mais qualificados que tive o prazer de compartilhar uma parte da minha trajetória profissional! Sedento por conhecimento, sempre estuda e busca aprimorar, concedendo parte do seu tempo para ir além de suas tarefas.',
+      'Elias is a phenomenal designer and very deadline and results oriented. He has deep knowledge in creation and critical sense that make him one of the most qualified professionals I had the pleasure of sharing part of my professional journey with! Knowledge hungry, he always studies and seeks to improve, dedicating part of his time to go beyond his tasks.',
     avatarGradient: 'from-blue-400 to-cyan-400',
     date: 'July 4, 2025',
     image: '/depoiments/mattara.jpeg',
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
     name: 'Gabriel Rosa',
     role: 'Video Editor | Motion Designer | Marketing Coordinator',
     content:
-      'O Elias é um designer de UX/UI com um talento incrível para criar interfaces intuitivas e funcionais. Seu conhecimento em experiência do usuário e usabilidade, aliado ao domínio de diversas ferramentas, faz toda a diferença nos projetos em que atua. Além do senso estético apurado, ele tem uma visão estratégica que contribui para soluções alinhadas tanto às necessidades dos usuários quanto aos objetivos do negócio.',
+      'Elias is a UX/UI designer with incredible talent for creating intuitive and functional interfaces. His knowledge in user experience and usability, combined with mastery of various tools, makes all the difference in the projects he works on. Beyond his refined aesthetic sense, he has a strategic vision that contributes to solutions aligned with both user needs and business objectives.',
     avatarGradient: 'from-orange-400 to-red-400',
     date: 'March 10, 2025',
     image: '/depoiments/rosa.jpeg',
@@ -58,9 +58,9 @@ const testimonials: Testimonial[] = [
   {
     id: 5,
     name: 'Angel Costa',
-    role: 'Analista de Recursos Humanos | Tech Recruiter | Talent Acquisition',
+    role: 'Human Resources Analyst | Tech Recruiter | Talent Acquisition',
     content:
-      'Quero recomendar o Elias, que trabalhou como UX/UI Designer e mandou muito bem! Ele tem um ótimo conhecimento em design de interfaces, experiência do usuário e usabilidade, além de dominar várias ferramentas. Sempre mostrou muita habilidade para criar soluções visuais intuitivas e funcionais, alinhadas tanto às necessidades do usuário quanto aos objetivos do projeto.',
+      'I want to recommend Elias, who worked as a UX/UI Designer and did an excellent job! He has great knowledge in interface design, user experience and usability, in addition to mastering various tools. He always showed great ability to create intuitive and functional visual solutions, aligned with both user needs and project objectives.',
     avatarGradient: 'from-pink-400 to-purple-400',
     date: 'February 28, 2025',
     image: '/depoiments/angel.jpeg',
@@ -80,7 +80,7 @@ const testimonials: Testimonial[] = [
     name: 'Bruno Torquato',
     role: 'Senior Art Director | GenAI Visual Director & Head of Design',
     content:
-      'O Elias foi meu braço direito como UX Researcher durante minha gestão na Toolzz, e não poderia estar mais grato por tê-lo ao meu lado. Sua paixão por entender os usuários e suas habilidades analíticas afiadas eram essenciais para nossos projetos. Sempre confiável e comprometido, ele elevou nossa abordagem de pesquisa e melhorou a experiência do usuário.',
+      'Elias was my right hand as UX Researcher during my management at Toolzz, and I couldn\'t be more grateful to have him by my side. His passion for understanding users and his sharp analytical skills were essential for our projects. Always reliable and committed, he elevated our research approach and improved user experience.',
     avatarGradient: 'from-emerald-400 to-teal-400',
     date: 'August 16, 2023',
     image: '/depoiments/bruno.jpeg',

@@ -26,7 +26,7 @@ export function AboutMeSection() {
           {/* Main content */}
           <div className='space-y-6 text-xl md:text-2xl text-foreground max-w-4xl mx-auto'>
             <div>
-              Product Designer specializing in{' '}
+              UX/UI Designer specializing in{' '}
               <Badge className='bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full'>
                 User-Centered Design
               </Badge>

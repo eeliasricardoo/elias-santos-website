@@ -6,4 +6,4 @@ export const CURRENT_DUOLINGO_STREAK = 605;
  */
 export function getCurrentStreak(): string {
   return CURRENT_DUOLINGO_STREAK.toString();
-} 
+}

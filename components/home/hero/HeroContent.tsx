@@ -45,7 +45,7 @@ export function HeroContent() {
           transition={{ delay: 0.9, duration: 0.8 }}
           className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'
         >
-          Strategic UX/UI Designer & Full Stack Developer. I transform complex
+          UX/UI Designer & Frontend Developer. I transform complex
           business challenges into elegant, user-centered solutions that drive
           measurable results and accelerate time-to-market.
         </motion.p>

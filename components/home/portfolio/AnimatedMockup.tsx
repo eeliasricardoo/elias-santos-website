@@ -242,7 +242,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             </div>
           </div>
 
-          {/* Lista de Usuários */}
+          {/* User List */}
           <div className='space-y-1 md:space-y-1.5 lg:space-y-2 flex-1 overflow-hidden mt-2 md:mt-3'>
             {[
               { name: 'Ana Silva', score: 892, emoji: '👑' },
@@ -288,11 +288,11 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
     );
   }
 
-  // Placeholder para outros tipos
+  // Placeholder for other types
   return (
     <div className='w-full h-full flex items-center justify-center'>
       <div className='text-muted-foreground'>
-        Mockup {type} em desenvolvimento
+        Mockup {type} in development
       </div>
     </div>
   );

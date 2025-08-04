@@ -78,7 +78,7 @@ export function Navbar() {
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
-      
+
       {/* CV Modal */}
       <CVModal isOpen={isCVModalOpen} onClose={closeCVModal} />
     </>

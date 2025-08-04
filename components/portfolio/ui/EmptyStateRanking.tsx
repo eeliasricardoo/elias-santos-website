@@ -26,18 +26,18 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
   const [isSearching, setIsSearching] = React.useState(false);
 
   const tabs = [
-    { id: 'ranking', label: 'Sistema de ranking', icon: TrendingUp },
-    { id: 'xp', label: 'Sistema de pontos de experiência', icon: Sparkles },
-    { id: 'level', label: 'Sistema de nível', icon: TrendingUp },
-    { id: 'medals', label: 'Sistema de medalhas', icon: Sparkles },
-    { id: 'coins', label: 'Sistemas de moedas', icon: TrendingUp },
+    { id: 'ranking', label: 'Ranking System', icon: TrendingUp },
+    { id: 'xp', label: 'Experience Points System', icon: Sparkles },
+    { id: 'level', label: 'Level System', icon: TrendingUp },
+    { id: 'medals', label: 'Medals System', icon: Sparkles },
+    { id: 'coins', label: 'Coins System', icon: TrendingUp },
   ];
 
   const timeframes = [
     { id: 'total', label: 'Total' },
-    { id: 'week', label: 'Semana' },
-    { id: 'month', label: 'Mês' },
-    { id: 'year', label: 'Ano' },
+    { id: 'week', label: 'Week' },
+    { id: 'month', label: 'Month' },
+    { id: 'year', label: 'Year' },
   ];
 
   return (
@@ -72,7 +72,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             className='flex items-center space-x-2 text-sm text-gray-600'
           >
             <Users className='w-4 h-4' />
-            <span>0 alunos ativos</span>
+            <span>0 active students</span>
           </motion.div>
         </motion.div>
       </div>
@@ -118,10 +118,10 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             <div>
               <h2 className='text-xl font-bold text-gray-900 flex items-center space-x-2'>
                 <TrendingUp className='w-5 h-5 text-blue-600' />
-                <span>Sistema de ranking</span>
+                <span>Ranking System</span>
               </h2>
               <p className='text-gray-600 mt-1'>
-                Confira agora o progresso dos seus alunos na Unidade
+                Check now the progress of your students in the Unit
               </p>
             </div>
             <div className='flex items-center space-x-3'>
@@ -129,7 +129,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                 animate={{ opacity: rankingEnabled ? 1 : 0.5 }}
                 className='text-sm text-gray-600'
               >
-                {rankingEnabled ? 'Ativo' : 'Inativo'}
+                {rankingEnabled ? 'Active' : 'Inactive'}
               </motion.span>
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Switch
@@ -152,11 +152,11 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
           <div className='p-6 bg-white rounded-2xl border border-gray-200 shadow-sm'>
             <h3 className='text-lg font-bold text-gray-900 flex items-center space-x-2'>
               <Users className='w-5 h-5 text-indigo-600' />
-              <span>Tabela de classificação</span>
+              <span>Classification Table</span>
             </h3>
             <p className='text-gray-600 mt-1'>
-              O sistema de ranking medirá o desempenho dos alunos com base na
-              interação e consumo de conteúdos.
+              The ranking system will measure student performance based on
+              interaction and content consumption.
             </p>
           </div>
 
@@ -214,7 +214,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                   <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400' />
                 </motion.div>
                 <Input
-                  placeholder='Buscar alunos...'
+                  placeholder='Search students...'
                   className='pl-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl'
                   onFocus={() => setIsSearching(true)}
                   onBlur={() => setIsSearching(false)}
@@ -238,7 +238,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                     size='sm'
                     className='border-gray-300 rounded-xl'
                   >
-                    Filtrar por unidade
+                    Filter by unit
                     <ChevronDown className='w-4 h-4 ml-1' />
                   </Button>
                 </motion.div>
@@ -396,10 +396,10 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             className='text-center space-y-3'
           >
             <h4 className='text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'>
-              Nenhum resultado encontrado
+              No results found
             </h4>
             <p className='text-gray-600 max-w-md leading-relaxed'>
-              Verifique o termo buscado ou os filtros selecionados.
+              Check the search term or selected filters.
             </p>
           </motion.div>
 
@@ -416,13 +416,13 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                 className='border-gray-300 text-gray-700 rounded-xl px-6'
               >
                 <RefreshCw className='w-4 h-4 mr-2' />
-                Limpar filtros
+                Clear filters
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button className='bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-xl px-6 shadow-lg'>
                 <Users className='w-4 h-4 mr-2' />
-                Adicionar alunos
+                Add students
               </Button>
             </motion.div>
           </motion.div>
@@ -437,7 +437,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
         className='bg-gradient-to-r from-gray-50 to-blue-50 px-8 py-4 border-t border-gray-200'
       >
         <p className='text-sm text-gray-600 text-center font-medium'>
-          ✨ Sistema de Ranking Ativo - Aguardando dados dos alunos
+          ✨ Ranking System Active - Waiting for student data
         </p>
       </motion.div>
     </motion.div>

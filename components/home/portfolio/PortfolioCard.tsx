@@ -133,7 +133,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
             <div className='flex flex-col items-center space-y-4'>
               <Loader2 className='w-8 h-8 animate-spin text-primary' />
               <p className='text-sm text-muted-foreground font-medium'>
-                Carregando...
+                Loading...
               </p>
             </div>
           </motion.div>
@@ -165,7 +165,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
                 {isLoading ? (
                   <div className='flex items-center space-x-2'>
                     <Loader2 className='w-4 h-4 animate-spin' />
-                    <span>Carregando...</span>
+                    <span>Loading...</span>
                   </div>
                 ) : (
                   card.buttonText
