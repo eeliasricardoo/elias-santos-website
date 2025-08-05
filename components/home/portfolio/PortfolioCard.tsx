@@ -23,32 +23,40 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const isMobile = useIsMobile();
+  
+  // Scroll progress para o card individual
   const { scrollYProgress } = useScroll({
     target: cardRef,
-    offset: ['start center', 'end center'],
+    offset: ['start end', 'end start'],
   });
 
+  // Efeito de sobreposição - cada card fica fixo no topo por um período
   const cardY = useTransform(
     scrollYProgress,
-    [0, 0.3, 1],
-    [0, 0, -80 * (totalCards - index - 1)]
+    [0, 0.3, 0.7, 1],
+    [0, 0, 0, -100 * (totalCards - index - 1)]
   );
+  
+  // Opacidade - card fica visível durante seu período, depois desaparece
   const cardOpacity = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [1, 1, 0.7, 0.2]
+    [0, 0.2, 0.8, 1],
+    [1, 1, 1, 0]
   );
+  
+  // Escala - card mantém tamanho normal durante seu período
   const cardScale = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [1, 1, 0.96, 0.88]
+    [0, 0.2, 0.8, 1],
+    [1, 1, 1, 0.95]
   );
+  
+  // Z-index - card fica no topo durante seu período
   const cardZIndex = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [index, index, index + 15, index + 25]
+    [0, 0.2, 0.8, 1],
+    [totalCards - index, totalCards - index, totalCards - index, totalCards - index - 1]
   );
-  const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4]);
 
   // Mapeamento de rotas para otimização
   const getRoute = useCallback(() => {
@@ -93,7 +101,6 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
         scale: cardScale,
         y: cardY,
         zIndex: cardZIndex,
-        filter: `blur(${cardBlur}px)`,
       }}
       className='sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group'
       onMouseEnter={preloadPage}

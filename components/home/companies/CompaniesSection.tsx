@@ -62,7 +62,7 @@ function CompanyCarousel() {
 
 export function CompaniesSection() {
   return (
-    <section id='companies' className='relative py-4 px-4'>
+    <section id='companies' className='relative py-8 px-4'>
       <div className='max-w-6xl mx-auto space-y-8'>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
