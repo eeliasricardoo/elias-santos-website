@@ -3,6 +3,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { PortfolioCard } from './PortfolioCard';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
+import Link from 'next/link';
 
 // Dados dos cards de portfolio
 const portfolioCards = [
@@ -62,6 +64,29 @@ export function PortfolioSection() {
             />
           ))}
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className='text-center space-y-8'
+        >
+          <div className='space-y-4'>
+            <h3 className='text-2xl md:text-3xl font-bold text-foreground'>
+              Ready to explore more?
+            </h3>
+            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+              Discover complete case studies with detailed research, user personas, and real-world results that demonstrate the full impact of these solutions.
+            </p>
+          </div>
+          
+          <Link href='/portfolio'>
+            <RainbowButton className='px-8 py-4 text-lg font-medium'>
+              Explore All Projects
+            </RainbowButton>
+          </Link>
+        </motion.div>
 
         {/* Elementos decorativos de fundo com parallax */}
         <div className='absolute inset-0 -z-10 overflow-hidden'>

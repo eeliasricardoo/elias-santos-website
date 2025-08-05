@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, MotionStyle, Transition } from 'framer-motion';
-import { Bot, User } from 'lucide-react';
+import { Bot, User, ArrowDown } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { ShineBorder } from '@/components/magicui/shine-border';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Inter } from 'next/font/google';
 import { useMounted } from '@/hooks/use-mounted';
-import { getCurrentStreak } from '@/lib/duolingo-streak';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -184,28 +184,24 @@ export function EmailClient() {
     Array<{ id: number; text: string; isUser: boolean }>
   >([]);
   const [isTyping, setIsTyping] = useState(false);
-  const [showInputTyping, setShowInputTyping] = useState(true);
-  const [inputText, setInputText] = useState('');
+  const [showCTA, setShowCTA] = useState(false);
   const messageIdRef = useRef(0);
   const currentMessageIndexRef = useRef(0);
   const isProcessingRef = useRef(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const userMessage = 'Tell me something interesting about Elias';
-  const botResponse = `Elias currently has a ${getCurrentStreak()}-day streak on Duolingo. He also created a script that automatically updates this number on the website every day. His commitment to continuous learning reflects his approach to professional development.`;
+  const botResponse = `Elias built an AI tool that's 75% cheaper than ChatGPT and combines UX design with AI to solve real problems - increasing student engagement by 40% and reducing content creation time by 90%.`;
 
-  const userMessage2 = 'Why should we work with him?';
-  const botResponse2 =
-    "Elias brings a unique combination of technical expertise and strategic thinking. With over 15 years of skateboarding experience, he's learned resilience, problem-solving, and pushing through challenges. His interdisciplinary background spans Product Design, SaaS development, and full-stack engineering. He's a complete professional who understands product, code, and most importantly, people.";
+  const userMessage2 = 'Show me his portfolio';
 
   const messageQueue = useMemo(
     () => [
-      { text: userMessage, isUser: true, shouldTypeInInput: false },
-      { text: botResponse, isUser: false, shouldTypeInInput: false },
-      { text: userMessage2, isUser: true, shouldTypeInInput: true },
-      { text: botResponse2, isUser: false, shouldTypeInInput: false },
+      { text: userMessage, isUser: true },
+      { text: botResponse, isUser: false },
+      { text: userMessage2, isUser: true },
     ],
-    [userMessage, botResponse, userMessage2, botResponse2]
+    [userMessage, botResponse, userMessage2]
   );
 
   // Função para scroll automático
@@ -218,19 +214,31 @@ export function EmailClient() {
     }
   }, []);
 
+  // Função para scroll para a seção de portfólio
+  const scrollToPortfolio = useCallback(() => {
+    const portfolioSection = document.querySelector('[data-section="portfolio"]') || 
+                            document.getElementById('portfolio-section') ||
+                            document.querySelector('.portfolio-section') ||
+                            document.getElementById('portfolio');
+    
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      // Fallback: scroll para baixo
+      window.scrollTo({
+        top: window.innerHeight * 2,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
   // Função otimizada para gerar ID único
   const getNextMessageId = useCallback(() => {
     messageIdRef.current += 1;
     return messageIdRef.current;
-  }, []);
-
-  // Função otimizada para reiniciar o loop
-  const restartLoop = useCallback(() => {
-    setChatMessages([]);
-    setShowInputTyping(true);
-    setInputText('');
-    currentMessageIndexRef.current = 0;
-    isProcessingRef.current = false;
   }, []);
 
   // Função otimizada para adicionar mensagens
@@ -253,9 +261,14 @@ export function EmailClient() {
   const processNextMessage = useCallback(() => {
     if (isProcessingRef.current) return;
     if (currentMessageIndexRef.current >= messageQueue.length) {
+      // Chat completo - mostrar CTA
       setTimeout(() => {
-        restartLoop();
-      }, 15000);
+        setShowCTA(true);
+        // Scroll automático para mostrar o CTA
+        setTimeout(() => {
+          scrollToBottom();
+        }, 100);
+      }, 1000);
       return;
     }
 
@@ -265,85 +278,58 @@ export function EmailClient() {
     if (!message) return;
 
     if (message.isUser) {
-      if (message.shouldTypeInInput) {
-        // Digita no input
-        setShowInputTyping(true);
-        setInputText('');
-        let currentIndex = 0;
-        const typeInInput = () => {
-          if (currentIndex < message.text.length) {
-            setInputText(message.text.slice(0, currentIndex + 1));
-            currentIndex++;
-            setTimeout(typeInInput, 50);
-          } else {
-            setTimeout(() => {
-              addMessage(message.text, true);
-              setShowInputTyping(false);
-              setInputText('');
-              currentMessageIndexRef.current += 1;
+      addMessage(message.text, true);
+      currentMessageIndexRef.current += 1;
 
-              setTimeout(() => {
-                isProcessingRef.current = false;
-                processNextMessage();
-              }, 3000);
-            }, 1000);
-          }
-        };
-        typeInInput();
-      } else {
-        addMessage(message.text, true);
-        currentMessageIndexRef.current += 1;
-
+      // Se esta foi a última mensagem, mostrar CTA
+      if (currentMessageIndexRef.current >= messageQueue.length) {
         setTimeout(() => {
-          isProcessingRef.current = false;
-          processNextMessage();
-        }, 3000);
+          setShowCTA(true);
+          // Scroll automático para mostrar o CTA
+          setTimeout(() => {
+            scrollToBottom();
+          }, 100);
+        }, 1200);
+        return;
       }
+
+      // Aguarda a mensagem do usuário terminar antes de processar a próxima
+      setTimeout(() => {
+        isProcessingRef.current = false;
+        processNextMessage();
+      }, 1200);
     } else {
       setIsTyping(true);
       setTimeout(scrollToBottom, 100);
+      
+      // Simula o tempo de digitação baseado no tamanho da mensagem
+      const typingTime = Math.min(message.text.length * 30, 2000);
+      
       setTimeout(() => {
         addMessage(message.text, false);
         setIsTyping(false);
         currentMessageIndexRef.current += 1;
 
+        // Pausa mais longa após a primeira resposta do bot (4s)
+        const waitTime = currentMessageIndexRef.current === 2 ? 6000 : 1000;
+        
         setTimeout(() => {
           isProcessingRef.current = false;
           processNextMessage();
-        }, 5000);
-      }, 800);
+        }, waitTime);
+      }, typingTime);
     }
-  }, [messageQueue, addMessage, restartLoop, scrollToBottom]);
+  }, [messageQueue, addMessage, scrollToBottom]);
 
   // Inicia o fluxo quando o componente monta
   useEffect(() => {
     if (!mounted) return;
-
-    if (
-      showInputTyping &&
-      inputText === '' &&
-      currentMessageIndexRef.current === 0
-    ) {
-      let currentIndex = 0;
-      const typeInInput = () => {
-        if (currentIndex < userMessage.length) {
-          setInputText(userMessage.slice(0, currentIndex + 1));
-          currentIndex++;
-          setTimeout(typeInInput, 50);
-        } else {
-          setTimeout(() => {
-            setShowInputTyping(false);
-            setInputText('');
-
-            setTimeout(() => {
-              processNextMessage();
-            }, 1000);
-          }, 1000);
-        }
-      };
-      typeInInput();
-    }
-  }, [mounted, showInputTyping, inputText, userMessage, processNextMessage]);
+    
+    // Inicia com a primeira mensagem do usuário
+    setTimeout(() => {
+      processNextMessage();
+    }, 800);
+  }, [mounted, processNextMessage]);
 
   if (!mounted) {
     return null;
@@ -427,29 +413,30 @@ export function EmailClient() {
                 </div>
               </motion.div>
             )}
-          </div>
-        </div>
-
-        {/* Input Area Simplificado */}
-        <div className='p-6 border-t border-border/20 bg-gradient-to-r from-background/30 to-background/20'>
-          <div className='flex items-center gap-4 bg-muted/20 backdrop-blur-sm rounded-2xl p-4 border border-border/20 shadow-inner'>
-            <div className='flex-1'>
-              <div className='relative'>
-                {showInputTyping ? (
-                  <div className='text-foreground text-sm min-h-[24px] flex items-center'>
-                    {inputText}
-                    <span className='ml-1 w-0.5 h-4 bg-foreground animate-pulse'></span>
-                  </div>
-                ) : (
-                  <div className='text-muted-foreground text-sm'>
-                    Ask me anything...
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className='w-8 h-8 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 flex items-center justify-center'>
-              <div className='w-3 h-3 bg-primary/40 rounded-full'></div>
-            </div>
+            
+            {/* CTA após chat completo */}
+            {showCTA && (
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className='flex flex-col items-center gap-4 p-6'
+              >
+                <div className='text-center space-y-2'>
+                  <p className='text-sm text-muted-foreground'>
+                    Continue explorando para ver os projetos
+                  </p>
+                  <ArrowDown className='w-4 h-4 text-muted-foreground mx-auto animate-bounce' />
+                </div>
+                
+                <RainbowButton
+                  onClick={scrollToPortfolio}
+                  className='px-8 py-3 text-sm font-medium'
+                >
+                  Ver Portfólio
+                </RainbowButton>
+              </motion.div>
+            )}
           </div>
         </div>
       </Card>
