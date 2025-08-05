@@ -22,7 +22,7 @@ export function Section({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: animationDelay }}
-      className={`relative py-24 overflow-hidden ${className}`}
+      className={`relative py-16 overflow-hidden ${className}`}
     >
       {children}
     </motion.section>

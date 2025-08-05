@@ -18,14 +18,14 @@ function CompanyCarousel() {
   ];
 
   return (
-    <div className='relative overflow-hidden py-8'>
+    <div className='relative overflow-hidden py-6'>
       {/* Gradiente lateral esquerdo */}
       <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
       {/* Gradiente lateral direito */}
       <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
       {/* Container do carrossel com animação infinita */}
-      <div className='flex animate-scroll-companies space-x-12'>
+      <div className='flex animate-scroll-companies space-x-8'>
         {/* Primeira sequência */}
         {companies.map((logo, index) => (
           <CompanyLogo
@@ -62,13 +62,13 @@ function CompanyCarousel() {
 
 export function CompaniesSection() {
   return (
-    <section id='companies' className='relative py-12 px-4'>
-      <div className='max-w-6xl mx-auto space-y-12'>
+    <section id='companies' className='relative py-4 px-4'>
+      <div className='max-w-6xl mx-auto space-y-8'>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className='text-center space-y-6'
+          className='text-center space-y-4'
         >
           <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
             Brands and institutions that I collaborated with:

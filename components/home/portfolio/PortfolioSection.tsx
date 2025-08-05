@@ -42,19 +42,19 @@ export function PortfolioSection() {
     <section
       id='portfolio'
       ref={sectionRef}
-      className='relative py-24 px-4 overflow-hidden'
+      className='relative py-16 px-4 overflow-hidden'
     >
-      <div className='max-w-7xl mx-auto space-y-16'>
+      <div className='max-w-7xl mx-auto space-y-12'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className='text-center space-y-6'
+          className='text-center space-y-4'
         ></motion.div>
 
         {/* Cards com scroll da página */}
-        <div className='relative space-y-8 min-h-[80vh]'>
+        <div className='relative space-y-6 min-h-[70vh]'>
           {portfolioCards.map((card, index) => (
             <PortfolioCard
               key={card.id}
@@ -72,20 +72,52 @@ export function PortfolioSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className='text-center space-y-8'
         >
-          <div className='space-y-4'>
-            <h3 className='text-2xl md:text-3xl font-bold text-foreground'>
-              Ready to explore more?
-            </h3>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Discover complete case studies with detailed research, user personas, and real-world results that demonstrate the full impact of these solutions.
-            </p>
-          </div>
+          {/* Background glow effect */}
+          <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 blur-3xl rounded-3xl -z-10'></div>
           
-          <Link href='/portfolio'>
-            <RainbowButton className='px-8 py-4 text-lg font-medium'>
-              Explore All Projects
-            </RainbowButton>
-          </Link>
+          {/* Content container */}
+          <div className='relative bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl border border-border/20 rounded-3xl p-8 shadow-2xl shadow-primary/5'>
+            <div className='space-y-6'>
+              {/* Title */}
+              <div className='space-y-3'>
+                <h3 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent'>
+                  Ready to explore more?
+                </h3>
+                <p className='text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
+                  Discover complete case studies with detailed research, user personas, and real-world results that demonstrate the full impact of these solutions.
+                </p>
+              </div>
+              
+              {/* Button */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className='flex justify-center'
+              >
+                <Link href='/portfolio'>
+                  <RainbowButton className='px-10 py-5 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105'>
+                    <span className='flex items-center gap-3'>
+                      Explore All Projects
+                      <svg
+                        className='w-5 h-5'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M17 8l4 4m0 0l-4 4m4-4H3'
+                        />
+                      </svg>
+                    </span>
+                  </RainbowButton>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Elementos decorativos de fundo com parallax */}

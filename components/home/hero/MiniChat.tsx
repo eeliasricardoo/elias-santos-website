@@ -370,7 +370,7 @@ export function EmailClient() {
               </h3>
               <p className='text-sm text-muted-foreground flex items-center gap-2'>
                 <span className='w-2 h-2 bg-green-500 rounded-full animate-pulse'></span>
-                Online agora
+                Online now
               </p>
             </div>
           </div>
@@ -424,7 +424,7 @@ export function EmailClient() {
               >
                 <div className='text-center space-y-2'>
                   <p className='text-sm text-muted-foreground'>
-                    Continue explorando para ver os projetos
+                    Continue exploring to see the projects
                   </p>
                   <ArrowDown className='w-4 h-4 text-muted-foreground mx-auto animate-bounce' />
                 </div>
@@ -433,7 +433,7 @@ export function EmailClient() {
                   onClick={scrollToPortfolio}
                   className='px-8 py-3 text-sm font-medium'
                 >
-                  Ver Portfólio
+                  View Portfolio
                 </RainbowButton>
               </motion.div>
             )}
