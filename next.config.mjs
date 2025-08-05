@@ -13,6 +13,11 @@ const nextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Otimizações específicas para LCP
+    unoptimized: false,
+    loader: 'default',
+    domains: [],
+    path: '/_next/image',
   },
 
   // ✅ Compressão
@@ -20,6 +25,31 @@ const nextConfig = {
 
   // ✅ Otimizações de build
   poweredByHeader: false,
+
+  // ✅ Otimizações de bundle
+  webpack: (config, { dev, isServer }) => {
+    // Otimizações para produção
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      };
+    }
+
+    return config;
+  },
 
   // ✅ Headers de segurança e cache
   async headers() {
@@ -56,6 +86,24 @@ const nextConfig = {
       },
       {
         source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/profile-photo.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/five-icon.png',
         headers: [
           {
             key: 'Cache-Control',

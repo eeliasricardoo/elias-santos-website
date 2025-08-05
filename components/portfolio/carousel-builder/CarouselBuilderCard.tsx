@@ -135,15 +135,7 @@ export function CarouselBuilderCard() {
                 />
               </div>
 
-              {/* Botões de ação */}
-              <div className='flex space-x-3'>
-                <div className='flex-1 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg font-semibold text-base text-center shadow-lg hover:shadow-xl transition-all duration-200'>
-                  Generate
-                </div>
-                <div className='px-6 py-3 bg-muted/20 backdrop-blur-sm text-foreground rounded-lg font-medium text-sm border border-border/20 hover:bg-muted/30 transition-colors duration-200'>
-                  Export
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

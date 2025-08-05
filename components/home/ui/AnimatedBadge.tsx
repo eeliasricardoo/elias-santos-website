@@ -24,26 +24,18 @@ export function AnimatedBadge({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         delay: animationDelay,
-        duration: 0.6,
+        duration: 0.3,
         ease: 'easeOut',
       }}
       className='inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm'
     >
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          delay: animationDelay + 0.2,
-          duration: 0.4,
-        }}
-        className='text-sm font-medium text-primary'
-      >
+      <span className='text-sm font-medium text-primary'>
         {text}
-      </motion.span>
+      </span>
     </motion.div>
   );
 }

@@ -19,37 +19,29 @@ export function HeroContent() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: 'easeOut' }}
-      className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
-    >
-      {/* Badge Animado */}
-      <AnimatedBadge text='Elias Santos' animationDelay={0.5} />
+    <div className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'>
+      {/* Badge Animado - carregamento lazy */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1, duration: 0.4, ease: 'easeOut' }}
+      >
+        <AnimatedBadge text='Elias Santos' animationDelay={0} />
+      </motion.div>
 
-      {/* Título Principal */}
+      {/* Título Principal - renderização imediata para LCP */}
       <div className='space-y-4'>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-          className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight'
-        >
+        <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight'>
           <span className='text-foreground'>UX From the Future</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
-          className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'
-        >
+        {/* Parágrafo de descrição - renderização imediata para LCP */}
+        <p className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'>
           UX/UI Designer & Frontend Developer. I transform complex
           business challenges into elegant, user-centered solutions that drive
           measurable results and accelerate time-to-market.
-        </motion.p>
+        </p>
       </div>
-    </motion.div>
+    </div>
   );
 }

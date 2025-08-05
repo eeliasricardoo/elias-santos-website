@@ -6,7 +6,11 @@ import { Navbar } from '@/components/Navbar';
 import { AppProvider } from '@/components/providers/app-provider';
 import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: 'Elias Santos - UX/UI Designer & Frontend',
@@ -92,6 +96,35 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning>
+      <head>
+        {/* Preload de recursos críticos para melhorar LCP */}
+        <link
+          rel='preload'
+          href='/profile-photo.png'
+          as='image'
+          type='image/png'
+        />
+        <link
+          rel='preload'
+          href='/five-icon.png'
+          as='image'
+          type='image/png'
+        />
+        <link
+          rel='dns-prefetch'
+          href='//fonts.googleapis.com'
+        />
+        <link
+          rel='preconnect'
+          href='https://fonts.googleapis.com'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
+        />
+      </head>
       <body className={`${inter.className} dark`} suppressHydrationWarning>
         <MicrosoftClarity />
         <AppProvider>

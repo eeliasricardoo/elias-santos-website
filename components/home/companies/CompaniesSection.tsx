@@ -24,7 +24,8 @@ function CompanyCarousel() {
       {/* Gradiente lateral direito */}
       <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-      <div className='flex animate-scroll space-x-16'>
+      {/* Container do carrossel com animação infinita */}
+      <div className='flex animate-scroll-companies space-x-12'>
         {/* Primeira sequência */}
         {companies.map((logo, index) => (
           <CompanyLogo
@@ -39,6 +40,16 @@ function CompanyCarousel() {
         {companies.map((logo, index) => (
           <CompanyLogo
             key={`second-${index}`}
+            src={logo}
+            alt={`Empresa ${index + 1}`}
+            index={index}
+          />
+        ))}
+
+        {/* Terceira sequência para garantir transição suave */}
+        {companies.map((logo, index) => (
+          <CompanyLogo
+            key={`third-${index}`}
             src={logo}
             alt={`Empresa ${index + 1}`}
             index={index}

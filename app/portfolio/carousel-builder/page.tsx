@@ -2,11 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import {
-  Github,
   Brain,
   Palette,
   Edit3,
@@ -23,7 +21,6 @@ import {
   Rocket,
   Eye,
   Sparkles,
-  Mail,
   Database,
 } from 'lucide-react';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
@@ -1329,16 +1326,7 @@ export default function CarouselBuilderPage() {
               </p>
             </div>
 
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <Button size='lg' className='bg-primary hover:bg-primary/90'>
-                <Github className='w-4 h-4 mr-2' />
-                View on GitHub
-              </Button>
-              <Button size='lg' variant='outline'>
-                <Mail className='w-4 h-4 mr-2' />
-                Get in Touch
-              </Button>
-            </div>
+            {/* Botões removidos conforme solicitado */}
           </motion.div>
         </section>
       </main>
