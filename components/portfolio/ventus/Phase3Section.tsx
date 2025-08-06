@@ -143,7 +143,7 @@ export function Phase3Section() {
             
             <div className='bg-primary/5 border border-primary/20 rounded-lg p-6'>
               <blockquote className='text-lg text-foreground italic'>
-                "The best design is the one that gets out of the way. When the interface disappears and you're left with pure functionality, that's when you know you've succeeded."
+                &ldquo;The best design is the one that gets out of the way. When the interface disappears and you&apos;re left with pure functionality, that&apos;s when you know you&apos;ve succeeded.&rdquo;
               </blockquote>
             </div>
             
@@ -169,7 +169,7 @@ export function Phase3Section() {
                   <Eye className='w-6 h-6 text-purple-500' />
                 </div>
                 <h4 className='font-semibold text-foreground'>Long-term Usability</h4>
-                <p className='text-sm text-muted-foreground'>Design that doesn't fatigue over extended use</p>
+                <p className='text-sm text-muted-foreground'>Design that doesn&apos;t fatigue over extended use</p>
               </div>
             </div>
           </motion.div>

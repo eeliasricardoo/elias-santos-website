@@ -19,7 +19,7 @@ export function ResultsSection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p className='text-center italic'>
-            The final result is a tool that became the center of my development universe. ChatAI is not just a product case; it's proof of my work philosophy.
+            The final result is a tool that became the center of my development universe. ChatAI is not just a product case; it&apos;s proof of my work philosophy.
           </p>
         </div>
 

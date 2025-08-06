@@ -47,7 +47,7 @@ export function PortfolioSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: 'easeOut' }} // Duração aumentada
           className='text-center space-y-4'
         ></motion.div>
 
@@ -63,19 +63,55 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* Elementos decorativos de fundo com parallax */}
+        {/* Elementos decorativos de fundo com parallax - mais sutis */}
         <div className='absolute inset-0 -z-10 overflow-hidden'>
           <motion.div
-            className='absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float'
+            className='absolute top-1/4 left-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl' // Opacidade reduzida
             style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, -50]),
+              y: useTransform(scrollYProgress, [0, 1], [0, -30]), // Movimento reduzido
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8, // Duração maior
+              repeat: Infinity,
+              ease: 'easeInOut',
             }}
           />
           <motion.div
-            className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-muted/10 rounded-full blur-3xl animate-float'
+            className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-muted/5 rounded-full blur-3xl' // Opacidade reduzida
             style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, 30]),
-              animationDelay: '2s',
+              y: useTransform(scrollYProgress, [0, 1], [0, 20]), // Movimento reduzido
+            }}
+            animate={{
+              scale: [1, 1.05, 1], // Escala mais conservadora
+              opacity: [0.2, 0.4, 0.2], // Opacidade mais sutil
+            }}
+            transition={{
+              duration: 10, // Duração maior
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 2, // Delay para não sincronizar com o primeiro
+            }}
+          />
+          {/* Terceiro elemento decorativo sutil */}
+          <motion.div
+            className='absolute top-1/2 left-1/2 w-48 h-48 bg-primary/2 rounded-full blur-2xl' // Muito sutil
+            style={{
+              x: useTransform(scrollYProgress, [0, 1], [0, 15]), // Movimento muito sutil
+              y: useTransform(scrollYProgress, [0, 1], [0, -15]),
+            }}
+            animate={{
+              scale: [1, 1.08, 1],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 12, // Duração muito maior
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 4, // Delay diferente
             }}
           />
         </div>
