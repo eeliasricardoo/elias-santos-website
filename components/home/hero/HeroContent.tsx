@@ -7,28 +7,8 @@ import { useMounted } from '@/hooks/use-mounted';
 export function HeroContent() {
   const mounted = useMounted();
 
-  if (!mounted) {
-    return (
-      <div className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'>
-        <div className='space-y-4'>
-          <div className='h-16 bg-muted/20 rounded animate-pulse'></div>
-          <div className='h-8 bg-muted/20 rounded animate-pulse max-w-2xl mx-auto'></div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'>
-      {/* Badge Animado - carregamento lazy */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.1, duration: 0.4, ease: 'easeOut' }}
-      >
-        <AnimatedBadge text='Elias Santos' animationDelay={0} />
-      </motion.div>
-
       {/* Título Principal - renderização imediata para LCP */}
       <div className='space-y-4'>
         <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight'>
@@ -42,6 +22,17 @@ export function HeroContent() {
           measurable results and accelerate time-to-market.
         </p>
       </div>
+
+      {/* Badge Animado - carregamento lazy após o conteúdo crítico */}
+      {mounted && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.4, ease: 'easeOut' }}
+        >
+          <AnimatedBadge text='Elias Santos' animationDelay={0} />
+        </motion.div>
+      )}
     </div>
   );
 }

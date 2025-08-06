@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Target, Zap, Shield } from 'lucide-react';
 
@@ -83,10 +84,16 @@ export function Phase4Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/Login.png'
                   alt='Login Interface'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
@@ -107,10 +114,16 @@ export function Phase4Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/Menu aberto.png'
                   alt='Open Menu'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
@@ -131,10 +144,16 @@ export function Phase4Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/Modelos personalizado.gif'
                   alt='Custom Models Interface'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
@@ -155,10 +174,16 @@ export function Phase4Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/video.gif'
                   alt='Video Generation'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
@@ -179,10 +204,16 @@ export function Phase4Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/Imge.png'
                   alt='Final Interface'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>

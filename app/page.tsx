@@ -30,23 +30,23 @@ export default function Home() {
         }}
       />
 
-      {/* Background Animado */}
+      {/* Background Animado - carregamento otimizado */}
       <Suspense fallback={null}>
-      <AnimatedBackground />
+        <AnimatedBackground />
       </Suspense>
 
-      {/* Progress Indicator */}
-      <Suspense fallback={null}>
-      <ProgressIndicator />
-      </Suspense>
-
-      {/* Scroll Indicator */}
-      <Suspense fallback={null}>
-      <ScrollIndicator />
-      </Suspense>
-
-      {/* Hero Section */}
+      {/* Hero Section - elemento crítico para LCP */}
       <HeroSection />
+
+      {/* Progress Indicator - carregamento lazy */}
+      <Suspense fallback={null}>
+        <ProgressIndicator />
+      </Suspense>
+
+      {/* Scroll Indicator - carregamento lazy */}
+      <Suspense fallback={null}>
+        <ScrollIndicator />
+      </Suspense>
 
       {/* Companies Section - Movido para logo após o Hero */}
       <CompaniesSection />

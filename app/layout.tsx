@@ -5,11 +5,13 @@ import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from '@/components/Navbar';
 import { AppProvider } from '@/components/providers/app-provider';
 import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
+import { LCPOptimizer } from '@/components/performance/LCPOptimizer';
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
@@ -110,6 +112,15 @@ export default function RootLayout({
           as='image'
           type='image/png'
         />
+        
+        {/* Preload de fontes críticas */}
+        <link
+          rel='preload'
+          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+          as='style'
+        />
+        
+        {/* DNS prefetch e preconnect para recursos externos */}
         <link
           rel='dns-prefetch'
           href='//fonts.googleapis.com'
@@ -124,9 +135,22 @@ export default function RootLayout({
           href='https://fonts.gstatic.com'
           crossOrigin='anonymous'
         />
+        
+        {/* Preconnect para analytics */}
+        <link
+          rel='preconnect'
+          href='https://va.vercel-scripts.com'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preconnect'
+          href='https://c.clarity.ms'
+          crossOrigin='anonymous'
+        />
       </head>
       <body className={`${inter.className} dark`} suppressHydrationWarning>
         <MicrosoftClarity />
+        <LCPOptimizer />
         <AppProvider>
           <Navbar />
           <main className='min-h-screen'>{children}</main>

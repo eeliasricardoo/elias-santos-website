@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Palette, Eye, Target, Zap } from 'lucide-react';
 
@@ -73,10 +74,16 @@ export function Phase3Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/v9.png'
                   alt='Redesign Concept'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
@@ -97,10 +104,16 @@ export function Phase3Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/v10.png'
                   alt='Minimalist Refinement'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
@@ -121,10 +134,16 @@ export function Phase3Section() {
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <img
+                <Image
                   src='/portfolios/ventus/v11.png'
                   alt='Current State (Production Ready)'
-                  className='w-full object-fill'
+                  width={1200}
+                  height={800}
+                  className='w-full object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+                  quality={85}
+                  placeholder='blur'
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
                 />
               </div>
             </div>
