@@ -39,7 +39,7 @@ export function HeroSection() {
               loop
               muted
               playsInline
-              className='absolute top-0 left-0 w-full h-full object-cover'
+              className='absolute top-0 left-0 w-full h-full object-contain'
             >
               <source
                 src='/portfolios/carousel-builder/demo.mp4'

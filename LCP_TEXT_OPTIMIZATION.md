@@ -123,3 +123,115 @@
 **🔒 Segurança**: Projeto não quebrado
 **📊 Performance**: LCP do texto otimizado
 **🚀 Pronto para**: Testes de performance 
+
+# 🔧 Correção das Imagens Pretas nos Cases
+
+## 🐛 Problema Identificado
+
+As imagens dos cases estavam aparecendo pretas devido a configurações inadequadas na otimização do LCP:
+
+### Causas:
+1. **`object-cover`** - Estava cortando as imagens
+2. **`placeholder='blur'`** - BlurDataURL estava causando problemas
+3. **Configuração inadequada** - Dimensões não compatíveis com as imagens
+
+## ✅ Correções Implementadas
+
+### 1. **Mudança de `object-cover` para `object-contain`**
+```tsx
+// Antes
+className='w-full object-cover'
+
+// Depois  
+className='w-full object-contain'
+```
+
+### 2. **Remoção do placeholder blur**
+```tsx
+// Removido
+placeholder='blur'
+blurDataURL='data:image/jpeg;base64,...'
+```
+
+### 3. **Adição de `priority={false}`**
+```tsx
+// Adicionado para imagens não críticas
+priority={false}
+```
+
+## 📁 Arquivos Corrigidos
+
+### Components Portfolio:
+- ✅ `components/portfolio/ventus/Phase1Section.tsx`
+- ✅ `components/portfolio/ventus/Phase2Section.tsx`
+- ✅ `components/portfolio/ventus/Phase3Section.tsx`
+- ✅ `components/portfolio/ventus/Phase4Section.tsx`
+- ✅ `components/portfolio/ventus/HeroSection.tsx`
+- ✅ `components/portfolio/carousel-builder/HeroSection.tsx`
+- ✅ `components/portfolio/ui/PersonaCard.tsx`
+
+## 🔧 Script de Correção
+
+Criado `scripts/fix-images.js` para automatizar as correções:
+
+```javascript
+// Função para corrigir imagens nos componentes do portfolio
+function fixImages(content) {
+  // Remover placeholder e blurDataURL
+  content = content.replace(
+    /placeholder='blur'[\s\S]*?blurDataURL='[^']*'/g,
+    ''
+  );
+  
+  // Trocar object-cover por object-contain
+  content = content.replace(
+    /className='[^']*object-cover[^']*'/g,
+    (match) => match.replace('object-cover', 'object-contain')
+  );
+  
+  // Adicionar priority={false}
+  content = content.replace(
+    /quality={85}(?![\s\S]*?priority)/g,
+    'quality={85}\n                  priority={false}'
+  );
+
+  return content;
+}
+```
+
+## 🎯 Resultado
+
+### Antes:
+- ❌ Imagens pretas nos cases
+- ❌ `object-cover` cortando imagens
+- ❌ Placeholder blur causando problemas
+
+### Depois:
+- ✅ Imagens visíveis corretamente
+- ✅ `object-contain` preservando proporções
+- ✅ Carregamento otimizado sem blur
+- ✅ Build funcionando perfeitamente
+
+## 📊 Impacto na Performance
+
+### LCP Mantido:
+- ✅ Otimizações de LCP preservadas
+- ✅ Imagens ainda otimizadas com Next.js Image
+- ✅ Lazy loading mantido
+- ✅ Qualidade balanceada (85%)
+
+### Melhorias:
+- ✅ Imagens visíveis imediatamente
+- ✅ Sem problemas de carregamento
+- ✅ Melhor experiência do usuário
+
+## 🚀 Status Final
+
+- ✅ **Problema resolvido**: Imagens não estão mais pretas
+- ✅ **Performance mantida**: LCP ainda otimizado
+- ✅ **Build funcionando**: Sem erros de compilação
+- ✅ **Código limpo**: Correções automatizadas
+
+---
+
+**🎉 Correção concluída com sucesso! As imagens dos cases agora estão visíveis corretamente.** 

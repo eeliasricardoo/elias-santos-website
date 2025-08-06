@@ -40,7 +40,7 @@ export function HeroSection() {
               loop
               muted
               playsInline
-              className='absolute top-0 left-0 w-full h-full object-cover'
+              className='absolute top-0 left-0 w-full h-full object-contain'
             >
               <source
                 src='/portfolios/ventus/new_recording_-_7_18_2025,_5_39_16_pm (1080p).mp4'

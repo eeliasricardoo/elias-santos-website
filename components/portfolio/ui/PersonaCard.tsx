@@ -19,7 +19,7 @@ export function PersonaCard({ name, role, image }: PersonaCardProps) {
             alt={`${name} - ${role}`}
             width={1090}
             height={200}
-            className='w-full h-auto rounded-lg object-cover border border-border/20'
+            className='w-full h-auto rounded-lg object-contain border border-border/20'
           />
         </div>
       )}
