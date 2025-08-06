@@ -49,14 +49,7 @@ export function PortfolioSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className='text-center space-y-4'
-        >
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent'>
-            Featured Projects
-          </h2>
-          <p className='text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto'>
-            Explore my latest work showcasing innovative solutions and cutting-edge technology
-          </p>
-        </motion.div>
+        ></motion.div>
 
         {/* Cards com scroll da página */}
         <div className='relative space-y-6 min-h-[70vh]'>
