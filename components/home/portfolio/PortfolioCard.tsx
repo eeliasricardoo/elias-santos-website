@@ -27,13 +27,13 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
   const getRoute = useCallback(() => {
     switch (index) {
       case 0:
-        return '/portfolio/ranking';
-      case 1:
         return '/portfolio/carousel-builder';
+      case 1:
+        return '/portfolio/ranking';
       case 2:
         return '/portfolio/ventuschat';
       default:
-        return '/portfolio/ranking';
+        return '/portfolio/carousel-builder';
     }
   }, [index]);
 
