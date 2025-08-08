@@ -10,33 +10,15 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
   useEffect(() => {
     // Otimizações de performance que devem ser executadas após o carregamento inicial
     
-    // 1. Otimização de fontes
-    const optimizeFonts = () => {
-      // Força o carregamento de fontes críticas
+    // 1. Otimização de fontes (observa finalização)
+    const observeFontsReady = () => {
       if ('fonts' in document) {
-        document.fonts.ready.then(() => {
-          // Fontes carregadas com sucesso
-        });
+        void (document as any).fonts?.ready?.then(() => {});
       }
     };
 
-    // 2. Otimização de imagens
-    const optimizeImages = () => {
-      // Lazy loading para imagens não críticas
-      const images = document.querySelectorAll('img[data-src]');
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            img.src = img.dataset.src || '';
-            img.classList.remove('lazy');
-            imageObserver.unobserve(img);
-          }
-        });
-      });
-
-      images.forEach(img => imageObserver.observe(img));
-    };
+    // 2. Imagens: Next.js Image já gerencia lazy/qualidade; nada extra aqui
+    const optimizeImages = () => {};
 
     // 3. Otimização de animações
     const optimizeAnimations = () => {
@@ -66,24 +48,12 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
       window.addEventListener('scroll', requestTick, { passive: true });
     };
 
-    // 5. Prevenção de reflows forçados
-    const preventForcedReflows = () => {
-      // Evita reflows forçados durante animações
-      const style = document.createElement('style');
-      style.textContent = `
-        * {
-          will-change: auto;
-        }
-        .animate-float, .animate-pulse, .animate-bounce {
-          will-change: transform, opacity;
-        }
-      `;
-      document.head.appendChild(style);
-    };
+    // 5. Evitar estilos globais agressivos (não injetar will-change global)
+    const preventForcedReflows = () => {};
 
     // Executa otimizações após um pequeno delay para não bloquear o LCP
     const timer = setTimeout(() => {
-      optimizeFonts();
+      observeFontsReady();
       optimizeImages();
       optimizeAnimations();
       optimizeScroll();
