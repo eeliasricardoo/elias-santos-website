@@ -172,7 +172,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             <div className='flex items-center space-x-2 md:space-x-3'>
               <div className='flex-1 bg-muted/50 rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3'>
                 <p className='text-sm md:text-base lg:text-lg text-muted-foreground'>
-                  Digite uma mensagem...
+                  Type a message...
                 </p>
               </div>
               <motion.button

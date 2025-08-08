@@ -68,18 +68,18 @@ export class ErrorBoundary extends Component<Props, State> {
               <div className='mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10'>
                 <AlertTriangle className='h-6 w-6 text-destructive' />
               </div>
-              <CardTitle className='text-xl'>Algo deu errado</CardTitle>
+              <CardTitle className='text-xl'>Something went wrong</CardTitle>
             </CardHeader>
             <CardContent className='space-y-4'>
               <p className='text-center text-muted-foreground'>
-                Ocorreu um erro inesperado. Tente recarregar a página ou voltar
-                ao início.
+                An unexpected error occurred. Try reloading the page or go back
+                to the home page.
               </p>
 
               {process.env.NODE_ENV === 'development' && this.state.error && (
                 <details className='mt-4'>
                   <summary className='cursor-pointer text-sm font-medium text-muted-foreground'>
-                    Detalhes do erro (desenvolvimento)
+                    Error details (development)
                   </summary>
                   <pre className='mt-2 rounded bg-muted p-2 text-xs text-muted-foreground overflow-auto'>
                     {this.state.error.toString()}
@@ -95,11 +95,11 @@ export class ErrorBoundary extends Component<Props, State> {
                   variant='outline'
                 >
                   <RefreshCw className='mr-2 h-4 w-4' />
-                  Tentar Novamente
+                  Try Again
                 </Button>
                 <Button onClick={this.handleGoHome} className='flex-1'>
                   <Home className='mr-2 h-4 w-4' />
-                  Início
+                  Home
                 </Button>
               </div>
             </CardContent>
@@ -128,7 +128,7 @@ export function useErrorHandler() {
   return { error, handleError, clearError };
 }
 
-// Componente de fallback simples
+// Simple fallback component
 export function ErrorFallback({
   error,
   resetErrorBoundary,
@@ -140,12 +140,12 @@ export function ErrorFallback({
     <div className='flex min-h-[200px] items-center justify-center'>
       <div className='text-center space-y-4'>
         <AlertTriangle className='mx-auto h-8 w-8 text-destructive' />
-        <h2 className='text-lg font-semibold'>Algo deu errado</h2>
+        <h2 className='text-lg font-semibold'>Something went wrong</h2>
         <p className='text-sm text-muted-foreground'>
-          {error.message || 'Ocorreu um erro inesperado'}
+          {error.message || 'An unexpected error occurred'}
         </p>
         <Button onClick={resetErrorBoundary} size='sm'>
-          Tentar Novamente
+          Try Again
         </Button>
       </div>
     </div>

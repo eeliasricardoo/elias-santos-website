@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'pt_BR',
+    locale: 'en_US',
     url: 'https://eliasricardo.com',
     title: 'Elias Santos - UX/UI Designer & Frontend',
     description:
@@ -98,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='pt-BR' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <head>
         {/* DNS prefetch e preconnect para recursos externos */}
         

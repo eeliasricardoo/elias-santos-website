@@ -11,7 +11,7 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
   useEffect(() => {
     // Verificar se a API de Performance está disponível
     if (!('PerformanceObserver' in window)) {
-      onError?.('PerformanceObserver não suportado');
+      onError?.('PerformanceObserver not supported');
       return;
     }
 
@@ -92,7 +92,7 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
         clsObserver.disconnect();
       };
     } catch (error) {
-      onError?.(`Erro ao configurar observadores de performance: ${error}`);
+      onError?.(`Error setting up performance observers: ${error}`);
       return;
     }
   }, [onLCP, onError]);

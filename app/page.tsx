@@ -24,10 +24,10 @@ export default function Home() {
       <PageAnalytics
         pageName='Home'
         pagePath='/'
-        customProperties={{
-          section: 'main',
-          language: 'pt-BR',
-        }}
+          customProperties={{
+            section: 'main',
+            language: 'en-US',
+          }}
       />
 
       {/* Background Animado - carregamento otimizado */}

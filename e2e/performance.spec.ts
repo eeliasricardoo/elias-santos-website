@@ -69,7 +69,7 @@ test.describe('Performance Tests', () => {
     await expect(headings.first()).toBeVisible();
 
     // Check for proper language attribute
-    await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 
     // Check for proper ARIA labels
     const buttons = page.locator('button');

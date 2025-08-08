@@ -56,10 +56,10 @@ export function Navbar() {
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors'
-                aria-label='Abrir currículo'
+                aria-label='Open resume'
               >
                 <FileText className='w-4 h-4' />
-                <span className='hidden sm:inline'>Curriculum Vitae</span>
+                <span className='hidden sm:inline'>Resume</span>
               </Button>
 
               {/* Contact Button */}
@@ -68,7 +68,7 @@ export function Navbar() {
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2'
-                aria-label='Abrir contato'
+                aria-label='Open contact'
               >
                 <MessageCircle className='w-4 h-4' />
                 <span className='hidden sm:inline'>Contact</span>

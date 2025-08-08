@@ -4,8 +4,8 @@ import { useRef, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2, Rocket, Bolt, Sparkles, Timer, TrendingUp, PiggyBank } from 'lucide-react';
 import Image from 'next/image';
+import { ShineBorder } from '@/components/magicui/shine-border';
 
 interface PortfolioCardProps {
   card: {
@@ -54,64 +54,47 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
     [router, getRoute]
   );
 
+  // Com nova ordem (chat, ranking, carousel), manter imagem à direita em 0 e 2 (chat e carousel)
   const imageOnRight = useMemo(() => index === 0 || index === 2, [index]);
 
-  const stacks = useMemo<string[]>(() => {
-    if (index === 0) return ['Next.js', 'TypeScript', 'Tailwind', 'Framer'];
-    if (index === 1) return ['Next.js', 'SSR', 'Zod', 'Recharts'];
-    return ['Next.js', 'Streaming', 'Zod', 'Clarity'];
-  }, [index]);
+  // Stacks fixas solicitadas
+  const stacks = useMemo<string[]>(() => ['Next.js', 'TypeScript', 'Tailwind'], []);
 
-  const highlights = useMemo<string[]>(() => {
-    if (index === 0)
-      return ['No‑code editor', 'Export React/PNG', 'AI text'];
-    if (index === 1) return ['Leaderboards', 'Badges/Levels', 'Admin'];
-    return ['Multimodal', 'Long‑term memory', 'Reusable flows'];
-  }, [index]);
+  // Destaques removidos
 
-  const tags = useMemo<string[]>(() => {
-    if (index === 0) return ['No‑Code', 'AI', 'Content'];
-    if (index === 1) return ['Gamification', 'UX Research'];
-    return ['AI', 'Multimodal', 'Productivity'];
-  }, [index]);
+  // Tags fixas solicitadas
+  const tags = useMemo<string[]>(() => ['UX/UI Design'], []);
 
-  const metrics = useMemo(
-    () => {
-      if (index === 0) {
-        return [
-          { icon: <Timer className='size-4 text-primary' />, value: 'Minutes', label: 'to create' },
-          { icon: <TrendingUp className='size-4 text-green-500' />, value: '90%', label: 'time saved' },
-          { icon: <PiggyBank className='size-4 text-amber-500' />, value: 'Export', label: 'React/PNG' },
-        ];
-      }
-      if (index === 1) {
-        return [
-          { icon: <TrendingUp className='size-4 text-green-500' />, value: '+40%', label: 'engagement' },
-          { icon: <Timer className='size-4 text-primary' />, value: 'Weekly', label: 'leaderboard' },
-          { icon: <PiggyBank className='size-4 text-amber-500' />, value: 'Admin', label: 'controls' },
-        ];
-      }
-      return [
-        { icon: <PiggyBank className='size-4 text-amber-500' />, value: '75%$', label: 'cheaper' },
-        { icon: <TrendingUp className='size-4 text-green-500' />, value: 'Fast', label: 'streaming' },
-        { icon: <Timer className='size-4 text-primary' />, value: '1wk', label: 'build' },
-      ];
-    },
-    [index]
-  );
+  // Métricas removidas
+
+  // Descrição mais "Product" por case
+  const productDescription = useMemo(() => {
+    if (index === 0) {
+      return 'Create carousels in minutes. AI copy, pro templates and export to React/PNG. Built for speed and consistency.';
+    }
+    if (index === 1) {
+      return 'Gamification engine with leaderboards, badges and admin controls. Designed to drive engagement with clarity.';
+    }
+    return 'Personal AI chat toolkit: multimodal, 75% cheaper and customizable. Optimized for fast workflows.';
+  }, [index]);
 
   return (
     <div
       ref={cardRef}
-      className='relative cursor-pointer'
+      className='relative cursor-pointer group'
       onClick={handleCardClick}
       onMouseEnter={preloadPage}
     >
+      {/* Glow sutil de fundo */}
+      <div className='pointer-events-none absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(closest-side,rgba(255,255,255,0.08),transparent)]' />
+      <div className='relative rounded-2xl border border-border/20 overflow-hidden'>
+        {/* ShineBorder agora cobre todo o card, incluindo a área da imagem */}
+        <ShineBorder borderWidth={1} duration={18} shineColor={['#6ee7b7','#93c5fd','#fca5a5']} className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl' />
       <div className='grid grid-cols-1 md:grid-cols-12 items-stretch'>
         {/* Conteúdo */}
         <div className={imageOnRight ? 'order-2 md:order-1 md:col-span-5' : 'order-2 md:order-2 md:col-span-5'}>
           <div className='h-full w-full flex'>
-            <div className='mx-auto px-6 md:px-10 lg:px-14 xl:px-20 py-10 md:py-16 w-full flex items-center'>
+            <div className='mx-auto px-5 md:px-8 lg:px-12 xl:px-16 py-6 md:py-10 w-full flex items-center h-64 sm:h-80 md:h-[420px] lg:h-[520px] xl:h-[560px]'>
               <div className='space-y-6 max-w-3xl'>
                 <div className='space-y-3'>
                   <h3 className='text-3xl md:text-4xl font-bold tracking-tight'>
@@ -120,7 +103,7 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
                   <div className='w-24 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full' />
                   <div className='flex flex-wrap gap-2 pt-2'>
                     {tags.map(tag => (
-                      <Badge key={tag} variant='outline' className='rounded-full px-2.5 py-0.5'>
+                      <Badge key={tag} variant='outline' className='rounded-full px-2.5 py-0.5 bg-background/60 backdrop-blur border-border/40'>
                         {tag}
                       </Badge>
                     ))}
@@ -128,43 +111,21 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
                 </div>
 
                 <p className='text-muted-foreground leading-relaxed text-lg md:text-xl'>
-                  {card.description}
+                  {productDescription}
                 </p>
 
                 {/* Stacks */}
                 <div className='flex flex-wrap gap-2 pt-1'>
                   {stacks.map(stack => (
-                    <Badge key={stack} variant='secondary' className='px-2 py-1'>
+                    <Badge key={stack} variant='secondary' className='px-2 py-1 bg-card/60 backdrop-blur border border-border/30'>
                       {stack}
                     </Badge>
                   ))}
                 </div>
 
-                {/* Destaques rápidos */}
-                <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2'>
-                  {highlights.map((item, i) => (
-                    <li key={i} className='flex items-center gap-2 text-sm text-muted-foreground'>
-                      {i === 0 && <CheckCircle2 className='size-4 text-primary' />}
-                      {i === 1 && <Rocket className='size-4 text-primary' />}
-                      {i === 2 && <Bolt className='size-4 text-primary' />}
-                      {i > 2 && <Sparkles className='size-4 text-primary' />}
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Destaques removidos conforme solicitação */}
 
-                {/* Métricas resumidas */}
-                <div className='grid grid-cols-3 gap-3 pt-2'>
-                  {metrics.map((m, i) => (
-                    <div key={i} className='flex items-center gap-2 rounded-lg border border-border/30 bg-card/50 px-3 py-2'>
-                      {m.icon}
-                      <div className='leading-tight'>
-                        <div className='text-xs text-muted-foreground'>{m.label}</div>
-                        <div className='text-sm font-semibold text-foreground'>{m.value}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                {/* Métricas removidas conforme solicitação */}
 
                 <div className='pt-2'>
                   <RainbowButton
@@ -187,12 +148,13 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
         {/* Imagem */}
         <div className={imageOnRight ? 'order-1 md:order-2 md:col-span-7' : 'order-1 md:order-1 md:col-span-7'}>
           {card.image && (
-            <div className='relative w-full h-screen overflow-hidden bg-background'>
-              <Image src={card.image} alt={card.imageAlt || card.title} fill className='object-contain' sizes='100vw' priority={index === 0} quality={85} />
-              <div className={imageOnRight ? 'absolute inset-y-0 left-0 w-40 md:w-64 bg-gradient-to-r from-background/80 via-background/20 to-transparent' : 'absolute inset-y-0 right-0 w-40 md:w-64 bg-gradient-to-l from-background/80 via-background/20 to-transparent'} />
+            <div className='relative w-full h-64 sm:h-80 md:h-[420px] lg:h-[520px] xl:h-[560px] overflow-hidden bg-background'>
+              <Image src={card.image} alt={card.imageAlt || card.title} fill className='object-contain' sizes='(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw' priority={index === 0} quality={85} />
+              <div className={imageOnRight ? 'absolute inset-y-0 left-0 w-24 sm:w-32 md:w-64 bg-gradient-to-r from-background/80 via-background/20 to-transparent' : 'absolute inset-y-0 right-0 w-24 sm:w-32 md:w-64 bg-gradient-to-l from-background/80 via-background/20 to-transparent'} />
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

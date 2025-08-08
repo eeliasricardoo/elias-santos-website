@@ -64,12 +64,12 @@ export function ContactForm({
       } else {
         setSubmitStatus('error');
         onError?.();
-        console.error('Erro:', result.error);
+        console.error('Error:', result.error);
       }
     } catch (error) {
       setSubmitStatus('error');
       onError?.();
-      console.error('Erro ao enviar:', error);
+      console.error('Error while sending:', error);
     } finally {
       setIsSubmitting(false);
     }

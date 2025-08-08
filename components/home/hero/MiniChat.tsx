@@ -88,7 +88,7 @@ function ChatMessage({
         <div
           className={`text-xs text-muted-foreground mt-2 ${isUser ? 'text-right' : 'text-left'}`}
         >
-          {new Date().toLocaleTimeString('pt-BR', {
+          {new Date().toLocaleTimeString('en-US', {
             hour: '2-digit',
             minute: '2-digit',
           })}
