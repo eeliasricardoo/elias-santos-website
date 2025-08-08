@@ -21,15 +21,17 @@ export function CompanyLogo({
 
   return (
     <div
-      className={`flex-shrink-0 flex items-center justify-center ${className}`}
+      className={`relative flex-shrink-0 flex items-center justify-center ${className}`}
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        className='hover:opacity-100 transition-opacity duration-300'
+        fill
+        sizes={`${width}px`}
+        className='object-contain hover:opacity-100 transition-opacity duration-300'
+        priority={index < 3}
+        quality={80}
       />
     </div>
   );

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export function ProfilePhoto() {
@@ -22,13 +21,8 @@ export function ProfilePhoto() {
           />
         </div>
 
-        {/* Efeito de borda animada - carregamento lazy */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className='absolute -inset-1 border-2 border-border/20 rounded-full'
-        />
+        {/* Efeito de borda animada - versão simplificada */}
+        <div className='absolute -inset-1 border-2 border-border/20 rounded-full opacity-0 animate-in fade-in duration-1000 delay-500' />
       </div>
     </div>
   );

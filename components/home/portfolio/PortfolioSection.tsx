@@ -1,58 +1,52 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { PortfolioCard } from './PortfolioCard';
 
-// Dados dos cards de portfolio
 const portfolioCards = [
   {
     id: 1,
-    title: 'Ranking: Gamified Engagement and Competitiveness',
+    title: 'Carousel Builder: No‑Code Platform',
     description:
-      'Designed and developed a comprehensive ranking system that increased student engagement by 40% and improved performance tracking across educational institutions. Features flexible criteria configuration and real-time analytics.',
+      'No‑code tool to create professional carousels in minutes: drag‑and‑drop, ready‑made templates, theme editor, export to React/HTML/PNG, and performance optimizations (lazy loading and responsive images). Includes AI text generation, autosave, version history, and real‑time preview. Outcome: ~90% reduction in content production time and consistent visuals across channels.',
     buttonText: 'View Case Study',
+    image: '/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png',
+    imageAlt: 'Carousel Builder preview',
   },
   {
     id: 2,
-    title: 'Carrossel Builder AI: Intelligent Story Creation',
+    title: 'Ranking: Gamification Engine',
     description:
-      'Developed an AI-powered carousel builder that generates engaging social media content automatically. Features intelligent story sequencing, dynamic content adaptation, and seamless integration with Instagram and LinkedIn.',
+      'Gamification engine with weekly and monthly leaderboards, badges, levels, and dynamic scoring (ELO‑inspired). Admin panel for rules, bulk imports, and audit. Smart caching, SSR, and pagination for high load. Impact: +40% engagement and clear goal tracking by class/team.',
     buttonText: 'View Case Study',
+    image: '/portfolios/ranking/ranking.png',
+    imageAlt: 'Ranking System interface',
   },
   {
     id: 3,
     title: 'ChatAI: Personal AI Ecosystem',
     description:
-      'Built my own AI tool in one week to solve a real problem: creating a personal AI ecosystem that&apos;s 75% cheaper, fully customizable, and superior to existing workflows. Features unified chat interface, screenshot analysis, and multimodal generation.',
+      'Personal AI ecosystem with unified chat, screenshot analysis, and multimodal generation. Long‑term memory, reusable prompts, and context‑aware tools. Built with Next.js and streaming; ~75% cheaper than commercial alternatives. Productivity‑focused: fast responses, organized history, and reusable flows.',
     buttonText: 'View Case Study',
+    image: '/portfolios/ventus/v9.png',
+    imageAlt: 'Chat AI interface',
   },
 ];
 
 export function PortfolioSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
 
   return (
     <section
       id='portfolio'
       ref={sectionRef}
-      className='relative py-16 px-4 overflow-hidden'
+      className='relative py-12 px-0 overflow-hidden'
+      style={{ position: 'relative' }}
     >
-      <div className='max-w-7xl mx-auto space-y-12'>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }} // Duração aumentada
-          className='text-center space-y-4'
-        ></motion.div>
+      <div className='space-y-0 relative'>
+        <div className='text-center space-y-4'></div>
 
-        {/* Cards com scroll da página */}
-        <div className='relative space-y-6 min-h-[70vh]'>
+        <div className='relative'>
           {portfolioCards.map((card, index) => (
             <PortfolioCard
               key={card.id}
@@ -61,59 +55,6 @@ export function PortfolioSection() {
               totalCards={portfolioCards.length}
             />
           ))}
-        </div>
-
-        {/* Elementos decorativos de fundo com parallax - mais sutis */}
-        <div className='absolute inset-0 -z-10 overflow-hidden'>
-          <motion.div
-            className='absolute top-1/4 left-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl' // Opacidade reduzida
-            style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, -30]), // Movimento reduzido
-            }}
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8, // Duração maior
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-          <motion.div
-            className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-muted/5 rounded-full blur-3xl' // Opacidade reduzida
-            style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, 20]), // Movimento reduzido
-            }}
-            animate={{
-              scale: [1, 1.05, 1], // Escala mais conservadora
-              opacity: [0.2, 0.4, 0.2], // Opacidade mais sutil
-            }}
-            transition={{
-              duration: 10, // Duração maior
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 2, // Delay para não sincronizar com o primeiro
-            }}
-          />
-          {/* Terceiro elemento decorativo sutil */}
-          <motion.div
-            className='absolute top-1/2 left-1/2 w-48 h-48 bg-primary/2 rounded-full blur-2xl' // Muito sutil
-            style={{
-              x: useTransform(scrollYProgress, [0, 1], [0, 15]), // Movimento muito sutil
-              y: useTransform(scrollYProgress, [0, 1], [0, -15]),
-            }}
-            animate={{
-              scale: [1, 1.08, 1],
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{
-              duration: 12, // Duração muito maior
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 4, // Delay diferente
-            }}
-          />
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { AnimatedBadge } from '../ui';
 import { useMounted } from '@/hooks/use-mounted';
 
@@ -25,13 +24,9 @@ export function HeroContent() {
 
       {/* Badge Animado - carregamento lazy após o conteúdo crítico */}
       {mounted && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.4, ease: 'easeOut' }}
-        >
+        <div className='opacity-0 animate-in fade-in duration-500 delay-100'>
           <AnimatedBadge text='Elias Santos' animationDelay={0} />
-        </motion.div>
+        </div>
       )}
     </div>
   );

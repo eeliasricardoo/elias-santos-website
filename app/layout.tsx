@@ -6,6 +6,7 @@ import { Navbar } from '@/components/Navbar';
 import { AppProvider } from '@/components/providers/app-provider';
 import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 import { LCPOptimizer } from '@/components/performance/LCPOptimizer';
+import { PerformanceOptimizer } from '@/components/performance/PerformanceOptimizer';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -99,27 +100,6 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
-        {/* Preload de recursos críticos para melhorar LCP */}
-        <link
-          rel='preload'
-          href='/profile-photo.png'
-          as='image'
-          type='image/png'
-        />
-        <link
-          rel='preload'
-          href='/five-icon.png'
-          as='image'
-          type='image/png'
-        />
-        
-        {/* Preload de fontes críticas */}
-        <link
-          rel='preload'
-          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
-          as='style'
-        />
-        
         {/* DNS prefetch e preconnect para recursos externos */}
         <link
           rel='dns-prefetch'
@@ -151,6 +131,7 @@ export default function RootLayout({
       <body className={`${inter.className} dark`} suppressHydrationWarning>
         <MicrosoftClarity />
         <LCPOptimizer />
+        <PerformanceOptimizer />
         <AppProvider>
           <Navbar />
           <main className='min-h-screen'>{children}</main>

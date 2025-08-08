@@ -80,7 +80,7 @@ const testimonials: Testimonial[] = [
     name: 'Bruno Torquato',
     role: 'Senior Art Director | GenAI Visual Director & Head of Design',
     content:
-      'Elias was my right hand as UX Researcher during my management at Toolzz, and I couldn\'t be more grateful to have him by my side. His passion for understanding users and his sharp analytical skills were essential for our projects. Always reliable and committed, he elevated our research approach and improved user experience.',
+      "Elias was my right hand as UX Researcher during my management at Toolzz, and I couldn't be more grateful to have him by my side. His passion for understanding users and his sharp analytical skills were essential for our projects. Always reliable and committed, he elevated our research approach and improved user experience.",
     avatarGradient: 'from-emerald-400 to-teal-400',
     date: 'August 16, 2023',
     image: '/depoiments/bruno.jpeg',
@@ -186,7 +186,7 @@ export function DepoimentsSection() {
                 {/* Gradiente lateral direito */}
                 <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-                <div className='flex animate-marquee-reverse-ultra-fast sm:animate-marquee-reverse-fast lg:animate-marquee-reverse'>
+                <div className='flex animate-marquee-reverse'>
                   {Array(3)
                     .fill(0)
                     .map((_, i) => (
@@ -209,7 +209,7 @@ export function DepoimentsSection() {
                 {/* Gradiente lateral direito */}
                 <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-                <div className='flex animate-marquee-ultra-fast sm:animate-marquee-fast lg:animate-marquee'>
+                <div className='flex animate-marquee'>
                   {Array(3)
                     .fill(0)
                     .map((_, i) => (

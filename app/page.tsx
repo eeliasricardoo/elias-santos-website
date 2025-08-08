@@ -12,7 +12,7 @@ import { AboutMeSection } from '@/components/home/about-me';
 import { Footer } from '@/components/Footer';
 import { GetInTouch } from '@/components/home/get-in-touch';
 
-// Componente de Background Animado - movido para client component
+// Componente de Background Animado - carregamento otimizado
 import { AnimatedBackground } from '@/components/home/AnimatedBackground';
 import { ProgressIndicator } from '@/components/home/ProgressIndicator';
 import { ScrollIndicator } from '@/components/home/ScrollIndicator';
@@ -38,16 +38,6 @@ export default function Home() {
       {/* Hero Section - elemento crítico para LCP */}
       <HeroSection />
 
-      {/* Progress Indicator - carregamento lazy */}
-      <Suspense fallback={null}>
-        <ProgressIndicator />
-      </Suspense>
-
-      {/* Scroll Indicator - carregamento lazy */}
-      <Suspense fallback={null}>
-        <ScrollIndicator />
-      </Suspense>
-
       {/* Companies Section - Movido para logo após o Hero */}
       <CompaniesSection />
 
@@ -65,6 +55,16 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Progress Indicator - carregamento lazy */}
+      <Suspense fallback={null}>
+        <ProgressIndicator />
+      </Suspense>
+
+      {/* Scroll Indicator - carregamento lazy */}
+      <Suspense fallback={null}>
+        <ScrollIndicator />
+      </Suspense>
     </div>
   );
 }

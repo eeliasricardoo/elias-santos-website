@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 
 export function HeroSection() {
@@ -25,7 +26,7 @@ export function HeroSection() {
         </p>
       </motion.div>
 
-      {/* Video Demo - Full Width */}
+      {/* Hero Image - Full Width */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -33,19 +34,17 @@ export function HeroSection() {
         className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'
       >
         <div className='relative w-full'>
-          <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className='absolute top-0 left-0 w-full h-full object-contain'
-            >
-              <source
-                src='/portfolios/carousel-builder/demo.mp4'
-                type='video/mp4'
-              />
-            </video>
+          <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
+            <Image
+              src='/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png'
+              alt='Post & Carousel Generator Interface'
+              width={1200}
+              height={800}
+              className='w-full object-contain'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+              quality={85}
+              priority={false}
+            />
           </div>
         </div>
       </motion.div>

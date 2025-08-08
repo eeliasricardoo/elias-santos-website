@@ -54,11 +54,6 @@
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
-  .theme {
-    --animate-aurora: aurora 8s ease-in-out infinite alternate;
-    --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
-    --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
-  }
 }
 
 @layer base {
@@ -83,15 +78,11 @@
     @apply bg-background;
     /* ✅ Scroll suave */
     scroll-behavior: smooth;
-    /* ✅ Otimização de performance */
-    will-change: scroll-position;
   }
 
   #__next {
     @apply bg-background;
   }
-
-  /* ✅ Otimização de carregamento de fontes - removido para evitar CORS */
 }
 
 @layer utilities {
@@ -99,7 +90,6 @@
     text-wrap: balance;
   }
 
-  /* ✅ Otimizações de performance */
   .will-change-transform {
     will-change: transform;
   }
@@ -116,16 +106,15 @@
     contain: paint;
   }
 
-  /* ✅ Line clamp para truncar texto */
   .line-clamp-4 {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
   }
 }
 
-/* ✅ Animações CSS otimizadas - reduzidas para melhor performance */
+/* ✅ Animações otimizadas para performance */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -136,27 +125,24 @@
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes shine {
-  from {
-    background-position: 200% 0;
+  0% {
+    background-position: -200% center;
   }
-  to {
-    background-position: -200% 0;
+  100% {
+    background-position: 200% center;
   }
 }
 
 .animate-shine {
-  animation: shine 16s ease-in-out infinite;
+  animation: shine 2s linear infinite;
 }
 
-/* ✅ Animação de bounce otimizada */
 @keyframes bounce-dot {
-  0%,
-  80%,
-  100% {
+  0%, 80%, 100% {
     transform: scale(0);
   }
   40% {
@@ -165,11 +151,23 @@
 }
 
 .animate-bounce-dot {
-  animation: bounce-dot 1.4s infinite ease-in-out both;
+  animation: bounce-dot 1.4s ease-in-out infinite both;
 }
 
-/* ✅ Carrossel otimizado */
 @keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll-companies {
   0% {
     transform: translateX(0);
   }
@@ -178,34 +176,16 @@
   }
 }
 
-.animate-scroll {
-  animation: scroll 10s linear infinite;
-  will-change: transform;
-}
-
-/* ✅ Carrossel infinito otimizado - movimento da esquerda para direita */
-@keyframes scroll-companies {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
 .animate-scroll-companies {
-  animation: scroll-companies 15s linear infinite;
-  will-change: transform;
+  animation: scroll-companies 30s linear infinite;
 }
 
-/* ✅ Float otimizado */
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
 }
 
@@ -213,10 +193,8 @@
   animation: float 6s ease-in-out infinite;
 }
 
-/* ✅ Gradiente otimizado */
 @keyframes gradient-shift {
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
   }
   50% {
@@ -225,94 +203,88 @@
 }
 
 .animate-gradient {
-  background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
 }
 
-/* ✅ Gradiente Radial */
 .bg-gradient-radial {
   background: radial-gradient(circle, var(--tw-gradient-stops));
 }
 
-/* ✅ Glassmorphism otimizado */
 .glass {
-  @apply bg-card/60 backdrop-blur-xl border border-white/10;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .glass-strong {
-  @apply bg-card/80 backdrop-blur-xl border border-white/15;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* ✅ Mobile Glassmorphism */
 @media (max-width: 768px) {
   .glass {
-    @apply bg-card/80 backdrop-blur-xl border-0;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
-/* ✅ Hover Effects otimizados */
 .hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease-in-out;
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
-/* ✅ Custom Scrollbar otimizado */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-muted/20;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/30 rounded-full;
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted-foreground/50;
+  background: hsl(var(--muted-foreground) / 0.5);
 }
 
-/* ✅ Selection otimizado */
 ::selection {
-  @apply bg-primary/20 text-primary-foreground;
+  background: hsl(var(--primary) / 0.2);
+  color: hsl(var(--primary));
 }
 
-/* ✅ Focus States */
 .focus-ring:focus {
-  outline: none;
-  @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 
-/* ✅ Safe Area Support */
 .safe-area-top {
-  padding-top: var(--safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
 }
 
 .safe-area-bottom {
-  padding-bottom: var(--safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* ✅ Text Effects otimizados */
 .text-gradient {
   background: linear-gradient(
     135deg,
-    hsl(var(--primary)),
-    hsl(var(--primary) / 0.8)
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.8) 50%,
+    hsl(var(--primary) / 0.6) 100%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
-/* ✅ Animações do Marquee otimizadas */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);
@@ -324,148 +296,58 @@
     transform: translateX(-100%);
   }
   100% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
 }
 
 .animate-marquee {
-  animation: marquee 40s linear infinite;
-  will-change: transform;
+  animation: marquee 20s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 40s linear infinite;
-  will-change: transform;
+  animation: marquee-reverse 20s linear infinite;
 }
 
-/* ✅ Animações do Marquee mais rápidas para mobile */
 .animate-marquee-fast {
-  animation: marquee 20s linear infinite;
-  will-change: transform;
+  animation: marquee 10s linear infinite;
 }
 
 .animate-marquee-reverse-fast {
-  animation: marquee-reverse 20s linear infinite;
-  will-change: transform;
+  animation: marquee-reverse 10s linear infinite;
 }
 
-/* ✅ Animações do Marquee ainda mais rápidas para mobile pequeno */
 .animate-marquee-ultra-fast {
-  animation: marquee 15s linear infinite;
-  will-change: transform;
+  animation: marquee 5s linear infinite;
 }
 
 .animate-marquee-reverse-ultra-fast {
-  animation: marquee-reverse 15s linear infinite;
-  will-change: transform;
+  animation: marquee-reverse 5s linear infinite;
 }
 
-/* ✅ Transições suaves */
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ✅ Estados ativos otimizados */
 .active-scale:active {
   transform: scale(0.95);
 }
 
-/* ✅ Estados disabled */
 .disabled-opacity:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-@theme inline {
-  @keyframes aurora {
-    0% {
-      background-position: 0% 50%;
-      transform: rotate(-5deg) scale(0.9);
-    }
-    25% {
-      background-position: 50% 100%;
-      transform: rotate(5deg) scale(1.1);
-    }
-    50% {
-      background-position: 100% 50%;
-      transform: rotate(-3deg) scale(0.95);
-    }
-    75% {
-      background-position: 50% 0%;
-      transform: rotate(3deg) scale(1.05);
-    }
-    100% {
-      background-position: 0% 50%;
-      transform: rotate(-5deg) scale(0.9);
-    }
-  }
-  @keyframes shimmer-slide {
-    to {
-      transform: translate(calc(100cqw - 100%), 0);
-    }
-  }
-  @keyframes spin-around {
-    0% {
-      transform: translateZ(0) rotate(0);
-    }
-    15%,
-    35% {
-      transform: translateZ(0) rotate(90deg);
-    }
-    65%,
-    85% {
-      transform: translateZ(0) rotate(270deg);
-    }
-    100% {
-      transform: translateZ(0) rotate(360deg);
-    }
-  }
-  @keyframes aurora {
-  0% {
-    background-position: 0% 50%;
-    transform: rotate(-5deg) scale(0.9);
-    }
-  25% {
-    background-position: 50% 100%;
-    transform: rotate(5deg) scale(1.1);
-    }
-  50% {
-    background-position: 100% 50%;
-    transform: rotate(-3deg) scale(0.95);
-    }
-  75% {
-    background-position: 50% 0%;
-    transform: rotate(3deg) scale(1.05);
-    }
-  100% {
-    background-position: 0% 50%;
-    transform: rotate(-5deg) scale(0.9);
-    }
-  }
-  @keyframes shimmer-slide {
-  to {
-    transform: translate(calc(100cqw - 100%), 0);
-    }
-  }
-  @keyframes spin-around {
-  0% {
-    transform: translateZ(0) rotate(0);
-    }
-  15%, 35% {
-    transform: translateZ(0) rotate(90deg);
-    }
-  65%, 85% {
-    transform: translateZ(0) rotate(270deg);
-    }
-  100% {
-    transform: translateZ(0) rotate(360deg);
-    }
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* ✅ Fontes carregadas de forma otimizada - removido para evitar CORS */
-
-/* ✅ Rainbow Button Animation */
 @keyframes rainbow {
   0% {
     background-position: 0% 50%;
@@ -479,5 +361,5 @@
 }
 
 .animate-rainbow {
-  animation: rainbow 1.5s ease-in-out infinite;
+  animation: rainbow 3s ease infinite;
 }

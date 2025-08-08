@@ -59,9 +59,11 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
         }
       });
 
-      // Observar CLS (Cumulative Layout Shift)
+      // Observar CLS (Cumulative Layout Shift) - versão muito otimizada
+      let clsValue = 0;
+      let lastClsLog = 0;
+      
       const clsObserver = new PerformanceObserver((list) => {
-        let clsValue = 0;
         const entries = list.getEntries() as PerformanceEntry[];
         
         entries.forEach((entry: any) => {
@@ -70,9 +72,11 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
           }
         });
         
-        if (process.env.NODE_ENV === 'development') {
+        // Log apenas quando CLS for significativo E diferente do último log
+        if (clsValue > 0.05 && clsValue !== lastClsLog && process.env.NODE_ENV === 'development') {
           // eslint-disable-next-line no-console
           console.log('📐 CLS:', clsValue);
+          lastClsLog = clsValue;
         }
       });
 
