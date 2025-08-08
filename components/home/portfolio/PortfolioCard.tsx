@@ -79,7 +79,14 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
                 </p>
 
                 <div className='pt-2'>
-                  <RainbowButton onClick={handleButtonClick} className='px-7 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium'>
+                  <RainbowButton
+                    onClick={handleButtonClick}
+                    className='
+                      px-7 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium
+                      text-white
+                      dark:bg-[linear-gradient(#121213,#121213),linear-gradient(#121213_50%,rgba(18,18,19,0.6)_80%,rgba(18,18,19,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]
+                    '
+                  >
                     {card.buttonText}
                   </RainbowButton>
                 </div>
