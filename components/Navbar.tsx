@@ -56,6 +56,7 @@ export function Navbar() {
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors'
+                aria-label='Abrir currículo'
               >
                 <FileText className='w-4 h-4' />
                 <span className='hidden sm:inline'>Curriculum Vitae</span>
@@ -67,6 +68,7 @@ export function Navbar() {
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2'
+                aria-label='Abrir contato'
               >
                 <MessageCircle className='w-4 h-4' />
                 <span className='hidden sm:inline'>Contact</span>

@@ -48,7 +48,7 @@ export * from './toast';
 export * from './toggle';
 export * from './toggle-group';
 export * from './tooltip';
-export * from './use-mobile';
+// export * from './use-mobile'; // hook centralizado em `@/hooks/use-mobile`
 
 // Componentes SEO
 export * from './seo-image';
