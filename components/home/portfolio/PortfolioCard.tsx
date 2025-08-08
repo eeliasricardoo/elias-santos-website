@@ -54,8 +54,8 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
     [router, getRoute]
   );
 
-  // Nova ordem (chat, carousel, ranking): imagem à direita em 0 e 1 (chat e carousel)
-  const imageOnRight = useMemo(() => index === 0 || index === 1, [index]);
+  // Sequência: direita, esquerda, direita (alterna iniciando pela direita)
+  const imageOnRight = useMemo(() => index % 2 === 0, [index]);
 
   // Stacks fixas solicitadas
   const stacks = useMemo<string[]>(() => ['Next.js', 'TypeScript', 'Tailwind'], []);

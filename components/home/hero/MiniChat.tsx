@@ -151,7 +151,7 @@ export function EmailClient() {
     link.click();
     document.body.removeChild(link);
     track(AnalyticsEvents.NAVIGATION_CLICK('view_resume'));
-  }, []);
+  }, [track]);
 
   // Função otimizada para gerar ID único
   const getNextMessageId = useCallback(() => {
@@ -287,7 +287,7 @@ export function EmailClient() {
 
         {/* Chat Area */}
         <div
-          className='h-[min(420px,70vh)] overflow-y-auto p-4 bg-gradient-to-b from-background/20 to-background/10'
+          className='h-[480px] sm:h-[520px] overflow-y-auto p-4 bg-gradient-to-b from-background/20 to-background/10'
           ref={chatContainerRef}
         >
           <div className='space-y-4'>
