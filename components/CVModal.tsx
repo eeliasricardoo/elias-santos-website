@@ -1,6 +1,5 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
   Download,
@@ -26,11 +25,10 @@ import {
 import { useEffect, useState } from 'react';
 
 interface CVModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  // Deprecated: modal not used anymore
 }
 
-export function CVModal({ isOpen, onClose }: CVModalProps) {
+export function CVModal(_: CVModalProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -53,8 +51,7 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className='max-w-4xl max-h-[90vh] overflow-y-auto sm:max-h-[85vh] p-0 sm:p-6'>
+    <div className='max-w-4xl max-h-[90vh] overflow-y-auto sm:max-h-[85vh] p-0 sm:p-6'>
         <div className='space-y-4 sm:space-y-6 p-4 sm:p-0'>
           {/* Download Button */}
           <div className='flex justify-center sm:justify-start'>
@@ -550,7 +547,6 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
             </div>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+    </div>
   );
 }

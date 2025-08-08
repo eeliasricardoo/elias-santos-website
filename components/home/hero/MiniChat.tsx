@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { ShineBorder } from '@/components/magicui/shine-border';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Inter } from 'next/font/google';
+import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 import { useMounted } from '@/hooks/use-mounted';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -63,7 +64,7 @@ function ChatMessage({
       className={`flex gap-4 p-4 ${isUser ? 'justify-end' : 'justify-start'}`}
     >
       {!isUser && (
-        <div className='w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0'>
+            <div className='w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0 motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:scale-105'>
           <Bot className='w-4 h-4 text-primary-foreground' />
         </div>
       )}
@@ -105,6 +106,7 @@ function ChatMessage({
 
 export function EmailClient() {
   const mounted = useMounted();
+  const { track } = useAnalytics();
   const [chatMessages, setChatMessages] = useState<
     Array<{ id: number; text: string; isUser: boolean }>
   >([]);
@@ -118,7 +120,7 @@ export function EmailClient() {
   const userMessage = 'Tell me something interesting about Elias';
   const botResponse = `Elias built an AI tool that's 75% cheaper than ChatGPT and combines UX design with AI to solve real problems - increasing student engagement by 40% and reducing content creation time by 90%.`;
 
-  const userMessage2 = 'Show me his portfolio';
+  const userMessage2 = 'Show me his resume';
 
   const messageQueue = useMemo(
     () => [
@@ -139,25 +141,16 @@ export function EmailClient() {
     }
   }, []);
 
-  // Função para scroll para a seção de portfólio
-  const scrollToPortfolio = useCallback(() => {
-    const portfolioSection = document.querySelector('[data-section="portfolio"]') || 
-                            document.getElementById('portfolio-section') ||
-                            document.querySelector('.portfolio-section') ||
-                            document.getElementById('portfolio');
-    
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    } else {
-      // Fallback: scroll para baixo
-      window.scrollTo({
-        top: window.innerHeight * 2,
-        behavior: 'smooth'
-      });
-    }
+  // Ação: abrir/visualizar o currículo em nova aba
+  const openResume = useCallback(() => {
+    const link = document.createElement('a');
+    link.href = '/resume_eeliasricardoo.pdf';
+    link.target = '_blank';
+    link.rel = 'noopener';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    track(AnalyticsEvents.NAVIGATION_CLICK('view_resume'));
   }, []);
 
   // Função otimizada para gerar ID único
@@ -294,7 +287,7 @@ export function EmailClient() {
 
         {/* Chat Area */}
         <div
-          className='h-[420px] overflow-y-auto p-4 bg-gradient-to-b from-background/20 to-background/10'
+          className='h-[min(420px,70vh)] overflow-y-auto p-4 bg-gradient-to-b from-background/20 to-background/10'
           ref={chatContainerRef}
         >
           <div className='space-y-4'>
@@ -331,16 +324,16 @@ export function EmailClient() {
               <div className='flex flex-col items-center gap-4 p-6'>
                 <div className='text-center space-y-2'>
                   <p className='text-sm text-muted-foreground'>
-                    Continue exploring to see the projects
+                    Want to learn more about Elias?
                   </p>
-                  <ArrowDown className='w-4 h-4 text-muted-foreground mx-auto animate-bounce' />
+                  <ArrowDown className='w-4 h-4 text-muted-foreground mx-auto animate-bounce motion-safe:animate-bounce' />
                 </div>
                 
                 <RainbowButton
-                  onClick={scrollToPortfolio}
+                  onClick={openResume}
                   className='px-8 py-3 text-sm font-medium'
                 >
-                  View Portfolio
+                  View Resume
                 </RainbowButton>
               </div>
             )}

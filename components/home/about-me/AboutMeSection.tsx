@@ -24,39 +24,41 @@ export function AboutMeSection() {
           className='text-center space-y-8'
         >
           {/* Main content */}
-          <div className='space-y-6 text-xl md:text-2xl text-foreground max-w-4xl mx-auto'>
-            <div>
-              UX/UI Designer specializing in{' '}
-              <Badge className='bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full'>
+          <div className='space-y-6 text-lg md:text-2xl text-foreground max-w-4xl mx-auto'>
+            <div className='flex flex-col items-center gap-3 motion-safe:transition-all motion-safe:duration-300 hover:scale-[1.01]'>
+              <span>UX/UI Designer specializing in</span>
+              <Badge className='bg-muted/50 text-foreground border-border/40 px-4 py-2 text-base font-medium rounded-full'>
                 User-Centered Design
               </Badge>
             </div>
 
-            <div>
-              Driven by{' '}
-              <Badge className='bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full'>
+            <div className='flex flex-col items-center gap-3 motion-safe:transition-all motion-safe:duration-300 hover:scale-[1.01]'>
+              <span>Driven by</span>
+              <Badge className='bg-muted/50 text-foreground border-border/40 px-4 py-2 text-base font-medium rounded-full'>
                 Data-Driven Insights
               </Badge>
             </div>
 
-            <div>
-              With proven expertise in{' '}
-              <Badge className='bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full'>
-                EdTech Innovation
+            <div className='flex flex-col items-center gap-3 motion-safe:transition-all motion-safe:duration-300 hover:scale-[1.01]'>
+              <span>With proven expertise in</span>
+              <Badge className='bg-muted/50 text-foreground border-border/40 px-4 py-2 text-base font-medium rounded-full'>
+                Product Innovation
               </Badge>
             </div>
 
-            <div>
-              Expert in{' '}
-              <Badge className='bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full'>
-                Rapid Prototyping
-              </Badge>{' '}
-              & development
+            <div className='flex flex-col items-center gap-3 motion-safe:transition-all motion-safe:duration-300 hover:scale-[1.01]'>
+              <span>Expert in</span>
+              <div className='flex items-center gap-2 flex-wrap justify-center'>
+                <Badge className='bg-muted/50 text-foreground border-border/40 px-4 py-2 text-base font-medium rounded-full'>
+                  Rapid Prototyping
+                </Badge>
+                <span className='text-base'>&amp; development</span>
+              </div>
             </div>
 
-            <div>
-              Leveraging{' '}
-              <Badge className='bg-muted text-muted-foreground border-border px-4 py-2 text-base font-medium rounded-full'>
+            <div className='flex flex-col items-center gap-3 motion-safe:transition-all motion-safe:duration-300 hover:scale-[1.01]'>
+              <span>Leveraging</span>
+              <Badge className='bg-muted/50 text-foreground border-border/40 px-4 py-2 text-base font-medium rounded-full'>
                 AI-Powered Solutions
               </Badge>
             </div>

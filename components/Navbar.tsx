@@ -7,11 +7,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle, FileText } from 'lucide-react';
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
-import { CVModal } from '@/components/CVModal';
+import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 
 export function Navbar() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
+  const { track } = useAnalytics();
 
   const openContactModal = () => {
     setIsContactModalOpen(true);
@@ -19,14 +19,6 @@ export function Navbar() {
 
   const closeContactModal = () => {
     setIsContactModalOpen(false);
-  };
-
-  const openCVModal = () => {
-    setIsCVModalOpen(true);
-  };
-
-  const closeCVModal = () => {
-    setIsCVModalOpen(false);
   };
 
   return (
@@ -50,16 +42,24 @@ export function Navbar() {
 
             {/* Right side - CV and Contact buttons */}
             <div className='flex items-center gap-4'>
-              {/* CV Button */}
+              {/* Resume Button opens PDF in new tab */}
               <Button
-                onClick={openCVModal}
+                asChild
                 variant='outline'
                 size='sm'
-                className='flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-colors'
-                aria-label='Open resume'
+                className='hover:bg-primary hover:text-primary-foreground transition-colors'
               >
-                <FileText className='w-4 h-4' />
-                <span className='hidden sm:inline'>Resume</span>
+                <a
+                  href='/resume_eeliasricardoo.pdf'
+                  target='_blank'
+                  rel='noopener'
+                  aria-label='Open resume'
+                  onClick={() => track(AnalyticsEvents.NAVIGATION_CLICK('resume_pdf'))}
+                  className='flex items-center gap-2'
+                >
+                  <FileText className='w-4 h-4' />
+                  <span className='hidden sm:inline'>Resume</span>
+                </a>
               </Button>
 
               {/* Contact Button */}
@@ -81,8 +81,7 @@ export function Navbar() {
       {/* Contact Modal */}
       <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
 
-      {/* CV Modal */}
-      <CVModal isOpen={isCVModalOpen} onClose={closeCVModal} />
+      {/* CV Modal removed: opening PDF directly */}
     </>
   );
 }

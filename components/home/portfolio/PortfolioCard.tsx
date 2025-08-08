@@ -54,8 +54,8 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
     [router, getRoute]
   );
 
-  // Com nova ordem (chat, ranking, carousel), manter imagem à direita em 0 e 2 (chat e carousel)
-  const imageOnRight = useMemo(() => index === 0 || index === 2, [index]);
+  // Nova ordem (chat, carousel, ranking): imagem à direita em 0 e 1 (chat e carousel)
+  const imageOnRight = useMemo(() => index === 0 || index === 1, [index]);
 
   // Stacks fixas solicitadas
   const stacks = useMemo<string[]>(() => ['Next.js', 'TypeScript', 'Tailwind'], []);
@@ -70,12 +70,15 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
   // Descrição mais "Product" por case
   const productDescription = useMemo(() => {
     if (index === 0) {
-      return 'Create carousels in minutes. AI copy, pro templates and export to React/PNG. Built for speed and consistency.';
+      return 'Personal AI chat toolkit: multimodal, 75% cheaper and customizable. Optimized for fast workflows.';
     }
     if (index === 1) {
+      return 'Create carousels in minutes. AI copy, pro templates and export to React/PNG. Built for speed and consistency.';
+    }
+    if (index === 2) {
       return 'Gamification engine with leaderboards, badges and admin controls. Designed to drive engagement with clarity.';
     }
-    return 'Personal AI chat toolkit: multimodal, 75% cheaper and customizable. Optimized for fast workflows.';
+    return 'Portfolio project';
   }, [index]);
 
   return (
@@ -94,10 +97,10 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
         {/* Conteúdo */}
         <div className={imageOnRight ? 'order-2 md:order-1 md:col-span-5' : 'order-2 md:order-2 md:col-span-5'}>
           <div className='h-full w-full flex'>
-            <div className='mx-auto px-5 md:px-8 lg:px-12 xl:px-16 py-6 md:py-10 w-full flex items-center h-64 sm:h-80 md:h-[420px] lg:h-[520px] xl:h-[560px]'>
+            <div className='mx-auto px-5 md:px-8 lg:px-12 xl:px-16 py-6 md:py-10 w-full flex items-center md:h-[420px] lg:h-[520px] xl:h-[560px]'>
               <div className='space-y-6 max-w-3xl'>
                 <div className='space-y-3'>
-                  <h3 className='text-3xl md:text-4xl font-bold tracking-tight'>
+                  <h3 className='text-2xl md:text-4xl font-bold tracking-tight break-words'>
                     {card.title}
                   </h3>
                   <div className='w-24 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full' />
@@ -131,7 +134,7 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
                   <RainbowButton
                     onClick={handleButtonClick}
                     className='
-                      w-full justify-center px-7 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium
+                      w-full justify-center px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium
                       text-white
                       bg-[linear-gradient(#000,#000),linear-gradient(#000_50%,rgba(0,0,0,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]
                       dark:bg-[linear-gradient(#000,#000),linear-gradient(#000_50%,rgba(0,0,0,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]
@@ -148,8 +151,8 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
         {/* Imagem */}
         <div className={imageOnRight ? 'order-1 md:order-2 md:col-span-7' : 'order-1 md:order-1 md:col-span-7'}>
           {card.image && (
-            <div className='relative w-full h-64 sm:h-80 md:h-[420px] lg:h-[520px] xl:h-[560px] overflow-hidden bg-background'>
-              <Image src={card.image} alt={card.imageAlt || card.title} fill className='object-contain' sizes='(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw' priority={index === 0} quality={85} />
+            <div className='relative w-full aspect-[16/9] md:h-[420px] lg:h-[520px] xl:h-[560px] overflow-hidden bg-background'>
+              <Image src={card.image} alt={card.imageAlt || card.title} fill className='object-cover md:object-contain' sizes='(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw' priority={index === 0} quality={85} />
               <div className={imageOnRight ? 'absolute inset-y-0 left-0 w-24 sm:w-32 md:w-64 bg-gradient-to-r from-background/80 via-background/20 to-transparent' : 'absolute inset-y-0 right-0 w-24 sm:w-32 md:w-64 bg-gradient-to-l from-background/80 via-background/20 to-transparent'} />
             </div>
           )}

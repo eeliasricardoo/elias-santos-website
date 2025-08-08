@@ -14,6 +14,15 @@ const portfolioCards = [
     imageAlt: 'Chat AI interface',
   },
   {
+    id: 2,
+    title: 'Carousel Builder: No‑Code Platform',
+    description:
+      'No‑code tool to create professional carousels in minutes: drag‑and‑drop, ready‑made templates, theme editor, export to React/HTML/PNG, and performance optimizations (lazy loading and responsive images). Includes AI text generation, autosave, version history, and real‑time preview. Outcome: ~90% reduction in content production time and consistent visuals across channels.',
+    buttonText: 'View Case Study',
+    image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.png',
+    imageAlt: 'Carousel Builder preview',
+  },
+  {
     id: 3,
     title: 'Ranking: Gamification Engine',
     description:
@@ -21,15 +30,6 @@ const portfolioCards = [
     buttonText: 'View Case Study',
     image: '/portfolios/ranking/ranking.png',
     imageAlt: 'Ranking System interface',
-  },
-  {
-    id: 2,
-    title: 'Carousel Builder: No‑Code Platform',
-    description:
-      'No‑code tool to create professional carousels in minutes: drag‑and‑drop, ready‑made templates, theme editor, export to React/HTML/PNG, and performance optimizations (lazy loading and responsive images). Includes AI text generation, autosave, version history, and real‑time preview. Outcome: ~90% reduction in content production time and consistent visuals across channels.',
-    buttonText: 'View Case Study',
-    image: '/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png',
-    imageAlt: 'Carousel Builder preview',
   },
 ];
 
