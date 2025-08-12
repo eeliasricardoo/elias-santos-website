@@ -1,11 +1,12 @@
 'use client';
 
-import { useRef, useCallback, useMemo } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { Card, CardContent } from '@/components/ui/card';
+import { AnimatedMockup } from './AnimatedMockup';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
-import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
-import { ShineBorder } from '@/components/magicui/shine-border';
 
 interface PortfolioCardProps {
   card: {
@@ -13,27 +14,36 @@ interface PortfolioCardProps {
     title: string;
     description: string;
     buttonText: string;
-    image?: string;
-    imageAlt?: string;
   };
   index: number;
   totalCards: number;
 }
 
-export function PortfolioCard({ card, index }: PortfolioCardProps) {
+export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start center', 'end center'],
+  });
 
-  const getRoute = useCallback(() => {
+  const cardY = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0, -80 * (totalCards - index - 1)]);
+  const cardOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.7, 0.2]);
+  const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.96, 0.88]);
+  const cardZIndex = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [index, index, index + 15, index + 25]);
+  const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4]);
+
+  const getRoute = useCallback((): string => {
     switch (index) {
       case 0:
-        return '/portfolio/carousel-builder';
-      case 1:
-        return '/portfolio/ranking';
-      case 2:
         return '/portfolio/ventuschat';
-      default:
+      case 1:
         return '/portfolio/carousel-builder';
+      case 2:
+        return '/portfolio/ranking';
+      default:
+        return '/portfolio/ventuschat';
     }
   }, [index]);
 
@@ -54,111 +64,68 @@ export function PortfolioCard({ card, index }: PortfolioCardProps) {
     [router, getRoute]
   );
 
-  // Sequência: direita, esquerda, direita (alterna iniciando pela direita)
-  const imageOnRight = useMemo(() => index % 2 === 0, [index]);
-
-  // Stacks fixas solicitadas
-  const stacks = useMemo<string[]>(() => ['Next.js', 'TypeScript', 'Tailwind'], []);
-
-  // Destaques removidos
-
-  // Tags fixas solicitadas
-  const tags = useMemo<string[]>(() => ['UX/UI Design'], []);
-
-  // Métricas removidas
-
-  // Descrição mais "Product" por case
-  const productDescription = useMemo(() => {
-    if (index === 0) {
-      return 'Personal AI chat toolkit: multimodal, 75% cheaper and customizable. Optimized for fast workflows.';
-    }
-    if (index === 1) {
-      return 'Create carousels in minutes. AI copy, pro templates and export to React/PNG. Built for speed and consistency.';
-    }
-    if (index === 2) {
-      return 'Gamification engine with leaderboards, badges and admin controls. Designed to drive engagement with clarity.';
-    }
-    return 'Portfolio project';
-  }, [index]);
-
   return (
-    <div
+    <motion.div
       ref={cardRef}
-      className='relative cursor-pointer group'
-      onClick={handleCardClick}
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+      style={{
+        opacity: cardOpacity,
+        scale: cardScale,
+        y: cardY,
+        zIndex: cardZIndex,
+        filter: `blur(${cardBlur}px)`,
+      }}
+      className='sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group'
       onMouseEnter={preloadPage}
     >
-      {/* Glow sutil de fundo */}
-      <div className='pointer-events-none absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(closest-side,rgba(255,255,255,0.08),transparent)]' />
-      <div className='relative rounded-2xl border border-border/20 overflow-hidden'>
-        {/* ShineBorder agora cobre todo o card, incluindo a área da imagem */}
-        <ShineBorder borderWidth={1} duration={18} shineColor={['#6ee7b7','#93c5fd','#fca5a5']} className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl' />
-      <div className='grid grid-cols-1 md:grid-cols-12 items-stretch'>
-        {/* Conteúdo */}
-        <div className={imageOnRight ? 'order-2 md:order-1 md:col-span-5' : 'order-2 md:order-2 md:col-span-5'}>
-          <div className='h-full w-full flex'>
-            <div className='mx-auto px-5 md:px-8 lg:px-12 xl:px-16 py-6 md:py-10 w-full flex items-center md:h-[420px] lg:h-[520px] xl:h-[560px]'>
-              <div className='space-y-6 max-w-3xl'>
-                <div className='space-y-3'>
-                  <h3 className='text-2xl md:text-4xl font-bold tracking-tight break-words'>
-                    {card.title}
-                  </h3>
-                  <div className='w-24 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full' />
-                  <div className='flex flex-wrap gap-2 pt-2'>
-                    {tags.map(tag => (
-                      <Badge key={tag} variant='outline' className='rounded-full px-2.5 py-0.5 bg-background/60 backdrop-blur border-border/40'>
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+      <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
-                <p className='text-muted-foreground leading-relaxed text-lg md:text-xl'>
-                  {productDescription}
+      <Card
+        className='border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group cursor-pointer'
+        onClick={handleCardClick}
+      >
+        <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 items-center'>
+            <div className={`space-y-6 md:space-y-8 lg:space-y-10 ${isMobile ? 'order-2' : 'order-1'}`}>
+              <div className='space-y-4 md:space-y-5 lg:space-y-6'>
+                <h3 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-foreground leading-tight'>
+                  {card.title}
+                </h3>
+                <p className='text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl font-light max-w-lg'>
+                  {card.description}
                 </p>
+              </div>
 
-                {/* Stacks */}
-                <div className='flex flex-wrap gap-2 pt-1'>
-                  {stacks.map(stack => (
-                    <Badge key={stack} variant='secondary' className='px-2 py-1 bg-card/60 backdrop-blur border border-border/30'>
-                      {stack}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Destaques removidos conforme solicitação */}
-
-                {/* Métricas removidas conforme solicitação */}
-
-                <div className='pt-2'>
-                  <RainbowButton
-                    onClick={handleButtonClick}
-                    className='
-                      w-full justify-center px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium
-                      text-white
-                      bg-[linear-gradient(#000,#000),linear-gradient(#000_50%,rgba(0,0,0,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]
-                      dark:bg-[linear-gradient(#000,#000),linear-gradient(#000_50%,rgba(0,0,0,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]
-                    '
-                  >
-                    {card.buttonText}
-                  </RainbowButton>
-                </div>
+              <div className='w-full'>
+                <RainbowButton
+                  size='lg'
+                  variant='default'
+                  className='w-full h-12 text-base font-medium shadow-2xl'
+                  onClick={handleButtonClick}
+                >
+                  {card.buttonText}
+                </RainbowButton>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Imagem */}
-        <div className={imageOnRight ? 'order-1 md:order-2 md:col-span-7' : 'order-1 md:order-1 md:col-span-7'}>
-          {card.image && (
-            <div className='relative w-full aspect-[16/9] md:h-[420px] lg:h-[520px] xl:h-[560px] overflow-hidden bg-background'>
-              <Image src={card.image} alt={card.imageAlt || card.title} fill className='object-cover md:object-contain' sizes='(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw' priority={index === 0} quality={85} />
-              <div className={imageOnRight ? 'absolute inset-y-0 left-0 w-24 sm:w-32 md:w-64 bg-gradient-to-r from-background/80 via-background/20 to-transparent' : 'absolute inset-y-0 right-0 w-24 sm:w-32 md:w-64 bg-gradient-to-l from-background/80 via-background/20 to-transparent'} />
+            <div
+              className={`relative w-full ${
+                isMobile
+                  ? 'order-1 min-h-[280px] h-[320px] md:h-[380px]'
+                  : 'order-2 h-[380px] md:h-[420px] lg:h-[460px] xl:h-[500px]'
+              } overflow-hidden rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/20`}
+            >
+              <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5' />
+
+              <AnimatedMockup
+                type={index === 0 ? 'ventus-chat' : index === 1 ? 'carousel-builder' : 'ranking'}
+              />
             </div>
-          )}
-        </div>
-      </div>
-      </div>
-    </div>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
