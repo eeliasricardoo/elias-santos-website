@@ -32,7 +32,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.7, 0.2]);
   const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.96, 0.88]);
   const cardZIndex = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [index, index, index + 15, index + 25]);
-  const cardBlur = useTransform(scrollYProgress, [0, 0.7, 1], [0, 1.5, 4]);
+  // Blur removido por custo de performance
 
   const getRoute = useCallback((): string => {
     switch (index) {
@@ -69,15 +69,15 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       ref={cardRef}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
       style={{
         opacity: cardOpacity,
         scale: cardScale,
         y: cardY,
         zIndex: cardZIndex,
-        filter: `blur(${cardBlur}px)`,
       }}
-      className='sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group'
+      className='sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group will-change-transform'
       onMouseEnter={preloadPage}
     >
       <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
