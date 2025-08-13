@@ -111,24 +111,20 @@ export function EmailClient() {
     Array<{ id: number; text: string; isUser: boolean }>
   >([]);
   const [isTyping, setIsTyping] = useState(false);
-  const [showCTA, setShowCTA] = useState(false);
   const messageIdRef = useRef(0);
   const currentMessageIndexRef = useRef(0);
   const isProcessingRef = useRef(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  const userMessage = 'Tell me something interesting about Elias';
-  const botResponse = `Elias built an AI tool that's 75% cheaper than ChatGPT and combines UX design with AI to solve real problems - increasing student engagement by 40% and reducing content creation time by 90%.`;
-
-  const userMessage2 = 'Show me his resume';
+  const userMessage = 'Tell me about your journey';
+  const botResponse = `My journey started at 14 when I took my first web designer course and fell in love with HTML, CSS, and JavaScript. That early passion shaped my path to becoming a UX/UI designer and front-end developer. I've lived in Brazil, Mexico, Ecuador, and Colombia, speaking Portuguese, Spanish, and English. This multicultural experience gave me a unique perspective on how design can solve complex problems across different cultures and languages. I love creating experiences that not only look great but actually make people's lives easier.`;
 
   const messageQueue = useMemo(
     () => [
       { text: userMessage, isUser: true },
       { text: botResponse, isUser: false },
-      { text: userMessage2, isUser: true },
     ],
-    [userMessage, botResponse, userMessage2]
+    [userMessage, botResponse]
   );
 
   // Função para scroll automático
@@ -140,18 +136,6 @@ export function EmailClient() {
       });
     }
   }, []);
-
-  // Ação: abrir/visualizar o currículo em nova aba
-  const openResume = useCallback(() => {
-    const link = document.createElement('a');
-    link.href = '/resume_eeliasricardoo.pdf';
-    link.target = '_blank';
-    link.rel = 'noopener';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    track(AnalyticsEvents.NAVIGATION_CLICK('view_resume'));
-  }, [track]);
 
   // Função otimizada para gerar ID único
   const getNextMessageId = useCallback(() => {
@@ -179,14 +163,7 @@ export function EmailClient() {
   const processNextMessage = useCallback(() => {
     if (isProcessingRef.current) return;
     if (currentMessageIndexRef.current >= messageQueue.length) {
-      // Chat completo - mostrar CTA
-      setTimeout(() => {
-        setShowCTA(true);
-        // Scroll automático para mostrar o CTA
-        setTimeout(() => {
-          scrollToBottom();
-        }, 100);
-      }, 1000);
+      // Chat completo
       return;
     }
 
@@ -198,18 +175,6 @@ export function EmailClient() {
     if (message.isUser) {
       addMessage(message.text, true);
       currentMessageIndexRef.current += 1;
-
-      // Se esta foi a última mensagem, mostrar CTA
-      if (currentMessageIndexRef.current >= messageQueue.length) {
-        setTimeout(() => {
-          setShowCTA(true);
-          // Scroll automático para mostrar o CTA
-          setTimeout(() => {
-            scrollToBottom();
-          }, 100);
-        }, 1200);
-        return;
-      }
 
       // Aguarda a mensagem do usuário terminar antes de processar a próxima
       setTimeout(() => {
@@ -287,7 +252,7 @@ export function EmailClient() {
 
         {/* Chat Area */}
         <div
-          className='h-[480px] sm:h-[520px] overflow-y-auto p-4 bg-gradient-to-b from-background/20 to-background/10'
+          className='h-auto min-h-[320px] sm:min-h-[360px] p-4 bg-gradient-to-b from-background/20 to-background/10'
           ref={chatContainerRef}
         >
           <div className='space-y-4'>
@@ -316,25 +281,6 @@ export function EmailClient() {
                     ></div>
                   </div>
                 </div>
-              </div>
-            )}
-            
-            {/* CTA após chat completo */}
-            {showCTA && (
-              <div className='flex flex-col items-center gap-4 p-6'>
-                <div className='text-center space-y-2'>
-                  <p className='text-sm text-muted-foreground'>
-                    Want to learn more about Elias?
-                  </p>
-                  <ArrowDown className='w-4 h-4 text-muted-foreground mx-auto animate-bounce motion-safe:animate-bounce' />
-                </div>
-                
-                <RainbowButton
-                  onClick={openResume}
-                  className='px-8 py-3 text-sm font-medium'
-                >
-                  View Resume
-                </RainbowButton>
               </div>
             )}
           </div>

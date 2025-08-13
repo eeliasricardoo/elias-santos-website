@@ -103,7 +103,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               <div className='w-full'>
                 <RainbowButton
                   size='lg'
-                  variant='default'
+                  variant='outline'
                   className='w-full h-12 text-base font-medium shadow-2xl'
                   onClick={handleButtonClick}
                 >

@@ -35,9 +35,9 @@ const portfolioCards = [
     id: 4,
     title: 'Feat UX/UI — Support Queue — Omnichannel Chat',
     description:
-      'UX/UI case focused on reducing time-to-first-response using waiting-time queue ordering and a persistent, actionable assignment pop-up. Results: −22% TtFR, +0.2 CSAT, −9% reopens.',
+      'UX/UI case study that reduced customer wait time by 22% through intelligent queue management and a persistent notification system. Key improvements: waiting-time queue ordering and actionable assignment pop-ups. Results: 22% faster response time, improved CSAT from 4.1 to 4.3, and 9% fewer reopened tickets.',
     buttonText: 'View Case Study',
-  image: '/portfolios/fila-atendimento/1.png',
+    image: '/portfolios/fila-atendimento/1.png',
     imageAlt: 'Support Queue — Omnichannel Chat',
   },
 ];

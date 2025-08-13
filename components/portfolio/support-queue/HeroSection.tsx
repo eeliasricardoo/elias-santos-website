@@ -18,7 +18,7 @@ export function HeroSection() {
           UX/UI Design • Case Study
         </Badge>
         
-        <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight'>
+        <h1 className='text-5xl md:text-6xl font-bold text-foreground tracking-tight'>
           Feat UX/UI —{' '}
           <span className='text-primary'>
             Support Queue
@@ -26,7 +26,7 @@ export function HeroSection() {
           — Omnichannel Chat
         </h1>
         
-        <p className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
+        <p className='text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
           We reduced ~30s delays between customer arrival and first human contact through two targeted improvements: waiting-time queue ordering and a pop-up for immediate assignment.
         </p>
       </motion.div>
@@ -49,19 +49,24 @@ export function HeroSection() {
 
       {/* Imagem Principal */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-        className='max-w-4xl mx-auto'
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'
       >
-        <div className='relative aspect-video rounded-lg overflow-hidden border border-border shadow-xl'>
-          <Image
-            src='/portfolios/fila-atendimento/1.png'
-            alt='Interface principal do sistema de fila de atendimento'
-            fill
-            className='object-cover'
-            priority
-          />
+        <div className='relative w-full'>
+          <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
+            <Image
+              src='/portfolios/fila-atendimento/1.png'
+              alt='Support Queue — Omnichannel Chat overview'
+              width={1200}
+              height={800}
+              className='w-full object-contain'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
+              quality={85}
+              priority
+            />
+          </div>
         </div>
       </motion.div>
     </section>

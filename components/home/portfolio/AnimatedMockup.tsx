@@ -364,7 +364,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             </div>
             
             <div className='pt-1'>
-              <button className='w-full h-10 md:h-11 lg:h-12 rounded-md bg-primary text-primary-foreground font-medium shadow'>
+              <button className='w-full h-10 md:h-11 lg:h-12 rounded-md bg-muted/40 border border-border/30 text-foreground font-medium shadow-sm hover:bg-muted/60 transition-colors'>
                 Accept
               </button>
             </div>
