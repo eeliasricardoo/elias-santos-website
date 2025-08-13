@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import { Bot, User, ArrowDown } from 'lucide-react';
+import { Bot, User } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { ShineBorder } from '@/components/magicui/shine-border';
-import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Inter } from 'next/font/google';
-import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 import { useMounted } from '@/hooks/use-mounted';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -106,7 +104,6 @@ function ChatMessage({
 
 export function EmailClient() {
   const mounted = useMounted();
-  const { track } = useAnalytics();
   const [chatMessages, setChatMessages] = useState<
     Array<{ id: number; text: string; isUser: boolean }>
   >([]);
