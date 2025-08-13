@@ -10,6 +10,7 @@ CSS e Shadcn UI, focado em mostrar cases de UX/UI e desenvolvimento.
 - **Responsivo**: Adaptável para todos os dispositivos
 - **Performance**: Otimizado com Next.js 14 e React Server Components
 - **Acessibilidade**: Componentes acessíveis com Radix UI
+- **Nova Feature**: Demonstração de processo de merge com Git
 
 ## 🎨 Elementos Visuais
 
