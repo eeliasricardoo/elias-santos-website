@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { CarouselBuilderCard } from '@/components/portfolio/carousel-builder';
 
 interface AnimatedMockupProps {
-  type: 'ranking' | 'ventus-chat' | 'carousel-builder';
+  type: 'ranking' | 'ventus-chat' | 'carousel-builder' | 'fila-atendimento';
 }
 
 export function AnimatedMockup({ type }: AnimatedMockupProps) {
@@ -322,6 +322,56 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (type === 'fila-atendimento') {
+    const isActive = isVisible && !prefersReduced;
+    return (
+      <div ref={rootRef} className='relative w-full h-full flex items-center justify-center'>
+        {/* Painel do pop-up de fila */}
+        <motion.div
+          initial={{ opacity: 0, y: 12, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className='relative w-[520px] max-w-[92%] bg-card/85 border border-border/20 shadow-2xl rounded-xl overflow-hidden'
+        >
+          <div className='p-4 md:p-5 lg:p-6 space-y-4'>
+            <div className='flex items-center justify-between'>
+              <h4 className='text-base md:text-lg lg:text-xl font-semibold text-foreground'>Take ticket</h4>
+              <span className='text-muted-foreground'>×</span>
+            </div>
+            
+            <div className='space-y-3'>
+              <div className='text-sm md:text-base text-muted-foreground'>Total users waiting in queue:</div>
+              <div className='flex items-center gap-3'>
+                <div className='w-10 h-10 rounded-md bg-muted/60 border border-border/30 flex items-center justify-center text-lg font-bold text-foreground'>
+                  8
+                </div>
+                <div className='flex-1 h-2 rounded-full bg-muted/50 overflow-hidden'>
+                  <motion.div
+                    className='h-full bg-primary/60 rounded-full'
+                    {...(isActive ? { animate: { width: ['0%', '75%'] } } : {})}
+                    transition={{ duration: 1.4, ease: 'easeOut' }}
+                    style={{ width: '75%' }}
+                  />
+                </div>
+                <div className='text-xs md:text-sm text-muted-foreground'>75%</div>
+              </div>
+            </div>
+            
+            <div className='pt-1'>
+              <button className='w-full h-10 md:h-11 lg:h-12 rounded-md bg-primary text-primary-foreground font-medium shadow'>
+                Accept
+              </button>
+            </div>
+            
+            <div className='text-xs md:text-sm text-muted-foreground'>
+              Your access will be unlocked at <span className='font-semibold text-foreground'>19:52</span>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
 import { PageSEO } from '@/components/seo/PageSEO';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
@@ -43,6 +44,21 @@ const projects = [
       templates: '9',
     },
     featured: true,
+  },
+  {
+    id: 'fila-atendimento',
+    title: 'Support Queue — Omnichannel Chat',
+    description:
+      'Queue management feature that improves user experience and operational efficiency through waiting-time ordering and an actionable assignment pop-up.',
+    category: 'UX/UI Design',
+    technologies: ['Figma', 'UX Research', 'UI Design', 'React'],
+    image: '/portfolios/omnichanel.webp',
+    link: '/portfolio/fila-atendimento',
+    stats: {
+      research: 'Complete',
+      wireframes: '15+',
+      efficiency: '60%',
+    },
   },
   {
     id: 'ranking',
@@ -77,7 +93,7 @@ const projects = [
 ];
 
 const categories = [
-  { name: 'UX/UI Design', icon: <Palette className='w-4 h-4' />, count: 2 },
+  { name: 'UX/UI Design', icon: <Palette className='w-4 h-4' />, count: 3 },
   { name: 'Web Development', icon: <Code className='w-4 h-4' />, count: 2 },
   { name: 'UX Research', icon: <Users className='w-4 h-4' />, count: 1 },
   { name: 'AI & Automation', icon: <Brain className='w-4 h-4' />, count: 2 },
@@ -155,7 +171,7 @@ export default function PortfolioPage() {
               {
                 icon: <Code className='w-6 h-6' />,
                 label: 'Projects',
-                value: '3',
+                value: '4',
               },
               {
                 icon: <Palette className='w-6 h-6' />,
@@ -317,15 +333,24 @@ export default function PortfolioPage() {
 
                     <div className='relative lg:h-full min-h-[300px]'>
                       <div className='absolute inset-0 rounded-r-lg overflow-hidden'>
-                        <video
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className='w-full h-full object-cover'
-                        >
-                          <source src={project.image} type='video/mp4' />
-                        </video>
+                        {project.image.endsWith('.mp4') ? (
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className='w-full h-full object-cover'
+                          >
+                            <source src={project.image} type='video/mp4' />
+                          </video>
+                        ) : (
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className='object-cover'
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -360,15 +385,24 @@ export default function PortfolioPage() {
               >
                 <Card className='h-full hover:shadow-lg transition-shadow cursor-pointer group'>
                   <div className='relative h-48 overflow-hidden rounded-t-lg'>
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-                    >
-                      <source src={project.image} type='video/mp4' />
-                    </video>
+                    {project.image.endsWith('.mp4') ? (
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+                      >
+                        <source src={project.image} type='video/mp4' />
+                      </video>
+                    ) : (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className='object-cover group-hover:scale-105 transition-transform duration-300'
+                      />
+                    )}
                   </div>
 
                   <CardHeader className='space-y-3'>

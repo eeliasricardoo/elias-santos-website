@@ -31,6 +31,15 @@ const portfolioCards = [
     image: '/portfolios/ranking/ranking.png',
     imageAlt: 'Ranking System interface',
   },
+  {
+    id: 4,
+    title: 'Feat UX/UI — Support Queue — Omnichannel Chat',
+    description:
+      'UX/UI case focused on reducing time-to-first-response using waiting-time queue ordering and a persistent, actionable assignment pop-up. Results: −22% TtFR, +0.2 CSAT, −9% reopens.',
+    buttonText: 'View Case Study',
+    image: '/portfolios/fila-atendimento/1.png',
+    imageAlt: 'Support Queue — Omnichannel Chat',
+  },
 ];
 
 export function PortfolioSection() {

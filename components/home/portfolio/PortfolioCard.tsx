@@ -42,6 +42,8 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
         return '/portfolio/carousel-builder';
       case 2:
         return '/portfolio/ranking';
+      case 3:
+        return '/portfolio/fila-atendimento';
       default:
         return '/portfolio/ventuschat';
     }
@@ -120,7 +122,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5' />
 
               <AnimatedMockup
-                type={index === 0 ? 'ventus-chat' : index === 1 ? 'carousel-builder' : 'ranking'}
+                type={index === 0 ? 'ventus-chat' : index === 1 ? 'carousel-builder' : index === 2 ? 'ranking' : 'fila-atendimento'}
               />
             </div>
           </div>
