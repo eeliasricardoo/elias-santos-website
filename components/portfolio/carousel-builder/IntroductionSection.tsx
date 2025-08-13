@@ -25,9 +25,12 @@ export function IntroductionSection() {
           </p>
 
           <p>
-            The challenge was clear: <strong className='text-foreground'>how to
-            reduce the time and effort required to create professional-quality
-            carousels while maintaining creativity and engagement?</strong>
+            The challenge was clear:{' '}
+            <strong className='text-foreground'>
+              how to reduce the time and effort required to create
+              professional-quality carousels while maintaining creativity and
+              engagement?
+            </strong>
           </p>
 
           <p>
@@ -46,9 +49,7 @@ export function IntroductionSection() {
             className='bg-card/80 border border-border/20 rounded-xl p-6 text-center'
           >
             <div className='text-3xl font-bold text-foreground'>90%</div>
-            <div className='text-sm text-muted-foreground'>
-              Time Reduction
-            </div>
+            <div className='text-sm text-muted-foreground'>Time Reduction</div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -57,9 +58,7 @@ export function IntroductionSection() {
             className='bg-card/80 border border-border/20 rounded-xl p-6 text-center'
           >
             <div className='text-3xl font-bold text-green-500'>15min</div>
-            <div className='text-sm text-muted-foreground'>
-              Creation Time
-            </div>
+            <div className='text-sm text-muted-foreground'>Creation Time</div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -68,9 +67,7 @@ export function IntroductionSection() {
             className='bg-card/80 border border-border/20 rounded-xl p-6 text-center'
           >
             <div className='text-3xl font-bold text-blue-500'>50+</div>
-            <div className='text-sm text-muted-foreground'>
-              Templates
-            </div>
+            <div className='text-sm text-muted-foreground'>Templates</div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -79,12 +76,10 @@ export function IntroductionSection() {
             className='bg-card/80 border border-border/20 rounded-xl p-6 text-center'
           >
             <div className='text-3xl font-bold text-purple-500'>4.8/5</div>
-            <div className='text-sm text-muted-foreground'>
-              User Rating
-            </div>
+            <div className='text-sm text-muted-foreground'>User Rating</div>
           </motion.div>
         </div>
       </motion.div>
     </section>
   );
-} 
+}

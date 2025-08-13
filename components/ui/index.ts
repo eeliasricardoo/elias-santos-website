@@ -53,3 +53,6 @@ export * from './tooltip';
 // Componentes SEO
 export * from './seo-image';
 export * from './breadcrumbs';
+
+// Componentes de imagem
+export * from './image-lightbox';

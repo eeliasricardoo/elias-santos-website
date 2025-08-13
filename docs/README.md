@@ -1,6 +1,6 @@
 # 📚 Documentação do Projeto
 
-> **Documentação completa do projeto Elias Santos Portfolio**  
+> **Documentação completa do projeto Elias Ricardo Portfolio**  
 > Data: Janeiro 2025 | Versão: 1.0.0
 
 ---

@@ -33,9 +33,7 @@ export function AnimatedBadge({
       }}
       className='inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm'
     >
-      <span className='text-sm font-medium text-primary'>
-        {text}
-      </span>
+      <span className='text-sm font-medium text-primary'>{text}</span>
     </motion.div>
   );
 }

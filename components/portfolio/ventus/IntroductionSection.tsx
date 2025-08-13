@@ -18,11 +18,11 @@ export function IntroductionSection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            During a career transition moment, I faced a challenge that
-            drove my creativity: the need for cutting-edge AI tools for my
-            personal projects, but without the prohibitive costs of
-            subscriptions. Market solutions were a paradox: free ones were
-            limited, and paid ones were a financial drain.
+            During a career transition moment, I faced a challenge that drove my
+            creativity: the need for cutting-edge AI tools for my personal
+            projects, but without the prohibitive costs of subscriptions. Market
+            solutions were a paradox: free ones were limited, and paid ones were
+            a financial drain.
           </p>
 
           <p>
@@ -34,8 +34,8 @@ export function IntroductionSection() {
           <p>
             <strong className='text-foreground'>The goal was clear:</strong>{' '}
             design and build, in one week, a personal AI ecosystem that was
-            radically cheaper, fully customizable, and superior to the
-            workflow offered by existing tools.
+            radically cheaper, fully customizable, and superior to the workflow
+            offered by existing tools.
           </p>
         </div>
 
@@ -59,9 +59,7 @@ export function IntroductionSection() {
             className='bg-card/80 border border-border/20 rounded-xl p-6 text-center'
           >
             <div className='text-3xl font-bold text-green-500'>75%</div>
-            <div className='text-sm text-muted-foreground'>
-              Cost Reduction
-            </div>
+            <div className='text-sm text-muted-foreground'>Cost Reduction</div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,12 +79,10 @@ export function IntroductionSection() {
             className='bg-card/80 border border-border/20 rounded-xl p-6 text-center'
           >
             <div className='text-3xl font-bold text-purple-500'>9.5/10</div>
-            <div className='text-sm text-muted-foreground'>
-              Security Score
-            </div>
+            <div className='text-sm text-muted-foreground'>Security Score</div>
           </motion.div>
         </div>
       </motion.div>
     </section>
   );
-} 
+}

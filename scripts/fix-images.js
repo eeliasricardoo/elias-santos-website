@@ -8,15 +8,12 @@ function fixImages(content) {
     /placeholder='blur'[\s\S]*?blurDataURL='[^']*'/g,
     ''
   );
-  
+
   // Trocar object-cover por object-contain
-  content = content.replace(
-    /className='[^']*object-cover[^']*'/g,
-    (match) => {
-      return match.replace('object-cover', 'object-contain');
-    }
-  );
-  
+  content = content.replace(/className='[^']*object-cover[^']*'/g, match => {
+    return match.replace('object-cover', 'object-contain');
+  });
+
   // Adicionar priority={false} se não existir
   content = content.replace(
     /quality={85}(?![\s\S]*?priority)/g,
@@ -29,18 +26,21 @@ function fixImages(content) {
 // Função para processar arquivos recursivamente
 function processDirectory(dir) {
   const files = fs.readdirSync(dir);
-  
+
   files.forEach(file => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
-    
+
     if (stat.isDirectory()) {
       processDirectory(filePath);
     } else if (file.endsWith('.tsx') || file.endsWith('.ts')) {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
-        
-        if (content.includes('object-cover') || content.includes('placeholder=\'blur\'')) {
+
+        if (
+          content.includes('object-cover') ||
+          content.includes("placeholder='blur'")
+        ) {
           console.log(`Corrigindo: ${filePath}`);
           const fixedContent = fixImages(content);
           fs.writeFileSync(filePath, fixedContent);
@@ -57,4 +57,4 @@ function processDirectory(dir) {
 const componentsDir = path.join(__dirname, '..', 'components', 'portfolio');
 console.log('🔧 Iniciando correção das imagens...');
 processDirectory(componentsDir);
-console.log('✅ Correção concluída!'); 
+console.log('✅ Correção concluída!');

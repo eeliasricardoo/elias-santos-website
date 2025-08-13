@@ -20,7 +20,9 @@ export function Phase3Section() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p className='text-center italic'>
-            After months of daily use, I found myself getting tired of the colorful design. I wanted something more minimal, clean, and focused on content rather than visual noise.
+            After months of daily use, I found myself getting tired of the
+            colorful design. I wanted something more minimal, clean, and focused
+            on content rather than visual noise.
           </p>
         </div>
 
@@ -42,22 +44,24 @@ export function Phase3Section() {
                 Initial Approach
               </h4>
               <p className='text-sm text-muted-foreground'>
-                Started with vibrant colors and complex UI elements to showcase technical capabilities and create visual interest.
+                Started with vibrant colors and complex UI elements to showcase
+                technical capabilities and create visual interest.
               </p>
             </div>
-            
+
             <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
               <h4 className='font-semibold text-foreground flex items-center'>
                 <Eye className='w-5 h-5 mr-2' />
                 User Fatigue
               </h4>
               <p className='text-sm text-muted-foreground'>
-                After months of daily use, the colorful interface became distracting and started to interfere with productivity.
+                After months of daily use, the colorful interface became
+                distracting and started to interfere with productivity.
               </p>
             </div>
           </div>
         </motion.div>
-        
+
         <div className='space-y-16'>
           {/* Redesign Concept */}
           <motion.div
@@ -70,7 +74,10 @@ export function Phase3Section() {
               Redesign Concept
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>First attempt at minimalist design - removing visual clutter and focusing on content</p>
+              <p>
+                First attempt at minimalist design - removing visual clutter and
+                focusing on content
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -82,7 +89,6 @@ export function Phase3Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -99,7 +105,10 @@ export function Phase3Section() {
               Minimalist Refinement
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Further refinement of the minimalist approach - cleaner typography and spacing</p>
+              <p>
+                Further refinement of the minimalist approach - cleaner
+                typography and spacing
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -111,7 +120,6 @@ export function Phase3Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -128,7 +136,10 @@ export function Phase3Section() {
               Current State (Production Ready)
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>The current production version - minimalist, fast, and optimized for daily use</p>
+              <p>
+                The current production version - minimalist, fast, and optimized
+                for daily use
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -140,7 +151,6 @@ export function Phase3Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -156,36 +166,49 @@ export function Phase3Section() {
             <h3 className='text-2xl font-semibold text-foreground text-center'>
               The Minimalist Philosophy
             </h3>
-            
+
             <div className='bg-primary/5 border border-primary/20 rounded-lg p-6'>
               <blockquote className='text-lg text-foreground italic'>
-                &ldquo;The best design is the one that gets out of the way. When the interface disappears and you&apos;re left with pure functionality, that&apos;s when you know you&apos;ve succeeded.&rdquo;
+                &ldquo;The best design is the one that gets out of the way. When
+                the interface disappears and you&apos;re left with pure
+                functionality, that&apos;s when you know you&apos;ve
+                succeeded.&rdquo;
               </blockquote>
             </div>
-            
+
             <div className='grid md:grid-cols-3 gap-6'>
               <div className='text-center space-y-2'>
                 <div className='w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto'>
                   <Target className='w-6 h-6 text-blue-500' />
                 </div>
                 <h4 className='font-semibold text-foreground'>Content First</h4>
-                <p className='text-sm text-muted-foreground'>Every element serves a purpose, no decorative distractions</p>
+                <p className='text-sm text-muted-foreground'>
+                  Every element serves a purpose, no decorative distractions
+                </p>
               </div>
-              
+
               <div className='text-center space-y-2'>
                 <div className='w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto'>
                   <Zap className='w-6 h-6 text-green-500' />
                 </div>
-                <h4 className='font-semibold text-foreground'>Speed & Clarity</h4>
-                <p className='text-sm text-muted-foreground'>Reduced cognitive load for faster decision making</p>
+                <h4 className='font-semibold text-foreground'>
+                  Speed & Clarity
+                </h4>
+                <p className='text-sm text-muted-foreground'>
+                  Reduced cognitive load for faster decision making
+                </p>
               </div>
-              
+
               <div className='text-center space-y-2'>
                 <div className='w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto'>
                   <Eye className='w-6 h-6 text-purple-500' />
                 </div>
-                <h4 className='font-semibold text-foreground'>Long-term Usability</h4>
-                <p className='text-sm text-muted-foreground'>Design that doesn&apos;t fatigue over extended use</p>
+                <h4 className='font-semibold text-foreground'>
+                  Long-term Usability
+                </h4>
+                <p className='text-sm text-muted-foreground'>
+                  Design that doesn&apos;t fatigue over extended use
+                </p>
               </div>
             </div>
           </motion.div>
@@ -193,4 +216,4 @@ export function Phase3Section() {
       </motion.div>
     </section>
   );
-} 
+}

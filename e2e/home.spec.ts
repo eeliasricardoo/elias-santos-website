@@ -5,10 +5,10 @@ test.describe('Home Page', () => {
     await page.goto('/');
 
     // Check if page loads without errors
-    await expect(page).toHaveTitle(/Elias Santos/);
+    await expect(page).toHaveTitle(/Elias Ricardo/);
 
     // Check if main sections are present
-    await expect(page.locator('h1')).toContainText(/Elias Santos/);
+    await expect(page.locator('h1')).toContainText(/Elias Ricardo/);
 
     // Check if navigation is working
     await expect(page.locator('nav')).toBeVisible();
@@ -67,7 +67,7 @@ test.describe('Home Page', () => {
     await page.goto('/');
 
     // Check if profile photo loads with sizes attribute
-    const profilePhoto = page.locator('img[alt*="Elias Santos"]');
+    const profilePhoto = page.locator('img[alt*="Elias Ricardo"]');
     await expect(profilePhoto).toHaveAttribute('sizes');
 
     // Check if logo loads with sizes attribute

@@ -31,7 +31,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   useEffect(() => {
     if (prefersReduced || !isVisible) return;
     const interval = setInterval(() => {
-      setCurrentScore(prev => (prev + Math.floor(Math.random() * 30) + 5) % 1000);
+      setCurrentScore(
+        prev => (prev + Math.floor(Math.random() * 30) + 5) % 1000
+      );
     }, 3000);
     return () => clearInterval(interval);
   }, [isVisible, prefersReduced]);
@@ -39,7 +41,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   if (type === 'ventus-chat') {
     const isActive = isVisible && !prefersReduced;
     return (
-      <div ref={rootRef} className='relative w-full h-full flex items-center justify-center'>
+      <div
+        ref={rootRef}
+        className='relative w-full h-full flex items-center justify-center'
+      >
         {/* Background Particles - mais sutis */}
         <div className='absolute inset-0 overflow-hidden'>
           {[...Array(4)].map((_, i) => (
@@ -238,8 +243,11 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   if (type === 'ranking') {
     const isActive = isVisible && !prefersReduced;
     return (
-      <div ref={rootRef} className='w-full h-full flex items-center justify-center bg-transparent'>
-        <motion.div 
+      <div
+        ref={rootRef}
+        className='w-full h-full flex items-center justify-center bg-transparent'
+      >
+        <motion.div
           className='w-full h-full p-3 md:p-4 lg:p-5 bg-card/80 border border-border/20 shadow-none flex flex-col'
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -257,7 +265,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
           {/* Score */}
           <div className='text-center flex-shrink-0 py-1 md:py-2'>
-            <motion.div 
+            <motion.div
               className='text-xl md:text-2xl lg:text-3xl font-bold text-primary'
               key={currentScore} // Força re-animação quando score muda
               initial={{ scale: 1.1, opacity: 0.7 }}
@@ -278,7 +286,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               <span>75%</span>
             </div>
             <div className='h-1.5 md:h-2 lg:h-2.5 bg-muted/50 rounded-full overflow-hidden'>
-              <motion.div 
+              <motion.div
                 className='h-full w-3/4 bg-primary/60 rounded-full'
                 initial={{ width: 0 }}
                 {...(isActive ? { animate: { width: '75%' } } : {})}
@@ -331,7 +339,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   if (type === 'support-queue') {
     const isActive = isVisible && !prefersReduced;
     return (
-      <div ref={rootRef} className='relative w-full h-full flex items-center justify-center'>
+      <div
+        ref={rootRef}
+        className='relative w-full h-full flex items-center justify-center'
+      >
         {/* Painel do pop-up de fila */}
         <motion.div
           initial={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -341,12 +352,16 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
         >
           <div className='p-4 md:p-5 lg:p-6 space-y-4'>
             <div className='flex items-center justify-between'>
-              <h4 className='text-base md:text-lg lg:text-xl font-semibold text-foreground'>Take ticket</h4>
+              <h4 className='text-base md:text-lg lg:text-xl font-semibold text-foreground'>
+                Take ticket
+              </h4>
               <span className='text-muted-foreground'>×</span>
             </div>
-            
+
             <div className='space-y-3'>
-              <div className='text-sm md:text-base text-muted-foreground'>Total users waiting in queue:</div>
+              <div className='text-sm md:text-base text-muted-foreground'>
+                Total users waiting in queue:
+              </div>
               <div className='flex items-center gap-3'>
                 <div className='w-10 h-10 rounded-md bg-muted/60 border border-border/30 flex items-center justify-center text-lg font-bold text-foreground'>
                   8
@@ -359,18 +374,21 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                     style={{ width: '75%' }}
                   />
                 </div>
-                <div className='text-xs md:text-sm text-muted-foreground'>75%</div>
+                <div className='text-xs md:text-sm text-muted-foreground'>
+                  75%
+                </div>
               </div>
             </div>
-            
+
             <div className='pt-1'>
               <button className='w-full h-10 md:h-11 lg:h-12 rounded-md bg-muted/40 border border-border/30 text-foreground font-medium shadow-sm hover:bg-muted/60 transition-colors'>
                 Accept
               </button>
             </div>
-            
+
             <div className='text-xs md:text-sm text-muted-foreground'>
-              Your access will be unlocked at <span className='font-semibold text-foreground'>19:52</span>
+              Your access will be unlocked at{' '}
+              <span className='font-semibold text-foreground'>19:52</span>
             </div>
           </div>
         </motion.div>
@@ -389,9 +407,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   // Placeholder for other types
   return (
     <div className='w-full h-full flex items-center justify-center'>
-      <div className='text-muted-foreground'>
-        Mockup {type} in development
-      </div>
+      <div className='text-muted-foreground'>Mockup {type} in development</div>
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 
 export function HeroSection() {
   return (
@@ -17,28 +17,31 @@ export function HeroSection() {
         <Badge className='bg-muted/50 text-muted-foreground border-border/50 px-4 py-2 text-sm font-medium'>
           UX/UI Design • Case Study
         </Badge>
-        
+
         <h1 className='text-5xl md:text-6xl font-bold text-foreground tracking-tight'>
-          Feat UX/UI —{' '}
-          <span className='text-primary'>
-            Support Queue
-          </span>{' '}
-          — Omnichannel Chat
+          Feat UX/UI — <span className='text-primary'>Support Queue</span> —
+          Omnichannel Chat
         </h1>
-        
+
         <p className='text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-          We reduced ~30s delays between customer arrival and first human contact through two targeted improvements: waiting-time queue ordering and a pop-up for immediate assignment.
+          We reduced ~30s delays between customer arrival and first human
+          contact through two targeted improvements: waiting-time queue ordering
+          and a pop-up for immediate assignment.
         </p>
       </motion.div>
 
       {/* Stats estilo texto (Medium-like) */}
       <div className='max-w-3xl mx-auto grid gap-4 text-sm text-muted-foreground md:grid-cols-3'>
         <div className='space-y-1'>
-          <div className='font-semibold text-foreground'>Time-to-first-response</div>
+          <div className='font-semibold text-foreground'>
+            Time-to-first-response
+          </div>
           <div>22% reduction</div>
         </div>
         <div className='space-y-1'>
-          <div className='font-semibold text-foreground'>First‑contact CSAT</div>
+          <div className='font-semibold text-foreground'>
+            First‑contact CSAT
+          </div>
           <div>4.1 → 4.3</div>
         </div>
         <div className='space-y-1'>
@@ -56,15 +59,14 @@ export function HeroSection() {
       >
         <div className='relative w-full'>
           <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-            <Image
+            <ImageLightbox
               src='/portfolios/fila-atendimento/1.png'
               alt='Support Queue — Omnichannel Chat overview'
               width={1200}
               height={800}
-              className='w-full object-contain'
+              className='w-full object-contain cursor-pointer'
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
               quality={85}
-              priority
             />
           </div>
         </div>
@@ -72,5 +74,3 @@ export function HeroSection() {
     </section>
   );
 }
-
-

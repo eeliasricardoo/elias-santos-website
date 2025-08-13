@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { motion } from 'framer-motion';
 
 export default function RankingSolution() {
@@ -38,12 +38,12 @@ export default function RankingSolution() {
               Empty State - No Results Found
             </h4>
             <div className='bg-card border border-border/20 rounded-lg overflow-hidden shadow-lg'>
-              <Image
+              <ImageLightbox
                 src='/portfolios/ranking/empity.png'
                 alt='Empty State - No Results Found'
                 width={1200}
                 height={800}
-                className='w-full h-auto'
+                className='w-full h-auto cursor-pointer'
               />
             </div>
             <p className='text-sm text-muted-foreground text-center'>
@@ -62,12 +62,12 @@ export default function RankingSolution() {
               Active Ranking with Student Data
             </h4>
             <div className='bg-card border border-border/20 rounded-lg overflow-hidden shadow-lg'>
-              <Image
+              <ImageLightbox
                 src='/portfolios/ranking/ranking.png'
                 alt='Active Ranking with Student Data'
                 width={1200}
                 height={800}
-                className='w-full h-auto'
+                className='w-full h-auto cursor-pointer'
               />
             </div>
             <p className='text-sm text-muted-foreground text-center'>

@@ -35,4 +35,4 @@ export function ProgressIndicator() {
       style={{ scaleX: scrollProgress }}
     />
   );
-} 
+}

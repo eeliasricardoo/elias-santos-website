@@ -20,7 +20,9 @@ export function Phase2Section() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p className='text-center italic'>
-            With a clearly defined problem and competitive landscape understood, the development phase focused on building the solution with technical excellence and user-centered design.
+            With a clearly defined problem and competitive landscape understood,
+            the development phase focused on building the solution with
+            technical excellence and user-centered design.
           </p>
         </div>
 
@@ -44,12 +46,20 @@ export function Phase2Section() {
                 </h4>
                 <div className='space-y-3'>
                   <div>
-                    <h5 className='font-medium text-foreground'>Next.js (App Router)</h5>
-                    <p className='text-sm text-muted-foreground'>Single-component approach blending frontend and backend for maximum development speed.</p>
+                    <h5 className='font-medium text-foreground'>
+                      Next.js (App Router)
+                    </h5>
+                    <p className='text-sm text-muted-foreground'>
+                      Single-component approach blending frontend and backend
+                      for maximum development speed.
+                    </p>
                   </div>
                   <div>
                     <h5 className='font-medium text-foreground'>Supabase</h5>
-                    <p className='text-sm text-muted-foreground'>Backend-in-a-box solution enabling rapid development without infrastructure complexity.</p>
+                    <p className='text-sm text-muted-foreground'>
+                      Backend-in-a-box solution enabling rapid development
+                      without infrastructure complexity.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -65,14 +75,20 @@ export function Phase2Section() {
                       <Code className='w-4 h-4 mr-2' />
                       Clean Code & Design System
                     </h5>
-                    <p className='text-sm text-muted-foreground'>Modular architecture with Shadcn/UI and TailwindCSS from day one.</p>
+                    <p className='text-sm text-muted-foreground'>
+                      Modular architecture with Shadcn/UI and TailwindCSS from
+                      day one.
+                    </p>
                   </div>
                   <div>
                     <h5 className='font-medium text-foreground flex items-center'>
                       <Zap className='w-4 h-4 mr-2' />
                       Performance First
                     </h5>
-                    <p className='text-sm text-muted-foreground'>React.memo, virtual scrolling, and optimized component loading.</p>
+                    <p className='text-sm text-muted-foreground'>
+                      React.memo, virtual scrolling, and optimized component
+                      loading.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -90,7 +106,10 @@ export function Phase2Section() {
               Technical Implementation
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Core API integration and backend architecture - OpenAI integration with proper error handling and rate limiting</p>
+              <p>
+                Core API integration and backend architecture - OpenAI
+                integration with proper error handling and rate limiting
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -102,7 +121,6 @@ export function Phase2Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -119,7 +137,10 @@ export function Phase2Section() {
               Enhanced Features
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Multimodal capabilities and advanced UX features - image analysis, video generation, and model switching</p>
+              <p>
+                Multimodal capabilities and advanced UX features - image
+                analysis, video generation, and model switching
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -131,7 +152,6 @@ export function Phase2Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -148,7 +168,10 @@ export function Phase2Section() {
               UI Polish
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Refined user interface and enhanced visual design - improved typography, spacing, and micro-interactions</p>
+              <p>
+                Refined user interface and enhanced visual design - improved
+                typography, spacing, and micro-interactions
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -160,7 +183,6 @@ export function Phase2Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -177,7 +199,10 @@ export function Phase2Section() {
               Final Polish
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Production-ready interface with optimized performance - authentication, database integration, and deployment preparation</p>
+              <p>
+                Production-ready interface with optimized performance -
+                authentication, database integration, and deployment preparation
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
@@ -189,7 +214,6 @@ export function Phase2Section() {
                   className='w-full object-contain'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  
                 />
               </div>
             </div>
@@ -198,4 +222,4 @@ export function Phase2Section() {
       </motion.div>
     </section>
   );
-} 
+}

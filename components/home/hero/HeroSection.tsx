@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Suspense, lazy } from 'react';
@@ -6,7 +5,9 @@ import { ProfilePhoto, HeroContent } from '.';
 import { ChevronDown } from 'lucide-react';
 
 // Lazy-load EmailClient to improve LCP
-const EmailClient = lazy(() => import('./MiniChat').then(module => ({ default: module.EmailClient })));
+const EmailClient = lazy(() =>
+  import('./MiniChat').then(module => ({ default: module.EmailClient }))
+);
 
 export function HeroSection() {
   return (

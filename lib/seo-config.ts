@@ -1,10 +1,10 @@
 export const SEO_CONFIG = {
   site: {
-    name: 'Elias Santos',
+    name: 'Elias Ricardo',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev',
     description:
-      'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development.',
-    author: 'Elias Santos',
+      'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development.',
+    author: 'Elias Ricardo',
     language: 'en-US',
     locale: 'en_US',
   },
@@ -16,11 +16,11 @@ export const SEO_CONFIG = {
   },
 
   defaultMeta: {
-    title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+    title: 'Elias Ricardo - UX/UI Designer & Frontend Developer',
     description:
-      'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+      'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
     keywords: [
-      'Elias Santos',
+      'Elias Ricardo',
       'UX Design',
       'UI Design',
       'Frontend Developer',
@@ -40,9 +40,9 @@ export const SEO_CONFIG = {
 
   pages: {
     home: {
-      title: 'Elias Santos - UX/UI Designer & Frontend Developer',
+      title: 'Elias Ricardo - UX/UI Designer & Frontend Developer',
       description:
-        'Professional portfolio of Elias Santos, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+        'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
       keywords: [
         'Portfolio',
         'UX Design',
@@ -53,9 +53,9 @@ export const SEO_CONFIG = {
       ],
     },
     portfolio: {
-      title: 'Portfolio - Elias Santos',
+      title: 'Portfolio - Elias Ricardo',
       description:
-        'Discover Elias Santos projects in UX/UI Design and web development. Complete case studies and innovative solutions.',
+        'Discover Elias Ricardo projects in UX/UI Design and web development. Complete case studies and innovative solutions.',
       keywords: [
         'Portfolio',
         'Projects',
@@ -79,13 +79,13 @@ export const SEO_CONFIG = {
     ranking: {
       title: 'Ranking App - Case Study',
       description:
-        'Case study of the ranking app developed by Elias Santos, focused on UX/UI Design and user experience.',
+        'Case study of the ranking app developed by Elias Ricardo, focused on UX/UI Design and user experience.',
       keywords: ['Ranking App', 'UX Design', 'Mobile App', 'Case Study'],
     },
     ventuschat: {
       title: 'VentusChat - Case Study',
       description:
-        'Case study of VentusChat, an innovative chat platform developed by Elias Santos.',
+        'Case study of VentusChat, an innovative chat platform developed by Elias Ricardo.',
       keywords: ['VentusChat', 'Chat Platform', 'UX Design', 'Case Study'],
     },
   },
@@ -94,7 +94,7 @@ export const SEO_CONFIG = {
     person: {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Elias Santos',
+      name: 'Elias Ricardo',
       url: 'https://eliassantos.dev',
       image: 'https://eliassantos.dev/profile-photo.png',
       sameAs: [
@@ -125,12 +125,12 @@ export const SEO_CONFIG = {
     website: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Elias Santos Portfolio',
+      name: 'Elias Ricardo Portfolio',
       url: 'https://eliassantos.dev',
-      description: 'Professional portfolio of Elias Santos',
+      description: 'Professional portfolio of Elias Ricardo',
       author: {
         '@type': 'Person',
-        name: 'Elias Santos',
+        name: 'Elias Ricardo',
       },
     },
   },

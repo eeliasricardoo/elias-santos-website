@@ -31,15 +31,13 @@ export function ResultsSection() {
         transition={{ duration: 0.8 }}
         className='space-y-6'
       >
-        <h2 className='text-3xl font-bold text-foreground'>
-          Results & Impact
-        </h2>
+        <h2 className='text-3xl font-bold text-foreground'>Results & Impact</h2>
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
             The Post & Carousel Generator has transformed the way content
-            creators work, providing significant improvements in efficiency
-            and quality.
+            creators work, providing significant improvements in efficiency and
+            quality.
           </p>
         </div>
 
@@ -68,4 +66,4 @@ export function ResultsSection() {
       </motion.div>
     </section>
   );
-} 
+}

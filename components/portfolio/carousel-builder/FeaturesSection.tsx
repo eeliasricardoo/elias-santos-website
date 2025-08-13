@@ -2,7 +2,14 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Palette, Edit3, MessageSquare, Layout, Download } from 'lucide-react';
+import {
+  Brain,
+  Palette,
+  Edit3,
+  MessageSquare,
+  Layout,
+  Download,
+} from 'lucide-react';
 
 export function FeaturesSection() {
   const features = [
@@ -19,17 +26,20 @@ export function FeaturesSection() {
     {
       icon: <Edit3 className='w-6 h-6' />,
       title: 'Visual Editor',
-      description: 'Advanced TipTap editor with rich formatting and customization options',
+      description:
+        'Advanced TipTap editor with rich formatting and customization options',
     },
     {
       icon: <MessageSquare className='w-6 h-6' />,
       title: 'AI Chat Interface',
-      description: 'Natural conversation with AI for content generation and modifications',
+      description:
+        'Natural conversation with AI for content generation and modifications',
     },
     {
       icon: <Layout className='w-6 h-6' />,
       title: 'Interactive Canvas',
-      description: 'Drag-and-drop interface for precise element positioning and layout',
+      description:
+        'Drag-and-drop interface for precise element positioning and layout',
     },
     {
       icon: <Download className='w-6 h-6' />,
@@ -46,9 +56,7 @@ export function FeaturesSection() {
         transition={{ duration: 0.8 }}
         className='space-y-6'
       >
-        <h2 className='text-3xl font-bold text-foreground'>
-          Key Features
-        </h2>
+        <h2 className='text-3xl font-bold text-foreground'>Key Features</h2>
 
         <div className='grid md:grid-cols-2 gap-6'>
           {features.map((feature, index) => (
@@ -74,4 +82,4 @@ export function FeaturesSection() {
       </motion.div>
     </section>
   );
-} 
+}

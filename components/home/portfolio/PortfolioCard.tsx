@@ -28,10 +28,26 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
     offset: ['start center', 'end center'],
   });
 
-  const cardY = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0, -80 * (totalCards - index - 1)]);
-  const cardOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.7, 0.2]);
-  const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.96, 0.88]);
-  const cardZIndex = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [index, index, index + 15, index + 25]);
+  const cardY = useTransform(
+    scrollYProgress,
+    [0, 0.3, 1],
+    [0, 0, -80 * (totalCards - index - 1)]
+  );
+  const cardOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    [1, 1, 0.7, 0.2]
+  );
+  const cardScale = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    [1, 1, 0.96, 0.88]
+  );
+  const cardZIndex = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.6, 1],
+    [index, index, index + 15, index + 25]
+  );
   // Blur removido por custo de performance
 
   const getRoute = useCallback((): string => {
@@ -90,7 +106,9 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       >
         <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 items-center'>
-            <div className={`space-y-6 md:space-y-8 lg:space-y-10 ${isMobile ? 'order-2' : 'order-1'}`}>
+            <div
+              className={`space-y-6 md:space-y-8 lg:space-y-10 ${isMobile ? 'order-2' : 'order-1'}`}
+            >
               <div className='space-y-4 md:space-y-5 lg:space-y-6'>
                 <h3 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-foreground leading-tight'>
                   {card.title}
@@ -122,7 +140,15 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
               <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5' />
 
               <AnimatedMockup
-                type={index === 0 ? 'ventus-chat' : index === 1 ? 'carousel-builder' : index === 2 ? 'ranking' : 'support-queue'}
+                type={
+                  index === 0
+                    ? 'ventus-chat'
+                    : index === 1
+                      ? 'carousel-builder'
+                      : index === 2
+                        ? 'ranking'
+                        : 'support-queue'
+                }
               />
             </div>
           </div>

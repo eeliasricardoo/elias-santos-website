@@ -8,7 +8,7 @@ import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 import { LCPOptimizer } from '@/components/performance/LCPOptimizer';
 import { PerformanceOptimizer } from '@/components/performance/PerformanceOptimizer';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Elias Santos - UX/UI Designer & Frontend',
+  title: 'Elias Ricardo - UX/UI Designer & Frontend',
   description:
     'UX/UI Designer & Frontend Developer creating exceptional digital experiences. Specialized in user-centered design, React, Next.js, and TypeScript.',
   keywords: [
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     'frontend',
     'design',
   ],
-  authors: [{ name: 'Elias Santos' }],
-  creator: 'Elias Santos',
-  publisher: 'Elias Santos',
+  authors: [{ name: 'Elias Ricardo' }],
+  creator: 'Elias Ricardo',
+  publisher: 'Elias Ricardo',
   formatDetection: {
     email: false,
     address: false,
@@ -46,31 +46,29 @@ export const metadata: Metadata = {
       { url: '/five-icon.png', sizes: '32x32', type: 'image/png' },
       { url: '/five-icon.png', sizes: '16x16', type: 'image/png' },
     ],
-    apple: [
-      { url: '/five-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/five-icon.png', sizes: '180x180', type: 'image/png' }],
     shortcut: '/five-icon.png',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://eliasricardo.com',
-    title: 'Elias Santos - UX/UI Designer & Frontend',
+    title: 'Elias Ricardo - UX/UI Designer & Frontend',
     description:
       'UX/UI Designer & Frontend Developer creating exceptional digital experiences. Specialized in user-centered design, React, Next.js, and TypeScript.',
-    siteName: 'Elias Santos Portfolio',
+    siteName: 'Elias Ricardo Portfolio',
     images: [
       {
         url: '/oq-image.png',
         width: 1200,
         height: 630,
-        alt: 'Elias Santos - UX/UI Designer & Frontend',
+        alt: 'Elias Ricardo - UX/UI Designer & Frontend',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elias Santos - UX/UI Designer & Frontend',
+    title: 'Elias Ricardo - UX/UI Designer & Frontend',
     description:
       'UX/UI Designer & Frontend Developer creating exceptional digital experiences. Specialized in user-centered design, React, Next.js, and TypeScript.',
     images: ['/oq-image.png'],
@@ -101,7 +99,7 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <head>
         {/* DNS prefetch e preconnect para recursos externos */}
-        
+
         {/* Preconnect para analytics */}
         <link
           rel='preconnect'

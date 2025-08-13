@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 
 export function Phase1Section() {
   return (
@@ -19,7 +19,8 @@ export function Phase1Section() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p className='text-center italic'>
-            This phase was about immersion. I needed to deeply understand the competitive landscape and clearly define the problem to be solved.
+            This phase was about immersion. I needed to deeply understand the
+            competitive landscape and clearly define the problem to be solved.
           </p>
         </div>
 
@@ -35,19 +36,21 @@ export function Phase1Section() {
               Initial Concept
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>First attempt at solving the problem - basic chat interface with OpenAI integration</p>
+              <p>
+                First attempt at solving the problem - basic chat interface with
+                OpenAI integration
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <Image
+                <ImageLightbox
                   src='/portfolios/ventus/v1.png'
                   alt='Initial Concept'
                   width={1200}
                   height={800}
-                  className='w-full object-contain'
+                  className='w-full object-contain cursor-pointer'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  priority={false}
                 />
               </div>
             </div>
@@ -66,42 +69,70 @@ export function Phase1Section() {
 
             <div className='space-y-6'>
               <p className='text-lg text-muted-foreground text-center'>
-                Critical analysis of ChatGPT, Claude, and Grok revealed key opportunities: no tool offered granular model control or optimized multimodal workflow without subscription costs.
+                Critical analysis of ChatGPT, Claude, and Grok revealed key
+                opportunities: no tool offered granular model control or
+                optimized multimodal workflow without subscription costs.
               </p>
 
               <div className='overflow-x-auto'>
                 <table className='w-full border border-border/20 rounded-lg overflow-hidden'>
                   <thead className='bg-card/50'>
                     <tr>
-                      <th className='p-4 text-left font-semibold text-foreground'>Tool</th>
-                      <th className='p-4 text-left font-semibold text-foreground'>Strengths</th>
-                      <th className='p-4 text-left font-semibold text-foreground'>Weaknesses (Opportunity)</th>
+                      <th className='p-4 text-left font-semibold text-foreground'>
+                        Tool
+                      </th>
+                      <th className='p-4 text-left font-semibold text-foreground'>
+                        Strengths
+                      </th>
+                      <th className='p-4 text-left font-semibold text-foreground'>
+                        Weaknesses (Opportunity)
+                      </th>
                     </tr>
                   </thead>
                   <tbody className='divide-y divide-border/20'>
                     <tr>
-                      <td className='p-4 font-medium text-foreground'>ChatGPT (Plus)</td>
-                      <td className='p-4 text-muted-foreground'>Model quality, plugin ecosystem</td>
-                      <td className='p-4 text-muted-foreground'>Fixed cost ($20/month), slow model switching, UI noise</td>
+                      <td className='p-4 font-medium text-foreground'>
+                        ChatGPT (Plus)
+                      </td>
+                      <td className='p-4 text-muted-foreground'>
+                        Model quality, plugin ecosystem
+                      </td>
+                      <td className='p-4 text-muted-foreground'>
+                        Fixed cost ($20/month), slow model switching, UI noise
+                      </td>
                     </tr>
                     <tr>
-                      <td className='p-4 font-medium text-foreground'>Claude</td>
-                      <td className='p-4 text-muted-foreground'>Excellent for long context, natural writing</td>
-                      <td className='p-4 text-muted-foreground'>Free plan limitations, less focused on multimodality</td>
+                      <td className='p-4 font-medium text-foreground'>
+                        Claude
+                      </td>
+                      <td className='p-4 text-muted-foreground'>
+                        Excellent for long context, natural writing
+                      </td>
+                      <td className='p-4 text-muted-foreground'>
+                        Free plan limitations, less focused on multimodality
+                      </td>
                     </tr>
                     <tr>
                       <td className='p-4 font-medium text-foreground'>Grok</td>
-                      <td className='p-4 text-muted-foreground'>Real-time data access</td>
-                      <td className='p-4 text-muted-foreground'>Locked to X ecosystem, less versatile for code</td>
+                      <td className='p-4 text-muted-foreground'>
+                        Real-time data access
+                      </td>
+                      <td className='p-4 text-muted-foreground'>
+                        Locked to X ecosystem, less versatile for code
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
               <div className='bg-primary/5 border border-primary/20 rounded-lg p-6'>
-                <h4 className='font-semibold text-foreground mb-2'>Key Insight:</h4>
+                <h4 className='font-semibold text-foreground mb-2'>
+                  Key Insight:
+                </h4>
                 <p className='text-muted-foreground'>
-                  No tool offered granular control over models or was optimized for a multimodal workflow (text, image, code) without imposing a subscription cost or complex interface.
+                  No tool offered granular control over models or was optimized
+                  for a multimodal workflow (text, image, code) without imposing
+                  a subscription cost or complex interface.
                 </p>
               </div>
             </div>
@@ -118,19 +149,21 @@ export function Phase1Section() {
               Enhanced UI (After Research)
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Applied insights from competitive analysis - improved layout and user flow</p>
+              <p>
+                Applied insights from competitive analysis - improved layout and
+                user flow
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <Image
+                <ImageLightbox
                   src='/portfolios/ventus/v2.png'
                   alt='Enhanced UI (After Research)'
                   width={1200}
                   height={800}
-                  className='w-full object-contain'
+                  className='w-full object-contain cursor-pointer'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  priority={false}
                 />
               </div>
             </div>
@@ -147,19 +180,20 @@ export function Phase1Section() {
               Refined Experience
             </h3>
             <div className='space-y-4 text-center text-muted-foreground'>
-              <p>Further refinement based on initial user testing and feedback</p>
+              <p>
+                Further refinement based on initial user testing and feedback
+              </p>
             </div>
             <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
               <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-                <Image
+                <ImageLightbox
                   src='/portfolios/ventus/v2.1.png'
                   alt='Refined Experience'
                   width={1200}
                   height={800}
-                  className='w-full object-contain'
+                  className='w-full object-contain cursor-pointer'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
                   quality={85}
-                  priority={false}
                 />
               </div>
             </div>
@@ -168,4 +202,4 @@ export function Phase1Section() {
       </motion.div>
     </section>
   );
-} 
+}

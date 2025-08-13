@@ -9,22 +9,26 @@ export function SolutionSection() {
     {
       icon: <Brain className='w-6 h-6' />,
       title: 'Intelligent Generative AI',
-      description: 'OpenRouter API generates relevant and structured content automatically',
+      description:
+        'OpenRouter API generates relevant and structured content automatically',
     },
     {
       icon: <Palette className='w-6 h-6' />,
       title: 'Professional Templates',
-      description: '9 specialized templates with optimized content for different niches',
+      description:
+        '9 specialized templates with optimized content for different niches',
     },
     {
       icon: <Edit3 className='w-6 h-6' />,
       title: 'Advanced Editor',
-      description: 'TipTap for rich formatting and complete customization of each element',
+      description:
+        'TipTap for rich formatting and complete customization of each element',
     },
     {
       icon: <MessageSquare className='w-6 h-6' />,
       title: 'Conversational Interface',
-      description: 'Side chat for natural interaction with AI, maintaining context and history',
+      description:
+        'Side chat for natural interaction with AI, maintaining context and history',
     },
   ];
 
@@ -44,11 +48,9 @@ export function SolutionSection() {
           <p>
             The answer to this challenge came through the combination of{' '}
             <strong className='text-foreground'>generative AI</strong>
-            with{' '}
-            <strong className='text-foreground'>intuitive design</strong>.
-            We created a tool that transforms the carousel creation process
-            from a complex technical task into a fluid and productive
-            experience.
+            with <strong className='text-foreground'>intuitive design</strong>.
+            We created a tool that transforms the carousel creation process from
+            a complex technical task into a fluid and productive experience.
           </p>
 
           <p>
@@ -87,4 +89,4 @@ export function SolutionSection() {
       </motion.div>
     </section>
   );
-} 
+}

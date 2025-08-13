@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { BackButton, StatsCard } from '../../ui';
 
 export default function RankingHeader() {
@@ -17,10 +17,10 @@ export default function RankingHeader() {
 
       {/* Imagem do ranking */}
       <div className='mb-8 text-left'>
-        <Image
+        <ImageLightbox
           src='/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif'
           alt='XP Ranking System Interface'
-          className='w-full max-w-4xl rounded-lg shadow-lg'
+          className='w-full max-w-4xl rounded-lg shadow-lg cursor-pointer'
           width={1024}
           height={768}
         />

@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 
 export function HeroSection() {
   return (
@@ -35,19 +35,18 @@ export function HeroSection() {
       >
         <div className='relative w-full'>
           <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-            <Image
+            <ImageLightbox
               src='/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png'
               alt='Post & Carousel Generator Interface'
               width={1200}
               height={800}
-              className='w-full object-contain'
+              className='w-full object-contain cursor-pointer'
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px'
               quality={85}
-              priority={false}
             />
           </div>
         </div>
       </motion.div>
     </section>
   );
-} 
+}

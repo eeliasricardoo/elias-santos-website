@@ -18,17 +18,24 @@ export function ResultsSection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            Our solution delivered <strong className='text-foreground'>measurable improvements</strong> across all key metrics, validating our design hypothesis and exceeding our initial goals.
+            Our solution delivered{' '}
+            <strong className='text-foreground'>measurable improvements</strong>{' '}
+            across all key metrics, validating our design hypothesis and
+            exceeding our initial goals.
           </p>
         </div>
 
         {/* Methodology */}
         <div className='bg-card/80 p-8 rounded-lg border border-border/20'>
-          <h3 className='text-xl font-semibold text-foreground text-center mb-8'>📊 Validation Methodology</h3>
-          
+          <h3 className='text-xl font-semibold text-foreground text-center mb-8'>
+            📊 Validation Methodology
+          </h3>
+
           <div className='grid md:grid-cols-2 gap-8'>
             <div className='space-y-4'>
-              <h4 className='font-semibold text-foreground'>🔍 How we measured</h4>
+              <h4 className='font-semibold text-foreground'>
+                🔍 How we measured
+              </h4>
               <ul className='space-y-2 text-muted-foreground text-sm'>
                 <li>• Usage metrics with internal analytics</li>
                 <li>• Real‑time time‑to‑first‑contact</li>
@@ -37,7 +44,9 @@ export function ResultsSection() {
               </ul>
             </div>
             <div className='space-y-4'>
-              <h4 className='font-semibold text-foreground'>✅ How we validated</h4>
+              <h4 className='font-semibold text-foreground'>
+                ✅ How we validated
+              </h4>
               <ul className='space-y-2 text-muted-foreground text-sm'>
                 <li>• Quick interviews with 5 agents</li>
                 <li>• User experience validation</li>
@@ -50,8 +59,10 @@ export function ResultsSection() {
 
         {/* Métricas Principais */}
         <div className='space-y-8'>
-          <h3 className='text-xl font-semibold text-foreground text-center'>🎯 Key Metrics</h3>
-          
+          <h3 className='text-xl font-semibold text-foreground text-center'>
+            🎯 Key Metrics
+          </h3>
+
           <div className='grid md:grid-cols-3 gap-8'>
             {[
               {
@@ -62,7 +73,7 @@ export function ResultsSection() {
                 color: 'from-primary to-primary',
                 bgColor: 'bg-card/80',
                 borderColor: 'border-border/20',
-                icon: '⚡'
+                icon: '⚡',
               },
               {
                 title: 'First‑contact CSAT',
@@ -72,7 +83,7 @@ export function ResultsSection() {
                 color: 'from-primary to-primary',
                 bgColor: 'bg-card/80',
                 borderColor: 'border-border/20',
-                icon: '😊'
+                icon: '😊',
               },
               {
                 title: 'Reopened tickets',
@@ -82,8 +93,8 @@ export function ResultsSection() {
                 color: 'from-primary to-primary',
                 bgColor: 'bg-card/80',
                 borderColor: 'border-border/20',
-                icon: '📉'
-              }
+                icon: '📉',
+              },
             ].map((metric, index) => (
               <motion.div
                 key={metric.title}
@@ -94,8 +105,10 @@ export function ResultsSection() {
               >
                 <div className='text-center space-y-4'>
                   <div className='text-3xl'>{metric.icon}</div>
-                  <h4 className='font-semibold text-foreground text-sm'>{metric.title}</h4>
-                  
+                  <h4 className='font-semibold text-foreground text-sm'>
+                    {metric.title}
+                  </h4>
+
                   <div className='space-y-2'>
                     <div className='flex justify-between text-xs text-muted-foreground'>
                       <span>Antes: {metric.before}</span>
@@ -108,9 +121,13 @@ export function ResultsSection() {
                       />
                     </div>
                   </div>
-                  
-                  <div className={`text-2xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}>
-                    {metric.improvement.includes('%') ? `-${metric.improvement}` : metric.improvement}
+
+                  <div
+                    className={`text-2xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}
+                  >
+                    {metric.improvement.includes('%')
+                      ? `-${metric.improvement}`
+                      : metric.improvement}
                   </div>
                 </div>
               </motion.div>
@@ -120,25 +137,31 @@ export function ResultsSection() {
 
         {/* Interpretation */}
         <div className='bg-card/80 p-8 rounded-lg border border-border/20'>
-          <h3 className='text-xl font-semibold text-foreground text-center mb-8'>🔍 Interpretation of Results</h3>
-          
+          <h3 className='text-xl font-semibold text-foreground text-center mb-8'>
+            🔍 Interpretation of Results
+          </h3>
+
           <div className='grid md:grid-cols-3 gap-6'>
             <div className='text-center space-y-4'>
               <div className='text-3xl'>⚡</div>
               <h4 className='font-semibold text-foreground'>Real Efficiency</h4>
               <p className='text-sm text-muted-foreground'>
-                Consistent drop in response time indicates a real, measurable efficiency gain
+                Consistent drop in response time indicates a real, measurable
+                efficiency gain
               </p>
             </div>
-            
+
             <div className='text-center space-y-4'>
               <div className='text-3xl'>📈</div>
-              <h4 className='font-semibold text-foreground'>Improved Satisfaction</h4>
+              <h4 className='font-semibold text-foreground'>
+                Improved Satisfaction
+              </h4>
               <p className='text-sm text-muted-foreground'>
-                CSAT increased with statistical significance, confirming a better experience
+                CSAT increased with statistical significance, confirming a
+                better experience
               </p>
             </div>
-            
+
             <div className='text-center space-y-4'>
               <div className='text-3xl'>🔄</div>
               <h4 className='font-semibold text-foreground'>Less Friction</h4>
@@ -153,10 +176,16 @@ export function ResultsSection() {
         <div className='bg-card/80 p-8 rounded-lg border border-border/20 text-center'>
           <div className='space-y-4'>
             <div className='text-4xl'>🎯</div>
-            <h3 className='text-xl font-semibold text-foreground'>Goal Achieved!</h3>
+            <h3 className='text-xl font-semibold text-foreground'>
+              Goal Achieved!
+            </h3>
             <p className='text-muted-foreground text-lg'>
-              The <strong className='text-foreground'>≥20% reduction</strong> target in response time was <strong className='text-foreground'>exceeded</strong> 
-              with a <strong className='text-foreground'>22% improvement</strong>, without increasing UI complexity.
+              The <strong className='text-foreground'>≥20% reduction</strong>{' '}
+              target in response time was{' '}
+              <strong className='text-foreground'>exceeded</strong>
+              with a{' '}
+              <strong className='text-foreground'>22% improvement</strong>,
+              without increasing UI complexity.
             </p>
             <div className='inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary font-medium'>
               <span>✅</span>
@@ -168,5 +197,3 @@ export function ResultsSection() {
     </section>
   );
 }
-
-

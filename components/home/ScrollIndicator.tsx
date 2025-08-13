@@ -57,4 +57,4 @@ export function ScrollIndicator() {
       </div>
     </motion.div>
   );
-} 
+}

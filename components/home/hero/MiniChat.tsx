@@ -62,7 +62,7 @@ function ChatMessage({
       className={`flex gap-4 p-4 ${isUser ? 'justify-end' : 'justify-start'}`}
     >
       {!isUser && (
-            <div className='w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0 motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:scale-105'>
+        <div className='w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0 motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:scale-105'>
           <Bot className='w-4 h-4 text-primary-foreground' />
         </div>
       )}
@@ -113,8 +113,8 @@ export function EmailClient() {
   const isProcessingRef = useRef(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  const userMessage = 'Tell me about your journey';
-  const botResponse = `My journey started at 14 when I took my first web designer course and fell in love with HTML, CSS, and JavaScript. That early passion shaped my path to becoming a UX/UI designer and front-end developer. I've lived in Brazil, Mexico, Ecuador, and Colombia, speaking Portuguese, Spanish, and English. This multicultural experience gave me a unique perspective on how design can solve complex problems across different cultures and languages. I love creating experiences that not only look great but actually make people's lives easier.`;
+  const userMessage = 'Hi there 👋';
+  const botResponse = `Welcome to my portfolio! I'm Elias Ricardo, a UX/UI developer passionate about creating meaningful digital experiences. I built this site with care 💖 using Next.js, TypeScript, Tailwind CSS, and Shadcn UI. I'm constantly improving it to deliver smooth UX and great results. Keep scrolling to explore my work and projects! 🚀`;
 
   const messageQueue = useMemo(
     () => [
@@ -181,10 +181,10 @@ export function EmailClient() {
     } else {
       setIsTyping(true);
       setTimeout(scrollToBottom, 100);
-      
+
       // Simula o tempo de digitação baseado no tamanho da mensagem
       const typingTime = Math.min(message.text.length * 30, 2000);
-      
+
       setTimeout(() => {
         addMessage(message.text, false);
         setIsTyping(false);
@@ -192,7 +192,7 @@ export function EmailClient() {
 
         // Pausa mais longa após a primeira resposta do bot (4s)
         const waitTime = currentMessageIndexRef.current === 2 ? 6000 : 1000;
-        
+
         setTimeout(() => {
           isProcessingRef.current = false;
           processNextMessage();
@@ -204,7 +204,7 @@ export function EmailClient() {
   // Inicia o fluxo quando o componente monta
   useEffect(() => {
     if (!mounted) return;
-    
+
     // Inicia com a primeira mensagem do usuário
     setTimeout(() => {
       processNextMessage();
@@ -225,7 +225,7 @@ export function EmailClient() {
           duration={32}
           shineColor='hsl(var(--primary))'
         />
-        
+
         {/* Header Simplificado */}
         <div className='flex items-center justify-between p-6 border-b border-border/20 bg-gradient-to-r from-background/50 to-background/30'>
           <div className='flex items-center gap-4'>

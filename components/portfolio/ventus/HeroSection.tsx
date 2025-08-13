@@ -21,8 +21,8 @@ export function HeroSection() {
         </h1>
         <p className='text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
           The journey of creating my own AI tool to solve a real problem:
-          building a personal AI ecosystem that&apos;s radically cheaper,
-          fully customizable, and superior to existing workflows
+          building a personal AI ecosystem that&apos;s radically cheaper, fully
+          customizable, and superior to existing workflows
         </p>
       </motion.div>
 
@@ -52,4 +52,4 @@ export function HeroSection() {
       </motion.div>
     </section>
   );
-} 
+}

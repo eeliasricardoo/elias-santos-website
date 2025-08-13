@@ -37,7 +37,7 @@ export function Footer() {
               </div>
               <div>
                 <h2 className='text-xl md:text-2xl font-bold text-foreground'>
-                  Elias Santos
+                  Elias Ricardo
                 </h2>
                 <p className='text-muted-foreground text-xs md:text-sm'>
                   UX/UI Designer & Frontend
@@ -125,7 +125,9 @@ export function Footer() {
             viewport={{ once: true }}
             className='md:col-span-1 lg:col-span-3 space-y-4 md:space-y-6'
           >
-            <h3 className='text-lg md:text-xl font-semibold text-foreground'>Connect</h3>
+            <h3 className='text-lg md:text-xl font-semibold text-foreground'>
+              Connect
+            </h3>
             <div className='grid grid-cols-1 gap-2'>
               <Button
                 variant='outline'
@@ -207,7 +209,7 @@ export function Footer() {
           className='pt-6 md:pt-8 border-t border-border/30 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0'
         >
           <div className='flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 text-xs sm:text-sm text-muted-foreground text-center sm:text-left'>
-            <span>© 2024 Elias Santos. All rights reserved.</span>
+            <span>© 2024 Elias Ricardo. All rights reserved.</span>
             <div className='hidden sm:block w-1 h-1 bg-muted-foreground/30 rounded-full'></div>
             <div className='flex items-center space-x-1 sm:space-x-2'>
               <span>Made with</span>

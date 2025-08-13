@@ -32,7 +32,7 @@ Badge animado com ícone e texto.
 
 ```tsx
 <AnimatedBadge
-  text='Elias Santos'
+  text='Elias Ricardo'
   icon={<Sparkles className='w-4 h-4' />}
   animationDelay={0.5}
 />

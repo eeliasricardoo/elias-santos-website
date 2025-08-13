@@ -42,25 +42,25 @@ export function HeroSkeleton() {
     <div className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'>
       <div className='space-y-4'>
         {/* Título skeleton */}
-        <LoadingSkeleton 
-          className='mx-auto' 
-          width={600} 
-          height={80} 
+        <LoadingSkeleton
+          className='mx-auto'
+          width={600}
+          height={80}
           rounded='lg'
         />
-        
+
         {/* Descrição skeleton */}
         <div className='space-y-2'>
-          <LoadingSkeleton 
-            className='mx-auto' 
-            width={500} 
-            height={24} 
+          <LoadingSkeleton
+            className='mx-auto'
+            width={500}
+            height={24}
             rounded='md'
           />
-          <LoadingSkeleton 
-            className='mx-auto' 
-            width={400} 
-            height={24} 
+          <LoadingSkeleton
+            className='mx-auto'
+            width={400}
+            height={24}
             rounded='md'
           />
         </div>
@@ -75,10 +75,7 @@ export function ProfilePhotoSkeleton() {
     <div className='relative z-10 flex justify-center mb-8'>
       <div className='relative'>
         <div className='relative w-48 h-48 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
-          <LoadingSkeleton 
-            className='w-full h-full' 
-            rounded='full'
-          />
+          <LoadingSkeleton className='w-full h-full' rounded='full' />
         </div>
       </div>
     </div>

@@ -18,46 +18,65 @@ export function SolutionSection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            Based on our research findings, we developed a targeted solution that addressed the core issue: <strong className='text-foreground'>agents needed immediate, visible notifications</strong> that couldn&apos;t be missed, regardless of their current tab or focus state.
+            Based on our research findings, we developed a targeted solution
+            that addressed the core issue:{' '}
+            <strong className='text-foreground'>
+              agents needed immediate, visible notifications
+            </strong>{' '}
+            that couldn&apos;t be missed, regardless of their current tab or
+            focus state.
           </p>
         </div>
 
         {/* Objetivo */}
         <div className='bg-card/80 rounded-lg p-6 border border-border/20'>
-          <h3 className='text-xl font-semibold text-foreground mb-4'>🎯 Goal</h3>
+          <h3 className='text-xl font-semibold text-foreground mb-4'>
+            🎯 Goal
+          </h3>
           <p className='text-lg text-muted-foreground leading-relaxed'>
-            Reduce time to first human contact by <strong className='text-foreground'>≥ 20%</strong> without increasing UI complexity or agent workload.
+            Reduce time to first human contact by{' '}
+            <strong className='text-foreground'>≥ 20%</strong> without
+            increasing UI complexity or agent workload.
           </p>
         </div>
 
         {/* Hipótese */}
         <div className='bg-card/80 rounded-lg p-6 border border-border/20'>
-          <h3 className='text-xl font-semibold text-foreground mb-4'>💡 Design Hypothesis</h3>
+          <h3 className='text-xl font-semibold text-foreground mb-4'>
+            💡 Design Hypothesis
+          </h3>
           <p className='text-lg text-muted-foreground leading-relaxed'>
-            Showing a <strong className='text-foreground'>persistent, actionable pop-up</strong> as soon as there is an eligible ticket enables faster acceptance, removing the need to manually check queues.
+            Showing a{' '}
+            <strong className='text-foreground'>
+              persistent, actionable pop-up
+            </strong>{' '}
+            as soon as there is an eligible ticket enables faster acceptance,
+            removing the need to manually check queues.
           </p>
         </div>
 
         {/* Benchmark */}
         <div className='space-y-4'>
-          <h3 className='text-lg font-semibold text-foreground'>Market Benchmark</h3>
+          <h3 className='text-lg font-semibold text-foreground'>
+            Market Benchmark
+          </h3>
           <div className='grid md:grid-cols-3 gap-4'>
             {[
               {
                 name: 'Zendesk',
                 feature: 'CTA toasts',
-                icon: '🔔'
+                icon: '🔔',
               },
               {
-                name: 'Intercom', 
+                name: 'Intercom',
                 feature: 'Persistent notifications',
-                icon: '💬'
+                icon: '💬',
               },
               {
                 name: 'Crisp',
                 feature: 'Assignment pop-ups',
-                icon: '⚡'
-              }
+                icon: '⚡',
+              },
             ].map((tool, index) => (
               <motion.div
                 key={tool.name}
@@ -73,14 +92,17 @@ export function SolutionSection() {
             ))}
           </div>
           <p className='text-sm text-muted-foreground italic'>
-            Analysis: major competitors use CTA toasts for support notifications.
+            Analysis: major competitors use CTA toasts for support
+            notifications.
           </p>
         </div>
 
         {/* Estratégia */}
         <div className='grid md:grid-cols-2 gap-6'>
           <div className='space-y-4'>
-            <h3 className='text-lg font-semibold text-foreground'>🔧 How we&apos;ll do it</h3>
+            <h3 className='text-lg font-semibold text-foreground'>
+              🔧 How we&apos;ll do it
+            </h3>
             <ul className='space-y-3 text-muted-foreground'>
               <li className='flex items-start gap-2'>
                 <span className='text-primary mt-1'>✓</span>
@@ -101,11 +123,15 @@ export function SolutionSection() {
             </ul>
           </div>
           <div className='space-y-4'>
-            <h3 className='text-lg font-semibold text-foreground'>⚙️ Business Rules</h3>
+            <h3 className='text-lg font-semibold text-foreground'>
+              ⚙️ Business Rules
+            </h3>
             <ul className='space-y-3 text-muted-foreground'>
               <li className='flex items-start gap-2'>
                 <span className='text-muted-foreground mt-1'>•</span>
-                <span>Trigger: ≥1 ticket and agent under active‑chat limit</span>
+                <span>
+                  Trigger: ≥1 ticket and agent under active‑chat limit
+                </span>
               </li>
               <li className='flex items-start gap-2'>
                 <span className='text-muted-foreground mt-1'>•</span>
@@ -126,5 +152,3 @@ export function SolutionSection() {
     </section>
   );
 }
-
-

@@ -4,7 +4,10 @@ const path = require('path');
 // Função para converter img para Image do Next.js
 function convertImgToImage(content) {
   // Adicionar import se não existir
-  if (!content.includes("import Image from 'next/image'") && content.includes('<img')) {
+  if (
+    !content.includes("import Image from 'next/image'") &&
+    content.includes('<img')
+  ) {
     content = content.replace(
       /import React from 'react';/,
       "import React from 'react';\nimport Image from 'next/image';"
@@ -35,17 +38,17 @@ function convertImgToImage(content) {
 // Função para processar arquivos recursivamente
 function processDirectory(dir) {
   const files = fs.readdirSync(dir);
-  
+
   files.forEach(file => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
-    
+
     if (stat.isDirectory()) {
       processDirectory(filePath);
     } else if (file.endsWith('.tsx') || file.endsWith('.ts')) {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
-        
+
         if (content.includes('<img')) {
           console.log(`Processando: ${filePath}`);
           const optimizedContent = convertImgToImage(content);
@@ -63,4 +66,4 @@ function processDirectory(dir) {
 const componentsDir = path.join(__dirname, '..', 'components', 'portfolio');
 console.log('🚀 Iniciando otimização de imagens...');
 processDirectory(componentsDir);
-console.log('✅ Otimização concluída!'); 
+console.log('✅ Otimização concluída!');

@@ -10,7 +10,7 @@ export function ProfilePhoto() {
         <div className='relative w-48 h-48 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
           <Image
             src='/profile-photo.png'
-            alt='Elias Santos - UX/UI Designer & Frontend'
+            alt='Elias Ricardo - UX/UI Designer & Frontend'
             fill
             className='object-cover object-center'
             priority

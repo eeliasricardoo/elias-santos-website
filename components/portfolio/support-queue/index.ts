@@ -6,4 +6,3 @@ export { FeaturesSection } from './FeaturesSection';
 export { UXProcessSection } from './UXProcessSection';
 export { ResultsSection } from './ResultsSection';
 export { CallToActionSection } from './CallToActionSection';
-

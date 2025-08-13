@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 
 export function DetailedPhasesSection() {
   return (
@@ -20,8 +20,8 @@ export function DetailedPhasesSection() {
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
             Each development phase told a unique story. Let&apos;s dive deep
-            into how each stage transformed our vision into reality, using
-            the screenshots that document our journey.
+            into how each stage transformed our vision into reality, using the
+            screenshots that document our journey.
           </p>
         </div>
       </motion.div>
@@ -46,8 +46,8 @@ export function DetailedPhasesSection() {
           <p>
             Everything started with a simple question:{' '}
             <strong className='text-foreground'>
-              &ldquo;What would the ideal interface be for generating
-              carousels with AI?&rdquo;
+              &ldquo;What would the ideal interface be for generating carousels
+              with AI?&rdquo;
             </strong>
             Using ChatGPT for brainstorming, we defined the fundamental
             structure that would guide all development.
@@ -55,9 +55,9 @@ export function DetailedPhasesSection() {
 
           <p>
             The initial wireframe established the pillars of the experience:
-            input form on the left, preview on the right, and a generated
-            slides section below. It was simple, but contained the essence
-            of what would become a powerful tool.
+            input form on the left, preview on the right, and a generated slides
+            section below. It was simple, but contained the essence of what
+            would become a powerful tool.
           </p>
         </div>
 
@@ -67,12 +67,12 @@ export function DetailedPhasesSection() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className='w-full rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
         >
-          <Image
+          <ImageLightbox
             src='/documentation/v0 - wireframe.png'
             alt='Initial interface wireframe'
             width={800}
             height={600}
-            className='w-full h-auto'
+            className='w-full h-auto cursor-pointer'
           />
         </motion.div>
       </motion.div>
@@ -96,17 +96,16 @@ export function DetailedPhasesSection() {
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
             After weeks of development, came the magical moment:{' '}
-            <strong className='text-foreground'>the working MVP</strong>.
-            The OpenRouter API integration was operational, and for the
-            first time we were able to generate real carousels with AI.
+            <strong className='text-foreground'>the working MVP</strong>. The
+            OpenRouter API integration was operational, and for the first time
+            we were able to generate real carousels with AI.
           </p>
 
           <p>
-            The interface was basic, but functional. Users could enter a
-            theme, choose style and tone, and in seconds receive 5
-            structured slides. It was the proof of concept that validated
-            our vision - AI could really create relevant and well-structured
-            content.
+            The interface was basic, but functional. Users could enter a theme,
+            choose style and tone, and in seconds receive 5 structured slides.
+            It was the proof of concept that validated our vision - AI could
+            really create relevant and well-structured content.
           </p>
 
           <p>
@@ -124,12 +123,12 @@ export function DetailedPhasesSection() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className='w-full rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
         >
-          <Image
+          <ImageLightbox
             src='/documentation/v1 - funcionando .png'
             alt='Working MVP with carousel generation'
             width={800}
             height={600}
-            className='w-full h-auto'
+            className='w-full h-auto cursor-pointer'
           />
         </motion.div>
       </motion.div>
@@ -152,21 +151,17 @@ export function DetailedPhasesSection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            With the MVP working, it was time to think about user
-            experience. The first redesign introduced
-            <strong className='text-foreground'>
-              {' '}
-              modern dark mode
-            </strong>{' '}
-            and a more polished interface that reflected the professional
-            nature of the tool.
+            With the MVP working, it was time to think about user experience.
+            The first redesign introduced
+            <strong className='text-foreground'> modern dark mode</strong> and a
+            more polished interface that reflected the professional nature of
+            the tool.
           </p>
 
           <p>
-            The new design focused on visual hierarchy, better spacing, and
-            a more intuitive layout. The dark theme not only looked modern
-            but also reduced eye strain during long content creation
-            sessions.
+            The new design focused on visual hierarchy, better spacing, and a
+            more intuitive layout. The dark theme not only looked modern but
+            also reduced eye strain during long content creation sessions.
           </p>
         </div>
 
@@ -176,15 +171,15 @@ export function DetailedPhasesSection() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className='w-full rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
         >
-          <Image
+          <ImageLightbox
             src='/documentation/v2 - redesign.png'
             alt='First redesign with dark mode'
             width={800}
             height={600}
-            className='w-full h-auto'
+            className='w-full h-auto cursor-pointer'
           />
         </motion.div>
       </motion.div>
     </section>
   );
-} 
+}

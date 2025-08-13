@@ -7,4 +7,4 @@ export { Phase3Section } from './Phase3Section';
 export { ResultsSection } from './ResultsSection';
 export { KeyFeaturesSection } from './KeyFeaturesSection';
 export { Phase4Section } from './Phase4Section';
-export { CallToActionSection } from './CallToActionSection'; 
+export { CallToActionSection } from './CallToActionSection';

@@ -25,7 +25,7 @@ export default function RankingCasePage() {
       {/* SEO */}
       <PageSEO
         title='Ranking App - UX Research Case Study'
-        description='Complete case study of the ranking application developed by Elias Santos. UX research, personas, user journey and innovative solutions for gamification.'
+        description='Complete case study of the ranking application developed by Elias Ricardo. UX research, personas, user journey and innovative solutions for gamification.'
         keywords={[
           'Ranking App',
           'UX Research',
@@ -42,7 +42,7 @@ export default function RankingCasePage() {
         type='article'
         publishedTime='2024-01-10T00:00:00Z'
         modifiedTime='2024-12-19T00:00:00Z'
-        author='Elias Santos'
+        author='Elias Ricardo'
         section='Portfolio'
         tags={[
           'UX Research',
@@ -69,7 +69,7 @@ export default function RankingCasePage() {
         category='UX/UI Design'
         datePublished='2024-01-10T00:00:00Z'
         dateModified='2024-12-19T00:00:00Z'
-        author='Elias Santos'
+        author='Elias Ricardo'
       />
 
       <PortfolioLayout>

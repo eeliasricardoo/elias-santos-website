@@ -2,7 +2,14 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Eye, Palette, Cpu, Database, Shield } from 'lucide-react';
+import {
+  MessageSquare,
+  Eye,
+  Palette,
+  Cpu,
+  Database,
+  Shield,
+} from 'lucide-react';
 
 export function KeyFeaturesSection() {
   const features = [
@@ -72,4 +79,4 @@ export function KeyFeaturesSection() {
       </motion.div>
     </section>
   );
-} 
+}

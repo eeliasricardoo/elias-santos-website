@@ -16,16 +16,16 @@ export function HeroContent() {
 
         {/* Parágrafo de descrição - renderização imediata para LCP */}
         <p className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'>
-          UX/UI Designer & Frontend Developer. I transform complex
-          business challenges into elegant, user-centered solutions that drive
-          measurable results and accelerate time-to-market.
+          UX/UI Designer & Frontend Developer. I transform complex business
+          challenges into elegant, user-centered solutions that drive measurable
+          results and accelerate time-to-market.
         </p>
       </div>
 
       {/* Badge Animado - carregamento lazy após o conteúdo crítico */}
       {mounted && (
         <div className='opacity-0 animate-in fade-in duration-500 delay-100'>
-          <AnimatedBadge text='Elias Santos' animationDelay={0} />
+          <AnimatedBadge text='Elias Ricardo' animationDelay={0} />
         </div>
       )}
     </div>

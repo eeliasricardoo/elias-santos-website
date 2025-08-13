@@ -76,12 +76,12 @@ export async function POST(request: NextRequest) {
             </p>
              <p style="color: #999; margin: 5px 0 0 0; font-size: 12px;">
                Date: ${new Date().toLocaleString('en-US', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
+                 day: '2-digit',
+                 month: '2-digit',
+                 year: 'numeric',
+                 hour: '2-digit',
+                 minute: '2-digit',
+               })}
             </p>
           </div>
         </div>

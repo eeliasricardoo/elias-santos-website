@@ -9,7 +9,8 @@ export function ProblemSection() {
     {
       icon: <Clock className='w-6 h-6' />,
       title: 'Excessive Time',
-      description: '30+ minutes to create a simple carousel, often without professional results',
+      description:
+        '30+ minutes to create a simple carousel, often without professional results',
     },
     {
       icon: <Users className='w-6 h-6' />,
@@ -24,7 +25,8 @@ export function ProblemSection() {
     {
       icon: <Target className='w-6 h-6' />,
       title: 'Inconsistent Quality',
-      description: 'Varied results depending on the creator\'s experience and skills',
+      description:
+        "Varied results depending on the creator's experience and skills",
     },
   ];
 
@@ -42,10 +44,10 @@ export function ProblemSection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            Content creators face the daily challenge of producing
-            professional carousels for social media. The traditional process
-            involves multiple time-consuming and technical steps that often
-            result in frustration and inconsistent results.
+            Content creators face the daily challenge of producing professional
+            carousels for social media. The traditional process involves
+            multiple time-consuming and technical steps that often result in
+            frustration and inconsistent results.
           </p>
         </div>
 
@@ -64,9 +66,7 @@ export function ProblemSection() {
                 <h3 className='font-semibold text-foreground text-lg'>
                   {pain.title}
                 </h3>
-                <p className='text-muted-foreground mt-2'>
-                  {pain.description}
-                </p>
+                <p className='text-muted-foreground mt-2'>{pain.description}</p>
               </div>
             </motion.div>
           ))}
@@ -74,4 +74,4 @@ export function ProblemSection() {
       </motion.div>
     </section>
   );
-} 
+}

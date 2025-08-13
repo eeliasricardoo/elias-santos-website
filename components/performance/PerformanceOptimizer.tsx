@@ -9,7 +9,7 @@ interface PerformanceOptimizerProps {
 export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
   useEffect(() => {
     // Otimizações de performance que devem ser executadas após o carregamento inicial
-    
+
     // 1. Otimização de fontes (observa finalização)
     const observeFontsReady = () => {
       if ('fonts' in document) {
@@ -24,7 +24,10 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
     const optimizeAnimations = () => {
       // Reduz animações para usuários que preferem movimento reduzido
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        document.documentElement.style.setProperty(
+          '--animation-duration',
+          '0.01ms'
+        );
       }
     };
 
@@ -32,7 +35,7 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
     const optimizeScroll = () => {
       // Suaviza o scroll para melhor performance
       let ticking = false;
-      
+
       const updateScroll = () => {
         // Lógica de otimização de scroll aqui
         ticking = false;
@@ -58,7 +61,7 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
       optimizeAnimations();
       optimizeScroll();
       preventForcedReflows();
-      
+
       onLoad?.();
     }, 2000);
 

@@ -2,14 +2,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Rocket, Brain, Palette, Edit3, MessageSquare, Sparkles, CheckCircle } from 'lucide-react';
+import {
+  Lightbulb,
+  Rocket,
+  Brain,
+  Palette,
+  Edit3,
+  MessageSquare,
+  Sparkles,
+  CheckCircle,
+} from 'lucide-react';
 
 export function DevelopmentJourneySection() {
   const phases = [
     {
       phase: 'Phases 1-2',
       title: 'Brainstorm & Design',
-      description: 'Product definition through AI brainstorming and initial wireframe creation',
+      description:
+        'Product definition through AI brainstorming and initial wireframe creation',
       icon: <Lightbulb className='w-5 h-5' />,
     },
     {
@@ -21,31 +31,36 @@ export function DevelopmentJourneySection() {
     {
       phase: 'Phases 5-7',
       title: 'AI Integration',
-      description: 'OpenRouter API integration and AI content generation implementation',
+      description:
+        'OpenRouter API integration and AI content generation implementation',
       icon: <Brain className='w-5 h-5' />,
     },
     {
       phase: 'Phases 8-9',
       title: 'Redesign & Export',
-      description: 'Dark mode implementation, modern redesign and PDF export functionality',
+      description:
+        'Dark mode implementation, modern redesign and PDF export functionality',
       icon: <Palette className='w-5 h-5' />,
     },
     {
       phase: 'Phases 10-12',
       title: 'Visual Builder',
-      description: 'Advanced visual editor development with TipTap and complete customization',
+      description:
+        'Advanced visual editor development with TipTap and complete customization',
       icon: <Edit3 className='w-5 h-5' />,
     },
     {
       phase: 'Phases 13-15',
       title: 'Canvas & Chat',
-      description: 'Interactive canvas implementation and conversational interface with side chat',
+      description:
+        'Interactive canvas implementation and conversational interface with side chat',
       icon: <MessageSquare className='w-5 h-5' />,
     },
     {
       phase: 'Phases 16-17',
       title: 'Templates & Polish',
-      description: 'Professional template system and advanced formatting float menu',
+      description:
+        'Professional template system and advanced formatting float menu',
       icon: <Sparkles className='w-5 h-5' />,
     },
   ];
@@ -64,14 +79,11 @@ export function DevelopmentJourneySection() {
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            The development of the Post & Carousel Generator was a journey
-            of{' '}
-            <strong className='text-foreground'>
-              17 structured phases
-            </strong>
-            , each representing a milestone in the product&apos;s evolution.
-            We started with a simple concept and continuously iterated based
-            on user feedback and needs.
+            The development of the Post & Carousel Generator was a journey of{' '}
+            <strong className='text-foreground'>17 structured phases</strong>,
+            each representing a milestone in the product&apos;s evolution. We
+            started with a simple concept and continuously iterated based on
+            user feedback and needs.
           </p>
         </div>
 
@@ -108,4 +120,4 @@ export function DevelopmentJourneySection() {
       </motion.div>
     </section>
   );
-} 
+}

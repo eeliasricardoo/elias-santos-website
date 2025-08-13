@@ -40,7 +40,7 @@ export default function CarouselBuilderPage() {
         type='article'
         publishedTime='2024-01-15T00:00:00Z'
         modifiedTime='2024-12-19T00:00:00Z'
-        author='Elias Santos'
+        author='Elias Ricardo'
         section='Portfolio'
         tags={[
           'UX Design',
@@ -70,7 +70,7 @@ export default function CarouselBuilderPage() {
         category='UX/UI Design'
         datePublished='2024-01-15T00:00:00Z'
         dateModified='2024-12-19T00:00:00Z'
-        author='Elias Santos'
+        author='Elias Ricardo'
       />
 
       <main className='max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24'>
@@ -84,7 +84,7 @@ export default function CarouselBuilderPage() {
             type: 'ux_case',
           }}
         />
-        
+
         {/* Header */}
         <header className='mb-10 text-left'>
           <BackButton />

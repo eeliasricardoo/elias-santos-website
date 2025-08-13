@@ -113,7 +113,7 @@ const nextConfig = {
       },
     ];
   },
-  
+
   // ✅ Redirects
   async redirects() {
     return [

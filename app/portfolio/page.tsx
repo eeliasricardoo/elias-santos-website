@@ -12,10 +12,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import Link from 'next/link';
-import Image from 'next/image';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
 import { PageSEO } from '@/components/seo/PageSEO';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 import {
   ArrowRight,
   Brain,
@@ -105,7 +105,7 @@ export default function PortfolioPage() {
       {/* SEO */}
       <PageSEO
         title='Portfolio - Projects and Cases'
-        description='Discover Elias Santos projects in UX/UI Design and web development. Complete cases with UX research, app development and AI tools.'
+        description='Discover Elias Ricardo projects in UX/UI Design and web development. Complete cases with UX research, app development and AI tools.'
         keywords={[
           'Portfolio',
           'Projects',
@@ -121,7 +121,7 @@ export default function PortfolioPage() {
         ]}
         url='/portfolio'
         type='website'
-        author='Elias Santos'
+        author='Elias Ricardo'
         section='Portfolio'
         tags={['Portfolio', 'UX Design', 'Web Development', 'Case Study']}
       />
@@ -344,11 +344,10 @@ export default function PortfolioPage() {
                             <source src={project.image} type='video/mp4' />
                           </video>
                         ) : (
-                          <Image
+                          <ImageLightbox
                             src={project.image}
                             alt={project.title}
-                            fill
-                            className='object-cover'
+                            className='w-full h-full object-cover'
                           />
                         )}
                       </div>
@@ -367,9 +366,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.8 }}
             className='text-center space-y-4'
           >
-            <h2 className='text-3xl font-bold text-foreground'>
-              All Projects
-            </h2>
+            <h2 className='text-3xl font-bold text-foreground'>All Projects</h2>
             <p className='text-muted-foreground max-w-2xl mx-auto'>
               Explore all cases and projects developed
             </p>
@@ -396,11 +393,10 @@ export default function PortfolioPage() {
                         <source src={project.image} type='video/mp4' />
                       </video>
                     ) : (
-                      <Image
+                      <ImageLightbox
                         src={project.image}
                         alt={project.title}
-                        fill
-                        className='object-cover group-hover:scale-105 transition-transform duration-300'
+                        className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
                       />
                     )}
                   </div>
@@ -466,8 +462,8 @@ export default function PortfolioPage() {
               Interested in Collaborating?
             </h2>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Let&apos;s create something amazing together! Get in touch to discuss
-              your project.
+              Let&apos;s create something amazing together! Get in touch to
+              discuss your project.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link href='/'>

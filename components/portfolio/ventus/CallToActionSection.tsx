@@ -39,4 +39,4 @@ export function CallToActionSection() {
       </motion.div>
     </section>
   );
-} 
+}

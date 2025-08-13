@@ -54,7 +54,9 @@ export function Navbar() {
                   target='_blank'
                   rel='noopener'
                   aria-label='Open resume'
-                  onClick={() => track(AnalyticsEvents.NAVIGATION_CLICK('resume_pdf'))}
+                  onClick={() =>
+                    track(AnalyticsEvents.NAVIGATION_CLICK('resume_pdf'))
+                  }
                   className='flex items-center gap-2'
                 >
                   <FileText className='w-4 h-4' />

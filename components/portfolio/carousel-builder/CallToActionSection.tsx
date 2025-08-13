@@ -19,11 +19,11 @@ export function CallToActionSection() {
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
             The Post & Carousel Generator represents the future of content
-            creation - where AI and human creativity work together to
-            produce amazing results.
+            creation - where AI and human creativity work together to produce
+            amazing results.
           </p>
         </div>
       </motion.div>
     </section>
   );
-} 
+}

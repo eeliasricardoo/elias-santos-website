@@ -34,7 +34,7 @@ export function CarouselBuilderCard() {
 
   return (
     <div className='w-full h-full flex items-center justify-center bg-transparent'>
-      <motion.div 
+      <motion.div
         className='w-full h-full p-3 md:p-4 lg:p-5 bg-card/80 border border-border/20 shadow-none flex flex-col'
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -88,10 +88,12 @@ export function CarouselBuilderCard() {
             <div className='relative w-full h-full'>
               {slides.map((slide, index) => {
                 // Determina a direção da animação baseada na mudança de slide
-                const isForward = (activeSlide === 1 && index === 0) || (activeSlide === 0 && index === 1);
+                const isForward =
+                  (activeSlide === 1 && index === 0) ||
+                  (activeSlide === 0 && index === 1);
                 const isCurrent = index === activeSlide;
                 const isPrevious = index < activeSlide;
-                
+
                 let xPosition;
                 if (isCurrent) {
                   xPosition = '0%';
@@ -117,27 +119,27 @@ export function CarouselBuilderCard() {
                     <div
                       className={`w-full h-full bg-gradient-to-br ${slide.color} rounded-lg flex flex-col items-center justify-center text-foreground relative overflow-hidden border border-border/20`}
                     >
-                      <motion.div 
+                      <motion.div
                         className='relative z-10 text-center space-y-1 md:space-y-2'
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                          delay: 0.2, 
+                        transition={{
+                          delay: 0.2,
                           duration: 0.6,
-                          ease: 'easeOut'
+                          ease: 'easeOut',
                         }}
                       >
-                        <motion.div 
+                        <motion.div
                           className='text-2xl md:text-3xl lg:text-4xl'
-                          animate={{ 
+                          animate={{
                             rotate: [0, 5, -5, 0],
-                            scale: [1, 1.05, 1]
+                            scale: [1, 1.05, 1],
                           }}
                           transition={{
                             duration: 4,
                             repeat: Infinity,
                             ease: 'easeInOut',
-                            delay: index * 0.5
+                            delay: index * 0.5,
                           }}
                         >
                           {slide.icon}
@@ -157,14 +159,14 @@ export function CarouselBuilderCard() {
 
             {/* Navigation Controls */}
             <div className='absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1 md:space-x-2'>
-              <motion.div 
+              <motion.div
                 className='w-6 h-6 md:w-7 md:h-7 bg-muted/20 backdrop-blur-sm rounded-full flex items-center justify-center text-foreground border border-border/20 text-xs md:text-sm'
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
                 ←
               </motion.div>
-              <motion.div 
+              <motion.div
                 className='w-6 h-6 md:w-7 md:h-7 bg-muted/20 backdrop-blur-sm rounded-full flex items-center justify-center text-foreground border border-border/20 text-xs md:text-sm'
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
@@ -184,9 +186,9 @@ export function CarouselBuilderCard() {
               animate={{
                 width: `${((activeSlide + 1) / slides.length) * 100}%`,
               }}
-              transition={{ 
+              transition={{
                 duration: 0.8, // Aumentado de 0.5 para 0.8
-                ease: 'easeOut'
+                ease: 'easeOut',
               }}
             />
           </div>

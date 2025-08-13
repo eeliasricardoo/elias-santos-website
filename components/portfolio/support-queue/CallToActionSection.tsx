@@ -19,12 +19,15 @@ export function CallToActionSection() {
           Gostou do Projeto?
         </h2>
         <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-          Vamos conversar sobre como posso ajudar a resolver os desafios 
-          de UX/UI do seu negócio.
+          Vamos conversar sobre como posso ajudar a resolver os desafios de
+          UX/UI do seu negócio.
         </p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center'>
           <Link href='/'>
-            <Button size='lg' className='bg-orange-600 hover:bg-orange-700 text-white'>
+            <Button
+              size='lg'
+              className='bg-orange-600 hover:bg-orange-700 text-white'
+            >
               Entrar em Contato
               <ArrowRight className='w-4 h-4 ml-2' />
             </Button>
@@ -40,5 +43,3 @@ export function CallToActionSection() {
     </section>
   );
 }
-
-
