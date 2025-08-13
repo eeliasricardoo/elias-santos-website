@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { CarouselBuilderCard } from '@/components/portfolio/carousel-builder';
 
 interface AnimatedMockupProps {
-  type: 'ranking' | 'ventus-chat' | 'carousel-builder' | 'fila-atendimento';
+  type: 'ranking' | 'ventus-chat' | 'carousel-builder' | 'support-queue';
 }
 
 export function AnimatedMockup({ type }: AnimatedMockupProps) {
@@ -328,7 +328,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
     );
   }
 
-  if (type === 'fila-atendimento') {
+  if (type === 'support-queue') {
     const isActive = isVisible && !prefersReduced;
     return (
       <div ref={rootRef} className='relative w-full h-full flex items-center justify-center'>

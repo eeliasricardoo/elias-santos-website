@@ -37,7 +37,7 @@ const portfolioCards = [
     description:
       'UX/UI case focused on reducing time-to-first-response using waiting-time queue ordering and a persistent, actionable assignment pop-up. Results: −22% TtFR, +0.2 CSAT, −9% reopens.',
     buttonText: 'View Case Study',
-    image: '/portfolios/fila-atendimento/1.png',
+  image: '/portfolios/fila-atendimento/1.png',
     imageAlt: 'Support Queue — Omnichannel Chat',
   },
 ];

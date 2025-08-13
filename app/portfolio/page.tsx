@@ -46,14 +46,14 @@ const projects = [
     featured: true,
   },
   {
-    id: 'fila-atendimento',
+    id: 'support-queue',
     title: 'Support Queue — Omnichannel Chat',
     description:
       'Queue management feature that improves user experience and operational efficiency through waiting-time ordering and an actionable assignment pop-up.',
     category: 'UX/UI Design',
     technologies: ['Figma', 'UX Research', 'UI Design', 'React'],
     image: '/portfolios/omnichanel.webp',
-    link: '/portfolio/fila-atendimento',
+    link: '/portfolio/support-queue',
     stats: {
       research: 'Complete',
       wireframes: '15+',

@@ -113,6 +113,17 @@ const nextConfig = {
       },
     ];
   },
+  
+  // ✅ Redirects
+  async redirects() {
+    return [
+      {
+        source: '/portfolio/fila-atendimento',
+        destination: '/portfolio/support-queue',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
