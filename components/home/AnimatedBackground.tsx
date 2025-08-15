@@ -3,10 +3,13 @@
 import { useEffect, useState } from 'react';
 
 export function AnimatedBackground() {
+  const [isClient, setIsClient] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+    
     // Verificar preferência de movimento reduzido
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReducedMotion(mediaQuery.matches);
@@ -16,19 +19,19 @@ export function AnimatedBackground() {
       () => {
         setIsLoaded(true);
       },
-      reducedMotion ? 0 : 200
+      mediaQuery.matches ? 0 : 200
     );
 
     return () => clearTimeout(timer);
-  }, [reducedMotion]);
+  }, []);
 
   return (
     <div className='fixed inset-0 -z-10 overflow-hidden'>
       {/* Gradiente de fundo estático - sempre presente para LCP */}
       <div className='absolute inset-0 bg-gradient-to-br from-background via-background to-muted/40' />
 
-      {/* Elementos animados apenas se movimento não reduzido */}
-      {isLoaded && !reducedMotion && (
+      {/* Elementos animados apenas se cliente e movimento não reduzido */}
+      {isClient && isLoaded && !reducedMotion && (
         <>
           {/* Gradiente radial sutil */}
           <div className='absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-transparent animate-[pulse_8s_ease-in-out_infinite]' />
@@ -49,7 +52,7 @@ export function AnimatedBackground() {
       )}
 
       {/* Gradiente sutil quando movimento reduzido */}
-      {isLoaded && reducedMotion && (
+      {isClient && isLoaded && reducedMotion && (
         <div className='absolute inset-0 bg-gradient-radial from-primary/2 via-transparent to-transparent' />
       )}
     </div>

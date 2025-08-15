@@ -8,6 +8,8 @@ interface PerformanceOptimizerProps {
 
 export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
   useEffect(() => {
+    // Verificar se estamos no lado do cliente
+    if (typeof window === 'undefined') return;
     // Otimizações de performance que devem ser executadas após o carregamento inicial
 
     // 1. Otimização de fontes (observa finalização)

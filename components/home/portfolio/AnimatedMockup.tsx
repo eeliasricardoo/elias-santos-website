@@ -13,9 +13,16 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
     const observer = new IntersectionObserver(
       entries => {
         const entry = entries[0];
@@ -31,7 +38,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
     const node = rootRef.current;
     if (node) observer.observe(node);
     return () => observer.disconnect();
-  }, [hasAnimated]);
+  }, [hasAnimated, isClient]);
 
   useEffect(() => {
     if (prefersReduced || !isVisible) return;

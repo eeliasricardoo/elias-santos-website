@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useHydrated } from '@/hooks/use-hydrated';
 
 interface IntersectionLoaderProps {
   children: React.ReactNode;
@@ -19,8 +20,11 @@ export function IntersectionLoader({
 }: IntersectionLoaderProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const hydrated = useHydrated();
 
   useEffect(() => {
+    if (!hydrated) return;
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
@@ -39,7 +43,7 @@ export function IntersectionLoader({
     }
 
     return () => observer.disconnect();
-  }, [rootMargin, threshold]);
+  }, [rootMargin, threshold, hydrated]);
 
   return (
     <div ref={ref} className={className}>
