@@ -8,6 +8,7 @@ interface CompanyLogoProps {
   alt: string;
   index: number;
   className?: string;
+  isMobile?: boolean;
 }
 
 export function CompanyLogo({
@@ -15,9 +16,15 @@ export function CompanyLogo({
   alt,
   index,
   className = '',
+  isMobile = false,
 }: CompanyLogoProps) {
-  const width = Math.min(120 + index * 20, 200);
-  const height = Math.min(60 + index * 10, 100);
+  // Tamanhos otimizados para mobile
+  const width = isMobile 
+    ? Math.min(80 + index * 8, 120) 
+    : Math.min(120 + index * 20, 200);
+  const height = isMobile 
+    ? Math.min(40 + index * 4, 60) 
+    : Math.min(60 + index * 10, 100);
 
   return (
     <div
@@ -28,10 +35,13 @@ export function CompanyLogo({
         src={src}
         alt={alt}
         fill
-        sizes={`${width}px`}
-        className='object-contain hover:opacity-100 transition-opacity duration-300'
-        priority={index < 3}
-        quality={80}
+        sizes={isMobile ? `${width}px` : `(max-width: 768px) ${width}px, ${width}px`}
+        className={`object-contain transition-opacity duration-300 ${
+          isMobile ? '' : 'hover:opacity-100'
+        }`}
+        priority={index < (isMobile ? 2 : 3)}
+        quality={isMobile ? 70 : 80}
+        loading={index < (isMobile ? 2 : 3) ? 'eager' : 'lazy'}
       />
     </div>
   );

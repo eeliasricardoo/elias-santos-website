@@ -45,6 +45,33 @@
   .will-change-opacity {
     will-change: opacity;
   }
+
+  /* Scroll otimizado para mobile */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Otimização específica para carrossel em mobile */
+  @media (max-width: 768px) {
+    .animate-scroll-companies {
+      animation: none;
+    }
+    
+    .scrollbar-hide {
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+    
+    .scrollbar-hide > * {
+      scroll-snap-align: start;
+    }
+  }
 }
 
 @layer base {
