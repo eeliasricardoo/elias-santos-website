@@ -2,6 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ✅ Otimizações de Performance */
+@layer base {
+  /* Optimização de rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Otimização para dispositivos touch */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\\:scale-105:hover {
+      transform: none;
+    }
+
+    .hover\\:shadow-lg:hover {
+      box-shadow: none;
+    }
+  }
+
+  /* Reduzir animações em dispositivos com baixa performance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Otimização para scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Performance melhorada para elementos transformados */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

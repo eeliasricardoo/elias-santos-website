@@ -98,7 +98,20 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
+        {/* Viewport otimizado para mobile */}
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes'
+        />
+
+        {/* Preload de recursos críticos */}
+        <link rel='preload' href='/profile-photo.png' as='image' />
+        <link rel='preload' href='/five-icon.png' as='image' />
+
         {/* DNS prefetch e preconnect para recursos externos */}
+        <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+        <link rel='dns-prefetch' href='https://va.vercel-scripts.com' />
+        <link rel='dns-prefetch' href='https://c.clarity.ms' />
 
         {/* Preconnect para analytics */}
         <link
@@ -111,6 +124,9 @@ export default function RootLayout({
           href='https://c.clarity.ms'
           crossOrigin='anonymous'
         />
+
+        {/* Resource hints para melhor performance mobile */}
+        <link rel='prefetch' href='/_next/static/chunks/pages/_app.js' />
       </head>
       <body className={`${inter.className} dark`} suppressHydrationWarning>
         <MicrosoftClarity />

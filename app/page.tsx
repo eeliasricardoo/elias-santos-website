@@ -1,21 +1,55 @@
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
 
-// Importando componentes de seções
-import {
-  HeroSection,
-  CompaniesSection,
-  PortfolioSection,
-  DepoimentsSection,
-} from '@/components/home';
-import { AboutMeSection } from '@/components/home/about-me';
-import { Footer } from '@/components/Footer';
-import { GetInTouch } from '@/components/home/get-in-touch';
+// Importando componentes críticos para LCP
+import { HeroSection } from '@/components/home';
 
-// Componente de Background Animado - carregamento otimizado
-import { AnimatedBackground } from '@/components/home/AnimatedBackground';
-import { ProgressIndicator } from '@/components/home/ProgressIndicator';
-import { ScrollIndicator } from '@/components/home/ScrollIndicator';
+// Componentes não críticos - carregamento lazy
+const CompaniesSection = lazy(() =>
+  import('@/components/home').then(module => ({
+    default: module.CompaniesSection,
+  }))
+);
+const PortfolioSection = lazy(() =>
+  import('@/components/home').then(module => ({
+    default: module.PortfolioSection,
+  }))
+);
+const DepoimentsSection = lazy(() =>
+  import('@/components/home').then(module => ({
+    default: module.DepoimentsSection,
+  }))
+);
+const AboutMeSection = lazy(() =>
+  import('@/components/home/about-me').then(module => ({
+    default: module.AboutMeSection,
+  }))
+);
+const Footer = lazy(() =>
+  import('@/components/Footer').then(module => ({ default: module.Footer }))
+);
+const GetInTouch = lazy(() =>
+  import('@/components/home/get-in-touch').then(module => ({
+    default: module.GetInTouch,
+  }))
+);
+
+// Componentes de background e UI - carregamento lazy
+const AnimatedBackground = lazy(() =>
+  import('@/components/home/AnimatedBackground').then(module => ({
+    default: module.AnimatedBackground,
+  }))
+);
+const ProgressIndicator = lazy(() =>
+  import('@/components/home/ProgressIndicator').then(module => ({
+    default: module.ProgressIndicator,
+  }))
+);
+const ScrollIndicator = lazy(() =>
+  import('@/components/home/ScrollIndicator').then(module => ({
+    default: module.ScrollIndicator,
+  }))
+);
 
 export default function Home() {
   return (
@@ -30,38 +64,53 @@ export default function Home() {
         }}
       />
 
-      {/* Background Animado - carregamento otimizado */}
+      {/* Hero Section - elemento crítico para LCP carregado imediatamente */}
+      <HeroSection />
+
+      {/* Background Animado - carregamento otimizado após hero */}
       <Suspense fallback={null}>
         <AnimatedBackground />
       </Suspense>
 
-      {/* Hero Section - elemento crítico para LCP */}
-      <HeroSection />
+      {/* Companies Section - carregamento lazy com fallback mínimo */}
+      <Suspense fallback={<div className='h-20' />}>
+        <CompaniesSection />
+      </Suspense>
 
-      {/* Companies Section - Movido para logo após o Hero */}
-      <CompaniesSection />
+      {/* Portfolio Section - lazy com skeleton */}
+      <Suspense
+        fallback={
+          <div className='min-h-[40rem] bg-background/5 animate-pulse' />
+        }
+      >
+        <PortfolioSection />
+      </Suspense>
 
-      {/* Portfolio Section */}
-      <PortfolioSection />
+      {/* About Me Section - lazy loading */}
+      <Suspense fallback={<div className='h-32' />}>
+        <AboutMeSection />
+      </Suspense>
 
-      {/* About Me Section */}
-      <AboutMeSection />
+      {/* Depoiments Section - lazy loading */}
+      <Suspense fallback={<div className='h-40' />}>
+        <DepoimentsSection />
+      </Suspense>
 
-      {/* Depoiments Section */}
-      <DepoimentsSection />
+      {/* Get in Touch Section - lazy loading */}
+      <Suspense fallback={<div className='h-48' />}>
+        <GetInTouch />
+      </Suspense>
 
-      {/* Get in Touch Section */}
-      <GetInTouch />
+      {/* Footer - lazy loading */}
+      <Suspense fallback={<div className='h-16' />}>
+        <Footer />
+      </Suspense>
 
-      {/* Footer */}
-      <Footer />
-
-      {/* Progress Indicator - carregamento lazy */}
+      {/* Progress e Scroll Indicators - carregamento lazy sem fallback */}
       <Suspense fallback={null}>
         <ProgressIndicator />
       </Suspense>
 
-      {/* Scroll Indicator - carregamento lazy */}
       <Suspense fallback={null}>
         <ScrollIndicator />
       </Suspense>

@@ -12,29 +12,37 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   const [currentScore, setCurrentScore] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         const entry = entries[0];
-        setIsVisible(entry?.isIntersecting ?? false);
+        if (entry?.isIntersecting && !hasAnimated) {
+          setIsVisible(true);
+          setHasAnimated(true);
+          observer.disconnect(); // Desconectar após primeira visualização
+        }
       },
-      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.2, rootMargin: '0px 0px -100px 0px' }
     );
 
     const node = rootRef.current;
     if (node) observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [hasAnimated]);
 
   useEffect(() => {
     if (prefersReduced || !isVisible) return;
+
+    // Reduzir frequência de atualização para performance
     const interval = setInterval(() => {
       setCurrentScore(
         prev => (prev + Math.floor(Math.random() * 30) + 5) % 1000
       );
-    }, 3000);
+    }, 4000); // Aumentado de 3000 para 4000ms
+
     return () => clearInterval(interval);
   }, [isVisible, prefersReduced]);
 

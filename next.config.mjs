@@ -2,8 +2,19 @@
 const nextConfig = {
   // ✅ Otimizações de performance
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-tabs',
+      'recharts',
+    ],
   },
+
+  // ✅ Server components externos
+  serverExternalPackages: ['sharp'],
 
   // ✅ Otimização de imagens
   images: {
@@ -26,26 +37,57 @@ const nextConfig = {
   // ✅ Otimizações de build
   poweredByHeader: false,
 
-  // ✅ Otimizações de bundle
+  // ✅ Otimizações avançadas de bundle
   webpack: (config, { dev, isServer }) => {
     // Otimizações para produção
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 25,
+        maxAsyncRequests: 20,
         cacheGroups: {
+          // Vendor principal
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
+            priority: 10,
             chunks: 'all',
           },
+          // React/Next.js específico
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+            name: 'react-vendor',
+            priority: 20,
+            chunks: 'all',
+          },
+          // UI libraries
+          ui: {
+            test: /[\\/]node_modules[\\/](@radix-ui|lucide-react)[\\/]/,
+            name: 'ui-vendor',
+            priority: 15,
+            chunks: 'all',
+          },
+          // Motion/animation libraries
+          animation: {
+            test: /[\\/]node_modules[\\/](framer-motion|motion)[\\/]/,
+            name: 'animation-vendor',
+            priority: 15,
+            chunks: 'all',
+          },
+          // Common components
           common: {
             name: 'common',
             minChunks: 2,
+            priority: 5,
             chunks: 'all',
             enforce: true,
           },
         },
       };
+
+      // Tree shaking optimization
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
     }
 
     return config;

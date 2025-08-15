@@ -21,8 +21,7 @@
     "test:e2e:debug": "playwright test --debug",
     "test:all": "pnpm test && pnpm test:e2e",
     "quality": "pnpm lint && pnpm type-check && pnpm format:check",
-    "quality:fix": "pnpm lint:fix && pnpm format",
-    "update-streak": "node scripts/update-duolingo-streak.js"
+    "quality:fix": "pnpm lint:fix && pnpm format"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -62,7 +61,6 @@
     "framer-motion": "^12.23.6",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.454.0",
-    "motion": "^12.23.12",
     "next": "15.2.4",
     "react": "^19",
     "react-day-picker": "^9.8.1",
