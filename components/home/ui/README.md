@@ -79,7 +79,7 @@ Card para depoimentos com avatar e informações.
 Logo de empresa com tamanho dinâmico baseado no índice.
 
 ```tsx
-<CompanyLogo src='/empresas/logo.png' alt='Company Name' index={0} />
+{/* CompanyLogo component removed */}
 ```
 
 ### `FormField`

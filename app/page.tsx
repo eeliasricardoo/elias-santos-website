@@ -5,11 +5,7 @@ import { PageAnalytics } from '@/components/analytics/page-analytics';
 import { HeroSection } from '@/components/home';
 
 // Componentes não críticos - carregamento lazy
-const CompaniesSection = lazy(() =>
-  import('@/components/home').then(module => ({
-    default: module.CompaniesSection,
-  }))
-);
+
 const PortfolioSection = lazy(() =>
   import('@/components/home').then(module => ({
     default: module.PortfolioSection,
@@ -72,10 +68,7 @@ export default function Home() {
         <AnimatedBackground />
       </Suspense>
 
-      {/* Companies Section - carregamento lazy com fallback mínimo */}
-      <Suspense fallback={<div className='h-20' />}>
-        <CompaniesSection />
-      </Suspense>
+
 
       {/* Portfolio Section - lazy com skeleton */}
       <Suspense

@@ -10,9 +10,8 @@ components/home/
 ├── about-me/           # Seção sobre mim
 │   ├── AboutMeSection.tsx
 │   └── index.ts
-├── companies/          # Seção de empresas parceiras
-│   ├── CompaniesSection.tsx
-│   └── index.ts
+
+
 ├── depoiments/         # Seção de depoimentos
 │   ├── DepoimentsSection.tsx
 │   └── index.ts
@@ -45,9 +44,7 @@ interativo.
 
 Seção com informações sobre o autor/desenvolvedor.
 
-### **Companies**
 
-Seção mostrando empresas parceiras ou clientes.
 
 ### **Portfolio**
 
@@ -67,7 +64,7 @@ Seção de contato e formulário.
 // Importar todos os componentes
 import {
   HeroSection,
-  CompaniesSection,
+  
   PortfolioSection,
   DepoimentsSection,
 } from '@/components/home';

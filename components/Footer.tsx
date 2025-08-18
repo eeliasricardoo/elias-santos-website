@@ -97,8 +97,7 @@ export function Footer() {
                 variant='ghost'
                 className='justify-start p-2 md:p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
                 onClick={() => {
-                  const companiesSection = document.querySelector('#companies');
-                  companiesSection?.scrollIntoView({ behavior: 'smooth' });
+                  
                 }}
               >
                 Experience
