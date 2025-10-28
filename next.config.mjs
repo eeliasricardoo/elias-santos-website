@@ -136,7 +136,7 @@ const nextConfig = {
         ],
       },
       {
-        source: '/profile-photo.png',
+        source: '/profile-photo.jpg',
         headers: [
           {
             key: 'Cache-Control',
