@@ -14,6 +14,10 @@ const inter = Inter({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
+  // ✅ Otimização: Carregar apenas os pesos necessários
+  weight: ['400', '500', '600', '700'],
+  // ✅ Otimização: Variable font para melhor compressão
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -129,7 +133,7 @@ export default function RootLayout({
         {/* Resource hints para melhor performance mobile */}
         <link rel='prefetch' href='/_next/static/chunks/pages/_app.js' />
       </head>
-      <body className={`${inter.className} dark`} suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans dark`} suppressHydrationWarning>
         <MicrosoftClarity />
         <LCPOptimizer />
         <PerformanceOptimizer />

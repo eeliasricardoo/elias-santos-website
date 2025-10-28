@@ -25,7 +25,7 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
           const lcp = lastEntry.startTime;
           onLCP?.(lcp);
 
-          // Log para desenvolvimento
+          // Log para desenvolvimento apenas
           if (process.env.NODE_ENV === 'development') {
             // eslint-disable-next-line no-console
             console.log('🚀 LCP:', lcp, 'ms');
@@ -40,6 +40,9 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
               // eslint-disable-next-line no-console
               console.log('❌ LCP precisa de melhoria (> 2.5s)');
             }
+          } else {
+            // ✅ Otimização: Em produção, reporte métricas sem console.log
+            // As métricas ainda são capturadas e enviadas via onLCP callback
           }
         }
       });
@@ -56,6 +59,7 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
             // eslint-disable-next-line no-console
             console.log('⚡ FID:', fid, 'ms');
           }
+          // ✅ Otimização: Em produção, não logar (reduz overhead)
         }
       });
 
@@ -82,6 +86,7 @@ export function LCPOptimizer({ onLCP, onError }: LCPOptimizerProps) {
           console.log('📐 CLS:', clsValue);
           lastClsLog = clsValue;
         }
+        // ✅ Otimização: Em produção, métricas são coletadas sem logging
       });
 
       // Iniciar observação

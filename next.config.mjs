@@ -11,6 +11,8 @@ const nextConfig = {
       '@radix-ui/react-tabs',
       'recharts',
     ],
+    // ✅ Otimização: Turbopack para builds mais rápidos (opcional, descomente se quiser testar)
+    // turbo: {},
   },
 
   // ✅ Server components externos
@@ -36,6 +38,9 @@ const nextConfig = {
 
   // ✅ Otimizações de build
   poweredByHeader: false,
+  
+  // ✅ Otimização: Desabilitar source maps em produção para menor bundle
+  productionBrowserSourceMaps: false,
 
   // ✅ Otimizações avançadas de bundle
   webpack: (config, { dev, isServer }) => {
@@ -88,7 +93,17 @@ const nextConfig = {
       // Tree shaking optimization
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
+      
+      // ✅ Otimização: Minificar melhor
+      config.optimization.minimize = true;
     }
+    
+    // ✅ Otimização: Otimizar imports em todas as builds
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+      runtimeChunk: 'single',
+    };
 
     return config;
   },

@@ -144,6 +144,9 @@
     -moz-osx-font-smoothing: grayscale;
     /* ✅ Previne layout shift durante carregamento */
     font-display: swap;
+    /* ✅ Otimização: GPU acceleration para elementos pesados */
+    transform: translateZ(0);
+    will-change: auto;
   }
 
   html {
