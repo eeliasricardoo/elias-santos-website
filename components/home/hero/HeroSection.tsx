@@ -3,6 +3,8 @@
 import { Suspense, lazy } from 'react';
 import { ProfilePhoto, HeroContent } from '.';
 import { ChevronDown } from 'lucide-react';
+import { ParallaxStars } from './ParallaxStars';
+import { FloatingElements } from './FloatingElements';
 
 // Lazy-load EmailClient to improve LCP
 const EmailClient = lazy(() =>
@@ -12,6 +14,10 @@ const EmailClient = lazy(() =>
 export function HeroSection() {
   return (
     <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24'>
+      {/* ✅ Efeitos de fundo espacial */}
+      <ParallaxStars />
+      <FloatingElements />
+
       {/* Profile photo with priority */}
       <ProfilePhoto />
 

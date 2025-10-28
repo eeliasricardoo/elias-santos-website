@@ -1,11 +1,41 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useMounted } from '@/hooks/use-mounted';
+import { AnimatedBadge } from '../ui';
 
 export function ProfilePhoto() {
+  const mounted = useMounted();
+
   return (
-    <div className='relative z-10 flex justify-center mb-8'>
-      <div className='relative'>
+    <div className='relative z-10 flex flex-col items-center mb-8'>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ 
+          duration: 0.8,
+          ease: 'easeOut',
+        }}
+        className='relative'
+      >
+        {/* ✅ Efeito de brilho espacial */}
+        <motion.div
+          className='absolute -inset-4 rounded-full blur-2xl opacity-30'
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+
         {/* Container da foto */}
         <div className='relative w-48 h-48 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
           <Image
@@ -19,9 +49,39 @@ export function ProfilePhoto() {
           />
         </div>
 
-        {/* Efeito de borda animada - versão simplificada */}
-        <div className='absolute -inset-1 border-2 border-border/20 rounded-full opacity-0 animate-in fade-in duration-1000 delay-500' />
-      </div>
+        {/* ✅ Anel orbital animado */}
+        <motion.div
+          className='absolute -inset-2 border-2 border-primary/20 rounded-full'
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+
+        <motion.div
+          className='absolute -inset-4 border border-primary/10 rounded-full'
+          animate={{ rotate: -360 }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      </motion.div>
+
+      {/* ✅ Nome abaixo da foto */}
+      {mounted && (
+        <motion.div
+          className='mt-6 pt-4'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <AnimatedBadge text='Elias Ricardo' animationDelay={0} />
+        </motion.div>
+      )}
     </div>
   );
 }
