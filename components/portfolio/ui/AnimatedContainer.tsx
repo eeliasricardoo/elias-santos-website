@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 
 interface AnimatedContainerProps {
   children: React.ReactNode;

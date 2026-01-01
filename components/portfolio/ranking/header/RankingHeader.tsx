@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { BackButton, StatsCard } from '../../ui';
 

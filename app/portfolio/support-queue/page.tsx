@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
 import { PageSEO } from '@/components/seo/PageSEO';
 import { ProjectStructuredData } from '@/components/seo/ProjectStructuredData';

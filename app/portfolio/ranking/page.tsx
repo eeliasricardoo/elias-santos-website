@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { PortfolioLayout } from '@/components/portfolio';
 import { PageAnalytics } from '@/components/analytics/page-analytics';
 import { PageSEO } from '@/components/seo/PageSEO';

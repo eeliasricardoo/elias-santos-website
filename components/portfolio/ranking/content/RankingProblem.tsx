@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Section, AnimatedContainer, InfoCard } from '../../ui';
 
 export default function RankingProblem() {

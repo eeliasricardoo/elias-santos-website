@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Section, PersonaCard } from '../../ui';
 
 export default function RankingPersonas() {

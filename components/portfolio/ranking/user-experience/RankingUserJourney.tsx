@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { Fragment } from 'react';
 
 export default function RankingUserJourney() {
   const participatingSteps = [
@@ -155,11 +155,10 @@ export default function RankingUserJourney() {
           {step.action && (
             <div className='flex gap-1'>
               <div
-                className={`w-8 h-6 rounded text-xs flex items-center justify-center font-medium ${
-                  step.action === 'Yes'
-                    ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
-                    : 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'
-                }`}
+                className={`w-8 h-6 rounded text-xs flex items-center justify-center font-medium ${step.action === 'Yes'
+                  ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
+                  : 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'
+                  }`}
               >
                 {step.action}
               </div>
@@ -167,22 +166,20 @@ export default function RankingUserJourney() {
           )}
           {step.status && (
             <div
-              className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                step.status === 'success'
-                  ? 'bg-green-100 dark:bg-green-900/30'
-                  : step.status === 'excluded'
-                    ? 'bg-red-100 dark:bg-red-900/30'
-                    : 'bg-yellow-100 dark:bg-yellow-900/30'
-              }`}
+              className={`w-6 h-6 rounded-full flex items-center justify-center ${step.status === 'success'
+                ? 'bg-green-100 dark:bg-green-900/30'
+                : step.status === 'excluded'
+                  ? 'bg-red-100 dark:bg-red-900/30'
+                  : 'bg-yellow-100 dark:bg-yellow-900/30'
+                }`}
             >
               <svg
-                className={`w-3 h-3 ${
-                  step.status === 'success'
-                    ? 'text-green-600 dark:text-green-400'
-                    : step.status === 'excluded'
-                      ? 'text-red-600 dark:text-red-400'
-                      : 'text-yellow-600 dark:text-yellow-400'
-                }`}
+                className={`w-3 h-3 ${step.status === 'success'
+                  ? 'text-green-600 dark:text-green-400'
+                  : step.status === 'excluded'
+                    ? 'text-red-600 dark:text-red-400'
+                    : 'text-yellow-600 dark:text-yellow-400'
+                  }`}
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -262,14 +259,14 @@ export default function RankingUserJourney() {
         <div className='relative bg-gray-100 dark:bg-zinc-800/50 backdrop-blur-xl border border-gray-200 dark:border-zinc-700/50 rounded-2xl p-6'>
           <div className='flex flex-col items-center gap-6'>
             {steps.map((step, index) => (
-              <React.Fragment key={index}>
+              <Fragment key={index}>
                 {renderStep(step, index)}
                 {index < steps.length - 1 && (
                   <div className='text-gray-400 dark:text-gray-500 text-2xl font-bold'>
                     ↓
                   </div>
                 )}
-              </React.Fragment>
+              </Fragment>
             ))}
           </div>
         </div>

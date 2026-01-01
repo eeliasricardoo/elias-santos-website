@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Section } from '../../ui';
 
 export default function RankingObjectives() {

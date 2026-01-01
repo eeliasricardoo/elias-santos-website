@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Palette, Edit3, MessageSquare } from 'lucide-react';
 

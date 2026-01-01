@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Bot, User } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';

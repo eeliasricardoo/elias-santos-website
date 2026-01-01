@@ -17,16 +17,11 @@ const nextConfig = {
       'react-hook-form',
       'zod',
     ],
-    // ✅ Turbopack habilitado para dev server mais rápido (reduz congelamentos)
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
+
+  // Turbopack config (Next.js 16)
+  turbopack: {},
+
 
   // ✅ Server components externos
   serverExternalPackages: ['sharp'],

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Search,
@@ -20,10 +20,10 @@ interface EmptyStateRankingProps {
 }
 
 export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
-  const [activeTab, setActiveTab] = React.useState('ranking');
-  const [rankingEnabled, setRankingEnabled] = React.useState(true);
-  const [selectedTimeframe, setSelectedTimeframe] = React.useState('total');
-  const [isSearching, setIsSearching] = React.useState(false);
+  const [activeTab, setActiveTab] = useState('ranking');
+  const [rankingEnabled, setRankingEnabled] = useState(true);
+  const [selectedTimeframe, setSelectedTimeframe] = useState('total');
+  const [isSearching, setIsSearching] = useState(false);
 
   const tabs = [
     { id: 'ranking', label: 'Ranking System', icon: TrendingUp },
@@ -91,11 +91,10 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
-                  activeTab === tab.id
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTab === tab.id
                     ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 <IconComponent className='w-4 h-4' />
                 <span>{tab.label}</span>

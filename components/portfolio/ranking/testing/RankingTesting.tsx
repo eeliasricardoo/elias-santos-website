@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { TestCard, AdjustmentCard } from '../../ui';
 
 export default function RankingTesting() {

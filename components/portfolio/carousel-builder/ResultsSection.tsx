@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, TrendingUp, Users } from 'lucide-react';
 

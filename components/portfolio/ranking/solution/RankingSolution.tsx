@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { motion } from 'framer-motion';
 
