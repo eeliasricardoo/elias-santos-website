@@ -20,13 +20,12 @@ export function ProfilePhoto() {
         className='relative'
       >
         {/* Container da foto */}
-        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl'>
+        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl bg-muted/20'>
           <Image
             src='/profile-photo.jpg'
             alt='Elias Ricardo - UX/UI Designer & Frontend'
             fill
-            className='object-cover'
-            style={{ transform: 'translateX(2px)' }}
+            className='object-contain'
             priority
             sizes='(max-width: 768px) 128px, 192px'
             quality={90}
