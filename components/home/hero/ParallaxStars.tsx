@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 export function ParallaxStars() {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
-  
+
   const starsY = useTransform(scrollY, [0, 500], [0, 200]);
   const starsOpacity = useTransform(scrollY, [0, 300], [1, 0]);
 
@@ -16,8 +16,8 @@ export function ParallaxStars() {
 
   if (!mounted) return null;
 
-  // Gera estrelas aleatórias
-  const stars = Array.from({ length: 50 }, (_, i) => ({
+  // Gera estrelas aleatórias - reduzido para melhor performance
+  const stars = Array.from({ length: 30 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -40,6 +40,7 @@ export function ParallaxStars() {
             width: `${star.size}px`,
             height: `${star.size}px`,
             y: starsY,
+            willChange: 'transform, opacity', // GPU acceleration
           }}
           animate={{
             opacity: [0.2, 1, 0.2],
@@ -49,6 +50,7 @@ export function ParallaxStars() {
             duration: 3 + star.delay,
             repeat: Infinity,
             delay: star.delay,
+            ease: 'easeInOut',
           }}
         />
       ))}

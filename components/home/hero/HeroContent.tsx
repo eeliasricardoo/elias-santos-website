@@ -5,24 +5,24 @@ import { useScroll, useTransform } from 'framer-motion';
 
 export function HeroContent() {
   const { scrollY } = useScroll();
-  
+
   // ✅ Parallax effect baseado no scroll
   const y = useTransform(scrollY, [0, 300], [0, 100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <motion.div 
+    <motion.div
       className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
-      style={{ y, opacity }}
+      style={{ y, opacity, willChange: 'transform, opacity' }}
     >
       {/* ✅ Animação de entrada sequencial */}
-      <motion.div 
+      <motion.div
         className='space-y-4'
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <motion.h1 
+        <motion.h1
           className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,6 +37,7 @@ export function HeroContent() {
                 className='absolute inset-0 blur-xl'
                 style={{
                   background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)/0.3))',
+                  willChange: 'opacity',
                 }}
                 animate={{
                   opacity: [0.3, 0.6, 0.3],
@@ -52,7 +53,7 @@ export function HeroContent() {
         </motion.h1>
 
         {/* Parágrafo de descrição */}
-        <motion.p 
+        <motion.p
           className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

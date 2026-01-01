@@ -3,20 +3,30 @@
 import { Suspense, lazy } from 'react';
 import { ProfilePhoto, HeroContent } from '.';
 import { ChevronDown } from 'lucide-react';
-import { ParallaxStars } from './ParallaxStars';
-import { FloatingElements } from './FloatingElements';
 
 // Lazy-load EmailClient to improve LCP
 const EmailClient = lazy(() =>
   import('./MiniChat').then(module => ({ default: module.EmailClient }))
 );
 
+// Lazy-load background effects to prevent blocking LCP
+const ParallaxStars = lazy(() =>
+  import('./ParallaxStars').then(module => ({ default: module.ParallaxStars }))
+);
+const FloatingElements = lazy(() =>
+  import('./FloatingElements').then(module => ({ default: module.FloatingElements }))
+);
+
 export function HeroSection() {
   return (
     <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24'>
-      {/* ✅ Efeitos de fundo espacial */}
-      <ParallaxStars />
-      <FloatingElements />
+      {/* ✅ Efeitos de fundo espacial - lazy loaded */}
+      <Suspense fallback={null}>
+        <ParallaxStars />
+      </Suspense>
+      <Suspense fallback={null}>
+        <FloatingElements />
+      </Suspense>
 
       {/* Profile photo with priority */}
       <ProfilePhoto />

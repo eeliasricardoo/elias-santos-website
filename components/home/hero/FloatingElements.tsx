@@ -18,8 +18,8 @@ export function FloatingElements() {
 
   useEffect(() => {
     setMounted(true);
-    // Gera elementos flutuantes aleatórios
-    const elems = Array.from({ length: 8 }, (_, i) => ({
+    // Gera elementos flutuantes aleatórios - reduzido para melhor performance
+    const elems = Array.from({ length: 5 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -44,6 +44,7 @@ export function FloatingElements() {
             width: `${elem.size}px`,
             height: `${elem.size}px`,
             background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)',
+            willChange: 'transform', // GPU acceleration
           }}
           animate={{
             y: [0, -50, 0],

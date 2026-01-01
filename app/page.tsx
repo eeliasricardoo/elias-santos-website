@@ -7,17 +7,17 @@ import { HeroSection } from '@/components/home';
 // Componentes não críticos - carregamento lazy
 
 const PortfolioSection = lazy(() =>
-  import('@/components/home').then(module => ({
+  import('@/components/home/portfolio/PortfolioSection').then(module => ({
     default: module.PortfolioSection,
   }))
 );
 const DepoimentsSection = lazy(() =>
-  import('@/components/home').then(module => ({
+  import('@/components/home/depoiments/DepoimentsSection').then(module => ({
     default: module.DepoimentsSection,
   }))
 );
 const AboutMeSection = lazy(() =>
-  import('@/components/home/about-me').then(module => ({
+  import('@/components/home/about-me/AboutMeSection').then(module => ({
     default: module.AboutMeSection,
   }))
 );
@@ -25,7 +25,7 @@ const Footer = lazy(() =>
   import('@/components/Footer').then(module => ({ default: module.Footer }))
 );
 const GetInTouch = lazy(() =>
-  import('@/components/home/get-in-touch').then(module => ({
+  import('@/components/home/get-in-touch/GetInTouch').then(module => ({
     default: module.GetInTouch,
   }))
 );
