@@ -19,25 +19,8 @@ export function ProfilePhoto() {
         }}
         className='relative'
       >
-        {/* ✅ Efeito de brilho espacial */}
-        <motion.div
-          className='absolute -inset-4 rounded-full blur-2xl opacity-30'
-          style={{
-            background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)',
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-
         {/* Container da foto */}
-        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
+        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl'>
           <Image
             src='/profile-photo.jpg'
             alt='Elias Ricardo - UX/UI Designer & Frontend'
