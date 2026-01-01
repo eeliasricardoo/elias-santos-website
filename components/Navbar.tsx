@@ -6,8 +6,18 @@ import { RainbowButton } from '@/components/magicui/rainbow-button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle, FileText } from 'lucide-react';
-import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
+import dynamic from 'next/dynamic';
+
+const ContactModal = dynamic(
+  () =>
+    import('@/components/home/get-in-touch/ContactModal').then(
+      mod => mod.ContactModal
+    ),
+  {
+    ssr: false,
+  }
+);
 
 export function Navbar() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
