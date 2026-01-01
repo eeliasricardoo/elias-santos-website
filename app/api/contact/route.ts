@@ -1,10 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// API key opcional para evitar erro no build (durante desenvolvimento)
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: NextRequest) {
   try {
+    // Verificar se a API key está configurada
+    if (!resend) {
+      return NextResponse.json(
+        { error: 'Email service not configured. Please set RESEND_API_KEY environment variable.' },
+        { status: 503 }
+      );
+    }
+
     const { name, email, subject, message } = await request.json();
 
     // Fields validation
@@ -76,12 +85,12 @@ export async function POST(request: NextRequest) {
             </p>
              <p style="color: #999; margin: 5px 0 0 0; font-size: 12px;">
                Date: ${new Date().toLocaleString('en-US', {
-                 day: '2-digit',
-                 month: '2-digit',
-                 year: 'numeric',
-                 hour: '2-digit',
-                 minute: '2-digit',
-               })}
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      })}
             </p>
           </div>
         </div>

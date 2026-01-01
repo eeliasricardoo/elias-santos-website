@@ -9,10 +9,23 @@ const nextConfig = {
       '@radix-ui/react-dialog',
       '@radix-ui/react-dropdown-menu',
       '@radix-ui/react-tabs',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-select',
+      '@radix-ui/react-toast',
       'recharts',
+      'react-hook-form',
+      'zod',
     ],
-    // ✅ Otimização: Turbopack para builds mais rápidos (opcional, descomente se quiser testar)
-    // turbo: {},
+    // ✅ Turbopack habilitado para dev server mais rápido (reduz congelamentos)
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
 
   // ✅ Server components externos
@@ -38,7 +51,7 @@ const nextConfig = {
 
   // ✅ Otimizações de build
   poweredByHeader: false,
-  
+
   // ✅ Otimização: Desabilitar source maps em produção para menor bundle
   productionBrowserSourceMaps: false,
 
@@ -93,11 +106,11 @@ const nextConfig = {
       // Tree shaking optimization
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
-      
+
       // ✅ Otimização: Minificar melhor
       config.optimization.minimize = true;
     }
-    
+
     // ✅ Otimização: Otimizar imports em todas as builds
     config.optimization = {
       ...config.optimization,

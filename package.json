@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:check": "next lint --max-warnings 0",
@@ -21,7 +21,11 @@
     "test:e2e:debug": "playwright test --debug",
     "test:all": "pnpm test && pnpm test:e2e",
     "quality": "pnpm lint && pnpm type-check && pnpm format:check",
-    "quality:fix": "pnpm lint:fix && pnpm format"
+    "quality:fix": "pnpm lint:fix && pnpm format",
+    "clean": "rm -rf .next node_modules",
+    "clean:cache": "rm -rf .next/cache",
+    "clean:install": "./scripts/clean-install.sh",
+    "postinstall": "next telemetry disable"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

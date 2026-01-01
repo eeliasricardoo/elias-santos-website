@@ -13,7 +13,7 @@ export function ProfilePhoto() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ 
+        transition={{
           duration: 0.8,
           ease: 'easeOut',
         }}
@@ -37,38 +37,18 @@ export function ProfilePhoto() {
         />
 
         {/* Container da foto */}
-        <div className='relative w-48 h-48 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
+        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden border-4 border-border/30 shadow-2xl'>
           <Image
             src='/profile-photo.jpg'
             alt='Elias Ricardo - UX/UI Designer & Frontend'
             fill
-            className='object-cover object-center'
+            className='object-cover'
+            style={{ transform: 'translateX(2px)' }}
             priority
             sizes='(max-width: 768px) 128px, 192px'
             quality={90}
           />
         </div>
-
-        {/* ✅ Anel orbital animado */}
-        <motion.div
-          className='absolute -inset-2 border-2 border-primary/20 rounded-full'
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-
-        <motion.div
-          className='absolute -inset-4 border border-primary/10 rounded-full'
-          animate={{ rotate: -360 }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
       </motion.div>
 
       {/* ✅ Nome abaixo da foto */}
