@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { BackButton } from "@/components/portfolio/ui/BackButton";
+import {
+    HeroSection,
+    IntroductionSection,
+    ProblemSection,
+    SolutionSection,
+    FeaturesSection,
+    UXProcessSection,
+    ResultsSection,
+    CallToActionSection,
+} from "@/components/portfolio/support-queue";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="Feat UX/UI — Support Queue — Omnichannel Chat | Case Study"
+    description="How we reduced time-to-first-response by 22% using waiting-time queue ordering and a persistent, actionable assignment pop-up. First-contact CSAT increased from 4.1 to 4.3 and reopens dropped by 9%."
+>
+    <ProgressIndicator client:load />
+
+    <main class="max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24 min-h-screen">
+        <header class="mb-10 text-left">
+            <BackButton client:load />
+        </header>
+
+        <HeroSection client:load />
+        <IntroductionSection client:visible />
+        <ProblemSection client:visible />
+        <SolutionSection client:visible />
+        <FeaturesSection client:visible />
+        <UXProcessSection client:visible />
+        <ResultsSection client:visible />
+        <CallToActionSection client:visible />
+    </main>
+
+    <ScrollIndicator client:load />
+</Layout>
