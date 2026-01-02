@@ -110,8 +110,7 @@ export default function RootLayout({
         />
 
         {/* Preload de recursos críticos */}
-        <link rel='preload' href='/profile-photo.jpg' as='image' />
-        <link rel='preload' href='/five-icon.png' as='image' />
+
 
         {/* DNS prefetch e preconnect para recursos externos */}
         <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
