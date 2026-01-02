@@ -1,34 +1,20 @@
 'use client';
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle, FileText } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
-import dynamic from 'next/dynamic';
-
-const ContactModal = dynamic(
-  () =>
-    import('@/components/home/get-in-touch/ContactModal').then(
-      mod => mod.ContactModal
-    ),
-  {
-    ssr: false,
-  }
-);
 
 export function Navbar() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { track } = useAnalytics();
 
-  const openContactModal = () => {
-    setIsContactModalOpen(true);
-  };
-
-  const closeContactModal = () => {
-    setIsContactModalOpen(false);
+  const scrollToContact = () => {
+    const contactSection = document.querySelector('#get-in-touch');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -76,11 +62,12 @@ export function Navbar() {
 
               {/* Contact Button */}
               <RainbowButton
-                onClick={openContactModal}
+                type='button'
+                onClick={scrollToContact}
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2'
-                aria-label='Open contact'
+                aria-label='Scroll to contact'
               >
                 <MessageCircle className='w-4 h-4' />
                 <span className='hidden sm:inline'>Contact</span>
@@ -89,11 +76,6 @@ export function Navbar() {
           </div>
         </div>
       </nav>
-
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
-
-      {/* CV Modal removed: opening PDF directly */}
     </>
   );
 }

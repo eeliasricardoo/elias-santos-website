@@ -35,10 +35,10 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // Otimizações específicas para LCP
-    unoptimized: false,
     loader: 'default',
     domains: [],
     path: '/_next/image',
+    qualities: [75, 90],
   },
 
   // ✅ Compressão

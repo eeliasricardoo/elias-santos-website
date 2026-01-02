@@ -131,7 +131,7 @@ export default function RootLayout({
         />
 
         {/* Resource hints para melhor performance mobile */}
-        <link rel='prefetch' href='/_next/static/chunks/pages/_app.js' />
+
       </head>
       <body className={`${inter.variable} font-sans dark`} suppressHydrationWarning>
         <MicrosoftClarity />
