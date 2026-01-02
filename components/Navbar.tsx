@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MessageCircle, FileText, Github } from 'lucide-react';
+import { MessageCircle, FileText } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 
 export function Navbar() {
@@ -33,28 +33,6 @@ export function Navbar() {
 
             {/* Right side - CV and Contact buttons */}
             <div className='flex items-center gap-4'>
-              {/* GitHub Button */}
-              <Button
-                asChild
-                variant='outline'
-                size='sm'
-                className='hover:bg-primary hover:text-primary-foreground transition-colors'
-              >
-                <a
-                  href='https://github.com/eeliasricardoo'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label='Visit GitHub'
-                  onClick={() =>
-                    track(AnalyticsEvents.SOCIAL_LINK_CLICK('github_navbar'))
-                  }
-                  className='flex items-center gap-2'
-                >
-                  <Github className='w-4 h-4' />
-                  <span className='hidden sm:inline'>GitHub</span>
-                </a>
-              </Button>
-
               {/* Resume Button opens PDF in new tab */}
               <Button
                 asChild
