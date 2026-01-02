@@ -97,7 +97,7 @@ export function Footer() {
                 variant='ghost'
                 className='justify-start p-2 md:p-3 h-auto text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all text-sm'
                 onClick={() => {
-                  
+
                 }}
               >
                 Experience
@@ -144,7 +144,7 @@ export function Footer() {
                 size='sm'
                 className='w-full justify-start h-9 md:h-10 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all text-sm'
                 onClick={() =>
-                  window.open('https://github.com/elias-santos', '_blank')
+                  window.open('https://github.com/eeliasricardoo', '_blank')
                 }
               >
                 <Github className='w-4 h-4 mr-2' />
