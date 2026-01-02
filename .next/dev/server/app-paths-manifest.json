@@ -1,0 +1,5 @@
+{
+  "/page": "app/page.js",
+  "/portfolio/ranking/page": "app/portfolio/ranking/page.js",
+  "/portfolio/ventuschat/page": "app/portfolio/ventuschat/page.js"
+}

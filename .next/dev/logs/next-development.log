@@ -1,0 +1,869 @@
+[00:00:00.718] Server  LOG     ✓ Ready in 466ms
+[00:00:03.767] Server  LOG     ○ Compiling /portfolio/ranking ...
+[00:00:05.001] Server  WARN    Image with src "/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:05.018] Server  WARN    Image with src "/portfolios/ranking/empity.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:05.019] Server  WARN    Image with src "/portfolios/ranking/ranking.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:05.179] Server  WARN    ⚠ The requested resource "/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif" is an animated image so it will not be optimized. Consider adding the "unoptimized" property to the <Image>.
+[00:00:05.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.226] Browser WARN    Image with src "/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:05.226] Browser WARN    Image with src "/portfolios/ranking/empity.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:05.226] Browser WARN    Image with src "/portfolios/ranking/ranking.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:05.226] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <Head>
+        <__next_root_layout_boundary__>
+          <SegmentViewNode type="layout" pagePath="layout.tsx">
+            <SegmentTrieNode>
+            <link>
+            <script>
+            <script>
+            <script>
+            <RootLayout>
+              <html lang="en" suppressHydrationWarning={true}>
+                <head>
+                <body className="inter_f68e..." suppressHydrationWarning={true}>
+                  <MicrosoftClarity>
+                  <LCPOptimizer>
+                  <PerformanceOptimizer>
+                  <AppProvider>
+                    <Navbar>
+                      <nav className="fixed top-...">
+                        <div className="max-w-7xl ...">
+                          <div className="flex items...">
+                            <div>
+                            <div className="flex items...">
+                              <_c>
+                              <_c type="button" onClick={function scrollToContact} variant="outline" size="sm" ...>
++                               <button
++                                 data-slot="button"
++                                 className={"relative cursor-pointer group transition-all animate-rainbow justify-ce..."}
++                                 ref={null}
++                                 type="button"
++                                 onClick={function scrollToContact}
++                                 aria-label="Scroll to contact"
++                               >
+-                               <a
+-                                 href="https://calendly.com/eeliasricardoo"
+-                                 target="_blank"
+-                                 rel="noopener noreferrer"
+-                                 aria-label="Schedule a meeting"
+-                                 data-slot="button"
+-                                 className={"relative cursor-pointer group transition-all animate-rainbow justify-ce..."}
+-                               >
+                    ...
+                  ...
+        ...
+
+[00:00:05.369] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:05.369] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit event {"data":{"page_name":"Ranking Case Study","page_path":"/portfolio/ranking","project":"ranking","section":"portfolio","type":"ux_research_case"},"name":"page_view"}
+[00:00:05.369] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"page_name":"Ranking Case Study","page_path":"/portfolio/ranking","project":"ranking","section":"portfolio","type":"ux_research_case"},"en":"page_view","o":"http://localhost:3000/portfolio/ranking","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321254349}
+[00:00:05.369] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/portfolio/ranking color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/portfolio/ranking","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321254349}
+[00:00:05.369] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:05.369] Browser WARN    Image with src "/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:00:05.369] Browser LOG     🚀 LCP: 4544 ms
+[00:00:05.369] Browser LOG     ❌ LCP precisa de melhoria (> 2.5s)
+[00:03:52.148] Browser LOG     ⚡ FID: 5 ms
+[00:03:52.334] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:52.548] Browser WARN    Image with src "/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:52.548] Browser WARN    Image with src "/portfolios/ranking/empity.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:52.549] Browser WARN    Image with src "/portfolios/ranking/ranking.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:52.549] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <Head>
+        <__next_root_layout_boundary__>
+          <SegmentViewNode type="layout" pagePath="layout.tsx">
+            <SegmentTrieNode>
+            <link>
+            <script>
+            <script>
+            <script>
+            <RootLayout>
+              <html lang="en" suppressHydrationWarning={true}>
+                <head>
+                <body className="inter_f68e..." suppressHydrationWarning={true}>
+                  <MicrosoftClarity>
+                  <LCPOptimizer>
+                  <PerformanceOptimizer>
+                  <AppProvider>
+                    <Navbar>
+                      <nav className="fixed top-...">
+                        <div className="max-w-7xl ...">
+                          <div className="flex items...">
+                            <div>
+                            <div className="flex items...">
+                              <_c>
+                              <_c type="button" onClick={function scrollToContact} variant="outline" size="sm" ...>
++                               <button
++                                 data-slot="button"
++                                 className={"relative cursor-pointer group transition-all animate-rainbow justify-ce..."}
++                                 ref={null}
++                                 type="button"
++                                 onClick={function scrollToContact}
++                                 aria-label="Scroll to contact"
++                               >
+-                               <a
+-                                 href="https://calendly.com/eeliasricardoo"
+-                                 target="_blank"
+-                                 rel="noopener noreferrer"
+-                                 aria-label="Schedule a meeting"
+-                                 data-slot="button"
+-                                 className={"relative cursor-pointer group transition-all animate-rainbow justify-ce..."}
+-                               >
+                    ...
+                  ...
+        ...
+
+[00:03:52.549] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:52.549] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit event {"data":{"page_name":"Ranking Case Study","page_path":"/portfolio/ranking","project":"ranking","section":"portfolio","type":"ux_research_case"},"name":"page_view"}
+[00:03:52.549] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"page_name":"Ranking Case Study","page_path":"/portfolio/ranking","project":"ranking","section":"portfolio","type":"ux_research_case"},"en":"page_view","o":"http://localhost:3000/portfolio/ranking","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321481558}
+[00:03:52.549] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/portfolio/ranking color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/portfolio/ranking","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321481558}
+[00:03:52.549] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:52.549] Browser WARN    Image with src "/portfolios/ranking/1_Eqflzr9sr1z_mH6CUvohrQ.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:03:52.549] Browser LOG     🚀 LCP: 300 ms
+[00:03:52.549] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:03:53.973] Browser LOG     ⚡ FID: 11.900000035762787 ms
+[00:03:55.624] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/portfolio/ranking","id":"v3-1767321481558-8263682372670","route":"/portfolio/ranking","type":"FCP","value":164},{"href":"http://localhost:3000/portfolio/ranking","id":"v3-1767321481558-4500360339613","route":"/portfolio/ranking","type":"TTFB","value":91},{"attribution":{"eventTarget":"img.h-full.object-cover.transition-transform.duration-300.group-hover:scale-105.w-full.max-w-4xl.rounded-lg.shadow-lg.cursor-pointer"},"href":"http://localhost:3000/portfolio/ranking","id":"v3-1767321481558-9337279606211","route":"/portfolio/ranking","type":"LCP","value":300},{"attribution":{"eventTarget":"div.max-w-7xl.mx-auto.px-4.sm:px-6.lg:px-8>div.flex.items-center.justify-between.h-16","eventType":"pointerdown"},"href":"http://localhost:3000/portfolio/ranking","id":"v3-1767321481558-6058001529709","route":"/portfolio/ranking","type":"FID","value":11.9}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:03:55.624] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:55.624] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321484547}
+[00:03:55.624] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321484566}
+[00:03:55.624] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321484571}
+[00:03:55.624] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:03:55.624] Browser LOG     📐 CLS: 0.053585922561547934
+[00:03:55.624] Browser LOG     📐 CLS: 0.05450770841023455
+[00:03:56.541] Browser LOG     📐 CLS: 0.054516266031577436
+[00:03:56.541] Browser LOG     📐 CLS: 0.05451870829723814
+[00:03:56.541] Browser LOG     📐 CLS: 0.05454552611698598
+[00:03:56.541] Browser LOG     📐 CLS: 0.05456675469937744
+[00:03:56.541] Browser LOG     📐 CLS: 0.05458133135922574
+[00:03:56.541] Browser LOG     📐 CLS: 0.054603531807257646
+[00:03:56.541] Browser LOG     📐 CLS: 0.054665238799997636
+[00:03:56.541] Browser LOG     📐 CLS: 0.05468120955425113
+[00:04:28.716] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:28.992] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <Head>
+        <__next_root_layout_boundary__>
+          <SegmentViewNode type="layout" pagePath="layout.tsx">
+            <SegmentTrieNode>
+            <link>
+            <script>
+            <script>
+            <script>
+            <RootLayout>
+              <html lang="en" suppressHydrationWarning={true}>
+                <head>
+                <body className="inter_f68e..." suppressHydrationWarning={true}>
+                  <MicrosoftClarity>
+                  <LCPOptimizer>
+                  <PerformanceOptimizer>
+                  <AppProvider>
+                    <Navbar>
+                      <nav className="fixed top-...">
+                        <div className="max-w-7xl ...">
+                          <div className="flex items...">
+                            <div>
+                            <div className="flex items...">
+                              <_c>
+                              <_c type="button" onClick={function scrollToContact} variant="outline" size="sm" ...>
++                               <button
++                                 data-slot="button"
++                                 className={"relative cursor-pointer group transition-all animate-rainbow justify-ce..."}
++                                 ref={null}
++                                 type="button"
++                                 onClick={function scrollToContact}
++                                 aria-label="Scroll to contact"
++                               >
+-                               <a
+-                                 href="https://calendly.com/eeliasricardoo"
+-                                 target="_blank"
+-                                 rel="noopener noreferrer"
+-                                 aria-label="Schedule a meeting"
+-                                 data-slot="button"
+-                                 className={"relative cursor-pointer group transition-all animate-rainbow justify-ce..."}
+-                               >
+                    ...
+                  ...
+        ...
+
+[00:04:28.992] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:04:28.992] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:28.992] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit event {"data":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"name":"page_view"}
+[00:04:28.992] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321518020}
+[00:04:28.992] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321518020}
+[00:04:28.992] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:29.361] Browser LOG     ⚡ FID: 7.900000035762787 ms
+[00:05:31.581] Server  LOG     ✓ Compiled in 167ms
+[00:05:41.745] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:42.060] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:42.061] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321590927}
+[00:05:42.061] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:42.061] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:05:42.061] Browser LOG     📐 CLS: 0.1122196851429271
+[00:05:42.974] Browser LOG     📐 CLS: 0.11222212740858781
+[00:05:42.974] Browser LOG     📐 CLS: 0.11223272622324126
+[00:05:42.974] Browser LOG     📐 CLS: 0.11225744289676869
+[00:05:42.974] Browser LOG     📐 CLS: 0.1122859645941022
+[00:05:42.974] Browser LOG     📐 CLS: 0.11230560410195468
+[00:05:42.974] Browser LOG     📐 CLS: 0.11235280720543601
+[00:05:42.974] Browser LOG     📐 CLS: 0.11241774587964172
+[00:05:42.974] Browser LOG     📐 CLS: 0.11244022107134556
+[00:05:45.029] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767321590998-6611538081916","route":"/","type":"FCP","value":508},{"href":"http://localhost:3000/","id":"v3-1767321590998-5324823315485","route":"/","type":"TTFB","value":388},{"attribution":{"eventTarget":"span.relative.z-10.flex.items-center.gap-2>span.hidden.sm:inline","eventType":"pointerdown"},"href":"http://localhost:3000/","id":"v3-1767321590997-9060591448475","route":"/","type":"FID","value":12.3},{"attribution":{"eventTarget":"span.relative.z-10.flex.items-center.gap-2>span.hidden.sm:inline","eventType":"pointerdown"},"href":"http://localhost:3000/","id":"v3-1767321590998-6428376821217","route":"/","type":"INP","value":64},{"attribution":{"eventTarget":"div.pointer-events-none.absolute.bottom-6.left-1/2.-translate-x-1/2.flex.flex-col.items-center.gap-2.text-muted-foreground"},"href":"http://localhost:3000/","id":"v3-1767321591004-4723903393614","route":"/","type":"CLS","value":0.1124}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:05:45.029] Browser LOG     ⚡ FID: 12.300000011920929 ms
+[00:10:15.986] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:16.254] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:10:16.255] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321865207}
+[00:10:16.255] Browser LOG     🚀 LCP: 488 ms
+[00:10:16.255] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:10:16.255] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:10:16.255] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:10:17.329] Browser LOG     🚀 LCP: 1604 ms
+[00:10:17.329] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:10:29.338] Browser LOG     📐 CLS: 0.05004351115002209
+[00:10:29.338] Browser LOG     📐 CLS: 0.0500717990590444
+[00:10:29.338] Browser LOG     📐 CLS: 0.050109994254175914
+[00:10:29.338] Browser LOG     📐 CLS: 0.05017908453888479
+[00:10:29.338] Browser LOG     📐 CLS: 0.050211935013878446
+[00:10:29.338] Browser LOG     📐 CLS: 0.0502786136565739
+[00:10:29.338] Browser LOG     📐 CLS: 0.05034535747878323
+[00:10:29.338] Browser LOG     📐 CLS: 0.05039117867703827
+[00:10:29.338] Browser LOG     📐 CLS: 0.050455510857234175
+[00:10:29.338] Browser LOG     📐 CLS: 0.05048836133222783
+[00:10:29.338] Browser LOG     📐 CLS: 0.050605163021094156
+[00:10:29.338] Browser LOG     📐 CLS: 0.05063801349608781
+[00:10:29.338] Browser LOG     📐 CLS: 0.05070703860128281
+[00:10:29.338] Browser LOG     📐 CLS: 0.05076869842140979
+[00:10:29.338] Browser LOG     📐 CLS: 0.0507969863304321
+[00:10:29.338] Browser LOG     📐 CLS: 0.0508660114356271
+[00:10:29.338] Browser LOG     📐 CLS: 0.05093764372137715
+[00:10:29.338] Browser LOG     📐 CLS: 0.05097049419637081
+[00:10:29.338] Browser LOG     📐 CLS: 0.05105848654010381
+[00:10:29.338] Browser LOG     📐 CLS: 0.05112659913210454
+[00:10:29.338] Browser LOG     📐 CLS: 0.051187737516120504
+[00:10:29.338] Browser LOG     📐 CLS: 0.05122821399423769
+[00:10:29.338] Browser LOG     📐 CLS: 0.051261846623397854
+[00:10:29.338] Browser LOG     📐 CLS: 0.051290134532420165
+[00:10:29.338] Browser LOG     📐 CLS: 0.051351794352547143
+[00:10:29.338] Browser LOG     📐 CLS: 0.05138542698170731
+[00:10:29.338] Browser LOG     📐 CLS: 0.05141827745670097
+[00:10:29.338] Browser LOG     📐 CLS: 0.051493690154255846
+[00:10:29.338] Browser LOG     📐 CLS: 0.05155202581917513
+[00:10:29.338] Browser LOG     📐 CLS: 0.051623592925411306
+[00:10:29.338] Browser LOG     📐 CLS: 0.051691640337898165
+[00:10:29.338] Browser LOG     📐 CLS: 0.05176659677885591
+[00:10:29.338] Browser LOG     📐 CLS: 0.05183334060106524
+[00:10:29.338] Browser LOG     📐 CLS: 0.051877271593417866
+[00:10:29.338] Browser LOG     📐 CLS: 0.05190673273368995
+[00:10:29.338] Browser LOG     📐 CLS: 0.05197823466041225
+[00:10:29.338] Browser LOG     📐 CLS: 0.052016429855543764
+[00:10:29.338] Browser LOG     📐 CLS: 0.05205012766421781
+[00:10:29.338] Browser LOG     📐 CLS: 0.052082978139211464
+[00:10:29.338] Browser LOG     📐 CLS: 0.052158325657252466
+[00:10:29.338] Browser LOG     📐 CLS: 0.05221535773189423
+[00:10:29.338] Browser LOG     📐 CLS: 0.05224364564091654
+[00:10:29.338] Browser LOG     📐 CLS: 0.05227193354993885
+[00:10:29.338] Browser LOG     📐 CLS: 0.05236755189679538
+[00:10:29.338] Browser LOG     📐 CLS: 0.05239583980581769
+[00:10:29.338] Browser LOG     📐 CLS: 0.05246486491101269
+[00:10:29.338] Browser LOG     📐 CLS: 0.05253636683773499
+[00:10:29.338] Browser LOG     📐 CLS: 0.05256921731272864
+[00:10:29.338] Browser LOG     📐 CLS: 0.05265453729639272
+[00:10:29.338] Browser LOG     📐 CLS: 0.05272949373735046
+[00:10:29.338] Browser LOG     📐 CLS: 0.05280438499879433
+[00:10:29.338] Browser LOG     📐 CLS: 0.05283808280746837
+[00:10:29.338] Browser LOG     📐 CLS: 0.05287093328246203
+[00:10:29.338] Browser LOG     📐 CLS: 0.05293650387342158
+[00:10:29.338] Browser LOG     📐 CLS: 0.05300552897861658
+[00:10:29.338] Browser LOG     📐 CLS: 0.05307703090533888
+[00:10:29.338] Browser LOG     📐 CLS: 0.053109881380332534
+[00:10:29.338] Browser LOG     📐 CLS: 0.05318483782129028
+[00:10:29.338] Browser LOG     📐 CLS: 0.053253862926485276
+[00:10:29.338] Browser LOG     📐 CLS: 0.053319498696958706
+[00:10:29.338] Browser LOG     📐 CLS: 0.053391000623681004
+[00:10:29.338] Browser LOG     📐 CLS: 0.05345774444589033
+[00:10:29.338] Browser LOG     📐 CLS: 0.053526704371571455
+[00:10:29.338] Browser LOG     📐 CLS: 0.05355955484656511
+[00:10:29.338] Browser LOG     📐 CLS: 0.05364650431807609
+[00:10:29.338] Browser LOG     📐 CLS: 0.05367785566425059
+[00:10:29.338] Browser LOG     📐 CLS: 0.053711488293410756
+[00:10:29.338] Browser LOG     📐 CLS: 0.05374433876840441
+[00:10:29.338] Browser LOG     📐 CLS: 0.053775755294092786
+[00:10:29.338] Browser LOG     📐 CLS: 0.05381075669304436
+[00:10:29.338] Browser LOG     📐 CLS: 0.05391308852983015
+[00:10:29.338] Browser LOG     📐 CLS: 0.053945939004823806
+[00:10:29.338] Browser LOG     📐 CLS: 0.05401261764751926
+[00:10:29.338] Browser LOG     📐 CLS: 0.05408268562493628
+[00:10:29.338] Browser LOG     📐 CLS: 0.05415171073013128
+[00:10:29.338] Browser LOG     📐 CLS: 0.05421330537074438
+[00:10:29.338] Browser LOG     📐 CLS: 0.05425156574538977
+[00:10:29.338] Browser LOG     📐 CLS: 0.054317722951974214
+[00:10:29.338] Browser LOG     📐 CLS: 0.054386682877655336
+[00:10:29.338] Browser LOG     📐 CLS: 0.054424943252300725
+[00:10:29.338] Browser LOG     📐 CLS: 0.054453231161323036
+[00:10:29.338] Browser LOG     📐 CLS: 0.054519453547421354
+[00:10:29.338] Browser LOG     📐 CLS: 0.05455230402241501
+[00:10:29.338] Browser LOG     📐 CLS: 0.05458059193143732
+[00:10:29.338] Browser LOG     📐 CLS: 0.054682858588709235
+[00:10:29.338] Browser LOG     📐 CLS: 0.05475442569494541
+[00:10:29.338] Browser LOG     📐 CLS: 0.05479835668729804
+[00:10:29.338] Browser LOG     📐 CLS: 0.054866469279298766
+[00:10:29.338] Browser LOG     📐 CLS: 0.07837012549757141
+[00:10:29.338] Browser LOG     📐 CLS: 0.07839841340659373
+[00:10:29.338] Browser LOG     📐 CLS: 0.07846743851178874
+[00:10:29.338] Browser LOG     📐 CLS: 0.07853907079753879
+[00:10:29.338] Browser LOG     📐 CLS: 0.07857192127253244
+[00:10:29.338] Browser LOG     📐 CLS: 0.07860020918155476
+[00:10:29.338] Browser LOG     📐 CLS: 0.07863840437668627
+[00:10:29.338] Browser LOG     📐 CLS: 0.07867125485167993
+[00:10:29.338] Browser LOG     📐 CLS: 0.07870945004681144
+[00:10:29.338] Browser LOG     📐 CLS: 0.0787783447929787
+[00:10:29.338] Browser LOG     📐 CLS: 0.07881119526797235
+[00:10:29.338] Browser LOG     📐 CLS: 0.07888269719469465
+[00:10:29.338] Browser LOG     📐 CLS: 0.07895080978669539
+[00:10:29.338] Browser LOG     📐 CLS: 0.0789790976957177
+[00:10:29.338] Browser LOG     📐 CLS: 0.07900738560474002
+[00:10:29.338] Browser LOG     📐 CLS: 0.07907302137521345
+[00:10:29.338] Browser LOG     📐 CLS: 0.07913885268422852
+[00:10:29.338] Browser LOG     📐 CLS: 0.07918284885609501
+[00:10:29.338] Browser LOG     📐 CLS: 0.07921569933108867
+[00:10:29.338] Browser LOG     📐 CLS: 0.07927735915121564
+[00:10:29.338] Browser LOG     📐 CLS: 0.07937962580848755
+[00:10:29.338] Browser LOG     📐 CLS: 0.07944969378590457
+[00:10:29.338] Browser LOG     📐 CLS: 0.07951969658380771
+[00:10:29.338] Browser LOG     📐 CLS: 0.0795579569584531
+[00:10:29.338] Browser LOG     📐 CLS: 0.0796269820636481
+[00:10:29.338] Browser LOG     📐 CLS: 0.07965983253864176
+[00:10:29.338] Browser LOG     📐 CLS: 0.07974678201015274
+[00:10:29.338] Browser LOG     📐 CLS: 0.07982643137610958
+[00:10:29.338] Browser LOG     📐 CLS: 0.07985928185110323
+[00:10:29.338] Browser LOG     📐 CLS: 0.0799248524420628
+[00:10:29.338] Browser LOG     📐 CLS: 0.0799938775472578
+[00:10:29.338] Browser LOG     📐 CLS: 0.0800653794739801
+[00:10:29.338] Browser LOG     📐 CLS: 0.08009822994897375
+[00:10:29.338] Browser LOG     📐 CLS: 0.0801698622347238
+[00:10:29.338] Browser LOG     📐 CLS: 0.0802138584065903
+[00:10:29.338] Browser LOG     📐 CLS: 0.08028001561317474
+[00:10:29.338] Browser LOG     📐 CLS: 0.08034675943538408
+[00:10:29.338] Browser LOG     📐 CLS: 0.08038495463051559
+[00:10:29.338] Browser LOG     📐 CLS: 0.08041780510550925
+[00:10:29.338] Browser LOG     📐 CLS: 0.08046180127737575
+[00:10:29.338] Browser LOG     📐 CLS: 0.08052795848396019
+[00:10:29.338] Browser LOG     📐 CLS: 0.08058955312457329
+[00:10:29.338] Browser LOG     📐 CLS: 0.08065864340928217
+[00:10:29.338] Browser LOG     📐 CLS: 0.08068693131830448
+[00:10:29.338] Browser LOG     📐 CLS: 0.08072688636031065
+[00:10:29.338] Browser LOG     📐 CLS: 0.08078737294918786
+[00:10:29.338] Browser LOG     📐 CLS: 0.08082100557834804
+[00:10:29.338] Browser LOG     📐 CLS: 0.0808538560533417
+[00:10:29.338] Browser LOG     📐 CLS: 0.08093233218804875
+[00:10:29.338] Browser LOG     📐 CLS: 0.08099581703456427
+[00:10:29.338] Browser LOG     📐 CLS: 0.081063929626565
+[00:10:29.338] Browser LOG     📐 CLS: 0.0811354315532873
+[00:10:29.338] Browser LOG     📐 CLS: 0.08116828202828096
+[00:10:29.338] Browser LOG     📐 CLS: 0.08122994184840793
+[00:10:29.338] Browser LOG     📐 CLS: 0.08129668567061726
+[00:10:29.338] Browser LOG     📐 CLS: 0.08134061666296989
+[00:10:29.338] Browser LOG     📐 CLS: 0.08140872925497063
+[00:10:29.338] Browser LOG     📐 CLS: 0.08143701716399294
+[00:10:29.339] Browser LOG     📐 CLS: 0.08146530507301526
+[00:10:29.339] Browser LOG     📐 CLS: 0.08149359298203758
+[00:10:29.339] Browser LOG     📐 CLS: 0.08156261808723259
+[00:10:29.339] Browser LOG     📐 CLS: 0.08163425037298264
+[00:10:29.339] Browser LOG     📐 CLS: 0.08166710084797629
+[00:10:29.339] Browser LOG     📐 CLS: 0.0817052960431078
+[00:10:29.339] Browser LOG     📐 CLS: 0.08177419078927506
+[00:10:29.339] Browser LOG     📐 CLS: 0.08180704126426872
+[00:10:29.339] Browser LOG     📐 CLS: 0.08187515385626945
+[00:10:29.339] Browser LOG     📐 CLS: 0.08193629224028542
+[00:10:29.339] Browser LOG     📐 CLS: 0.08200779416700772
+[00:10:29.339] Browser LOG     📐 CLS: 0.08203608207603004
+[00:10:29.339] Browser LOG     📐 CLS: 0.08210615005344706
+[00:10:29.339] Browser LOG     📐 CLS: 0.08215008104579968
+[00:10:29.339] Browser LOG     📐 CLS: 0.08221623825238412
+[00:10:29.339] Browser LOG     📐 CLS: 0.08224908872737778
+[00:10:29.339] Browser LOG     📐 CLS: 0.08235142056416357
+[00:10:29.339] Browser LOG     📐 CLS: 0.08241536166727623
+[00:10:29.339] Browser LOG     📐 CLS: 0.08244821214226988
+[00:10:29.339] Browser LOG     📐 CLS: 0.08254376530961254
+[00:10:29.339] Browser LOG     📐 CLS: 0.08261168236307163
+[00:10:29.339] Browser LOG     📐 CLS: 0.08265567853493813
+[00:10:29.339] Browser LOG     📐 CLS: 0.08272164020298095
+[00:10:29.339] Browser LOG     📐 CLS: 0.08275449067797461
+[00:10:29.339] Browser LOG     📐 CLS: 0.08282006126893417
+[00:10:29.339] Browser LOG     📐 CLS: 0.08288908637412917
+[00:10:29.339] Browser LOG     📐 CLS: 0.08296058830085147
+[00:10:29.339] Browser LOG     📐 CLS: 0.08299343877584513
+[00:10:29.339] Browser LOG     📐 CLS: 0.08306494070256742
+[00:10:29.339] Browser LOG     📐 CLS: 0.08310893687443392
+[00:10:29.339] Browser LOG     📐 CLS: 0.08317698428692077
+[00:10:29.339] Browser LOG     📐 CLS: 0.08320527219594309
+[00:10:29.339] Browser LOG     📐 CLS: 0.08327338478794383
+[00:10:29.339] Browser LOG     📐 CLS: 0.08334012861015316
+[00:10:29.339] Browser LOG     📐 CLS: 0.08337832380528468
+[00:10:29.339] Browser LOG     📐 CLS: 0.08343887557367576
+[00:10:29.339] Browser LOG     📐 CLS: 0.08347244302332205
+[00:10:29.339] Browser LOG     📐 CLS: 0.0835052934983157
+[00:10:29.339] Browser LOG     📐 CLS: 0.08362209518718203
+[00:10:29.339] Browser LOG     📐 CLS: 0.08371855576494595
+[00:10:30.807] Browser LOG     ⚡ FID: 6.100000023841858 ms
+[00:11:40.120] Browser LOG     📐 CLS: 0.23678614481289645
+[00:11:40.581] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:40.743] Browser ERROR   uncaughtError: Error: Module [project]/components/home/hero/MiniChat.tsx [app-client] (ecmascript, async loader) was instantiated because it was required from module [project]/components/home/hero/HeroSection.tsx [app-client] (ecmascript), but the module factory is not available. It might have been deleted in an HMR update.
+[00:12:13.288] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:12:13.643] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:12:13.787] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:13.989] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:12:13.989] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767321982955}
+[00:12:13.989] Browser LOG     🚀 LCP: 568 ms
+[00:12:13.989] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:12:13.989] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:12:13.990] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:12:15.078] Browser LOG     🚀 LCP: 1684 ms
+[00:12:15.078] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:12:15.260] Browser LOG     🚀 LCP: 1868 ms
+[00:12:15.260] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:12:29.374] Browser LOG     ⚡ FID: 16.69999998807907 ms
+[00:13:19.030] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767321983006-3517128978494","route":"/","type":"FCP","value":500},{"href":"http://localhost:3000/","id":"v3-1767321983006-4708326348326","route":"/","type":"TTFB","value":416},{"attribution":{"eventTarget":"p.text-xl.md:text-2xl.text-muted-foreground.max-w-4xl.mx-auto.leading-relaxed.font-light"},"href":"http://localhost:3000/","id":"v3-1767321983006-3889392991320","route":"/","type":"LCP","value":1868},{"attribution":{"eventTarget":"html>body.inter_f68e7b17-module__N6tCUa__variable.font-sans.dark","eventType":"keydown"},"href":"http://localhost:3000/","id":"v3-1767321983006-3977387228651","route":"/","type":"FID","value":16.69},{"attribution":{"eventTarget":"html>body.inter_f68e7b17-module__N6tCUa__variable.font-sans.dark","eventType":"keydown"},"href":"http://localhost:3000/","id":"v3-1767321983006-5582696359291","route":"/","type":"INP","value":80},{"attribution":{"eventTarget":"div.relative.z-10.text-center.space-y-6.px-4.max-w-5xl.mx-auto"},"href":"http://localhost:3000/","id":"v3-1767321983011-5623509478234","route":"/","type":"CLS","value":0.011}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:14:15.533] Server  LOG     ✓ Compiled in 130ms
+[00:14:17.692] Server  LOG     ✓ Compiled in 160ms
+[00:14:18.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:19.032] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <__next_root_layout_boundary__>
+      <SegmentViewNode type="layout" pagePath="layout.tsx">
+        <SegmentTrieNode>
+        <link>
+        <script>
+        <script>
+        <script>
+        <RootLayout>
+          <html lang="en" suppressHydrationWarning={true}>
+            <head>
+            <body className="inter_f68e..." suppressHydrationWarning={true}>
+              <MicrosoftClarity>
+              <LCPOptimizer>
+              <PerformanceOptimizer>
+              <AppProvider>
+                <Navbar>
+                  <nav className="fixed top-...">
+                    <div className="max-w-7xl ...">
+                      <div className="flex items...">
+                        <div>
+                        <div className="flex items...">
+                          <_c asChild={true} variant="outline" size="sm" className="hover:bg-p...">
+                            <Slot className={"inline-f..."} ref={null}>
+                              <SlotClone className={"inline-f..."} ref={null}>
+                                <a
++                                 href="/resume_eeliasricardoo.pdf"
+-                                 href="https://github.com/eeliasricardoo"
+                                  target="_blank"
++                                 rel="noopener"
+-                                 rel="noopener noreferrer"
++                                 aria-label="Open resume"
+-                                 aria-label="Visit GitHub"
+                                  onClick={function onClick}
+                                  className={"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm..."}
+                                  ref={null}
+                                >
+                                  <FileText className="w-4 h-4">
+                                    <svg
+                                      ref={null}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width={24}
+                                      height={24}
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth={2}
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
++                                     className="lucide lucide-file-text w-4 h-4"
+-                                     className="lucide lucide-github w-4 h-4"
+                                    >
+                                      <path
++                                       d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+-                                       d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15...."
+                                      >
+                                      <path
++                                       d="M14 2v4a2 2 0 0 0 2 2h4"
+-                                       d="M9 18c-4.51 2-5-2-7-2"
+                                      >
++                                     <path d="M10 9H8">
+                                      ...
+                                  ...
+                          ...
+                ...
+              ...
+
+[00:14:19.032] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:19.032] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit event {"data":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"name":"page_view"}
+[00:14:19.032] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322107375}
+[00:14:19.032] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322107375}
+[00:14:19.032] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:51.930] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767322107375-6725277853372","route":"/","type":"TTFB","value":424}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:14:51.930] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:14:51.930] Browser LOG     🚀 LCP: 34244 ms
+[00:14:51.930] Browser LOG     ❌ LCP precisa de melhoria (> 2.5s)
+[00:14:51.930] Browser LOG     🚀 LCP: 34280 ms
+[00:14:51.930] Browser LOG     ❌ LCP precisa de melhoria (> 2.5s)
+[00:14:53.697] Browser LOG     ⚡ FID: 18.19999998807907 ms
+[00:14:54.059] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:54.260] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:54.260] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322143221}
+[00:14:54.260] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:14:54.372] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:02.028] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767322143400-8268498300213","route":"/","type":"FCP","value":308},{"href":"http://localhost:3000/","id":"v3-1767322143400-8611917430845","route":"/","type":"TTFB","value":106},{"attribution":{"eventTarget":"span.hidden.sm:inline","eventType":"pointerdown"},"href":"http://localhost:3000/","id":"v3-1767322143400-3201387833881","route":"/","type":"FID","value":11.89},{"attribution":{"eventTarget":"span.hidden.sm:inline","eventType":"pointerdown"},"href":"http://localhost:3000/","id":"v3-1767322143400-3948965547736","route":"/","type":"INP","value":64},{"attribution":{"eventTarget":"html>body.inter_f68e7b17-module__N6tCUa__variable.font-sans.dark"},"href":"http://localhost:3000/","id":"v3-1767322143400-6657050434476","route":"/","type":"CLS","value":0.6879}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:15:02.028] Browser LOG     ⚡ FID: 11.899999976158142 ms
+[00:16:27.487] Server  LOG     ✓ Compiled in 129ms
+[00:16:27.846] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:29.030] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <__next_root_layout_boundary__>
+      <SegmentViewNode type="layout" pagePath="layout.tsx">
+        <SegmentTrieNode>
+        <link>
+        <script>
+        <script>
+        <script>
+        <RootLayout>
+          <html lang="en" suppressHydrationWarning={true}>
+            <head>
+            <body className="inter_f68e..." suppressHydrationWarning={true}>
+              <MicrosoftClarity>
+              <LCPOptimizer>
+              <PerformanceOptimizer>
+              <AppProvider>
+                <Navbar>
+                  <nav className="fixed top-...">
+                    <div className="max-w-7xl ...">
+                      <div className="flex items...">
+                        <div>
+                        <div className="flex items...">
+                          <_c asChild={true} variant="outline" size="sm" className="hover:bg-p...">
+                            <Slot className={"inline-f..."} ref={null}>
+                              <SlotClone className={"inline-f..."} ref={null}>
+                                <a
++                                 href="https://github.com/eeliasricardoo"
+-                                 href="/resume_eeliasricardoo.pdf"
+                                  target="_blank"
++                                 rel="noopener noreferrer"
+-                                 rel="noopener"
++                                 aria-label="Visit GitHub"
+-                                 aria-label="Open resume"
+                                  onClick={function onClick}
+                                  className={"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm..."}
+                                  ref={null}
+                                >
+                                  <Github className="w-4 h-4">
+                                    <svg
+                                      ref={null}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width={24}
+                                      height={24}
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth={2}
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
++                                     className="lucide lucide-github w-4 h-4"
+-                                     className="lucide lucide-file-text w-4 h-4"
+                                    >
+                                      <path
++                                       d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15...."
+-                                       d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                                      >
+                                      <path
++                                       d="M9 18c-4.51 2-5-2-7-2"
+-                                       d="M14 2v4a2 2 0 0 0 2 2h4"
+                                      >
+-                                     <path d="M10 9H8">
+-                                     <path d="M16 13H8">
+-                                     <path d="M16 17H8">
+                                  ...
+                          ...
+                ...
+              ...
+
+[00:16:29.030] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:16:29.030] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit event {"data":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"name":"page_view"}
+[00:16:29.030] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322237218}
+[00:16:29.030] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322237218}
+[00:16:29.030] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:17:36.496] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767322237230-7496046991698","route":"/","type":"TTFB","value":407}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:17:36.496] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:17:36.496] Browser LOG     🚀 LCP: 69044 ms
+[00:17:36.496] Browser LOG     ❌ LCP precisa de melhoria (> 2.5s)
+[00:17:40.818] Browser LOG     ⚡ FID: 12.900000035762787 ms
+[00:17:41.426] Browser WARN    Image with src "/portfolios/ventus/v1.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.426] Browser WARN    Image with src "/portfolios/ventus/v2.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.426] Browser WARN    Image with src "/portfolios/ventus/v2.1.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.426] Browser WARN    Image with src "/portfolios/ventus/v3.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/v4.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/v5.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/v7.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/v9.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/v10.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/v11.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/Login.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/Menu aberto.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/Modelos personalizado.gif" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/video.gif" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Image with src "/portfolios/ventus/Imge.png" is using quality "85" which is not configured in images.qualities [75, 90]. Please update your config to [75, 85, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:41.427] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:17:41.427] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/portfolio/ventuschat color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/portfolio/ventuschat","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322310429}
+[00:17:41.427] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"page_name":"Portfolio VentuChat","page_path":"/portfolio/ventuschat","project":"ventuchat","section":"portfolio","type":"detailed_case"},"en":"page_view","o":"http://localhost:3000/portfolio/ventuschat","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322310463}
+[00:17:41.427] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"page_name":"Portfolio VentuChat","page_path":"/portfolio/ventuschat","project":"ventuchat","section":"portfolio","type":"detailed_case"},"en":"page_view","o":"http://localhost:3000/portfolio/ventuschat","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322310469}
+[00:17:44.617] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322313661}
+[00:17:44.617] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322313665}
+[00:17:44.617] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322313666}
+[00:18:59.339] Server  LOG     ✓ Compiled in 1474ms
+[00:18:59.441] Browser ERROR   uncaughtError: ReferenceError: Github is not defined
+[00:18:59.875] Server  ERROR   ⨯ ReferenceError: Github is not defined
+[00:18:59.976] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:00.106] Browser ERROR   uncaughtError: Error: Module [project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.0.0/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText> was instantiated because it was required from module [project]/components/Navbar.tsx [app-client] (ecmascript), but the module factory is not available. It might have been deleted in an HMR update.
+[00:19:05.036] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:19:05.036] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./components/Navbar.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:19:05.037] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:19:05.064] Server  LOG     ✓ Compiled in 198ms
+[00:19:05.547] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:05.665] Browser ERROR   uncaughtError: Error: Module [project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.0.0/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText> was instantiated because it was required from module [project]/components/Navbar.tsx [app-client] (ecmascript), but the module factory is not available. It might have been deleted in an HMR update.
+[00:19:21.819] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:22.061] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:22.061] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322411027}
+[00:19:22.061] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:22.061] Browser LOG     🚀 LCP: 276 ms
+[00:19:22.061] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:19:22.061] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:19:26.035] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767322411044-9610544389432","route":"/","type":"FCP","value":160},{"href":"http://localhost:3000/","id":"v3-1767322411045-1823602372003","route":"/","type":"TTFB","value":86},{"attribution":{"eventTarget":"img.object-contain"},"href":"http://localhost:3000/","id":"v3-1767322411044-6491198057116","route":"/","type":"LCP","value":276},{"attribution":{"eventTarget":"span.hidden.sm:inline","eventType":"pointerdown"},"href":"http://localhost:3000/","id":"v3-1767322411044-4638125039385","route":"/","type":"FID","value":11},{"attribution":{"eventTarget":"span.hidden.sm:inline","eventType":"pointerdown"},"href":"http://localhost:3000/","id":"v3-1767322411044-9409662458664","route":"/","type":"INP","value":56},{"attribution":{"eventTarget":"div.relative.z-10.text-center.space-y-6.px-4.max-w-5xl.mx-auto"},"href":"http://localhost:3000/","id":"v3-1767322411045-1775132006363","route":"/","type":"CLS","value":0.0113}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:19:26.035] Browser LOG     ⚡ FID: 11 ms
+[00:19:55.736] Server  LOG     ✓ Compiled in 166ms
+[00:19:55.884] Server  ERROR   ⨯ ReferenceError: Github is not defined
+[00:19:55.980] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:56.957] Server  LOG     ✓ Compiled in 123ms
+[00:19:56.958] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:56.958] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322445350}
+[00:19:56.958] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:57.349] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:58.030] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <__next_root_layout_boundary__>
+      <SegmentViewNode type="layout" pagePath="layout.tsx">
+        <SegmentTrieNode>
+        <link>
+        <script>
+        <script>
+        <script>
+        <RootLayout>
+          <html lang="en" suppressHydrationWarning={true}>
+            <head>
+            <body className="inter_f68e..." suppressHydrationWarning={true}>
+              <MicrosoftClarity>
+              <LCPOptimizer>
+              <PerformanceOptimizer>
+              <AppProvider>
+                <Navbar>
+                  <nav className="fixed top-...">
+                    <div className="max-w-7xl ...">
+                      <div className="flex items...">
+                        <div>
+                        <div className="flex items...">
+                          <_c asChild={true} variant="outline" size="sm" className="hover:bg-p...">
+                            <Slot className={"inline-f..."} ref={null}>
+                              <SlotClone className={"inline-f..."} ref={null}>
+                                <a
++                                 href="https://github.com/eeliasricardoo"
+-                                 href="/resume_eeliasricardoo.pdf"
+                                  target="_blank"
++                                 rel="noopener noreferrer"
+-                                 rel="noopener"
++                                 aria-label="Visit GitHub"
+-                                 aria-label="Open resume"
+                                  onClick={function onClick}
+                                  className={"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm..."}
+                                  ref={null}
+                                >
+                                  <Github className="w-4 h-4">
+                                    <svg
+                                      ref={null}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width={24}
+                                      height={24}
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth={2}
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
++                                     className="lucide lucide-github w-4 h-4"
+-                                     className="lucide lucide-file-text w-4 h-4"
+                                    >
+                                      <path
++                                       d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15...."
+-                                       d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                                      >
+                                      <path
++                                       d="M9 18c-4.51 2-5-2-7-2"
+-                                       d="M14 2v4a2 2 0 0 0 2 2h4"
+                                      >
+-                                     <path d="M10 9H8">
+-                                     <path d="M16 13H8">
+-                                     <path d="M16 17H8">
+                                  ...
+                          ...
+                ...
+              ...
+
+[00:19:58.030] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:58.030] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit event {"data":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"name":"page_view"}
+[00:19:58.030] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322446614}
+[00:19:58.030] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322446614}
+[00:19:58.030] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:20:26.090] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1767322446614-7475708661089","route":"/","type":"TTFB","value":332}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:20:26.090] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:20:26.090] Browser LOG     🚀 LCP: 29028 ms
+[00:20:26.090] Browser LOG     ❌ LCP precisa de melhoria (> 2.5s)
+[00:20:26.871] Browser LOG     🚀 LCP: 29812 ms
+[00:20:26.871] Browser LOG     ❌ LCP precisa de melhoria (> 2.5s)
+[00:20:27.100] Browser LOG     ⚡ FID: 4 ms
+[00:20:27.376] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:27.585] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:20:27.585] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322476575}
+[00:20:27.585] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:20:27.585] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:20:28.393] Browser LOG     🚀 LCP: 1120 ms
+[00:20:28.393] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:20:28.692] Browser LOG     🚀 LCP: 1420 ms
+[00:20:28.692] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:20:28.892] Browser LOG     🚀 LCP: 1620 ms
+[00:20:28.892] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:20:29.836] Browser LOG     ⚡ FID: 17.599999964237213 ms
+[00:22:08.913] Server  LOG     ✓ Compiled in 135ms
+[00:22:15.397] Server  LOG     ✓ Compiled in 109ms
+[00:22:21.953] Server  LOG     ✓ Compiled in 0ms
+[00:22:22.103] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:22.349] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:22:22.349] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322591296}
+[00:22:22.349] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:22:22.349] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:22:22.349] Browser LOG     🚀 LCP: 856 ms
+[00:22:22.349] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:22:23.390] Browser LOG     🚀 LCP: 1956 ms
+[00:22:23.390] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:22:23.591] Browser LOG     🚀 LCP: 2156 ms
+[00:22:23.591] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:24:43.436] Server  LOG     ✓ Compiled in 122ms
+[00:24:45.431] Server  LOG     ✓ Compiled in 108ms
+[00:25:23.490] Server  LOG     ✓ Compiled in 105ms
+[00:25:25.486] Server  LOG     ✓ Compiled in 109ms
+[00:26:20.066] Browser LOG     ⚡ FID: 4.199999988079071 ms
+[00:26:20.746] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:20.962] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:26:20.962] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322829950}
+[00:26:20.962] Browser LOG     🚀 LCP: 688 ms
+[00:26:20.962] Browser LOG     ✅ LCP excelente (< 1.5s)
+[00:26:20.962] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:26:20.962] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:26:22.038] Browser LOG     🚀 LCP: 1788 ms
+[00:26:22.038] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:26:22.237] Browser LOG     🚀 LCP: 1988 ms
+[00:26:22.237] Browser LOG     ⚠️ LCP bom (< 2.5s)
+[00:27:57.935] Browser LOG     ⚡ FID: 6.699999988079071 ms
+[00:28:36.323] Browser LOG     %c[Vercel Web Analytics]%c [event] page_view color: rgb(120, 120, 120) color: inherit {"ed":{"language":"en-US","page_name":"Home","page_path":"/","section":"main"},"en":"page_view","o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1767322965384}

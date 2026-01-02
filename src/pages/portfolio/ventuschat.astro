@@ -1,0 +1,53 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { BackButton } from "@/components/portfolio/ui/BackButton";
+import {
+    HeroSection,
+    IntroductionSection,
+    Phase1Section,
+    DoubleDiamondSection,
+    Phase2Section,
+    Phase3Section,
+    ResultsSection,
+    KeyFeaturesSection,
+    Phase4Section,
+    CallToActionSection,
+} from "@/components/portfolio/ventus";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="ChatAI - From Need to Innovation in One Week"
+    description="Case study completo do ChatAI, uma ferramenta de IA personalizada desenvolvida em uma semana. Solução inovadora para chat com IA mais barata, customizável e superior aos workflows existentes."
+>
+    <ProgressIndicator client:load />
+
+    <main class="max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24 min-h-screen">
+        <header class="mb-10 text-left">
+            <BackButton client:load />
+        </header>
+
+        <HeroSection client:load />
+
+        <IntroductionSection client:visible />
+
+        <Phase1Section client:visible />
+
+        <DoubleDiamondSection client:visible />
+
+        <Phase2Section client:visible />
+
+        <Phase3Section client:visible />
+
+        <ResultsSection client:visible />
+
+        <KeyFeaturesSection client:visible />
+
+        <Phase4Section client:visible />
+
+        <CallToActionSection client:visible />
+    </main>
+
+    <ScrollIndicator client:load />
+</Layout>

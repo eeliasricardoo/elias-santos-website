@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/home";
+import { PortfolioSection } from "@/components/home/portfolio/PortfolioSection";
+import { AboutMeSection } from "@/components/home/about-me/AboutMeSection";
+import { DepoimentsSection } from "@/components/home/depoiments/DepoimentsSection";
+import { GetInTouch } from "@/components/home/get-in-touch/GetInTouch";
+import { Footer } from "@/components/Footer";
+import { AnimatedBackground } from "@/components/home/AnimatedBackground";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout title="Elias Ricardo | Portfolio">
+	<Navbar client:load />
+
+	<ProgressIndicator client:load />
+
+	<main class="relative min-h-screen">
+		<HeroSection client:load />
+
+		<!-- Background Animado - precisa de client:load para funcionar -->
+		<AnimatedBackground client:load />
+
+		<PortfolioSection client:visible />
+		<AboutMeSection client:visible />
+		<DepoimentsSection client:visible />
+		<GetInTouch client:visible />
+	</main>
+
+	<Footer client:visible />
+	<ScrollIndicator client:load />
+</Layout>

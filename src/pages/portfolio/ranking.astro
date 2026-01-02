@@ -1,0 +1,41 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+    RankingHeader,
+    RankingIntroduction,
+    RankingProblem,
+    RankingObjectives,
+    RankingResearch,
+    RankingInsights,
+    RankingPersonas,
+    RankingUserJourney,
+    RankingSolution,
+    RankingTesting,
+    RankingAuthor,
+} from "@/components/portfolio/ranking";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="Ranking App - UX Research Case Study"
+    description="Complete case study of the ranking application developed by Elias Ricardo. UX research, personas, user journey and innovative solutions for gamification."
+>
+    <ProgressIndicator client:load />
+
+    <main class="max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24 min-h-screen">
+        <RankingHeader client:load />
+        <RankingIntroduction client:visible />
+        <RankingProblem client:visible />
+        <RankingObjectives client:visible />
+        <RankingResearch client:visible />
+        <RankingInsights client:visible />
+        <RankingPersonas client:visible />
+        <RankingUserJourney client:visible />
+        <RankingSolution client:visible />
+        <RankingTesting client:visible />
+        <RankingAuthor client:visible />
+    </main>
+
+    <ScrollIndicator client:load />
+</Layout>

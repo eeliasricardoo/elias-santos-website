@@ -3,11 +3,9 @@ import type { Config } from 'tailwindcss';
 // all in fixtures is set to tailwind v3 as interims solutions
 
 const config: Config = {
-  darkMode: ['class'],
+  darkMode: 'class',
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
   ],
   // ✅ Otimização: Remover todos os estilos não utilizados em produção
   future: {

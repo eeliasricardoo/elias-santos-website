@@ -1,0 +1,60 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { BackButton } from "@/components/portfolio/ui/BackButton";
+import {
+    HeroSection,
+    IntroductionSection,
+    ProblemSection,
+    SolutionSection,
+    DevelopmentJourneySection,
+    DetailedPhasesSection,
+    FeaturesSection,
+    ResultsSection,
+    CallToActionSection,
+} from "@/components/portfolio/carousel-builder";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="Post & Carousel Generator - Case Study"
+    description="Complete case study of Post & Carousel Generator, an AI tool that revolutionizes carousel creation for social media. 90% reduction in creation time."
+>
+    <ProgressIndicator client:load />
+
+    <main class="max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24 min-h-screen">
+        <!-- Header -->
+        <header class="mb-10 text-left">
+            <BackButton client:load />
+        </header>
+
+        <!-- Hero Section -->
+        <HeroSection client:load />
+
+        <!-- Introduction -->
+        <IntroductionSection client:visible />
+
+        <!-- The Problem -->
+        <ProblemSection client:visible />
+
+        <!-- The Solution -->
+        <SolutionSection client:visible />
+
+        <!-- Development Journey -->
+        <DevelopmentJourneySection client:visible />
+
+        <!-- Detailed Phases -->
+        <DetailedPhasesSection client:visible />
+
+        <!-- Key Features -->
+        <FeaturesSection client:visible />
+
+        <!-- Results & Impact -->
+        <ResultsSection client:visible />
+
+        <!-- Call to Action -->
+        <CallToActionSection client:visible />
+    </main>
+
+    <ScrollIndicator client:load />
+</Layout>

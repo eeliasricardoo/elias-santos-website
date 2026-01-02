@@ -1,0 +1,46 @@
+import { ChevronRight, Home } from 'lucide-react';
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface BreadcrumbsProps {
+  items: BreadcrumbItem[];
+  className?: string;
+}
+
+export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
+  return (
+    <nav
+      className={`flex items-center space-x-1 text-sm text-muted-foreground ${className}`}
+      aria-label='Breadcrumb'
+    >
+      <a
+        href='/'
+        className='flex items-center hover:text-foreground transition-colors'
+        aria-label='Home'
+      >
+        <Home className='w-4 h-4' />
+      </a>
+
+      {items.map((item, index) => (
+        <div key={index} className='flex items-center space-x-1'>
+          <ChevronRight className='w-4 h-4' />
+          {item.href ? (
+            <a
+              href={item.href}
+              className='hover:text-foreground transition-colors'
+            >
+              {item.label}
+            </a>
+          ) : (
+            <span className='text-foreground font-medium' aria-current='page'>
+              {item.label}
+            </span>
+          )}
+        </div>
+      ))}
+    </nav>
+  );
+}
