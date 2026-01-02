@@ -5,11 +5,6 @@ import { ProfilePhoto } from './ProfilePhoto';
 import { HeroContent } from './HeroContent';
 import { ChevronDown } from 'lucide-react';
 
-// Lazy-load EmailClient to improve LCP
-// const EmailClient = lazy(() =>
-//   import('./MiniChat').then(module => ({ default: module.EmailClient }))
-// );
-
 // Lazy-load background effects to prevent blocking LCP
 const ParallaxStars = lazy(() =>
   import('./ParallaxStars').then(module => ({ default: module.ParallaxStars }))
@@ -34,17 +29,6 @@ export function HeroSection() {
 
       {/* Hero content with optimized loading */}
       <HeroContent />
-
-      {/* Email client loaded lazily inline as before - DEACTIVATED */}
-      {/* <Suspense
-        fallback={
-          <div className='flex justify-center mt-8'>
-            <div className='w-8 h-8 border-2 border-primary/20 border-t-primary rounded-full animate-spin' />
-          </div>
-        }
-      >
-        <EmailClient />
-      </Suspense> */}
 
       {/* Scroll cue bottom-center */}
       <div className='pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground'>

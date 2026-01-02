@@ -37,8 +37,8 @@ export function AnimatedBackground() {
           <div className='absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-transparent animate-[pulse_8s_ease-in-out_infinite]' />
 
           {/* Elementos decorativos minimalistas */}
-          <div className='absolute top-1/4 left-1/4 w-48 h-48 bg-primary/3 rounded-full blur-3xl animate-[float_15s_ease-in-out_infinite]' style={{ willChange: 'transform' }} />
-          <div className='absolute bottom-1/3 right-1/4 w-64 h-64 bg-primary/2 rounded-full blur-3xl animate-[float_18s_ease-in-out_infinite_reverse]' style={{ willChange: 'transform' }} />
+          <div className='absolute top-1/4 left-1/4 w-48 h-48 bg-primary/3 rounded-full blur-2xl animate-[float_15s_ease-in-out_infinite]' style={{ willChange: 'transform' }} />
+          <div className='absolute bottom-1/3 right-1/4 w-64 h-64 bg-primary/2 rounded-full blur-2xl animate-[float_18s_ease-in-out_infinite_reverse]' style={{ willChange: 'transform' }} />
 
           {/* Pontos decorativos sutis */}
           <div className='absolute inset-0 opacity-10'>

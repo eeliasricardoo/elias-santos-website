@@ -19,7 +19,7 @@ export function FloatingElements() {
   useEffect(() => {
     setMounted(true);
     // Gera elementos flutuantes aleatórios - reduzido para melhor performance
-    const elems = Array.from({ length: 5 }, (_, i) => ({
+    const elems = Array.from({ length: 2 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -37,7 +37,7 @@ export function FloatingElements() {
       {elements.map(elem => (
         <motion.div
           key={elem.id}
-          className='absolute rounded-full blur-3xl opacity-10'
+          className='absolute rounded-full blur-2xl opacity-10'
           style={{
             left: `${elem.x}%`,
             top: `${elem.y}%`,

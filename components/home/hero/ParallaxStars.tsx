@@ -17,7 +17,7 @@ export function ParallaxStars() {
   if (!mounted) return null;
 
   // Gera estrelas aleatórias - reduzido para melhor performance
-  const stars = Array.from({ length: 30 }, (_, i) => ({
+  const stars = Array.from({ length: 15 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
