@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 import { useScroll, useTransform } from 'framer-motion';
 
 export function HeroContent() {
@@ -63,6 +64,32 @@ export function HeroContent() {
           challenges into elegant, user-centered solutions that drive measurable
           results and accelerate time-to-market.
         </motion.p>
+
+        {/* ✅ CTA Buttons */}
+        <motion.div
+          className='flex flex-wrap items-center justify-center gap-4 pt-4'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          <Button size='lg' className='rounded-full px-8 h-12 text-base' asChild>
+            <a href='#portfolio'>View Projects</a>
+          </Button>
+          <Button
+            variant='outline'
+            size='lg'
+            className='rounded-full px-8 h-12 text-base'
+            asChild
+          >
+            <a
+              href='https://github.com/eeliasricardoo'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              GitHub
+            </a>
+          </Button>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
