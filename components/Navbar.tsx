@@ -10,12 +10,7 @@ import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 export function Navbar() {
   const { track } = useAnalytics();
 
-  const scrollToContact = () => {
-    const contactSection = document.querySelector('#get-in-touch');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <>
@@ -62,15 +57,22 @@ export function Navbar() {
 
               {/* Contact Button */}
               <RainbowButton
-                type='button'
-                onClick={scrollToContact}
+                asChild
                 variant='outline'
                 size='sm'
                 className='flex items-center gap-2'
-                aria-label='Scroll to contact'
               >
-                <MessageCircle className='w-4 h-4' />
-                <span className='hidden sm:inline'>Contact</span>
+                <a
+                  href='https://calendly.com/eeliasricardoo'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Schedule a meeting'
+                >
+                  <span className='relative z-10 flex items-center gap-2'>
+                    <MessageCircle className='w-4 h-4' />
+                    <span className='hidden sm:inline'>Contact</span>
+                  </span>
+                </a>
               </RainbowButton>
             </div>
           </div>
