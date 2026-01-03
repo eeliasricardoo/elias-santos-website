@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useScroll, useTransform } from 'framer-motion';
+import { HERO_CONTENT } from '@/constants/content';
 
 export function HeroContent() {
   const { scrollY } = useScroll();
@@ -30,9 +31,9 @@ export function HeroContent() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <span className='inline-block'>
-            UX From the{' '}
+            {HERO_CONTENT.headline.prefix}{' '}
             <span className='relative inline-block'>
-              Future
+              {HERO_CONTENT.headline.highlight}
               {/* ✅ Glow effect */}
               <motion.span
                 className='absolute inset-0 blur-xl'
@@ -60,9 +61,7 @@ export function HeroContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          UX/UI Designer & Frontend Developer. I transform complex business
-          challenges into elegant, user-centered solutions that drive measurable
-          results and accelerate time-to-market.
+          {HERO_CONTENT.description}
         </motion.p>
 
         {/* ✅ CTA Buttons */}
@@ -73,7 +72,7 @@ export function HeroContent() {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <Button size='lg' className='rounded-full px-8 h-12 text-base' asChild>
-            <a href='#portfolio'>View Projects</a>
+            <a href={HERO_CONTENT.cta.primary.href}>{HERO_CONTENT.cta.primary.text}</a>
           </Button>
           <Button
             variant='outline'
@@ -82,11 +81,11 @@ export function HeroContent() {
             asChild
           >
             <a
-              href='https://github.com/eeliasricardoo'
+              href={HERO_CONTENT.cta.secondary.href}
               target='_blank'
               rel='noopener noreferrer'
             >
-              GitHub
+              {HERO_CONTENT.cta.secondary.text}
             </a>
           </Button>
         </motion.div>
