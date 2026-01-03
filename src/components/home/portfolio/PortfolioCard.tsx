@@ -87,7 +87,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
       <Card
-        className='border-white/10 bg-zinc-900/90 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group cursor-pointer'
+        className='border-white/5 bg-black/90 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group cursor-pointer'
         onClick={handleCardClick}
       >
         <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>

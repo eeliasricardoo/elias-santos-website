@@ -63,7 +63,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
           className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 overflow-hidden backdrop-blur-xl border border-border/20 shadow-xl'
         >
           {/* Chat Messages */}
-          <div className='flex-1 p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3 lg:space-y-4 overflow-hidden h-[calc(100%-3rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-5rem)]'>
+          <div className='flex-1 p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3 lg:space-y-4 overflow-hidden h-[calc(100%-3rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-5rem)] flex flex-col justify-end'>
             {/* AI Message 1 */}
             <div
               className='flex items-end space-x-2 md:space-x-3'
@@ -75,7 +75,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               </div>
               <div className='bg-card/70 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-bl-md p-3 md:p-4 lg:p-5 border border-border/20 shadow-sm max-w-[80%]'>
                 <p className='text-xs md:text-sm lg:text-base text-foreground leading-relaxed'>
-                  Olá! Como posso ajudar você hoje?
+                  Hello! How can I help you today?
                 </p>
               </div>
             </div>
@@ -86,39 +86,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             >
               <div className='bg-primary/80 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-br-md p-3 md:p-4 lg:p-5 border border-primary/20 shadow-sm max-w-[80%]'>
                 <p className='text-xs md:text-sm lg:text-base text-primary-foreground leading-relaxed'>
-                  Preciso de ajuda com React
-                </p>
-              </div>
-              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-muted-foreground/60 flex items-center justify-center flex-shrink-0'>
-                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
-                  U
-                </span>
-              </div>
-            </div>
-
-            {/* AI Message 2 */}
-            <div
-              className='flex items-end space-x-2 md:space-x-3'
-            >
-              <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
-                <span className='text-xs md:text-sm font-bold text-primary-foreground'>
-                  AI
-                </span>
-              </div>
-              <div className='bg-card/70 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-bl-md p-3 md:p-4 lg:p-5 border border-border/20 shadow-sm max-w-[80%]'>
-                <p className='text-xs md:text-sm lg:text-base text-foreground leading-relaxed'>
-                  Claro! O que você quer saber sobre React?
-                </p>
-              </div>
-            </div>
-
-            {/* User Message 2 */}
-            <div
-              className='flex items-end space-x-2 md:space-x-3 justify-end'
-            >
-              <div className='bg-primary/80 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-br-md p-3 md:p-4 lg:p-5 border border-primary/20 shadow-sm max-w-[80%]'>
-                <p className='text-xs md:text-sm lg:text-base text-primary-foreground leading-relaxed'>
-                  Como criar um componente?
+                  I need help optimizing my workflow.
                 </p>
               </div>
               <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-muted-foreground/60 flex items-center justify-center flex-shrink-0'>
@@ -152,7 +120,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
             <div className='flex items-center space-x-2 md:space-x-3'>
               <div className='flex-1 bg-muted/50 rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3'>
                 <p className='text-sm md:text-base lg:text-lg text-muted-foreground'>
-                  Type a message...
+                  Ask anything...
                 </p>
               </div>
               <button
@@ -215,9 +183,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
           {/* User List */}
           <div className='space-y-1 md:space-y-1.5 lg:space-y-2 flex-1 overflow-hidden mt-2 md:mt-3'>
             {[
-              { name: 'Ana Silva', score: 892, emoji: '👑' },
-              { name: 'João Costa', score: 756, emoji: '🥈' },
-              { name: 'Maria Santos', score: 634, emoji: '🥉' },
+              { name: 'Sarah Miller', score: 892, emoji: '👑' },
+              { name: 'John Davis', score: 756, emoji: '🥈' },
+              { name: 'Emily Wilson', score: 634, emoji: '🥉' },
             ].map((user, index) => (
               <div
                 key={user.name}
