@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
-import { ComponentPropsWithoutRef } from 'react';
+import React from 'react';
 
-interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
+interface MarqueeProps extends React.ComponentPropsWithoutRef<'div'> {
   /**
    * Optional CSS class name to apply custom styles
    */

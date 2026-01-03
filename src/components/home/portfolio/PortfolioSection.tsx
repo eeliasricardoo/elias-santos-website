@@ -50,7 +50,7 @@ export function PortfolioSection() {
       id='portfolio'
       data-section='portfolio'
       ref={sectionRef}
-      className='relative py-14 md:py-20 px-0 overflow-hidden'
+      className='relative py-14 md:py-20 px-0'
       style={{ position: 'relative' }}
     >
       <div className='relative flex flex-col gap-16 md:gap-24'>

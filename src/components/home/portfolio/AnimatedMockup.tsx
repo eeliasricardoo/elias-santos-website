@@ -54,52 +54,18 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
   }, [isVisible, prefersReduced]);
 
   if (type === 'ventus-chat') {
-    const isActive = isVisible && !prefersReduced;
     return (
       <div
-        ref={rootRef}
         className='relative w-full h-full flex items-center justify-center'
       >
-        {/* Background Particles - mais sutis */}
-        <div className='absolute inset-0 overflow-hidden'>
-          {[...Array(4)].map((_, i) => (
-            <motion.div
-              key={i}
-              className='absolute w-1 h-1 md:w-1.5 md:h-1.5 lg:w-2 lg:h-2 bg-primary/20 rounded-full'
-              style={{ left: `${20 + i * 20}%`, top: `${30 + i * 15}%` }}
-              {...(isActive
-                ? {
-                  animate: {
-                    y: [0, -15, 0],
-                    opacity: [0.2, 0.4, 0.2],
-                    scale: [1, 1.1, 1],
-                  },
-                }
-                : {})}
-              transition={{
-                duration: 4 + i * 0.8,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: i * 0.5,
-              }}
-            />
-          ))}
-        </div>
-
         {/* Chat Container */}
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }} // Valores mais conservadores
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }} // Duração mais longa
+        <div
           className='relative w-full h-full bg-gradient-to-br from-background/95 via-card/90 to-muted/80 overflow-hidden backdrop-blur-xl border border-border/20 shadow-xl'
         >
           {/* Chat Messages */}
           <div className='flex-1 p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3 lg:space-y-4 overflow-hidden h-[calc(100%-3rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-5rem)]'>
             {/* AI Message 1 */}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }} // Movimento mais sutil
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }} // Delay e duração maiores
+            <div
               className='flex items-end space-x-2 md:space-x-3'
             >
               <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
@@ -112,13 +78,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   Olá! Como posso ajudar você hoje?
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* User Message */}
-            <motion.div
-              initial={{ opacity: 0, x: 15 }} // Movimento mais sutil
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.5, duration: 0.8 }} // Delay maior
+            <div
               className='flex items-end space-x-2 md:space-x-3 justify-end'
             >
               <div className='bg-primary/80 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-br-md p-3 md:p-4 lg:p-5 border border-primary/20 shadow-sm max-w-[80%]'>
@@ -131,13 +94,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   U
                 </span>
               </div>
-            </motion.div>
+            </div>
 
             {/* AI Message 2 */}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 3, duration: 0.8 }} // Delay maior
+            <div
               className='flex items-end space-x-2 md:space-x-3'
             >
               <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
@@ -150,13 +110,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   Claro! O que você quer saber sobre React?
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* User Message 2 */}
-            <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 4.5, duration: 0.8 }} // Delay maior
+            <div
               className='flex items-end space-x-2 md:space-x-3 justify-end'
             >
               <div className='bg-primary/80 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-br-md p-3 md:p-4 lg:p-5 border border-primary/20 shadow-sm max-w-[80%]'>
@@ -169,13 +126,10 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   U
                 </span>
               </div>
-            </motion.div>
+            </div>
 
             {/* AI Typing Indicator */}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 6, duration: 0.8 }} // Delay maior
+            <div
               className='flex items-end space-x-2 md:space-x-3'
             >
               <div className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/80 flex items-center justify-center flex-shrink-0'>
@@ -185,30 +139,12 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               </div>
               <div className='bg-card/70 backdrop-blur-sm rounded-xl md:rounded-2xl rounded-bl-md p-3 md:p-4 lg:p-5 border border-border/20 shadow-sm'>
                 <div className='flex space-x-1 md:space-x-1.5'>
-                  <motion.div
-                    {...(isActive
-                      ? { animate: { opacity: [0.2, 0.6, 0.2] } }
-                      : {})}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
-                    className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full'
-                  />
-                  <motion.div
-                    {...(isActive
-                      ? { animate: { opacity: [0.2, 0.6, 0.2] } }
-                      : {})}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-                    className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full'
-                  />
-                  <motion.div
-                    {...(isActive
-                      ? { animate: { opacity: [0.2, 0.6, 0.2] } }
-                      : {})}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
-                    className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full'
-                  />
+                  <div className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full' />
+                  <div className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full' />
+                  <div className='w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-muted-foreground rounded-full' />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Input Bar */}
@@ -219,54 +155,27 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   Type a message...
                 </p>
               </div>
-              <motion.button
-                {...(isActive ? { whileHover: { scale: 1.05 } } : {})}
-                {...(isActive ? { animate: { scale: [1, 1.05, 1] } } : {})}
-                transition={{ duration: 3, repeat: Infinity }} // Duração maior
+              <button
                 className='w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-primary/80 rounded-full flex items-center justify-center'
               >
                 <span className='text-sm md:text-base lg:text-lg text-primary-foreground'>
                   →
                 </span>
-              </motion.button>
+              </button>
             </div>
           </div>
-        </motion.div>
-
-        {/* Enhanced Background Glow - mais sutil */}
-        <motion.div
-          {...(isActive
-            ? {
-              animate: {
-                scale: [1, 1.1, 1],
-                opacity: [0.1, 0.2, 0.1],
-                rotate: [0, 90, 180],
-              },
-            }
-            : {})}
-          transition={{
-            duration: 12, // Duração muito maior
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className='absolute inset-0 bg-primary/10 rounded-full blur-3xl -z-10' // Opacidade reduzida
-        />
+        </div>
       </div>
     );
   }
 
   if (type === 'ranking') {
-    const isActive = isVisible && !prefersReduced;
     return (
       <div
-        ref={rootRef}
         className='w-full h-full flex items-center justify-center bg-transparent'
       >
-        <motion.div
+        <div
           className='w-full h-full p-3 md:p-4 lg:p-5 bg-card/80 border border-border/20 shadow-none flex flex-col'
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
         >
           {/* Título */}
           <div className='text-center space-y-1 md:space-y-2 flex-shrink-0'>
@@ -280,15 +189,11 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
 
           {/* Score */}
           <div className='text-center flex-shrink-0 py-1 md:py-2'>
-            <motion.div
+            <div
               className='text-xl md:text-2xl lg:text-3xl font-bold text-primary'
-              key={currentScore} // Força re-animação quando score muda
-              initial={{ scale: 1.1, opacity: 0.7 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
             >
               {currentScore}
-            </motion.div>
+            </div>
             <div className='text-xs md:text-sm lg:text-base text-muted-foreground'>
               points
             </div>
@@ -301,11 +206,8 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               <span>75%</span>
             </div>
             <div className='h-1.5 md:h-2 lg:h-2.5 bg-muted/50 rounded-full overflow-hidden'>
-              <motion.div
+              <div
                 className='h-full w-3/4 bg-primary/60 rounded-full'
-                initial={{ width: 0 }}
-                {...(isActive ? { animate: { width: '75%' } } : {})}
-                transition={{ duration: 1.5, ease: 'easeOut' }}
               />
             </div>
           </div>
@@ -317,12 +219,9 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               { name: 'João Costa', score: 756, emoji: '🥈' },
               { name: 'Maria Santos', score: 634, emoji: '🥉' },
             ].map((user, index) => (
-              <motion.div
+              <div
                 key={user.name}
                 className='flex items-center space-x-2 md:space-x-3 bg-card/60 rounded-md md:rounded-lg px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-2.5'
-                initial={{ opacity: 0, x: -20 }}
-                {...(isActive ? { animate: { opacity: 1, x: 0 } } : {})}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
               >
                 <div className='w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-primary/10 flex items-center justify-center text-xs md:text-sm lg:text-base font-bold text-primary flex-shrink-0'>
                   {index + 1}
@@ -343,26 +242,21 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                     pts
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     );
   }
 
   if (type === 'support-queue') {
-    const isActive = isVisible && !prefersReduced;
     return (
       <div
-        ref={rootRef}
         className='relative w-full h-full flex items-center justify-center'
       >
         {/* Painel do pop-up de fila */}
-        <motion.div
-          initial={{ opacity: 0, y: 12, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+        <div
           className='relative w-[520px] max-w-[92%] bg-card/85 border border-border/20 shadow-2xl rounded-xl overflow-hidden'
         >
           <div className='p-4 md:p-5 lg:p-6 space-y-4'>
@@ -382,10 +276,8 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
                   8
                 </div>
                 <div className='flex-1 h-2 rounded-full bg-muted/50 overflow-hidden'>
-                  <motion.div
+                  <div
                     className='h-full bg-primary/60 rounded-full'
-                    {...(isActive ? { animate: { width: ['0%', '75%'] } } : {})}
-                    transition={{ duration: 1.4, ease: 'easeOut' }}
                     style={{ width: '75%' }}
                   />
                 </div>
@@ -406,7 +298,7 @@ export function AnimatedMockup({ type }: AnimatedMockupProps) {
               <span className='font-semibold text-foreground'>19:52</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     );
   }

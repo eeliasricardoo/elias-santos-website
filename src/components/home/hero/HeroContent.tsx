@@ -21,15 +21,25 @@ export function HeroContent() {
       {/* ✅ Animação de entrada sequencial */}
       <motion.div
         className='space-y-4'
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          delay: 0.2
+        }}
       >
         <motion.h1
           className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight'
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            delay: 0.3
+          }}
         >
           <span className='inline-block'>
             {HERO_CONTENT.headline.prefix}{' '}
@@ -58,9 +68,14 @@ export function HeroContent() {
         {/* Parágrafo de descrição */}
         <motion.p
           className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            delay: 0.4
+          }}
         >
           {HERO_CONTENT.description}
         </motion.p>
@@ -68,27 +83,37 @@ export function HeroContent() {
         {/* ✅ CTA Buttons */}
         <motion.div
           className='flex flex-wrap items-center justify-center gap-4 pt-4'
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            delay: 0.5
+          }}
         >
-          <Button size='lg' className='rounded-full px-8 h-12 text-base' asChild>
-            <a href={HERO_CONTENT.cta.primary.href}>{HERO_CONTENT.cta.primary.text}</a>
-          </Button>
-          <Button
-            variant='outline'
-            size='lg'
-            className='rounded-full px-8 h-12 text-base'
-            asChild
-          >
-            <a
-              href={HERO_CONTENT.cta.secondary.href}
-              target='_blank'
-              rel='noopener noreferrer'
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button size='lg' className='rounded-full px-8 h-12 text-base' asChild>
+              <a href={HERO_CONTENT.cta.primary.href}>{HERO_CONTENT.cta.primary.text}</a>
+            </Button>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              variant='outline'
+              size='lg'
+              className='rounded-full px-8 h-12 text-base'
+              asChild
             >
-              {HERO_CONTENT.cta.secondary.text}
-            </a>
-          </Button>
+              <a
+                href={HERO_CONTENT.cta.secondary.href}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                {HERO_CONTENT.cta.secondary.text}
+              </a>
+            </Button>
+          </motion.div>
         </motion.div>
 
 

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useMounted } from '@/hooks/use-mounted';
 
@@ -48,11 +47,7 @@ export function TestimonialCard({
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
+    <div
       className={`flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border hover:shadow-xl transition-all duration-300 ${className}`}
     >
       <div className='flex items-start space-x-3'>
@@ -86,6 +81,6 @@ export function TestimonialCard({
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

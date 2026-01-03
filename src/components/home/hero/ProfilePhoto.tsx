@@ -9,11 +9,14 @@ export function ProfilePhoto() {
   return (
     <div className='relative z-10 flex flex-col items-center mb-8'>
       <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 30 }}
+        initial={{ opacity: 0, scale: 0.5, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
+        whileHover={{ scale: 1.05 }}
         transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
           duration: 0.8,
-          ease: 'easeOut',
         }}
         className='relative'
       >

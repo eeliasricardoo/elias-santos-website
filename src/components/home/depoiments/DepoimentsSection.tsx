@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { TestimonialCard } from '../ui';
 import { useMounted } from '@/hooks/use-mounted';
+import { Marquee } from '@/components/magicui/marquee';
 
 interface Testimonial {
   id: number;
@@ -117,117 +118,39 @@ export function DepoimentsSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className='relative'
         >
-          {!mounted ? (
+          <div className='relative flex flex-col gap-8'>
+            {/* Primeira linha */}
             <div className='relative'>
-              <div className='relative space-y-1a'>
-                {/* Primeira linha skeleton */}
-                <div className='relative overflow-hidden py-4'>
-                  <div className='flex space-x-6 px-6'>
-                    {Array(3)
-                      .fill(0)
-                      .map((_, i) => (
-                        <div
-                          key={i}
-                          className='flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border'
-                        >
-                          <div className='flex items-start space-x-3'>
-                            <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
-                            <div className='flex-1 space-y-2'>
-                              <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
-                              <div className='space-y-1'>
-                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                                <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                </div>
+              <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
+              <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-                {/* Segunda linha skeleton */}
-                <div className='relative overflow-hidden py-4'>
-                  <div className='flex space-x-6 px-6'>
-                    {Array(3)
-                      .fill(0)
-                      .map((_, i) => (
-                        <div
-                          key={i}
-                          className='flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border'
-                        >
-                          <div className='flex items-start space-x-3'>
-                            <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
-                            <div className='flex-1 space-y-2'>
-                              <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
-                              <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
-                              <div className='space-y-1'>
-                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                                <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-                                <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              </div>
+              <Marquee pauseOnHover className="[--duration:20s]">
+                {testimonials.slice(0, 4).map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </Marquee>
             </div>
-          ) : (
-            <div className='relative space-y-1a'>
-              {/* Primeira linha - 3 cards (movimento para direita) */}
-              <div className='relative overflow-hidden py-4'>
-                {/* Gradiente lateral esquerdo */}
-                <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
-                {/* Gradiente lateral direito */}
-                <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-                <div className='flex animate-marquee-reverse'>
-                  {Array(3)
-                    .fill(0)
-                    .map((_, i) => (
-                      <div key={i} className='flex space-x-6 px-6'>
-                        {testimonials.slice(0, 3).map(testimonial => (
-                          <TestimonialCard
-                            key={`${testimonial.id}-${i}`}
-                            testimonial={testimonial}
-                          />
-                        ))}
-                      </div>
-                    ))}
-                </div>
-              </div>
+            {/* Segunda linha (Reverse) */}
+            <div className='relative'>
+              <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
+              <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-              {/* Segunda linha - 3 cards (movimento para esquerda) */}
-              <div className='relative overflow-hidden py-4'>
-                {/* Gradiente lateral esquerdo */}
-                <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
-                {/* Gradiente lateral direito */}
-                <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
-
-                <div className='flex animate-marquee'>
-                  {Array(3)
-                    .fill(0)
-                    .map((_, i) => (
-                      <div key={i} className='flex space-x-6 px-6'>
-                        {testimonials.slice(3, 6).map(testimonial => (
-                          <TestimonialCard
-                            key={`${testimonial.id}-${i}`}
-                            testimonial={testimonial}
-                          />
-                        ))}
-                      </div>
-                    ))}
-                </div>
-              </div>
+              <Marquee reverse pauseOnHover className="[--duration:20s]">
+                {testimonials.slice(4).map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </Marquee>
             </div>
-          )}
+          </div>
         </motion.div>
       </div>
-    </section>
+    </section >
   );
 }

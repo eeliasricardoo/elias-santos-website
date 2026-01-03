@@ -14,6 +14,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ['Satoshi', 'sans-serif'],
         satoshi: ['Satoshi', 'sans-serif'],
       },
       colors: {

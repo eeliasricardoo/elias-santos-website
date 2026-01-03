@@ -21,28 +21,27 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: cardRef,
-    offset: ['start center', 'end center'],
+    offset: ['start start', 'end start'],
   });
+
+  const isLastCard = index === totalCards - 1;
+
+  const cardScale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [1, 0.85]
+  );
+
+  const cardOpacity = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [1, 0]
+  );
 
   const cardY = useTransform(
     scrollYProgress,
-    [0, 0.3, 1],
-    [0, 0, -80 * (totalCards - index - 1)]
-  );
-  const cardOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [1, 1, 0.7, 0.2]
-  );
-  const cardScale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [1, 1, 0.96, 0.88]
-  );
-  const cardZIndex = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [index, index, index + 15, index + 25]
+    [0, 1],
+    [0, -50]
   );
   // Blur removido por custo de performance
 
@@ -77,17 +76,18 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
     <motion.div
       ref={cardRef}
       style={{
-        opacity: cardOpacity,
-        scale: cardScale,
-        y: cardY,
-        zIndex: cardZIndex,
+        opacity: isLastCard ? 1 : cardOpacity,
+        scale: isLastCard ? 1 : cardScale,
+        y: isLastCard ? 0 : cardY,
+        top: `calc(10vh + ${index * 30}px)`,
+        zIndex: index,
       }}
-      className='sticky top-8 w-full max-w-5xl mx-auto transition-all duration-300 ease-out group will-change-transform'
+      className='sticky w-full max-w-5xl mx-auto transition-all duration-300 ease-out group will-change-transform'
     >
       <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
       <Card
-        className='border-border/30 bg-card shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group cursor-pointer'
+        className='border-white/10 bg-zinc-900/90 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group cursor-pointer'
         onClick={handleCardClick}
       >
         <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>
