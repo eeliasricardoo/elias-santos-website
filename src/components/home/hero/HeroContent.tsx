@@ -4,19 +4,12 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useScroll, useTransform } from 'framer-motion';
 import { HERO_CONTENT } from '@/constants/content';
-import { FutureIllustration } from './FutureIllustration';
+
 
 export function HeroContent() {
-  const { scrollY } = useScroll();
-
-  // ✅ Parallax effect baseado no scroll
-  const y = useTransform(scrollY, [0, 300], [0, 100]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   return (
     <motion.div
       className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
-      style={{ y, opacity, willChange: 'transform, opacity' }}
     >
       {/* ✅ Animação de entrada sequencial */}
       <motion.div
@@ -117,8 +110,7 @@ export function HeroContent() {
         </motion.div>
 
 
-        {/* Futuristic Illustration */}
-        <FutureIllustration />
+
       </motion.div>
     </motion.div>
   );
