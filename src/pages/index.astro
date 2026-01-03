@@ -18,10 +18,10 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 	<ProgressIndicator client:load />
 
 	<main class="relative min-h-screen">
-		<HeroSection client:load />
+		<HeroSection client:idle />
 
-		<!-- Background Animado - precisa de client:load para funcionar -->
-		<AnimatedBackground client:load />
+		<!-- Background Animado - carrega apenas quando o navegador estiver ocioso -->
+		<AnimatedBackground client:idle />
 
 		<PortfolioSection client:visible />
 		<AboutMeSection client:visible />
