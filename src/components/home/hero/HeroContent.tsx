@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useScroll, useTransform } from 'framer-motion';
 import { HERO_CONTENT } from '@/constants/content';
-import { FutureIllustration } from '@/components/home/hero/FutureIllustration';
+import { FutureIllustration } from './FutureIllustration';
 
 export function HeroContent() {
   const { scrollY } = useScroll();
@@ -91,8 +91,8 @@ export function HeroContent() {
           </Button>
         </motion.div>
 
-        {/* Futurist Badges */}
-        {/* Future Illustration */}
+
+        {/* Futuristic Illustration */}
         <FutureIllustration />
       </motion.div>
     </motion.div>

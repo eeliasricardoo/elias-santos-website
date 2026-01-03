@@ -4,115 +4,105 @@ import { motion } from 'framer-motion';
 
 export function FutureIllustration() {
     return (
-        <div className="relative w-full max-w-2xl mx-auto h-[300px] mt-12 flex items-center justify-center overflow-hidden">
-            {/* Grid de fundo com perspectiva */}
-            <div className="absolute inset-0 preserve-3d">
-                <motion.div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                        backgroundImage: 'linear-gradient(0deg, transparent 24%, var(--color-primary-500) 25%, var(--color-primary-500) 26%, transparent 27%, transparent 74%, var(--color-primary-500) 75%, var(--color-primary-500) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color-primary-500) 25%, var(--color-primary-500) 26%, transparent 27%, transparent 74%, var(--color-primary-500) 75%, var(--color-primary-500) 76%, transparent 77%, transparent)',
-                        backgroundSize: '30px 30px',
-                        transform: 'perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px)',
-                    }}
-                    animate={{
-                        backgroundPosition: ['0px 0px', '0px 30px']
-                    }}
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
-                />
-            </div>
+        <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] mx-auto mt-12 mb-8 perspective-1000">
+            {/* Central Glowing Core */}
+            <motion.div
+                className="absolute inset-0 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+            >
+                <div className="w-32 h-32 rounded-full bg-primary/20 blur-3xl animate-pulse" />
+            </motion.div>
 
-            {/* Círculo central "Portal" */}
-            <div className="relative z-10 w-48 h-48">
-                {/* Glow externo */}
-                <motion.div
-                    className="absolute inset-0 rounded-full blur-xl bg-primary/20"
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
+            {/* Orbiting Rings */}
+            <svg className="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.circle
+                    cx="200"
+                    cy="200"
+                    r="100"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="1"
+                    strokeDasharray="4 4"
+                    initial={{ rotate: 0, scale: 0.8, opacity: 0 }}
+                    animate={{ rotate: 360, scale: 1, opacity: 0.4 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                />
+                <motion.circle
+                    cx="200"
+                    cy="200"
+                    r="140"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="0.5"
+                    initial={{ rotate: 360, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 0.2 }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                />
+                <motion.circle
+                    cx="200"
+                    cy="200"
+                    r="180"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="0.5"
+                    strokeDasharray="10 10"
+                    initial={{ rotate: 0, opacity: 0 }}
+                    animate={{ rotate: -360, opacity: 0.1 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 />
 
-                {/* Anéis orbitais */}
-                {[0, 1, 2].map((i) => (
-                    <motion.div
+                {/* Floating Particles */}
+                {[...Array(6)].map((_, i) => (
+                    <motion.circle
                         key={i}
-                        className="absolute inset-0 rounded-full border border-primary/30"
-                        style={{
-                            borderWidth: '1px',
-                            borderStyle: i === 1 ? 'dashed' : 'solid'
-                        }}
+                        cx="200"
+                        cy="200"
+                        r="3"
+                        fill="hsl(var(--primary))"
+                        initial={{ opacity: 0 }}
                         animate={{
-                            rotate: i % 2 === 0 ? 360 : -360,
-                            scale: [1, 1.05 + i * 0.05, 1],
+                            opacity: [0, 1, 0],
+                            x: Math.cos(i * 60 * (Math.PI / 180)) * 120,
+                            y: Math.sin(i * 60 * (Math.PI / 180)) * 120,
+                            scale: [0.5, 1.2, 0.5]
                         }}
                         transition={{
-                            rotate: {
-                                duration: 10 + i * 5,
-                                repeat: Infinity,
-                                ease: "linear"
-                            },
-                            scale: {
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: i * 0.5
-                            }
+                            duration: 3 + Math.random(),
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.5
                         }}
                     />
                 ))}
 
-                {/* Núcleo central */}
-                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 backdrop-blur-sm flex items-center justify-center">
-                    <motion.div
-                        className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_var(--color-primary)]"
-                        animate={{
-                            opacity: [0.5, 1, 0.5],
-                            scale: [0.8, 1.2, 0.8]
-                        }}
-                        transition={{
-                            duration: 2,
-                            repeat: Infinity
-                        }}
-                    />
-                </div>
+                {/* Dynamic Lines */}
+                <motion.path
+                    d="M200 100 L200 300 M100 200 L300 200"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="0.5"
+                    strokeOpacity="0.2"
+                    initial={{ pathLength: 0, rotate: 45 }}
+                    animate={{ pathLength: 1, rotate: 225 }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+                />
+            </svg>
 
-                {/* Orbiting particles */}
-                <motion.div
-                    className="absolute inset-0"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
-                    <div className="absolute top-0 left-1/2 w-2 h-2 bg-primary rounded-full blur-[1px] -translate-x-1/2 -translate-y-1/2" />
-                </motion.div>
-            </div>
-
-            {/* Floating UI Elements */}
+            {/* Futuristic Grid Plane (Bottom) */}
             <motion.div
-                className="absolute left-10 bottom-10 px-3 py-1 bg-background/50 backdrop-blur-md border border-primary/20 rounded text-[10px] text-primary/80 font-mono"
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
-            >
-                SYSTEM_ONLINE
-            </motion.div>
-
-            <motion.div
-                className="absolute right-10 top-10 px-3 py-1 bg-background/50 backdrop-blur-md border border-primary/20 rounded text-[10px] text-primary/80 font-mono"
-                initial={{ x: 20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.7 }}
-            >
-                SYNC_RATE: 99.9%
-            </motion.div>
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-[200px] bg-[linear-gradient(to_bottom,transparent_0%,hsl(var(--primary))_0.5px,transparent_1px)] bg-[size:100%_20px] opacity-10"
+                style={{
+                    maskImage: 'linear-gradient(to bottom, transparent, black 80%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 80%)',
+                    transform: 'perspective(500px) rotateX(60deg) translateY(100px)'
+                }}
+                animate={{
+                    backgroundPosition: ["0px 0px", "0px 40px"]
+                }}
+                transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear"
+                }}
+            />
         </div>
     );
 }
