@@ -13,14 +13,10 @@ export function Navbar() {
           <div className='flex items-center justify-between h-16'>
             {/* Logo */}
             <div className='flex items-center'>
-              <a href='/'>
-                <img
-                  src='/logo.png'
-                  alt='ES Logo'
-                  width={40}
-                  height={40}
-                  className='w-10 h-10 object-contain cursor-pointer'
-                />
+              <a href='/' className='flex items-center gap-2.5 group transition-opacity hover:opacity-90'>
+                <span className='text-lg font-semibold tracking-tight text-foreground/90'>
+                  Elias R.
+                </span>
               </a>
             </div>
 
