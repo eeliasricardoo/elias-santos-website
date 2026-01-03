@@ -76,10 +76,6 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
       style={{
         opacity: cardOpacity,
         scale: cardScale,
