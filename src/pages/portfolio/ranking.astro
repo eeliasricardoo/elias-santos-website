@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
 import {
     RankingHeader,
     RankingIntroduction,
@@ -22,9 +23,10 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="Ranking App - UX Research Case Study"
     description="Complete case study of the ranking application developed by Elias Ricardo. UX research, personas, user journey and innovative solutions for gamification."
 >
+    <Navbar client:load />
     <ProgressIndicator client:load />
 
-    <CaseStudyLayout>
+    <CaseStudyLayout client:load>
         <RankingHeader client:load />
         <RankingIntroduction client:visible />
         <RankingProblem client:visible />

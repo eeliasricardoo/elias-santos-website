@@ -1,4 +1,6 @@
-import { ArrowLeft } from 'lucide-react';
+'use client';
+
+import { Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface BackButtonProps {
@@ -6,12 +8,8 @@ interface BackButtonProps {
 }
 
 export function BackButton({ className = '' }: BackButtonProps) {
-  const handleGoBack = () => {
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      window.location.href = '/';
-    }
+  const handleGoHome = () => {
+    window.location.href = '/';
   };
 
   return (
@@ -19,11 +17,11 @@ export function BackButton({ className = '' }: BackButtonProps) {
       <Button
         variant='ghost'
         size='sm'
-        onClick={handleGoBack}
+        onClick={handleGoHome}
         className='flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors'
       >
-        <ArrowLeft className='w-4 h-4' />
-        Back
+        <Home className='w-4 h-4' />
+        Home
       </Button>
     </div>
   );

@@ -123,9 +123,9 @@ export default function RankingUserJourney() {
       className='relative bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6 shadow-lg w-full max-w-sm'
     >
       <div className='flex items-center gap-4 mb-4'>
-        <div className='w-12 h-12 bg-gray-100/80 dark:bg-gray-800/30 rounded-xl flex items-center justify-center flex-shrink-0'>
+        <div className='w-12 h-12 bg-muted/50 rounded-xl flex items-center justify-center flex-shrink-0'>
           <svg
-            className='w-6 h-6 text-gray-600 dark:text-gray-400'
+            className='w-6 h-6 text-muted-foreground'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
@@ -139,17 +139,17 @@ export default function RankingUserJourney() {
           </svg>
         </div>
         <div className='flex-1'>
-          <h3 className='font-semibold text-gray-800 dark:text-gray-100 text-base mb-1'>
+          <h3 className='font-semibold text-foreground text-base mb-1'>
             {step.title}
           </h3>
-          <p className='text-gray-600 dark:text-gray-300 text-sm'>
+          <p className='text-muted-foreground text-sm'>
             {step.description}
           </p>
         </div>
       </div>
-      <div className='bg-gray-50 dark:bg-gray-800/30 rounded-lg p-3'>
+      <div className='bg-muted/30 rounded-lg p-3'>
         <div className='flex items-center justify-between'>
-          <div className='flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400'>
+          <div className='flex items-center gap-2 text-xs text-muted-foreground'>
             <span>{step.context}</span>
           </div>
           {step.action && (
@@ -256,13 +256,13 @@ export default function RankingUserJourney() {
       <div className='relative'>
         <div className='absolute inset-0 bg-gradient-to-b from-gray-500/5 via-gray-500/5 to-gray-500/5 rounded-2xl blur-3xl'></div>
 
-        <div className='relative bg-gray-100 dark:bg-zinc-800/50 backdrop-blur-xl border border-gray-200 dark:border-zinc-700/50 rounded-2xl p-6'>
+        <div className='relative bg-muted/20 backdrop-blur-xl border border-border rounded-2xl p-6'>
           <div className='flex flex-col items-center gap-6'>
             {steps.map((step, index) => (
               <Fragment key={index}>
                 {renderStep(step, index)}
                 {index < steps.length - 1 && (
-                  <div className='text-gray-400 dark:text-gray-500 text-2xl font-bold'>
+                  <div className='text-muted-foreground text-2xl font-bold'>
                     ↓
                   </div>
                 )}

@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
 import { BackButton } from "@/components/portfolio/ui/BackButton";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
@@ -21,9 +22,10 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="Post & Carousel Generator - Case Study"
     description="Complete case study of Post & Carousel Generator, an AI tool that revolutionizes carousel creation for social media. 90% reduction in creation time."
 >
+    <Navbar client:load />
     <ProgressIndicator client:load />
 
-    <CaseStudyLayout>
+    <CaseStudyLayout client:load>
         <!-- Hero Section -->
         <HeroSection client:load />
 

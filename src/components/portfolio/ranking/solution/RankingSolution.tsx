@@ -80,34 +80,34 @@ export default function RankingSolution() {
       <div className='space-y-8'>
         {/* 1. Ranking Rules */}
         <div className='space-y-4'>
-          <h3 className='text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2'>
+          <h3 className='text-2xl font-bold border-b border-border pb-2'>
             1. Ranking Rules
           </h3>
           <div className='space-y-4 text-lg'>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 XP-Based Ranking
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Students are ranked by their total accumulated experience points
                 (XP). The more XP you earn, the higher your position in the
                 ranking.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Tie-Breaking System
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 When two students have the same XP, the one who earned their
                 last XP most recently gets the higher position.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Flexible Filtering
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Students can view rankings by different time periods: total XP,
                 weekly, monthly, yearly, or custom date ranges.
               </p>
@@ -117,34 +117,34 @@ export default function RankingSolution() {
 
         {/* 2. Student Participation */}
         <div className='space-y-4'>
-          <h3 className='text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2'>
+          <h3 className='text-2xl font-bold border-b border-border pb-2'>
             2. Student Participation
           </h3>
           <div className='space-y-4 text-lg'>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Privacy-First Approach
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 All students start excluded from the ranking by default for
                 privacy protection. They must actively choose to participate.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Opt-in Process
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 On first access, students see a friendly modal asking if they
                 want to participate. If they accept, their profile picture and
                 name appear in the ranking.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Flexible Control
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Students can change their participation status anytime through
                 their settings panel, with a 24-hour delay to prevent abuse.
               </p>
@@ -154,33 +154,33 @@ export default function RankingSolution() {
 
         {/* 3. Admin Access */}
         <div className='space-y-4'>
-          <h3 className='text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2'>
+          <h3 className='text-2xl font-bold border-b border-border pb-2'>
             3. Admin Access
           </h3>
           <div className='space-y-4 text-lg'>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Complete Control
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Administrators can enable or disable the entire ranking system
                 for their institution with one click.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Historical Data Management
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 When activating the ranking, administrators can choose whether
                 to include past XP data or start fresh.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Granular Activation
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 The ranking can be activated for specific schools or departments
                 within the institution, allowing for targeted implementation.
               </p>
@@ -190,35 +190,35 @@ export default function RankingSolution() {
 
         {/* 4. User Interface */}
         <div className='space-y-4'>
-          <h3 className='text-2xl font-bold border-b border-gray-200 dark:border-gray-700 pb-2'>
+          <h3 className='text-2xl font-bold border-b border-border pb-2'>
             4. User Interface
           </h3>
           <div className='space-y-4 text-lg'>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Student Panel
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Students see the top 10 ranked students with their own position
                 highlighted. The interface is designed to be motivating and easy
                 to understand.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Admin Dashboard
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Administrators have access to a comprehensive dashboard with
                 ranking management, student oversight, and detailed performance
                 reports.
               </p>
             </div>
             <div>
-              <h4 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+              <h4 className='font-semibold text-foreground mb-2'>
                 Intuitive Navigation
               </h4>
-              <p className='text-gray-600 dark:text-gray-300'>
+              <p className='text-muted-foreground'>
                 Simple date filters allow users to view rankings by different
                 time periods, making navigation and visualization
                 straightforward.

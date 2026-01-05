@@ -25,10 +25,10 @@ export function TestCard({ icon, title, description }: TestCardProps) {
           />
         </svg>
       </div>
-      <h5 className='font-semibold text-gray-800 dark:text-gray-100 mb-2'>
+      <h5 className='font-semibold text-foreground mb-2'>
         {title}
       </h5>
-      <p className='text-gray-600 dark:text-gray-300 text-sm'>{description}</p>
+      <p className='text-muted-foreground text-sm'>{description}</p>
     </div>
   );
 }

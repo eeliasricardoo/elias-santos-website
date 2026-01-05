@@ -49,7 +49,7 @@ export default function RankingIntroduction() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
-              className="font-bold text-gray-400"
+              className="font-bold text-muted-foreground"
             >
               8,500 XP
             </motion.span>

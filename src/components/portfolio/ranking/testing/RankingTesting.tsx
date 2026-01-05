@@ -57,11 +57,11 @@ export default function RankingTesting() {
 
       {/* Tests Conducted */}
       <div className='space-y-4'>
-        <h4 className='text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2'>
+        <h4 className='text-xl font-semibold border-b border-border pb-2'>
           Tests Conducted
         </h4>
         <div className='space-y-4 text-lg'>
-          <div className='bg-white/10 dark:bg-zinc-900/20 backdrop-blur-xl border border-white/20 dark:border-zinc-700/50 rounded-xl p-6'>
+          <div className='bg-muted/20 backdrop-blur-xl border border-border rounded-xl p-6'>
             <div className='grid gap-6 md:grid-cols-3'>
               {tests.map(test => (
                 <TestCard
@@ -82,7 +82,7 @@ export default function RankingTesting() {
           Key Adjustments
         </h4>
         <div className='space-y-4 text-lg'>
-          <div className='bg-white/10 dark:bg-zinc-700/50 rounded-xl p-6'>
+          <div className='bg-muted/20 rounded-xl p-6'>
             <div className='space-y-4'>
               {adjustments.map(adjustment => (
                 <AdjustmentCard
@@ -105,12 +105,12 @@ export default function RankingTesting() {
         <div className='space-y-4 text-lg'>
           <div className='bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-xl border border-blue-200 dark:border-blue-700/50 rounded-xl p-6'>
             <div className='space-y-4'>
-              <p className='text-gray-800 dark:text-gray-200 leading-relaxed'>
+              <p className='text-foreground leading-relaxed'>
                 The ranking system provides gamified engagement, allowing
                 students to track their progress while admins encourage active
                 participation.
               </p>
-              <p className='text-gray-700 dark:text-gray-300 leading-relaxed'>
+              <p className='text-muted-foreground leading-relaxed'>
                 This case study demonstrates the importance of user-centered
                 design, with decisions based on research and testing, ensuring a
                 functional and accessible solution.

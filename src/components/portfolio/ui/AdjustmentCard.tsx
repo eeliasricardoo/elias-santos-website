@@ -30,10 +30,10 @@ export function AdjustmentCard({
         </svg>
       </div>
       <div>
-        <h5 className='font-semibold text-gray-800 dark:text-gray-100 mb-1'>
+        <h5 className='font-semibold text-foreground mb-1'>
           {title}
         </h5>
-        <p className='text-gray-600 dark:text-gray-300'>{description}</p>
+        <p className='text-muted-foreground'>{description}</p>
       </div>
     </div>
   );

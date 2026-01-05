@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { BackButton } from "@/components/portfolio/ui/BackButton";
+import { Navbar } from "@/components/Navbar";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
     HeroSection,
@@ -20,27 +20,19 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="Feat UX/UI — Support Queue — Omnichannel Chat | Case Study"
     description="How we reduced time-to-first-response by 22% using waiting-time queue ordering and a persistent, actionable assignment pop-up. First-contact CSAT increased from 4.1 to 4.3 and reopens dropped by 9%."
 >
+    <Navbar client:load />
     <ProgressIndicator client:load />
 
-    <Layout
-        title="Feat UX/UI — Support Queue — Omnichannel Chat | Case Study"
-        description="How we reduced time-to-first-response by 22% using waiting-time queue ordering and a persistent, actionable assignment pop-up. First-contact CSAT increased from 4.1 to 4.3 and reopens dropped by 9%."
-    >
-        <ProgressIndicator client:load />
-
-        <CaseStudyLayout>
-            <HeroSection client:load />
-            <IntroductionSection client:visible />
-            <ProblemSection client:visible />
-            <SolutionSection client:visible />
-            <FeaturesSection client:visible />
-            <UXProcessSection client:visible />
-            <ResultsSection client:visible />
-            <CallToActionSection client:visible />
-        </CaseStudyLayout>
-
-        <ScrollIndicator client:load />
-    </Layout>
+    <CaseStudyLayout client:load>
+        <HeroSection client:load />
+        <IntroductionSection client:visible />
+        <ProblemSection client:visible />
+        <SolutionSection client:visible />
+        <FeaturesSection client:visible />
+        <UXProcessSection client:visible />
+        <ResultsSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
 
     <ScrollIndicator client:load />
 </Layout>
