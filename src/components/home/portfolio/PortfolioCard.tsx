@@ -84,10 +84,10 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       }}
       className='sticky w-full max-w-5xl mx-auto transition-all duration-300 ease-out group will-change-transform'
     >
-      <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+      <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-all duration-500' />
 
       <Card
-        className='border-white/5 bg-black/90 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-300 relative z-10 group cursor-pointer'
+        className='border-white/5 bg-black/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-pointer'
         onClick={handleCardClick}
       >
         <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>

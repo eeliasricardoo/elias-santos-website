@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/home";
-import { PortfolioSection } from "@/components/home/portfolio/PortfolioSection";
+import { RolesSection } from "@/components/home/roles/RolesSection";
+import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
 import { AboutMeSection } from "@/components/home/about-me/AboutMeSection";
 import { DepoimentsSection } from "@/components/home/depoiments/DepoimentsSection";
 import { GetInTouch } from "@/components/home/get-in-touch/GetInTouch";
@@ -23,7 +24,8 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 		<!-- Background Animado - carrega apenas quando o navegador estiver ocioso -->
 		<AnimatedBackground client:idle />
 
-		<PortfolioSection client:visible />
+		<RolesSection client:visible />
+		<ProjectsSection client:visible />
 		<AboutMeSection client:visible />
 		<DepoimentsSection client:visible />
 		<GetInTouch client:visible />
