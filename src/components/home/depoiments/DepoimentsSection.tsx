@@ -1,11 +1,11 @@
 
 
-import { motion } from 'framer-motion';
 import { TestimonialCard } from '../ui';
 import { useMounted } from '@/hooks/use-mounted';
 import { Marquee } from '@/components/magicui/marquee';
 import { usePerformance } from '@/hooks/use-performance-tier';
 import { useIntersectionPause } from '@/hooks/use-intersection-pause';
+import { useInViewOnce } from '@/hooks/use-optimized-inview';
 
 interface Testimonial {
   id: number;
@@ -94,16 +94,17 @@ export function DepoimentsSection() {
   const mounted = useMounted();
   const performanceTier = usePerformance();
   const { ref, isVisible } = useIntersectionPause();
+  const { ref: headerRef, isInView: headerInView } = useInViewOnce();
+  const { ref: contentRef, isInView: contentInView } = useInViewOnce({ rootMargin: '0px' });
 
   return (
     <section id='depoiments' className='relative py-20 px-4' ref={ref}>
       <div className='max-w-6xl mx-auto space-y-12'>
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className='text-center space-y-6'
+        <div
+          ref={headerRef as any}
+          className={`text-center space-y-6 transition-all duration-700 ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           {!mounted ? (
             <div className='h-8 bg-muted/20 rounded animate-pulse max-w-2xl mx-auto'></div>
@@ -113,14 +114,13 @@ export function DepoimentsSection() {
               experienced exceptional results:
             </h2>
           )}
-        </motion.div>
+        </div>
 
         {/* Marquee com depoimentos - Duas linhas com movimento cruzado */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className='relative'
+        <div
+          ref={contentRef as any}
+          className={`relative transition-all duration-700 delay-200 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            }`}
         >
           {/* ✅ Low-end: Static grid instead of marquee */}
           {performanceTier === 'low' ? (
@@ -175,7 +175,7 @@ export function DepoimentsSection() {
               </div>
             </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </section >
   );

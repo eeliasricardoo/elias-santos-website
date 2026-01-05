@@ -1,5 +1,4 @@
 
-import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { AnimatedMockup } from '../portfolio/AnimatedMockup';
@@ -32,21 +31,24 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     }, [index]);
 
     const handleCardClick = () => {
-        window.location.href = getRoute();
+        // Use native navigation for better performance
+        const route = getRoute();
+        window.location.href = route;
     };
 
     const handleButtonClick = (e: React.MouseEvent) => {
         e.stopPropagation();
-        window.location.href = getRoute();
+        const route = getRoute();
+        window.location.href = route;
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="w-full max-w-5xl mx-auto"
+        <div
+            className="w-full max-w-5xl mx-auto opacity-0 translate-y-5 animate-fade-in-up"
+            style={{
+                animationDelay: `${index * 100}ms`,
+                animationFillMode: 'forwards',
+            }}
         >
             <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-all duration-500' />
 
@@ -95,6 +97,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     </div>
                 </CardContent>
             </Card>
-        </motion.div>
+        </div>
     );
 }

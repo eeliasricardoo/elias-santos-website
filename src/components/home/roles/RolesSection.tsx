@@ -2,100 +2,100 @@
 import { useRef } from 'react';
 import { RoleCard } from './RoleCard';
 
-const roles = [
+const aboutMeContent = [
     {
         id: 1,
-        title: 'UX/UI Designer',
-        description: 'Transforming complex problems into intuitive and beautiful interfaces. Focused on user needs and business goals.',
-        skills: [
+        title: 'Who I Am',
+        description: 'A designer and developer passionate about creating digital experiences that people love. I bridge the gap between beautiful design and functional code.',
+        highlights: [
             {
-                name: 'Figma',
-                description: 'The industry-standard collaborative design tool.',
-                usage: 'I use Figma for everything from initial wireframing to high-fidelity prototyping. My workflow involves creating robust component libraries and using auto-layout to ensure responsiveness from day one.'
+                name: 'User-Centered Design',
+                description: 'Putting people first in every decision.',
+                usage: 'Every interface I create starts with understanding the user. I believe great design is invisible – it just works.'
             },
             {
-                name: 'Prototyping',
-                description: 'Creating interactive simulations of a product.',
-                usage: 'I build clickable prototypes to validate flows with stakeholders and users before writing a single line of code, saving time and reducing development risk.'
+                name: 'Attention to Detail',
+                description: 'Obsessed with the small things that matter.',
+                usage: 'From micro-interactions to typography choices, I believe that details make the difference between good and exceptional.'
             },
             {
-                name: 'User Research',
-                description: 'Understanding user behaviors, needs, and motivations.',
-                usage: 'I conduct user interviews and usability testing to gather qualitative data, which I then synthesize into personas and journey maps to guide design decisions.'
+                name: 'Continuous Learning',
+                description: 'Always evolving with technology.',
+                usage: 'The digital landscape changes fast. I stay curious and keep learning to deliver solutions using the best tools available.'
             },
             {
-                name: 'Design Systems',
-                description: 'A collection of reusable components and standards.',
-                usage: 'I create and maintain design systems (tokens, components, patterns) to ensure visual consistency and speed up the handoff process between design and development.'
+                name: 'Problem Solver',
+                description: 'Finding elegant solutions to complex challenges.',
+                usage: 'I enjoy breaking down complex problems into simple, intuitive solutions that make sense to users.'
             },
             {
-                name: 'Wireframing',
-                description: 'The visual blueprint of a user interface.',
-                usage: 'I use low-fidelity wireframes to rapidly explore layout structure and information architecture without getting distracted by visual details.'
+                name: 'Collaborative Spirit',
+                description: 'Better together.',
+                usage: 'I thrive in collaborative environments, working with teams to bring ideas to life and learn from different perspectives.'
             }
         ]
     },
     {
         id: 2,
-        title: 'Frontend Developer',
-        description: 'Building responsive, high-performance web applications with modern technologies. Clean code and pixel-perfect implementation.',
-        skills: [
+        title: 'What Drives Me',
+        description: 'I\'m driven by the impact technology can have on people\'s lives. Creating products that are not just functional, but delightful to use.',
+        highlights: [
             {
-                name: 'React',
-                description: 'A JavaScript library for building user interfaces.',
-                usage: 'I use React to build component-based architectures. I leverage hooks for state management and context for global state, ensuring modular and reusable code.'
+                name: 'User Impact',
+                description: 'Making a difference through design.',
+                usage: 'Nothing beats the feeling of seeing users effortlessly navigate something I created. I measure success by user satisfaction.'
             },
             {
-                name: 'Next.js',
-                description: 'The React Framework for the Web.',
-                usage: 'My go-to framework for production apps. I use it for Server-Side Rendering (SSR) to improve SEO and performance, and API routes to handle backend logic.'
+                name: 'Innovation',
+                description: 'Pushing boundaries and exploring new possibilities.',
+                usage: 'I\'m excited by emerging technologies and how they can be applied to solve real problems in creative ways.'
             },
             {
-                name: 'TypeScript',
-                description: 'JavaScript with syntax for types.',
-                usage: 'I strictly use TypeScript to catch errors early and improve code maintainability. It also serves as excellent self-documentation for the codebase.'
+                name: 'Quality',
+                description: 'Crafting experiences that stand the test of time.',
+                usage: 'I don\'t just ship features – I craft experiences. Code quality, performance, and maintainability are not optional.'
             },
             {
-                name: 'Tailwind CSS',
-                description: 'A utility-first CSS framework.',
-                usage: 'I love Tailwind for its speed. I use it to build custom designs without leaving the markup, reducing context switching and keeping CSS bundle sizes small.'
+                name: 'Data-Driven Insights',
+                description: 'Letting numbers guide decisions.',
+                usage: 'I believe in validating assumptions with data. Analytics and user testing inform my design decisions.'
             },
             {
-                name: 'Framer Motion',
-                description: 'A production-ready motion library for React.',
-                usage: 'I use Framer Motion to add layout animations and gesture-based interactions that make the UI feel "alive" and polished, like the cards you see here.'
+                name: 'Accessibility',
+                description: 'Design for everyone.',
+                usage: 'Creating inclusive experiences that work for all users, regardless of their abilities, is a core value in my work.'
             }
         ]
     },
     {
         id: 3,
-        title: 'Data Driven',
-        description: 'Leveraging data to make informed decisions and optimize user experience. Tracking metrics that matter.',
-        skills: [
+        title: 'My Expertise',
+        description: 'With a unique blend of design sensibility and development skills, I bring ideas to life from concept to production.',
+        highlights: [
             {
-                name: 'Google Analytics 4',
-                description: 'Web analytics service.',
-                usage: 'I set up GA4 to track user journeys and conversion events, helping to identify drop-off points and measure the success of new features.'
+                name: 'Product Innovation',
+                description: 'From idea to market.',
+                usage: 'I\'ve helped teams launch innovative products by combining design thinking with technical expertise.'
             },
             {
-                name: 'Google Tag Manager',
-                description: 'Tag management system.',
-                usage: 'I use GTM to deploy marketing tags and tracking pixels without needing to modify the code, giving marketing teams more autonomy.'
+                name: 'Rapid Prototyping',
+                description: 'Fail fast, learn faster.',
+                usage: 'I build interactive prototypes to test hypotheses quickly, saving time and resources in the long run.'
             },
             {
-                name: 'Hotjar',
-                description: 'Behavior analytics and user feedback service.',
-                usage: 'I analyze heatmaps and session recordings to see exactly how users interact with the interface, often uncovering usability issues that metrics miss.'
+                name: 'Modern Tech Stack',
+                description: 'React, Next.js, TypeScript, and more.',
+                usage: 'I work with cutting-edge technologies to build fast, scalable, and maintainable applications.'
             },
             {
-                name: 'A/B Testing',
-                description: 'Split testing method.',
-                usage: 'I hypothesize and test variations of UI elements (like buttons or headlines) to statistically prove which version performs better for specific goals.'
+                name: 'AI-Powered Solutions',
+                description: 'Leveraging AI to enhance UX.',
+                usage: 'I explore how AI can make experiences smarter and more personalized, from chatbots to recommendation systems.'
             },
             {
-                name: 'Mixpanel',
-                description: 'Product analytics for mobile and web.',
-                usage: 'I use Mixpanel for more granular, event-based tracking to understand retention and cohort behavior, going deeper than standard page views.'
+                name: 'Design Systems',
+                description: 'Building scalable design foundations.',
+                usage: 'I create comprehensive design systems that ensure consistency and speed up development cycles.'
             }
         ]
     }
@@ -111,12 +111,12 @@ export function RolesSection() {
             className='relative py-14 md:py-20 px-0'
         >
             <div className='relative flex flex-col gap-16 md:gap-24'>
-                {roles.map((role, index) => (
+                {aboutMeContent.map((role, index) => (
                     <RoleCard
                         key={role.id}
                         role={role}
                         index={index}
-                        totalCards={roles.length}
+                        totalCards={aboutMeContent.length}
                     />
                 ))}
             </div>
