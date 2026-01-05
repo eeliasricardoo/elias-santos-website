@@ -10,7 +10,7 @@ const portfolioCards = [
     description:
       'Personal AI ecosystem with unified chat, screenshot analysis, and multimodal generation. Long‑term memory, reusable prompts, and context‑aware tools. Built with Next.js and streaming; ~75% cheaper than commercial alternatives. Productivity‑focused: fast responses, organized history, and reusable flows.',
     buttonText: 'View Case Study',
-    image: '/portfolios/ventus/v9.png',
+    image: '/portfolios/ventus/v9.webp',
     imageAlt: 'Chat AI interface',
   },
   {
@@ -19,7 +19,7 @@ const portfolioCards = [
     description:
       'No‑code tool to create professional carousels in minutes: drag‑and‑drop, ready‑made templates, theme editor, export to React/HTML/PNG, and performance optimizations (lazy loading and responsive images). Includes AI text generation, autosave, version history, and real‑time preview. Outcome: ~90% reduction in content production time and consistent visuals across channels.',
     buttonText: 'View Case Study',
-    image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.png',
+    image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.webp',
     imageAlt: 'Carousel Builder preview',
   },
   {
@@ -28,7 +28,7 @@ const portfolioCards = [
     description:
       'Gamification engine with weekly and monthly leaderboards, badges, levels, and dynamic scoring (ELO‑inspired). Admin panel for rules, bulk imports, and audit. Smart caching, SSR, and pagination for high load. Impact: +40% engagement and clear goal tracking by class/team.',
     buttonText: 'View Case Study',
-    image: '/portfolios/ranking/ranking.png',
+    image: '/portfolios/ranking/ranking.webp',
     imageAlt: 'Ranking System interface',
   },
   {
@@ -37,7 +37,7 @@ const portfolioCards = [
     description:
       'UX/UI case study that reduced customer wait time by 22% through intelligent queue management and a persistent notification system. Key improvements: waiting-time queue ordering and actionable assignment pop-ups. Results: 22% faster response time, improved CSAT from 4.1 to 4.3, and 9% fewer reopened tickets.',
     buttonText: 'View Case Study',
-    image: '/portfolios/fila-atendimento/1.png',
+    image: '/portfolios/fila-atendimento/1.webp',
     imageAlt: 'Support Queue — Omnichannel Chat',
   },
 ];

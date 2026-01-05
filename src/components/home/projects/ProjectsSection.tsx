@@ -10,28 +10,28 @@ const projects = [
         description: 'Personal AI ecosystem with unified chat, screenshot analysis, and multimodal generation.',
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
-        image: '/portfolios/ventus/v9.png'
+        image: '/portfolios/ventus/v9.webp'
     },
     {
         title: 'Carousel Builder',
         description: 'No-code tool to create professional carousels in minutes with real-time preview.',
         tags: ['React', 'No-Code', 'Automation'],
         link: '/portfolio/carousel-builder',
-        image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.png'
+        image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.webp'
     },
     {
         title: 'Ranking Engine',
         description: 'Gamification engine with weekly leaderboards, badges, and dynamic scoring.',
         tags: ['Gamification', 'SSR', 'Caching'],
         link: '/portfolio/ranking',
-        image: '/portfolios/ranking/ranking.png'
+        image: '/portfolios/ranking/ranking.webp'
     },
     {
         title: 'Support Queue',
         description: 'Omnichannel chat system reducing wait time by 22% through intelligent queuing.',
         tags: ['UX/UI', 'Real-time', 'Optimization'],
         link: '/portfolio/support-queue',
-        image: '/portfolios/fila-atendimento/1.png'
+        image: '/portfolios/fila-atendimento/1.webp'
     }
 ];
 

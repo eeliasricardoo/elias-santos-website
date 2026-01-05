@@ -14,16 +14,20 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 ---
 
 <Layout title="Elias Ricardo | Portfolio">
+	<!-- Navbar needs to be interactive immediately -->
 	<Navbar client:load />
 
-	<ProgressIndicator client:load />
+	<!-- Progress indicator can load after main content -->
+	<ProgressIndicator client:visible />
 
 	<main class="relative min-h-screen">
-		<HeroSection client:idle />
+		<!-- Hero loads first - most critical for LCP -->
+		<HeroSection client:load />
 
-		<!-- Background Animado - carrega apenas quando o navegador estiver ocioso -->
-		<AnimatedBackground client:idle />
+		<!-- Background animation - only on desktop, deferred -->
+		<AnimatedBackground client:media="(min-width: 768px)" />
 
+		<!-- Content sections load when scrolled into view -->
 		<RolesSection client:visible />
 		<ProjectsSection client:visible />
 		<DepoimentsSection client:visible />
@@ -31,5 +35,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 	</main>
 
 	<Footer client:visible />
-	<ScrollIndicator client:load />
+
+	<!-- Scroll indicator loads last -->
+	<ScrollIndicator client:visible />
 </Layout>
