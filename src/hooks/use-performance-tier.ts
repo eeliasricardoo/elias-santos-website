@@ -33,10 +33,13 @@ export function usePerformanceTier(): PerformanceMetrics {
         const connection = nav.connection || nav.mozConnection || nav.webkitConnection;
         const connectionType = connection?.effectiveType; // '4g', '3g', '2g', 'slow-2g'
 
+        // Detect touch device (mobile/tablet) - important for INP optimization
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
         // Calculate performance tier
         let tier: PerformanceTier = 'high';
 
-        // Low-end detection
+        // Low-end detection (aggressive for INP)
         if (
             (deviceMemory && deviceMemory <= 2) || // <= 2GB RAM
             hardwareConcurrency <= 2 || // <= 2 CPU cores
@@ -45,11 +48,12 @@ export function usePerformanceTier(): PerformanceMetrics {
         ) {
             tier = 'low';
         }
-        // Medium-end detection
+        // Medium-end detection (includes most mobile devices)
         else if (
             (deviceMemory && deviceMemory <= 4) || // <= 4GB RAM
             hardwareConcurrency <= 4 || // <= 4 CPU cores
-            connectionType === '3g'
+            connectionType === '3g' ||
+            isTouchDevice // Most mobile devices - reduces animations for better INP
         ) {
             tier = 'medium';
         }
