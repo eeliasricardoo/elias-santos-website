@@ -433,4 +433,10 @@
 
 .animate-rainbow {
   animation: rainbow 3s ease infinite;
+  /* Force GPU acceleration to prevent forced reflows */
+  will-change: background-position;
+  transform: translate3d(0, 0, 0);
+  /* Optimize compositing */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }

@@ -17,10 +17,11 @@ export function ProfilePhoto() {
           damping: 20,
           duration: 0.8,
         }}
-        className='relative transition-transform hover:scale-105'
+        className='relative will-change-transform'
+        style={{ transform: 'translateZ(0)' }}
       >
         {/* Container da foto */}
-        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl bg-muted/20'>
+        <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl bg-muted/20 transition-transform hover:scale-105 will-change-transform'>
           {/* Using picture element with optimized formats */}
           <picture>
             {/* AVIF for best compression (6KB) */}

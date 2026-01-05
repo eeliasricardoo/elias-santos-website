@@ -106,9 +106,23 @@ const DockIcon = ({
   const ref = useRef<HTMLDivElement>(null);
   const padding = Math.max(6, size * 0.2);
   const defaultMouseX = useMotionValue(Infinity);
+  const rafId = useRef<number | null>(null);
+  const cachedBounds = useRef({ x: 0, width: 0 });
 
   const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+    // Use cached bounds to prevent forced reflow
+    // Update bounds on RAF for better performance
+    if (rafId.current === null && ref.current) {
+      rafId.current = requestAnimationFrame(() => {
+        if (ref.current) {
+          const bounds = ref.current.getBoundingClientRect();
+          cachedBounds.current = { x: bounds.x, width: bounds.width };
+        }
+        rafId.current = null;
+      });
+    }
+
+    const bounds = cachedBounds.current;
     return val - bounds.x - bounds.width / 2;
   });
 
@@ -124,12 +138,21 @@ const DockIcon = ({
     damping: 12,
   });
 
+  // Cleanup RAF on unmount
+  React.useEffect(() => {
+    return () => {
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+      }
+    };
+  }, []);
+
   return (
     <motion.div
       ref={ref}
       style={{ width: scaleSize, height: scaleSize, padding }}
       className={cn(
-        'flex aspect-square cursor-pointer items-center justify-center rounded-full',
+        'flex aspect-square cursor-pointer items-center justify-center rounded-full will-change-transform',
         className
       )}
       {...props}
