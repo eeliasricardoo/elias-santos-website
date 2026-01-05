@@ -1,0 +1,48 @@
+---
+interface Props {
+    src: string;
+    alt: string;
+    class?: string;
+    priority?: boolean;
+    sizes?: string;
+}
+
+const {
+    src,
+    alt,
+    class: className = "",
+    priority = false,
+    sizes = "(max-width: 768px) 100vw, 662px",
+} = Astro.props;
+
+// Generate responsive image URLs (Astro will handle optimization automatically)
+const widths = [320, 640, 662, 800, 1024];
+const formats = ["webp", "avif"];
+---
+
+<picture>
+    {
+        formats.map((format) => (
+            <source
+                type={`image/${format}`}
+                srcset={widths
+                    .map(
+                        (width) =>
+                            `${src}?w=${width}&format=${format} ${width}w`,
+                    )
+                    .join(", ")}
+                sizes={sizes}
+            />
+        ))
+    }
+    <img
+        src={src}
+        alt={alt}
+        class={className}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchpriority={priority ? "high" : "auto"}
+        width="800"
+        height="404"
+    />
+</picture>

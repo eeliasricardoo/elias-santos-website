@@ -67,6 +67,10 @@ export function ProjectsSection({
                                         src={project.image}
                                         alt={project.title}
                                         className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="800"
+                                        height="404"
                                     />
                                 </div>
                                 <CardContent className="flex flex-col justify-between p-6 h-[calc(100%-192px)]">
