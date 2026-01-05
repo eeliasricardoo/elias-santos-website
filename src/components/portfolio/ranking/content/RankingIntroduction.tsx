@@ -1,28 +1,37 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, AnimatedContainer } from '../../ui';
+import { CaseStudySection, AnimatedContainer, MetricsGrid, type MetricItem } from '../../ui';
+
+const metrics: MetricItem[] = [
+  { value: '+40%', label: 'Engagement', color: 'text-green-500' },
+  { value: '+12,000', label: 'Users', color: 'text-blue-500' },
+  { value: '18', label: 'Institutions', color: 'text-purple-500' },
+];
 
 export default function RankingIntroduction() {
   return (
-    <Section title='Introduction'>
-      <p className='text-muted-foreground text-lg'>
+    <CaseStudySection title="Introduction">
+      <p>
         In digital education platforms, gamification has been an effective tool
         for engaging students. One of the main gamified mechanisms is the
         ranking system, which allows students to track their progress and
         compare their performance with peers.
       </p>
-      <p className='text-muted-foreground text-lg'>
+
+      <p>
         This case study documents the UX design process for implementing a
         ranking system based on XP (experience points) within a learning
         platform.
       </p>
 
+      <MetricsGrid metrics={metrics} />
+
       {/* Animação de Gamificação */}
       <AnimatedContainer>
         {/* Barra de progresso animada */}
-        <div className='mb-6'>
-          <div className='bg-gray-800 rounded-full h-4 overflow-hidden border border-border/30'>
+        <div className="mb-6">
+          <div className="bg-gray-800 rounded-full h-4 overflow-hidden border border-border/30">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: '85%' }}
@@ -31,16 +40,16 @@ export default function RankingIntroduction() {
                 ease: 'easeOut',
                 delay: 0.5,
               }}
-              className='bg-gray-400 h-full rounded-full shadow-lg'
+              className="bg-gray-400 h-full rounded-full shadow-lg"
             />
           </div>
-          <div className='flex justify-between text-sm text-foreground mt-2'>
-            <span className='font-medium'>0 XP</span>
+          <div className="flex justify-between text-sm text-foreground mt-2">
+            <span className="font-medium">0 XP</span>
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
-              className='font-bold text-gray-400'
+              className="font-bold text-gray-400"
             >
               8,500 XP
             </motion.span>
@@ -48,7 +57,7 @@ export default function RankingIntroduction() {
         </div>
 
         {/* Ranking animado */}
-        <div className='space-y-3'>
+        <div className="space-y-3">
           {[
             {
               pos: 1,
@@ -88,12 +97,12 @@ export default function RankingIntroduction() {
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.2 + idx * 0.4 }}
-                className='flex-1'
+                className="flex-1"
               >
-                <div className='text-sm font-semibold text-foreground'>
+                <div className="text-sm font-semibold text-foreground">
                   {item.label}
                 </div>
-                <div className='text-xs text-muted-foreground'>
+                <div className="text-xs text-muted-foreground">
                   Level {item.level} • {item.xp} XP
                 </div>
               </motion.div>
@@ -101,6 +110,6 @@ export default function RankingIntroduction() {
           ))}
         </div>
       </AnimatedContainer>
-    </Section>
+    </CaseStudySection>
   );
 }

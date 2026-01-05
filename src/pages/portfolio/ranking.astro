@@ -13,6 +13,7 @@ import {
     RankingTesting,
     RankingAuthor,
 } from "@/components/portfolio/ranking";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import { ProgressIndicator } from "@/components/home/ProgressIndicator";
 import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 ---
@@ -23,7 +24,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 >
     <ProgressIndicator client:load />
 
-    <main class="max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24 min-h-screen">
+    <CaseStudyLayout>
         <RankingHeader client:load />
         <RankingIntroduction client:visible />
         <RankingProblem client:visible />
@@ -35,7 +36,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
         <RankingSolution client:visible />
         <RankingTesting client:visible />
         <RankingAuthor client:visible />
-    </main>
+    </CaseStudyLayout>
 
     <ScrollIndicator client:load />
 </Layout>

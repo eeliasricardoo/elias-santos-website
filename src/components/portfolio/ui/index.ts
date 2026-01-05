@@ -8,3 +8,9 @@ export { PersonaCard } from './PersonaCard';
 export { AnimatedContainer } from './AnimatedContainer';
 export { TestCard } from './TestCard';
 export { AdjustmentCard } from './AdjustmentCard';
+
+// New Standard Components
+export { CaseStudyLayout } from './CaseStudyLayout';
+export { CaseStudyHero } from './CaseStudyHero';
+export { CaseStudySection } from './CaseStudySection';
+export { MetricsGrid, type MetricItem } from './MetricsGrid';

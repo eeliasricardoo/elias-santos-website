@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { BackButton } from "@/components/portfolio/ui/BackButton";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
     HeroSection,
     IntroductionSection,
@@ -22,12 +23,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 >
     <ProgressIndicator client:load />
 
-    <main class="max-w-4xl mx-auto py-12 px-4 space-y-20 pt-24 min-h-screen">
-        <!-- Header -->
-        <header class="mb-10 text-left">
-            <BackButton client:load />
-        </header>
-
+    <CaseStudyLayout>
         <!-- Hero Section -->
         <HeroSection client:load />
 
@@ -54,7 +50,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 
         <!-- Call to Action -->
         <CallToActionSection client:visible />
-    </main>
+    </CaseStudyLayout>
 
     <ScrollIndicator client:load />
 </Layout>
