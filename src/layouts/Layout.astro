@@ -16,26 +16,53 @@ const {
 <html lang="pt-BR" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+
+		<!-- DNS Prefetch for faster external resources -->
+		<link rel="dns-prefetch" href="https://api.fontshare.com" />
+		<link rel="dns-prefetch" href="https://cdn.fontshare.com" />
+
+		<!-- Preconnect to external domains -->
+		<link rel="preconnect" href="https://api.fontshare.com" />
+		<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+
+		<!-- Preload critical font with display=swap for faster LCP -->
+		<link
+			rel="preload"
+			href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript>
+			<link
+				href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+				rel="stylesheet"
+			/>
+		</noscript>
+
+		<!-- Inline critical font-face to prevent FOIT -->
+		<style>
+			@font-face {
+				font-family: "Satoshi-fallback";
+				size-adjust: 105%;
+				src: local("Arial");
+			}
+			body {
+				font-family:
+					"Satoshi",
+					"Satoshi-fallback",
+					-apple-system,
+					BlinkMacSystemFont,
+					sans-serif;
+			}
+		</style>
+
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://api.fontshare.com" />
-		<link
-			rel="preconnect"
-			href="https://cdn.fontshare.com"
-			crossorigin="anonymous"
-		/>
-		<link
-			href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
-			rel="stylesheet"
-		/>
 		<title>{title}</title>
 	</head>
-	<body
-		class="min-h-screen bg-background font-sans antialiased"
-		style="font-family: 'Satoshi', sans-serif;"
-	>
+	<body class="min-h-screen bg-background font-sans antialiased">
 		<slot />
 	</body>
 </html>
