@@ -1,11 +1,9 @@
 
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Badge } from '@/components/ui/badge';
-
-
+import { useInViewOnce } from '@/hooks/use-optimized-inview';
 
 interface RoleCardProps {
     role: {
@@ -21,44 +19,24 @@ interface RoleCardProps {
 export function RoleCard({ role, index, totalCards }: RoleCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     const isMobile = useIsMobile();
-    const { scrollYProgress } = useScroll({
-        target: cardRef,
-        offset: ['start start', 'end start'],
-    });
+    const { ref: inViewRef, isInView } = useInViewOnce({ rootMargin: '0px' });
 
     const isLastCard = index === totalCards - 1;
 
-    const cardScale = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [1, 0.85]
-    );
-
-    const cardOpacity = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [1, 0]
-    );
-
-    const cardY = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [0, -50]
-    );
-
     return (
-        <motion.div
-            ref={cardRef}
+        <div
+            ref={(node) => {
+                cardRef.current = node;
+                (inViewRef as any).current = node;
+            }}
             style={{
-                opacity: isLastCard ? 1 : cardOpacity,
-                scale: isLastCard ? 1 : cardScale,
-                y: isLastCard ? 0 : cardY,
                 top: `calc(10vh + ${index * 30}px)`,
                 zIndex: index,
             }}
-            className='sticky w-full max-w-5xl mx-auto transition-all duration-300 ease-out group will-change-transform'
+            className={`sticky w-full max-w-5xl mx-auto group transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
         >
-            <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-all duration-500' />
+            <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
             <Card
                 className='border-white/5 bg-black/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-default h-[500px]'
@@ -96,6 +74,6 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                     </div>
                 </CardContent>
             </Card>
-        </motion.div>
+        </div>
     );
 }

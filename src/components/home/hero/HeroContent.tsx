@@ -2,7 +2,6 @@ import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { useScroll, useTransform } from 'framer-motion';
 import { HERO_CONTENT } from '@/constants/content';
 import { usePerformance } from '@/hooks/use-performance-tier';
 
@@ -77,7 +76,7 @@ export function HeroContent() {
           {HERO_CONTENT.description}
         </motion.p>
 
-        {/* ✅ CTA Buttons */}
+        {/* ✅ CTA Buttons - CSS hover instead of JS for better INP */}
         <motion.div
           className='flex flex-wrap items-center justify-center gap-4 pt-4'
           initial={{ opacity: 0, y: 40 }}
@@ -87,7 +86,7 @@ export function HeroContent() {
             delay: 0.5
           }}
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <div className="transition-transform hover:scale-105 active:scale-95">
             <RainbowButton
               asChild
               variant='outline'
@@ -104,9 +103,9 @@ export function HeroContent() {
                 </span>
               </a>
             </RainbowButton>
-          </motion.div>
+          </div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <div className="transition-transform hover:scale-105 active:scale-95">
             <Button
               variant='outline'
               size='lg'
@@ -121,7 +120,7 @@ export function HeroContent() {
                 {HERO_CONTENT.cta.secondary.text}
               </a>
             </Button>
-          </motion.div>
+          </div>
         </motion.div>
 
 
