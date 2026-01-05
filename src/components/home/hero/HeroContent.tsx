@@ -4,9 +4,17 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useScroll, useTransform } from 'framer-motion';
 import { HERO_CONTENT } from '@/constants/content';
+import { usePerformance } from '@/hooks/use-performance-tier';
 
 
 export function HeroContent() {
+  const performanceTier = usePerformance();
+
+  // ✅ Use lighter animations on low/medium devices
+  const springConfig = performanceTier === 'high'
+    ? { type: "spring" as const, stiffness: 100, damping: 20 }
+    : { type: "tween" as const, duration: 0.5, ease: "easeOut" as const };
+
   return (
     <motion.div
       className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
@@ -17,9 +25,7 @@ export function HeroContent() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 20,
+          ...springConfig,
           delay: 0.2
         }}
       >
@@ -28,9 +34,7 @@ export function HeroContent() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
+            ...springConfig,
             delay: 0.3
           }}
         >
@@ -38,22 +42,24 @@ export function HeroContent() {
             {HERO_CONTENT.headline.prefix}{' '}
             <span className='relative inline-block'>
               {HERO_CONTENT.headline.highlight}
-              {/* ✅ Glow effect */}
-              <motion.span
-                className='absolute inset-0 blur-xl'
-                style={{
-                  background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)/0.3))',
-                  willChange: 'opacity',
-                }}
-                animate={{
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              />
+              {/* ✅ Glow effect - disabled on low-end devices */}
+              {performanceTier !== 'low' && (
+                <motion.span
+                  className={performanceTier === 'high' ? 'absolute inset-0 blur-xl' : 'absolute inset-0 blur-md'}
+                  style={{
+                    background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)/0.3))',
+                    willChange: 'opacity',
+                  }}
+                  animate={{
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                />
+              )}
             </span>
           </span>
         </motion.h1>
@@ -64,9 +70,7 @@ export function HeroContent() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
+            ...springConfig,
             delay: 0.4
           }}
         >
@@ -79,9 +83,7 @@ export function HeroContent() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
+            ...springConfig,
             delay: 0.5
           }}
         >

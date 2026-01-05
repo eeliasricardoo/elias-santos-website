@@ -1,11 +1,13 @@
 
 
 import { useEffect, useState } from 'react';
+import { usePerformance } from '@/hooks/use-performance-tier';
 
 export function AnimatedBackground() {
   const [isClient, setIsClient] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const performanceTier = usePerformance();
 
   useEffect(() => {
     setIsClient(true);
@@ -31,28 +33,38 @@ export function AnimatedBackground() {
       <div className='absolute inset-0 bg-gradient-to-br from-background via-background to-muted/40' />
 
       {/* Elementos animados apenas se cliente e movimento não reduzido */}
-      {isClient && isLoaded && !reducedMotion && (
+      {isClient && isLoaded && !reducedMotion && performanceTier !== 'low' && (
         <>
           {/* Gradiente radial sutil */}
           <div className='absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-transparent animate-[pulse_8s_ease-in-out_infinite]' />
 
-          {/* Elementos decorativos minimalistas */}
-          <div className='absolute top-1/4 left-1/4 w-48 h-48 bg-primary/3 rounded-full blur-2xl animate-[float_15s_ease-in-out_infinite]' style={{ willChange: 'transform' }} />
-          <div className='absolute bottom-1/3 right-1/4 w-64 h-64 bg-primary/2 rounded-full blur-2xl animate-[float_18s_ease-in-out_infinite_reverse]' style={{ willChange: 'transform' }} />
+          {/* Elementos decorativos minimalistas - blur reduzido em medium */}
+          <div
+            className={`absolute top-1/4 left-1/4 w-48 h-48 bg-primary/3 rounded-full ${performanceTier === 'high' ? 'blur-2xl' : 'blur-lg'
+              } animate-[float_15s_ease-in-out_infinite]`}
+            style={{ willChange: 'transform' }}
+          />
+          <div
+            className={`absolute bottom-1/3 right-1/4 w-64 h-64 bg-primary/2 rounded-full ${performanceTier === 'high' ? 'blur-2xl' : 'blur-lg'
+              } animate-[float_18s_ease-in-out_infinite_reverse]`}
+            style={{ willChange: 'transform' }}
+          />
 
-          {/* Pontos decorativos sutis */}
-          <div className='absolute inset-0 opacity-10'>
-            <div className='absolute top-20 left-20 w-2 h-2 bg-primary/30 rounded-full animate-[pulse_6s_ease-in-out_infinite]' />
-            <div
-              className='absolute top-40 right-32 w-1 h-1 bg-muted-foreground/40 rounded-full animate-[pulse_8s_ease-in-out_infinite]'
-              style={{ animationDelay: '2s' }}
-            />
-          </div>
+          {/* Pontos decorativos sutis - apenas em high performance */}
+          {performanceTier === 'high' && (
+            <div className='absolute inset-0 opacity-10'>
+              <div className='absolute top-20 left-20 w-2 h-2 bg-primary/30 rounded-full animate-[pulse_6s_ease-in-out_infinite]' />
+              <div
+                className='absolute top-40 right-32 w-1 h-1 bg-muted-foreground/40 rounded-full animate-[pulse_8s_ease-in-out_infinite]'
+                style={{ animationDelay: '2s' }}
+              />
+            </div>
+          )}
         </>
       )}
 
-      {/* Gradiente sutil quando movimento reduzido */}
-      {isClient && isLoaded && reducedMotion && (
+      {/* Gradiente sutil quando movimento reduzido ou low performance */}
+      {isClient && isLoaded && (reducedMotion || performanceTier === 'low') && (
         <div className='absolute inset-0 bg-gradient-radial from-primary/2 via-transparent to-transparent' />
       )}
     </div>

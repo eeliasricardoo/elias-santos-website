@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { usePerformance } from '@/hooks/use-performance-tier';
 
 interface FloatingElement {
   id: number;
@@ -15,9 +16,14 @@ interface FloatingElement {
 export function FloatingElements() {
   const [mounted, setMounted] = useState(false);
   const [elements, setElements] = useState<FloatingElement[]>([]);
+  const performanceTier = usePerformance();
 
   useEffect(() => {
     setMounted(true);
+
+    // ✅ Disable on low-end devices
+    if (performanceTier === 'low') return;
+
     // Gera elementos flutuantes aleatórios - reduzido para melhor performance
     const elems = Array.from({ length: 2 }, (_, i) => ({
       id: i,
@@ -28,16 +34,17 @@ export function FloatingElements() {
       delay: Math.random() * 5,
     }));
     setElements(elems);
-  }, []);
+  }, [performanceTier]);
 
-  if (!mounted) return null;
+  if (!mounted || performanceTier === 'low') return null;
 
   return (
     <div className='absolute inset-0 -z-10 pointer-events-none overflow-hidden'>
       {elements.map(elem => (
         <motion.div
           key={elem.id}
-          className='absolute rounded-full blur-2xl opacity-10'
+          className={`absolute rounded-full opacity-10 ${performanceTier === 'high' ? 'blur-2xl' : 'blur-lg'
+            }`}
           style={{
             left: `${elem.x}%`,
             top: `${elem.y}%`,
