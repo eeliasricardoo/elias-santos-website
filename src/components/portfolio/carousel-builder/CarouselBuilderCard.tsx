@@ -63,8 +63,8 @@ export function CarouselBuilderCard() {
               <motion.div
                 key={index}
                 className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${index === activeSlide
-                    ? 'bg-primary'
-                    : 'bg-muted-foreground/30'
+                  ? 'bg-primary'
+                  : 'bg-muted-foreground/30'
                   }`}
                 animate={{
                   scale: index === activeSlide ? [1, 1.2, 1] : 1,
@@ -86,7 +86,7 @@ export function CarouselBuilderCard() {
             {/* Slides */}
             <div className='relative w-full h-full'>
               {slides.map((slide, index) => {
-                // Determina a direção da animação baseada na mudança de slide
+                // Determines animation direction based on slide change
                 const isForward =
                   (activeSlide === 1 && index === 0) ||
                   (activeSlide === 0 && index === 1);

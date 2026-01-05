@@ -2,10 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { Calendar, Home } from 'lucide-react';
 
 
 export function CallToActionSection() {
+  const handleLetsTalk = () => {
+    window.open('https://calendly.com/eliasricardoo', '_blank');
+  };
+
+  const handleBackHome = () => {
+    window.location.href = '/';
+  };
+
   return (
     <section className='space-y-8'>
       <motion.div
@@ -15,28 +23,29 @@ export function CallToActionSection() {
         className='text-center space-y-6'
       >
         <h2 className='text-3xl font-bold text-foreground'>
-          Gostou do Projeto?
+          Like This Project?
         </h2>
         <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-          Vamos conversar sobre como posso ajudar a resolver os desafios de
-          UX/UI do seu negócio.
+          Let's talk about how I can help solve your business's UX/UI challenges.
         </p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-          <a href='/'>
-            <Button
-              size='lg'
-              className='bg-orange-600 hover:bg-orange-700 text-white'
-            >
-              Entrar em Contato
-              <ArrowRight className='w-4 h-4 ml-2' />
-            </Button>
-          </a>
-          <a href='/portfolio'>
-            <Button size='lg' variant='outline'>
-              Ver Outros Projetos
-              <ExternalLink className='w-4 h-4 ml-2' />
-            </Button>
-          </a>
+          <Button
+            size='lg'
+            className='bg-primary hover:bg-primary/90 cursor-pointer'
+            onClick={handleLetsTalk}
+          >
+            <Calendar className='w-4 h-4 mr-2' />
+            Let's Talk
+          </Button>
+          <Button
+            size='lg'
+            variant='outline'
+            className='cursor-pointer'
+            onClick={handleBackHome}
+          >
+            <Home className='w-4 h-4 mr-2' />
+            Back Home
+          </Button>
         </div>
       </motion.div>
     </section>

@@ -1,8 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Calendar, Home } from 'lucide-react';
 
 export function CallToActionSection() {
+  const handleLetsTalk = () => {
+    window.open('https://calendly.com/eliasricardoo', '_blank');
+  };
+
+  const handleBackHome = () => {
+    window.location.href = '/';
+  };
+
   return (
     <section className='text-center space-y-8'>
       <motion.div
@@ -21,6 +31,26 @@ export function CallToActionSection() {
             creation - where AI and human creativity work together to produce
             amazing results.
           </p>
+        </div>
+
+        <div className='flex flex-col sm:flex-row gap-4 justify-center mt-8'>
+          <Button
+            size='lg'
+            className='bg-primary hover:bg-primary/90 cursor-pointer'
+            onClick={handleLetsTalk}
+          >
+            <Calendar className='w-4 h-4 mr-2' />
+            Let's Talk
+          </Button>
+          <Button
+            size='lg'
+            variant='outline'
+            className='cursor-pointer'
+            onClick={handleBackHome}
+          >
+            <Home className='w-4 h-4 mr-2' />
+            Back Home
+          </Button>
         </div>
       </motion.div>
     </section>

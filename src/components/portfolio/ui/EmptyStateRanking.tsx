@@ -47,7 +47,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
       transition={{ duration: 0.8 }}
       className={`max-w-6xl mx-auto bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 ${className}`}
     >
-      {/* Header com gradiente */}
+      {/* Header with gradient */}
       <div className='bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 px-8 py-6 border-b border-gray-200'>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -77,7 +77,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
         </motion.div>
       </div>
 
-      {/* Navigation Tabs com animação */}
+      {/* Navigation Tabs with animation */}
       <div className='px-8 py-4 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-white'>
         <div className='flex space-x-1'>
           {tabs.map((tab, index) => {
@@ -92,8 +92,8 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTab === tab.id
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                   }`}
               >
                 <IconComponent className='w-4 h-4' />
@@ -256,14 +256,14 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
           </div>
         </motion.div>
 
-        {/* Empty State com animações avançadas */}
+        {/* Empty State with advanced animations */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
           className='flex flex-col items-center justify-center py-20 space-y-8 bg-gradient-to-br from-gray-50 to-white rounded-3xl border-2 border-dashed border-gray-200'
         >
-          {/* Carro animado */}
+          {/* Animated car */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -271,7 +271,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             whileHover={{ scale: 1.05 }}
             className='relative'
           >
-            {/* Linhas de movimento animadas */}
+            {/* Animated motion lines */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
@@ -295,9 +295,9 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
               ))}
             </motion.div>
 
-            {/* Carro principal */}
+            {/* Main car */}
             <div className='relative w-32 h-20'>
-              {/* Sombra */}
+              {/* Shadow */}
               <motion.div
                 animate={{
                   scale: [1, 1.1, 1],
@@ -310,7 +310,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                 className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-gray-300 rounded-full blur-sm'
               />
 
-              {/* Corpo do carro */}
+              {/* Car body */}
               <motion.div
                 animate={{
                   y: [0, -2, 0],
@@ -323,7 +323,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                 }}
                 className='w-full h-full bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-2xl shadow-lg relative overflow-hidden'
               >
-                {/* Efeito de brilho */}
+                {/* Shine effect */}
                 <motion.div
                   animate={{
                     x: [-100, 100],
@@ -337,11 +337,11 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
                   className='absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent'
                 />
 
-                {/* Janelas */}
+                {/* Windows */}
                 <div className='absolute top-2 left-3 right-3 h-3 bg-blue-200 rounded-lg opacity-80'></div>
                 <div className='absolute top-6 left-4 right-4 h-2 bg-blue-100 rounded opacity-60'></div>
 
-                {/* Rodas */}
+                {/* Wheels */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
@@ -356,7 +356,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
             </div>
           </motion.div>
 
-          {/* Dados flutuantes animados */}
+          {/* Animated floating data */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -428,7 +428,7 @@ export function EmptyStateRanking({ className = '' }: EmptyStateRankingProps) {
         </motion.div>
       </div>
 
-      {/* Footer com gradiente */}
+      {/* Footer with gradient */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

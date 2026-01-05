@@ -56,7 +56,7 @@ export function ResultsSection() {
           </div>
         </div>
 
-        {/* Métricas Principais */}
+        {/* Key Metrics */}
         <div className='space-y-8'>
           <h3 className='text-xl font-semibold text-foreground text-center'>
             🎯 Key Metrics
@@ -110,8 +110,8 @@ export function ResultsSection() {
 
                   <div className='space-y-2'>
                     <div className='flex justify-between text-xs text-muted-foreground'>
-                      <span>Antes: {metric.before}</span>
-                      <span>Depois: {metric.after}</span>
+                      <span>Before: {metric.before}</span>
+                      <span>After: {metric.after}</span>
                     </div>
                     <div className='w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2'>
                       <div

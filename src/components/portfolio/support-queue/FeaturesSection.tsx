@@ -27,7 +27,7 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        {/* Wireframes e Ideação */}
+        {/* Wireframes and Ideation */}
         <div className='space-y-6'>
           <h3 className='text-xl font-semibold text-foreground'>
             Ideation & Wireframes
@@ -66,7 +66,7 @@ export function FeaturesSection() {
           </div>
         </div>
 
-        {/* Solução Final */}
+        {/* Final Solution */}
         <div className='space-y-8'>
           <h3 className='text-xl font-semibold text-foreground'>
             Final pop-up design
@@ -109,7 +109,7 @@ export function FeaturesSection() {
             </div>
           </div>
 
-          {/* Variações */}
+          {/* Variations */}
           <div className='space-y-4'>
             <p className='text-muted-foreground'>
               Different variations and states of the pop-up component.
@@ -145,7 +145,7 @@ export function FeaturesSection() {
             </div>
           </div>
 
-          {/* Estados Adicionais */}
+          {/* Additional States */}
           <div className='space-y-4'>
             <p className='text-muted-foreground'>
               Additional states and configurations of the interface.
@@ -172,7 +172,7 @@ export function FeaturesSection() {
             </div>
           </div>
 
-          {/* Modo Claro */}
+          {/* Light Mode */}
           <div className='space-y-4'>
             <p className='text-muted-foreground'>
               Light mode variations and final interface states.

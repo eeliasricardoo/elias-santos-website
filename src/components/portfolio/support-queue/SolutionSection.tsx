@@ -27,7 +27,7 @@ export function SolutionSection() {
           </p>
         </div>
 
-        {/* Objetivo */}
+        {/* Goal */}
         <div className='bg-card/80 rounded-lg p-6 border border-border/20'>
           <h3 className='text-xl font-semibold text-foreground mb-4'>
             🎯 Goal
@@ -39,7 +39,7 @@ export function SolutionSection() {
           </p>
         </div>
 
-        {/* Hipótese */}
+        {/* Hypothesis */}
         <div className='bg-card/80 rounded-lg p-6 border border-border/20'>
           <h3 className='text-xl font-semibold text-foreground mb-4'>
             💡 Design Hypothesis
@@ -96,7 +96,7 @@ export function SolutionSection() {
           </p>
         </div>
 
-        {/* Estratégia */}
+        {/* Strategy */}
         <div className='grid md:grid-cols-2 gap-6'>
           <div className='space-y-4'>
             <h3 className='text-lg font-semibold text-foreground'>
