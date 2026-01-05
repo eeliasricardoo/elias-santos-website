@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useMemo } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AnimatedMockup } from './AnimatedMockup';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
+import { usePerformance } from '@/hooks/use-performance-tier';
 
 interface PortfolioCardProps {
   card: {
@@ -19,6 +20,8 @@ interface PortfolioCardProps {
 export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const performanceTier = usePerformance();
+
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ['start start', 'end start'],
@@ -26,24 +29,31 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
 
   const isLastCard = index === totalCards - 1;
 
-  const cardScale = useTransform(
+  // ✅ Performance optimization: Disable scroll animations on low-end devices
+  const enableScrollAnimations = performanceTier !== 'low';
+
+  // ✅ Combine transforms into single calculation for better performance
+  const scrollTransform = useTransform(
     scrollYProgress,
     [0, 1],
-    [1, 0.85]
+    enableScrollAnimations ? [0, 1] : [0, 0] // Disable on low-end
   );
 
-  const cardOpacity = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1, 0]
+  // ✅ Memoize transform values to reduce recalculations
+  const cardScale = useMemo(
+    () => enableScrollAnimations ? useTransform(scrollTransform, [0, 1], [1, 0.85]) : 1,
+    [scrollTransform, enableScrollAnimations]
   );
 
-  const cardY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -50]
+  const cardOpacity = useMemo(
+    () => enableScrollAnimations ? useTransform(scrollTransform, [0, 1], [1, 0]) : 1,
+    [scrollTransform, enableScrollAnimations]
   );
-  // Blur removido por custo de performance
+
+  const cardY = useMemo(
+    () => enableScrollAnimations ? useTransform(scrollTransform, [0, 1], [0, -50]) : 0,
+    [scrollTransform, enableScrollAnimations]
+  );
 
   const getRoute = useCallback((): string => {
     switch (index) {
@@ -84,10 +94,14 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       }}
       className='sticky w-full max-w-5xl mx-auto transition-all duration-300 ease-out group will-change-transform'
     >
-      <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-all duration-500' />
+      {/* ✅ Conditional shine effect - only on high/medium performance */}
+      {performanceTier !== 'low' && (
+        <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-all duration-500' />
+      )}
 
       <Card
-        className='border-white/5 bg-black/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-pointer'
+        className={`border-white/5 bg-black/90 ${performanceTier === 'high' ? 'backdrop-blur-xl' : 'backdrop-blur-sm'
+          } shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-pointer`}
         onClick={handleCardClick}
       >
         <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 transition-all duration-500'>
