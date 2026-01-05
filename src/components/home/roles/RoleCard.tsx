@@ -5,12 +5,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Badge } from '@/components/ui/badge';
 
+
+
 interface RoleCardProps {
     role: {
         id: number;
         title: string;
         description: string;
-        skills: string[];
+        skills: { name: string; description: string; usage?: string }[];
     };
     index: number;
     totalCards: number;
@@ -81,8 +83,12 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                         >
                             <div className="flex flex-wrap gap-3">
                                 {role.skills.map((skill) => (
-                                    <Badge key={skill} variant="outline" className="text-lg py-2 px-4 bg-white/5 hover:bg-white/10 text-zinc-300 border-white/10">
-                                        {skill}
+                                    <Badge
+                                        key={skill.name}
+                                        variant="outline"
+                                        className="text-lg py-2 px-4 bg-white/5 text-zinc-300 border-white/10"
+                                    >
+                                        {skill.name}
                                     </Badge>
                                 ))}
                             </div>
