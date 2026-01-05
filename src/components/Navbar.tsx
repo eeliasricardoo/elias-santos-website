@@ -59,7 +59,7 @@ export function Navbar() {
                 >
                   <span className='relative z-10 flex items-center gap-2'>
                     <MessageCircle className='w-4 h-4' />
-                    <span className='hidden sm:inline'>Contact</span>
+                    <span className='hidden sm:inline'>Let's Talk</span>
                   </span>
                 </a>
               </RainbowButton>

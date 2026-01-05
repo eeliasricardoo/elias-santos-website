@@ -1,5 +1,5 @@
-'use client';
-
+import { RainbowButton } from '@/components/magicui/rainbow-button';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useScroll, useTransform } from 'framer-motion';
@@ -86,9 +86,22 @@ export function HeroContent() {
           }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button size='lg' className='rounded-full px-8 h-12 text-base' asChild>
-              <a href={HERO_CONTENT.cta.primary.href}>{HERO_CONTENT.cta.primary.text}</a>
-            </Button>
+            <RainbowButton
+              asChild
+              variant='outline'
+              size='lg'
+              className='h-12 rounded-full px-8 text-base font-medium'
+            >
+              <a
+                href='/projects'
+                aria-label='View Projects'
+              >
+                <span className='relative z-10 flex items-center gap-2'>
+                  <span>View Projects</span>
+                  <ArrowRight className='w-5 h-5' />
+                </span>
+              </a>
+            </RainbowButton>
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

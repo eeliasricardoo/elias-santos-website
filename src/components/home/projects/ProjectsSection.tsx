@@ -35,10 +35,21 @@ const projects = [
     }
 ];
 
-export function ProjectsSection() {
+interface ProjectsSectionProps {
+    title?: string;
+    description?: string;
+}
+
+export function ProjectsSection({
+    title = "Selected Projects",
+    description = "Here are some of the projects I've worked on. Each one represents a unique challenge and solution."
+}: ProjectsSectionProps) {
     return (
         <section id="projects" className="py-20 px-4 container mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">Selected Projects</h2>
+            <div className="mb-12 text-left">
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">{title}</h2>
+                <p className="text-zinc-400 text-lg md:text-xl max-w-2xl">{description}</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects.map((project, index) => (
                     <motion.div
