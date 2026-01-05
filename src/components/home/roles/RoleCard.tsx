@@ -12,7 +12,7 @@ interface RoleCardProps {
         id: number;
         title: string;
         description: string;
-        highlights: { name: string; description: string; usage?: string }[];
+        skills: { name: string; description: string; usage?: string }[];
     };
     index: number;
     totalCards: number;
@@ -82,13 +82,13 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                             className='relative w-full h-full flex flex-col justify-center items-start gap-4'
                         >
                             <div className="flex flex-wrap gap-3">
-                                {role.highlights.map((highlight) => (
+                                {role.skills.map((skill) => (
                                     <Badge
-                                        key={highlight.name}
+                                        key={skill.name}
                                         variant="outline"
                                         className="text-lg py-2 px-4 bg-white/5 text-zinc-300 border-white/10"
                                     >
-                                        {highlight.name}
+                                        {skill.name}
                                     </Badge>
                                 ))}
                             </div>
