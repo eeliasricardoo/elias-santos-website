@@ -21,16 +21,30 @@ export function ProfilePhoto() {
       >
         {/* Container da foto */}
         <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl bg-muted/20'>
-          <img
-            src={HERO_CONTENT.profile.imgSrc}
-            alt={HERO_CONTENT.profile.alt}
-            className='object-contain w-full h-full'
-            loading='eager'
-            fetchPriority='high'
-            decoding='async'
-            width={128}
-            height={128}
-          />
+          {/* Using picture element with optimized formats */}
+          <picture>
+            {/* AVIF for best compression (6KB) */}
+            <source
+              srcSet="/profile-photo.avif"
+              type="image/avif"
+            />
+            {/* WebP for broad support (3.8KB) */}
+            <source
+              srcSet="/profile-photo.webp"
+              type="image/webp"
+            />
+            {/* Fallback to JPG (only for very old browsers) */}
+            <img
+              src="/profile-photo.jpg"
+              alt={HERO_CONTENT.profile.alt}
+              className='object-contain w-full h-full'
+              loading='eager'
+              fetchPriority='high'
+              decoding='async'
+              width={128}
+              height={128}
+            />
+          </picture>
         </div>
       </motion.div>
 
