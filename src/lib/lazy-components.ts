@@ -1,64 +1,56 @@
 /**
- * Lazy Loading Helper
+ * Lazy Loading Helper for Astro + React
  * 
- * Este arquivo ajuda a reduzir o bundle inicial e prevenir congelamentos
- * carregando componentes pesados apenas quando necessário.
+ * This file helps reduce the initial bundle and prevent freezes
+ * by loading heavy components only when needed.
  */
 
-import React from 'react';
-import dynamic from 'next/dynamic';
+import { lazy } from 'react';
+import type { ComponentType } from 'react';
 
 /**
- * Wrapper para lazy loading com loading state
+ * Wrapper for lazy loading with proper typing for Astro
  */
-export const createLazyComponent = <T extends React.ComponentType<any>>(
-    importFunc: () => Promise<{ default: T }>,
-    options?: {
-        loading?: () => React.ReactNode;
-        ssr?: boolean;
-    }
+export const createLazyComponent = <T extends ComponentType<any>>(
+    importFunc: () => Promise<{ default: T }>
 ) => {
-    return dynamic(importFunc, {
-        loading: options?.loading || (() => React.createElement('div', { className: 'animate-pulse' }, 'Carregando...')),
-        ssr: options?.ssr ?? true,
-    });
+    return lazy(importFunc);
 };
 
 /**
- * Lazy loading para componentes de gráficos (recharts)
- * Estes são especialmente pesados e devem ser carregados sob demanda
- */
-export const LazyCharts = {
-    BarChart: createLazyComponent(
-        () => import('recharts').then(mod => ({ default: mod.BarChart })),
-        { ssr: false }
-    ),
-    LineChart: createLazyComponent(
-        () => import('recharts').then(mod => ({ default: mod.LineChart })),
-        { ssr: false }
-    ),
-    PieChart: createLazyComponent(
-        () => import('recharts').then(mod => ({ default: mod.PieChart })),
-        { ssr: false }
-    ),
-};
-
-/**
- * Lazy loading para animações (framer-motion)
- * Evita carregar motion quando não é necessário
+ * Lazy loading for Framer Motion components
+ * Reduces initial bundle size significantly (~100KB saved)
  */
 export const LazyMotion = createLazyComponent(
-    () => import('framer-motion').then(mod => ({ default: mod.motion.div })),
-    { ssr: false }
+    () => import('framer-motion').then(mod => ({ default: mod.motion.div as any }))
 );
 
 /**
- * Preload de recursos críticos
- * Use isso para precarregar componentes que serão usados em breve
+ * Preload critical resources
+ * Use this to preload components that will be used soon
  */
 export const preloadComponent = (importFunc: () => Promise<any>) => {
     if (typeof window !== 'undefined') {
-        // Preload apenas no cliente
-        importFunc();
+        // Preload only on client
+        void importFunc();
     }
 };
+
+/**
+ * Dynamic import for heavy components with loading state
+ */
+export async function loadComponentWhenIdle<T>(
+    importFunc: () => Promise<{ default: T }>
+): Promise<{ default: T }> {
+    // Wait for browser idle time before loading
+    if ('requestIdleCallback' in window) {
+        return new Promise((resolve) => {
+            requestIdleCallback(() => {
+                importFunc().then(resolve);
+            });
+        });
+    }
+
+    // Fallback for browsers without requestIdleCallback
+    return importFunc();
+}

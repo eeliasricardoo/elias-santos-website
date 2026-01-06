@@ -2,141 +2,185 @@
 
 /**
  * Image Optimization Script
- * Converts and optimizes images for better web performance
+ * Automatically optimizes all images in the public directory
  * 
- * Usage: node scripts/optimize-images.mjs
+ * This script:
+ * 1. Finds large images (>100KB)
+ * 2. Converts them to modern formats (WebP, AVIF)
+ * 3. Generates responsive sizes
+ * 4. Reports file size savings
  */
 
 import sharp from 'sharp';
 import { readdir, stat, mkdir } from 'fs/promises';
-import { join, extname, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { join, relative, dirname, extname, basename } from 'path';
+import { existsSync } from 'fs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const PUBLIC_DIR = './public';
+const OPTIMIZED_DIR = './public/optimized';
+const MAX_WIDTH = 1920; // Maximum width for images
+const QUALITY = 80; // Quality for WebP/AVIF
+const SIZES = [640, 750, 828, 1080, 1200, 1920]; // Responsive sizes
 
-const PUBLIC_DIR = join(__dirname, '../public');
-const OPTIMIZED_DIR = join(PUBLIC_DIR, 'optimized');
+// File size threshold (100KB)
+const SIZE_THRESHOLD = 100 * 1024;
 
-// Image optimization settings
-const SIZES = {
-    hero: { width: 256, quality: 85 }, // Profile photo
-    portfolio: { width: 800, quality: 80 }, // Portfolio images
-    thumbnail: { width: 400, quality: 75 }, // Thumbnails
-};
+async function getAllImages(dir) {
+    const images = [];
+    const entries = await readdir(dir, { withFileTypes: true });
 
-/**
- * Optimize a single image
- */
-async function optimizeImage(inputPath, outputPath, options = {}) {
-    const { width = 1920, quality = 80, format = 'webp' } = options;
+    for (const entry of entries) {
+        const fullPath = join(dir, entry.name);
 
-    try {
-        const image = sharp(inputPath);
-        const metadata = await image.metadata();
-
-        // Skip if already optimized or too small
-        if (metadata.width <= width && metadata.format === format) {
-            console.log(`⏭️  Skipping ${inputPath} (already optimized)`);
-            return;
-        }
-
-        // Create output directory if it doesn't exist
-        await mkdir(dirname(outputPath), { recursive: true });
-
-        // Optimize and convert
-        await image
-            .resize(width, null, {
-                fit: 'inside',
-                withoutEnlargement: true,
-            })
-        [format]({ quality })
-            .toFile(outputPath);
-
-        const stats = await stat(outputPath);
-        const originalStats = await stat(inputPath);
-        const savings = ((1 - stats.size / originalStats.size) * 100).toFixed(1);
-
-        console.log(
-            `✅ Optimized ${inputPath} → ${outputPath} (${savings}% smaller)`
-        );
-    } catch (error) {
-        console.error(`❌ Error optimizing ${inputPath}:`, error.message);
-    }
-}
-
-/**
- * Process all images in a directory
- */
-async function processDirectory(dir, options = {}) {
-    try {
-        const entries = await readdir(dir, { withFileTypes: true });
-
-        for (const entry of entries) {
-            const fullPath = join(dir, entry.name);
-
-            if (entry.isDirectory()) {
-                await processDirectory(fullPath, options);
-            } else if (entry.isFile()) {
-                const ext = extname(entry.name).toLowerCase();
-
-                if (['.jpg', '.jpeg', '.png'].includes(ext)) {
-                    const outputPath = fullPath.replace(
-                        /\.(jpg|jpeg|png)$/i,
-                        `.${options.format || 'webp'}`
-                    );
-
-                    await optimizeImage(fullPath, outputPath, options);
-                }
+        if (entry.isDirectory()) {
+            // Skip node_modules and optimized directory
+            if (entry.name === 'node_modules' || entry.name === 'optimized') {
+                continue;
+            }
+            images.push(...(await getAllImages(fullPath)));
+        } else if (/\.(jpg|jpeg|png)$/i.test(entry.name)) {
+            const stats = await stat(fullPath);
+            if (stats.size > SIZE_THRESHOLD) {
+                images.push({
+                    path: fullPath,
+                    size: stats.size,
+                    name: entry.name,
+                });
             }
         }
-    } catch (error) {
-        console.error(`❌ Error processing directory ${dir}:`, error.message);
     }
+
+    return images;
 }
 
-/**
- * Main execution
- */
+async function optimizeImage(imagePath) {
+    console.log(`\n📷 Optimizing: ${relative(PUBLIC_DIR, imagePath)}`);
+
+    const ext = extname(imagePath);
+    const base = basename(imagePath, ext);
+    const relativeDir = dirname(relative(PUBLIC_DIR, imagePath));
+    const outputDir = join(OPTIMIZED_DIR, relativeDir);
+
+    // Create output directory if it doesn't exist
+    if (!existsSync(outputDir)) {
+        await mkdir(outputDir, { recursive: true });
+    }
+
+    const image = sharp(imagePath);
+    const metadata = await image.metadata();
+
+    console.log(`  Original: ${(metadata.size / 1024).toFixed(0)}KB (${metadata.width}x${metadata.height})`);
+
+    let totalSaved = metadata.size || 0;
+    let optimizedCount = 0;
+
+    // Generate WebP version
+    try {
+        const webpPath = join(outputDir, `${base}.webp`);
+        await image
+            .resize(MAX_WIDTH, null, {
+                withoutEnlargement: true,
+                fit: 'inside',
+            })
+            .webp({ quality: QUALITY })
+            .toFile(webpPath);
+
+        const webpStats = await stat(webpPath);
+        console.log(`  ✓ WebP: ${(webpStats.size / 1024).toFixed(0)}KB (${((1 - webpStats.size / (metadata.size || 1)) * 100).toFixed(0)}% smaller)`);
+        totalSaved -= webpStats.size;
+        optimizedCount++;
+    } catch (error) {
+        console.error(`  ✗ Failed to create WebP:`, error.message);
+    }
+
+    // Generate AVIF version (best compression)
+    try {
+        const avifPath = join(outputDir, `${base}.avif`);
+        await image
+            .resize(MAX_WIDTH, null, {
+                withoutEnlargement: true,
+                fit: 'inside',
+            })
+            .avif({ quality: QUALITY })
+            .toFile(avifPath);
+
+        const avifStats = await stat(avifPath);
+        console.log(`  ✓ AVIF: ${(avifStats.size / 1024).toFixed(0)}KB (${((1 - avifStats.size / (metadata.size || 1)) * 100).toFixed(0)}% smaller)`);
+        optimizedCount++;
+    } catch (error) {
+        console.error(`  ✗ Failed to create AVIF:`, error.message);
+    }
+
+    // Generate responsive sizes for WebP
+    for (const size of SIZES) {
+        if ((metadata.width || 0) > size) {
+            try {
+                const responsivePath = join(outputDir, `${base}-${size}w.webp`);
+                await sharp(imagePath)
+                    .resize(size, null, {
+                        withoutEnlargement: true,
+                        fit: 'inside',
+                    })
+                    .webp({ quality: QUALITY })
+                    .toFile(responsivePath);
+
+                optimizedCount++;
+            } catch (error) {
+                // Silently skip failed responsive images
+            }
+        }
+    }
+
+    return {
+        original: metadata.size || 0,
+        saved: totalSaved,
+        count: optimizedCount,
+    };
+}
+
 async function main() {
-    console.log('🖼️  Starting image optimization...\n');
+    console.log('🚀 Starting image optimization...\n');
+    console.log(`📁 Scanning: ${PUBLIC_DIR}`);
+    console.log(`💾 Output: ${OPTIMIZED_DIR}\n`);
 
-    // Optimize profile photo
-    console.log('📸 Optimizing profile photo...');
-    const profilePhotoPath = join(PUBLIC_DIR, 'profile-photo.jpg');
+    const images = await getAllImages(PUBLIC_DIR);
 
-    try {
-        // Create WebP version
-        await optimizeImage(
-            profilePhotoPath,
-            join(PUBLIC_DIR, 'profile-photo.webp'),
-            { ...SIZES.hero, format: 'webp' }
-        );
-
-        // Create AVIF version (better compression)
-        await optimizeImage(
-            profilePhotoPath,
-            join(PUBLIC_DIR, 'profile-photo.avif'),
-            { ...SIZES.hero, format: 'avif' }
-        );
-    } catch (error) {
-        console.error('❌ Error optimizing profile photo:', error.message);
+    if (images.length === 0) {
+        console.log('✅ No large images found (all images are < 100KB)');
+        return;
     }
 
-    // Optimize portfolio images
-    console.log('\n📁 Optimizing portfolio images...');
-    const portfoliosDir = join(PUBLIC_DIR, 'portfolios');
+    console.log(`Found ${images.length} large images to optimize:\n`);
 
-    try {
-        await processDirectory(portfoliosDir, {
-            ...SIZES.portfolio,
-            format: 'webp',
-        });
-    } catch (error) {
-        console.error('❌ Error optimizing portfolio images:', error.message);
+    let totalOriginalSize = 0;
+    let totalSaved = 0;
+    let totalOptimized = 0;
+
+    for (const image of images) {
+        try {
+            const result = await optimizeImage(image.path);
+            totalOriginalSize += result.original;
+            totalSaved += result.saved;
+            totalOptimized += result.count;
+        } catch (error) {
+            console.error(`❌ Failed to optimize ${image.name}:`, error.message);
+        }
     }
 
-    console.log('\n✨ Image optimization complete!');
+    console.log('\n' + '='.repeat(60));
+    console.log('📊 Optimization Summary:');
+    console.log('='.repeat(60));
+    console.log(`  Images processed: ${images.length}`);
+    console.log(`  Versions created: ${totalOptimized}`);
+    console.log(`  Original size: ${(totalOriginalSize / 1024 / 1024).toFixed(2)}MB`);
+    console.log(`  Space saved: ${(totalSaved / 1024 / 1024).toFixed(2)}MB`);
+    console.log(`  Reduction: ${((totalSaved / totalOriginalSize) * 100).toFixed(0)}%`);
+    console.log('='.repeat(60));
+    console.log('\n✅ Optimization complete!');
+    console.log('\n💡 Tips:');
+    console.log('  1. Use the optimized images in /public/optimized/');
+    console.log('  2. Update your <img> tags to use <picture> with WebP/AVIF');
+    console.log('  3. Consider using the OptimizedImage component');
 }
 
 main().catch(console.error);

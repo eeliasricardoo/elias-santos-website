@@ -24,24 +24,24 @@ export function ProfilePhoto() {
         <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl bg-muted/20 transition-transform hover:scale-105 will-change-transform'>
           {/* Using picture element with optimized formats */}
           <picture>
-            {/* AVIF for best compression (6KB) */}
+            {/* AVIF for best compression (~21KB from optimized) */}
             <source
-              srcSet="/profile-photo.avif"
+              srcSet="/optimized/profile-photo.avif"
               type="image/avif"
             />
-            {/* WebP for broad support (3.8KB) */}
+            {/* WebP for broad support (~14KB from optimized) */}
             <source
-              srcSet="/profile-photo.webp"
+              srcSet="/optimized/profile-photo.webp"
               type="image/webp"
             />
-            {/* Fallback to JPG (only for very old browsers) */}
+            {/* Fallback to original (only for very old browsers) */}
             <img
-              src="/profile-photo.jpg"
+              src="/profile-photo.webp"
               alt={HERO_CONTENT.profile.alt}
               className='object-contain w-full h-full'
               loading='eager'
               fetchPriority='high'
-              decoding='async'
+              decoding='sync'
               width={128}
               height={128}
             />

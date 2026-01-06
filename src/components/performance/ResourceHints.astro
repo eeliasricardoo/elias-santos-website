@@ -1,0 +1,27 @@
+---
+/**
+ * Resource Hints Component
+ * Improves performance by preconnecting to external domains
+ * and preloading critical resources
+ */
+---
+
+<!-- DNS Prefetch for external domains -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+<!-- Preconnect to critical external domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Preload critical fonts (if using Google Fonts or custom fonts) -->
+<!-- <link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin /> -->
+
+<!-- Preload hero image for faster LCP -->
+<link rel="preload" href="/profile-photo.webp" as="image" type="image/webp" />
+
+<!-- Prefetch for common navigation paths -->
+<link rel="prefetch" href="/projects" />
+
+<!-- Module Preload for critical scripts -->
+<link rel="modulepreload" href="/src/components/home/hero/HeroSection.tsx" />
