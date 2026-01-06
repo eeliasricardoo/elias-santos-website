@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
+import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
 
 interface CaseStudyHeroProps {
     badge?: string;
@@ -56,16 +57,12 @@ export function CaseStudyHero({
             >
                 <div className="relative w-full">
                     {video ? (
-                        <div style={{ padding: '56.25% 0 0 0', position: 'relative' }} className="rounded-xl overflow-hidden shadow-2xl border border-white/5">
-                            <video
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="absolute top-0 left-0 w-full h-full object-cover"
-                            >
-                                <source src={video.src} type="video/mp4" />
-                            </video>
+                        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-gray-100 dark:bg-gray-800">
+                            <OptimizedVideo
+                                srcBase={video.src.replace(/\.(mp4|webm|gif)$/, '')}
+                                alt={image?.alt || title}
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     ) : image ? (
                         <div className="relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl">

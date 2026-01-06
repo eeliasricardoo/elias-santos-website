@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Target, Zap, Shield } from 'lucide-react';
 import { CaseStudySection } from '@/components/portfolio/ui';
+import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
 
 export function Phase4Section() {
   return (
@@ -144,13 +145,11 @@ export function Phase4Section() {
             </p>
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
-            <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
-                src='/portfolios/ventus/Modelos personalizado.gif'
-                alt='Custom Models Interface'
-                width={1200}
-                height={800}
-                className='w-full object-contain'
+            <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl bg-card'>
+              <OptimizedVideo
+                srcBase="/portfolios/ventus/modelos-personalizado"
+                alt="Custom Models Interface"
+                className="w-full object-contain"
               />
             </div>
           </div>
@@ -173,13 +172,11 @@ export function Phase4Section() {
             </p>
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
-            <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
-                src='/portfolios/ventus/video.gif'
-                alt='Video Generation'
-                width={1200}
-                height={800}
-                className='w-full object-contain'
+            <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl bg-card'>
+              <OptimizedVideo
+                srcBase="/portfolios/ventus/video"
+                alt="Video Generation"
+                className="w-full object-contain"
               />
             </div>
           </div>
