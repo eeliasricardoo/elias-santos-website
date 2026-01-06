@@ -24,4 +24,9 @@ export { RankingSolution } from './solution';
 export { RankingTesting } from './testing';
 
 // Author
+// Author
 export { RankingAuthor } from './author';
+
+// CTA
+export { RankingCTA } from './RankingCTA';
+
