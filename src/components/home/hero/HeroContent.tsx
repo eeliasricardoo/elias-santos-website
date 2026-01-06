@@ -9,33 +9,18 @@ import { usePerformance } from '@/hooks/use-performance-tier';
 export function HeroContent() {
   const performanceTier = usePerformance();
 
-  // ✅ Use lighter animations on low/medium devices
-  const springConfig = performanceTier === 'high'
-    ? { type: "spring" as const, stiffness: 100, damping: 20 }
-    : { type: "tween" as const, duration: 0.5, ease: "easeOut" as const };
+  // Performance optimization: Using CSS animations instead of JS framer-motion for LCP
 
   return (
     <motion.div
       className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
     >
       {/* ✅ Animação de entrada sequencial */}
-      <motion.div
-        className='space-y-4'
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          ...springConfig,
-          delay: 0.2
-        }}
+      <div
+        className='space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-forwards'
       >
-        <motion.h1
-          className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight'
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            ...springConfig,
-            delay: 0.3
-          }}
+        <h1
+          className='text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.9] tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 ease-out fill-mode-forwards'
         >
           <span className='inline-block'>
             {HERO_CONTENT.headline.prefix}{' '}
@@ -43,48 +28,27 @@ export function HeroContent() {
               {HERO_CONTENT.headline.highlight}
               {/* ✅ Glow effect - disabled on low-end devices */}
               {performanceTier !== 'low' && (
-                <motion.span
-                  className={performanceTier === 'high' ? 'absolute inset-0 blur-xl' : 'absolute inset-0 blur-md'}
+                <span
+                  className={performanceTier === 'high' ? 'absolute inset-0 blur-xl animate-pulse' : 'absolute inset-0 blur-md animate-pulse'}
                   style={{
                     background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)/0.3))',
-                    willChange: 'opacity',
-                  }}
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
                   }}
                 />
               )}
             </span>
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Parágrafo de descrição */}
-        <motion.p
-          className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light'
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            ...springConfig,
-            delay: 0.4
-          }}
+        <p
+          className='text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 ease-out fill-mode-forwards'
         >
           {HERO_CONTENT.description}
-        </motion.p>
+        </p>
 
         {/* ✅ CTA Buttons - CSS hover instead of JS for better INP */}
-        <motion.div
-          className='flex flex-wrap items-center justify-center gap-4 pt-4'
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            ...springConfig,
-            delay: 0.5
-          }}
+        <div
+          className='flex flex-wrap items-center justify-center gap-4 pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 ease-out fill-mode-forwards'
         >
           <div className="transition-transform hover:scale-105 active:scale-95">
             <RainbowButton
@@ -121,11 +85,11 @@ export function HeroContent() {
               </a>
             </Button>
           </div>
-        </motion.div>
+        </div>
 
 
 
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

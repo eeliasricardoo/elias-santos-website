@@ -116,65 +116,45 @@ export function DepoimentsSection() {
           )}
         </div>
 
-        {/* Marquee com depoimentos - Duas linhas com movimento cruzado */}
+        {/* Marquee com depoimentos - Uma única linha infinita */}
         <div
           ref={contentRef as any}
           className={`relative transition-all duration-700 delay-200 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
             }`}
         >
-          {/* ✅ Low-end: Static grid instead of marquee */}
-          {performanceTier === 'low' ? (
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              {testimonials.slice(0, 4).map((testimonial) => (
-                <TestimonialCard
-                  key={testimonial.id}
-                  testimonial={testimonial}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className='relative flex flex-col gap-8'>
-              {/* Primeira linha */}
-              <div className='relative'>
-                <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
-                <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
+          <div className='relative'>
+            {/* Gradientes nas bordas */}
+            <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
+            <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-                {/* ✅ Pause animation when not visible */}
-                <Marquee
-                  pauseOnHover
-                  className={`[--duration:${performanceTier === 'high' ? '20s' : '30s'}]`}
-                  style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
-                >
-                  {testimonials.slice(0, 4).map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.id}
-                      testimonial={testimonial}
-                    />
-                  ))}
-                </Marquee>
+            {/* ✅ Single marquee for high performance, native scroll for others */}
+            {performanceTier === 'high' ? (
+              <Marquee
+                pauseOnHover
+                repeat={4}
+                className="[--duration:40s]"
+                style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
+              >
+                {testimonials.map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </Marquee>
+            ) : (
+              <div
+                className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 px-4 -mx-4 scrollbar-hide"
+                style={{ scrollBehavior: 'smooth' }}
+              >
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.id} className="snap-center shrink-0 w-[300px] md:w-[350px]">
+                    <TestimonialCard testimonial={testimonial} />
+                  </div>
+                ))}
               </div>
-
-              {/* Segunda linha (Reverse) */}
-              <div className='relative'>
-                <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
-                <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
-
-                <Marquee
-                  reverse
-                  pauseOnHover
-                  className={`[--duration:${performanceTier === 'high' ? '20s' : '30s'}]`}
-                  style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
-                >
-                  {testimonials.slice(4).map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.id}
-                      testimonial={testimonial}
-                    />
-                  ))}
-                </Marquee>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </section >

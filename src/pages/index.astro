@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/home";
+import { HeroSection } from "@/components/home/hero/HeroSection";
 
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
 import { RolesSection } from "@/components/home/roles/RolesSection";
@@ -24,7 +24,7 @@ import { LCPOptimizer } from "@/components/performance/LCPOptimizer";
 
 	<main class="relative min-h-screen">
 		<!-- Hero loads first - most critical for LCP -->
-		<HeroSection client:load />
+		<HeroSection client:idle />
 
 		<!-- Background animation - only on desktop, deferred -->
 		<AnimatedBackground client:media="(min-width: 768px)" />
