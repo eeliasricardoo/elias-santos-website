@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css";
 import ResourceHints from "@/components/performance/ResourceHints.astro";
+import PersonSchema from "@/components/seo/PersonSchema.astro";
 
 interface Props {
 	title: string;
@@ -48,6 +49,9 @@ const canonicalURL = Astro.site
 
 		<!-- Resource Hints for Performance -->
 		<ResourceHints />
+
+		<!-- JSON-LD SEO Schema -->
+		<PersonSchema />
 
 		<!-- Preconnect to font CDN for faster font loading (~300ms LCP improvement) -->
 		<link
