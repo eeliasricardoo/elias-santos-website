@@ -127,20 +127,33 @@ export function DepoimentsSection() {
             <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
             <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-            {/* ✅ Single marquee com todos os depoimentos */}
-            <Marquee
-              pauseOnHover
-              repeat={4}
-              className={`[--duration:${performanceTier === 'high' ? '40s' : '50s'}]`}
-              style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
-            >
-              {testimonials.map((testimonial) => (
-                <TestimonialCard
-                  key={testimonial.id}
-                  testimonial={testimonial}
-                />
-              ))}
-            </Marquee>
+            {/* ✅ Single marquee for high performance, native scroll for others */}
+            {performanceTier === 'high' ? (
+              <Marquee
+                pauseOnHover
+                repeat={4}
+                className="[--duration:40s]"
+                style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
+              >
+                {testimonials.map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </Marquee>
+            ) : (
+              <div
+                className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 px-4 -mx-4 scrollbar-hide"
+                style={{ scrollBehavior: 'smooth' }}
+              >
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.id} className="snap-center shrink-0 w-[300px] md:w-[350px]">
+                    <TestimonialCard testimonial={testimonial} />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
