@@ -6,6 +6,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  // Site URL for canonical URLs and SEO (update with your actual domain)
+  site: 'https://eliasricardo.com',
+
   integrations: [react()],
 
   // Enable prefetch for faster navigation
