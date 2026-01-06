@@ -51,21 +51,6 @@ export default defineConfig({
               return 'react-vendor';
             }
 
-            // Framer Motion (heavy animation library)
-            if (id.includes('node_modules/framer-motion')) {
-              return 'motion-vendor';
-            }
-
-            // Radix UI components
-            if (id.includes('node_modules/@radix-ui')) {
-              return 'radix-vendor';
-            }
-
-            // Lucide icons
-            if (id.includes('node_modules/lucide-react')) {
-              return 'icons-vendor';
-            }
-
             // Other vendors
             if (id.includes('node_modules')) {
               return 'vendor';
