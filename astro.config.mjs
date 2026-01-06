@@ -28,11 +28,50 @@ export default defineConfig({
       // Enable CSS code splitting for better caching
       cssCodeSplit: true,
 
-      // Use default esbuild minification (faster and more stable)
-      // minify: 'terser', 
+      // Minify for production with terser for better compression
+      minify: 'terser',
+
+      terserOptions: {
+        compress: {
+          drop_console: true, // Remove console.logs in production
+          drop_debugger: true,
+          pure_funcs: ['console.log', 'console.info'] // Remove specific console methods
+        },
+        mangle: {
+          safari10: true // Fix Safari 10 issues
+        }
+      },
 
       rollupOptions: {
         output: {
+          // Manual chunks for better caching and parallel loading
+          manualChunks: (id) => {
+            // React vendors
+            if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+              return 'react-vendor';
+            }
+
+            // Framer Motion (heavy animation library)
+            if (id.includes('node_modules/framer-motion')) {
+              return 'motion-vendor';
+            }
+
+            // Radix UI components
+            if (id.includes('node_modules/@radix-ui')) {
+              return 'radix-vendor';
+            }
+
+            // Lucide icons
+            if (id.includes('node_modules/lucide-react')) {
+              return 'icons-vendor';
+            }
+
+            // Other vendors
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          },
+
           // Optimize asset file names for better caching
           assetFileNames: (assetInfo) => {
             if (!assetInfo.name) {
@@ -40,7 +79,7 @@ export default defineConfig({
             }
 
             const info = assetInfo.name.split('.');
-            // const ext = info[info.length - 1]; // Unused
+            const ext = info[info.length - 1];
 
             if (/\.(png|jpe?g|svg|gif|webp|avif)$/i.test(assetInfo.name)) {
               return 'assets/images/[name]-[hash][extname]';
@@ -66,7 +105,7 @@ export default defineConfig({
 
     // Optimize dependencies
     optimizeDeps: {
-      include: ['react', 'react-dom', 'framer-motion', 'lucide-react']
+      include: ['react', 'react-dom', 'framer-motion']
     }
   },
 
