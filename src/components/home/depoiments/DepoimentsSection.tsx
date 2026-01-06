@@ -19,6 +19,16 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
+    id: 0,
+    name: 'Mark Tegtmeier',
+    role: 'Co-founder @ Trailmerge',
+    content:
+      'Elias is a talented, knowledgable, and innovative designer and developer. He has brought a unique mix of strategic insight, future-facing expertise, and a highly collaborative approach to problem solving to our small team. He has been a loyal teammate, full of insights and versatility, and a joy to work alongside!',
+    avatarGradient: 'from-blue-500 to-indigo-500',
+    date: 'December 19, 2025',
+    image: '/depoiments/mark.jpeg',
+  },
+  {
     id: 1,
     name: 'Felipe Feliciano',
     role: 'PHP | Typescript | Javascript',
@@ -123,21 +133,37 @@ export function DepoimentsSection() {
             <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
             <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-            {/* ✅ Single marquee for high performance, native scroll for others */}
+            {/* ✅ Double marquee for high performance, native scroll for others */}
             {performanceTier === 'high' ? (
-              <Marquee
-                pauseOnHover
-                repeat={4}
-                className="[--duration:40s]"
-                style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
-              >
-                {testimonials.map((testimonial) => (
-                  <TestimonialCard
-                    key={testimonial.id}
-                    testimonial={testimonial}
-                  />
-                ))}
-              </Marquee>
+              <div className="flex flex-col gap-6">
+                <Marquee
+                  pauseOnHover
+                  repeat={4}
+                  className="[--duration:40s]"
+                  style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
+                >
+                  {testimonials.slice(0, Math.ceil(testimonials.length / 2)).map((testimonial) => (
+                    <TestimonialCard
+                      key={testimonial.id}
+                      testimonial={testimonial}
+                    />
+                  ))}
+                </Marquee>
+                <Marquee
+                  reverse
+                  pauseOnHover
+                  repeat={4}
+                  className="[--duration:40s]"
+                  style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
+                >
+                  {testimonials.slice(Math.ceil(testimonials.length / 2)).map((testimonial) => (
+                    <TestimonialCard
+                      key={testimonial.id}
+                      testimonial={testimonial}
+                    />
+                  ))}
+                </Marquee>
+              </div>
             ) : (
               <div
                 className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 px-4 -mx-4 scrollbar-hide"
