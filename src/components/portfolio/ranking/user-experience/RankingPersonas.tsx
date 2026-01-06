@@ -7,17 +7,17 @@ export default function RankingPersonas() {
     {
       name: 'Alice',
       role: 'Engaged Student',
-      image: '/portfolios/ranking/Alice.png',
+      image: '/portfolios/ranking/Alice.webp',
     },
     {
       name: 'Bob',
       role: 'Private Student',
-      image: '/portfolios/ranking/Bob.png',
+      image: '/portfolios/ranking/Bob.webp',
     },
     {
       name: 'Carla',
       role: 'Institution Administrator',
-      image: '/portfolios/ranking/Carla.png',
+      image: '/portfolios/ranking/Carla.webp',
     },
   ];
 
