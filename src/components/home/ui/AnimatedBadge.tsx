@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useMounted } from '@/hooks/use-mounted';
+
 
 interface AnimatedBadgeProps {
   text: string;
@@ -12,15 +12,7 @@ export function AnimatedBadge({
   text,
   animationDelay = 0,
 }: AnimatedBadgeProps) {
-  const mounted = useMounted();
-
-  if (!mounted) {
-    return (
-      <div className='inline-flex items-center px-4 py-2 rounded-full bg-muted/20 border border-border/20'>
-        <div className='w-24 h-4 bg-muted/40 rounded animate-pulse'></div>
-      </div>
-    );
-  }
+  // Mounted check removed for immediate rendering
 
   return (
     <motion.div

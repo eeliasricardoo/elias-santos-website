@@ -106,14 +106,10 @@ export function DepoimentsSection() {
           className={`text-center space-y-6 transition-all duration-700 ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
-          {!mounted ? (
-            <div className='h-8 bg-muted/20 rounded animate-pulse max-w-2xl mx-auto'></div>
-          ) : (
-            <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
-              Trusted by industry leaders and collaborators who&#39;ve
-              experienced exceptional results:
-            </h2>
-          )}
+          <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
+            Trusted by industry leaders and collaborators who&#39;ve
+            experienced exceptional results:
+          </h2>
         </div>
 
         {/* Marquee com depoimentos - Uma única linha infinita */}

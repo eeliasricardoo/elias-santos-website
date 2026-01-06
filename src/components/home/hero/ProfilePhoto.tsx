@@ -39,9 +39,9 @@ export function ProfilePhoto() {
 
       {/* ✅ Nome abaixo da foto */}
       <div
-        className='mt-6 pt-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-forwards'
+        className='mt-6 pt-4 animate-in fade-in slide-in-from-bottom-4 duration-300 fill-mode-forwards'
       >
-        <AnimatedBadge text={HERO_CONTENT.profile.name} animationDelay={0.5} />
+        <AnimatedBadge text={HERO_CONTENT.profile.name} animationDelay={0} />
       </div>
     </div>
   );

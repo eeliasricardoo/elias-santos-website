@@ -1,7 +1,7 @@
 'use client';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useMounted } from '@/hooks/use-mounted';
+
 
 interface Testimonial {
   id: number;
@@ -22,29 +22,7 @@ export function TestimonialCard({
   testimonial,
   className = '',
 }: TestimonialCardProps) {
-  const mounted = useMounted();
-
-  if (!mounted) {
-    return (
-      <div
-        className={`flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border ${className}`}
-      >
-        <div className='flex items-start space-x-3'>
-          <div className='w-10 h-10 bg-muted/20 rounded-full animate-pulse'></div>
-          <div className='flex-1 space-y-2'>
-            <div className='h-4 bg-muted/20 rounded animate-pulse'></div>
-            <div className='h-3 bg-muted/20 rounded animate-pulse w-3/4'></div>
-            <div className='h-3 bg-muted/20 rounded animate-pulse w-1/2'></div>
-            <div className='space-y-1'>
-              <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-              <div className='h-3 bg-muted/20 rounded animate-pulse'></div>
-              <div className='h-3 bg-muted/20 rounded animate-pulse w-2/3'></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Mounted check removed for immediate rendering
 
   return (
     <div
