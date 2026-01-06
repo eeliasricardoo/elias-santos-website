@@ -2,7 +2,7 @@ export const HERO_CONTENT = {
     profile: {
         name: "Elias Ricardo",
         alt: "Elias Ricardo - UX/UI Designer & Frontend",
-        imgSrc: "/profile-photo.jpg",
+        imgSrc: "/profile-photo.webp",
     },
     headline: {
         prefix: "UX From the",

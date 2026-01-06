@@ -117,15 +117,15 @@ export function FeaturesSection() {
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               {[
                 {
-                  src: '/portfolios/fila-atendimento/8.png',
+                  src: '/portfolios/fila-atendimento/8.webp',
                   alt: 'Variation 1',
                 },
                 {
-                  src: '/portfolios/fila-atendimento/9.png',
+                  src: '/portfolios/fila-atendimento/9.webp',
                   alt: 'Variation 2',
                 },
                 {
-                  src: '/portfolios/fila-atendimento/10.png',
+                  src: '/portfolios/fila-atendimento/10.webp',
                   alt: 'Variation 3',
                 },
               ].map((variation, index) => (

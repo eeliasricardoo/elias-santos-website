@@ -96,7 +96,7 @@ export const SEO_CONFIG = {
       '@type': 'Person',
       name: 'Elias Ricardo',
       url: 'https://eliassantos.dev',
-      image: 'https://eliassantos.dev/profile-photo.jpg',
+      image: 'https://eliassantos.dev/profile-photo.webp',
       sameAs: [
         'https://linkedin.com/in/eliassantos',
         'https://github.com/eliassantos',
@@ -136,7 +136,7 @@ export const SEO_CONFIG = {
   },
 
   performance: {
-    preloadImages: ['/profile-photo.jpg', '/oq-image.png'],
+    preloadImages: ['/profile-photo.webp', '/oq-image.png'],
     preloadFonts: [
       'https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap',
     ],

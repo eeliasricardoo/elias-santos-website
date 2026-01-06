@@ -201,7 +201,7 @@ export function Phase4Section() {
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
               <img
-                src='/portfolios/ventus/Imge.png'
+                src='/portfolios/ventus/Imge.webp'
                 alt='Final Interface'
                 width={1200}
                 height={800}
