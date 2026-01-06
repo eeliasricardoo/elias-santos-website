@@ -1,0 +1,61 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { AnimatedBackground } from "@/components/home/AnimatedBackground";
+---
+
+<Layout title="404 - Page Not Found">
+    <Navbar client:load />
+
+    <main
+        class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+    >
+        <AnimatedBackground client:load />
+
+        <div class="z-10 text-center px-4 space-y-6">
+            <div class="relative">
+                <h1
+                    class="text-[150px] font-black leading-none bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-indigo-600 animate-pulse"
+                >
+                    404
+                </h1>
+                <div
+                    class="absolute inset-0 blur-3xl opacity-20 bg-primary/30 -z-10"
+                >
+                </div>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Lost in Space?
+            </h2>
+
+            <p class="text-xl text-gray-400 max-w-md mx-auto mb-8">
+                The page you are looking for seems to have drifted into a black
+                hole.
+            </p>
+
+            <a
+                href="/"
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-primary/10 border border-primary/20 rounded-full hover:bg-primary/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] backdrop-blur-sm group"
+            >
+                <span>Back to Mission Control</span>
+                <svg
+                    class="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <Footer client:visible />
+</Layout>

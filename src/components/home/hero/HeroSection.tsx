@@ -14,6 +14,7 @@ const FloatingElements = lazy(() =>
 export function HeroSection() {
   return (
     <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24'>
+      {/* Hero Section Container */}
       {/* ✅ Efeitos de fundo espacial - lazy loaded */}
 
       <Suspense fallback={null}>
