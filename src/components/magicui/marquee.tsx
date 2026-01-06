@@ -45,7 +45,7 @@ export function Marquee({
     <div
       {...props}
       className={cn(
-        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]',
+        'group flex overflow-x-auto p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)] snap-x snap-mandatory scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]',
         {
           'flex-row': !vertical,
           'flex-col': vertical,
