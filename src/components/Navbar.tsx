@@ -12,11 +12,12 @@ export function Navbar() {
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex items-center justify-between h-16'>
             {/* Logo */}
+            {/* Logo */}
             <div className='flex items-center'>
-              <a href='/' className='flex items-center gap-2.5 group transition-opacity hover:opacity-90'>
-                <span className='text-lg font-semibold tracking-tight text-foreground/90'>
-                  Elias R.
-                </span>
+              <a href='/' className='group transition-all hover:scale-105 active:scale-95'>
+                <div className='relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-lg shadow-primary/25 ring-1 ring-inset ring-white/20'>
+                  <span className='font-bold font-mono text-base tracking-tighter transform -rotate-3'>ER</span>
+                </div>
               </a>
             </div>
 
