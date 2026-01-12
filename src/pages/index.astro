@@ -24,7 +24,7 @@ import { LCPOptimizer } from "@/components/performance/LCPOptimizer";
 
 	<main class="relative min-h-screen">
 		<!-- Hero loads first - most critical for LCP -->
-		<HeroSection client:idle />
+		<HeroSection client:load />
 
 		<!-- Background animation - only on desktop, deferred -->
 		<AnimatedBackground client:media="(min-width: 768px)" />
