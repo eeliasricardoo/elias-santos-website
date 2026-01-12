@@ -87,7 +87,7 @@ export function ProjectsSection({
                                                 {project.title}
                                             </h3>
                                             <p className="text-xl md:text-2xl font-medium text-white/90 mb-4">
-                                                "Want to know how I reduced CRM production time by 87.5%?"
+                                                "Want to know how I reduced CRM production time by <span className="text-amber-500">87.5%</span>?"
                                             </p>
                                             <p className="text-zinc-400 text-lg leading-relaxed">
                                                 {project.description}
@@ -102,13 +102,22 @@ export function ProjectsSection({
                                             ))}
                                         </div>
 
-                                        <RainbowButton className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black">
+                                        <RainbowButton
+                                            className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black"
+                                            style={{
+                                                '--color-1': '#fbbf24',
+                                                '--color-2': '#d97706',
+                                                '--color-3': '#fbbf24',
+                                                '--color-4': '#d97706',
+                                                '--color-5': '#f59e0b',
+                                            } as React.CSSProperties}
+                                        >
                                             Read the Full Story
                                         </RainbowButton>
                                     </div>
 
                                     <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-white/5 shadow-2xl">
-                                        <div className="absolute inset-0 bg-amber-500/10 group-hover:bg-transparent transition-colors z-10" />
+                                        <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors z-10" />
                                         <img
                                             src={project.image}
                                             alt={project.title}
