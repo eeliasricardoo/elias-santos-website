@@ -25,13 +25,15 @@ export function HeroContent() {
           <span className='inline-block'>
             {HERO_CONTENT.headline.prefix}{' '}
             <span className='relative inline-block'>
-              {HERO_CONTENT.headline.highlight}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-400 animate-gradient-x">
+                {HERO_CONTENT.headline.highlight}
+              </span>
               {/* ✅ Glow effect - disabled on low-end devices */}
               {performanceTier !== 'low' && (
                 <span
-                  className={performanceTier === 'high' ? 'absolute inset-0 blur-xl animate-pulse' : 'absolute inset-0 blur-md animate-pulse'}
+                  className={performanceTier === 'high' ? 'absolute inset-0 blur-xl animate-pulse opacity-50' : 'absolute inset-0 blur-md animate-pulse opacity-30'}
                   style={{
-                    background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)/0.3))',
+                    background: 'linear-gradient(90deg, #fbbf24, #d97706)',
                   }}
                 />
               )}
@@ -55,7 +57,14 @@ export function HeroContent() {
               asChild
               variant='outline'
               size='lg'
-              className='h-12 rounded-full px-8 text-base font-medium'
+              className='h-12 rounded-full px-8 text-base font-medium !text-white'
+              style={{
+                '--color-1': '#fbbf24',
+                '--color-2': '#d97706',
+                '--color-3': '#fbbf24',
+                '--color-4': '#d97706',
+                '--color-5': '#f59e0b',
+              } as React.CSSProperties}
             >
               <a
                 href='/projects'

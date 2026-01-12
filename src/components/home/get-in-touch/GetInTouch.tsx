@@ -23,7 +23,7 @@ export function GetInTouch() {
           <div className='space-y-4'>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight'>
               Ready to create something
-              <span className='block text-primary mt-2'>extraordinary?</span>
+              <span className='block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-400 mt-2 animate-gradient-x'>extraordinary?</span>
             </h2>
             <p className='text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed'>
               Let's skip the back-and-forth emails. Schedule a direct call to discuss your vision and how we can make it a reality.
@@ -35,6 +35,13 @@ export function GetInTouch() {
               <RainbowButton
                 asChild
                 className='h-16 px-10 text-lg font-bold min-w-[240px] !text-black'
+                style={{
+                  '--color-1': '#fbbf24',
+                  '--color-2': '#d97706',
+                  '--color-3': '#fbbf24',
+                  '--color-4': '#d97706',
+                  '--color-5': '#f59e0b',
+                } as React.CSSProperties}
               >
                 <a
                   href='https://calendly.com/eeliasricardoo'
