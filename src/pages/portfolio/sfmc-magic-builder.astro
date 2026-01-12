@@ -1,0 +1,45 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import {
+    HeroSection,
+    PhilosophySection,
+    ConflictSection,
+    JourneySection,
+    ProductAnalysisSection,
+    ResultsSection,
+    ConclusionSection,
+    CallToActionSection,
+} from "@/components/portfolio/sfmc-magic-builder";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="SFMC Magic Builder | Elias Ricardo"
+    description="The Triad of UX, AI, and Code. High-performance SPA that optimizes CRM workflow by 87.5%."
+>
+    <Navbar client:load />
+    <ProgressIndicator client:load />
+
+    <CaseStudyLayout client:load>
+        <HeroSection client:load />
+
+        <PhilosophySection client:visible />
+
+        <ConflictSection client:visible />
+
+        <JourneySection client:visible />
+
+        <ProductAnalysisSection client:visible />
+
+        <ResultsSection client:visible />
+
+        <ConclusionSection client:visible />
+
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <ScrollIndicator client:load />
+</Layout>

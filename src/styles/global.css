@@ -407,6 +407,12 @@
   transform: translate3d(0, 0, 0);
 }
 
+.animate-marquee-reverse {
+  animation: marquee var(--duration) linear infinite reverse;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
   will-change: transform;

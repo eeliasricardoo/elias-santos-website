@@ -3,7 +3,7 @@
 import { TestimonialCard } from '../ui';
 import { useMounted } from '@/hooks/use-mounted';
 import { Marquee } from '@/components/magicui/marquee';
-import { usePerformance } from '@/hooks/use-performance-tier';
+
 import { useIntersectionPause } from '@/hooks/use-intersection-pause';
 import { useInViewOnce } from '@/hooks/use-optimized-inview';
 
@@ -102,7 +102,7 @@ const testimonials: Testimonial[] = [
 
 export function DepoimentsSection() {
   const mounted = useMounted();
-  const performanceTier = usePerformance();
+
   const { ref, isVisible } = useIntersectionPause();
   const { ref: headerRef, isInView: headerInView } = useInViewOnce();
   const { ref: contentRef, isInView: contentInView } = useInViewOnce({ rootMargin: '0px' });
@@ -133,49 +133,35 @@ export function DepoimentsSection() {
             <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
             <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
-            {/* ✅ Double marquee for high performance, native scroll for others */}
-            {performanceTier === 'high' ? (
-              <div className="flex flex-col gap-6">
-                <Marquee
-                  pauseOnHover
-                  repeat={4}
-                  className="[--duration:40s]"
-                  style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
-                >
-                  {testimonials.slice(0, Math.ceil(testimonials.length / 2)).map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.id}
-                      testimonial={testimonial}
-                    />
-                  ))}
-                </Marquee>
-                <Marquee
-                  reverse
-                  pauseOnHover
-                  repeat={4}
-                  className="[--duration:40s]"
-                  style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
-                >
-                  {testimonials.slice(Math.ceil(testimonials.length / 2)).map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.id}
-                      testimonial={testimonial}
-                    />
-                  ))}
-                </Marquee>
-              </div>
-            ) : (
-              <div
-                className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 px-4 -mx-4 scrollbar-hide"
-                style={{ scrollBehavior: 'smooth' }}
+            <div className="flex flex-col gap-6">
+              <Marquee
+                reverse
+                pauseOnHover
+                repeat={4}
+                className="[--duration:40s]"
+                style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
               >
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="snap-center shrink-0 w-[300px] md:w-[350px]">
-                    <TestimonialCard testimonial={testimonial} />
-                  </div>
+                {testimonials.slice(0, Math.ceil(testimonials.length / 2)).map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
                 ))}
-              </div>
-            )}
+              </Marquee>
+              <Marquee
+                pauseOnHover
+                repeat={4}
+                className="[--duration:40s]"
+                style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
+              >
+                {testimonials.slice(Math.ceil(testimonials.length / 2)).map((testimonial) => (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </Marquee>
+            </div>
           </div>
         </div>
       </div>
