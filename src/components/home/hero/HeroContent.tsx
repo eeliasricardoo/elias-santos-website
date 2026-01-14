@@ -57,7 +57,7 @@ export function HeroContent() {
               asChild
               variant='outline'
               size='lg'
-              className='h-12 rounded-full px-8 text-base font-medium !text-white'
+              className='h-12 rounded-full px-8 text-base font-medium !text-white bg-[linear-gradient(#0a0a0a,#0a0a0a),linear-gradient(#0a0a0a_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]'
               style={{
                 '--color-1': '#fbbf24',
                 '--color-2': '#d97706',

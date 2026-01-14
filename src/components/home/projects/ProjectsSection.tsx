@@ -103,7 +103,7 @@ export function ProjectsSection({
                                         </div>
 
                                         <RainbowButton
-                                            className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black"
+                                            className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]"
                                             style={{
                                                 '--color-1': '#fbbf24',
                                                 '--color-2': '#d97706',
@@ -170,7 +170,7 @@ export function ProjectsSection({
                                                 ))}
                                             </div>
                                         </div>
-                                        <RainbowButton className="w-full text-sm h-10 !text-black font-bold">View Case Study</RainbowButton>
+                                        <RainbowButton className="w-full text-sm h-10 !text-black font-bold bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]">View Case Study</RainbowButton>
                                     </CardContent>
                                 </Card>
                             </a>
