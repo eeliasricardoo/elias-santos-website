@@ -79,24 +79,24 @@ export function ProjectsSection({
 
                         <a href={project.link} className="block group relative">
                             <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-2xl opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
-                            <Card className="relative bg-zinc-900/90 border-amber-500/30 overflow-hidden rounded-xl">
+                            <Card className="relative bg-card/95 border-primary/20 overflow-hidden rounded-xl">
                                 <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center">
                                     <div className="order-2 md:order-1 space-y-6">
                                         <div>
-                                            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-amber-500 transition-colors">
+                                            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                                                 {project.title}
                                             </h3>
-                                            <p className="text-xl md:text-2xl font-medium text-white/90 mb-4">
-                                                "Want to know how I reduced CRM production time by <span className="text-amber-500">87.5%</span>?"
+                                            <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-4">
+                                                "Want to know how I reduced CRM production time by <span className="text-primary font-bold">87.5%</span>?"
                                             </p>
-                                            <p className="text-zinc-400 text-lg leading-relaxed">
+                                            <p className="text-muted-foreground text-lg leading-relaxed">
                                                 {project.description}
                                             </p>
                                         </div>
 
                                         <div className="flex flex-wrap gap-2">
                                             {project.tags.map((tag) => (
-                                                <Badge key={tag} variant="secondary" className="bg-white/10 text-zinc-200 hover:bg-white/20">
+                                                <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
                                                     {tag}
                                                 </Badge>
                                             ))}
@@ -116,7 +116,7 @@ export function ProjectsSection({
                                         </RainbowButton>
                                     </div>
 
-                                    <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-white/5 shadow-2xl">
+                                    <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-border/10 shadow-2xl">
                                         <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors z-10" />
                                         <img
                                             src={project.image}
@@ -143,8 +143,8 @@ export function ProjectsSection({
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <a href={project.link} className="block h-full group">
-                                <Card className="h-full bg-zinc-900/40 border-white/10 backdrop-blur-sm hover:bg-zinc-900/60 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 overflow-hidden">
-                                    <div className="relative h-48 w-full overflow-hidden border-b border-white/5">
+                                <Card className="h-full bg-card/40 border-border/10 backdrop-blur-sm hover:bg-card/60 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 overflow-hidden">
+                                    <div className="relative h-48 w-full overflow-hidden border-b border-border/10">
                                         <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10" />
                                         <img
                                             src={project.image}
@@ -158,13 +158,13 @@ export function ProjectsSection({
                                     </div>
                                     <CardContent className="flex flex-col justify-between p-6 h-[calc(100%-192px)]">
                                         <div>
-                                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                                                 {project.title}
                                             </h3>
-                                            <p className="text-zinc-400 mb-6 line-clamp-2">{project.description}</p>
+                                            <p className="text-muted-foreground mb-6 line-clamp-2">{project.description}</p>
                                             <div className="flex flex-wrap gap-2 mb-6">
                                                 {project.tags.map((tag) => (
-                                                    <Badge key={tag} variant="outline" className="bg-white/5 text-zinc-300 border-white/10">
+                                                    <Badge key={tag} variant="outline" className="bg-primary/5 text-muted-foreground border-border/10">
                                                         {tag}
                                                     </Badge>
                                                 ))}

@@ -64,6 +64,7 @@ export function Navbar() {
                   </span>
                 </a>
               </RainbowButton>
+
             </div>
           </div>
         </div>

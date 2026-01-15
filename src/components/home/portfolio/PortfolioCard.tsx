@@ -100,7 +100,7 @@ export function PortfolioCard({ card, index, totalCards }: PortfolioCardProps) {
       )}
 
       <Card
-        className={`border-white/5 bg-black/90 ${performanceTier === 'high' ? 'backdrop-blur-xl' : 'backdrop-blur-sm'
+        className={`border-border/50 bg-card/90 ${performanceTier === 'high' ? 'backdrop-blur-xl' : 'backdrop-blur-sm'
           } shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-pointer`}
         onClick={handleCardClick}
       >

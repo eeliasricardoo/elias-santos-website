@@ -53,7 +53,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-all duration-500' />
 
             <Card
-                className='border-white/5 bg-black/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-pointer overflow-hidden'
+                className='border-border/50 bg-card/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 relative z-10 group cursor-pointer overflow-hidden'
                 onClick={handleCardClick}
             >
                 <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12'>
