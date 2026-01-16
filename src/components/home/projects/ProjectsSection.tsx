@@ -71,33 +71,34 @@ export function ProjectsSection({
                     >
                         <div className="mb-4 flex items-center gap-2">
                             <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                             </span>
-                            <span className="text-sm font-medium text-amber-500 uppercase tracking-wider">Featured Case Study</span>
+                            <span className="text-sm font-bold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent uppercase tracking-wider">Featured Case Study</span>
                         </div>
 
                         <a href={project.link} className="block group relative perspective-1000">
                             <TiltCard>
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-2xl opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
-                                <Card className="relative bg-card/95 border-primary/20 overflow-hidden rounded-xl h-full">
-                                    <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center h-full">
+                                <div className="absolute -inset-[2px] bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 rounded-2xl opacity-40 group-hover:opacity-70 blur-md transition duration-500"></div>
+                                <Card className="relative bg-black/90 border-yellow-500/30 overflow-hidden rounded-xl h-full">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-black/50 to-black" />
+                                    <div className="relative z-10 grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center h-full">
                                         <div className="order-2 md:order-1 space-y-6 transform-gpu translate-z-6 " style={{ transform: "translateZ(20px)" }}>
                                             <div>
-                                                <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                                                <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">
                                                     {project.title}
                                                 </h3>
                                                 <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-4">
-                                                    "Want to know how I reduced CRM production time by <span className="text-primary font-bold">87.5%</span>?"
+                                                    "Want to know how I reduced CRM production time by <span className="text-yellow-400 font-bold">87.5%</span>?"
                                                 </p>
-                                                <p className="text-muted-foreground text-lg leading-relaxed">
+                                                <p className="text-zinc-400 text-lg leading-relaxed">
                                                     {project.description}
                                                 </p>
                                             </div>
 
                                             <div className="flex flex-wrap gap-2">
                                                 {project.tags.map((tag) => (
-                                                    <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
+                                                    <Badge key={tag} variant="secondary" className="bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500/20 border border-yellow-500/20">
                                                         {tag}
                                                     </Badge>
                                                 ))}
