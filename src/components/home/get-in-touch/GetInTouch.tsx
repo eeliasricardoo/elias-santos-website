@@ -14,7 +14,7 @@ export function GetInTouch() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/20 via-primary/5 to-transparent rounded-full blur-[100px] opacity-60'
+          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/20 via-yellow-500/5 to-transparent rounded-full blur-[100px] opacity-60'
         />
       </div>
 
