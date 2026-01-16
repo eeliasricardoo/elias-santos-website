@@ -1,5 +1,4 @@
 'use client';
-
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -9,7 +8,14 @@ export function GetInTouch() {
     <section id='get-in-touch' className='relative py-24 overflow-hidden'>
       {/* Background decoration */}
       <div className='absolute inset-0 -z-10'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-50' />
+        <div className='absolute inset-0 bg-background/80 blur-3xl' />
+
+        {/* Animated Rotating Gradient */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/20 via-primary/5 to-transparent rounded-full blur-[100px] opacity-60'
+        />
       </div>
 
       <div className='relative z-10 container mx-auto px-4 text-center'>
@@ -31,7 +37,11 @@ export function GetInTouch() {
           </div>
 
           <div className='flex items-center justify-center pt-4'>
-            <div className="transition-transform hover:scale-105 active:scale-95 duration-300">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="transition-transform duration-300"
+            >
               <RainbowButton
                 asChild
                 className='h-16 px-10 text-lg font-bold min-w-[240px] !text-black bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]'
@@ -53,10 +63,8 @@ export function GetInTouch() {
                   <span>Schedule a Meeting</span>
                 </a>
               </RainbowButton>
-            </div>
+            </motion.div>
           </div>
-
-
         </motion.div>
       </div>
     </section>

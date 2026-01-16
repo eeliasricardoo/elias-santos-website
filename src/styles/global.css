@@ -9,37 +9,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Optimización para dispositivos touch */
-  @media (hover: none) and (pointer: coarse) {
-
-    /* CRITICAL: Disable all hover effects on touch devices - improves INP significantly */
-    *:hover,
-    .hover\:scale-105:hover,
-    .hover\:scale-\[1\.01\]:hover,
-    .hover\:scale-\[1\.02\]:hover,
-    .group:hover *,
-    .group-hover\:scale-105 {
-      transform: none !important;
-    }
-
-    .hover\:shadow-lg:hover,
-    .hover\:shadow-primary\/20:hover {
-      box-shadow: none;
-    }
-
-    /* Disable CSS transitions on touch for instant feedback (better INP) */
-    .transition-all,
-    .transition-transform,
-    .transition-opacity {
-      transition-duration: 0.05s !important;
-    }
-
-    /* Disable will-change to reduce layer creation on mobile */
-    .will-change-transform,
-    .will-change-opacity {
-      will-change: auto !important;
-    }
-  }
 
   /* Reduzir animações em dispositivos com baixa performance */
   @media (prefers-reduced-motion: reduce) {
