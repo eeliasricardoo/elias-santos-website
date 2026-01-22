@@ -3,6 +3,7 @@
 import { Suspense, lazy } from 'react';
 import { ProfilePhoto } from './ProfilePhoto';
 import { HeroContent } from './HeroContent';
+import { HeroScrollPrompt } from './HeroScrollPrompt';
 
 
 // Lazy-load background effects to prevent blocking LCP
@@ -36,7 +37,7 @@ export function HeroSection() {
       <HeroContent />
 
       {/* Scroll cue bottom-center */}
-
+      <HeroScrollPrompt />
     </section>
   );
 }
