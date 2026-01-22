@@ -38,8 +38,9 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                 top: `calc(10vh + ${index * 30}px)`,
                 zIndex: index,
                 perspective: '1000px',
+                scrollMarginTop: `calc(10vh + ${index * 30}px)`,
             }}
-            className={`sticky w-full max-w-5xl mx-auto group transition-all duration-700 h-[500px] ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`sticky w-full max-w-5xl mx-auto group transition-[opacity,transform] duration-700 h-[500px] will-change-transform snap-start ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
         >
             <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />

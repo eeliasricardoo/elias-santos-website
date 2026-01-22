@@ -3,7 +3,7 @@ import { HERO_CONTENT } from '@/constants/content';
 
 export function ProfilePhoto() {
   return (
-    <div className='relative z-10 flex flex-col items-center mb-8'>
+    <div className='relative z-10 flex flex-col items-center mb-4'>
       <div
         className='relative will-change-transform animate-in fade-in zoom-in-50 duration-1000 ease-out'
         style={{ transform: 'translateZ(0)' }}
@@ -39,7 +39,7 @@ export function ProfilePhoto() {
 
       {/* ✅ Nome abaixo da foto */}
       <div
-        className='mt-6 pt-4 animate-in fade-in slide-in-from-bottom-4 duration-300 fill-mode-forwards'
+        className='mt-4 animate-in fade-in slide-in-from-bottom-4 duration-300 fill-mode-forwards'
       >
         <AnimatedBadge text={HERO_CONTENT.profile.name} animationDelay={0} />
       </div>

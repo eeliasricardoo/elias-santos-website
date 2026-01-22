@@ -25,6 +25,7 @@
   /* Otimização para scroll suave */
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
   }
 
   /* Performance melhorada para elementos transformados */
