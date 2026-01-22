@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { TiltCard } from '@/components/ui/TiltCard';
+import { ArrowRight } from 'lucide-react';
 
 const projects = [
     {
@@ -71,25 +72,25 @@ export function ProjectsSection({
                     >
                         <div className="mb-4 flex items-center gap-2">
                             <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-slate-500"></span>
                             </span>
-                            <span className="text-sm font-bold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent uppercase tracking-wider">Featured Case Study</span>
+                            <span className="text-sm font-bold bg-gradient-to-r from-slate-300 via-white to-slate-400 bg-clip-text text-transparent uppercase tracking-wider">Featured Case Study</span>
                         </div>
 
                         <a href={project.link} className="block group relative perspective-1000">
                             <TiltCard>
-                                <div className="absolute -inset-[2px] bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 rounded-2xl opacity-40 group-hover:opacity-70 blur-md transition duration-500"></div>
-                                <Card className="relative bg-black/90 border-yellow-500/30 overflow-hidden rounded-xl h-full">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-black/50 to-black" />
+                                <div className="absolute -inset-[2px] bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 rounded-2xl opacity-40 group-hover:opacity-70 blur-md transition duration-500"></div>
+                                <Card className="relative bg-black/90 border-slate-500/30 overflow-hidden rounded-xl h-full">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 via-black/50 to-black" />
                                     <div className="relative z-10 grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center h-full">
                                         <div className="order-2 md:order-1 space-y-6 transform-gpu translate-z-6 " style={{ transform: "translateZ(20px)" }}>
                                             <div>
-                                                <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">
+                                                <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-slate-200 transition-colors">
                                                     {project.title}
                                                 </h3>
                                                 <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-4">
-                                                    "Want to know how I reduced CRM production time by <span className="text-yellow-400 font-bold">87.5%</span>?"
+                                                    "Want to know how I reduced CRM production time by <span className="text-slate-200 font-bold">87.5%</span>?"
                                                 </p>
                                                 <p className="text-zinc-400 text-lg leading-relaxed">
                                                     {project.description}
@@ -98,23 +99,26 @@ export function ProjectsSection({
 
                                             <div className="flex flex-wrap gap-2">
                                                 {project.tags.map((tag) => (
-                                                    <Badge key={tag} variant="secondary" className="bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500/20 border border-yellow-500/20">
+                                                    <Badge key={tag} variant="secondary" className="bg-slate-500/10 text-slate-300 hover:bg-slate-500/20 border border-slate-500/20">
                                                         {tag}
                                                     </Badge>
                                                 ))}
                                             </div>
 
                                             <RainbowButton
-                                                className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]"
+                                                className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black bg-gradient-to-b from-white to-slate-200 border border-white/60 shadow-[0_0_30px_-5px_rgba(255,255,255,0.5),0_0_10px_rgba(255,255,255,0.3)_inset] hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.7),0_0_15px_rgba(255,255,255,0.4)_inset] hover:scale-[1.02] transition-all duration-300"
                                                 style={{
-                                                    '--color-1': '#fbbf24',
-                                                    '--color-2': '#d97706',
-                                                    '--color-3': '#fbbf24',
-                                                    '--color-4': '#d97706',
-                                                    '--color-5': '#f59e0b',
+                                                    '--color-1': '#e2e8f0',
+                                                    '--color-2': '#94a3b8',
+                                                    '--color-3': '#f8fafc',
+                                                    '--color-4': '#cbd5e1',
+                                                    '--color-5': '#64748b',
                                                 } as React.CSSProperties}
                                             >
-                                                Read the Full Story
+                                                <span className="flex items-center gap-2 uppercase tracking-wide text-sm">
+                                                    Read the Full Story
+                                                    <ArrowRight className="w-5 h-5 ml-1" />
+                                                </span>
                                             </RainbowButton>
                                         </div>
 
@@ -174,7 +178,12 @@ export function ProjectsSection({
                                                     ))}
                                                 </div>
                                             </div>
-                                            <RainbowButton className="w-full text-sm h-10 !text-black font-bold bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]">View Case Study</RainbowButton>
+                                            <RainbowButton className="w-full text-sm h-10 !text-black font-bold bg-gradient-to-b from-white to-slate-200 border border-white/60 shadow-[0_0_20px_-3px_rgba(255,255,255,0.4),0_0_5px_rgba(255,255,255,0.2)_inset] hover:shadow-[0_0_30px_-3px_rgba(255,255,255,0.6),0_0_10px_rgba(255,255,255,0.3)_inset] transition-all duration-300 group-hover:scale-[1.02]">
+                                                <span className="flex items-center justify-center gap-2 w-full uppercase tracking-wide text-xs">
+                                                    View Case Study
+                                                    <ArrowRight className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                                </span>
+                                            </RainbowButton>
                                         </CardContent>
                                     </Card>
                                 </TiltCard>

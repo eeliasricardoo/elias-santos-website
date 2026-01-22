@@ -24,7 +24,7 @@ export function HeroContent() {
           <span className='inline-block'>
             {HERO_CONTENT.headline.prefix}{' '}
             <span className='relative inline-block'>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-400 animate-gradient-x">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-300 animate-gradient-x">
                 {HERO_CONTENT.headline.highlight}
               </span>
               {/* ✅ Glow effect - disabled on low-end devices */}
@@ -32,7 +32,7 @@ export function HeroContent() {
                 <span
                   className={performanceTier === 'high' ? 'absolute inset-0 blur-xl animate-pulse opacity-50' : 'absolute inset-0 blur-md animate-pulse opacity-30'}
                   style={{
-                    background: 'linear-gradient(90deg, #fbbf24, #d97706)',
+                    background: 'linear-gradient(90deg, #e2e8f0, #94a3b8)',
                   }}
                 />
               )}
@@ -58,11 +58,11 @@ export function HeroContent() {
               size='lg'
               className='h-12 rounded-full px-8 text-base font-medium !text-white bg-[linear-gradient(#0a0a0a,#0a0a0a),linear-gradient(#0a0a0a_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]'
               style={{
-                '--color-1': '#fbbf24',
-                '--color-2': '#d97706',
-                '--color-3': '#fbbf24',
-                '--color-4': '#d97706',
-                '--color-5': '#f59e0b',
+                '--color-1': '#e2e8f0', // slate-200
+                '--color-2': '#94a3b8', // slate-400
+                '--color-3': '#f8fafc', // slate-50
+                '--color-4': '#cbd5e1', // slate-300
+                '--color-5': '#64748b', // slate-500
               } as React.CSSProperties}
             >
               <a

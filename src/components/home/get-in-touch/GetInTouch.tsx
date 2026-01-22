@@ -14,7 +14,7 @@ export function GetInTouch() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/20 via-yellow-500/5 to-transparent rounded-full blur-[100px] opacity-60'
+          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-slate-500/20 via-zinc-500/5 to-transparent rounded-full blur-[100px] opacity-60'
         />
       </div>
 
@@ -29,7 +29,7 @@ export function GetInTouch() {
           <div className='space-y-4'>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight'>
               Ready to create something
-              <span className='block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-400 mt-2 animate-gradient-x'>extraordinary?</span>
+              <span className='block text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-300 mt-2 animate-gradient-x'>extraordinary?</span>
             </h2>
             <p className='text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed'>
               Let's skip the back-and-forth emails. Schedule a direct call to discuss your vision and how we can make it a reality.
@@ -46,11 +46,11 @@ export function GetInTouch() {
                 asChild
                 className='h-16 px-10 text-lg font-bold min-w-[240px] !text-black bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]'
                 style={{
-                  '--color-1': '#fbbf24',
-                  '--color-2': '#d97706',
-                  '--color-3': '#fbbf24',
-                  '--color-4': '#d97706',
-                  '--color-5': '#f59e0b',
+                  '--color-1': '#e2e8f0',
+                  '--color-2': '#94a3b8',
+                  '--color-3': '#f8fafc',
+                  '--color-4': '#cbd5e1',
+                  '--color-5': '#64748b',
                 } as React.CSSProperties}
               >
                 <a
