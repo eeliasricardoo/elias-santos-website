@@ -4,23 +4,18 @@ import { Suspense, lazy } from 'react';
 import { ProfilePhoto } from './ProfilePhoto';
 import { HeroContent } from './HeroContent';
 import { HeroScrollPrompt } from './HeroScrollPrompt';
+import { StarTunnel } from './StarTunnel';
 
 
 // Lazy-load background effects to prevent blocking LCP
-
-const FloatingElements = lazy(() =>
-  import('./FloatingElements').then(module => ({ default: module.FloatingElements }))
-);
 
 export function HeroSection() {
   return (
     <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24'>
       {/* Hero Section Container */}
-      {/* ✅ Efeitos de fundo espacial - lazy loaded */}
+      {/* ✅ Efeitos de fundo espacial - Star Tunnel */}
 
-      <Suspense fallback={null}>
-        <FloatingElements />
-      </Suspense>
+      <StarTunnel />
 
       {/* ✅ Static Hero Glow Aura */}
       <div
