@@ -39,22 +39,16 @@ export function AnimatedBackground() {
           <div className='absolute inset-0 bg-gradient-radial from-amber-500/5 via-transparent to-transparent animate-[pulse_8s_ease-in-out_infinite]' />
 
           {/* Noise Texture Overlay */}
-          <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            }}
-          />
+          <div className="bg-noise absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
           {/* Elementos decorativos minimalistas - blur reduzido em medium */}
           <div
             className={`absolute top-1/4 left-1/4 w-48 h-48 bg-amber-500/10 rounded-full ${performanceTier === 'high' ? 'blur-3xl' : 'blur-xl'
-              } animate-[float_15s_ease-in-out_infinite]`}
-            style={{ willChange: 'transform' }}
+              } animate-[float_15s_ease-in-out_infinite] will-change-transform`}
           />
           <div
             className={`absolute bottom-1/3 right-1/4 w-64 h-64 bg-yellow-500/5 rounded-full ${performanceTier === 'high' ? 'blur-3xl' : 'blur-xl'
-              } animate-[float_18s_ease-in-out_infinite_reverse]`}
-            style={{ willChange: 'transform' }}
+              } animate-[float_18s_ease-in-out_infinite_reverse] will-change-transform`}
           />
 
           {/* Pontos decorativos sutis - apenas em high performance */}

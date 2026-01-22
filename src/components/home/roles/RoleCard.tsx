@@ -46,17 +46,15 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
             <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
             <motion.div
-                className="relative w-full h-full cursor-pointer"
+                className="preserve-3d relative w-full h-full cursor-pointer"
                 onClick={handleFlip}
                 initial={false}
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
                 transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-                style={{ transformStyle: "preserve-3d" }}
             >
                 {/* FRONT FACE */}
                 <Card
-                    className='absolute inset-0 border-border/50 bg-card/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 transition-all duration-300 w-full h-full'
-                    style={{ backfaceVisibility: 'hidden' }}
+                    className='backface-hidden absolute inset-0 border-border/50 bg-card/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 transition-all duration-300 w-full h-full'
                 >
                     <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 h-full flex items-center relative'>
                         {/* Hint to flip */}
@@ -96,9 +94,8 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
 
                 {/* BACK FACE */}
                 <Card
-                    className='absolute inset-0 border-border/50 bg-card/95 backdrop-blur-xl shadow-2xl w-full h-full'
+                    className='backface-hidden absolute inset-0 border-border/50 bg-card/95 backdrop-blur-xl shadow-2xl w-full h-full'
                     style={{
-                        backfaceVisibility: 'hidden',
                         transform: 'rotateY(180deg)'
                     }}
                 >

@@ -118,7 +118,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
                     <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12'>
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 items-center'>
-                            <div className='space-y-6 md:space-y-8 lg:space-y-10 order-1 transform-gpu translate-z-10' style={{ transform: "translateZ(20px)" }}>
+                            <div className='space-y-6 md:space-y-8 lg:space-y-10 order-1 transform-gpu translate-z-20'>
                                 <div className='space-y-4 md:space-y-5 lg:space-y-6'>
                                     <h3 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-foreground leading-tight'>
                                         {project.title}
@@ -140,7 +140,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                                 </div>
                             </div>
 
-                            <div className='relative w-full order-2 h-[320px] md:h-[380px] lg:h-[460px] xl:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/20 transform-gpu' style={{ transform: "translateZ(30px)" }}>
+                            <div className='relative w-full order-2 h-[320px] md:h-[380px] lg:h-[460px] xl:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/20 transform-gpu translate-z-30'>
                                 <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5' />
                                 <AnimatedMockup
                                     type={

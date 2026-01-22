@@ -5,8 +5,7 @@ export function ProfilePhoto() {
   return (
     <div className='relative z-10 flex flex-col items-center mb-4'>
       <div
-        className='relative will-change-transform animate-in fade-in zoom-in-50 duration-1000 ease-out'
-        style={{ transform: 'translateZ(0)' }}
+        className='relative will-change-transform animate-in fade-in zoom-in-50 duration-1000 ease-out translate-z-0'
       >
         {/* Container da foto */}
         <div className='relative w-32 h-32 md:w-32 md:h-32 aspect-square rounded-full overflow-hidden shadow-2xl bg-muted/20 transition-transform hover:scale-105 will-change-transform'>

@@ -21,10 +21,7 @@ export function HeroSection() {
 
       {/* ✅ Static Hero Glow Aura */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-[5] pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at 50% 30%, hsl(var(--primary) / 0.15), transparent 70%)"
-        }}
+        className="hero-glow absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-[5] pointer-events-none"
       />
 
       {/* Profile photo with priority */}
