@@ -2,7 +2,6 @@
 import "@/styles/global.css";
 import ResourceHints from "@/components/performance/ResourceHints.astro";
 import PersonSchema from "@/components/seo/PersonSchema.astro";
-import { PlatinumCursor } from "@/components/ui/PlatinumCursor";
 
 interface Props {
 	title: string;
@@ -111,7 +110,6 @@ const canonicalURL = Astro.site
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen bg-background font-sans antialiased">
-		<PlatinumCursor client:load />
 		<slot />
 	</body>
 </html>
