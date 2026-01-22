@@ -13,10 +13,7 @@ const config: Config = {
   },
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Satoshi', 'sans-serif'],
-        satoshi: ['Satoshi', 'sans-serif'],
-      },
+
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

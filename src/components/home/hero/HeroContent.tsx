@@ -1,6 +1,5 @@
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { HERO_CONTENT } from '@/constants/content';
 import { usePerformance } from '@/hooks/use-performance-tier';
@@ -12,7 +11,7 @@ export function HeroContent() {
   // Performance optimization: Using CSS animations instead of JS framer-motion for LCP
 
   return (
-    <motion.div
+    <div
       className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
     >
       {/* ✅ Animação de entrada sequencial */}
@@ -99,6 +98,6 @@ export function HeroContent() {
 
 
       </div>
-    </motion.div>
+    </div>
   );
 }

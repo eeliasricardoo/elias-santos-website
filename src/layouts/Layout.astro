@@ -53,58 +53,6 @@ const canonicalURL = Astro.site
 		<!-- JSON-LD SEO Schema -->
 		<PersonSchema />
 
-		<!-- Preconnect to font CDN for faster font loading (~300ms LCP improvement) -->
-		<link
-			rel="preconnect"
-			href="https://cdn.fontshare.com"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="preconnect"
-			href="https://api.fontshare.com"
-			crossorigin="anonymous"
-		/>
-
-		<!-- DNS Prefetch as fallback for older browsers -->
-		<link rel="dns-prefetch" href="https://cdn.fontshare.com" />
-		<link rel="dns-prefetch" href="https://api.fontshare.com" />
-
-		<!-- Inline critical font-face to prevent FOIT -->
-		<style>
-			/* System font fallback that matches Satoshi metrics */
-			@font-face {
-				font-family: "Satoshi-fallback";
-				size-adjust: 105%;
-				ascent-override: 95%;
-				src: local("Arial"), local("Helvetica"), local("sans-serif");
-			}
-
-			/* Apply font immediately to prevent FOUT */
-			body {
-				font-family:
-					"Satoshi",
-					"Satoshi-fallback",
-					-apple-system,
-					BlinkMacSystemFont,
-					system-ui,
-					sans-serif;
-			}
-		</style>
-
-		<!-- Load font async with minimal blocking -->
-		<link
-			rel="stylesheet"
-			href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
-			media="print"
-			onload="this.media='all'"
-		/>
-		<noscript>
-			<link
-				href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
-				rel="stylesheet"
-			/>
-		</noscript>
-
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
