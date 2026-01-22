@@ -11,8 +11,6 @@ import { Footer } from "@/components/Footer";
 import { AnimatedBackground } from "@/components/home/AnimatedBackground";
 import { ProgressIndicator } from "@/components/home/ProgressIndicator";
 import { ScrollIndicator } from "@/components/home/ScrollIndicator";
-import { WebVitalsMonitor } from "@/components/performance/WebVitalsMonitor";
-import { LCPOptimizer } from "@/components/performance/LCPOptimizer";
 ---
 
 <Layout title="Elias Ricardo | Portfolio">
@@ -42,6 +40,5 @@ import { LCPOptimizer } from "@/components/performance/LCPOptimizer";
 	<ScrollIndicator client:visible />
 
 	<!-- Performance monitoring - loads after main content -->
-	<WebVitalsMonitor client:idle />
-	<LCPOptimizer client:idle />
+	<!-- Removed for performance: WebVitalsMonitor and LCPOptimizer -->
 </Layout>
