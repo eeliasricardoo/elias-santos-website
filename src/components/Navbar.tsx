@@ -31,7 +31,7 @@ export function Navbar() {
                 className='hover:bg-primary hover:text-primary-foreground transition-colors'
               >
                 <a
-                  href='/resume_eeliasricardoo.pdf'
+                  href='/resume.pdf'
                   target='_blank'
                   rel='noopener'
                   aria-label='Open resume'

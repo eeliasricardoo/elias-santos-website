@@ -5,38 +5,40 @@ import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { TiltCard } from '@/components/ui/TiltCard';
 import { ArrowRight } from 'lucide-react';
 
+// ... (imports remain the same)
+
 const projects = [
     {
         title: 'SFMC Magic Builder',
-        description: 'The Triad of UX, AI, and Code. High-performance SPA that optimizes CRM workflow by 87.5%.',
+        description: 'A revolutionary SPA blending UX, AI, and Code. Streamlined CRM workflows to achieve a massive 87.5% efficiency boost.',
         tags: ['React', 'AI', 'UX Engineering'],
         link: '/portfolio/sfmc-magic-builder',
         image: '/portfolios/sfmc-magic-builder/cover.png'
     },
     {
         title: 'ChatAI: Personal AI Ecosystem',
-        description: 'Personal AI ecosystem with unified chat, screenshot analysis, and multimodal generation.',
+        description: 'A unified Personal AI Ecosystem. Seamlessly integrating chat, visual analysis, and multimodal generation into one intuitive interface.',
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp'
     },
     {
         title: 'Carousel Builder',
-        description: 'No-code tool to create professional carousels in minutes with real-time preview.',
+        description: 'Empowering creators with a No-Code solution. Build professional, engaging carousels in minutes with instant real-time previews.',
         tags: ['React', 'No-Code', 'Automation'],
         link: '/portfolio/carousel-builder',
         image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.webp'
     },
     {
         title: 'Ranking Engine',
-        description: 'Gamification engine with weekly leaderboards, badges, and dynamic scoring.',
+        description: 'Driving engagement through Gamification. A dynamic engine featuring live leaderboards, achievement badges, and real-time scoring.',
         tags: ['Gamification', 'SSR', 'Caching'],
         link: '/portfolio/ranking',
         image: '/portfolios/ranking/ranking.webp'
     },
     {
         title: 'Support Queue',
-        description: 'Omnichannel chat system reducing wait time by 22% through intelligent queuing.',
+        description: 'Optimizing support with Intelligent Queuing. An omnichannel system that slashed wait times by 22%, enhancing customer satisfaction.',
         tags: ['UX/UI', 'Real-time', 'Optimization'],
         link: '/portfolio/support-queue',
         image: '/portfolios/fila-atendimento/1.webp'
@@ -49,8 +51,8 @@ interface ProjectsSectionProps {
 }
 
 export function ProjectsSection({
-    title = "Selected Projects",
-    description = "Here are some of the projects I've worked on. Each one represents a unique challenge and solution."
+    title = "Selected Case Studies",
+    description = "Deep dives into complex problems, strategic design, and technical execution. Read the full stories behind the solutions."
 }: ProjectsSectionProps) {
     return (
         <section id="projects" className="py-20 px-4 container mx-auto">
@@ -84,12 +86,22 @@ export function ProjectsSection({
                                 <Card className="relative bg-black/90 border-slate-500/30 overflow-hidden rounded-xl h-full">
                                     <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 via-black/50 to-black" />
                                     <div className="relative z-10 grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center h-full">
-                                        <div className="order-2 md:order-1 space-y-6 transform-gpu translate-z-6 " style={{ transform: "translateZ(20px)" }}>
-                                            <div>
-                                                <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-slate-200 transition-colors">
+                                        <div className="order-2 md:order-1 flex flex-col justify-center h-full transform-gpu translate-z-6 " style={{ transform: "translateZ(20px)" }}>
+
+                                            {/* Tags moved top for hierarchy */}
+                                            <div className="flex flex-wrap gap-2 mb-6">
+                                                {project.tags.map((tag) => (
+                                                    <Badge key={tag} variant="secondary" className="bg-slate-500/10 text-slate-300 hover:bg-slate-500/20 border border-slate-500/20 px-3 py-1">
+                                                        {tag}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+
+                                            <div className="mb-8">
+                                                <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 group-hover:text-slate-200 transition-colors leading-tight">
                                                     {project.title}
                                                 </h3>
-                                                <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-4">
+                                                <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 border-l-2 border-slate-500/30 pl-4 py-1">
                                                     "Want to know how I reduced CRM production time by <span className="text-slate-200 font-bold">87.5%</span>?"
                                                 </p>
                                                 <p className="text-zinc-400 text-lg leading-relaxed">
@@ -97,32 +109,27 @@ export function ProjectsSection({
                                                 </p>
                                             </div>
 
-                                            <div className="flex flex-wrap gap-2">
-                                                {project.tags.map((tag) => (
-                                                    <Badge key={tag} variant="secondary" className="bg-slate-500/10 text-slate-300 hover:bg-slate-500/20 border border-slate-500/20">
-                                                        {tag}
-                                                    </Badge>
-                                                ))}
+                                            {/* Button with more prominence */}
+                                            <div className="mt-auto pt-6">
+                                                <RainbowButton
+                                                    className="w-full md:w-auto min-w-[240px] px-8 py-6 text-lg font-bold !text-black bg-gradient-to-b from-white via-slate-200 to-slate-400 border border-white/40 shadow-[0_0_20px_-5px_rgba(255,255,255,0.4),0_0_10px_rgba(255,255,255,0.2)_inset] hover:shadow-[0_0_50px_-5px_rgba(255,255,255,0.9),0_0_20px_rgba(255,255,255,0.7)_inset] hover:scale-[1.03] active:scale-[0.98] transition-all duration-500"
+                                                    style={{
+                                                        '--color-1': '#ffffff',
+                                                        '--color-2': '#e2e8f0',
+                                                        '--color-3': '#cbd5e1',
+                                                        '--color-4': '#94a3b8',
+                                                        '--color-5': '#f1f5f9',
+                                                    } as React.CSSProperties}
+                                                >
+                                                    <span className="flex items-center justify-center gap-2 uppercase tracking-tight text-base font-black text-black/90 drop-shadow-sm">
+                                                        View Complete Case
+                                                        <ArrowRight className="w-5 h-5 ml-1 stroke-[3px]" />
+                                                    </span>
+                                                </RainbowButton>
                                             </div>
-
-                                            <RainbowButton
-                                                className="w-full md:w-auto px-8 py-6 text-base font-bold !text-black bg-gradient-to-b from-white to-slate-200 border border-white/60 shadow-[0_0_30px_-5px_rgba(255,255,255,0.5),0_0_10px_rgba(255,255,255,0.3)_inset] hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.7),0_0_15px_rgba(255,255,255,0.4)_inset] hover:scale-[1.02] transition-all duration-300"
-                                                style={{
-                                                    '--color-1': '#e2e8f0',
-                                                    '--color-2': '#94a3b8',
-                                                    '--color-3': '#f8fafc',
-                                                    '--color-4': '#cbd5e1',
-                                                    '--color-5': '#64748b',
-                                                } as React.CSSProperties}
-                                            >
-                                                <span className="flex items-center gap-2 uppercase tracking-wide text-sm">
-                                                    Read the Full Story
-                                                    <ArrowRight className="w-5 h-5 ml-1" />
-                                                </span>
-                                            </RainbowButton>
                                         </div>
 
-                                        <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-border/10 shadow-2xl transform-gpu" style={{ transform: "translateZ(30px)" }}>
+                                        <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-border/10 shadow-2xl transform-gpu h-full min-h-[300px]" style={{ transform: "translateZ(30px)" }}>
                                             <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors z-10" />
                                             <img
                                                 src={project.image}
@@ -151,8 +158,8 @@ export function ProjectsSection({
                         >
                             <a href={project.link} className="block h-full group">
                                 <TiltCard className="h-full">
-                                    <Card className="h-full bg-card/40 border-border/10 backdrop-blur-sm hover:bg-card/60 transition-all duration-300 hover:border-primary/20 overflow-hidden">
-                                        <div className="relative h-48 w-full overflow-hidden border-b border-border/10 transform-gpu" style={{ transform: "translateZ(20px)" }}>
+                                    <Card className="h-full bg-card/40 border-border/10 backdrop-blur-sm hover:bg-card/60 transition-all duration-300 hover:border-primary/20 overflow-hidden flex flex-col">
+                                        <div className="relative h-56 w-full overflow-hidden border-b border-border/10 transform-gpu shrink-0" style={{ transform: "translateZ(20px)" }}>
                                             <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10" />
                                             <img
                                                 src={project.image}
@@ -164,26 +171,37 @@ export function ProjectsSection({
                                                 height="404"
                                             />
                                         </div>
-                                        <CardContent className="flex flex-col justify-between p-6 h-[calc(100%-192px)] transform-gpu" style={{ transform: "translateZ(10px)" }}>
-                                            <div>
-                                                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                                    {project.title}
-                                                </h3>
-                                                <p className="text-muted-foreground mb-6 line-clamp-2">{project.description}</p>
-                                                <div className="flex flex-wrap gap-2 mb-6">
+
+                                        <CardContent className="flex flex-col flex-grow justify-between p-6 transform-gpu" style={{ transform: "translateZ(10px)" }}>
+                                            <div className="space-y-4">
+                                                {/* Tags moved to top */}
+                                                <div className="flex flex-wrap gap-2">
                                                     {project.tags.map((tag) => (
                                                         <Badge key={tag} variant="outline" className="bg-primary/5 text-muted-foreground border-border/10">
                                                             {tag}
                                                         </Badge>
                                                     ))}
                                                 </div>
+
+                                                <div>
+                                                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                                                        {project.title}
+                                                    </h3>
+                                                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                                                        {project.description}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <RainbowButton className="w-full text-sm h-10 !text-black font-bold bg-gradient-to-b from-white to-slate-200 border border-white/60 shadow-[0_0_20px_-3px_rgba(255,255,255,0.4),0_0_5px_rgba(255,255,255,0.2)_inset] hover:shadow-[0_0_30px_-3px_rgba(255,255,255,0.6),0_0_10px_rgba(255,255,255,0.3)_inset] transition-all duration-300 group-hover:scale-[1.02]">
-                                                <span className="flex items-center justify-center gap-2 w-full uppercase tracking-wide text-xs">
-                                                    View Case Study
-                                                    <ArrowRight className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                                                </span>
-                                            </RainbowButton>
+
+                                            {/* Distinct action area */}
+                                            <div className="mt-8 pt-6 border-t border-border/5">
+                                                <RainbowButton className="w-full h-12 !text-black bg-gradient-to-b from-slate-100 via-slate-200 to-slate-400 border border-t-white/60 border-b-slate-500/30 shadow-[0_2px_10px_-2px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.6),0_0_15px_rgba(255,255,255,0.4)_inset] transition-all duration-500 group-hover:scale-[1.02] active:scale-[0.98]">
+                                                    <span className="flex items-center justify-center gap-2 w-full uppercase tracking-tight text-sm font-black text-black/80 group-hover:text-black">
+                                                        View Complete Case
+                                                        <ArrowRight className="w-5 h-5 opacity-100 translate-x-0 group-hover:translate-x-1 transition-transform stroke-[2.5px]" />
+                                                    </span>
+                                                </RainbowButton>
+                                            </div>
                                         </CardContent>
                                     </Card>
                                 </TiltCard>
