@@ -1,6 +1,6 @@
 'use client';
 
-import { BackButton } from './BackButton';
+
 import { motion } from 'framer-motion';
 
 interface CaseStudyLayoutProps {
@@ -10,9 +10,7 @@ interface CaseStudyLayoutProps {
 export function CaseStudyLayout({ children }: CaseStudyLayoutProps) {
     return (
         <main className="max-w-4xl mx-auto py-12 px-4 flex flex-col gap-24 pt-24 min-h-screen">
-            <header className="mb-10 text-left">
-                <BackButton />
-            </header>
+            {/* header removed as it only contained the BackButton */}
 
             {children}
         </main>

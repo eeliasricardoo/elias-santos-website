@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Calendar, Home } from 'lucide-react';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
+import { Calendar, ArrowRight } from 'lucide-react';
 
 
 export function CallToActionSection() {
@@ -10,9 +11,7 @@ export function CallToActionSection() {
     window.open('https://calendly.com/eliasricardoo', '_blank');
   };
 
-  const handleBackHome = () => {
-    window.location.href = '/';
-  };
+
 
   return (
     <section className='space-y-8'>
@@ -37,15 +36,13 @@ export function CallToActionSection() {
             <Calendar className='w-4 h-4 mr-2' />
             Let's Talk
           </Button>
-          <Button
+          <RainbowButton
             size='lg'
-            variant='outline'
-            className='cursor-pointer'
-            onClick={handleBackHome}
+            onClick={() => window.location.href = '/portfolio/sfmc-magic-builder'}
           >
-            <Home className='w-4 h-4 mr-2' />
-            Back Home
-          </Button>
+            Next Project
+            <ArrowRight className='w-4 h-4 ml-2' />
+          </RainbowButton>
         </div>
       </motion.div>
     </section>

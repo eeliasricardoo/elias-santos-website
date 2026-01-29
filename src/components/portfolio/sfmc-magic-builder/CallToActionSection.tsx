@@ -1,7 +1,8 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Calendar, Home } from 'lucide-react';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
+import { Calendar, ArrowRight } from 'lucide-react';
 import { CaseStudySection } from '@/components/portfolio/ui';
 
 export function CallToActionSection() {
@@ -9,9 +10,7 @@ export function CallToActionSection() {
         window.open('https://calendly.com/eliasricardoo', '_blank');
     };
 
-    const handleBackHome = () => {
-        window.location.href = '/';
-    };
+
 
     return (
         <CaseStudySection title="Ready to transform your workflow?" className="text-center">
@@ -30,15 +29,13 @@ export function CallToActionSection() {
                     <Calendar className='w-4 h-4 mr-2' />
                     Let's Talk
                 </Button>
-                <Button
-                    size='lg'
-                    variant='outline'
-                    className='cursor-pointer'
-                    onClick={handleBackHome}
+                <RainbowButton
+                    className='h-11 px-8'
+                    onClick={() => window.location.href = '/portfolio/ventuschat'}
                 >
-                    <Home className='w-4 h-4 mr-2' />
-                    Back Home
-                </Button>
+                    Next Project
+                    <ArrowRight className='w-4 h-4 ml-2' />
+                </RainbowButton>
             </div>
         </CaseStudySection>
     );
