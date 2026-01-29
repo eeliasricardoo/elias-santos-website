@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Badge } from '@/components/ui/badge';
 import { useInViewOnce } from '@/hooks/use-optimized-inview';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { Info, RotateCw } from 'lucide-react';
 
 interface RoleCardProps {
@@ -24,6 +24,24 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
     const isMobile = useIsMobile();
     const { ref: inViewRef, isInView } = useInViewOnce({ rootMargin: '0px' });
 
+    // Performance Optimization: Use MotionValues instead of State to prevent re-renders
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const xPct = ((e.clientX - rect.left) / rect.width) * 100;
+        const yPct = ((e.clientY - rect.top) / rect.height) * 100;
+
+        mouseX.set(xPct);
+        mouseY.set(yPct);
+    };
+
+    // Create dynamic background templates
+    const backgroundFront = useMotionTemplate`radial-gradient(800px circle at ${mouseX}% ${mouseY}%, rgba(255,255,255,0.1), transparent 40%)`;
+    const backgroundBack = useMotionTemplate`radial-gradient(800px circle at calc(100% - ${mouseX}%) ${mouseY}%, rgba(255,255,255,0.1), transparent 40%)`;
+
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
     };
@@ -40,10 +58,11 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                 perspective: '1000px',
                 scrollMarginTop: `calc(10vh + ${index * 30}px)`,
             }}
+            onMouseMove={handleMouseMove}
             className={`sticky w-full max-w-5xl mx-auto group transition-[opacity,transform] duration-700 h-[500px] will-change-transform snap-start ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
         >
-            <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] blur-3xl rounded-3xl transform scale-110 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+            {/* Old background effect removed */}
 
             <motion.div
                 className="preserve-3d relative w-full h-full cursor-pointer"
@@ -90,6 +109,14 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                             </div>
                         </div>
                     </CardContent>
+
+                    {/* Spotlight Overlay - Front */}
+                    <motion.div
+                        className="pointer-events-none absolute inset-0 z-50 transition-opacity duration-500 opacity-0 group-hover:opacity-100 rounded-xl"
+                        style={{
+                            background: backgroundFront
+                        }}
+                    />
                 </Card>
 
                 {/* BACK FACE */}
@@ -124,6 +151,14 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                             ))}
                         </div>
                     </CardContent>
+
+                    {/* Spotlight Overlay - Back (Mirrored X) */}
+                    <motion.div
+                        className="pointer-events-none absolute inset-0 z-50 transition-opacity duration-500 opacity-0 group-hover:opacity-100 rounded-xl"
+                        style={{
+                            background: backgroundBack
+                        }}
+                    />
                 </Card>
             </motion.div>
         </div>

@@ -32,8 +32,8 @@ export function StarTunnel() {
 
     if (!mounted) return null;
 
-    // Generate brighter, more visible stars
-    const stars = Array.from({ length: 60 }).map((_, i) => {
+    // Generate stars with reduced intensity for better readability
+    const stars = Array.from({ length: 30 }).map((_, i) => {
         // Random distribution but biased away from dead center to avoid "blocking" view
         const angle = Math.random() * Math.PI * 2;
         const radius = Math.random() * 45 + 5; // 5vw to 50vw radius
@@ -41,7 +41,7 @@ export function StarTunnel() {
         const x = Math.cos(angle) * radius;
         const y = Math.sin(angle) * radius;
 
-        const size = Math.random() * 3 + 2; // 2px to 5px (bigger)
+        const size = Math.random() * 2 + 1; // 1px to 3px (smaller)
         const depth = Math.random();
 
         return { id: i, x, y, size, depth };
@@ -58,13 +58,13 @@ export function StarTunnel() {
                 {stars.map((star) => (
                     <div
                         key={star.id}
-                        className="absolute rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                        className="absolute rounded-full bg-slate-200/50 shadow-[0_0_4px_rgba(255,255,255,0.2)]"
                         style={{
                             width: `${star.size}px`,
                             height: `${star.size}px`,
                             left: `${star.x}vw`,
                             top: `${star.y}vh`,
-                            opacity: 0.4 + (star.depth * 0.6), // Min 0.4 opacity
+                            opacity: 0.1 + (star.depth * 0.3), // Min 0.1 opacity, Max 0.4
                             transform: `translateZ(calc(var(--scroll-offset, 0px) * ${star.depth * 3} + ${star.depth * 500}px))`,
                             willChange: 'transform',
                         }}
