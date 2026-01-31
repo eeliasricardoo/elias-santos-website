@@ -23,8 +23,9 @@
   }
 
   /* Otimização para scroll suave */
+  /* Otimização para scroll suave (Removido para usar Lenis) */
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
 
   /* Performance melhorada para elementos transformados */
@@ -45,6 +46,28 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 20px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
   }
 
   /* Otimização específica para carrossel em mobile */
@@ -119,8 +142,8 @@
 
   html {
     background-color: hsl(var(--background));
-    /* ✅ Scroll suave */
-    scroll-behavior: smooth;
+    /* ✅ Scroll suave (Controlado pelo Lenis agora) */
+    /* scroll-behavior: smooth; */
   }
 
   #__next {

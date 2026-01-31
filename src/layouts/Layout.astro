@@ -2,6 +2,7 @@
 import "@/styles/global.css";
 import ResourceHints from "@/components/performance/ResourceHints.astro";
 import PersonSchema from "@/components/seo/PersonSchema.astro";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 
 interface Props {
 	title: string;
@@ -61,5 +62,6 @@ const canonicalURL = Astro.site
 	</head>
 	<body class="min-h-screen bg-background font-sans antialiased">
 		<slot />
+		<SmoothScroll client:load />
 	</body>
 </html>

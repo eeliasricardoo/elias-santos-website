@@ -9,25 +9,54 @@ export function StarTunnel() {
     useEffect(() => {
         setMounted(true);
 
-        // Auto-drift animation loop
-        let frameId: number;
-        let autoProgress = 0;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    startAnimation();
+                } else {
+                    stopAnimation();
+                }
+            },
+            { threshold: 0 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    const frameIdRef = useRef<number | null>(null);
+    const autoProgressRef = useRef(0);
+
+    const startAnimation = () => {
+        if (frameIdRef.current) return;
 
         const animate = () => {
             if (!containerRef.current) return;
 
             const scrollY = window.scrollY;
-            // Combine manual scroll with automatic drift
-            autoProgress += 0.5; // Constant slow spee
+            autoProgressRef.current += 0.5;
 
-            const totalOffset = (scrollY * 0.5) + autoProgress;
-
+            const totalOffset = (scrollY * 0.5) + autoProgressRef.current;
             containerRef.current.style.setProperty('--scroll-offset', `${totalOffset}px`);
-            frameId = requestAnimationFrame(animate);
+
+            frameIdRef.current = requestAnimationFrame(animate);
         };
 
-        frameId = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(frameId);
+        frameIdRef.current = requestAnimationFrame(animate);
+    };
+
+    const stopAnimation = () => {
+        if (frameIdRef.current) {
+            cancelAnimationFrame(frameIdRef.current);
+            frameIdRef.current = null;
+        }
+    };
+
+    useEffect(() => {
+        return () => stopAnimation();
     }, []);
 
     if (!mounted) return null;

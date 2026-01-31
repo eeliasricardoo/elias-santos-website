@@ -59,7 +59,7 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                 scrollMarginTop: `calc(10vh + ${index * 30}px)`,
             }}
             onMouseMove={handleMouseMove}
-            className={`sticky w-full max-w-5xl mx-auto group transition-[opacity,transform] duration-700 h-[500px] will-change-transform snap-start ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`sticky w-full max-w-5xl mx-auto group transition-[opacity,transform] duration-700 h-[600px] will-change-transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
         >
             {/* Old background effect removed */}
@@ -133,9 +133,9 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
 
                         <h4 className="text-2xl font-bold mb-6 text-foreground/80">Skill Breakdown</h4>
 
-                        <div className="overflow-y-auto pr-4 space-y-4 flex-1">
+                        <div className="overflow-y-auto pr-2 pb-2 space-y-4 flex-1 scrollbar-thin pl-1">
                             {role.skills.map((skill, i) => (
-                                <div key={i} className="group/item p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
+                                <div key={i} className="group/item p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 last:mb-2">
                                     <div className="flex items-baseline justify-between mb-1">
                                         <h5 className="text-lg font-semibold text-primary">{skill.name}</h5>
                                     </div>
