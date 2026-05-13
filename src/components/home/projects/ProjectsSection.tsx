@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { RainbowButton } from '@/components/magicui/rainbow-button';
-import { TiltCard } from '@/components/ui/TiltCard';
 import { ArrowRight } from 'lucide-react';
 
 // ... (imports remain the same)
@@ -80,68 +78,49 @@ export function ProjectsSection({
                             <span className="text-sm font-bold bg-gradient-to-r from-slate-300 via-white to-slate-400 bg-clip-text text-transparent uppercase tracking-wider">Featured Case Study</span>
                         </div>
 
-                        <a href={project.link} className="block group relative perspective-1000">
-                            <TiltCard>
-                                <div className="absolute -inset-[2px] bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 rounded-2xl opacity-40 group-hover:opacity-70 blur-md transition duration-500"></div>
-                                <Card className="relative bg-black/90 border-slate-500/30 overflow-hidden rounded-xl h-full">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 via-black/50 to-black" />
-                                    <div className="relative z-10 grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center h-full">
-                                        <div className="order-2 md:order-1 flex flex-col justify-center h-full transform-gpu translate-z-6 " style={{ transform: "translateZ(20px)" }}>
-
-                                            {/* Tags moved top for hierarchy */}
-                                            <div className="flex flex-wrap gap-2 mb-6">
-                                                {project.tags.map((tag) => (
-                                                    <Badge key={tag} variant="secondary" className="bg-slate-500/10 text-slate-300 hover:bg-slate-500/20 border border-slate-500/20 px-3 py-1">
-                                                        {tag}
-                                                    </Badge>
-                                                ))}
-                                            </div>
-
-                                            <div className="mb-8">
-                                                <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 group-hover:text-slate-200 transition-colors leading-tight">
-                                                    {project.title}
-                                                </h3>
-                                                <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 border-l-2 border-slate-500/30 pl-4 py-1">
-                                                    "Want to know how I reduced CRM production time by <span className="text-slate-200 font-bold">87.5%</span>?"
-                                                </p>
-                                                <p className="text-zinc-400 text-lg leading-relaxed">
-                                                    {project.description}
-                                                </p>
-                                            </div>
-
-                                            {/* Button with more prominence */}
-                                            <div className="mt-auto pt-6">
-                                                <RainbowButton
-                                                    className="w-full md:w-auto min-w-[240px] px-8 py-6 text-lg font-bold !text-black bg-gradient-to-b from-white via-slate-200 to-slate-400 border border-white/40 shadow-[0_0_20px_-5px_rgba(255,255,255,0.4),0_0_10px_rgba(255,255,255,0.2)_inset] hover:shadow-[0_0_50px_-5px_rgba(255,255,255,0.9),0_0_20px_rgba(255,255,255,0.7)_inset] hover:scale-[1.03] active:scale-[0.98] transition-all duration-500"
-                                                    style={{
-                                                        '--color-1': '#ffffff',
-                                                        '--color-2': '#e2e8f0',
-                                                        '--color-3': '#cbd5e1',
-                                                        '--color-4': '#94a3b8',
-                                                        '--color-5': '#f1f5f9',
-                                                    } as React.CSSProperties}
-                                                >
-                                                    <span className="flex items-center justify-center gap-2 uppercase tracking-tight text-base font-black text-black/90 drop-shadow-sm">
-                                                        View Complete Case
-                                                        <ArrowRight className="w-5 h-5 ml-1 stroke-[3px]" />
-                                                    </span>
-                                                </RainbowButton>
-                                            </div>
+                        <a href={project.link} className="block group">
+                            <Card className="relative bg-[#0a0a0a] border-border/10 overflow-hidden rounded-xl h-full hover:border-border/20 transition-colors duration-300">
+                                <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center h-full">
+                                    <div className="order-2 md:order-1 flex flex-col justify-center h-full">
+                                        <div className="flex flex-wrap gap-2 mb-6">
+                                            {project.tags.map((tag) => (
+                                                <Badge key={tag} variant="outline" className="bg-transparent text-muted-foreground border-border/10 px-3 py-1">
+                                                    {tag}
+                                                </Badge>
+                                            ))}
                                         </div>
 
-                                        <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-border/10 shadow-2xl transform-gpu h-full min-h-[300px]" style={{ transform: "translateZ(30px)" }}>
-                                            <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors z-10" />
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
-                                                loading="lazy"
-                                                decoding="async"
-                                            />
+                                        <div className="mb-8">
+                                            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 border-l-2 border-border/30 pl-4 py-1">
+                                                "Want to know how I reduced CRM production time by <span className="text-white font-semibold">87.5%</span>?"
+                                            </p>
+                                            <p className="text-zinc-400 text-lg leading-relaxed">
+                                                {project.description}
+                                            </p>
+                                        </div>
+
+                                        <div className="mt-auto pt-6">
+                                            <button className="inline-flex items-center gap-2 text-sm font-medium text-white border-b border-white/30 pb-1 hover:border-white transition-colors">
+                                                View complete case
+                                                <ArrowRight className="w-4 h-4" />
+                                            </button>
                                         </div>
                                     </div>
-                                </Card>
-                            </TiltCard>
+
+                                    <div className="order-1 md:order-2 relative aspect-video md:aspect-square lg:aspect-video rounded-lg overflow-hidden border border-border/10 h-full min-h-[300px]">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover object-top"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                            </Card>
                         </a>
                     </motion.div>
                 ))}
@@ -157,54 +136,47 @@ export function ProjectsSection({
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <a href={project.link} className="block h-full group">
-                                <TiltCard className="h-full">
-                                    <Card className="h-full bg-card/40 border-border/10 backdrop-blur-sm hover:bg-card/60 transition-all duration-300 hover:border-primary/20 overflow-hidden flex flex-col">
-                                        <div className="relative h-56 w-full overflow-hidden border-b border-border/10 transform-gpu shrink-0" style={{ transform: "translateZ(20px)" }}>
-                                            <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10" />
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
-                                                loading="lazy"
-                                                decoding="async"
-                                                width="800"
-                                                height="404"
-                                            />
+                                <Card className="h-full bg-[#0a0a0a] border-border/10 hover:border-border/20 transition-colors duration-300 overflow-hidden flex flex-col">
+                                    <div className="relative h-56 w-full overflow-hidden border-b border-border/10 shrink-0">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover object-top"
+                                            loading="lazy"
+                                            decoding="async"
+                                            width="800"
+                                            height="404"
+                                        />
+                                    </div>
+
+                                    <CardContent className="flex flex-col flex-grow justify-between p-6">
+                                        <div className="space-y-4">
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.tags.map((tag) => (
+                                                    <Badge key={tag} variant="outline" className="bg-transparent text-muted-foreground border-border/10">
+                                                        {tag}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-foreground mb-3">
+                                                    {project.title}
+                                                </h3>
+                                                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                                                    {project.description}
+                                                </p>
+                                            </div>
                                         </div>
 
-                                        <CardContent className="flex flex-col flex-grow justify-between p-6 transform-gpu" style={{ transform: "translateZ(10px)" }}>
-                                            <div className="space-y-4">
-                                                {/* Tags moved to top */}
-                                                <div className="flex flex-wrap gap-2">
-                                                    {project.tags.map((tag) => (
-                                                        <Badge key={tag} variant="outline" className="bg-primary/5 text-muted-foreground border-border/10">
-                                                            {tag}
-                                                        </Badge>
-                                                    ))}
-                                                </div>
-
-                                                <div>
-                                                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                                                        {project.title}
-                                                    </h3>
-                                                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                                                        {project.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            {/* Distinct action area */}
-                                            <div className="mt-8 pt-6 border-t border-border/5">
-                                                <RainbowButton className="w-full h-12 !text-black bg-gradient-to-b from-slate-100 via-slate-200 to-slate-400 border border-t-white/60 border-b-slate-500/30 shadow-[0_2px_10px_-2px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.6),0_0_15px_rgba(255,255,255,0.4)_inset] transition-all duration-500 group-hover:scale-[1.02] active:scale-[0.98]">
-                                                    <span className="flex items-center justify-center gap-2 w-full uppercase tracking-tight text-sm font-black text-black/80 group-hover:text-black">
-                                                        View Complete Case
-                                                        <ArrowRight className="w-5 h-5 opacity-100 translate-x-0 group-hover:translate-x-1 transition-transform stroke-[2.5px]" />
-                                                    </span>
-                                                </RainbowButton>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                </TiltCard>
+                                        <div className="mt-8 pt-6 border-t border-border/5">
+                                            <span className="inline-flex items-center gap-2 text-sm font-medium text-white border-b border-white/30 pb-1 group-hover:border-white transition-colors">
+                                                View complete case
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </span>
+                                        </div>
+                                    </CardContent>
+                                </Card>
                             </a>
                         </motion.div>
                     ))}
