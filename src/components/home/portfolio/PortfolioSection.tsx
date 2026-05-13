@@ -19,7 +19,7 @@ const portfolioCards = [
     description:
       'No‑code tool to create professional carousels in minutes: drag‑and‑drop, ready‑made templates, theme editor, export to React/HTML/PNG, and performance optimizations (lazy loading and responsive images). Includes AI text generation, autosave, version history, and real‑time preview. Outcome: ~90% reduction in content production time and consistent visuals across channels.',
     buttonText: 'View Case Study',
-    image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.webp',
+    image: '/portfolios/carousel-builder/carousel-builder-cover.webp',
     imageAlt: 'Carousel Builder preview',
   },
   {

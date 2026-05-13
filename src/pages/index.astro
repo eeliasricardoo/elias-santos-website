@@ -5,40 +5,22 @@ import { HeroSection } from "@/components/home/hero/HeroSection";
 
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
 import { RolesSection } from "@/components/home/roles/RolesSection";
-import { DepoimentsSection } from "@/components/home/depoiments/DepoimentsSection";
+import { TestimonialsSection } from "@/components/home/testimonials/TestimonialsSection";
 import { GetInTouch } from "@/components/home/get-in-touch/GetInTouch";
 import { Footer } from "@/components/Footer";
-import { AnimatedBackground } from "@/components/home/AnimatedBackground";
-import { ProgressIndicator } from "@/components/home/ProgressIndicator";
-import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 ---
 
 <Layout title="Elias Ricardo | Portfolio">
-	<!-- Navbar needs to be interactive immediately -->
 	<Navbar client:load />
 
-	<!-- Progress indicator can load after main content -->
-	<ProgressIndicator client:visible />
-
 	<main class="relative min-h-screen">
-		<!-- Hero loads first - most critical for LCP -->
 		<HeroSection client:load />
 
-		<!-- Background animation - only on desktop, deferred -->
-		<AnimatedBackground client:media="(min-width: 768px)" />
-
-		<!-- Content sections load when scrolled into view -->
 		<RolesSection client:visible />
 		<ProjectsSection client:visible />
-		<DepoimentsSection client:visible />
+		<TestimonialsSection client:visible />
 		<GetInTouch client:visible />
 	</main>
 
 	<Footer client:visible />
-
-	<!-- Scroll indicator loads last -->
-	<ScrollIndicator client:visible />
-
-	<!-- Performance monitoring - loads after main content -->
-	<!-- Removed for performance: WebVitalsMonitor and LCPOptimizer -->
 </Layout>

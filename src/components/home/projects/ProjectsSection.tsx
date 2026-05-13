@@ -25,7 +25,7 @@ const projects = [
         description: 'Empowering creators with a No-Code solution. Build professional, engaging carousels in minutes with instant real-time previews.',
         tags: ['React', 'No-Code', 'Automation'],
         link: '/portfolio/carousel-builder',
-        image: '/portfolios/carousel-builder/Captura de tela 2025-07-27 040136.webp'
+        image: '/portfolios/carousel-builder/carousel-builder-cover.webp'
     },
     {
         title: 'Ranking Engine',
@@ -95,7 +95,7 @@ export function ProjectsSection({
                                                 {project.title}
                                             </h3>
                                             <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 border-l-2 border-border/30 pl-4 py-1">
-                                                "Want to know how I reduced CRM production time by <span className="text-white font-semibold">87.5%</span>?"
+                                                Reduced CRM production time by <span className="text-white font-semibold">87.5%</span>.
                                             </p>
                                             <p className="text-zinc-400 text-lg leading-relaxed">
                                                 {project.description}

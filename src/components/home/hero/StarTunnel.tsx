@@ -62,7 +62,7 @@ export function StarTunnel() {
     if (!mounted) return null;
 
     // Generate stars with reduced intensity for better readability
-    const stars = Array.from({ length: 30 }).map((_, i) => {
+    const stars = Array.from({ length: 18 }).map((_, i) => {
         // Random distribution but biased away from dead center to avoid "blocking" view
         const angle = Math.random() * Math.PI * 2;
         const radius = Math.random() * 45 + 5; // 5vw to 50vw radius
@@ -93,7 +93,7 @@ export function StarTunnel() {
                             height: `${star.size}px`,
                             left: `${star.x}vw`,
                             top: `${star.y}vh`,
-                            opacity: 0.1 + (star.depth * 0.3), // Min 0.1 opacity, Max 0.4
+                            opacity: 0.08 + (star.depth * 0.18),
                             transform: `translateZ(calc(var(--scroll-offset, 0px) * ${star.depth * 3} + ${star.depth * 500}px))`,
                             willChange: 'transform',
                         }}

@@ -19,11 +19,6 @@ export function HeroSection() {
         <StarTunnel />
       </Suspense>
 
-      {/* ✅ Static Hero Glow Aura */}
-      <div
-        className="hero-glow absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-[5] pointer-events-none"
-      />
-
       {/* Profile photo with priority */}
       <ProfilePhoto />
 

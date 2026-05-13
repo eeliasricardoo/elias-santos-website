@@ -110,7 +110,7 @@ export function RolesSection() {
             ref={sectionRef}
             className='relative py-14 md:py-20 px-0'
         >
-            <div className='relative flex flex-col gap-16 md:gap-24'>
+            <div className='relative grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-4 md:px-6 max-w-7xl mx-auto'>
                 {roles.map((role, index) => (
                     <RoleCard
                         key={role.id}

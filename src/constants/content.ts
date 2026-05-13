@@ -9,7 +9,7 @@ export const HERO_CONTENT = {
         highlight: "Future",
     },
     description:
-        "UX/UI Designer & Frontend Developer. I transform complex business challenges into elegant, user-centered solutions that drive measurable results and accelerate time-to-market.",
+        "UX/UI Designer & Frontend Developer. I shipped a CRM workflow that cut production time by 87.5%, a support system that reduced wait times by 22%, and design systems used across multiple products.",
     cta: {
         primary: {
             text: "View Projects",

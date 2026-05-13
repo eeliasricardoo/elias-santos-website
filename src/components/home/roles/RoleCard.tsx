@@ -21,21 +21,38 @@ interface RoleCardProps {
 export function RoleCard({ role, index, totalCards }: RoleCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
     const isMobile = useIsMobile();
     const { ref: inViewRef, isInView } = useInViewOnce({ rootMargin: '0px' });
 
-    // Performance Optimization: Use MotionValues instead of State to prevent re-renders
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+    const rafRef = useRef<number | null>(null);
+    const pendingCoords = useRef<{ x: number; y: number } | null>(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!cardRef.current) return;
         const rect = cardRef.current.getBoundingClientRect();
-        const xPct = ((e.clientX - rect.left) / rect.width) * 100;
-        const yPct = ((e.clientY - rect.top) / rect.height) * 100;
+        pendingCoords.current = {
+            x: ((e.clientX - rect.left) / rect.width) * 100,
+            y: ((e.clientY - rect.top) / rect.height) * 100,
+        };
+        if (rafRef.current !== null) return;
+        rafRef.current = requestAnimationFrame(() => {
+            rafRef.current = null;
+            if (!pendingCoords.current) return;
+            mouseX.set(pendingCoords.current.x);
+            mouseY.set(pendingCoords.current.y);
+        });
+    };
 
-        mouseX.set(xPct);
-        mouseY.set(yPct);
+    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+        if (rafRef.current !== null) {
+            cancelAnimationFrame(rafRef.current);
+            rafRef.current = null;
+        }
     };
 
     // Create dynamic background templates
@@ -53,13 +70,12 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                 (inViewRef as any).current = node;
             }}
             style={{
-                top: `calc(10vh + ${index * 30}px)`,
-                zIndex: index,
                 perspective: '1000px',
-                scrollMarginTop: `calc(10vh + ${index * 30}px)`,
             }}
-            onMouseMove={handleMouseMove}
-            className={`sticky w-full max-w-5xl mx-auto group transition-[opacity,transform] duration-700 h-[600px] will-change-transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={isHovering ? handleMouseMove : undefined}
+            className={`relative w-full group transition-[opacity,transform] duration-700 h-[520px] ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
         >
             {/* Old background effect removed */}
@@ -75,48 +91,45 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                 <Card
                     className='backface-hidden absolute inset-0 border-border/50 bg-[#0a0a0a] shadow-2xl hover:shadow-primary/20 transition-all duration-300 w-full h-full overflow-hidden'
                 >
-                    <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 h-full flex items-center relative'>
+                    <CardContent className='p-6 md:p-8 h-full flex flex-col relative'>
                         {/* Hint to flip */}
                         <div className="absolute top-6 right-6 text-muted-foreground/50 flex items-center gap-2 text-sm">
-                            <span className="hidden group-hover:inline-block transition-opacity">Click for details</span>
                             <Info className="w-5 h-5" />
                         </div>
 
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 xl:gap-12 items-center w-full'>
-                            <div className='space-y-6 md:space-y-8 lg:space-y-10'>
-                                <div className='space-y-4 md:space-y-5 lg:space-y-6'>
-                                    <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight'>
-                                        {role.title}
-                                    </h3>
-                                    <p className='text-muted-foreground leading-relaxed text-lg md:text-xl lg:text-2xl font-light max-w-lg'>
-                                        {role.description}
-                                    </p>
-                                </div>
+                        <div className='flex flex-col h-full gap-6'>
+                            <div className='space-y-3'>
+                                <h3 className='text-2xl md:text-3xl font-bold text-foreground leading-tight'>
+                                    {role.title}
+                                </h3>
+                                <p className='text-muted-foreground leading-relaxed text-base md:text-lg font-light'>
+                                    {role.description}
+                                </p>
                             </div>
 
-                            <div className='relative w-full h-full flex flex-col justify-center items-start gap-4'>
-                                <div className="flex flex-wrap gap-3">
-                                    {role.skills.map((skill) => (
-                                        <Badge
-                                            key={skill.name}
-                                            variant="outline"
-                                            className="text-lg py-2 px-4 bg-primary/5 text-muted-foreground border-border/10"
-                                        >
-                                            {skill.name}
-                                        </Badge>
-                                    ))}
-                                </div>
+                            <div className='mt-auto flex flex-wrap gap-2'>
+                                {role.skills.map((skill) => (
+                                    <Badge
+                                        key={skill.name}
+                                        variant="outline"
+                                        className="text-sm py-1.5 px-3 bg-primary/5 text-muted-foreground border-border/10"
+                                    >
+                                        {skill.name}
+                                    </Badge>
+                                ))}
                             </div>
                         </div>
                     </CardContent>
 
                     {/* Spotlight Overlay - Front */}
-                    <motion.div
-                        className="pointer-events-none absolute inset-0 z-50 transition-opacity duration-500 opacity-0 group-hover:opacity-100 rounded-xl"
-                        style={{
-                            background: backgroundFront
-                        }}
-                    />
+                    {isHovering && (
+                        <motion.div
+                            className="pointer-events-none absolute inset-0 z-50 rounded-xl"
+                            style={{
+                                background: backgroundFront
+                            }}
+                        />
+                    )}
                 </Card>
 
                 {/* BACK FACE */}
@@ -153,12 +166,14 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
                     </CardContent>
 
                     {/* Spotlight Overlay - Back (Mirrored X) */}
-                    <motion.div
-                        className="pointer-events-none absolute inset-0 z-50 transition-opacity duration-500 opacity-0 group-hover:opacity-100 rounded-xl"
-                        style={{
-                            background: backgroundBack
-                        }}
-                    />
+                    {isHovering && (
+                        <motion.div
+                            className="pointer-events-none absolute inset-0 z-50 rounded-xl"
+                            style={{
+                                background: backgroundBack
+                            }}
+                        />
+                    )}
                 </Card>
             </motion.div>
         </div>

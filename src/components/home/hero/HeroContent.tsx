@@ -2,14 +2,9 @@ import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HERO_CONTENT } from '@/constants/content';
-import { usePerformance } from '@/hooks/use-performance-tier';
 
 
 export function HeroContent() {
-  const performanceTier = usePerformance();
-
-  // Performance optimization: Using CSS animations instead of JS framer-motion for LCP
-
   return (
     <div
       className='relative z-10 text-center space-y-6 px-4 max-w-5xl mx-auto'
@@ -23,19 +18,8 @@ export function HeroContent() {
         >
           <span className='inline-block'>
             {HERO_CONTENT.headline.prefix}{' '}
-            <span className='relative inline-block'>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-300 animate-gradient-x">
-                {HERO_CONTENT.headline.highlight}
-              </span>
-              {/* ✅ Glow effect - disabled on low-end devices */}
-              {performanceTier !== 'low' && (
-                <span
-                  className={performanceTier === 'high' ? 'absolute inset-0 blur-xl animate-pulse opacity-50' : 'absolute inset-0 blur-md animate-pulse opacity-30'}
-                  style={{
-                    background: 'linear-gradient(90deg, #e2e8f0, #94a3b8)',
-                  }}
-                />
-              )}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-300">
+              {HERO_CONTENT.headline.highlight}
             </span>
           </span>
         </h1>

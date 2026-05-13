@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
       'Elias is a talented, knowledgable, and innovative designer and developer. He has brought a unique mix of strategic insight, future-facing expertise, and a highly collaborative approach to problem solving to our small team. He has been a loyal teammate, full of insights and versatility, and a joy to work alongside!',
     avatarGradient: 'from-blue-500 to-indigo-500',
     date: 'December 19, 2025',
-    image: '/depoiments/mark.jpeg',
+    image: '/testimonials/mark.jpeg',
   },
   {
     id: 1,
@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
       'I worked with Elias and he is a designer who truly understands user experience. Lately he has been getting closer to code, developing a taste for understanding how everything works. This has made his work even more complete - understanding the technical side makes it much easier to pass the vision to the development team. He is someone who adds value, learns quickly and is always present in what the team needs.',
     avatarGradient: 'from-green-400 to-blue-400',
     date: 'July 5, 2025',
-    image: '/depoiments/feh.jpeg',
+    image: '/testimonials/feh.jpeg',
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const testimonials: Testimonial[] = [
       'I worked with Elias for years and can say without hesitation: he is an exceptional professional. A UX Designer with strategic vision, technical mastery and an incredible ability to transform complex problems into simple and efficient solutions. Additionally, he excels in front-end development, always collaborative with the product team, developers and stakeholders. He is committed, organized and proactive - one of those who elevates the level of any project.',
     avatarGradient: 'from-purple-400 to-pink-400',
     date: 'July 4, 2025',
-    image: '/depoiments/niko.jpeg',
+    image: '/testimonials/niko.jpeg',
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ const testimonials: Testimonial[] = [
       'Elias is a phenomenal designer and very deadline and results oriented. He has deep knowledge in creation and critical sense that make him one of the most qualified professionals I had the pleasure of sharing part of my professional journey with! Knowledge hungry, he always studies and seeks to improve, dedicating part of his time to go beyond his tasks.',
     avatarGradient: 'from-blue-400 to-cyan-400',
     date: 'July 4, 2025',
-    image: '/depoiments/mattara.jpeg',
+    image: '/testimonials/mattara.jpeg',
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const testimonials: Testimonial[] = [
       'Elias is a UX/UI designer with incredible talent for creating intuitive and functional interfaces. His knowledge in user experience and usability, combined with mastery of various tools, makes all the difference in the projects he works on. Beyond his refined aesthetic sense, he has a strategic vision that contributes to solutions aligned with both user needs and business objectives.',
     avatarGradient: 'from-orange-400 to-red-400',
     date: 'March 10, 2025',
-    image: '/depoiments/rosa.jpeg',
+    image: '/testimonials/rosa.jpeg',
   },
   {
     id: 5,
@@ -76,7 +76,7 @@ const testimonials: Testimonial[] = [
       'I want to recommend Elias, who worked as a UX/UI Designer and did an excellent job! He has great knowledge in interface design, user experience and usability, in addition to mastering various tools. He always showed great ability to create intuitive and functional visual solutions, aligned with both user needs and project objectives.',
     avatarGradient: 'from-pink-400 to-purple-400',
     date: 'February 28, 2025',
-    image: '/depoiments/angel.jpeg',
+    image: '/testimonials/angel.jpeg',
   },
   {
     id: 6,
@@ -86,7 +86,7 @@ const testimonials: Testimonial[] = [
       'Elias is definitely a problem solver! Strict to the deadlines, there is no problem that he cant solve haha beyond that he is a great professional who has strong UX skills and as a plus he is a great FULLSTACK, thanks for all the amazing job Elias!',
     avatarGradient: 'from-indigo-400 to-purple-400',
     date: 'February 19, 2025',
-    image: '/depoiments/ari.jpeg',
+    image: '/testimonials/ari.jpeg',
   },
   {
     id: 7,
@@ -96,11 +96,11 @@ const testimonials: Testimonial[] = [
       "Elias was my right hand as UX Researcher during my management at Toolzz, and I couldn't be more grateful to have him by my side. His passion for understanding users and his sharp analytical skills were essential for our projects. Always reliable and committed, he elevated our research approach and improved user experience.",
     avatarGradient: 'from-emerald-400 to-teal-400',
     date: 'August 16, 2023',
-    image: '/depoiments/bruno.jpeg',
+    image: '/testimonials/bruno.jpeg',
   },
 ];
 
-export function DepoimentsSection() {
+export function TestimonialsSection() {
   const mounted = useMounted();
 
   const { ref, isVisible } = useIntersectionPause();
@@ -108,7 +108,7 @@ export function DepoimentsSection() {
   const { ref: contentRef, isInView: contentInView } = useInViewOnce({ rootMargin: '0px' });
 
   return (
-    <section id='depoiments' className='relative py-20 px-4' ref={ref}>
+    <section id='testimonials' className='relative py-20 px-4' ref={ref}>
       <div className='max-w-6xl mx-auto space-y-12'>
         {/* Header */}
         <div

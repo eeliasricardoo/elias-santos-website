@@ -5,4 +5,4 @@ export * from './ui';
 export { HeroSection } from './hero';
 
 export { PortfolioSection } from './portfolio';
-export { DepoimentsSection } from './depoiments';
+export { TestimonialsSection } from './testimonials';
