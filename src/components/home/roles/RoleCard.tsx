@@ -40,7 +40,7 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
 
     // Create dynamic background templates
     const backgroundFront = useMotionTemplate`radial-gradient(800px circle at ${mouseX}% ${mouseY}%, rgba(255,255,255,0.1), transparent 40%)`;
-    const backgroundBack = useMotionTemplate`radial-gradient(800px circle at calc(100% - ${mouseX}%) ${mouseY}%, rgba(255,255,255,0.1), transparent 40%)`;
+    const backgroundBack = useMotionTemplate`radial-gradient(800px circle at ${mouseX}% ${mouseY}%, rgba(255,255,255,0.1), transparent 40%)`;
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
@@ -73,7 +73,7 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
             >
                 {/* FRONT FACE */}
                 <Card
-                    className='backface-hidden absolute inset-0 border-border/50 bg-card/90 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 transition-all duration-300 w-full h-full'
+                    className='backface-hidden absolute inset-0 border-border/50 bg-[#0a0a0a] shadow-2xl hover:shadow-primary/20 transition-all duration-300 w-full h-full overflow-hidden'
                 >
                     <CardContent className='p-6 md:p-8 lg:p-10 xl:p-12 h-full flex items-center relative'>
                         {/* Hint to flip */}
@@ -121,7 +121,7 @@ export function RoleCard({ role, index, totalCards }: RoleCardProps) {
 
                 {/* BACK FACE */}
                 <Card
-                    className='backface-hidden absolute inset-0 border-border/50 bg-card/95 backdrop-blur-xl shadow-2xl w-full h-full'
+                    className='backface-hidden absolute inset-0 border-border/50 bg-[#0a0a0a] shadow-2xl w-full h-full'
                     style={{
                         transform: 'rotateY(180deg)'
                     }}
