@@ -12,7 +12,7 @@ const StarTunnel = lazy(() => import('./StarTunnel').then(module => ({ default: 
 
 export function HeroSection() {
   return (
-    <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24'>
+    <section className='relative min-h-screen flex flex-col justify-start overflow-hidden pt-24 pb-32'>
       {/* Hero Section Container */}
       {/* ✅ Efeitos de fundo espacial - Star Tunnel - Lazy Loaded */}
       <Suspense fallback={<div className="absolute inset-0 z-0 bg-transparent" />}>
