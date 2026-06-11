@@ -29,7 +29,7 @@ const steps: ProcessStep[] = [
     description:
       "Flows and wireframes first, high fidelity last. Every screen exists to answer a product question — if I can't say which one, the screen doesn't ship.",
     ai: 'Generates layout variations to react against — 10 directions in minutes, not days.',
-    human: "Decides which direction survives. Taste doesn't come from a prompt.",
+    human: "Decides which direction is right. That's a product question, not a generation task.",
     tools: ['Figma', 'Design systems', 'Prototyping'],
     color: { bg: '#67e8f9', text: '#0a0a0a', accent: '#0891b2', label: 'DESIGN' },
   },
@@ -142,12 +142,11 @@ export function HowIWorkSection() {
             <span className="text-electric">/01</span> How I work
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            AI where it accelerates.
-            <span className="block text-muted-foreground">Judgment where it counts.</span>
+            Fast where the tools help.
+            <span className="block text-muted-foreground">In charge where they don't.</span>
           </h2>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-            "UX from the future" isn't using AI for everything. It's knowing exactly which parts
-            of the process it compresses — and which parts still need a human in the room.
+            The tools I use now didn't exist three years ago. The process hasn't changed: understand the real problem, design a decision, prototype in code, then measure. What's different is how fast I move through it.
           </p>
         </motion.div>
       </div>

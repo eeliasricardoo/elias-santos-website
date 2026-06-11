@@ -31,7 +31,7 @@ const blocks: Block[] = [
     lines: [
       { text: '→ Design:      Figma · Prototyping · Design Systems · UX Research', highlight: false },
       { text: '→ Frontend:    React · Next.js · TypeScript · Tailwind CSS', highlight: false },
-      { text: '→ AI tooling:  Cursor · Lovable · Claude · v0', highlight: false },
+      { text: '→ Tools:       Cursor · Lovable · Claude · v0', highlight: false },
       { text: '→ Analytics:   GA4 · Mixpanel · Hotjar · A/B testing', highlight: false },
     ],
   },
