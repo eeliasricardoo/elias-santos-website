@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
+import { OptimizedImage } from '@/components/performance/OptimizedImage';
 
 const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
@@ -177,12 +178,11 @@ export function ProjectsSection({
                   </span>
                   {/* Screenshot as floating mockup */}
                   <div className="relative z-10 w-full max-w-md rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
-                    <img
+                    <OptimizedImage
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                      decoding="async"
+                      lazy={true}
                     />
                   </div>
                 </div>

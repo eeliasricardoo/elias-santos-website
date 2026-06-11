@@ -22,8 +22,8 @@ const MAX_WIDTH = 1920; // Maximum width for images
 const QUALITY = 80; // Quality for WebP/AVIF
 const SIZES = [640, 750, 828, 1080, 1200, 1920]; // Responsive sizes
 
-// File size threshold (100KB)
-const SIZE_THRESHOLD = 100 * 1024;
+// File size threshold (5KB)
+const SIZE_THRESHOLD = 5 * 1024;
 
 async function getAllImages(dir) {
     const images = [];

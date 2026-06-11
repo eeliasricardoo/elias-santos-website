@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Target, Zap, Shield } from 'lucide-react';
 import { CaseStudySection } from '@/components/portfolio/ui';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
+import { OptimizedImage } from '@/components/performance/OptimizedImage';
 
 export function Phase4Section() {
   return (
@@ -88,7 +89,7 @@ export function Phase4Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/Login.png'
                 alt='Login Interface'
                 width={1200}
@@ -117,7 +118,7 @@ export function Phase4Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/Menu aberto.png'
                 alt='Open Menu'
                 width={1200}
@@ -200,7 +201,7 @@ export function Phase4Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/Imge.webp'
                 alt='Final Interface'
                 width={1200}

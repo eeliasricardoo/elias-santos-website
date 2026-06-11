@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { OptimizedImage } from '@/components/performance/OptimizedImage';
 
 interface ImageLightboxProps {
   src: string;
@@ -26,7 +27,7 @@ export function ImageLightbox({
 
   return (
     <div className='overflow-hidden rounded-lg'>
-      <img
+      <OptimizedImage
         src={src}
         alt={alt}
         width={width}

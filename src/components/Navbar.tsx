@@ -94,7 +94,7 @@ export function Navbar() {
         <a
           href="/resume.pdf"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           aria-label="Open resume"
           onClick={() => track(AnalyticsEvents.NAVIGATION_CLICK('resume_pdf'))}
           className="flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"

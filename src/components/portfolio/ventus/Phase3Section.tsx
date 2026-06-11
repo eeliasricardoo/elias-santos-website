@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Palette, Eye, Target, Zap } from 'lucide-react';
 import { CaseStudySection } from '@/components/portfolio/ui';
+import { OptimizedImage } from '@/components/performance/OptimizedImage';
 
 export function Phase3Section() {
   return (
@@ -70,7 +71,7 @@ export function Phase3Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v9.png'
                 alt='Redesign Concept'
                 width={1200}
@@ -99,7 +100,7 @@ export function Phase3Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v10.png'
                 alt='Minimalist Refinement'
                 width={1200}
@@ -128,7 +129,7 @@ export function Phase3Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v11.png'
                 alt='Current State (Production Ready)'
                 width={1200}

@@ -1,3 +1,5 @@
+import { OptimizedImage } from '@/components/performance/OptimizedImage';
+
 interface PersonaCardProps {
   name: string;
   role: string;
@@ -9,7 +11,7 @@ export function PersonaCard({ name, role, image }: PersonaCardProps) {
     <div className='bg-muted/20 rounded-lg p-4 border border-border/20'>
       {image && (
         <div className='w-full'>
-          <img
+          <OptimizedImage
             src={image}
             alt={`${name} - ${role}`}
             width={1090}

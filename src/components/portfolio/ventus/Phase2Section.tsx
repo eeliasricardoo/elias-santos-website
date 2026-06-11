@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Zap, Shield, Code } from 'lucide-react';
 import { CaseStudySection } from '@/components/portfolio/ui';
+import { OptimizedImage } from '@/components/performance/OptimizedImage';
 
 export function Phase2Section() {
   return (
@@ -102,7 +103,7 @@ export function Phase2Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v3.png'
                 alt='Technical Implementation'
                 width={1200}
@@ -131,7 +132,7 @@ export function Phase2Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v4.png'
                 alt='Enhanced Features'
                 width={1200}
@@ -160,7 +161,7 @@ export function Phase2Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v5.png'
                 alt='UI Polish'
                 width={1200}
@@ -189,7 +190,7 @@ export function Phase2Section() {
           </div>
           <div className='relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32'>
             <div className='relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl'>
-              <img
+              <OptimizedImage
                 src='/portfolios/ventus/v7.png'
                 alt='Final Polish'
                 width={1200}
