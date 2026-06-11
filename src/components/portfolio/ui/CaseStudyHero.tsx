@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Badge } from '@/components/ui/badge';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
 import { PROJECT_BRANDS, type BrandColor } from '@/constants/project-brands';
@@ -42,18 +41,15 @@ export function CaseStudyHero({
                 className="space-y-6"
             >
                 {badge && (
-                    <Badge
-                        className="bg-muted/50 text-muted-foreground border-border/50 px-4 py-2 text-sm font-medium"
-                        style={brandColor ? {
-                            color: brandColor,
-                            borderColor: `${brandColor}40`,
-                            backgroundColor: `${brandColor}14`,
-                        } : undefined}
-                    >
+                    <div className={`font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
+                        <span
+                            className="inline-block h-2 w-2 rounded-full"
+                            style={{ backgroundColor: brandColor || '#d9f99d' }}
+                        />
                         {badge}
-                    </Badge>
+                    </div>
                 )}
-                <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">
+                <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.05]">
                     {title}
                 </h1>
                 <p className={`text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>

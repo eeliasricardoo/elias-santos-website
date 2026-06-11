@@ -24,7 +24,7 @@ export function ResultsSection() {
         <div className='grid md:grid-cols-2 gap-6'>
           <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
             <div className='flex items-center space-x-3'>
-              <TrendingUp className='w-6 h-6 text-green-500' />
+              <TrendingUp className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
               <h4 className='font-semibold text-foreground'>
                 Cost Reduction &gt; 75%
               </h4>
@@ -35,7 +35,7 @@ export function ResultsSection() {
           </div>
           <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
             <div className='flex items-center space-x-3'>
-              <Zap className='w-6 h-6 text-blue-500' />
+              <Zap className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
               <h4 className='font-semibold text-foreground'>
                 Efficiency Increase ~20%
               </h4>

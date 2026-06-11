@@ -5,8 +5,8 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const metrics: MetricItem[] = [
   { value: '22%', label: 'Response Time Reduction' },
-  { value: '4.1 → 4.3', label: 'CSAT Improvement', color: 'text-green-500' },
-  { value: '-9%', label: 'Reopened Tickets Drop', color: 'text-blue-500' },
+  { value: '4.1 → 4.3', label: 'CSAT Improvement' },
+  { value: '-9%', label: 'Reopened Tickets Drop' },
 ];
 
 export function IntroductionSection() {

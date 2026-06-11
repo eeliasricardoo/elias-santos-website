@@ -10,10 +10,12 @@ interface StatsCardProps {
 export function StatsCard({ value, label, className = '' }: StatsCardProps) {
   return (
     <div
-      className={`bg-muted text-foreground rounded-lg px-6 py-4 text-center flex-1 shadow-md border border-border ${className}`}
+      className={`bg-card rounded-lg px-6 py-4 text-center flex-1 border border-border/20 ${className}`}
     >
-      <div className='text-2xl font-bold'>{value}</div>
-      <div className='text-xs uppercase tracking-wide text-muted-foreground'>
+      <div className='text-2xl font-bold' style={{ color: 'var(--brand, #d9f99d)' }}>
+        {value}
+      </div>
+      <div className='font-mono text-xs uppercase tracking-widest text-muted-foreground'>
         {label}
       </div>
     </div>

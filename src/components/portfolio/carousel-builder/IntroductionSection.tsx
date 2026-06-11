@@ -4,9 +4,9 @@ import { CaseStudySection, MetricsGrid, type MetricItem } from '@/components/por
 
 const metrics: MetricItem[] = [
   { value: '90%', label: 'Time Reduction' },
-  { value: '15min', label: 'Creation Time', color: 'text-green-500' },
-  { value: '50+', label: 'Templates', color: 'text-blue-500' },
-  { value: '4.8/5', label: 'User Rating', color: 'text-purple-500' },
+  { value: '15min', label: 'Creation Time' },
+  { value: '50+', label: 'Templates' },
+  { value: '4.8/5', label: 'User Rating' },
 ];
 
 export function IntroductionSection() {

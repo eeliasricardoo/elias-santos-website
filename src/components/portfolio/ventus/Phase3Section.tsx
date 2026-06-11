@@ -161,8 +161,8 @@ export function Phase3Section() {
 
           <div className='grid md:grid-cols-3 gap-6'>
             <div className='text-center space-y-2'>
-              <div className='w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto'>
-                <Target className='w-6 h-6 text-blue-500' />
+              <div className='w-12 h-12 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+                <Target className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
               </div>
               <h4 className='font-semibold text-foreground'>Content First</h4>
               <p className='text-sm text-muted-foreground'>
@@ -171,8 +171,8 @@ export function Phase3Section() {
             </div>
 
             <div className='text-center space-y-2'>
-              <div className='w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto'>
-                <Zap className='w-6 h-6 text-green-500' />
+              <div className='w-12 h-12 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+                <Zap className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
               </div>
               <h4 className='font-semibold text-foreground'>
                 Speed & Clarity
@@ -183,8 +183,8 @@ export function Phase3Section() {
             </div>
 
             <div className='text-center space-y-2'>
-              <div className='w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto'>
-                <Eye className='w-6 h-6 text-purple-500' />
+              <div className='w-12 h-12 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+                <Eye className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
               </div>
               <h4 className='font-semibold text-foreground'>
                 Long-term Usability

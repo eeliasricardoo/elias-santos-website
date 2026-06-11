@@ -15,7 +15,7 @@ interface MetricsGridProps {
 
 export function MetricsGrid({ metrics }: MetricsGridProps) {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/20 border border-border/20 rounded-xl overflow-hidden mt-12">
             {metrics.map((metric, index) => (
                 <motion.div
                     key={index}
@@ -23,12 +23,15 @@ export function MetricsGrid({ metrics }: MetricsGridProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 + index * 0.1 }}
-                    className="bg-card/80 border border-border/20 rounded-xl p-6 text-center"
+                    className="bg-card p-6 flex flex-col gap-2"
                 >
-                    <div className={`text-3xl font-bold ${metric.color || 'text-foreground'} ${metric.className || ''}`}>
+                    <div
+                        className={`text-3xl md:text-4xl font-bold leading-none ${metric.className || ''}`}
+                        style={{ color: 'var(--brand, #d9f99d)' }}
+                    >
                         {metric.value}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                         {metric.label}
                     </div>
                 </motion.div>

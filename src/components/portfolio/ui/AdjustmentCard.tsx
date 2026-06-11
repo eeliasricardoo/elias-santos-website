@@ -14,9 +14,13 @@ export function AdjustmentCard({
 }: AdjustmentCardProps) {
   return (
     <div className='flex items-start space-x-4'>
-      <div className='w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1'>
+      <div
+        className='w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1'
+        style={{ backgroundColor: 'color-mix(in srgb, var(--brand, #d9f99d) 18%, transparent)' }}
+      >
         <svg
-          className='w-4 h-4 text-blue-600 dark:text-blue-400'
+          className='w-4 h-4'
+          style={{ color: 'var(--brand, #d9f99d)' }}
           fill='none'
           stroke='currentColor'
           viewBox='0 0 24 24'

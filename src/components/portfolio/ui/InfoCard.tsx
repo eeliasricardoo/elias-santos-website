@@ -36,7 +36,8 @@ export function InfoCard({
       {icon && (
         <div className='mb-3'>
           <svg
-            className='w-6 h-6 text-blue-600 dark:text-blue-400'
+            className='w-6 h-6'
+            style={{ color: 'var(--brand, #d9f99d)' }}
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'

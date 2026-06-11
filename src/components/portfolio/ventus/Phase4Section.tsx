@@ -31,7 +31,7 @@ export function Phase4Section() {
           <div className='grid md:grid-cols-3 gap-6'>
             <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
               <div className='flex items-center space-x-3'>
-                <Target className='w-6 h-6 text-blue-500' />
+                <Target className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
                 <h4 className='font-semibold text-foreground'>
                   Developer-First
                 </h4>
@@ -44,7 +44,7 @@ export function Phase4Section() {
 
             <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
               <div className='flex items-center space-x-3'>
-                <Zap className='w-6 h-6 text-green-500' />
+                <Zap className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
                 <h4 className='font-semibold text-foreground'>
                   Speed & Efficiency
                 </h4>
@@ -57,7 +57,7 @@ export function Phase4Section() {
 
             <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
               <div className='flex items-center space-x-3'>
-                <Shield className='w-6 h-6 text-purple-500' />
+                <Shield className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
                 <h4 className='font-semibold text-foreground'>
                   Cost Transparency
                 </h4>

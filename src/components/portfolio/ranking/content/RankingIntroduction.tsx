@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { CaseStudySection, AnimatedContainer, MetricsGrid, type MetricItem } from '../../ui';
 
 const metrics: MetricItem[] = [
-  { value: '+40%', label: 'Engagement', color: 'text-green-500' },
-  { value: '+12,000', label: 'Users', color: 'text-blue-500' },
-  { value: '18', label: 'Institutions', color: 'text-purple-500' },
+  { value: '+40%', label: 'Engagement' },
+  { value: '+12,000', label: 'Users' },
+  { value: '18', label: 'Institutions' },
 ];
 
 export default function RankingIntroduction() {

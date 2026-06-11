@@ -3,10 +3,10 @@
 import { CaseStudySection, MetricsGrid, type MetricItem } from '@/components/portfolio/ui';
 
 const metrics: MetricItem[] = [
-    { value: '10 min', label: 'Production Time (from 80m)', color: 'text-green-500' },
-    { value: '-87.5%', label: 'Efficiency Gain', color: 'text-blue-500' },
-    { value: 'Zero', label: 'Human/AI Errors', color: 'text-purple-500' },
-    { value: 'Instant', label: 'Client-Side Processing', color: 'text-orange-500' },
+    { value: '10 min', label: 'Production Time (from 80m)' },
+    { value: '-87.5%', label: 'Efficiency Gain' },
+    { value: 'Zero', label: 'Human/AI Errors' },
+    { value: 'Instant', label: 'Client-Side Processing' },
 ];
 
 export function ResultsSection() {
