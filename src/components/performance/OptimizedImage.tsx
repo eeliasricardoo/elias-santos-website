@@ -55,20 +55,45 @@ export function OptimizedImage({
     className,
     ...props
 }: OptimizedImageProps) {
+    // Bypass optimization for external, already optimized, or vector images
+    const isExternal = src.startsWith('http://') || src.startsWith('https://') || src.startsWith('//');
+    const isAlreadyOptimized = /\.(webp|avif|svg|gif)$/i.test(src);
+
+    if (isExternal || isAlreadyOptimized) {
+        return (
+            <img
+                src={src}
+                alt={alt}
+                loading={priority ? 'eager' : lazy ? 'lazy' : 'eager'}
+                decoding={priority ? 'sync' : 'async'}
+                fetchPriority={priority ? 'high' : undefined}
+                className={className}
+                {...props}
+                style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    ...props.style
+                }}
+            />
+        );
+    }
+
     // Extract filename and extension
     const lastDot = src.lastIndexOf('.');
-    const basePath = src.substring(0, lastDot);
-    const ext = src.substring(lastDot);
+    const basePath = lastDot !== -1 ? src.substring(0, lastDot) : src;
 
     // Determine if image is in optimized directory
     const isOptimized = src.includes('/optimized/');
     const optimizedBasePath = isOptimized ? basePath : `/optimized${basePath}`;
 
-    // Generate srcset for responsive images
+    // Only generate responsive srcset if we don't know it's a small image (width < 640)
+    const isSmall = typeof props.width === 'number' && props.width < 640;
     const responsiveSizes = [640, 750, 828, 1080, 1200, 1920];
-    const webpSrcSet = responsiveSizes
-        .map(size => `${optimizedBasePath}-${size}w.webp ${size}w`)
-        .join(', ');
+    const webpSrcSet = !isSmall
+        ? responsiveSizes
+            .map(size => `${optimizedBasePath}-${size}w.webp ${size}w`)
+            .join(', ')
+        : undefined;
 
     // Default sizes if not provided
     const defaultSizes = '(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 33vw';
@@ -85,7 +110,7 @@ export function OptimizedImage({
             <source
                 type="image/webp"
                 srcSet={webpSrcSet || `${optimizedBasePath}.webp`}
-                sizes={sizes || defaultSizes}
+                sizes={!isSmall ? (sizes || defaultSizes) : undefined}
             />
 
             {/* Fallback to original format */}
