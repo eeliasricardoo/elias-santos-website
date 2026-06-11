@@ -26,11 +26,11 @@ const projects = [
     company: 'Personal project',
   },
   {
-    title: 'SFMC Magic Builder',
+    title: 'EmailFlow Pro',
     description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
     tags: ['React', 'AI', 'UX Engineering'],
     link: '/portfolio/sfmc-magic-builder',
-    image: '/portfolios/sfmc-magic-builder/cover.png',
+    image: '/portfolios/sfmc-magic-builder/interface-top.webp',
     metric: 'Email prod 80min → 10min',
     company: 'Serasa Experian',
   },

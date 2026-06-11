@@ -11,7 +11,7 @@ const metrics: MetricItem[] = [
 
 export function ResultsSection() {
     return (
-        <CaseStudySection title="6. Results and Performance">
+        <CaseStudySection eyebrow="Impact" index={8} title="Results and performance">
             <p>
                 The efficiency of the <strong className="text-foreground">UX + AI + Code</strong> triad was measured in real-time:
             </p>

@@ -5,7 +5,7 @@ import { CaseStudySection } from '@/components/portfolio/ui';
 export function ConflictSection() {
     return (
         <>
-            <CaseStudySection title="2. The Conflict: The Cost of &quot;Manual Labor&quot;">
+            <CaseStudySection eyebrow="Problem" index={3} title="The cost of &quot;manual labor&quot;">
                 <p>
                     Developing for Salesforce Marketing Cloud (SFMC) requires absolute precision — these emails went out to millions of Serasa Experian customers. My manual workflow was a massive bottleneck:
                 </p>
@@ -14,10 +14,10 @@ export function ConflictSection() {
                         <strong className="text-foreground">Time-consuming:</strong> 80 minutes per email.
                     </li>
                     <li>
-                        <strong className="text-foreground">Clean-up:</strong> Manually cleaning &quot;junk code&quot; from visual editors.
+                        <strong className="text-foreground">Image re-linking:</strong> Hand-swapping every local image <code>src</code> for its SFMC content URL, one at a time, from an upload log.
                     </li>
                     <li>
-                        <strong className="text-foreground">High Risk:</strong> Manually checking 20+ links per campaign for millions of customers.
+                        <strong className="text-foreground">High risk:</strong> Manually injecting AMPScript and checking 20+ links per campaign for millions of customers.
                     </li>
                 </ul>
                 <p>
@@ -25,7 +25,7 @@ export function ConflictSection() {
                 </p>
             </CaseStudySection>
 
-            <CaseStudySection title="3. Why Generic AI (ChatGPT) Failed">
+            <CaseStudySection eyebrow="Constraint" index={4} title="Why generic AI (ChatGPT) failed">
                 <p>
                     My first instinct was to use ChatGPT. I tried custom GPTs and complex prompts, but it revealed the limits of conversational AI:
                 </p>

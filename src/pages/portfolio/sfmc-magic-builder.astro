@@ -6,8 +6,10 @@ import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
     HeroSection,
     PhilosophySection,
+    AudienceSection,
     ConflictSection,
     JourneySection,
+    ValidationSection,
     ProductAnalysisSection,
     ResultsSection,
     ConclusionSection,
@@ -18,14 +20,14 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 ---
 
 <Layout
-    title="SFMC Magic Builder | Elias Ricardo"
+    title="EmailFlow Pro | Elias Ricardo"
     description="The Triad of UX, AI, and Code. High-performance SPA that optimizes CRM workflow by 87.5%."
 >
     <ProjectStructuredData
         client:load
-        name="SFMC Magic Builder"
+        name="EmailFlow Pro"
         description="The Triad of UX, AI, and Code. High-performance SPA that optimizes CRM workflow by 87.5%."
-        image="/portfolios/sfmc-magic-builder/cover.png"
+        image="/portfolios/sfmc-magic-builder/interface-top.webp"
         url="/portfolio/sfmc-magic-builder"
         technologies={["React", "AI", "UX Engineering", "Salesforce Marketing Cloud"]}
         category="UX Engineering & CRM Optimization Case Study"
@@ -40,9 +42,13 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 
         <PhilosophySection client:visible />
 
+        <AudienceSection client:visible />
+
         <ConflictSection client:visible />
 
         <JourneySection client:visible />
+
+        <ValidationSection client:visible />
 
         <ProductAnalysisSection client:visible />
 
