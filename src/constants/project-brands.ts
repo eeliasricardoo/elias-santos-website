@@ -26,9 +26,9 @@ export const BRAND_ORDER: BrandColor[] = ['lime', 'cyan', 'violet', 'orange', 'p
 
 /** Maps a case-study route slug to its brand color. */
 export const PROJECT_BRAND_BY_SLUG: Record<string, BrandColor> = {
-  'sfmc-magic-builder': 'lime',
+  englishroom: 'lime',
   ventuschat: 'cyan',
-  'carousel-builder': 'violet',
+  'sfmc-magic-builder': 'violet',
   ranking: 'orange',
   'support-queue': 'pink',
 };

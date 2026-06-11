@@ -7,13 +7,13 @@ const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
 const projects = [
   {
-    title: 'SFMC Magic Builder',
-    description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
-    tags: ['React', 'AI', 'UX Engineering'],
-    link: '/portfolio/sfmc-magic-builder',
-    image: '/portfolios/sfmc-magic-builder/cover.png',
-    metric: 'Email prod 80min → 10min',
-    company: 'Serasa Experian',
+    title: 'EnglishRoom',
+    description: 'English lessons were scattered across Zoom, docs, and chat. I built a single-screen 1:1 classroom — live video, activities, and notes on one surface — designed from tokens up to the live WebRTC room.',
+    tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
+    link: '/portfolio/englishroom',
+    image: '/portfolios/englishroom/landing.webp',
+    metric: '1:1 live room · solo build',
+    company: 'Personal project',
   },
   {
     title: 'ChatAI: Personal AI Ecosystem',
@@ -25,13 +25,13 @@ const projects = [
     company: 'Personal project',
   },
   {
-    title: 'Carousel Builder',
-    description: 'Marketing waited on design for every social carousel. I shipped a no-code editor with live preview, so the team publishes on-brand carousels without the queue.',
-    tags: ['React', 'No-Code', 'Automation'],
-    link: '/portfolio/carousel-builder',
-    image: '/portfolios/carousel-builder/carousel-builder-cover.webp',
-    metric: null,
-    company: null,
+    title: 'SFMC Magic Builder',
+    description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
+    tags: ['React', 'AI', 'UX Engineering'],
+    link: '/portfolio/sfmc-magic-builder',
+    image: '/portfolios/sfmc-magic-builder/cover.png',
+    metric: 'Email prod 80min → 10min',
+    company: 'Serasa Experian',
   },
   {
     title: 'Ranking Engine',
@@ -94,7 +94,8 @@ export function ProjectsSection({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6 }}
-              className="group block border-t border-border/20 last:border-b"
+              className="group block border-t border-black/10 last:border-b"
+              style={{ backgroundColor: color.bg }}
             >
               <div className="grid md:grid-cols-2 items-stretch min-h-[440px] md:min-h-[520px]">
                 {/* Text side */}
@@ -104,38 +105,38 @@ export function ProjectsSection({
                   }`}
                 >
                   {/* Mono index */}
-                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                    <span style={{ color: color.bg }}>
+                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(0,0,0,0.6)' }}>
+                    <span style={{ color: color.accent }}>
                       /{String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className="h-px flex-1 bg-border/40 max-w-[80px]" />
+                    <span className="h-px flex-1 max-w-[80px]" style={{ backgroundColor: 'rgba(0,0,0,0.25)' }} />
                     {isFeatured ? 'Featured Case Study' : 'Case Study'}
                   </div>
 
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-[1.05]">
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05]" style={{ color: '#0a0a0a' }}>
                     {project.title}
                   </h3>
 
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider" style={{ color: 'rgba(0,0,0,0.55)' }}>
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
 
                   {project.metric && (
                     <div className="border-l-2 pl-4" style={{ borderColor: color.accent }}>
-                      <p className="font-mono text-sm uppercase tracking-wider text-muted-foreground">
+                      <p className="font-mono text-sm uppercase tracking-wider" style={{ color: 'rgba(0,0,0,0.6)' }}>
                         {project.company ? `${project.company} — ` : ''}
-                        <span style={{ color: color.bg }}>{project.metric}</span>
+                        <span className="font-semibold" style={{ color: color.accent }}>{project.metric}</span>
                       </p>
                     </div>
                   )}
 
-                  <p className="text-muted-foreground leading-relaxed max-w-xl">
+                  <p className="leading-relaxed max-w-xl" style={{ color: 'rgba(0,0,0,0.72)' }}>
                     {project.description}
                   </p>
 
                   <span
                     className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-colors"
-                    style={{ color: color.bg, borderColor: `${color.bg}50` }}
+                    style={{ color: '#0a0a0a', borderColor: 'rgba(0,0,0,0.35)' }}
                   >
                     View complete case
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -175,7 +176,7 @@ export function ProjectsSection({
                     {color.label}
                   </span>
                   {/* Screenshot as floating mockup */}
-                  <div className="relative z-10 w-full max-w-md rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700 -rotate-1">
+                  <div className="relative z-10 w-full max-w-md rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
                     <img
                       src={project.image}
                       alt={project.title}

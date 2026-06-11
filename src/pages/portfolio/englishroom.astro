@@ -1,0 +1,51 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
+
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import {
+    HeroSection,
+    WhyItExistsSection,
+    PersonasSection,
+    LandscapeSection,
+    JourneySection,
+    HowItWorksSection,
+    RoomSection,
+    TrailSection,
+    TeacherSideSection,
+    UnderTheHoodSection,
+    DecisionsSection,
+    DesignSystemSection,
+    HowItWasBuiltSection,
+    CallToActionSection,
+} from "@/components/portfolio/englishroom";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="EnglishRoom — Case Study"
+    description="Case study of EnglishRoom: a unified 1:1 English classroom that keeps students focused and reduces context switching, designed from tokens to live WebRTC surfaces."
+>
+    <Navbar client:load />
+    <ProgressIndicator client:load />
+
+    <CaseStudyLayout client:load brand="lime">
+        <HeroSection client:load />
+        <WhyItExistsSection client:visible />
+        <PersonasSection client:visible />
+        <LandscapeSection client:visible />
+        <JourneySection client:visible />
+        <HowItWorksSection client:visible />
+        <RoomSection client:visible />
+        <TrailSection client:visible />
+        <TeacherSideSection client:visible />
+        <UnderTheHoodSection client:visible />
+        <DecisionsSection client:visible />
+        <DesignSystemSection client:visible />
+        <HowItWasBuiltSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <ScrollIndicator client:load />
+</Layout>
