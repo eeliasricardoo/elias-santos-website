@@ -33,27 +33,7 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
       }
     };
 
-    // 4. Otimização de scroll
-    const optimizeScroll = () => {
-      // Suaviza o scroll para melhor performance
-      let ticking = false;
-
-      const updateScroll = () => {
-        // Lógica de otimização de scroll aqui
-        ticking = false;
-      };
-
-      const requestTick = () => {
-        if (!ticking) {
-          requestAnimationFrame(updateScroll);
-          ticking = true;
-        }
-      };
-
-      window.addEventListener('scroll', requestTick, { passive: true });
-    };
-
-    // 5. Evitar estilos globais agressivos (não injetar will-change global)
+    // 4. Evitar estilos globais agressivos (não injetar will-change global)
     const preventForcedReflows = () => {};
 
     // Executa otimizações após um pequeno delay para não bloquear o LCP
@@ -61,7 +41,6 @@ export function PerformanceOptimizer({ onLoad }: PerformanceOptimizerProps) {
       observeFontsReady();
       optimizeImages();
       optimizeAnimations();
-      optimizeScroll();
       preventForcedReflows();
 
       onLoad?.();
