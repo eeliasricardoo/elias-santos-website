@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { MessageCircle, FileText } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 
@@ -46,9 +45,8 @@ export function Navbar() {
               </Button>
 
               {/* Contact Button */}
-              <RainbowButton
+              <Button
                 asChild
-                variant='outline'
                 size='sm'
                 className='flex items-center gap-2'
               >
@@ -58,12 +56,12 @@ export function Navbar() {
                   rel='noopener noreferrer'
                   aria-label='Schedule a meeting'
                 >
-                  <span className='relative z-10 flex items-center gap-2'>
+                  <span className='flex items-center gap-2'>
                     <MessageCircle className='w-4 h-4' />
                     <span className='hidden sm:inline'>Let's Talk</span>
                   </span>
                 </a>
-              </RainbowButton>
+              </Button>
 
             </div>
           </div>

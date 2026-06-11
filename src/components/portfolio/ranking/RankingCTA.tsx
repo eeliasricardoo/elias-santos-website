@@ -1,13 +1,12 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { CaseStudySection } from '@/components/portfolio/ui';
 
 export function RankingCTA() {
     const handleLetsTalk = () => {
-        window.open('https://calendly.com/eliasricardoo', '_blank');
+        window.open('https://calendly.com/eeliasricardoo', '_blank');
     };
 
 
@@ -30,13 +29,15 @@ export function RankingCTA() {
                     <Calendar className='w-4 h-4 mr-2' />
                     Let's Talk
                 </Button>
-                <RainbowButton
+                <Button
+                    variant='outline'
                     size='lg'
+                    className='cursor-pointer'
                     onClick={() => window.location.href = '/portfolio/support-queue'}
                 >
                     Next Project
                     <ArrowRight className='w-4 h-4 ml-2' />
-                </RainbowButton>
+                </Button>
             </div>
         </CaseStudySection>
     );

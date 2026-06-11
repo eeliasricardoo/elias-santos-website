@@ -9,11 +9,11 @@ export const HERO_CONTENT = {
         highlight: "Future",
     },
     description:
-        "UX/UI Designer & Frontend Developer. I shipped a CRM workflow that cut production time by 87.5%, a support system that reduced wait times by 22%, and design systems used across multiple products.",
+        "I do the research, design the interface, and write the production code — using AI to compress weeks of handoff into days. Recently: email production at Serasa Experian cut from 80 minutes to 10, and a support queue with 22% shorter waits.",
     cta: {
         primary: {
-            text: "View Projects",
-            href: "#portfolio",
+            text: "Read the case studies",
+            href: "#projects",
         },
         secondary: {
             text: "GitHub",

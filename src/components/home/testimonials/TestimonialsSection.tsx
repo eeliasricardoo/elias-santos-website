@@ -117,8 +117,8 @@ export function TestimonialsSection() {
             }`}
         >
           <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
-            Trusted by industry leaders and collaborators who&#39;ve
-            experienced exceptional results:
+            I could tell you I&#39;m collaborative and ship fast.
+            Here&#39;s the same thing from people who&#39;ve actually worked with me:
           </h2>
         </div>
 

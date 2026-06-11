@@ -8,35 +8,35 @@ import { ArrowRight } from 'lucide-react';
 const projects = [
     {
         title: 'SFMC Magic Builder',
-        description: 'A revolutionary SPA blending UX, AI, and Code. Streamlined CRM workflows to achieve a massive 87.5% efficiency boost.',
+        description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
         tags: ['React', 'AI', 'UX Engineering'],
         link: '/portfolio/sfmc-magic-builder',
         image: '/portfolios/sfmc-magic-builder/cover.png'
     },
     {
         title: 'ChatAI: Personal AI Ecosystem',
-        description: 'A unified Personal AI Ecosystem. Seamlessly integrating chat, visual analysis, and multimodal generation into one intuitive interface.',
+        description: 'My personal AI workspace and testing lab — chat, image analysis and generation in one interface. Where I learn streaming and multimodal patterns before they reach client work.',
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp'
     },
     {
         title: 'Carousel Builder',
-        description: 'Empowering creators with a No-Code solution. Build professional, engaging carousels in minutes with instant real-time previews.',
+        description: 'Marketing waited on design for every social carousel. I shipped a no-code editor with live preview, so the team publishes on-brand carousels without the queue.',
         tags: ['React', 'No-Code', 'Automation'],
         link: '/portfolio/carousel-builder',
         image: '/portfolios/carousel-builder/carousel-builder-cover.webp'
     },
     {
         title: 'Ranking Engine',
-        description: 'Driving engagement through Gamification. A dynamic engine featuring live leaderboards, achievement badges, and real-time scoring.',
+        description: 'A gamification engine for an EdTech platform — live leaderboards, badges, real-time scoring. I designed the mechanics, then built it with SSR and caching to survive launch-day traffic.',
         tags: ['Gamification', 'SSR', 'Caching'],
         link: '/portfolio/ranking',
         image: '/portfolios/ranking/ranking.webp'
     },
     {
         title: 'Support Queue',
-        description: 'Optimizing support with Intelligent Queuing. An omnichannel system that slashed wait times by 22%, enhancing customer satisfaction.',
+        description: 'Redesigned an omnichannel support queue from research to UI. The new triage logic cut average wait times by 22%.',
         tags: ['UX/UI', 'Real-time', 'Optimization'],
         link: '/portfolio/support-queue',
         image: '/portfolios/fila-atendimento/1.webp'
@@ -50,7 +50,7 @@ interface ProjectsSectionProps {
 
 export function ProjectsSection({
     title = "Selected Case Studies",
-    description = "Deep dives into complex problems, strategic design, and technical execution. Read the full stories behind the solutions."
+    description = "Told the way I'd tell them in an interview: the constraint, the decisions, and what the numbers did."
 }: ProjectsSectionProps) {
     return (
         <section id="projects" className="py-20 px-4 container mx-auto">
@@ -95,7 +95,7 @@ export function ProjectsSection({
                                                 {project.title}
                                             </h3>
                                             <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 border-l-2 border-border/30 pl-4 py-1">
-                                                Reduced CRM production time by <span className="text-white font-semibold">87.5%</span>.
+                                                Email production at Serasa Experian: from 80 minutes to <span className="text-white font-semibold">10</span>.
                                             </p>
                                             <p className="text-zinc-400 text-lg leading-relaxed">
                                                 {project.description}

@@ -2,12 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export function CallToActionSection() {
   const handleLetsTalk = () => {
-    window.open('https://calendly.com/eliasricardoo', '_blank');
+    window.open('https://calendly.com/eeliasricardoo', '_blank');
   };
 
 
@@ -41,13 +40,15 @@ export function CallToActionSection() {
             <Calendar className='w-4 h-4 mr-2' />
             Let's Talk
           </Button>
-          <RainbowButton
+          <Button
+            variant='outline'
             size='lg'
+            className='cursor-pointer'
             onClick={() => window.location.href = '/portfolio/ranking'}
           >
             Next Project
             <ArrowRight className='w-4 h-4 ml-2' />
-          </RainbowButton>
+          </Button>
         </div>
       </motion.div>
     </section>

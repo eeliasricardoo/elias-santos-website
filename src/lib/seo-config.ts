@@ -11,7 +11,7 @@ export const SEO_CONFIG = {
 
   social: {
     twitter: '@eliassantos',
-    linkedin: 'eliassantos',
+    linkedin: 'eeliasricardoo',
     github: 'eliassantos',
   },
 
@@ -98,7 +98,7 @@ export const SEO_CONFIG = {
       url: 'https://eliassantos.dev',
       image: 'https://eliassantos.dev/profile-photo.webp',
       sameAs: [
-        'https://linkedin.com/in/eliassantos',
+        'https://linkedin.com/in/eeliasricardoo',
         'https://github.com/eliassantos',
         'https://twitter.com/eliassantos',
       ],

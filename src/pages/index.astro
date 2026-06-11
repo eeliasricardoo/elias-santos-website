@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
-import { RolesSection } from "@/components/home/roles/RolesSection";
+import { HowIWorkSection } from "@/components/home/how-i-work/HowIWorkSection";
 import { TestimonialsSection } from "@/components/home/testimonials/TestimonialsSection";
 import { GetInTouch } from "@/components/home/get-in-touch/GetInTouch";
 import { Footer } from "@/components/Footer";
@@ -16,7 +16,7 @@ import { Footer } from "@/components/Footer";
 	<main class="relative min-h-screen">
 		<HeroSection client:load />
 
-		<RolesSection client:visible />
+		<HowIWorkSection client:visible />
 		<ProjectsSection client:visible />
 		<TestimonialsSection client:visible />
 		<GetInTouch client:visible />

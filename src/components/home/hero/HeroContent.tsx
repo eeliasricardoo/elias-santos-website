@@ -1,4 +1,3 @@
-import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HERO_CONTENT } from '@/constants/content';
@@ -36,29 +35,21 @@ export function HeroContent() {
           className='flex flex-wrap items-center justify-center gap-4 pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 ease-out fill-mode-forwards'
         >
           <div className="transition-transform hover:scale-105 active:scale-95">
-            <RainbowButton
+            <Button
               asChild
-              variant='outline'
               size='lg'
-              className='h-12 rounded-full px-8 text-base font-medium !text-white bg-[linear-gradient(#0a0a0a,#0a0a0a),linear-gradient(#0a0a0a_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2))]'
-              style={{
-                '--color-1': '#e2e8f0', // slate-200
-                '--color-2': '#94a3b8', // slate-400
-                '--color-3': '#f8fafc', // slate-50
-                '--color-4': '#cbd5e1', // slate-300
-                '--color-5': '#64748b', // slate-500
-              } as React.CSSProperties}
+              className='h-12 rounded-full px-8 text-base font-medium'
             >
               <a
-                href='/projects'
-                aria-label='View Projects'
+                href={HERO_CONTENT.cta.primary.href}
+                aria-label={HERO_CONTENT.cta.primary.text}
               >
-                <span className='relative z-10 flex items-center gap-2'>
-                  <span>View Projects</span>
+                <span className='flex items-center gap-2'>
+                  <span>{HERO_CONTENT.cta.primary.text}</span>
                   <ArrowRight className='w-5 h-5' />
                 </span>
               </a>
-            </RainbowButton>
+            </Button>
           </div>
 
           <div className="transition-transform hover:scale-105 active:scale-95">

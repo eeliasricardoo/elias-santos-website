@@ -7,7 +7,7 @@ export function HeroSection() {
         <CaseStudyHero
             badge="UX Engineering Case Study"
             title="SFMC Magic Builder"
-            subtitle="The Triad of UX, AI, and Code: How I built my own infrastructure to scale CRM production."
+            subtitle="I was the designer producing campaign emails at Serasa Experian. Every change took too long — so I built the tool that cut production from 80 minutes to 10."
             image={{
                 src: '/portfolios/sfmc-magic-builder/cover.png',
                 alt: 'SFMC Magic Builder Interface'
