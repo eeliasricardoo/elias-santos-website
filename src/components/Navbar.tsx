@@ -14,8 +14,8 @@ export function Navbar() {
             {/* Logo */}
             <div className='flex items-center'>
               <a href='/' className='group transition-all hover:scale-105 active:scale-95'>
-                <div className='relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-lg shadow-primary/25 ring-1 ring-inset ring-white/20'>
-                  <span className='font-bold font-mono text-base tracking-tighter transform -rotate-3'>ER</span>
+                <div className='relative flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-background group-hover:border-electric/50 transition-colors'>
+                  <span className='font-mono font-bold text-sm tracking-tighter text-foreground'>ER<span className='text-electric'>_</span></span>
                 </div>
               </a>
             </div>

@@ -116,6 +116,9 @@ export function TestimonialsSection() {
           className={`text-center space-y-6 transition-all duration-700 ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
+          <span className='font-mono text-xs uppercase tracking-widest text-muted-foreground'>
+            <span className='text-electric'>/03</span> Testimonials
+          </span>
           <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
             I could tell you I&#39;m collaborative and ship fast.
             Here&#39;s the same thing from people who&#39;ve actually worked with me:

@@ -1,67 +1,72 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { Calendar } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function GetInTouch() {
   return (
-    <section id='get-in-touch' className='relative py-24 overflow-hidden'>
-      {/* Background decoration */}
-      <div className='absolute inset-0 -z-10'>
-        <div className='absolute inset-0 bg-background/80 blur-3xl' />
+    <section id="get-in-touch" className="relative overflow-hidden bg-electric">
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 bg-noise opacity-[0.04] pointer-events-none mix-blend-multiply" />
 
-        {/* Animated Rotating Gradient */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-slate-500/20 via-zinc-500/5 to-transparent rounded-full blur-[100px] opacity-60'
-        />
-      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-32">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-end">
 
-      <div className='relative z-10 container mx-auto px-4 text-center'>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className='max-w-3xl mx-auto space-y-8'
-        >
-          <div className='space-y-4'>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight'>
-              Need a designer
-              <span className='block text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-300 mt-2 animate-gradient-x'>who ships?</span>
-            </h2>
-            <p className='text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed'>
-              If you're hiring for senior product design — or need someone who can
-              take a feature from research to production code — let's talk.
-              Thirty minutes, no slide deck.
-            </p>
-          </div>
-
-          <div className='flex items-center justify-center pt-4'>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="transition-transform duration-300"
+          {/* Left: headline */}
+          <div className="space-y-6">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="font-mono text-xs uppercase tracking-widest text-black/40"
             >
-              <Button
-                asChild
-                size='lg'
-                className='h-16 px-10 text-lg font-bold min-w-[240px] rounded-full'
-              >
-                <a
-                  href='https://calendly.com/eeliasricardoo'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex items-center gap-3'
-                >
-                  <Calendar className='w-6 h-6' />
-                  <span>Book a 30-min call</span>
-                </a>
-              </Button>
-            </motion.div>
+              /04 Contact
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[clamp(48px,8vw,100px)] font-bold uppercase leading-[0.88] tracking-tight text-black"
+            >
+              Let's build<br />
+              something<br />
+              that works_
+            </motion.h2>
           </div>
-        </motion.div>
+
+          {/* Right: description + CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-6 lg:pb-3 max-w-sm"
+          >
+            <p className="text-base md:text-lg text-black/60 leading-relaxed">
+              If you're hiring for senior product design — or need someone who takes a feature from research to production code — let's talk. Thirty minutes, no slide deck.
+            </p>
+
+            <Button
+              asChild
+              size="lg"
+              className="h-14 px-8 rounded-full bg-black text-electric hover:bg-zinc-900 font-bold text-base border-0 transition-transform hover:scale-105 active:scale-95"
+            >
+              <a
+                href="https://calendly.com/eeliasricardoo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3"
+              >
+                <Calendar className="w-5 h-5" />
+                Book a 30-min call
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

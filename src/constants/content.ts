@@ -8,8 +8,16 @@ export const HERO_CONTENT = {
         prefix: "UX From the",
         highlight: "Future",
     },
+    status: {
+        availability: "Available for work",
+        location: "BR · Remote",
+    },
     description:
-        "I do the research, design the interface, and write the production code — using AI to compress weeks of handoff into days. Recently: email production at Serasa Experian cut from 80 minutes to 10, and a support queue with 22% shorter waits.",
+        "I do the research, design the interface, and write the production code — using AI to compress weeks of handoff into days.",
+    metrics: [
+        { label: "Serasa Experian", value: "email prod 80min → 10min" },
+        { label: "Support queue", value: "avg wait −22%" },
+    ],
     cta: {
         primary: {
             text: "Read the case studies",

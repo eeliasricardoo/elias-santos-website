@@ -28,9 +28,9 @@ export function Footer() {
             className='md:col-span-2 lg:col-span-5 space-y-4 md:space-y-6'
           >
             <div className='flex items-center space-x-3'>
-              <div className='w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg'>
-                <span className='text-primary-foreground font-bold text-base md:text-lg'>
-                  ES
+              <div className='w-10 h-10 md:w-12 md:h-12 border border-border rounded-lg flex items-center justify-center'>
+                <span className='font-mono font-bold text-sm md:text-base text-foreground'>
+                  ER<span className='text-electric'>_</span>
                 </span>
               </div>
               <div>
@@ -50,9 +50,9 @@ export function Footer() {
             <div className='flex items-center space-x-3'>
               <Badge
                 variant='secondary'
-                className='bg-green-500/10 text-green-600 border-green-500/20 text-xs'
+                className='bg-electric/10 text-electric border-electric/20 font-mono text-xs uppercase tracking-wider'
               >
-                <div className='w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse'></div>
+                <div className='w-2 h-2 bg-electric rounded-full mr-2 animate-pulse'></div>
                 Available for work
               </Badge>
             </div>
