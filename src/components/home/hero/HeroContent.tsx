@@ -51,7 +51,7 @@ export function HeroContent() {
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 0.22 }}
             className="block font-bold uppercase leading-[0.85] tracking-tight text-stroke"
-            style={{ fontSize: 'clamp(72px, 12vw, 140px)' }}
+            style={{ fontSize: 'clamp(56px, 13vw, 140px)' }}
           >
             {HERO_CONTENT.headline.line2}
             <motion.span

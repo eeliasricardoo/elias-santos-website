@@ -14,9 +14,9 @@ export function HeroSection() {
       <div className="absolute bottom-[-150px] left-[-150px] w-[600px] h-[600px] bg-brand-violet/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Main content */}
-      <div className="relative z-10 flex-1 flex items-center translate-y-8">
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_440px] gap-12 lg:gap-16 items-center min-h-[calc(100vh-40px)] py-32 lg:py-0">
+      <div className="relative z-10 flex-1 flex items-center lg:translate-y-8">
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_440px] gap-10 lg:gap-16 items-center lg:min-h-[calc(100vh-40px)] py-16 sm:py-20 lg:py-0">
             <HeroContent />
             <HeroPhoto />
           </div>

@@ -119,7 +119,7 @@ export function TestimonialsSection() {
           <span className='font-mono text-xs uppercase tracking-widest text-muted-foreground'>
             <span className='text-brand-orange'>/03</span> Testimonials
           </span>
-          <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
+          <h2 className='text-xl sm:text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-snug max-w-3xl mx-auto'>
             I could tell you I&#39;m collaborative and ship fast.
             Here&#39;s the same thing from people who&#39;ve actually worked with me:
           </h2>
@@ -133,8 +133,8 @@ export function TestimonialsSection() {
         >
           <div className='relative'>
             {/* Gradientes nas bordas */}
-            <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
-            <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
+            <div className='absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
+            <div className='absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
 
             <div className="flex flex-col gap-6">
               <Marquee

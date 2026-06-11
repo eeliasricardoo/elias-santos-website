@@ -26,7 +26,7 @@ export function TestimonialCard({
 
   return (
     <div
-      className={`flex-shrink-0 w-96 bg-card rounded-xl p-5 shadow-lg border border-border hover:shadow-xl transition-all duration-300 ${className}`}
+      className={`flex-shrink-0 w-[80vw] max-w-sm sm:w-96 bg-card rounded-xl p-5 shadow-lg border border-border hover:shadow-xl transition-all duration-300 ${className}`}
     >
       <div className='flex items-start space-x-3'>
         <Avatar className='w-10 h-10 flex-shrink-0'>

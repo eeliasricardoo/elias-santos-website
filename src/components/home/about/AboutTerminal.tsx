@@ -107,7 +107,7 @@ export function AboutTerminal() {
             </div>
 
             {/* Body */}
-            <div className="p-6 md:p-8 font-mono text-sm space-y-6 bg-[#0d0d0d] min-h-[420px]">
+            <div className="p-4 md:p-8 font-mono text-[11px] sm:text-sm space-y-6 bg-[#0d0d0d] min-h-[420px]">
 
               {blocks.map((block, bi) => (
                 <div key={bi} className="space-y-1.5">
@@ -121,7 +121,7 @@ export function AboutTerminal() {
                   {block.lines.map((line, li) => (
                     <div
                       key={li}
-                      className={`pl-4 leading-relaxed ${
+                      className={`pl-4 leading-relaxed break-words ${
                         line.highlight ? 'text-electric/90' : 'text-muted-foreground/60'
                       }`}
                     >

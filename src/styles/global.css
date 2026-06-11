@@ -176,6 +176,9 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    /* ✅ Evita scroll horizontal acidental no mobile */
+    overflow-x: hidden;
+    max-width: 100%;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
@@ -191,6 +194,8 @@
 
   html {
     background-color: hsl(var(--background));
+    overflow-x: hidden;
+    max-width: 100%;
     /* scroll-behavior: smooth; */
   }
 
