@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
@@ -22,6 +23,17 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="Post & Carousel Generator - Case Study"
     description="Complete case study of Post & Carousel Generator, an AI tool that revolutionizes carousel creation for social media. 90% reduction in creation time."
 >
+    <ProjectStructuredData
+        client:load
+        name="Post & Carousel Generator"
+        description="Complete case study of Post & Carousel Generator, an AI tool that revolutionizes carousel creation for social media. 90% reduction in creation time."
+        image="/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png"
+        url="/portfolio/carousel-builder"
+        technologies={["React", "No-Code", "Automation", "AI"]}
+        category="UX/UI Design Case Study"
+        datePublished="2025-08-01"
+        author="Elias Ricardo"
+    />
     <Navbar client:load />
     <ProgressIndicator client:load />
 

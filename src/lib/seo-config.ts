@@ -1,7 +1,7 @@
 export const SEO_CONFIG = {
   site: {
     name: 'Elias Ricardo',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eliassantos.dev',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eliasricardo.com',
     description:
       'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development.',
     author: 'Elias Ricardo',
@@ -95,8 +95,8 @@ export const SEO_CONFIG = {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Elias Ricardo',
-      url: 'https://eliassantos.dev',
-      image: 'https://eliassantos.dev/profile-photo.webp',
+      url: 'https://eliasricardo.com',
+      image: 'https://eliasricardo.com/profile-photo.webp',
       sameAs: [
         'https://linkedin.com/in/eeliasricardoo',
         'https://github.com/eliassantos',
@@ -126,7 +126,7 @@ export const SEO_CONFIG = {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Elias Ricardo Portfolio',
-      url: 'https://eliassantos.dev',
+      url: 'https://eliasricardo.com',
       description: 'Professional portfolio of Elias Ricardo',
       author: {
         '@type': 'Person',

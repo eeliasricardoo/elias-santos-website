@@ -3,13 +3,14 @@ import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   // Site URL for canonical URLs and SEO (update with your actual domain)
   site: 'https://eliasricardo.com',
 
-  integrations: [react()],
+  integrations: [react(), sitemap()],
 
   // Enable prefetch for faster navigation
   prefetch: {

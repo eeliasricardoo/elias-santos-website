@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
@@ -27,6 +28,17 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="EnglishRoom — Case Study"
     description="Case study of EnglishRoom: a unified 1:1 English classroom that keeps students focused and reduces context switching, designed from tokens to live WebRTC surfaces."
 >
+    <ProjectStructuredData
+        client:load
+        name="EnglishRoom"
+        description="Case study of EnglishRoom: a unified 1:1 English classroom that keeps students focused and reduces context switching, designed from tokens to live WebRTC surfaces."
+        image="/portfolios/englishroom/landing.webp"
+        url="/portfolio/englishroom"
+        technologies={["Next.js 16", "WebRTC", "UX Engineering", "UI Library"]}
+        category="UX/UI Design Case Study"
+        datePublished="2025-08-01"
+        author="Elias Ricardo"
+    />
     <Navbar client:load />
     <ProgressIndicator client:load />
 

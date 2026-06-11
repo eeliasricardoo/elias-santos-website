@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
     HeroSection,
@@ -20,6 +21,17 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="Feat UX/UI — Support Queue — Omnichannel Chat | Case Study"
     description="How we reduced time-to-first-response by 22% using waiting-time queue ordering and a persistent, actionable assignment pop-up. First-contact CSAT increased from 4.1 to 4.3 and reopens dropped by 9%."
 >
+    <ProjectStructuredData
+        client:load
+        name="Support Queue"
+        description="How we reduced time-to-first-response by 22% using waiting-time queue ordering and a persistent, actionable assignment pop-up. First-contact CSAT increased from 4.1 to 4.3 and reopens dropped by 9%."
+        image="/portfolios/fila-atendimento/1.webp"
+        url="/portfolio/support-queue"
+        technologies={["UX/UI", "Real-time", "Optimization", "Omnichannel Chat"]}
+        category="UX/UI Design Case Study"
+        datePublished="2025-08-01"
+        author="Elias Ricardo"
+    />
     <Navbar client:load />
     <ProgressIndicator client:load />
 

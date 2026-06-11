@@ -2,6 +2,9 @@
 import "@/styles/global.css";
 import ResourceHints from "@/components/performance/ResourceHints.astro";
 import PersonSchema from "@/components/seo/PersonSchema.astro";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
+import { WebVitalsMonitor } from "@/components/performance/WebVitalsMonitor";
 
 interface Props {
 	title: string;
@@ -52,6 +55,11 @@ const canonicalURL = Astro.site
 
 		<!-- JSON-LD SEO Schema -->
 		<PersonSchema />
+
+		<!-- Analytics & Performance Monitoring -->
+		<GoogleAnalytics client:load />
+		<MicrosoftClarity client:load />
+		<WebVitalsMonitor client:load />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="alternate icon" href="/favicon.ico" />

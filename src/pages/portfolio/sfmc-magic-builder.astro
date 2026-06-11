@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
     HeroSection,
@@ -20,6 +21,17 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="SFMC Magic Builder | Elias Ricardo"
     description="The Triad of UX, AI, and Code. High-performance SPA that optimizes CRM workflow by 87.5%."
 >
+    <ProjectStructuredData
+        client:load
+        name="SFMC Magic Builder"
+        description="The Triad of UX, AI, and Code. High-performance SPA that optimizes CRM workflow by 87.5%."
+        image="/portfolios/sfmc-magic-builder/cover.png"
+        url="/portfolio/sfmc-magic-builder"
+        technologies={["React", "AI", "UX Engineering", "Salesforce Marketing Cloud"]}
+        category="UX Engineering & CRM Optimization Case Study"
+        datePublished="2025-08-01"
+        author="Elias Ricardo"
+    />
     <Navbar client:load />
     <ProgressIndicator client:load />
 

@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 import {
     RankingHeader,
     RankingIntroduction,
@@ -24,6 +25,17 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="Ranking App - UX Research Case Study"
     description="Complete case study of the ranking application developed by Elias Ricardo. UX research, personas, user journey and innovative solutions for gamification."
 >
+    <ProjectStructuredData
+        client:load
+        name="Ranking Engine"
+        description="Complete case study of the ranking application developed by Elias Ricardo. UX research, personas, user journey and innovative solutions for gamification."
+        image="/portfolios/ranking/ranking.webp"
+        url="/portfolio/ranking"
+        technologies={["Gamification", "SSR", "Caching", "UX Research"]}
+        category="UX Research Case Study"
+        datePublished="2025-08-01"
+        author="Elias Ricardo"
+    />
     <Navbar client:load />
     <ProgressIndicator client:load />
 

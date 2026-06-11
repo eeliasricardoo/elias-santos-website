@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
@@ -23,6 +24,17 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     title="ChatAI - From Need to Innovation in One Week"
     description="Complete case study of ChatAI, a personalized AI tool developed in one week. Innovative solution for AI chat that's cheaper, customizable, and superior to existing workflows."
 >
+    <ProjectStructuredData
+        client:load
+        name="ChatAI"
+        description="Complete case study of ChatAI, a personalized AI tool developed in one week. Innovative solution for AI chat that's cheaper, customizable, and superior to existing workflows."
+        image="/portfolios/ventus/v9.webp"
+        url="/portfolio/ventuschat"
+        technologies={["Next.js", "AI", "Streaming", "Multimodal"]}
+        category="UX/UI Design Case Study"
+        datePublished="2025-08-01"
+        author="Elias Ricardo"
+    />
     <Navbar client:load />
     <ProgressIndicator client:load />
 
