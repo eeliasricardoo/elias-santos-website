@@ -5,6 +5,8 @@ import { HeroSection } from "@/components/home/hero/HeroSection";
 
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
 import { HowIWorkSection } from "@/components/home/how-i-work/HowIWorkSection";
+import { StatsStrip } from "@/components/home/StatsStrip";
+import { AboutTerminal } from "@/components/home/about/AboutTerminal";
 import { TestimonialsSection } from "@/components/home/testimonials/TestimonialsSection";
 import { GetInTouch } from "@/components/home/get-in-touch/GetInTouch";
 import { Footer } from "@/components/Footer";
@@ -15,6 +17,8 @@ import { Footer } from "@/components/Footer";
 
 	<main class="relative min-h-screen">
 		<HeroSection client:load />
+		<StatsStrip client:visible />
+		<AboutTerminal client:visible />
 
 		<HowIWorkSection client:visible />
 		<ProjectsSection client:visible />

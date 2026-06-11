@@ -177,7 +177,7 @@
 
   html {
     background-color: hsl(var(--background));
-    /* ✅ Scroll suave (Controlado pelo Lenis agora) */
+    overflow-x: hidden;
     /* scroll-behavior: smooth; */
   }
 
@@ -233,6 +233,16 @@
   .bg-dot-grid {
     background-image: radial-gradient(circle, hsl(var(--foreground) / 0.06) 1px, transparent 1px);
     background-size: 28px 28px;
+  }
+
+  /* Text outline — editorial signature on "FUTURE" */
+  .text-stroke {
+    -webkit-text-stroke: 2px hsl(var(--foreground));
+    color: transparent;
+  }
+  .text-stroke-electric {
+    -webkit-text-stroke: 2px #d9f99d;
+    color: transparent;
   }
 
   .translate-z-0 {

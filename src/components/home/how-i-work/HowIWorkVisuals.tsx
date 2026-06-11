@@ -1,72 +1,134 @@
 'use client';
 import { motion, MotionValue, useTransform } from 'framer-motion';
 
-export function HowIWorkVisuals({ progress }: { progress: MotionValue<number> }) {
-  // Map the scroll progress (0 to 1) to opacity and scale for the 4 steps
-  const op1 = useTransform(progress, [0, 0.2, 0.3], [1, 1, 0]);
-  const op2 = useTransform(progress, [0.2, 0.3, 0.45, 0.55], [0, 1, 1, 0]);
-  const op3 = useTransform(progress, [0.45, 0.55, 0.7, 0.8], [0, 1, 1, 0]);
-  const op4 = useTransform(progress, [0.7, 0.8, 1], [0, 1, 1]);
+// Each step has its own color identity
+const stepColors = [
+  { bg: '#d9f99d', text: '#0a0a0a', label: 'RESEARCH', accent: '#84cc16' },   // 01 — lime
+  { bg: '#67e8f9', text: '#0a0a0a', label: 'DESIGN',   accent: '#0891b2' },   // 02 — cyan
+  { bg: '#c4b5fd', text: '#0a0a0a', label: 'PROTOTYPE', accent: '#7c3aed' },  // 03 — violet
+  { bg: '#fb923c', text: '#0a0a0a', label: 'SHIP',     accent: '#c2410c' },   // 04 — orange
+];
 
-  const scale1 = useTransform(progress, [0, 0.3], [1, 1.2]);
-  const scale2 = useTransform(progress, [0.2, 0.55], [0.8, 1.1]);
-  const scale3 = useTransform(progress, [0.45, 0.8], [0.8, 1.1]);
-  const scale4 = useTransform(progress, [0.7, 1], [0.8, 1]);
+interface Props {
+  progress: MotionValue<number>;
+}
+
+function StepVisual({
+  step,
+  color,
+  opacity,
+}: {
+  step: string;
+  color: typeof stepColors[number];
+  opacity: MotionValue<number>;
+}) {
+  return (
+    <motion.div
+      style={{ opacity }}
+      className="absolute inset-0 flex items-center justify-center"
+    >
+      {/* Colored panel — fills right side */}
+      <div
+        className="relative w-full h-full flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: color.bg }}
+      >
+        {/* Giant decorative step number — background layer */}
+        <span
+          className="absolute font-bold leading-none select-none pointer-events-none"
+          style={{
+            fontSize: 'clamp(160px, 22vw, 300px)',
+            color: color.accent,
+            opacity: 0.18,
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            letterSpacing: '-0.05em',
+          }}
+        >
+          {step}
+        </span>
+
+        {/* Center content */}
+        <div className="relative z-10 flex flex-col items-center gap-6 text-center px-10">
+          {/* Step label */}
+          <span
+            className="font-mono text-xs uppercase tracking-[0.3em] font-bold"
+            style={{ color: color.accent }}
+          >
+            Step {step}
+          </span>
+
+          {/* Role word — outline treatment on dark color */}
+          <span
+            className="font-bold uppercase leading-none tracking-tight"
+            style={{
+              fontSize: 'clamp(48px, 6vw, 80px)',
+              color: 'transparent',
+              WebkitTextStroke: `2px ${color.text}`,
+            }}
+          >
+            {color.label}
+          </span>
+
+          {/* Decorative line */}
+          <div className="w-12 h-px" style={{ backgroundColor: color.accent }} />
+        </div>
+
+        {/* Floating decorative pills — top right */}
+        <div
+          className="absolute top-8 right-8 flex flex-col gap-2"
+          style={{ color: color.accent }}
+        >
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="h-1.5 rounded-full"
+              style={{
+                width: `${48 - i * 12}px`,
+                backgroundColor: color.accent,
+                opacity: 0.4 + i * 0.2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Floating decorative corner square — bottom left */}
+        <div
+          className="absolute bottom-8 left-8 w-10 h-10 border-2 rotate-12"
+          style={{ borderColor: color.accent, opacity: 0.4 }}
+        />
+
+        {/* Small dot grid overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(circle, ${color.accent}30 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
+          }}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+export function HowIWorkVisuals({ progress }: Props) {
+  const op1 = useTransform(progress, [0,    0.2,  0.28], [1, 1, 0]);
+  const op2 = useTransform(progress, [0.22, 0.3,  0.48, 0.55], [0, 1, 1, 0]);
+  const op3 = useTransform(progress, [0.48, 0.56, 0.72, 0.80], [0, 1, 1, 0]);
+  const op4 = useTransform(progress, [0.72, 0.82, 1.0],        [0, 1, 1]);
+
+  const opacities = [op1, op2, op3, op4];
 
   return (
-    <div className="relative w-full aspect-square max-w-md mx-auto md:max-w-lg lg:max-w-full lg:h-[600px] lg:aspect-auto">
-      {/* Common container for the absolute elements */}
-      <div className="absolute inset-0 flex items-center justify-center p-8 lg:p-16">
-        
-        {/* Step 1 Visual: Research / Problem (Abstract Dots/Clusters) */}
-        <motion.div style={{ opacity: op1, scale: scale1 }} className="absolute inset-0 flex items-center justify-center">
-           <div className="relative w-full h-full max-h-[400px] max-w-[400px] border border-electric/20 rounded-full flex items-center justify-center shadow-[inset_0_0_50px_rgba(204,255,0,0.05)]">
-              <div className="absolute w-[80%] h-[80%] border border-electric/10 rounded-full animate-[spin_20s_linear_infinite]" />
-              <div className="absolute w-[60%] h-[60%] border border-electric/40 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-              <div className="w-32 h-32 bg-electric/10 blur-2xl rounded-full" />
-              <div className="w-6 h-6 bg-electric rounded-full shadow-[0_0_30px_#ccff00] animate-pulse" />
-           </div>
-        </motion.div>
-
-        {/* Step 2 Visual: Wireframes/Decisions (Grid Lines) */}
-        <motion.div style={{ opacity: op2, scale: scale2 }} className="absolute inset-0 flex items-center justify-center">
-           <div className="relative w-full max-h-[400px] max-w-[400px] aspect-square grid grid-cols-3 grid-rows-3 gap-4">
-             {[...Array(9)].map((_, i) => (
-               <div key={i} className={`border border-border/40 rounded-xl transition-all duration-1000 ${i === 4 ? 'bg-electric/20 border-electric/60 shadow-[0_0_30px_rgba(204,255,0,0.2)] scale-105' : 'bg-foreground/[0.02]'}`} />
-             ))}
-           </div>
-        </motion.div>
-
-        {/* Step 3 Visual: Prototype/Code (Floating Blocks) */}
-        <motion.div style={{ opacity: op3, scale: scale3 }} className="absolute inset-0 flex items-center justify-center">
-           <div className="relative w-full max-h-[400px] max-w-[500px] aspect-video bg-background border border-border/30 rounded-2xl overflow-hidden flex flex-col p-6 gap-4 shadow-2xl relative z-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-electric/5 to-transparent pointer-events-none" />
-              <div className="w-1/3 h-6 bg-border/40 rounded-md" />
-              <div className="w-2/3 h-4 bg-border/20 rounded-md" />
-              <div className="w-1/2 h-4 bg-border/20 rounded-md" />
-              <div className="mt-auto w-full h-28 bg-foreground/[0.03] border border-border/40 rounded-lg flex items-center justify-center relative overflow-hidden">
-                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-electric to-transparent opacity-50" />
-                 <div className="w-12 h-12 rounded-full border-2 border-border/50 border-t-electric animate-spin" />
-              </div>
-           </div>
-        </motion.div>
-
-        {/* Step 4 Visual: Measure/Iterate (Analytics Chart) */}
-        <motion.div style={{ opacity: op4, scale: scale4 }} className="absolute inset-0 flex items-center justify-center">
-           <div className="relative w-full max-h-[400px] max-w-[500px] aspect-video flex items-end gap-3 p-8 border-b-2 border-l-2 border-border/50">
-             {[30, 45, 25, 60, 80, 50, 95].map((h, i) => (
-               <motion.div 
-                 key={i}
-                 initial={{ height: '0%' }}
-                 animate={{ height: `${h}%` }}
-                 transition={{ duration: 1.5, delay: i * 0.1, ease: 'easeOut', repeat: Infinity, repeatType: 'reverse', repeatDelay: 2 }}
-                 className={`w-full rounded-t-sm ${i === 6 ? 'bg-electric shadow-[0_0_20px_#ccff00]' : 'bg-foreground/20'}`}
-               />
-             ))}
-           </div>
-        </motion.div>
-
-      </div>
+    <div className="relative w-full h-screen overflow-hidden">
+      {stepColors.map((color, i) => (
+        <StepVisual
+          key={i}
+          step={String(i + 1).padStart(2, '0')}
+          color={color}
+          opacity={opacities[i]}
+        />
+      ))}
     </div>
   );
 }

@@ -3,38 +3,17 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HERO_CONTENT } from '@/constants/content';
-
 import { useRetroSound } from '@/hooks/useRetroSound';
 
-const typingContainer = {
-  hidden: { opacity: 1 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
-  },
-};
-
-const charVariant = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { duration: 0.01 },
-  },
-};
-
-const textLines = [
-  'UX',
-  'FROM THE',
-  'FUTURE',
-];
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function HeroContent() {
   const { playHover, playClick } = useRetroSound();
 
   return (
-    <div className="relative z-10 space-y-8 text-left">
+    <div className="relative z-10 space-y-7 text-left">
 
-      {/* Status line */}
+      {/* Status */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,66 +27,79 @@ export function HeroContent() {
         {HERO_CONTENT.status.availability} · {HERO_CONTENT.status.location}
       </motion.div>
 
-      {/* Headline — typing effect */}
+      {/* Headline: "UX From the" (solid) / "FUTURE" (outline + cursor) */}
+      <div className="flex flex-col gap-0">
+        {/* Line 1 — solid, slightly smaller */}
+        <div className="overflow-hidden">
+          <motion.span
+            initial={{ y: '110%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
+            className="block font-bold uppercase leading-[0.9] tracking-tight text-muted-foreground"
+            style={{ fontSize: 'clamp(36px, 5.5vw, 64px)' }}
+          >
+            {HERO_CONTENT.headline.line1}
+          </motion.span>
+        </div>
+        {/* Line 2 — outline, big */}
+        <div className="overflow-hidden">
+          <motion.span
+            initial={{ y: '110%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.22 }}
+            className="block font-bold uppercase leading-[0.85] tracking-tight text-stroke"
+            style={{ fontSize: 'clamp(72px, 12vw, 140px)' }}
+          >
+            {HERO_CONTENT.headline.line2}
+            <motion.span
+              animate={{ opacity: [1, 1, 0, 0] }}
+              transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 0.5, 1] }}
+              style={{ WebkitTextStroke: 0, color: '#d9f99d' }}
+            >
+              _
+            </motion.span>
+          </motion.span>
+        </div>
+      </div>
+
+      {/* Role pills */}
       <motion.div
-        variants={typingContainer}
-        initial="hidden"
-        animate="show"
-        className="flex flex-col gap-1"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.38 }}
+        className="flex items-center gap-2 flex-wrap"
       >
-        {textLines.map((line, li) => (
-          <div key={li} className="flex flex-wrap gap-x-5 gap-y-0">
-            {line.split(' ').map((word, wi) => (
-              <div key={wi} className="flex">
-                {word.split('').map((char, ci) => (
-                  <motion.span
-                    key={ci}
-                    variants={charVariant}
-                    className="text-[clamp(56px,10vw,120px)] font-bold uppercase leading-[0.88] tracking-tight text-foreground"
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-                {li === textLines.length - 1 && wi === line.split(' ').length - 1 && (
-                  <motion.span
-                    animate={{ opacity: [1, 1, 0, 0] }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      times: [0, 0.5, 0.5, 1]
-                    }}
-                    className="text-[clamp(56px,10vw,120px)] font-bold uppercase leading-[0.88] tracking-tight text-electric"
-                  >
-                    _
-                  </motion.span>
-                )}
-              </div>
-            ))}
-          </div>
+        {HERO_CONTENT.eyebrow.split(' · ').map((pill) => (
+          <span
+            key={pill}
+            className="font-mono text-xs uppercase tracking-widest px-3 py-1.5 border border-border/60 rounded-full text-muted-foreground"
+          >
+            {pill}
+          </span>
         ))}
       </motion.div>
 
       {/* Description */}
       <motion.p
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.65 }}
-        className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed"
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed"
       >
         {HERO_CONTENT.description}
       </motion.p>
 
       {/* Metrics */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: 0.6, delay: 0.65 }}
         className="flex flex-col gap-2 font-mono text-xs md:text-sm uppercase tracking-wider"
       >
         {HERO_CONTENT.metrics.map((metric) => (
           <div key={metric.label} className="flex items-baseline gap-3">
-            <span className="text-muted-foreground/60">{metric.label}</span>
-            <span className="text-muted-foreground/30">—</span>
+            <span className="text-muted-foreground/50">{metric.label}</span>
+            <span className="text-muted-foreground/25">—</span>
             <span className="text-electric">{metric.value}</span>
           </div>
         ))}
@@ -115,10 +107,10 @@ export function HeroContent() {
 
       {/* CTAs */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.95 }}
-        className="flex flex-wrap items-center gap-4 pt-2"
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="flex flex-wrap items-center gap-4 pt-1"
       >
         <Button
           asChild
@@ -143,11 +135,7 @@ export function HeroContent() {
           onMouseEnter={playHover}
           onClick={playClick}
         >
-          <a
-            href={HERO_CONTENT.cta.secondary.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={HERO_CONTENT.cta.secondary.href} target="_blank" rel="noopener noreferrer">
             {HERO_CONTENT.cta.secondary.text}
           </a>
         </Button>

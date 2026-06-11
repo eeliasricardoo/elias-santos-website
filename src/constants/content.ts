@@ -1,26 +1,27 @@
 export const HERO_CONTENT = {
     profile: {
         name: "Elias Ricardo",
-        alt: "Elias Ricardo - UX/UI Designer & Frontend",
+        alt: "Elias Ricardo — UX Engineer",
         imgSrc: "/profile-photo.webp",
     },
     headline: {
-        prefix: "UX From the",
-        highlight: "Future",
+        line1: "UX From the",
+        line2: "Future",
     },
+    eyebrow: "Research · Design · Code",
     status: {
         availability: "Available for work",
         location: "BR · Remote",
     },
     description:
-        "I do the research, design the interface, and write the production code — using AI to compress weeks of handoff into days.",
+        "I research the problem, design the interface, and ship the React component — no handoff meeting required. AI compresses the loop; judgment decides what ships.",
     metrics: [
         { label: "Serasa Experian", value: "email prod 80min → 10min" },
         { label: "Support queue", value: "avg wait −22%" },
     ],
     cta: {
         primary: {
-            text: "Read the case studies",
+            text: "See the case studies",
             href: "#projects",
         },
         secondary: {
@@ -28,6 +29,5 @@ export const HERO_CONTENT = {
             href: "https://github.com/eeliasricardoo",
         },
     },
-
     scroll: "Scroll",
 } as const;

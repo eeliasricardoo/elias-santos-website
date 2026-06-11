@@ -1,8 +1,6 @@
 'use client';
-import { useRef } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Sparkles, UserRound } from 'lucide-react';
-import { HowIWorkVisuals } from './HowIWorkVisuals';
 
 interface ProcessStep {
   number: string;
@@ -11,6 +9,7 @@ interface ProcessStep {
   ai: string;
   human: string;
   tools: string[];
+  color: { bg: string; text: string; accent: string; label: string };
 }
 
 const steps: ProcessStep[] = [
@@ -18,53 +17,120 @@ const steps: ProcessStep[] = [
     number: '01',
     title: 'Understand the real problem',
     description:
-      'Interviews, support tickets, session recordings — I go to the source before opening Figma. Most "redesigns" fail because they solve the stated problem instead of the real one.',
+      'Interviews, support tickets, session recordings — I go to the source before opening Figma. Most redesigns fail because they solve the stated problem instead of the real one.',
     ai: 'Transcribes, clusters and summarizes hours of research in minutes.',
     human: 'Asks the follow-up question. AI has never sat in a user interview that changed a roadmap. I have.',
     tools: ['User interviews', 'Hotjar', 'GA4'],
+    color: { bg: '#d9f99d', text: '#0a0a0a', accent: '#65a30d', label: 'RESEARCH' },
   },
   {
     number: '02',
     title: 'Design the decision, not just the screen',
     description:
       "Flows and wireframes first, high fidelity last. Every screen exists to answer a product question — if I can't say which one, the screen doesn't ship.",
-    ai: 'Generates layout variations to react against — exploring ten directions costs minutes, not days.',
+    ai: 'Generates layout variations to react against — 10 directions in minutes, not days.',
     human: "Decides which direction survives. Taste doesn't come from a prompt.",
     tools: ['Figma', 'Design systems', 'Prototyping'],
+    color: { bg: '#67e8f9', text: '#0a0a0a', accent: '#0891b2', label: 'DESIGN' },
   },
   {
     number: '03',
     title: 'Prototype in code, not in slides',
     description:
       "I skip the static handoff. Stakeholders and users test a working prototype in the browser, with real data — ambiguity dies before development starts.",
-    ai: "Turns a designed component into working React in hours instead of sprints.",
+    ai: "Scaffolds the component in hours. Every line reviewed by me.",
     human: "Reviews every line. AI writes fast; it doesn't know your edge cases.",
     tools: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
+    color: { bg: '#c4b5fd', text: '#0a0a0a', accent: '#7c3aed', label: 'PROTOTYPE' },
   },
   {
     number: '04',
     title: 'Ship, measure, iterate',
     description:
-      'Production code with analytics wired in from day one. The 87.5% and 22% on this page exist because they were measured, not estimated.',
-    ai: 'Drafts test cases, digs through analytics, flags regressions.',
+      'Production code with analytics wired from day one. The 87.5% and 22% on this page exist because they were measured, not estimated.',
+    ai: 'Drafts test cases, monitors dashboards, flags regressions.',
     human: 'Owns what "better" means — and kills the feature when the data says no.',
     tools: ['GA4', 'Mixpanel', 'A/B testing'],
+    color: { bg: '#fb923c', text: '#0a0a0a', accent: '#c2410c', label: 'SHIP' },
   },
 ];
 
-export function HowIWorkSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Track scroll progress through the ENTIRE section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
+function StepVisualPanel({ step }: { step: ProcessStep }) {
+  const { color } = step;
   return (
-    <section id="how-i-work" ref={containerRef} className="relative bg-background">
-      {/* Header (Normal scroll) */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 md:py-28 relative z-20">
+    <div
+      className="relative w-full h-full min-h-[320px] lg:min-h-full flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: color.bg }}
+    >
+      {/* Dot grid texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, ${color.accent}40 1px, transparent 1px)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      {/* Giant number */}
+      <span
+        className="absolute font-bold leading-none select-none pointer-events-none"
+        style={{
+          fontSize: 'clamp(140px, 18vw, 240px)',
+          color: color.accent,
+          opacity: 0.15,
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          letterSpacing: '-0.05em',
+        }}
+        aria-hidden="true"
+      >
+        {step.number}
+      </span>
+      {/* Center content */}
+      <div className="relative z-10 flex flex-col items-center gap-4 text-center px-8 py-12">
+        <span
+          className="font-mono text-xs uppercase tracking-[0.3em] font-bold"
+          style={{ color: color.accent }}
+        >
+          Step {step.number}
+        </span>
+        <span
+          className="font-bold uppercase leading-none tracking-tight"
+          style={{
+            fontSize: 'clamp(44px, 5.5vw, 72px)',
+            color: 'transparent',
+            WebkitTextStroke: `2px ${color.text}`,
+          }}
+        >
+          {color.label}
+        </span>
+        <div className="w-10 h-0.5 mt-1" style={{ backgroundColor: color.accent }} />
+      </div>
+      {/* Decorative pills */}
+      <div className="absolute top-6 right-6 flex flex-col gap-1.5">
+        {[40, 28, 16].map((w, i) => (
+          <div
+            key={i}
+            className="h-1 rounded-full"
+            style={{ width: w, backgroundColor: color.accent, opacity: 0.35 + i * 0.2 }}
+          />
+        ))}
+      </div>
+      <div
+        className="absolute bottom-6 left-6 w-8 h-8 border-2 rotate-12"
+        style={{ borderColor: color.accent, opacity: 0.35 }}
+      />
+    </div>
+  );
+}
+
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+export function HowIWorkSection() {
+  return (
+    <section id="how-i-work" className="relative bg-background">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 md:py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,87 +143,94 @@ export function HowIWorkSection() {
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
             AI where it accelerates.
-            <span className="block text-muted-foreground">
-              Judgment where it counts.
-            </span>
+            <span className="block text-muted-foreground">Judgment where it counts.</span>
           </h2>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-            "UX from the future" isn't using AI for everything. It's knowing
-            exactly which parts of the process it compresses — and which parts
-            still need a human in the room.
+            "UX from the future" isn't using AI for everything. It's knowing exactly which parts
+            of the process it compresses — and which parts still need a human in the room.
           </p>
         </motion.div>
       </div>
 
-      {/* Sticky Scroll Area */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="relative flex flex-col lg:flex-row">
-          
-          {/* Sticky Visuals (Right side on desktop, fixed background on mobile) */}
-          <div className="lg:w-1/2 lg:order-last">
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden z-0 pointer-events-none lg:pointer-events-auto opacity-30 lg:opacity-100">
-               <HowIWorkVisuals progress={scrollYProgress} />
-            </div>
-          </div>
-
-          {/* Scrolling Steps Content */}
-          <div className="w-full lg:w-1/2 relative z-10 -mt-[100vh] lg:mt-0 pb-[30vh]">
-            {steps.map((step, index) => (
-              <div 
-                key={step.number} 
-                className="min-h-[100vh] flex flex-col justify-center py-20 lg:pr-16"
+      {/* Steps — alternating grid */}
+      <div className="flex flex-col">
+        {steps.map((step, index) => {
+          const isEven = index % 2 === 1;
+          return (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: '-8%' }}
+              transition={{ duration: 0.4 }}
+              className="grid grid-cols-1 lg:grid-cols-2 border-t border-border/20 min-h-[480px] lg:min-h-[560px]"
+            >
+              {/* Visual panel */}
+              <motion.div
+                initial={{ x: isEven ? 32 : -32, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.7, ease: EASE }}
+                className={isEven ? 'lg:order-last' : 'lg:order-first'}
               >
-                <div className="bg-background/80 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none p-6 md:p-8 lg:p-0 rounded-2xl border border-border/20 lg:border-none shadow-xl lg:shadow-none">
-                  
-                  {/* Step number */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="font-mono text-4xl lg:text-6xl font-bold text-electric">
-                      {step.number}
-                    </span>
-                  </div>
+                <StepVisualPanel step={step} />
+              </motion.div>
 
-                  {/* Title + description */}
-                  <div className="space-y-4 mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
-                      {step.title}
-                    </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                    <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground/50 pt-2">
-                      {step.tools.join(' · ')}
-                    </p>
-                  </div>
+              {/* Text panel */}
+              <motion.div
+                initial={{ x: isEven ? -32 : 32, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.06 }}
+                className={`flex flex-col justify-center px-8 md:px-12 lg:px-16 py-14 ${isEven ? 'lg:order-first' : 'lg:order-last'}`}
+              >
+                <span
+                  className="font-mono text-5xl lg:text-7xl font-bold leading-none mb-6"
+                  style={{ color: step.color.bg }}
+                >
+                  {step.number}
+                </span>
 
-                  {/* AI vs Human panels */}
-                  <div className="flex flex-col gap-6">
-                    <div className="border-l-2 border-electric/40 pl-5">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Sparkles className="w-4 h-4 text-electric" />
-                        <span className="font-mono text-xs uppercase tracking-widest text-electric">
-                          Where AI comes in
-                        </span>
-                      </div>
-                      <p className="text-base text-foreground/80 leading-relaxed">{step.ai}</p>
-                    </div>
-
-                    <div className="border-l-2 border-border pl-5">
-                      <div className="flex items-center gap-2 mb-2">
-                        <UserRound className="w-4 h-4 text-foreground/70" />
-                        <span className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                          Where it doesn't
-                        </span>
-                      </div>
-                      <p className="text-base text-foreground/80 leading-relaxed">{step.human}</p>
-                    </div>
-                  </div>
-                  
+                <div className="space-y-3 mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground/40 pt-1">
+                    {step.tools.join(' · ')}
+                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
 
-        </div>
+                <div className="flex flex-col gap-5">
+                  <div className="border-l-2 pl-5" style={{ borderColor: step.color.bg + '70' }}>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <Sparkles className="w-3.5 h-3.5" style={{ color: step.color.bg }} />
+                      <span
+                        className="font-mono text-xs uppercase tracking-widest"
+                        style={{ color: step.color.bg }}
+                      >
+                        Where AI comes in
+                      </span>
+                    </div>
+                    <p className="text-sm text-foreground/75 leading-relaxed">{step.ai}</p>
+                  </div>
+
+                  <div className="border-l-2 border-border/40 pl-5">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <UserRound className="w-3.5 h-3.5 text-foreground/50" />
+                      <span className="font-mono text-xs uppercase tracking-widest text-foreground/50">
+                        Where it doesn't
+                      </span>
+                    </div>
+                    <p className="text-sm text-foreground/75 leading-relaxed">{step.human}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
