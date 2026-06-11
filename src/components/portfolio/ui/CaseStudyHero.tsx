@@ -65,7 +65,13 @@ export function CaseStudyHero({
                             />
                         </div>
                     ) : image ? (
-                        <div className="relative rounded-2xl overflow-hidden border border-border/20 shadow-2xl">
+                        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-gray-100 dark:bg-gray-800">
+                            {/* Browser chrome */}
+                            <div className="flex items-center gap-2 px-4 py-3 bg-gray-200 dark:bg-gray-900 border-b border-white/5">
+                                <span className="w-3 h-3 rounded-full bg-red-500/70" />
+                                <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                                <span className="w-3 h-3 rounded-full bg-green-500/70" />
+                            </div>
                             <ImageLightbox
                                 src={image.src}
                                 alt={image.alt}

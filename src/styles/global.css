@@ -177,7 +177,6 @@
 
   html {
     background-color: hsl(var(--background));
-    overflow-x: hidden;
     /* scroll-behavior: smooth; */
   }
 
