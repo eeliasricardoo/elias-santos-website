@@ -5,6 +5,7 @@ import { CaseStudyHero } from '@/components/portfolio/ui';
 export function HeroSection() {
   return (
     <CaseStudyHero
+      brand="violet"
       badge="UX/UI Design Case Study"
       title="Post & Carousel Generator"
       subtitle="Revolutionizing carousel creation for social media with AI-powered content generation and professional templates"

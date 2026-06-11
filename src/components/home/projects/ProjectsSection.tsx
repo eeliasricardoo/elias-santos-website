@@ -1,14 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 
-const projectColors = [
-  { bg: '#d9f99d', accent: '#65a30d', label: 'FEATURED' },  // lime
-  { bg: '#67e8f9', accent: '#0891b2', label: 'PERSONAL'  }, // cyan
-  { bg: '#c4b5fd', accent: '#7c3aed', label: 'TOOL'      }, // violet
-  { bg: '#fb923c', accent: '#c2410c', label: 'PLATFORM'  }, // orange
-  { bg: '#f9a8d4', accent: '#be185d', label: 'NEW FEATURE'}, // pink
-];
+const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
 const projects = [
   {
@@ -68,140 +63,90 @@ export function ProjectsSection({
   description = "Told the way I'd tell them in an interview: the constraint, the decisions, and what the numbers did.",
 }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="py-20 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="projects" className="py-20 md:py-28">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-16 text-left"
+        className="mb-16 md:mb-24 text-left max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
       >
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          <span className="text-electric">/02</span> Work
+          <span className="text-brand-violet">/02</span> Work
         </span>
         <h2 className="mt-3 text-3xl md:text-5xl font-bold mb-4">{title}</h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">{description}</p>
       </motion.div>
 
-      <div className="flex flex-col gap-6">
-        {/* Featured Project */}
-        <motion.a
-          href={projects[0].link}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="block group relative overflow-hidden rounded-2xl border border-border/60 hover:border-border/80 transition-colors duration-300"
-          style={{ backgroundColor: '#0a0a0a' }}
-        >
-          <div className="grid md:grid-cols-2 gap-0 min-h-[420px]">
-            {/* Text side */}
-            <div className="flex flex-col justify-between p-8 md:p-10 order-2 md:order-1">
-              <div className="space-y-5">
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ backgroundColor: projectColors[0].bg }} />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ backgroundColor: projectColors[0].bg }} />
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest" style={{ color: projectColors[0].bg }}>
-                    Featured Case Study
-                  </span>
-                </div>
+      {/* Full-bleed alternating rows */}
+      <div className="flex flex-col">
+        {projects.map((project, index) => {
+          const color = projectColors[index];
+          const imageOnLeft = index % 2 === 1;
+          const isFeatured = index === 0;
 
-                <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                  {projects[0].tags.map((tag) => <span key={tag}>{tag}</span>)}
-                </div>
-
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                  {projects[0].title}
-                </h3>
-
-                <div className="border-l-2 pl-4" style={{ borderColor: projectColors[0].accent }}>
-                  <p className="font-mono text-sm uppercase tracking-wider text-muted-foreground">
-                    {projects[0].company} —{' '}
-                    <span style={{ color: projectColors[0].bg }}>{projects[0].metric}</span>
-                  </p>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed">
-                  {projects[0].description}
-                </p>
-              </div>
-
-              <div className="mt-8">
-                <span
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 transition-colors"
-                  style={{ color: projectColors[0].bg, borderColor: `${projectColors[0].bg}50` }}
-                >
-                  View complete case
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-            </div>
-
-            {/* Image side — colored panel */}
-            <div
-              className="relative order-1 md:order-2 min-h-[280px] overflow-hidden flex items-center justify-center p-8"
-              style={{ backgroundColor: projectColors[0].bg }}
+          return (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6 }}
+              className="group block border-t border-border/20 last:border-b"
             >
-              {/* Dot grid */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backgroundImage: `radial-gradient(circle, ${projectColors[0].accent}50 1px, transparent 1px)`,
-                  backgroundSize: '24px 24px',
-                }}
-              />
-              {/* Giant label */}
-              <span
-                className="absolute font-bold leading-none select-none pointer-events-none"
-                aria-hidden="true"
-                style={{
-                  fontSize: 'clamp(80px, 12vw, 160px)',
-                  color: projectColors[0].accent,
-                  opacity: 0.15,
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  letterSpacing: '-0.05em',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {projectColors[0].label}
-              </span>
-              {/* Screenshot as floating mockup */}
-              <div className="relative z-10 w-full max-w-sm rounded-xl overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-700 rotate-1">
-                <img
-                  src={projects[0].image}
-                  alt={projects[0].title}
-                  className="w-full h-full object-cover object-top"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-        </motion.a>
-
-        {/* Grid of remaining projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.slice(1).map((project, index) => {
-            const color = projectColors[index + 1];
-            return (
-              <motion.a
-                key={project.title}
-                href={project.link}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="block group relative overflow-hidden rounded-2xl border border-border/60 hover:border-border/80 transition-colors duration-300"
-                style={{ backgroundColor: '#0a0a0a' }}
-              >
-                {/* Colored image panel */}
+              <div className="grid md:grid-cols-2 items-stretch min-h-[440px] md:min-h-[520px]">
+                {/* Text side */}
                 <div
-                  className="relative h-56 overflow-hidden flex items-center justify-center px-6"
+                  className={`flex flex-col justify-center gap-6 px-6 py-10 md:px-12 lg:px-20 md:py-16 order-2 ${
+                    imageOnLeft ? 'md:order-2' : 'md:order-1'
+                  }`}
+                >
+                  {/* Mono index */}
+                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    <span style={{ color: color.bg }}>
+                      /{String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="h-px flex-1 bg-border/40 max-w-[80px]" />
+                    {isFeatured ? 'Featured Case Study' : 'Case Study'}
+                  </div>
+
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-[1.05]">
+                    {project.title}
+                  </h3>
+
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
+
+                  {project.metric && (
+                    <div className="border-l-2 pl-4" style={{ borderColor: color.accent }}>
+                      <p className="font-mono text-sm uppercase tracking-wider text-muted-foreground">
+                        {project.company ? `${project.company} — ` : ''}
+                        <span style={{ color: color.bg }}>{project.metric}</span>
+                      </p>
+                    </div>
+                  )}
+
+                  <p className="text-muted-foreground leading-relaxed max-w-xl">
+                    {project.description}
+                  </p>
+
+                  <span
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-colors"
+                    style={{ color: color.bg, borderColor: `${color.bg}50` }}
+                  >
+                    View complete case
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+
+                {/* Image side — colored panel, bleeds to edge */}
+                <div
+                  className={`relative overflow-hidden flex items-center justify-center p-8 md:p-12 min-h-[300px] order-1 ${
+                    imageOnLeft ? 'md:order-1' : 'md:order-2'
+                  }`}
                   style={{ backgroundColor: color.bg }}
                 >
                   {/* Dot grid */}
@@ -212,12 +157,12 @@ export function ProjectsSection({
                       backgroundSize: '24px 24px',
                     }}
                   />
-                  {/* Giant label */}
+                  {/* Giant watermark label */}
                   <span
                     className="absolute font-bold leading-none select-none pointer-events-none"
                     aria-hidden="true"
                     style={{
-                      fontSize: 'clamp(60px, 9vw, 110px)',
+                      fontSize: 'clamp(80px, 12vw, 170px)',
                       color: color.accent,
                       opacity: 0.15,
                       top: '50%',
@@ -230,7 +175,7 @@ export function ProjectsSection({
                     {color.label}
                   </span>
                   {/* Screenshot as floating mockup */}
-                  <div className="relative z-10 w-full max-w-xs rounded-lg overflow-hidden shadow-xl group-hover:scale-105 transition-transform duration-700 -rotate-1">
+                  <div className="relative z-10 w-full max-w-md rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700 -rotate-1">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -239,49 +184,11 @@ export function ProjectsSection({
                       decoding="async"
                     />
                   </div>
-                  {/* Color label badge */}
-                  <span
-                    className="absolute top-3 right-3 font-mono text-[10px] uppercase tracking-widest px-2 py-1 rounded font-bold"
-                    style={{ backgroundColor: color.accent, color: '#0a0a0a' }}
-                  >
-                    {color.label}
-                  </span>
                 </div>
-
-                {/* Text */}
-                <div className="p-6 space-y-3">
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-                  </div>
-
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
-                    {project.title}
-                  </h3>
-
-                  {project.metric && (
-                    <p className="font-mono text-xs uppercase tracking-wider" style={{ color: color.bg }}>
-                      {project.metric}
-                    </p>
-                  )}
-
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="pt-4 border-t border-border/40">
-                    <span
-                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 transition-colors"
-                      style={{ color: `${color.bg}99`, borderColor: `${color.bg}30` }}
-                    >
-                      View complete case
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                </div>
-              </motion.a>
-            );
-          })}
-        </div>
+              </div>
+            </motion.a>
+          );
+        })}
       </div>
     </section>
   );

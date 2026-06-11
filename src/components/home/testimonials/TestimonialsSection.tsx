@@ -117,7 +117,7 @@ export function TestimonialsSection() {
             }`}
         >
           <span className='font-mono text-xs uppercase tracking-widest text-muted-foreground'>
-            <span className='text-electric'>/03</span> Testimonials
+            <span className='text-brand-orange'>/03</span> Testimonials
           </span>
           <h2 className='sm:text-2xl font-regular text-foreground tracking-tight'>
             I could tell you I&#39;m collaborative and ship fast.

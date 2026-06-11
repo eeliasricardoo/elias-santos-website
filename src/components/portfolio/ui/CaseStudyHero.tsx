@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
+import { PROJECT_BRANDS, type BrandColor } from '@/constants/project-brands';
 
 interface CaseStudyHeroProps {
     badge?: string;
@@ -17,6 +18,8 @@ interface CaseStudyHeroProps {
         src: string;
     };
     align?: 'center' | 'left';
+    /** Color-codes this case study with its project brand (subtle accent). */
+    brand?: BrandColor;
 }
 
 export function CaseStudyHero({
@@ -25,8 +28,11 @@ export function CaseStudyHero({
     subtitle,
     image,
     video,
-    align = 'center'
+    align = 'center',
+    brand
 }: CaseStudyHeroProps) {
+    const brandColor = brand ? PROJECT_BRANDS[brand].bg : undefined;
+
     return (
         <section className={`${align === 'center' ? 'text-center' : 'text-left'} space-y-8`}>
             <motion.div
@@ -36,7 +42,14 @@ export function CaseStudyHero({
                 className="space-y-6"
             >
                 {badge && (
-                    <Badge className="bg-muted/50 text-muted-foreground border-border/50 px-4 py-2 text-sm font-medium">
+                    <Badge
+                        className="bg-muted/50 text-muted-foreground border-border/50 px-4 py-2 text-sm font-medium"
+                        style={brandColor ? {
+                            color: brandColor,
+                            borderColor: `${brandColor}40`,
+                            backgroundColor: `${brandColor}14`,
+                        } : undefined}
+                    >
                         {badge}
                     </Badge>
                 )}

@@ -5,6 +5,7 @@ import { CaseStudyHero } from '@/components/portfolio/ui';
 export function HeroSection() {
   return (
     <CaseStudyHero
+      brand="cyan"
       badge="Product Case Study"
       title="ChatAI - From Need to Innovation in One Week"
       subtitle="The journey of creating my own AI tool to solve a real problem: building a personal AI ecosystem that's radically cheaper, fully customizable, and superior to existing workflows"

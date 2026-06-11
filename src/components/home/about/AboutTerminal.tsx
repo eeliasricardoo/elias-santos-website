@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -45,135 +45,17 @@ const blocks: Block[] = [
   },
 ];
 
-type Phase =
-  | { kind: 'typing'; blockIdx: number; charIdx: number }
-  | { kind: 'output'; blockIdx: number; lineIdx: number }
-  | { kind: 'pause'; blockIdx: number }
-  | { kind: 'done' };
-
-interface Rendered {
-  prompt: string;
-  lines: { text: string; highlight: boolean }[];
-  promptDone: boolean;
-}
-
-const CHAR_DELAY = 42;
-const LINE_DELAY = 180;
-const BLOCK_PAUSE = 420;
-
 export function AboutTerminal() {
-  const [rendered, setRendered] = useState<Rendered[]>([]);
   const [cursor, setCursor] = useState(true);
-  const phaseRef = useRef<Phase>({ kind: 'typing', blockIdx: 0, charIdx: 0 });
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
-  const startedRef = useRef(false);
 
-  // Cursor blink
+  // Idle cursor blink
   useEffect(() => {
     const id = setInterval(() => setCursor((v) => !v), 530);
     return () => clearInterval(id);
   }, []);
 
-  // Scroll to bottom as text appears
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, [rendered]);
-
-  function tick() {
-    const phase = phaseRef.current;
-
-    if (phase.kind === 'done') return;
-
-    if (phase.kind === 'typing') {
-      const { blockIdx, charIdx } = phase;
-      const block = blocks[blockIdx];
-      const nextChar = charIdx + 1;
-
-      setRendered((prev) => {
-        const next = [...prev];
-        if (!next[blockIdx]) next[blockIdx] = { prompt: '', lines: [], promptDone: false };
-        next[blockIdx] = { ...next[blockIdx], prompt: block.prompt.slice(0, nextChar) };
-        return next;
-      });
-
-      if (nextChar >= block.prompt.length) {
-        phaseRef.current = { kind: 'pause', blockIdx };
-        timerRef.current = setTimeout(tick, BLOCK_PAUSE / 2);
-      } else {
-        phaseRef.current = { kind: 'typing', blockIdx, charIdx: nextChar };
-        timerRef.current = setTimeout(tick, CHAR_DELAY);
-      }
-      return;
-    }
-
-    if (phase.kind === 'pause') {
-      const { blockIdx } = phase;
-      setRendered((prev) => {
-        const next = [...prev];
-        next[blockIdx] = { ...next[blockIdx], promptDone: true };
-        return next;
-      });
-      phaseRef.current = { kind: 'output', blockIdx, lineIdx: 0 };
-      timerRef.current = setTimeout(tick, LINE_DELAY);
-      return;
-    }
-
-    if (phase.kind === 'output') {
-      const { blockIdx, lineIdx } = phase;
-      const block = blocks[blockIdx];
-
-      setRendered((prev) => {
-        const next = [...prev];
-        next[blockIdx] = {
-          ...next[blockIdx],
-          lines: block.lines.slice(0, lineIdx + 1),
-        };
-        return next;
-      });
-
-      if (lineIdx + 1 >= block.lines.length) {
-        // done with this block
-        if (blockIdx + 1 >= blocks.length) {
-          phaseRef.current = { kind: 'done' };
-        } else {
-          phaseRef.current = { kind: 'typing', blockIdx: blockIdx + 1, charIdx: 0 };
-          timerRef.current = setTimeout(tick, BLOCK_PAUSE);
-        }
-      } else {
-        phaseRef.current = { kind: 'output', blockIdx, lineIdx: lineIdx + 1 };
-        timerRef.current = setTimeout(tick, LINE_DELAY);
-      }
-    }
-  }
-
-  // Start when section enters viewport
-  const sectionRef = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !startedRef.current) {
-          startedRef.current = true;
-          timerRef.current = setTimeout(tick, 600);
-        }
-      },
-      { threshold: 0.2 }
-    );
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
-
-  const isDone = phaseRef.current.kind === 'done';
-  const activeBlockIdx =
-    phaseRef.current.kind !== 'done' ? phaseRef.current.blockIdx : blocks.length;
-
   return (
-    <section id="about" ref={sectionRef} className="relative border-t border-border/20 bg-[#080808]">
+    <section id="about" className="relative border-t border-border/20 bg-[#080808]">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-start">
 
@@ -227,19 +109,12 @@ export function AboutTerminal() {
             {/* Body */}
             <div className="p-6 md:p-8 font-mono text-sm space-y-6 bg-[#0d0d0d] min-h-[420px]">
 
-              {rendered.map((block, bi) => (
+              {blocks.map((block, bi) => (
                 <div key={bi} className="space-y-1.5">
                   {/* Prompt line */}
                   <div className="flex items-center gap-2">
                     <span className="text-electric flex-shrink-0">$</span>
                     <span className="text-foreground/90">{block.prompt}</span>
-                    {/* Cursor on active prompt being typed */}
-                    {!block.promptDone && bi === activeBlockIdx && (
-                      <span
-                        className="inline-block w-2 h-4 bg-electric align-middle"
-                        style={{ opacity: cursor ? 1 : 0 }}
-                      />
-                    )}
                   </div>
 
                   {/* Output lines */}
@@ -256,18 +131,15 @@ export function AboutTerminal() {
                 </div>
               ))}
 
-              {/* Idle cursor when done */}
-              {isDone && (
-                <div className="flex items-center gap-2">
-                  <span className="text-electric">$</span>
-                  <span
-                    className="inline-block w-2 h-4 bg-electric"
-                    style={{ opacity: cursor ? 1 : 0 }}
-                  />
-                </div>
-              )}
+              {/* Idle cursor */}
+              <div className="flex items-center gap-2">
+                <span className="text-electric">$</span>
+                <span
+                  className="inline-block w-2 h-4 bg-electric"
+                  style={{ opacity: cursor ? 1 : 0 }}
+                />
+              </div>
 
-              <div ref={bottomRef} />
             </div>
           </motion.div>
 

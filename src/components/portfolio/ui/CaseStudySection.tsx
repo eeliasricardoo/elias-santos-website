@@ -27,7 +27,11 @@ export function CaseStudySection({
                 className="flex flex-col gap-8"
             >
                 {title && (
-                    <h2 className="text-3xl font-bold text-foreground">
+                    <h2 className="flex items-center gap-3 text-3xl font-bold text-foreground">
+                        <span
+                            className="inline-block h-7 w-1.5 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: 'var(--brand, #d9f99d)' }}
+                        />
                         {title}
                     </h2>
                 )}

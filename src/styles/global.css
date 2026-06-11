@@ -30,6 +30,20 @@
   /* Electric accent — the single signature color */
   --color-electric: #d9f99d;
 
+  /* Case-study brand palette — color-codes each project across the portfolio.
+     `*-deep` is the saturated tone for text/borders on light fills; the base
+     tone is the light fill / accent on dark. Lime == electric (the signature). */
+  --color-brand-lime: #d9f99d;
+  --color-brand-lime-deep: #65a30d;
+  --color-brand-cyan: #67e8f9;
+  --color-brand-cyan-deep: #0891b2;
+  --color-brand-violet: #c4b5fd;
+  --color-brand-violet-deep: #7c3aed;
+  --color-brand-orange: #fb923c;
+  --color-brand-orange-deep: #c2410c;
+  --color-brand-pink: #f9a8d4;
+  --color-brand-pink-deep: #be185d;
+
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;

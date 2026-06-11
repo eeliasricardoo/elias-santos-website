@@ -139,7 +139,7 @@ export function HowIWorkSection() {
           className="max-w-3xl"
         >
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="text-electric">/01</span> How I work
+            <span className="text-brand-cyan">/01</span> How I work
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
             Fast where the tools help.

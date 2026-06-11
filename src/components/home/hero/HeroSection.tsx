@@ -8,8 +8,10 @@ export function HeroSection() {
       {/* Dot grid background */}
       <div className="absolute inset-0 bg-dot-grid pointer-events-none" />
 
-      {/* Lime glow top-right */}
-      <div className="absolute top-[-100px] right-[-100px] w-[700px] h-[700px] bg-electric/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Cyan glow top-right (behind the photo) */}
+      <div className="absolute top-[-100px] right-[-100px] w-[700px] h-[700px] bg-brand-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Violet counter-glow bottom-left for balance */}
+      <div className="absolute bottom-[-150px] left-[-150px] w-[600px] h-[600px] bg-brand-violet/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Main content */}
       <div className="relative z-10 flex-1 flex items-center translate-y-8">

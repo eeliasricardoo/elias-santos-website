@@ -4,6 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HERO_CONTENT } from '@/constants/content';
 import { useRetroSound } from '@/hooks/useRetroSound';
+import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
+
+const metricColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].bg);
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -96,11 +99,11 @@ export function HeroContent() {
         transition={{ duration: 0.6, delay: 0.65 }}
         className="flex flex-col gap-2 font-mono text-xs md:text-sm uppercase tracking-wider"
       >
-        {HERO_CONTENT.metrics.map((metric) => (
+        {HERO_CONTENT.metrics.map((metric, i) => (
           <div key={metric.label} className="flex items-baseline gap-3">
             <span className="text-muted-foreground/50">{metric.label}</span>
             <span className="text-muted-foreground/25">—</span>
-            <span className="text-electric">{metric.value}</span>
+            <span style={{ color: metricColors[i % metricColors.length] }}>{metric.value}</span>
           </div>
         ))}
       </motion.div>
