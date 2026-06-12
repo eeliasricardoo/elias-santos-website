@@ -41,19 +41,19 @@ const fixes = [
         icon: ICONS.wrench,
         title: 'The image log came in inconsistent formats',
         description:
-            'Different exports gave me &quot;Nome: x, URL: …&quot;, plain &quot;filename → URL&quot;, and JSON. Rather than force one format on my colleagues, I made the parser accept all three.',
+            'Different exports gave me "Nome: x, URL: …", plain "filename → URL", and JSON. Rather than force one format on my colleagues, I made the parser accept all three.',
     },
     {
         icon: ICONS.wrench,
-        title: 'Filenames in the HTML didn&apos;t always match the log',
+        title: "Filenames in the HTML didn't always match the log",
         description:
             'Casing and path prefixes broke naïve matching, so images silently stayed un-swapped. I normalized filenames before matching so a near-match still resolves.',
     },
     {
         icon: ICONS.wrench,
-        title: '&quot;Did it actually work?&quot; anxiety',
+        title: '"Did it actually work?" anxiety',
         description:
-            'A silent transform isn&apos;t trustworthy when millions of sends are on the line. Surfacing the link analysis and a clear processed-output panel turned that doubt into a visible check.',
+            "A silent transform isn't trustworthy when millions of sends are on the line. Surfacing the link analysis and a clear processed-output panel turned that doubt into a visible check.",
     },
 ];
 

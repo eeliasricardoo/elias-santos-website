@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/home/hero/HeroSection";
+import HeroSection from "@/components/home/hero/HeroSection.astro";
 
 import { ProjectsSection } from "@/components/home/projects/ProjectsSection";
 import { HowIWorkSection } from "@/components/home/how-i-work/HowIWorkSection";
@@ -12,11 +12,11 @@ import { GetInTouch } from "@/components/home/get-in-touch/GetInTouch";
 import { Footer } from "@/components/Footer";
 ---
 
-<Layout title="Elias Ricardo | Portfolio">
+<Layout title="Elias Ricardo — Senior UX Engineer">
 	<Navbar client:load />
 
 	<main class="relative min-h-screen">
-		<HeroSection client:load />
+		<HeroSection />
 		<StatsStrip client:visible />
 		<AboutTerminal client:visible />
 

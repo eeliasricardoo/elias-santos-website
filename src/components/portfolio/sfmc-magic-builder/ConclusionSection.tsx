@@ -6,7 +6,7 @@ export function ConclusionSection() {
     return (
         <CaseStudySection eyebrow="Reflection" index={9} title="The designer who builds">
             <p>
-                This project proves that the future of UX Design is <strong className="text-foreground">technical orchestration</strong>. I stopped being a victim of generic tool limits and became the architect of my own solutions. EmailFlow Pro is now the engine that allows me to deliver with startup speed and enterprise quality.
+                EmailFlow Pro changed how I work: when a tool limits the team, I treat that as a design problem and fix it. The same loop — <strong className="text-foreground">research, design, ship, measure</strong> — now runs through everything I build.
             </p>
             <div className="mt-8 p-6 bg-secondary/20 rounded-lg border border-border/50">
                 <p className="text-xl font-medium text-foreground italic text-center">

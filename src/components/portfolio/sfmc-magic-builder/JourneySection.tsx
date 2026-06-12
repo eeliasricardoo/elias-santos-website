@@ -16,7 +16,7 @@ const tradeoffs = [
     {
         decision: 'Opinionated one-click flow over a configurable editor',
         gain: 'Zero learning curve; the tool disappears.',
-        cost: 'Power users can&apos;t tweak edge-case rules in the UI — they have to ask me to change the code.',
+        cost: "Power users can't tweak edge-case rules in the UI — they have to ask me to change the code.",
     },
 ];
 

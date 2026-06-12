@@ -1,0 +1,66 @@
+---
+// Static Astro component — no JS, renders as pure HTML so the LCP image
+// is visible immediately without waiting for React hydration.
+---
+
+<div class="hero-photo-wrapper relative flex justify-center items-center w-full order-first lg:order-none">
+  <!-- Glow blob behind photo -->
+  <div class="absolute inset-0 bg-brand-cyan/10 rounded-3xl blur-3xl scale-90 pointer-events-none" />
+
+  <!-- Photo container -->
+  <div class="relative w-full h-[360px] sm:h-[440px] lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-border/40">
+    <!-- Corner label -->
+    <div class="absolute top-4 right-4 font-mono text-xs text-brand-cyan/70 z-10 tracking-widest">
+      ER_
+    </div>
+
+    <picture>
+      <source srcset="/optimized/profile-photo.avif" type="image/avif" />
+      <source
+        srcset="/optimized/profile-photo-640w.webp 640w, /optimized/profile-photo-750w.webp 750w, /optimized/profile-photo-828w.webp 828w, /optimized/profile-photo-1080w.webp 1080w, /optimized/profile-photo-1200w.webp 1200w, /optimized/profile-photo-1920w.webp 1920w"
+        sizes="(max-width: 1024px) 100vw, 400px"
+        type="image/webp"
+      />
+      <img
+        src="/optimized/profile-photo-828w.webp"
+        alt="Elias Ricardo — Senior UX Engineer"
+        class="w-full h-full object-cover object-top"
+        loading="eager"
+        fetchpriority="high"
+        width="400"
+        height="500"
+        decoding="sync"
+      />
+    </picture>
+
+    <!-- Gradient overlay at bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-background/90 to-transparent" />
+
+    <!-- Bottom info strip -->
+    <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between z-10">
+      <span class="font-mono text-xs uppercase tracking-widest text-foreground">Elias Ricardo</span>
+      <span class="font-mono text-xs text-muted-foreground">UX Engineer</span>
+    </div>
+  </div>
+
+  <!-- Decorative lines -->
+  <div class="absolute -right-5 top-1/4 h-1/2 w-px bg-gradient-to-b from-transparent via-brand-violet/30 to-transparent hidden lg:block" />
+  <div class="absolute -bottom-5 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent hidden lg:block" />
+</div>
+
+<style>
+  .hero-photo-wrapper {
+    animation: hero-photo-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  @keyframes hero-photo-in {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>

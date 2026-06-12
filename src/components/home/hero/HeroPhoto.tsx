@@ -28,8 +28,8 @@ export function HeroPhoto() {
           />
           <img
             src="/profile-photo.webp"
-            alt="Elias Ricardo — UX/UI Designer"
-            className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+            alt="Elias Ricardo — Senior UX Engineer"
+            className="w-full h-full object-cover object-top transition-all duration-700"
             loading="eager"
             fetchPriority="high"
             width={400}
@@ -42,10 +42,10 @@ export function HeroPhoto() {
 
         {/* Bottom info strip */}
         <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between z-10">
-          <span className="font-mono text-xs uppercase tracking-widest text-brand-cyan/90">
+          <span className="font-mono text-xs uppercase tracking-widest text-foreground">
             Elias Ricardo
           </span>
-          <span className="font-mono text-xs text-muted-foreground/60">UX/UI Designer</span>
+          <span className="font-mono text-xs text-muted-foreground">UX Engineer</span>
         </div>
       </div>
 

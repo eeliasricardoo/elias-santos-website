@@ -14,7 +14,7 @@ interface Props {
 
 const {
 	title,
-	description = "Elias Ricardo - Portfolio Design & Development",
+	description = "Senior UX Engineer — research, interface design, and production React code. Email production cut 87.5% at Serasa Experian; support wait down 22%. Case studies inside.",
 	ogImage = "/oq-image.png",
 } = Astro.props;
 
@@ -73,10 +73,10 @@ const canonicalURL = Astro.site
 		<!-- JSON-LD SEO Schema -->
 		<PersonSchema />
 
-		<!-- Analytics & Performance Monitoring -->
-		<GoogleAnalytics client:load />
-		<MicrosoftClarity client:load />
-		<WebVitalsMonitor client:load />
+		<!-- Analytics & Performance Monitoring — deferred to idle to avoid blocking LCP/TBT -->
+		<GoogleAnalytics client:idle />
+		<MicrosoftClarity client:idle />
+		<WebVitalsMonitor client:idle />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="alternate icon" href="/favicon.ico" />

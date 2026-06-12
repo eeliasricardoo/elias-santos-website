@@ -12,10 +12,12 @@ export function CallToActionSection() {
 
 
     return (
-        <CaseStudySection title="Ready to transform your workflow?" className="text-center">
+        <CaseStudySection title="The way I work, in one project" className="text-center">
             <div className='space-y-6 text-lg text-muted-foreground leading-relaxed mb-6'>
                 <p>
-                    Let's discuss how we can apply these principles of UX Engineering and AI Efficiency to your projects.
+                    Find the friction, build the fix, measure the result — that's the loop behind
+                    everything in this case. If you're hiring someone who closes that loop on your
+                    team, let's talk. Thirty minutes, no slide deck.
                 </p>
             </div>
 

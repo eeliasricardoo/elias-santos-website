@@ -13,12 +13,12 @@ export function CallToActionSection() {
 
 
   return (
-    <CaseStudySection title="Ready to Build Your Own AI Tool?" className="text-center">
+    <CaseStudySection title="Why I build my own tools" className="text-center">
       <div className='space-y-6 text-lg text-muted-foreground leading-relaxed mb-6'>
         <p>
-          ChatAI represents the future of personal AI tools - where
-          customization, cost-efficiency, and developer experience come
-          together.
+          ChatAI is where I learn streaming and multimodal patterns before they
+          reach client work. If you're hiring someone who stays ahead of the
+          tooling by building with it, let's talk.
         </p>
       </div>
 

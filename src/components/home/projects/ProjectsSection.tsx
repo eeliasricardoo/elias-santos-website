@@ -8,6 +8,15 @@ const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
 const projects = [
   {
+    title: 'EmailFlow Pro',
+    description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
+    tags: ['React', 'AI', 'UX Engineering'],
+    link: '/portfolio/sfmc-magic-builder',
+    image: '/portfolios/sfmc-magic-builder/interface-top.webp',
+    metric: 'Email prod 80min → 10min',
+    company: 'Serasa Experian',
+  },
+  {
     title: 'EnglishRoom',
     description: 'English lessons were scattered across Zoom, docs, and chat. I built a single-screen 1:1 classroom — live video, activities, and notes on one surface — designed from tokens up to the live WebRTC room.',
     tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
@@ -24,15 +33,6 @@ const projects = [
     image: '/portfolios/ventus/v9.webp',
     metric: null,
     company: 'Personal project',
-  },
-  {
-    title: 'EmailFlow Pro',
-    description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
-    tags: ['React', 'AI', 'UX Engineering'],
-    link: '/portfolio/sfmc-magic-builder',
-    image: '/portfolios/sfmc-magic-builder/interface-top.webp',
-    metric: 'Email prod 80min → 10min',
-    company: 'Serasa Experian',
   },
   {
     title: 'Ranking Engine',

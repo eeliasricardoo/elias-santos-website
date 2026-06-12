@@ -16,7 +16,7 @@ export const HERO_CONTENT = {
     description:
         "I research the problem, design the interface, and ship the React component — no handoff meeting required. The tooling changed how fast I work. It didn't change what I'm responsible for.",
     metrics: [
-        { label: "Serasa Experian", value: "email prod 80min → 10min" },
+        { label: "Serasa Experian", value: "email production −87.5%" },
         { label: "Support queue", value: "avg wait −22%" },
     ],
     cta: {

@@ -20,14 +20,14 @@ export function CallToActionSection() {
         className='space-y-6'
       >
         <h2 className='text-3xl font-bold text-foreground'>
-          Ready to Transform Your Content Creation?
+          Repetitive production work is a design problem
         </h2>
 
         <div className='space-y-6 text-lg text-muted-foreground leading-relaxed'>
           <p>
-            The Post & Carousel Generator represents the future of content
-            creation - where AI and human creativity work together to produce
-            amazing results.
+            This generator exists because manual content production was eating
+            hours that belonged to better work. If that's how you want your
+            team to think about tooling, let's talk.
           </p>
         </div>
 

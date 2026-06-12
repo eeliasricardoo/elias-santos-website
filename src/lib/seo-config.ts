@@ -3,7 +3,7 @@ export const SEO_CONFIG = {
     name: 'Elias Ricardo',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eliasricardo.com',
     description:
-      'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development.',
+      'Senior UX Engineer — research, interface design, and production React code. Case studies with measured outcomes at Serasa Experian and EdTech.',
     author: 'Elias Ricardo',
     language: 'en-US',
     locale: 'en_US',
@@ -16,9 +16,9 @@ export const SEO_CONFIG = {
   },
 
   defaultMeta: {
-    title: 'Elias Ricardo - UX/UI Designer & Frontend Developer',
+    title: 'Elias Ricardo — Senior UX Engineer',
     description:
-      'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+      'Senior UX Engineer — research, interface design, and production React code. Email production cut 87.5% at Serasa Experian; support wait down 22%. Case studies inside.',
     keywords: [
       'Elias Ricardo',
       'UX Design',
@@ -40,9 +40,9 @@ export const SEO_CONFIG = {
 
   pages: {
     home: {
-      title: 'Elias Ricardo - UX/UI Designer & Frontend Developer',
+      title: 'Elias Ricardo — Senior UX Engineer',
       description:
-        'Professional portfolio of Elias Ricardo, UX/UI Designer and Frontend Developer specializing in modern web development. Innovative projects in React, Next.js, and interface design.',
+        'Senior UX Engineer — research, interface design, and production React code. Email production cut 87.5% at Serasa Experian; support wait down 22%. Case studies inside.',
       keywords: [
         'Portfolio',
         'UX Design',
@@ -102,7 +102,7 @@ export const SEO_CONFIG = {
         'https://github.com/eliassantos',
         'https://twitter.com/eliassantos',
       ],
-      jobTitle: 'UX/UI Designer & Frontend Developer',
+      jobTitle: 'Senior UX Engineer',
       worksFor: {
         '@type': 'Organization',
         name: 'Freelancer',
@@ -119,7 +119,7 @@ export const SEO_CONFIG = {
         'Interface Design',
       ],
       description:
-        'UX/UI Designer and Frontend Developer specializing in modern web development with focus on exceptional digital experiences.',
+        'Senior UX Engineer — research, interface design, and production React code, with measured outcomes.',
     },
 
     website: {
