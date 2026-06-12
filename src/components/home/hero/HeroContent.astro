@@ -1,0 +1,134 @@
+---
+import { HERO_CONTENT } from '@/constants/content';
+import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
+import { HeroSounds } from './HeroSounds';
+
+const metricColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].bg);
+const metricColorsDeep = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].accent);
+---
+
+<div class="relative z-10 space-y-7 text-left">
+
+  <!-- Status -->
+  <div class="hero-fade-in flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground" style="--delay:0s">
+    <span class="relative flex h-2 w-2 flex-shrink-0">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric opacity-60"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-electric"></span>
+    </span>
+    {HERO_CONTENT.status.availability} · {HERO_CONTENT.status.location}
+  </div>
+
+  <!-- Headline -->
+  <div class="flex flex-col gap-0">
+    <div class="overflow-hidden">
+      <span
+        class="hero-slide-up block font-bold uppercase leading-[0.9] tracking-tight text-muted-foreground"
+        style="font-size:clamp(36px,5.5vw,64px);--delay:0.1s"
+      >
+        {HERO_CONTENT.headline.line1}
+      </span>
+    </div>
+    <div class="overflow-hidden">
+      <span
+        class="hero-slide-up block font-bold uppercase leading-[0.85] text-stroke"
+        style="font-size:clamp(56px,13vw,140px);letter-spacing:0.02em;--delay:0.22s"
+      >
+        {HERO_CONTENT.headline.line2}<span class="hero-cursor" style="color:#d9f99d;-webkit-text-stroke:0">_</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Role pills -->
+  <div class="hero-fade-in flex items-center gap-2 flex-wrap" style="--delay:0.38s">
+    {HERO_CONTENT.eyebrow.split(' · ').map((pill) => (
+      <span class="font-mono text-xs uppercase tracking-widest px-3 py-1.5 border border-border/60 rounded-full text-muted-foreground">
+        {pill}
+      </span>
+    ))}
+  </div>
+
+  <!-- Description — LCP element, rendered immediately with no animation delay -->
+  <p class="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
+    {HERO_CONTENT.description}
+  </p>
+
+  <!-- Metrics -->
+  <div class="hero-fade-in flex flex-col gap-2 font-mono text-xs md:text-sm uppercase tracking-wider" style="--delay:0.65s">
+    {HERO_CONTENT.metrics.map((metric, i) => (
+      <div class="flex items-baseline gap-3">
+        <span class="text-muted-foreground/50 light:text-muted-foreground/80">{metric.label}</span>
+        <span class="text-muted-foreground/25 light:text-muted-foreground/40">—</span>
+        <span
+          class="text-[var(--m)] light:text-[var(--m-deep)]"
+          style={`--m:${metricColors[i % metricColors.length]};--m-deep:${metricColorsDeep[i % metricColorsDeep.length]}`}
+        >
+          {metric.value}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  <!-- CTAs -->
+  <div class="hero-fade-in flex flex-wrap items-center gap-4 pt-1" style="--delay:0.8s">
+    <a
+      href={HERO_CONTENT.cta.primary.href}
+      data-hero-cta
+      class="inline-flex items-center gap-2 h-12 rounded-full px-8 text-base font-medium bg-primary text-primary-foreground transition-transform hover:scale-105 active:scale-95"
+    >
+      {HERO_CONTENT.cta.primary.text}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+      </svg>
+    </a>
+
+    <a
+      href={HERO_CONTENT.cta.secondary.href}
+      data-hero-cta
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center h-12 rounded-full px-8 text-base border border-border transition-transform hover:scale-105 active:scale-95"
+    >
+      {HERO_CONTENT.cta.secondary.text}
+    </a>
+  </div>
+</div>
+
+<!-- Retro sounds attached after idle — zero impact on LCP -->
+<HeroSounds client:idle />
+
+<style>
+  /* fill-mode:both applies the `from` keyframe during the delay period,
+     keeping elements hidden until their staggered entrance fires.
+     Elements with no animation remain fully visible (no-JS / reduced-motion). */
+  .hero-fade-in {
+    animation: hero-fade-up 0.6s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) both;
+  }
+
+  .hero-slide-up {
+    display: block;
+    animation: hero-slide 0.8s cubic-bezier(0.16,1,0.3,1) var(--delay, 0s) both;
+  }
+
+  .hero-cursor {
+    animation: cursor-blink 1s step-end infinite;
+  }
+
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes hero-slide {
+    from { transform: translateY(110%); }
+    to   { transform: translateY(0); }
+  }
+
+  @keyframes cursor-blink {
+    0%, 50%  { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-fade-in, .hero-slide-up { animation: none; }
+  }
+</style>
