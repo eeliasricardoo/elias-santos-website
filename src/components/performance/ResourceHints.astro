@@ -9,9 +9,14 @@
 <!-- Fonts are self-hosted via @fontsource-variable (bundled into /_astro/*.woff2),
      so no preconnect/dns-prefetch to Google Fonts is needed. -->
 
-<!-- Preload LCP image (hero photo) — avif for capable browsers, webp fallback -->
-<link rel="preload" as="image" href="/optimized/profile-photo.avif" type="image/avif" />
-<link rel="preload" as="image" href="/optimized/profile-photo-828w.webp" type="image/webp" imagesrcset="/optimized/profile-photo-640w.webp 640w, /optimized/profile-photo-750w.webp 750w, /optimized/profile-photo-828w.webp 828w" imagesizes="(max-width: 1024px) 100vw, 400px" />
+<!-- Preload LCP image — responsive AVIF srcset so mobile gets the right size -->
+<link
+  rel="preload"
+  as="image"
+  type="image/avif"
+  imagesrcset="/optimized/profile-photo-640w.avif 640w, /optimized/profile-photo-750w.avif 750w, /optimized/profile-photo-828w.avif 828w, /optimized/profile-photo-1080w.avif 1080w"
+  imagesizes="(max-width: 1024px) 100vw, 400px"
+/>
 
 <!-- Prefetch for common navigation paths -->
 <link rel="prefetch" href="/projects" />
