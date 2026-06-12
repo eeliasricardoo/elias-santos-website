@@ -1,4 +1,5 @@
 'use client';
+import type { CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,7 @@ import { useRetroSound } from '@/hooks/useRetroSound';
 import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 
 const metricColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].bg);
+const metricColorsDeep = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].accent);
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -101,9 +103,17 @@ export function HeroContent() {
       >
         {HERO_CONTENT.metrics.map((metric, i) => (
           <div key={metric.label} className="flex items-baseline gap-3">
-            <span className="text-muted-foreground/50">{metric.label}</span>
-            <span className="text-muted-foreground/25">—</span>
-            <span style={{ color: metricColors[i % metricColors.length] }}>{metric.value}</span>
+            <span className="text-muted-foreground/50 light:text-muted-foreground/80">{metric.label}</span>
+            <span className="text-muted-foreground/25 light:text-muted-foreground/40">—</span>
+            <span
+              className="text-[var(--m)] light:text-[var(--m-deep)]"
+              style={{
+                '--m': metricColors[i % metricColors.length],
+                '--m-deep': metricColorsDeep[i % metricColorsDeep.length],
+              } as CSSProperties}
+            >
+              {metric.value}
+            </span>
           </div>
         ))}
       </motion.div>

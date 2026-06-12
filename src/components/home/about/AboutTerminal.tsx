@@ -55,7 +55,7 @@ export function AboutTerminal() {
   }, []);
 
   return (
-    <section id="about" className="relative border-t border-border/20 bg-[#080808]">
+    <section id="about" className="relative border-t border-border/20 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-start">
 
@@ -68,7 +68,7 @@ export function AboutTerminal() {
             className="lg:sticky lg:top-32 space-y-4"
           >
             <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              <span className="text-electric">/00</span> About
+              <span className="text-electric light:text-electric-ink">/00</span> About
             </span>
             <h2 className="text-2xl md:text-3xl font-bold leading-snug">
               The person<br />
@@ -82,7 +82,7 @@ export function AboutTerminal() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric opacity-60" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-electric" />
               </span>
-              <span className="font-mono text-xs text-electric uppercase tracking-widest">
+              <span className="font-mono text-xs text-electric light:text-electric-ink uppercase tracking-widest">
                 Available for work
               </span>
             </div>
@@ -97,7 +97,7 @@ export function AboutTerminal() {
             className="rounded-xl overflow-hidden border border-border/30"
           >
             {/* Title bar */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-[#111] border-b border-border/20">
+            <div className="flex items-center gap-2 px-4 py-3 bg-[#111] light:bg-[#ececec] border-b border-border/20">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
@@ -107,13 +107,13 @@ export function AboutTerminal() {
             </div>
 
             {/* Body */}
-            <div className="p-4 md:p-8 font-mono text-[11px] sm:text-sm space-y-6 bg-[#0d0d0d] min-h-[420px]">
+            <div className="p-4 md:p-8 font-mono text-[11px] sm:text-sm space-y-6 bg-[#0d0d0d] light:bg-[#f7f7f5] min-h-[420px]">
 
               {blocks.map((block, bi) => (
                 <div key={bi} className="space-y-1.5">
                   {/* Prompt line */}
                   <div className="flex items-center gap-2">
-                    <span className="text-electric flex-shrink-0">$</span>
+                    <span className="text-electric light:text-electric-ink flex-shrink-0">$</span>
                     <span className="text-foreground/90">{block.prompt}</span>
                   </div>
 
@@ -122,7 +122,9 @@ export function AboutTerminal() {
                     <div
                       key={li}
                       className={`pl-4 leading-relaxed break-words ${
-                        line.highlight ? 'text-electric/90' : 'text-muted-foreground/60'
+                        line.highlight
+                          ? 'text-electric/90 light:text-electric-ink'
+                          : 'text-muted-foreground/60 light:text-foreground/65'
                       }`}
                     >
                       {line.text}
@@ -133,9 +135,9 @@ export function AboutTerminal() {
 
               {/* Idle cursor */}
               <div className="flex items-center gap-2">
-                <span className="text-electric">$</span>
+                <span className="text-electric light:text-electric-ink">$</span>
                 <span
-                  className="inline-block w-2 h-4 bg-electric"
+                  className="inline-block w-2 h-4 bg-electric light:bg-electric-ink"
                   style={{ opacity: cursor ? 1 : 0 }}
                 />
               </div>

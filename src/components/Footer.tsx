@@ -30,7 +30,7 @@ export function Footer() {
             <div className='flex items-center space-x-3'>
               <div className='w-10 h-10 md:w-12 md:h-12 border border-border rounded-lg flex items-center justify-center'>
                 <span className='font-mono font-bold text-sm md:text-base text-foreground'>
-                  ER<span className='text-electric'>_</span>
+                  ER<span className='text-electric light:text-electric-ink'>_</span>
                 </span>
               </div>
               <div>
@@ -50,9 +50,9 @@ export function Footer() {
             <div className='flex items-center space-x-3'>
               <Badge
                 variant='secondary'
-                className='bg-electric/10 text-electric border-electric/20 font-mono text-xs uppercase tracking-wider'
+                className='bg-electric/10 text-electric light:text-electric-ink border-electric/20 light:border-electric-ink/30 font-mono text-xs uppercase tracking-wider'
               >
-                <div className='w-2 h-2 bg-electric rounded-full mr-2 animate-pulse'></div>
+                <div className='w-2 h-2 bg-electric light:bg-electric-ink rounded-full mr-2 animate-pulse'></div>
                 Available for work
               </Badge>
             </div>

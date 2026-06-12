@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MessageCircle, FileText } from 'lucide-react';
+import { MessageCircle, FileText, Sun, Moon } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 
 const LINKS = [
@@ -13,6 +13,22 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [isHome, setIsHome] = useState(true);
+  const [isLight, setIsLight] = useState(false);
+
+  useEffect(() => {
+    setIsLight(document.documentElement.classList.contains('light'));
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const next = !root.classList.contains('light');
+    root.classList.toggle('light', next);
+    root.classList.toggle('dark', !next);
+    try {
+      localStorage.setItem('theme', next ? 'light' : 'dark');
+    } catch (e) {}
+    setIsLight(next);
+  };
 
   useEffect(() => {
     const home = window.location.pathname === '/';
@@ -62,7 +78,7 @@ export function Navbar() {
           className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 transition-all hover:border-electric/60 hover:bg-background active:scale-95"
         >
           <span className="font-mono text-sm font-bold tracking-tighter text-foreground">
-            ER<span className="text-electric">_</span>
+            ER<span className="text-electric light:text-electric-ink">_</span>
           </span>
         </a>
 
@@ -76,7 +92,7 @@ export function Navbar() {
                 href={`${prefix}#${l.id}`}
                 onClick={() => track(AnalyticsEvents.NAVIGATION_CLICK(l.id))}
                 className={`relative rounded-full px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors ${
-                  isActive ? 'text-electric' : 'text-muted-foreground hover:text-foreground'
+                  isActive ? 'text-electric light:text-electric-ink' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 <span className="relative z-10">{l.label}</span>
@@ -91,6 +107,15 @@ export function Navbar() {
         <span className="mx-1 hidden h-5 w-px bg-border/60 md:block" />
 
         {/* Actions */}
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
+          className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground active:scale-95"
+        >
+          {isLight ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+        </button>
+
         <a
           href="/resume.pdf"
           target="_blank"
@@ -108,7 +133,7 @@ export function Navbar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Schedule a meeting"
-          className="flex items-center gap-2 rounded-full bg-electric px-4 py-2 text-sm font-semibold text-background transition-all hover:opacity-90 active:scale-95"
+          className="flex items-center gap-2 rounded-full bg-electric px-4 py-2 text-sm font-semibold text-black transition-all hover:opacity-90 active:scale-95"
         >
           <MessageCircle className="h-4 w-4" />
           <span className="hidden sm:inline">Let&apos;s Talk</span>

@@ -31,6 +31,23 @@ const canonicalURL = Astro.site
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
 
+		<!-- Apply saved theme before paint to avoid a flash of the wrong mode.
+		     Dark is the default; `light` is opt-in and persisted in localStorage. -->
+		<script is:inline>
+			(() => {
+				try {
+					const stored = localStorage.getItem("theme");
+					const prefersLight =
+						stored === null &&
+						window.matchMedia("(prefers-color-scheme: light)").matches;
+					if (stored === "light" || prefersLight) {
+						document.documentElement.classList.add("light");
+						document.documentElement.classList.remove("dark");
+					}
+				} catch (e) {}
+			})();
+		</script>
+
 		<!-- SEO Meta Tags -->
 		<meta name="author" content="Elias Ricardo" />
 		<meta name="theme-color" content="#0f172a" />

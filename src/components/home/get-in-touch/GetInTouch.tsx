@@ -19,7 +19,7 @@ export function GetInTouch() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="font-mono text-xs uppercase tracking-widest text-black/40"
+              className="font-mono text-xs uppercase tracking-widest text-black/60"
             >
               /04 Contact
             </motion.span>
