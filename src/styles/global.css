@@ -291,6 +291,7 @@
   .text-stroke {
     -webkit-text-stroke: 2px hsl(var(--foreground));
     color: transparent;
+    paint-order: stroke fill;
   }
   .text-stroke-electric {
     -webkit-text-stroke: 2px #d9f99d;
