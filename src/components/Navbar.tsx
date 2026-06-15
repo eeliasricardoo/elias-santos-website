@@ -3,8 +3,9 @@ import { MessageCircle, FileText, Sun, Moon } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 
 const LINKS = [
-  { label: 'Work', id: 'projects' },
+  { label: 'About', id: 'about' },
   { label: 'Process', id: 'how-i-work' },
+  { label: 'Work', id: 'projects' },
   { label: 'Contact', id: 'get-in-touch' },
 ];
 
