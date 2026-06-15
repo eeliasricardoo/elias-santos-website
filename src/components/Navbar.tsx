@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MessageCircle, FileText, Sun, Moon } from 'lucide-react';
+import { MessageCircle, FileText } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
 
 const LINKS = [
@@ -14,22 +14,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [isHome, setIsHome] = useState(true);
-  const [isLight, setIsLight] = useState(false);
-
-  useEffect(() => {
-    setIsLight(document.documentElement.classList.contains('light'));
-  }, []);
-
-  const toggleTheme = () => {
-    const root = document.documentElement;
-    const next = !root.classList.contains('light');
-    root.classList.toggle('light', next);
-    root.classList.toggle('dark', !next);
-    try {
-      localStorage.setItem('theme', next ? 'light' : 'dark');
-    } catch (e) {}
-    setIsLight(next);
-  };
 
   useEffect(() => {
     const home = window.location.pathname === '/';
@@ -108,15 +92,6 @@ export function Navbar() {
         <span className="mx-1 hidden h-5 w-px bg-border/60 md:block" />
 
         {/* Actions */}
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
-          className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground active:scale-95"
-        >
-          {isLight ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-        </button>
-
         <a
           href="/resume.pdf"
           target="_blank"
