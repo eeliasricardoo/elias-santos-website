@@ -19,7 +19,7 @@ const stats = [
     colorDeep: PROJECT_BRANDS.pink.accent,
   },
   {
-    value: '4+',
+    value: '5+',
     label: 'Years shipping',
     context: 'EdTech · CRM · SaaS',
     color: PROJECT_BRANDS.cyan.bg,
