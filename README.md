@@ -1,155 +1,93 @@
-# Elias Ricardo — Senior UX Engineer
-> **Bridging the gap between high-fidelity interface design and production-ready code.**
+# meu-site
+> **Senior UX Engineer Portfolio · AI as pair, never pilot.**
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-eliasricardo.com-7c3aed?style=for-the-badge&logo=react)](https://eliasricardo.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-eeliasricardoo-0077b5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/eeliasricardoo)
-[![GitHub](https://img.shields.io/badge/GitHub-eeliasricardoo-181717?style=for-the-badge&logo=github)](https://github.com/eeliasricardoo)
-[![Email](https://img.shields.io/badge/Email-Get%20in%20Touch-db4437?style=for-the-badge&logo=gmail)](mailto:eeliasricardoo@gmail.com)
-[![Calendly](https://img.shields.io/badge/Calendly-Schedule%20a%20Call-006bff?style=for-the-badge&logo=calendly)](https://calendly.com/eeliasricardoo)
-
-This repository contains the complete source code of my personal portfolio. It was designed from scratch to be a fast, responsive, and beautiful showcase of my UX engineering capabilities, combining strict design token systems with high-performance static rendering.
+[eliasricardo.com](https://eliasricardo.com) · [LinkedIn](https://linkedin.com/in/eeliasricardoo) · [Calendly](https://calendly.com/eeliasricardoo) · [Email](mailto:eeliasricardoo@gmail.com)
 
 ---
 
-## 🙋‍♂️ About Me
+## ⚡ The Philosophy
 
-I am a **Senior UX Engineer** who researches the problem, designs the interface in Figma, and ships the React components—no handoff meetings required. I focus on creating toolings, platforms, and interactive applications that solve real user problems and deliver measurable business outcomes.
+This is the source code of my personal portfolio. It is designed to be a fast, high-fidelity showcase of how I build digital products: starting from a strict token-based design system in Figma, prototyping layouts, and shipping lightweight, highly optimized web applications.
 
-* **Design Capabilities:** High-fidelity prototyping, Design Systems, UX Research, Interaction Design, and Micro-interactions.
-* **Engineering Capabilities:** React, Next.js, Astro, TypeScript, TailwindCSS, State Management, WebRTC, and Performance Optimization.
-
----
-
-## 🏗️ Architectural Decisions: The "Why"
-
-Every technical decision in this codebase was made to balance **developer experience, design consistency, and end-user performance**.
-
-### 1. Astro as the Core Engine (Static-First)
-* **The Decision:** Chosen over full SPA frameworks (like Next.js or Create React App) or heavy site builders.
-* **The "Why":** Astro compiles to 100% static HTML by default. It uses the **Island Architecture (Selective Hydration)** to isolate interactivity.
-* **The Benefit:** 90% of the page is static HTML/CSS. JavaScript is only loaded and hydrated for components that explicitly need it (e.g., `<Navbar client:load />` or `<SkillsTicker client:idle />`). This keeps the initial JS bundle size extremely close to zero.
-
-### 2. React for Islands of Interactivity
-* **The Decision:** Integrated React for complex frontend modules instead of plain JS.
-* **The "Why":** For elements requiring complex state management, event orchestration, or lifecycle events (such as the project sections, animations, testimonial slider, and sound design), React offers robust component organization and ecosystem support.
-* **The Benefit:** I can build complex user flows with React while letting Astro handle static layout structures.
-
-### 3. TailwindCSS for Single-Source-of-Truth Styling
-* **The Decision:** TailwindCSS configured with strict token boundaries.
-* **The "Why":** It enforces naming conventions and prevents layout fragmentation. During compilation, Tailwind purges unused rules, resulting in a minimal, highly optimized CSS file (usually < 20KB).
-* **The Benefit:** Design changes are made directly in the configuration tokens, updating the visual theme globally.
+The engineering goal here was simple: **zero bloat, maximum performance, and fluid micro-interactions.**
 
 ---
 
-## ⚡ Performance Engineering & LCP Optimization (< 0.8s LCP)
+## 🛠️ The Tech Stack & Decisions
 
-To achieve sub-100ms transitions and top-tier Google Lighthouse scores, several core performance patterns were implemented:
+Instead of using a heavy framework out of the box, the architecture is split precisely based on performance and interactive requirements:
 
-### 1. Zero-JS Above-the-Fold Animation
-* **The Pattern:** Hero entry transitions (fade-in, slide-up, cursor blinking) are implemented using **pure CSS animations** in [HeroContent.astro](file:///Users/eeliasricardoo/Desktop/work/Meu%20site/meu-site/src/components/home/hero/HeroContent.astro#L56-L91).
-* **The Optimization:** Since these animations run without JS, the browser executes them immediately on LCP, even before React hydration begins. This guarantees a fast **First Contentful Paint (FCP)** and eliminates layout stuttering.
-
-### 2. Non-Blocking Sound Design
-* **The Pattern:** Audio assets and sound effects in the Hero section are initialized asynchronously in [HeroSounds.tsx](file:///Users/eeliasricardoo/Desktop/work/Meu%20site/meu-site/src/components/home/hero/HeroSounds.tsx) and loaded with `client:idle`.
-* **The Optimization:** By scheduling the initialization when the main thread is idle, we ensure that audio loading never blocks critical rendering paths, preserving 100/100 performance scores.
-
-### 3. Advanced Asset & Font Preloading
-* **The Pattern:** Pre-resolving CDNs and preloading primary assets:
-  ```typescript
-  preloadImages: ['/profile-photo.webp', '/oq-image.png'],
-  dnsPrefetch: ['//fonts.googleapis.com', '//api.fontshare.com'],
-  ```
-* **The Optimization:** Declared inside [seo-config.ts](file:///Users/eeliasricardoo/Desktop/work/Meu%20site/meu-site/src/lib/seo-config.ts#L138-L149) and loaded via layout headers. This tells the browser to resolve font domains and fetch above-the-fold assets early, preventing font flickering (FOUT/FOIT) and reducing LCP.
-
-### 4. Layout Shift (CLS) Prevention
-* **The Pattern:** All visual screenshots utilize a custom `<OptimizedImage />` wrapper that defines specific aspect ratios and modern formats (WebP/AVIF).
-* **The Optimization:** Reserving space before loading prevents Layout Shifts (CLS = 0), making the page feel instant and solid.
+* **Astro (Static Engine):** Generates 100% static HTML by default. The entire page structure, text, and grids load with zero initial JavaScript overhead.
+* **React (Selective Hydration):** Only loaded for specific islands of interactivity where state and transitions are required (e.g., the floating dynamic `<Navbar />`, the hero sound synthesizer, and the testimonials engine).
+* **TailwindCSS (Design Tokens):** The design system tokens (colors, spacing, transitions) are configured in the Tailwind config and compiled down to a single lightweight utility stylesheet (< 20KB).
+* **Framer Motion:** Handles interactive transitions, while static above-the-fold entrance transitions use native CSS.
 
 ---
 
-## 📂 Codebase Architecture & Design Patterns
+## 🏎️ Performance & LCP Optimization
 
-The codebase is structured following component modularity and separation of concerns:
+To keep the page loading under **100ms** and maintain a perfect Lighthouse score:
+
+1. **Native CSS for Above-the-Fold Entries:** The hero title slide-up and fade-in animations are executed using native CSS animations in [HeroContent.astro](file:///Users/eeliasricardoo/Desktop/work/Meu%20site/meu-site/src/components/home/hero/HeroContent.astro). This prevents JavaScript execution from blocking the initial page render, ensuring an instant **First Contentful Paint (FCP)**.
+2. **Idle-Hydrated Sound Design:** The retro audio synthesizer component [HeroSounds.tsx](file:///Users/eeliasricardoo/Desktop/work/Meu%20site/meu-site/src/components/home/hero/HeroSounds.tsx) is loaded using Astro's `client:idle`. It does not block page load or layout construction.
+3. **Asset & Font Preloading:** Critical OpenGraph graphics and profile images are preloaded via headers, and DNS prefetching is configured for Google Fonts and Fontshare to eliminate layout shifts (CLS) and font flickering (FOUT).
+
+---
+
+## ⚙️ How My Tools Cooperate
+
+I use AI tools to speed up my scaffolding and code loops, but the engineering architecture, product decisions, and final UX polished details are entirely mine.
+
+* **Figma:** Core design tokens, high-fidelity UI layouts, and grid structures.
+* **Lovable:** Rapid prototyping of interactive components.
+* **Cursor & Claude:** Code generation and rapid refactoring.
+* **Antigravity:** Agent-driven workflow orchestration and build checks.
+
+---
+
+## 📂 Project Structure
 
 ```text
 meu-site/
 ├── src/
 │   ├── components/
-│   │   ├── home/           # Homepage components (modular structures per section)
-│   │   ├── portfolio/      # Case study detail elements (layouts, phases)
-│   │   ├── ui/             # Reusable atomic tokens (Buttons, Badges, Cards)
-│   │   └── Navbar.tsx      # Hydrated floating nav with scroll tracking
+│   │   ├── home/           # Homepage modules (Hero, Stack, How I Work, Testimonials)
+│   │   ├── portfolio/      # UI templates and detail sections for case studies
+│   │   └── Navbar.tsx      # Hydrated floating nav with scroll progress tracking
 │   ├── constants/
-│   │   ├── content.ts      # Single source of truth for copywriting (separates copy from code)
-│   │   └── project-brands.ts # Layout brand token mapping (Lime, Violet, Emerald, etc.)
+│   │   ├── content.ts      # Single source of truth for all copy & project metadata
+│   │   └── project-brands.ts # Design token mappings for thematic project colors
 │   ├── layouts/
-│   │   └── Layout.astro    # Base document layout (SEO, analytics, preloads)
-│   ├── pages/
-│   │   ├── api/            # Serverless contact endpoints
-│   │   ├── portfolio/      # Case study detail sub-routes
-│   │   └── index.astro     # Core entry landing page
+│   │   └── Layout.astro    # Base wrapper (preloading, metadata, SEO configuration)
 │   └── styles/
-│       └── global.css      # Core styles, design tokens, and utility animations
-└── tailwind.config.ts      # Custom theme setup extending the design tokens
+│       └── global.css      # Core tailwind directives, global tokens, and custom animations
+└── tailwind.config.ts      # Theme extensions mapping the system tokens
 ```
 
 ---
 
-## 📈 Measured Business Impact of Showcased Cases
+## 🚀 Running Locally
 
-Below are the key projects detailed as case studies in the portfolio:
+Ensure you have **Node.js** and **pnpm** installed:
 
-### ⚡ [EmailFlow Pro (Salesforce SFMC Builder)](https://github.com/eeliasricardoo/meu-site)
-* **The Constraint:** Producing campaign emails in Salesforce Marketing Cloud at Serasa Experian took 80 minutes of manual, repetitive code work.
-* **The Solution:** Designed and engineered a visual drag-and-drop builder using React and AI integration.
-* **The Impact:** Cut email production time **from 80 minutes to just 10 minutes** (an **87.5% efficiency boost**).
+```bash
+# Install dependencies
+pnpm install
 
-### 🏫 [EnglishRoom (1:1 Classroom Platform)](https://github.com/eeliasricardoo/meu-site)
-* **The Constraint:** Interactive remote lessons were scattered across Zoom, Google Docs, and chat tools.
-* **The Solution:** Built a single-screen live classroom surface integrating live video streaming (WebRTC), collaborative activities, and notes.
-* **The Impact:** A successful solo build scaling from design token concepts to production live sessions.
+# Start local dev server (default port 4321)
+pnpm dev
 
-### ⏳ [Support Queue Optimization](https://github.com/eeliasricardoo/meu-site)
-* **The Constraint:** Customer support tickets lacked structured triage logic, causing high latency.
-* **The Solution:** Researched triage bottlenecks, designed an intuitive prioritization UI, and shipped it.
-* **The Impact:** Decreased average customer wait times by **22%**.
+# Build production bundle to ./dist/
+pnpm build
+```
 
 ---
 
-## 🚀 Setting Up Locally
+## 🤝 Let's Chat
 
-If you want to run this project on your machine, follow these steps:
+I am open to Senior UX Engineering roles and contract work worldwide. Let's discuss design systems, tooling, or high-performance React architectures:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/eeliasricardoo/meu-site.git
-   cd meu-site
-   ```
-
-2. **Install dependencies:**
-   Make sure you have Node.js and **pnpm** installed.
-   ```bash
-   pnpm install
-   ```
-
-3. **Run the development server:**
-   ```bash
-   pnpm dev
-   ```
-   Open `http://localhost:4321` in your browser.
-
-4. **Build for production:**
-   ```bash
-   pnpm build
-   ```
-
----
-
-## 🤝 Let's Work Together
-
-I am currently **available for new opportunities and contracts worldwide**. If you are looking for a professional who can own the entire frontend cycle from concept mockups to production code:
-
-* **🗓️ Schedule a 15min Call:** [Calendly Link](https://calendly.com/eeliasricardoo)
-* **✉️ Direct Email:** [eeliasricardoo@gmail.com](mailto:eeliasricardoo@gmail.com)
+* **🗓️ Schedule a Call:** [Calendly](https://calendly.com/eeliasricardoo)
 * **💼 LinkedIn:** [/in/eeliasricardoo](https://linkedin.com/in/eeliasricardoo)
-* **📄 Download Resume (PDF):** [My Resume](https://eliasricardo.com/resume.pdf)
+* **✉️ Direct Email:** [eeliasricardoo@gmail.com](mailto:eeliasricardoo@gmail.com)
+* **📄 Download Resume (PDF):** [Resume](https://eliasricardo.com/resume.pdf)
