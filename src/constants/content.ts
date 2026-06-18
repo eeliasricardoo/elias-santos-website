@@ -26,7 +26,7 @@ export const HERO_CONTENT = {
         },
         secondary: {
             text: "GitHub",
-            href: "https://github.com/eeliasricardoo",
+            href: "https://github.com/eeliasricardoo/meu-site",
         },
     },
     scroll: "Scroll",

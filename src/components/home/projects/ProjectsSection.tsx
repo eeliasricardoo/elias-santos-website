@@ -52,6 +52,15 @@ const projects = [
     metric: 'Avg wait −22%',
     company: null,
   },
+  {
+    title: 'UX Engineer Portfolio',
+    description: 'This very website — built to showcase UX engineering best practices, design tokens, micro-interactions, and fast load times. Open-sourced to show how I structure production Astro code.',
+    tags: ['Astro', 'React', 'Design System', 'Framer Motion'],
+    link: 'https://github.com/eeliasricardoo/meu-site',
+    image: '/oq-image.png',
+    metric: 'LCP < 0.8s · Open Source',
+    company: 'Personal project',
+  },
 ];
 
 interface ProjectsSectionProps {
@@ -86,11 +95,14 @@ export function ProjectsSection({
           const color = projectColors[index];
           const imageOnLeft = index % 2 === 1;
           const isFeatured = index === 0;
+          const isExternal = project.link.startsWith('http');
 
           return (
             <motion.a
               key={project.title}
               href={project.link}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}

@@ -5,7 +5,7 @@
  * `bg`     — light/signature tone: fills and accents on dark surfaces.
  * `accent` — saturated tone: text and borders on light fills.
  */
-export type BrandColor = 'lime' | 'cyan' | 'violet' | 'orange' | 'pink';
+export type BrandColor = 'lime' | 'cyan' | 'violet' | 'orange' | 'pink' | 'emerald';
 
 export interface ProjectBrand {
   bg: string;
@@ -19,10 +19,11 @@ export const PROJECT_BRANDS: Record<BrandColor, ProjectBrand> = {
   violet: { bg: '#c4b5fd', accent: '#7c3aed', label: 'TOOL' },
   orange: { bg: '#fb923c', accent: '#c2410c', label: 'PLATFORM' },
   pink: { bg: '#f9a8d4', accent: '#be185d', label: 'NEW FEATURE' },
+  emerald: { bg: '#a7f3d0', accent: '#059669', label: 'OPEN SOURCE' },
 };
 
 /** Order used by the home Work section (featured first). */
-export const BRAND_ORDER: BrandColor[] = ['lime', 'cyan', 'violet', 'orange', 'pink'];
+export const BRAND_ORDER: BrandColor[] = ['lime', 'cyan', 'violet', 'orange', 'pink', 'emerald'];
 
 /** Maps a case-study route slug to its brand color. */
 export const PROJECT_BRAND_BY_SLUG: Record<string, BrandColor> = {

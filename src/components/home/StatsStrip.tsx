@@ -6,22 +6,19 @@ import { PROJECT_BRANDS } from '@/constants/project-brands';
 const stats = [
   {
     value: '87.5%',
-    label: 'Email production cut',
-    context: 'Serasa Experian — 80min → 10min',
+    label: 'I cut email production by 87.5% by building an internal AI tool',
     color: PROJECT_BRANDS.lime.bg,
     colorDeep: PROJECT_BRANDS.lime.accent,
   },
   {
     value: '−22%',
-    label: 'Support queue wait',
-    context: 'Omnichannel redesign',
+    label: 'I reduced the support queue wait through design thinking',
     color: PROJECT_BRANDS.pink.bg,
     colorDeep: PROJECT_BRANDS.pink.accent,
   },
   {
     value: '5+',
-    label: 'Years shipping',
-    context: 'EdTech · CRM · SaaS',
+    label: 'Years shipping across EdTech, CRM and SaaS',
     color: PROJECT_BRANDS.cyan.bg,
     colorDeep: PROJECT_BRANDS.cyan.accent,
   },
@@ -53,11 +50,6 @@ export function StatsStrip() {
               {/* Label */}
               <span className="text-base md:text-lg font-medium text-foreground/80 leading-snug">
                 {stat.label}
-              </span>
-
-              {/* Context */}
-              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground/50 mt-1">
-                {stat.context}
               </span>
             </motion.div>
           ))}

@@ -4,16 +4,8 @@
 ---
 
 <div class="hero-photo-wrapper relative flex justify-center items-center w-full order-first lg:order-none">
-  <!-- Glow blob behind photo -->
-  <div class="absolute inset-0 bg-brand-cyan/10 rounded-3xl blur-3xl scale-90 pointer-events-none" />
-
   <!-- Photo container -->
   <div class="relative w-full h-[360px] sm:h-[440px] lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-border/40">
-    <!-- Corner label -->
-    <div class="absolute top-4 right-4 font-mono text-xs text-brand-cyan/70 z-10 tracking-widest">
-      ER_
-    </div>
-
     <picture>
       <source
         srcset="/optimized/profile-photo-640w.avif 640w, /optimized/profile-photo-750w.avif 750w, /optimized/profile-photo-828w.avif 828w, /optimized/profile-photo-1080w.avif 1080w"
@@ -47,9 +39,6 @@
     </div>
   </div>
 
-  <!-- Decorative lines -->
-  <div class="absolute -right-5 top-1/4 h-1/2 w-px bg-gradient-to-b from-transparent via-brand-violet/30 to-transparent hidden lg:block" />
-  <div class="absolute -bottom-5 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent hidden lg:block" />
 </div>
 
 <style>

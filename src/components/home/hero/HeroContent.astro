@@ -1,22 +1,9 @@
 ---
 import { HERO_CONTENT } from '@/constants/content';
-import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { HeroSounds } from './HeroSounds';
-
-const metricColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].bg);
-const metricColorsDeep = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].accent);
 ---
 
 <div class="relative z-10 space-y-7 text-left">
-
-  <!-- Status -->
-  <div class="hero-fade-in flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground" style="--delay:0s">
-    <span class="relative flex h-2 w-2 flex-shrink-0">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric opacity-60"></span>
-      <span class="relative inline-flex rounded-full h-2 w-2 bg-electric"></span>
-    </span>
-    {HERO_CONTENT.status.availability} · {HERO_CONTENT.status.location}
-  </div>
 
   <!-- Headline -->
   <div class="flex flex-col gap-0">
@@ -36,36 +23,6 @@ const metricColorsDeep = BRAND_ORDER.map((c) => PROJECT_BRANDS[c].accent);
         {HERO_CONTENT.headline.line2}<span class="hero-cursor" style="color:#d9f99d;-webkit-text-stroke:0">_</span>
       </span>
     </div>
-  </div>
-
-  <!-- Role pills -->
-  <div class="hero-fade-in flex items-center gap-2 flex-wrap" style="--delay:0.38s">
-    {HERO_CONTENT.eyebrow.split(' · ').map((pill) => (
-      <span class="font-mono text-xs uppercase tracking-widest px-3 py-1.5 border border-border/60 rounded-full text-muted-foreground">
-        {pill}
-      </span>
-    ))}
-  </div>
-
-  <!-- Description — LCP element, rendered immediately with no animation delay -->
-  <p class="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
-    {HERO_CONTENT.description}
-  </p>
-
-  <!-- Metrics -->
-  <div class="hero-fade-in flex flex-col gap-2 font-mono text-xs md:text-sm uppercase tracking-wider" style="--delay:0.65s">
-    {HERO_CONTENT.metrics.map((metric, i) => (
-      <div class="flex items-baseline gap-3">
-        <span class="text-muted-foreground/50 light:text-muted-foreground/80">{metric.label}</span>
-        <span class="text-muted-foreground/25 light:text-muted-foreground/40">—</span>
-        <span
-          class="text-[var(--m)] light:text-[var(--m-deep)]"
-          style={`--m:${metricColors[i % metricColors.length]};--m-deep:${metricColorsDeep[i % metricColorsDeep.length]}`}
-        >
-          {metric.value}
-        </span>
-      </div>
-    ))}
   </div>
 
   <!-- CTAs -->

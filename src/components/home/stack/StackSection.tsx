@@ -1,12 +1,12 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Pencil, Boxes, Bot, FileText, GitBranch } from 'lucide-react';
+import { FileText, GitBranch } from 'lucide-react';
 
 interface Tool {
   name: string;
   role: string;
   note: string;
-  icon: React.ReactNode;
+  logo: string;
   color: { bg: string; accent: string };
 }
 
@@ -20,28 +20,28 @@ const tools: Tool[] = [
     name: 'Lovable',
     role: 'Design → working UI',
     note: 'Where I turn a direction into a clickable interface fast, before committing to code.',
-    icon: <Pencil className="w-5 h-5" />,
+    logo: '/logos/lovable.svg',
     color: cyan,
   },
   {
     name: 'Cursor',
     role: 'Production code',
     note: 'My day-to-day editor for shipping real React. AI-assisted, every line reviewed by me.',
-    icon: <Boxes className="w-5 h-5" />,
+    logo: '/logos/cursor.svg',
     color: violet,
   },
   {
     name: 'Antigravity',
     role: 'Agentic builds',
     note: 'Agent-driven workflows for scaffolding and refactors I would otherwise do by hand.',
-    icon: <Bot className="w-5 h-5" />,
+    logo: '/logos/antigravity.svg',
     color: orange,
   },
   {
     name: 'Claude',
     role: 'Code & design partner',
     note: 'Claude Code for engineering, Claude for design thinking — my second pair of hands across the whole loop.',
-    icon: <Bot className="w-5 h-5" />,
+    logo: '/logos/claude.svg',
     color: lime,
   },
 ];
@@ -87,7 +87,7 @@ export function StackSection() {
                 className="flex h-11 w-11 items-center justify-center rounded-xl"
                 style={{ backgroundColor: tool.color.bg, color: '#0a0a0a' }}
               >
-                {tool.icon}
+                <img src={tool.logo} alt={`${tool.name} logo`} className="h-5 w-5" loading="lazy" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-lg font-bold text-foreground">{tool.name}</h3>
