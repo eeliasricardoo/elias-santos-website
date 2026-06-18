@@ -1,26 +1,32 @@
 'use client';
-import type { CSSProperties } from 'react';
 import { motion } from 'framer-motion';
-import { PROJECT_BRANDS } from '@/constants/project-brands';
 
-const stats = [
+type Segment = { text: string; color?: string };
+
+const stats: { value: string; label: Segment[] }[] = [
   {
     value: '87.5%',
-    label: 'I cut email production by 87.5% by building an internal AI tool',
-    color: PROJECT_BRANDS.lime.bg,
-    colorDeep: PROJECT_BRANDS.lime.accent,
+    label: [
+      { text: 'I cut ' },
+      { text: 'email production', color: '#d9f99d' },
+      { text: ' by 87.5% by building an internal AI tool' },
+    ],
   },
   {
     value: '−22%',
-    label: 'I reduced the support queue wait through design thinking',
-    color: PROJECT_BRANDS.pink.bg,
-    colorDeep: PROJECT_BRANDS.pink.accent,
+    label: [
+      { text: 'I reduced the ' },
+      { text: 'support queue', color: '#67e8f9' },
+      { text: ' wait through design thinking' },
+    ],
   },
   {
     value: '5+',
-    label: 'Years shipping across EdTech, CRM and SaaS',
-    color: PROJECT_BRANDS.cyan.bg,
-    colorDeep: PROJECT_BRANDS.cyan.accent,
+    label: [
+      { text: 'Years shipping ' },
+      { text: 'real products', color: '#c4b5fd' },
+      { text: ' — from first sketch to production' },
+    ],
   },
 ];
 
@@ -40,16 +46,19 @@ export function StatsStrip() {
               className="group flex flex-col gap-2 px-6 md:px-10 py-10 md:py-12"
             >
               {/* Big number */}
-              <span
-                className="font-bold text-[clamp(48px,6vw,80px)] leading-none tracking-tight transition-opacity duration-300 group-hover:opacity-80 text-[var(--num)] light:text-[var(--num-deep)]"
-                style={{ '--num': stat.color, '--num-deep': stat.colorDeep } as CSSProperties}
-              >
+              <span className="font-bold text-[clamp(48px,6vw,80px)] leading-none tracking-tight transition-opacity duration-300 group-hover:opacity-80 text-foreground">
                 {stat.value}
               </span>
 
-              {/* Label */}
+              {/* Label — keywords highlighted in color */}
               <span className="text-base md:text-lg font-medium text-foreground/80 leading-snug">
-                {stat.label}
+                {stat.label.map((seg, j) =>
+                  seg.color ? (
+                    <span key={j} style={{ color: seg.color }}>{seg.text}</span>
+                  ) : (
+                    <span key={j}>{seg.text}</span>
+                  )
+                )}
               </span>
             </motion.div>
           ))}
