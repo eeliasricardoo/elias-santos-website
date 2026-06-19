@@ -15,6 +15,8 @@ const projects = [
     tags: ['React', 'AI', 'UX Engineering'],
     link: '/portfolio/sfmc-magic-builder',
     image: '/portfolios/sfmc-magic-builder/interface-top.webp',
+    width: 1220,
+    height: 694,
     metric: 'Email prod 80min → 10min',
     company: 'Serasa Experian',
   },
@@ -24,6 +26,8 @@ const projects = [
     tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
     link: '/portfolio/englishroom',
     image: '/portfolios/englishroom/landing.webp',
+    width: 1220,
+    height: 762,
     metric: '1:1 live room · solo build',
     company: 'Personal project',
   },
@@ -33,6 +37,8 @@ const projects = [
     tags: ['Next.js', 'AI', 'Streaming'],
     link: '/portfolio/ventuschat',
     image: '/portfolios/ventus/v9.webp',
+    width: 800,
+    height: 399,
     metric: null,
     company: 'Personal project',
   },
@@ -42,6 +48,8 @@ const projects = [
     tags: ['Gamification', 'SSR', 'Caching'],
     link: '/portfolio/ranking',
     image: '/portfolios/ranking/ranking.webp',
+    width: 800,
+    height: 406,
     metric: null,
     company: null,
   },
@@ -51,6 +59,8 @@ const projects = [
     tags: ['UX/UI', 'Real-time', 'Optimization'],
     link: '/portfolio/support-queue',
     image: '/portfolios/fila-atendimento/1.webp',
+    width: 800,
+    height: 399,
     metric: 'Avg wait −22%',
     company: null,
   },
@@ -60,6 +70,8 @@ const projects = [
     tags: ['Astro', 'React', 'Design System', 'Framer Motion'],
     link: 'https://github.com/eeliasricardoo/meu-site',
     image: '/oq-image.png',
+    width: 2400,
+    height: 1260,
     metric: 'LCP < 0.8s · Open Source',
     company: 'Personal project',
   },
@@ -167,6 +179,8 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
                   <OptimizedImage
                     src={project.image}
                     alt={project.title}
+                    width={project.width}
+                    height={project.height}
                     className="w-full h-full object-cover object-top"
                     lazy={true}
                   />
