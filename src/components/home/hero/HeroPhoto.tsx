@@ -10,12 +10,12 @@ export function HeroPhoto() {
       className="relative flex justify-center items-center w-full order-first lg:order-none"
     >
       {/* Glow blob behind photo */}
-      <div className="absolute inset-0 bg-brand-cyan/10 rounded-3xl blur-3xl scale-90 pointer-events-none" />
+      <div className="absolute inset-0 bg-red-500/5 rounded-3xl blur-3xl scale-90 pointer-events-none" />
 
       {/* Photo container */}
       <div className="relative w-full h-[360px] sm:h-[440px] lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-border/40 group">
         {/* Corner label */}
-        <div className="absolute top-4 right-4 font-mono text-xs text-brand-cyan/70 z-10 tracking-widest">
+        <div className="absolute top-4 right-4 font-mono text-xs text-red-500/50 z-10 tracking-widest">
           ER_
         </div>
 
@@ -50,9 +50,9 @@ export function HeroPhoto() {
       </div>
 
       {/* Decorative vertical line */}
-      <div className="absolute -right-5 top-1/4 h-1/2 w-px bg-gradient-to-b from-transparent via-brand-violet/30 to-transparent hidden lg:block" />
+      <div className="absolute -right-5 top-1/4 h-1/2 w-px bg-gradient-to-b from-transparent via-red-500/10 to-transparent hidden lg:block" />
       {/* Decorative horizontal line */}
-      <div className="absolute -bottom-5 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent hidden lg:block" />
+      <div className="absolute -bottom-5 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-red-500/10 to-transparent hidden lg:block" />
     </motion.div>
   );
 }

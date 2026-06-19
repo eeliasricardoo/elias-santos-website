@@ -84,7 +84,7 @@ export function ProjectsSection({
         className="mb-16 md:mb-24 text-left max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
       >
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          <span className="text-brand-violet">/02</span> Work
+          <span className="text-red-500 font-semibold">/02</span> Work
         </span>
         <h2 className="mt-3 text-3xl md:text-5xl font-bold mb-4">{title}</h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">{description}</p>
@@ -108,8 +108,7 @@ export function ProjectsSection({
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              className="group block border-t border-black/10 last:border-b"
-              style={{ backgroundColor: color.bg }}
+              className="group block border-t border-white/5 last:border-b border-white/5 bg-background"
             >
               <div className="grid md:grid-cols-2 items-stretch min-h-[440px] md:min-h-[520px]">
                 {/* Text side */}
@@ -119,38 +118,29 @@ export function ProjectsSection({
                   }`}
                 >
                   {/* Mono index */}
-                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(0,0,0,0.6)' }}>
+                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.45)' }}>
                     <span style={{ color: color.accent }}>
                       /{String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className="h-px flex-1 max-w-[80px]" style={{ backgroundColor: 'rgba(0,0,0,0.25)' }} />
+                    <span className="h-px flex-1 max-w-[80px]" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
                     {isFeatured ? 'Featured Case Study' : 'Case Study'}
                   </div>
 
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05]" style={{ color: '#0a0a0a' }}>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05] text-foreground transition-colors group-hover:text-white">
                     {project.title}
                   </h3>
 
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider" style={{ color: 'rgba(0,0,0,0.55)' }}>
-                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-                  </div>
 
-                  {project.metric && (
-                    <div className="border-l-2 pl-4" style={{ borderColor: color.accent }}>
-                      <p className="font-mono text-sm uppercase tracking-wider" style={{ color: 'rgba(0,0,0,0.6)' }}>
-                        {project.company ? `${project.company} — ` : ''}
-                        <span className="font-semibold" style={{ color: color.accent }}>{project.metric}</span>
-                      </p>
-                    </div>
-                  )}
 
-                  <p className="leading-relaxed max-w-xl" style={{ color: 'rgba(0,0,0,0.72)' }}>
+
+
+                  <p className="leading-relaxed max-w-xl text-muted-foreground">
                     {project.description}
                   </p>
 
                   <span
-                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-colors"
-                    style={{ color: '#0a0a0a', borderColor: 'rgba(0,0,0,0.35)' }}
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-all duration-300"
+                    style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.25)' }}
                   >
                     View complete case
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -162,33 +152,16 @@ export function ProjectsSection({
                   className={`relative overflow-hidden flex items-center justify-center p-8 md:p-12 min-h-[300px] order-1 ${
                     imageOnLeft ? 'md:order-1' : 'md:order-2'
                   }`}
-                  style={{ backgroundColor: color.bg }}
+                  style={{ background: color.gradient }}
                 >
                   {/* Dot grid */}
                   <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                      backgroundImage: `radial-gradient(circle, ${color.accent}50 1px, transparent 1px)`,
+                      backgroundImage: `radial-gradient(circle, ${color.accent}15 1px, transparent 1px)`,
                       backgroundSize: '24px 24px',
                     }}
                   />
-                  {/* Giant watermark label */}
-                  <span
-                    className="absolute font-bold leading-none select-none pointer-events-none"
-                    aria-hidden="true"
-                    style={{
-                      fontSize: 'clamp(80px, 12vw, 170px)',
-                      color: color.accent,
-                      opacity: 0.15,
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      letterSpacing: '-0.05em',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {color.label}
-                  </span>
                   {/* Screenshot as floating mockup — drifts on scroll for depth */}
                   <Parallax amount={36} className="relative z-10 w-full max-w-md">
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">

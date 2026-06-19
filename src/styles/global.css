@@ -27,22 +27,32 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Electric accent — the single signature color */
-  --color-electric: #d9f99d;
+  /* Electric accent — the single signature color (Premium Crimson Red) */
+  --color-electric: #ef4444;
 
   /* Case-study brand palette — color-codes each project across the portfolio.
      `*-deep` is the saturated tone for text/borders on light fills; the base
      tone is the light fill / accent on dark. Lime == electric (the signature). */
-  --color-brand-lime: #d9f99d;
-  --color-brand-lime-deep: #65a30d;
-  --color-brand-cyan: #67e8f9;
-  --color-brand-cyan-deep: #0891b2;
-  --color-brand-violet: #c4b5fd;
-  --color-brand-violet-deep: #7c3aed;
-  --color-brand-orange: #fb923c;
-  --color-brand-orange-deep: #c2410c;
-  --color-brand-pink: #f9a8d4;
-  --color-brand-pink-deep: #be185d;
+  --color-brand-lime: #ef4444;
+  --color-brand-lime-deep: #b91c1c;
+  --color-brand-cyan: #ef4444;
+  --color-brand-cyan-deep: #b91c1c;
+  --color-brand-violet: #ef4444;
+  --color-brand-violet-deep: #b91c1c;
+  --color-brand-orange: #ef4444;
+  --color-brand-orange-deep: #b91c1c;
+  --color-brand-pink: #ef4444;
+  --color-brand-pink-deep: #b91c1c;
+  --color-brand-emerald: #ef4444;
+  --color-brand-emerald-deep: #b91c1c;
+
+  /* Metallic background gradients for projects */
+  --gradient-brand-lime: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
+  --gradient-brand-cyan: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
+  --gradient-brand-violet: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
+  --gradient-brand-orange: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
+  --gradient-brand-pink: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
+  --gradient-brand-emerald: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
 
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
@@ -159,12 +169,12 @@
     --ring: 0 0% 83.1%;
     --radius: 0.5rem;
 
-    /* Rainbow Button Colors */
-    --color-1: #ff6b6b;
-    --color-2: #4ecdc4;
-    --color-3: #45b7d1;
-    --color-4: #96ceb4;
-    --color-5: #feca57;
+    /* Rainbow Button Colors - Monochromatic Premium Metallic */
+    --color-1: #ffffff;
+    --color-2: #e4e4e7;
+    --color-3: #a1a1aa;
+    --color-4: #52525b;
+    --color-5: #27272a;
   }
 
   /* Light theme — opt-in override (dark stays the default brand surface).
@@ -197,9 +207,9 @@
    *fill* stays the signature in both themes; only lime-as-text needs help). */
 @custom-variant light (&:where(.light, .light *));
 
-/* Deep lime for accent text on light surfaces — readable where #d9f99d isn't. */
+/* Deep red for accent text on light surfaces — readable where #ef4444 isn't. */
 @theme inline {
-  --color-electric-ink: #3f6212;
+  --color-electric-ink: #be123c;
 }
 
 @layer base {
@@ -294,8 +304,20 @@
     paint-order: stroke fill;
   }
   .text-stroke-electric {
-    -webkit-text-stroke: 2px #d9f99d;
+    -webkit-text-stroke: 2px var(--color-electric);
     color: transparent;
+  }
+
+  .text-electric {
+    color: var(--color-electric);
+  }
+
+  .bg-electric {
+    background-color: var(--color-electric);
+  }
+
+  .border-electric {
+    border-color: var(--color-electric);
   }
 
   .translate-z-0 {
@@ -316,6 +338,21 @@
 
   .backface-hidden {
     backface-visibility: hidden;
+  }
+
+  /* Premium Metallic Chrome & Platinum */
+  .bg-metallic-platinum {
+    background: linear-gradient(135deg, #27272a 0%, #18181b 50%, #09090b 100%);
+  }
+  .bg-metallic-titanium {
+    background: linear-gradient(135deg, #1f1f23 0%, #131316 50%, #09090b 100%);
+  }
+  
+  .text-gradient-chrome {
+    background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 30%, #a1a1aa 50%, #e4e4e7 70%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
@@ -480,8 +517,8 @@
 }
 
 ::selection {
-  background: #d9f99d;
-  color: #09090b;
+  background: #ef4444;
+  color: #ffffff;
 }
 
 .focus-ring:focus {

@@ -15,7 +15,7 @@ export function useRetroSound() {
     return audioCtx.current;
   };
 
-  const playSound = useCallback((type: 'hover' | 'click') => {
+  const playSound = useCallback((type: 'hover' | 'click' | 'keypress') => {
     const ctx = getContext();
     if (!ctx) return;
     
@@ -64,11 +64,26 @@ export function useRetroSound() {
       
       oscillator.start(now);
       oscillator.stop(now + 0.35);
+    } else if (type === 'keypress') {
+      // Soft mechanical keyboard switch click sound
+      oscillator.type = 'triangle';
+      
+      // Randomize frequency to sound like natural keyboard keys
+      const freq = 450 + Math.random() * 250;
+      oscillator.frequency.setValueAtTime(freq, now);
+      
+      gainNode.gain.setValueAtTime(0, now);
+      gainNode.gain.linearRampToValueAtTime(0.015, now + 0.003);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+      
+      oscillator.start(now);
+      oscillator.stop(now + 0.04);
     }
   }, []);
 
   const playHover = useCallback(() => playSound('hover'), [playSound]);
   const playClick = useCallback(() => playSound('click'), [playSound]);
+  const playKeyPress = useCallback(() => playSound('keypress'), [playSound]);
 
-  return { playHover, playClick };
+  return { playHover, playClick, playKeyPress };
 }

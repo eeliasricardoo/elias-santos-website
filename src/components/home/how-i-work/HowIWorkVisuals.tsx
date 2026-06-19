@@ -3,10 +3,10 @@ import { motion, MotionValue, useTransform } from 'framer-motion';
 
 // Each step has its own color identity
 const stepColors = [
-  { bg: '#d9f99d', text: '#0a0a0a', label: 'RESEARCH', accent: '#84cc16' },   // 01 — lime
-  { bg: '#67e8f9', text: '#0a0a0a', label: 'DESIGN',   accent: '#0891b2' },   // 02 — cyan
-  { bg: '#c4b5fd', text: '#0a0a0a', label: 'PROTOTYPE', accent: '#7c3aed' },  // 03 — violet
-  { bg: '#fb923c', text: '#0a0a0a', label: 'SHIP',     accent: '#c2410c' },   // 04 — orange
+  { bg: '#18181b', text: '#ffffff', label: 'RESEARCH', accent: '#ef4444' },   // 01 — crimson
+  { bg: '#111113', text: '#e4e4e7', label: 'DESIGN',   accent: '#f43f5e' },   // 02 — rose
+  { bg: '#09090b', text: '#d4d4d8', label: 'PROTOTYPE', accent: '#be123c' },  // 03 — ruby
+  { bg: '#1e1e21', text: '#fafafa', label: 'SHIP',     accent: '#e11d48' },   // 04 — dark rose
 ];
 
 interface Props {
@@ -32,22 +32,6 @@ function StepVisual({
         className="relative w-full h-full flex items-center justify-center overflow-hidden"
         style={{ backgroundColor: color.bg }}
       >
-        {/* Giant decorative step number — background layer */}
-        <span
-          className="absolute font-bold leading-none select-none pointer-events-none"
-          style={{
-            fontSize: 'clamp(160px, 22vw, 300px)',
-            color: color.accent,
-            opacity: 0.18,
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            letterSpacing: '-0.05em',
-          }}
-        >
-          {step}
-        </span>
-
         {/* Center content */}
         <div className="relative z-10 flex flex-col items-center gap-6 text-center px-10">
           {/* Step label */}

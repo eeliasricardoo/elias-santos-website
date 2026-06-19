@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MessageCircle, FileText } from 'lucide-react';
 import { useAnalytics, AnalyticsEvents } from '@/lib/analytics';
+import { Button } from '@/components/ui/button';
 
 const LINKS = [
   { label: 'Work', id: 'projects' },
@@ -103,16 +104,22 @@ export function Navbar() {
           <span className="hidden sm:inline">Resume</span>
         </a>
 
-        <a
-          href="https://calendly.com/eeliasricardoo"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Schedule a meeting"
-          className="flex items-center gap-2 rounded-full bg-electric px-4 py-2 text-sm font-semibold text-black transition-all hover:opacity-90 active:scale-95"
+        <Button
+          asChild
+          variant="premium"
+          size="sm"
+          className="h-9 px-4 flex items-center gap-2"
         >
-          <MessageCircle className="h-4 w-4" />
-          <span className="hidden sm:inline">Let&apos;s Talk</span>
-        </a>
+          <a
+            href="https://calendly.com/eeliasricardoo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Schedule a meeting"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span className="hidden sm:inline">Let&apos;s Talk</span>
+          </a>
+        </Button>
       </nav>
     </div>
   );

@@ -26,8 +26,8 @@ export function HeroContent() {
         className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground"
       >
         <span className="relative flex h-2 w-2 flex-shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric opacity-60" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-electric" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-60" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
         </span>
         {HERO_CONTENT.status.availability} · {HERO_CONTENT.status.location}
       </motion.div>
@@ -59,7 +59,7 @@ export function HeroContent() {
             <motion.span
               animate={{ opacity: [1, 1, 0, 0] }}
               transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 0.5, 1] }}
-              style={{ WebkitTextStroke: 0, color: '#d9f99d' }}
+              style={{ WebkitTextStroke: 0, color: '#ef4444' }}
             >
               _
             </motion.span>
@@ -101,17 +101,11 @@ export function HeroContent() {
         transition={{ duration: 0.6, delay: 0.65 }}
         className="flex flex-col gap-2 font-mono text-xs md:text-sm uppercase tracking-wider"
       >
-        {HERO_CONTENT.metrics.map((metric, i) => (
+        {HERO_CONTENT.metrics.map((metric) => (
           <div key={metric.label} className="flex items-baseline gap-3">
             <span className="text-muted-foreground/50 light:text-muted-foreground/80">{metric.label}</span>
             <span className="text-muted-foreground/25 light:text-muted-foreground/40">—</span>
-            <span
-              className="text-[var(--m)] light:text-[var(--m-deep)]"
-              style={{
-                '--m': metricColors[i % metricColors.length],
-                '--m-deep': metricColorsDeep[i % metricColorsDeep.length],
-              } as CSSProperties}
-            >
+            <span className="text-red-500 font-semibold">
               {metric.value}
             </span>
           </div>
@@ -127,8 +121,9 @@ export function HeroContent() {
       >
         <Button
           asChild
+          variant="premium"
           size="lg"
-          className="h-12 rounded-full px-8 text-base font-medium transition-transform hover:scale-105 active:scale-95"
+          className="h-12 hover:scale-105"
           onMouseEnter={playHover}
           onClick={playClick}
         >

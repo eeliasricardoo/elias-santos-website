@@ -9,17 +9,18 @@ export type BrandColor = 'lime' | 'cyan' | 'violet' | 'orange' | 'pink' | 'emera
 
 export interface ProjectBrand {
   bg: string;
+  gradient: string;
   accent: string;
   label: string;
 }
 
 export const PROJECT_BRANDS: Record<BrandColor, ProjectBrand> = {
-  lime: { bg: '#d9f99d', accent: '#65a30d', label: 'FEATURED' },
-  cyan: { bg: '#67e8f9', accent: '#0891b2', label: 'PERSONAL' },
-  violet: { bg: '#c4b5fd', accent: '#7c3aed', label: 'TOOL' },
-  orange: { bg: '#fb923c', accent: '#c2410c', label: 'PLATFORM' },
-  pink: { bg: '#f9a8d4', accent: '#be185d', label: 'NEW FEATURE' },
-  emerald: { bg: '#a7f3d0', accent: '#059669', label: 'OPEN SOURCE' },
+  lime: { bg: 'var(--color-brand-lime)', gradient: 'var(--gradient-brand-lime)', accent: 'var(--color-brand-lime-deep)', label: 'CRIMSON / FEATURED' },
+  cyan: { bg: 'var(--color-brand-cyan)', gradient: 'var(--gradient-brand-cyan)', accent: 'var(--color-brand-cyan-deep)', label: 'ROSE / PERSONAL' },
+  violet: { bg: 'var(--color-brand-violet)', gradient: 'var(--gradient-brand-violet)', accent: 'var(--color-brand-violet-deep)', label: 'RUBY / TOOL' },
+  orange: { bg: 'var(--color-brand-orange)', gradient: 'var(--gradient-brand-orange)', accent: 'var(--color-brand-orange-deep)', label: 'BLUSH / PLATFORM' },
+  pink: { bg: 'var(--color-brand-pink)', gradient: 'var(--gradient-brand-pink)', accent: 'var(--color-brand-pink-deep)', label: 'DARK ROSE / NEW FEATURE' },
+  emerald: { bg: 'var(--color-brand-emerald)', gradient: 'var(--gradient-brand-emerald)', accent: 'var(--color-brand-emerald-deep)', label: 'CORAL / OPEN SOURCE' },
 };
 
 /** Order used by the home Work section (featured first). */

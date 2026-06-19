@@ -10,10 +10,10 @@ interface Tool {
   color: { bg: string; accent: string };
 }
 
-const lime = { bg: '#d9f99d', accent: '#65a30d' };
-const cyan = { bg: '#67e8f9', accent: '#0891b2' };
-const violet = { bg: '#c4b5fd', accent: '#7c3aed' };
-const orange = { bg: '#fb923c', accent: '#c2410c' };
+const lime = { bg: 'linear-gradient(135deg, #27272a, #1a1a1c)', accent: '#ef4444' };
+const cyan = { bg: 'linear-gradient(135deg, #1f1f23, #111113)', accent: '#f43f5e' };
+const violet = { bg: 'linear-gradient(135deg, #18181b, #09090b)', accent: '#be123c' };
+const orange = { bg: 'linear-gradient(135deg, #2e2e33, #18181b)', accent: '#fda4af' };
 
 const tools: Tool[] = [
   {
@@ -61,7 +61,7 @@ export function StackSection() {
           className="max-w-3xl mb-14 md:mb-20"
         >
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="text-brand-orange">/03</span> Stack
+            <span className="text-red-500 font-semibold">/03</span> Stack
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
             The tools in my process.
@@ -81,11 +81,11 @@ export function StackSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, ease: EASE, delay: index * 0.08 }}
-              className="group relative flex flex-col gap-4 bg-background p-7 md:p-8"
+              className="group relative flex flex-col gap-4 bg-background p-7 md:p-8 hover:bg-foreground/[0.01] transition-colors"
             >
               <div
-                className="flex h-11 w-11 items-center justify-center rounded-xl"
-                style={{ backgroundColor: tool.color.bg, color: '#0a0a0a' }}
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/5 shadow-inner"
+                style={{ background: tool.color.bg }}
               >
                 <img src={tool.logo} alt={`${tool.name} logo`} className="h-5 w-5" loading="lazy" />
               </div>

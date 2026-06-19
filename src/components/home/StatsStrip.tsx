@@ -8,7 +8,7 @@ const stats: { value: string; label: Segment[] }[] = [
     value: '87.5%',
     label: [
       { text: 'I cut ' },
-      { text: 'email production', color: '#d9f99d' },
+      { text: 'email production', color: '#ef4444' },
       { text: ' by 87.5% by building an internal AI tool' },
     ],
   },
@@ -16,7 +16,7 @@ const stats: { value: string; label: Segment[] }[] = [
     value: '−22%',
     label: [
       { text: 'I reduced the ' },
-      { text: 'support queue', color: '#67e8f9' },
+      { text: 'support queue', color: '#ef4444' },
       { text: ' wait through design thinking' },
     ],
   },
@@ -24,7 +24,7 @@ const stats: { value: string; label: Segment[] }[] = [
     value: '5+',
     label: [
       { text: 'Years shipping ' },
-      { text: 'real products', color: '#c4b5fd' },
+      { text: 'real products', color: '#ef4444' },
       { text: ' — from first sketch to production' },
     ],
   },
