@@ -161,9 +161,10 @@ export function ContactForm({
               >
                 <Button
                   type='submit'
+                  variant='premium'
                   size='lg'
                   disabled={isSubmitting}
-                  className='bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base font-medium transition-all duration-300 min-w-[200px]'
+                  className='px-8 py-3 text-base font-medium transition-all duration-300 min-w-[200px]'
                 >
                   {isSubmitting ? (
                     <>

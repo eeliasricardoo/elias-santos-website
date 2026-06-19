@@ -27,24 +27,22 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Electric accent — the single signature color (Premium Crimson Red) */
-  --color-electric: #ef4444;
+  /* Electric accent — the single signature color (Monochromatic Premium) */
+  --color-electric: hsl(var(--foreground));
 
-  /* Case-study brand palette — color-codes each project across the portfolio.
-     `*-deep` is the saturated tone for text/borders on light fills; the base
-     tone is the light fill / accent on dark. Lime == electric (the signature). */
-  --color-brand-lime: #ef4444;
-  --color-brand-lime-deep: #b91c1c;
-  --color-brand-cyan: #ef4444;
-  --color-brand-cyan-deep: #b91c1c;
-  --color-brand-violet: #ef4444;
-  --color-brand-violet-deep: #b91c1c;
-  --color-brand-orange: #ef4444;
-  --color-brand-orange-deep: #b91c1c;
-  --color-brand-pink: #ef4444;
-  --color-brand-pink-deep: #b91c1c;
-  --color-brand-emerald: #ef4444;
-  --color-brand-emerald-deep: #b91c1c;
+  /* Case-study brand palette — monochromatic tones */
+  --color-brand-lime: hsl(var(--foreground));
+  --color-brand-lime-deep: hsl(var(--foreground) / 0.8);
+  --color-brand-cyan: hsl(var(--foreground) / 0.9);
+  --color-brand-cyan-deep: hsl(var(--foreground) / 0.7);
+  --color-brand-violet: hsl(var(--foreground) / 0.8);
+  --color-brand-violet-deep: hsl(var(--foreground) / 0.6);
+  --color-brand-orange: hsl(var(--foreground) / 0.7);
+  --color-brand-orange-deep: hsl(var(--foreground) / 0.5);
+  --color-brand-pink: hsl(var(--foreground) / 0.6);
+  --color-brand-pink-deep: hsl(var(--foreground) / 0.4);
+  --color-brand-emerald: hsl(var(--foreground) / 0.5);
+  --color-brand-emerald-deep: hsl(var(--foreground) / 0.3);
 
   /* Metallic background gradients for projects */
   --gradient-brand-lime: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
@@ -209,7 +207,7 @@
 
 /* Deep red for accent text on light surfaces — readable where #ef4444 isn't. */
 @theme inline {
-  --color-electric-ink: #be123c;
+  --color-electric-ink: hsl(var(--foreground));
 }
 
 @layer base {

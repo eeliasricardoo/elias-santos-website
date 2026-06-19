@@ -10,10 +10,10 @@ interface Tool {
   color: { bg: string; accent: string };
 }
 
-const lime = { bg: 'linear-gradient(135deg, #27272a, #1a1a1c)', accent: '#ef4444' };
-const cyan = { bg: 'linear-gradient(135deg, #1f1f23, #111113)', accent: '#f43f5e' };
-const violet = { bg: 'linear-gradient(135deg, #18181b, #09090b)', accent: '#be123c' };
-const orange = { bg: 'linear-gradient(135deg, #2e2e33, #18181b)', accent: '#fda4af' };
+const lime = { bg: 'linear-gradient(135deg, #27272a, #1a1a1c)', accent: '#a1a1aa' };
+const cyan = { bg: 'linear-gradient(135deg, #1f1f23, #111113)', accent: '#a1a1aa' };
+const violet = { bg: 'linear-gradient(135deg, #18181b, #09090b)', accent: '#a1a1aa' };
+const orange = { bg: 'linear-gradient(135deg, #2e2e33, #18181b)', accent: '#a1a1aa' };
 
 const tools: Tool[] = [
   {
@@ -61,7 +61,7 @@ export function StackSection() {
           className="max-w-3xl mb-14 md:mb-20"
         >
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="text-red-500 font-semibold">/03</span> Stack
+            <span className="text-foreground font-semibold">/03</span> Stack
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
             The tools in my process.

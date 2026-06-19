@@ -8,7 +8,7 @@ const stats: { value: string; label: Segment[] }[] = [
     value: '87.5%',
     label: [
       { text: 'I cut ' },
-      { text: 'email production', color: '#ef4444' },
+      { text: 'email production', color: 'hsl(var(--foreground))' },
       { text: ' by 87.5% by building an internal AI tool' },
     ],
   },
@@ -16,7 +16,7 @@ const stats: { value: string; label: Segment[] }[] = [
     value: '−22%',
     label: [
       { text: 'I reduced the ' },
-      { text: 'support queue', color: '#ef4444' },
+      { text: 'support queue', color: 'hsl(var(--foreground))' },
       { text: ' wait through design thinking' },
     ],
   },
@@ -24,7 +24,7 @@ const stats: { value: string; label: Segment[] }[] = [
     value: '5+',
     label: [
       { text: 'Years shipping ' },
-      { text: 'real products', color: '#ef4444' },
+      { text: 'real products', color: 'hsl(var(--foreground))' },
       { text: ' — from first sketch to production' },
     ],
   },
@@ -69,7 +69,7 @@ export function StatsStrip() {
               <span className="text-base md:text-lg font-medium text-foreground/80 leading-snug">
                 {stat.label.map((seg, j) =>
                   seg.color ? (
-                    <span key={j} style={{ color: seg.color }}>{seg.text}</span>
+                    <span key={j} className="font-semibold text-foreground" style={{ color: seg.color }}>{seg.text}</span>
                   ) : (
                     <span key={j}>{seg.text}</span>
                   )

@@ -26,8 +26,8 @@ export function HeroContent() {
         className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground"
       >
         <span className="relative flex h-2 w-2 flex-shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-60" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-60" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-foreground" />
         </span>
         {HERO_CONTENT.status.availability} · {HERO_CONTENT.status.location}
       </motion.div>
@@ -59,7 +59,7 @@ export function HeroContent() {
             <motion.span
               animate={{ opacity: [1, 1, 0, 0] }}
               transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 0.5, 1] }}
-              style={{ WebkitTextStroke: 0, color: '#ef4444' }}
+              style={{ WebkitTextStroke: 0, color: 'currentColor' }}
             >
               _
             </motion.span>
@@ -105,7 +105,7 @@ export function HeroContent() {
           <div key={metric.label} className="flex items-baseline gap-3">
             <span className="text-muted-foreground/50 light:text-muted-foreground/80">{metric.label}</span>
             <span className="text-muted-foreground/25 light:text-muted-foreground/40">—</span>
-            <span className="text-red-500 font-semibold">
+            <span className="text-foreground font-semibold">
               {metric.value}
             </span>
           </div>
@@ -123,7 +123,7 @@ export function HeroContent() {
           asChild
           variant="premium"
           size="lg"
-          className="h-12 hover:scale-105"
+          className="h-12"
           onMouseEnter={playHover}
           onClick={playClick}
         >
@@ -138,7 +138,7 @@ export function HeroContent() {
         <Button
           variant="outline"
           size="lg"
-          className="rounded-full px-8 h-12 text-base transition-transform hover:scale-105 active:scale-95"
+          className="rounded-xl px-8 h-12 text-base transition-all duration-200 active:translate-y-[1px]"
           asChild
           onMouseEnter={playHover}
           onClick={playClick}

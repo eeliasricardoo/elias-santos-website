@@ -20,7 +20,7 @@ import { HeroSounds } from './HeroSounds';
         class="hero-slide-up block font-bold uppercase leading-[0.85] text-stroke"
         style="font-size:clamp(56px,13vw,140px);letter-spacing:0.02em;--delay:0.22s"
       >
-        {HERO_CONTENT.headline.line2}<span class="hero-cursor" style="color:#ef4444;-webkit-text-stroke:0">_</span>
+        {HERO_CONTENT.headline.line2}<span class="hero-cursor" style="color:currentColor;-webkit-text-stroke:0">_</span>
       </span>
     </div>
   </div>
@@ -30,7 +30,7 @@ import { HeroSounds } from './HeroSounds';
     <a
       href={HERO_CONTENT.cta.primary.href}
       data-hero-cta
-      class="inline-flex items-center gap-2 h-12 rounded-full px-8 text-base font-medium bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white transition-all hover:from-red-500 hover:to-red-600 hover:shadow-[0_0_15px_rgba(239,68,68,0.35)] active:scale-95 border border-red-500/20 shadow-md"
+      class="inline-flex items-center gap-2 h-12 rounded-xl px-8 text-base font-semibold bg-[#faf9f5] light:bg-[#09090b] text-[#09090b] light:text-[#faf9f5] border border-[#e4e4e7] light:border-[#27272a] shadow-[0_3px_0_0_#a1a1aa] light:shadow-[0_3px_0_0_#27272a] transition-all duration-200 hover:bg-[#f4f4f5] light:hover:bg-[#27272a] active:translate-y-[2px] active:shadow-[0_1px_0_0_#a1a1aa] light:active:shadow-[0_1px_0_0_#27272a]"
     >
       {HERO_CONTENT.cta.primary.text}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -43,7 +43,7 @@ import { HeroSounds } from './HeroSounds';
       data-hero-cta
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-flex items-center h-12 rounded-full px-8 text-base border border-border transition-transform hover:scale-105 active:scale-95"
+      class="inline-flex items-center h-12 rounded-xl px-8 text-base border border-border transition-all duration-200 active:translate-y-[1px]"
     >
       {HERO_CONTENT.cta.secondary.text}
     </a>

@@ -84,7 +84,7 @@ export function ProjectsSection({
         className="mb-16 md:mb-24 text-left max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
       >
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          <span className="text-red-500 font-semibold">/02</span> Work
+          <span className="text-foreground font-semibold">/02</span> Work
         </span>
         <h2 className="mt-3 text-3xl md:text-5xl font-bold mb-4">{title}</h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">{description}</p>

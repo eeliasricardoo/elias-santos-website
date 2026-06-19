@@ -12,7 +12,7 @@ export function GetInTouch() {
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(239, 68, 68, 0.15) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground) / 0.08) 1px, transparent 1px)',
           backgroundSize: '28px 28px'
         }}
       />
@@ -27,7 +27,7 @@ export function GetInTouch() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="font-mono text-xs uppercase tracking-widest text-red-500"
+              className="font-mono text-xs uppercase tracking-widest text-foreground"
             >
               /04 Contact
             </motion.span>
@@ -59,8 +59,9 @@ export function GetInTouch() {
 
             <Button
               asChild
+              variant="premium"
               size="lg"
-              className="h-14 px-8 rounded-full bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white hover:from-red-500 hover:to-red-650 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 border border-red-500/20"
+              className="h-14 px-8 text-base font-bold"
             >
               <a
                 href="https://calendly.com/eeliasricardoo"
