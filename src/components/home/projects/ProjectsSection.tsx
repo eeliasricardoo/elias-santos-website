@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { OptimizedImage } from '@/components/performance/OptimizedImage';
+import { Parallax } from '@/components/motion';
 
 const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
@@ -103,10 +104,10 @@ export function ProjectsSection({
               href={project.link}
               target={isExternal ? '_blank' : undefined}
               rel={isExternal ? 'noopener noreferrer' : undefined}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 48, filter: 'blur(8px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
               className="group block border-t border-black/10 last:border-b"
               style={{ backgroundColor: color.bg }}
             >
@@ -188,15 +189,17 @@ export function ProjectsSection({
                   >
                     {color.label}
                   </span>
-                  {/* Screenshot as floating mockup */}
-                  <div className="relative z-10 w-full max-w-md rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
-                    <OptimizedImage
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover object-top"
-                      lazy={true}
-                    />
-                  </div>
+                  {/* Screenshot as floating mockup — drifts on scroll for depth */}
+                  <Parallax amount={36} className="relative z-10 w-full max-w-md">
+                    <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
+                      <OptimizedImage
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top"
+                        lazy={true}
+                      />
+                    </div>
+                  </Parallax>
                 </div>
               </div>
             </motion.a>
