@@ -1,5 +1,6 @@
 'use client';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { OptimizedImage } from '@/components/performance/OptimizedImage';
@@ -69,6 +70,116 @@ interface ProjectsSectionProps {
   description?: string;
 }
 
+interface ProjectCardProps {
+  project: typeof projects[0];
+  index: number;
+  color: typeof projectColors[0];
+  isFeatured: boolean;
+  isExternal: boolean;
+}
+
+function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectCardProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Scale down from 1 to 0.94 and fade from 1 to 0.5 as it scrolls past and stacks under
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+
+  const imageOnLeft = index % 2 === 1;
+
+  return (
+    <div
+      ref={containerRef}
+      className="sticky-card w-full pb-[20vh] md:pb-[35vh] last:pb-0"
+      style={{
+        '--index': index,
+        zIndex: index + 1,
+      } as React.CSSProperties}
+    >
+      <motion.div
+        style={{ scale, opacity }}
+        className="w-full origin-top"
+      >
+        <motion.a
+          href={project.link}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+          initial={{ opacity: 0, y: 48, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          className="group block rounded-2xl md:rounded-3xl border border-border/40 bg-card shadow-2xl overflow-hidden transition-all duration-300 hover:border-border/80"
+        >
+          <div className="grid md:grid-cols-2 items-stretch min-h-[440px] md:min-h-[520px]">
+            {/* Text side */}
+            <div
+              className={`flex flex-col justify-center gap-6 px-6 py-10 md:px-12 lg:px-20 md:py-16 order-2 ${
+                imageOnLeft ? 'md:order-2' : 'md:order-1'
+              }`}
+            >
+              {/* Mono index */}
+              <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-muted-foreground/60">
+                <span style={{ color: color.accent }}>
+                  /{String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="h-px flex-1 max-w-[80px] bg-border/40" />
+                {isFeatured ? 'Featured Case Study' : 'Case Study'}
+              </div>
+
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05] text-foreground transition-colors group-hover:text-foreground">
+                {project.title}
+              </h3>
+
+              <p className="leading-relaxed max-w-xl text-muted-foreground">
+                {project.description}
+              </p>
+
+              <span
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-all duration-300 text-foreground border-border group-hover:border-foreground"
+              >
+                View complete case
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+
+            {/* Image side — colored panel, bleeds to edge */}
+            <div
+              className={`relative overflow-hidden flex items-center justify-center p-8 md:p-12 min-h-[300px] order-1 ${
+                imageOnLeft ? 'md:order-1' : 'md:order-2'
+              }`}
+              style={{ background: color.gradient }}
+            >
+              {/* Dot grid */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage: `radial-gradient(circle, ${color.accent}15 1px, transparent 1px)`,
+                  backgroundSize: '24px 24px',
+                }}
+              />
+              {/* Screenshot as floating mockup — drifts on scroll for depth */}
+              <Parallax amount={36} className="relative z-10 w-full max-w-md">
+                <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
+                  <OptimizedImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top"
+                    lazy={true}
+                  />
+                </div>
+              </Parallax>
+            </div>
+          </div>
+        </motion.a>
+      </motion.div>
+    </div>
+  );
+}
+
 export function ProjectsSection({
   title = 'Selected Case Studies',
   description = "Told the way I'd tell them in an interview: the constraint, the decisions, and what the numbers did.",
@@ -90,92 +201,22 @@ export function ProjectsSection({
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">{description}</p>
       </motion.div>
 
-      {/* Full-bleed alternating rows */}
-      <div className="flex flex-col">
+      {/* Stacked Cards container */}
+      <div className="flex flex-col gap-8 md:gap-12 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative">
         {projects.map((project, index) => {
           const color = projectColors[index];
-          const imageOnLeft = index % 2 === 1;
           const isFeatured = index === 0;
           const isExternal = project.link.startsWith('http');
 
           return (
-            <motion.a
+            <ProjectCard
               key={project.title}
-              href={project.link}
-              target={isExternal ? '_blank' : undefined}
-              rel={isExternal ? 'noopener noreferrer' : undefined}
-              initial={{ opacity: 0, y: 48, filter: 'blur(8px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              className="group block border-t border-white/5 last:border-b border-white/5 bg-background"
-            >
-              <div className="grid md:grid-cols-2 items-stretch min-h-[440px] md:min-h-[520px]">
-                {/* Text side */}
-                <div
-                  className={`flex flex-col justify-center gap-6 px-6 py-10 md:px-12 lg:px-20 md:py-16 order-2 ${
-                    imageOnLeft ? 'md:order-2' : 'md:order-1'
-                  }`}
-                >
-                  {/* Mono index */}
-                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                    <span style={{ color: color.accent }}>
-                      /{String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span className="h-px flex-1 max-w-[80px]" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }} />
-                    {isFeatured ? 'Featured Case Study' : 'Case Study'}
-                  </div>
-
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05] text-foreground transition-colors group-hover:text-white">
-                    {project.title}
-                  </h3>
-
-
-
-
-
-                  <p className="leading-relaxed max-w-xl text-muted-foreground">
-                    {project.description}
-                  </p>
-
-                  <span
-                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-all duration-300"
-                    style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.25)' }}
-                  >
-                    View complete case
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-
-                {/* Image side — colored panel, bleeds to edge */}
-                <div
-                  className={`relative overflow-hidden flex items-center justify-center p-8 md:p-12 min-h-[300px] order-1 ${
-                    imageOnLeft ? 'md:order-1' : 'md:order-2'
-                  }`}
-                  style={{ background: color.gradient }}
-                >
-                  {/* Dot grid */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      backgroundImage: `radial-gradient(circle, ${color.accent}15 1px, transparent 1px)`,
-                      backgroundSize: '24px 24px',
-                    }}
-                  />
-                  {/* Screenshot as floating mockup — drifts on scroll for depth */}
-                  <Parallax amount={36} className="relative z-10 w-full max-w-md">
-                    <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
-                      <OptimizedImage
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover object-top"
-                        lazy={true}
-                      />
-                    </div>
-                  </Parallax>
-                </div>
-              </div>
-            </motion.a>
+              project={project}
+              index={index}
+              color={color}
+              isFeatured={isFeatured}
+              isExternal={isExternal}
+            />
           );
         })}
       </div>

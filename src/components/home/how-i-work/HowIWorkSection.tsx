@@ -16,7 +16,7 @@ const steps: ProcessStep[] = [
     description:
       'Interviews, support tickets, session recordings — I go to the source before opening Figma. Most redesigns fail because they solve the stated problem instead of the real one.',
     tools: ['User interviews', 'Hotjar', 'GA4'],
-    color: { bg: '#18181b', text: 'rgba(239,68,68,0.25)', accent: '#ef4444', label: 'RESEARCH' },
+    color: { bg: '#18181b', text: 'rgba(255,255,255,0.08)', accent: '#ffffff', label: 'RESEARCH' },
   },
   {
     number: '02',
@@ -24,7 +24,7 @@ const steps: ProcessStep[] = [
     description:
       "Flows and wireframes first, high fidelity last. Every screen exists to answer a product question — if I can't say which one, the screen doesn't ship.",
     tools: ['Figma', 'Design systems', 'Prototyping'],
-    color: { bg: '#111113', text: 'rgba(244,63,94,0.25)', accent: '#f43f5e', label: 'DESIGN' },
+    color: { bg: '#111113', text: 'rgba(255,255,255,0.08)', accent: '#e4e4e7', label: 'DESIGN' },
   },
   {
     number: '03',
@@ -32,7 +32,7 @@ const steps: ProcessStep[] = [
     description:
       "I skip the static handoff. Stakeholders and users test a working prototype in the browser, with real data — ambiguity dies before development starts.",
     tools: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
-    color: { bg: '#09090b', text: 'rgba(190,18,60,0.25)', accent: '#be123c', label: 'PROTOTYPE' },
+    color: { bg: '#09090b', text: 'rgba(255,255,255,0.08)', accent: '#a1a1aa', label: 'PROTOTYPE' },
   },
   {
     number: '04',
@@ -40,7 +40,7 @@ const steps: ProcessStep[] = [
     description:
       'Production code with analytics wired from day one. The 87.5% and 22% on this page exist because they were measured, not estimated.',
     tools: ['GA4', 'Mixpanel', 'A/B testing'],
-    color: { bg: '#1e1e21', text: 'rgba(225,29,72,0.25)', accent: '#e11d48', label: 'SHIP' },
+    color: { bg: '#1e1e21', text: 'rgba(255,255,255,0.08)', accent: '#71717a', label: 'SHIP' },
   },
 ];
 
@@ -113,7 +113,7 @@ export function HowIWorkSection() {
           className="max-w-3xl"
         >
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="text-red-500 font-semibold">/01</span> How I work
+            <span className="text-foreground font-semibold">/01</span> How I work
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
             Fast where the tools help.

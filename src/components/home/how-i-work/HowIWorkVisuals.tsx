@@ -3,10 +3,10 @@ import { motion, MotionValue, useTransform } from 'framer-motion';
 
 // Each step has its own color identity
 const stepColors = [
-  { bg: '#18181b', text: '#ffffff', label: 'RESEARCH', accent: '#ef4444' },   // 01 — crimson
-  { bg: '#111113', text: '#e4e4e7', label: 'DESIGN',   accent: '#f43f5e' },   // 02 — rose
-  { bg: '#09090b', text: '#d4d4d8', label: 'PROTOTYPE', accent: '#be123c' },  // 03 — ruby
-  { bg: '#1e1e21', text: '#fafafa', label: 'SHIP',     accent: '#e11d48' },   // 04 — dark rose
+  { bg: '#18181b', text: '#ffffff', label: 'RESEARCH', accent: '#ffffff' },   // 01 — white
+  { bg: '#111113', text: '#e4e4e7', label: 'DESIGN',   accent: '#e4e4e7' },   // 02 — light gray
+  { bg: '#09090b', text: '#d4d4d8', label: 'PROTOTYPE', accent: '#a1a1aa' },  // 03 — medium gray
+  { bg: '#1e1e21', text: '#fafafa', label: 'SHIP',     accent: '#71717a' },   // 04 — dark gray
 ];
 
 interface Props {

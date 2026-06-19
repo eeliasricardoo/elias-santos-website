@@ -219,7 +219,7 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     /* ✅ Evita scroll horizontal acidental no mobile */
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
     font-feature-settings:
       'rlig' 1,
@@ -236,7 +236,7 @@
 
   html {
     background-color: hsl(var(--background));
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
     /* scroll-behavior: smooth; */
   }
@@ -351,6 +351,16 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .sticky-card {
+    position: sticky;
+    top: calc(75px + var(--index) * 12px);
+  }
+  @media (min-width: 768px) {
+    .sticky-card {
+      top: calc(105px + var(--index) * 24px);
+    }
   }
 }
 
