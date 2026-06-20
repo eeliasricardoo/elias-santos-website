@@ -41,7 +41,7 @@ export function HeroContent() {
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
             className="block font-bold uppercase leading-[0.9] tracking-tight text-muted-foreground"
-            style={{ fontSize: 'clamp(36px, 5.5vw, 64px)' }}
+            style={{ fontSize: 'clamp(40px, 8vw, 64px)' }}
           >
             {HERO_CONTENT.headline.line1}
           </motion.span>
@@ -53,7 +53,7 @@ export function HeroContent() {
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 0.22 }}
             className="block font-bold uppercase leading-[0.85] text-stroke"
-            style={{ fontSize: 'clamp(56px, 13vw, 140px)', letterSpacing: '0.02em' }}
+            style={{ fontSize: 'clamp(68px, 16vw, 140px)', letterSpacing: '0.02em' }}
           >
             {HERO_CONTENT.headline.line2}
             <motion.span
@@ -117,13 +117,13 @@ export function HeroContent() {
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="flex flex-wrap items-center gap-4 pt-1"
+        className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1"
       >
         <Button
           asChild
           variant="premium"
           size="lg"
-          className="h-12"
+          className="h-12 w-full sm:w-auto justify-center"
           onMouseEnter={playHover}
           onClick={playClick}
         >
@@ -138,7 +138,7 @@ export function HeroContent() {
         <Button
           variant="outline"
           size="lg"
-          className="rounded-xl px-8 h-12 text-base transition-all duration-200 active:translate-y-[1px]"
+          className="rounded-xl px-8 h-12 text-base transition-all duration-200 active:translate-y-[1px] w-full sm:w-auto justify-center"
           asChild
           onMouseEnter={playHover}
           onClick={playClick}

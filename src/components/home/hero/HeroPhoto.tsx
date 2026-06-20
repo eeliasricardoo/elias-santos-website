@@ -13,7 +13,7 @@ export function HeroPhoto() {
       <div className="absolute inset-0 bg-red-500/5 rounded-3xl blur-3xl scale-90 pointer-events-none" />
 
       {/* Photo container */}
-      <div className="relative w-full h-[360px] sm:h-[440px] lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-border/40 group">
+      <div className="relative w-full h-[340px] sm:h-[440px] lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-border/40 group">
         {/* Corner label */}
         <div className="absolute top-4 right-4 font-mono text-xs text-red-500/50 z-10 tracking-widest">
           ER_
