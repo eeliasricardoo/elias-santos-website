@@ -28,50 +28,71 @@ export function AnimatedBackground() {
   }, []);
 
   return (
-    <div className='fixed inset-0 -z-10 overflow-hidden'>
-      {/* Gradiente de fundo estático - sempre presente para LCP */}
-      <div className='absolute inset-0 bg-gradient-to-br from-background via-background to-muted/40' />
+    <>
+      {/* Camada 1 — glow blobs em movimento (Dark Premium Portfolio).
+          Sem filter:blur — os gradientes radiais já são suaves, o que evita
+          repintura cara enquanto os cards sticky rolam por cima. */}
+      <div
+        className='fixed inset-0 -z-10 overflow-hidden pointer-events-none'
+        style={{ isolation: 'isolate', contain: 'strict' }}
+      >
+        {/* Base preta — sempre presente para o LCP */}
+        <div className='absolute inset-0 bg-background' />
 
-      {/* Elementos animados apenas se cliente e movimento não reduzido */}
-      {isClient && isLoaded && !reducedMotion && performanceTier !== 'low' && (
-        <>
-          {/* Gradiente radial sutil (Monochromatic) */}
-          <div className='absolute inset-0 bg-gradient-radial from-foreground/2 via-transparent to-transparent animate-[pulse_8s_ease-in-out_infinite]' />
+        {isClient && isLoaded && !reducedMotion && performanceTier !== 'low' && (
+          <>
+            <div
+              className='absolute rounded-full animate-blob will-change-transform'
+              style={{
+                width: '70vw',
+                height: '70vw',
+                top: '-15%',
+                left: '15%',
+                opacity: 0.14,
+                background: 'radial-gradient(circle, rgba(255,255,255,0.28), transparent 65%)',
+                animationDuration: '14s',
+              }}
+            />
+            <div
+              className='absolute rounded-full animate-blob will-change-transform'
+              style={{
+                width: '70vw',
+                height: '70vw',
+                top: '25%',
+                right: '-15%',
+                opacity: 0.14,
+                background: 'radial-gradient(circle, rgba(180,180,180,0.2), transparent 65%)',
+                animationDuration: '18s',
+                animationDelay: '-4s',
+              }}
+            />
+            <div
+              className='absolute rounded-full animate-blob will-change-transform'
+              style={{
+                width: '70vw',
+                height: '70vw',
+                bottom: '-15%',
+                left: '-10%',
+                opacity: 0.14,
+                background: 'radial-gradient(circle, rgba(120,120,120,0.15), transparent 65%)',
+                animationDuration: '20s',
+                animationDelay: '-8s',
+              }}
+            />
+          </>
+        )}
 
-          {/* Noise Texture Overlay */}
-          <div className="bg-noise absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" />
+        {/* Glow estático quando movimento reduzido ou low performance */}
+        {isClient && isLoaded && (reducedMotion || performanceTier === 'low') && (
+          <div className='absolute inset-0 bg-gradient-radial from-foreground/5 via-transparent to-transparent' />
+        )}
 
-          {/* Elementos decorativos minimalistas - blur reduzido em medium */}
-          <div
-            className={`absolute top-1/4 left-1/4 w-48 h-48 bg-primary/2 rounded-full ${performanceTier === 'high' ? 'blur-3xl' : 'blur-xl'
-              } animate-[float_15s_ease-in-out_infinite] will-change-transform`}
-          />
-          <div
-            className={`absolute bottom-1/3 right-1/4 w-64 h-64 bg-muted/5 rounded-full ${performanceTier === 'high' ? 'blur-3xl' : 'blur-xl'
-              } animate-[float_18s_ease-in-out_infinite_reverse] will-change-transform`}
-          />
+        {/* Camada 2 — noise / grain */}
+        <div className='bg-noise absolute inset-0 opacity-[0.035] pointer-events-none' />
+      </div>
 
-          {/* Pontos decorativos sutis - apenas em high performance */}
-          {performanceTier === 'high' && (
-            <div className='absolute inset-0 opacity-20'>
-              <div className='absolute top-20 left-20 w-1 h-1 bg-muted-foreground rounded-full animate-[pulse_4s_ease-in-out_infinite]' />
-              <div
-                className='absolute top-40 right-32 w-1 h-1 bg-foreground rounded-full animate-[pulse_6s_ease-in-out_infinite]'
-                style={{ animationDelay: '2s' }}
-              />
-              <div
-                className='absolute bottom-40 left-32 w-2 h-2 bg-foreground/5 rounded-full animate-bounce'
-                style={{ animationDelay: '4s', animationDuration: '8s' }}
-              />
-            </div>
-          )}
-        </>
-      )}
-
-      {/* Gradiente sutil quando movimento reduzido ou low performance */}
-      {isClient && isLoaded && (reducedMotion || performanceTier === 'low') && (
-        <div className='absolute inset-0 bg-gradient-radial from-primary/2 via-transparent to-transparent' />
-      )}
-    </div>
+      {/* Camada 3 — vignette (escurece as bordas) */}
+      <div className='vignette' aria-hidden='true' />
+    </>
   );
 }

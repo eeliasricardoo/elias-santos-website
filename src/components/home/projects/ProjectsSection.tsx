@@ -108,7 +108,7 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
   return (
     <div
       ref={containerRef}
-      className="sticky-card w-full pb-[10vh] md:pb-[14vh] last:pb-0"
+      className="sticky-card w-full pb-[4vh] md:pb-[6vh] last:pb-0"
       style={{
         '--index': index,
         zIndex: index + 1,
