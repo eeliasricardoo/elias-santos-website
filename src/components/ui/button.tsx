@@ -18,7 +18,7 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         premium:
-          'bg-[#faf9f5] light:bg-[#09090b] text-[#09090b] light:text-[#faf9f5] border border-[#e4e4e7] light:border-[#27272a] shadow-[0_3px_0_0_#a1a1aa] light:shadow-[0_3px_0_0_#27272a] hover:bg-[#f4f4f5] light:hover:bg-[#27272a] transition-all duration-200 active:translate-y-[2px] active:shadow-[0_1px_0_0_#a1a1aa] light:active:shadow-[0_1px_0_0_#27272a] rounded-xl font-semibold',
+          'bg-[#faf9f5] light:bg-[#09090b] text-[#09090b] light:text-[#faf9f5] border border-[#e4e4e7] light:border-[#27272a] shadow-[0_3px_0_0_#a1a1aa] light:shadow-[0_3px_0_0_#27272a] hover:bg-[#f4f4f5] light:hover:bg-[#27272a] rounded-xl font-semibold btn-premium-retro',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {

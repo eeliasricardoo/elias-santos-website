@@ -670,3 +670,30 @@
   mask-size: 150% auto;
   animation: textShine 5s ease-in-out infinite;
 }
+
+/* ─── Retro Premium Button Behavior ──────────────────────── */
+.btn-premium-retro {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s !important;
+}
+
+/* On hover-capable devices (desktop/web), hover state looks pressed */
+@media (hover: hover) {
+  .btn-premium-retro:hover {
+    transform: translateY(2px) !important;
+    box-shadow: 0 1px 0 0 #a1a1aa !important;
+  }
+  .light .btn-premium-retro:hover,
+  :root.light .btn-premium-retro:hover {
+    box-shadow: 0 1px 0 0 #27272a !important;
+  }
+}
+
+/* On all devices, active/press state looks pressed */
+.btn-premium-retro:active {
+  transform: translateY(2px) !important;
+  box-shadow: 0 1px 0 0 #a1a1aa !important;
+}
+.light .btn-premium-retro:active,
+:root.light .btn-premium-retro:active {
+  box-shadow: 0 1px 0 0 #27272a !important;
+}
