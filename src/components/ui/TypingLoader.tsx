@@ -168,7 +168,7 @@ export function TypingLoader() {
           <div className="absolute inset-0 bg-[radial-gradient(circle,hsl(var(--foreground)/0.03)_1px,transparent_1px)] bg-[size:28px_28px] opacity-70 pointer-events-none" />
           
           {/* Glowing orb in center */}
-          <div className="absolute w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute w-[500px] h-[500px] bg-zinc-500/5 rounded-full blur-[100px] pointer-events-none" />
 
           {/* Terminal Box */}
           <motion.div
@@ -177,7 +177,7 @@ export function TypingLoader() {
             exit={{ scale: 1.05, opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-            className="w-full max-w-2xl border border-white/10 rounded-xl bg-[#090d16]/80 backdrop-blur-xl shadow-[0_0_40px_rgba(239,68,68,0.1)] overflow-hidden flex flex-col h-[380px] sm:h-[420px]"
+            className="w-full max-w-2xl border border-white/10 rounded-xl bg-[#090d16]/80 backdrop-blur-xl shadow-[0_0_40px_rgba(255,255,255,0.05)] overflow-hidden flex flex-col h-[380px] sm:h-[420px]"
           >
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-[#0d1321] border-b border-white/5 select-none">
@@ -201,7 +201,7 @@ export function TypingLoader() {
                 <div key={idx} className="leading-relaxed">
                   {line.type === 'command' ? (
                     <span className="text-white">
-                      <span className="text-red-500 font-bold mr-2">&gt;</span>
+                      <span className="text-zinc-400 font-bold mr-2">&gt;</span>
                       {line.text}
                     </span>
                   ) : line.type === 'success' ? (
@@ -219,9 +219,9 @@ export function TypingLoader() {
                 <div className="leading-relaxed">
                   {LOG_SEQUENCE[activeLineIndex].type === 'command' ? (
                     <span className="text-white">
-                      <span className="text-red-500 font-bold mr-2">&gt;</span>
+                      <span className="text-zinc-400 font-bold mr-2">&gt;</span>
                       {currentTypingText}
-                      <span className="inline-block w-1.5 h-4 bg-red-500 animate-pulse ml-0.5" />
+                      <span className="inline-block w-1.5 h-4 bg-zinc-400 animate-pulse ml-0.5" />
                     </span>
                   ) : (
                     <div className="flex items-center gap-2">
