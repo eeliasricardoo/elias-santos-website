@@ -5,6 +5,8 @@ import { ArrowRight } from 'lucide-react';
 import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { OptimizedImage } from '@/components/performance/OptimizedImage';
 import { Parallax } from '@/components/motion';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
@@ -150,11 +152,16 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
                 {project.description}
               </p>
 
+              {/* Same premium CTA as the hero — presses down when the card is clicked */}
               <span
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border-b pb-1 w-fit transition-all duration-300 text-foreground border-border group-hover:border-foreground"
+                className={cn(
+                  buttonVariants({ variant: 'premium', size: 'lg' }),
+                  'h-12 w-fit',
+                  'group-active:translate-y-[2px] group-active:shadow-[0_1px_0_0_#a1a1aa] light:group-active:shadow-[0_1px_0_0_#27272a]',
+                )}
               >
                 View complete case
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </div>
 
