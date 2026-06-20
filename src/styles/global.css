@@ -355,11 +355,11 @@
 
   .sticky-card {
     position: sticky;
-    top: calc(75px + var(--index) * 12px);
+    top: calc(80px + var(--index) * 8px);
   }
   @media (min-width: 768px) {
     .sticky-card {
-      top: calc(105px + var(--index) * 24px);
+      top: calc(110px + var(--index) * 14px);
     }
   }
 }

@@ -97,16 +97,16 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
     offset: ['start start', 'end start'],
   });
 
-  // Scale down from 1 to 0.94 and fade from 1 to 0.5 as it scrolls past and stacks under
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  // Subtle scale + fade as the card gets covered by the next one — reads as depth, not a glitch
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.72]);
 
   const imageOnLeft = index % 2 === 1;
 
   return (
     <div
       ref={containerRef}
-      className="sticky-card w-full pb-[20vh] md:pb-[35vh] last:pb-0"
+      className="sticky-card w-full pb-[10vh] md:pb-[14vh] last:pb-0"
       style={{
         '--index': index,
         zIndex: index + 1,
@@ -216,7 +216,7 @@ export function ProjectsSection({
       </motion.div>
 
       {/* Stacked Cards container */}
-      <div className="flex flex-col gap-8 md:gap-12 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative">
+      <div className="flex flex-col max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative">
         {projects.map((project, index) => {
           const color = projectColors[index];
           const isFeatured = index === 0;
