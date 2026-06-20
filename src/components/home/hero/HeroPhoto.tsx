@@ -50,9 +50,9 @@ export function HeroPhoto() {
       </div>
 
       {/* Decorative vertical line */}
-      <div className="absolute -right-5 top-1/4 h-1/2 w-px bg-gradient-to-b from-transparent via-red-500/10 to-transparent hidden lg:block" />
+      <div className="absolute -right-5 top-1/4 h-1/2 w-px bg-white/10 hidden lg:block" />
       {/* Decorative horizontal line */}
-      <div className="absolute -bottom-5 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-red-500/10 to-transparent hidden lg:block" />
+      <div className="absolute -bottom-5 left-1/4 w-1/2 h-px bg-white/10 hidden lg:block" />
     </motion.div>
   );
 }

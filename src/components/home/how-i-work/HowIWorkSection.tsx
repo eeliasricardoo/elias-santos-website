@@ -16,7 +16,7 @@ const steps: ProcessStep[] = [
     description:
       'Interviews, support tickets, session recordings — I go to the source before opening Figma. Most redesigns fail because they solve the stated problem instead of the real one.',
     tools: ['User interviews', 'Hotjar', 'GA4'],
-    color: { bg: '#18181b', text: 'rgba(255,255,255,0.08)', accent: '#ffffff', label: 'RESEARCH' },
+    color: { bg: '#141417', text: 'rgba(255,255,255,0.08)', accent: '#a1a1aa', label: 'RESEARCH' },
   },
   {
     number: '02',
@@ -24,7 +24,7 @@ const steps: ProcessStep[] = [
     description:
       "Flows and wireframes first, high fidelity last. Every screen exists to answer a product question — if I can't say which one, the screen doesn't ship.",
     tools: ['Figma', 'Design systems', 'Prototyping'],
-    color: { bg: '#111113', text: 'rgba(255,255,255,0.08)', accent: '#e4e4e7', label: 'DESIGN' },
+    color: { bg: '#141417', text: 'rgba(255,255,255,0.08)', accent: '#a1a1aa', label: 'DESIGN' },
   },
   {
     number: '03',
@@ -32,7 +32,7 @@ const steps: ProcessStep[] = [
     description:
       "I skip the static handoff. Stakeholders and users test a working prototype in the browser, with real data — ambiguity dies before development starts.",
     tools: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
-    color: { bg: '#09090b', text: 'rgba(255,255,255,0.08)', accent: '#a1a1aa', label: 'PROTOTYPE' },
+    color: { bg: '#141417', text: 'rgba(255,255,255,0.08)', accent: '#a1a1aa', label: 'PROTOTYPE' },
   },
   {
     number: '04',
@@ -40,7 +40,7 @@ const steps: ProcessStep[] = [
     description:
       'Production code with analytics wired from day one. The 87.5% and 22% on this page exist because they were measured, not estimated.',
     tools: ['GA4', 'Mixpanel', 'A/B testing'],
-    color: { bg: '#1e1e21', text: 'rgba(255,255,255,0.08)', accent: '#71717a', label: 'SHIP' },
+    color: { bg: '#141417', text: 'rgba(255,255,255,0.08)', accent: '#a1a1aa', label: 'SHIP' },
   },
 ];
 
@@ -48,7 +48,7 @@ function StepVisualPanel({ step }: { step: ProcessStep }) {
   const { color } = step;
   return (
     <div
-      className="relative w-full h-full min-h-[320px] lg:min-h-full flex items-center justify-center overflow-hidden border border-white/5 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-2xl lg:rounded-none"
+      className="relative w-full h-full min-h-[320px] lg:min-h-full flex items-center justify-center overflow-hidden border border-white/5 bg-zinc-950 rounded-2xl lg:rounded-none"
       style={{ backgroundColor: color.bg }}
     >
       {/* Dot grid texture */}
@@ -112,9 +112,7 @@ export function HowIWorkSection() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="text-foreground font-semibold">/01</span> How I work
-          </span>
+
           <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
             Fast where the tools help.
             <span className="block text-muted-foreground">In charge where they don't.</span>
@@ -157,7 +155,7 @@ export function HowIWorkSection() {
                 transition={{ duration: 0.7, ease: EASE, delay: 0.06 }}
                 className={`flex flex-col justify-center px-8 md:px-12 lg:px-16 py-14 ${isEven ? 'lg:order-first' : 'lg:order-last'}`}
               >
-                <span className="font-mono text-5xl lg:text-7xl font-bold leading-none mb-6 text-gradient-chrome w-fit">
+                <span className="font-mono text-5xl lg:text-7xl font-bold leading-none mb-6 text-foreground/90 w-fit">
                   {step.number}
                 </span>
 

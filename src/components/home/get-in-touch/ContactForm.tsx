@@ -96,8 +96,6 @@ export function ContactForm({
       )}
 
       <div className='relative'>
-        {/* Luz atrás do card */}
-        <div className='absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/10 to-primary/20 blur-2xl rounded-2xl transform scale-20 -z-10'></div>
 
         <Card className='border-border/30 bg-card shadow-2xl shadow-primary/5 relative z-10'>
           <CardContent className='p-6 md:p-8'>

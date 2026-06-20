@@ -44,13 +44,13 @@
   --color-brand-emerald: hsl(var(--foreground) / 0.5);
   --color-brand-emerald-deep: hsl(var(--foreground) / 0.3);
 
-  /* Metallic background gradients for projects */
-  --gradient-brand-lime: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
-  --gradient-brand-cyan: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
-  --gradient-brand-violet: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
-  --gradient-brand-orange: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
-  --gradient-brand-pink: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
-  --gradient-brand-emerald: linear-gradient(135deg, #2e2e33 0%, #18181c 50%, #09090b 100%);
+  /* Flat solid panel backgrounds for projects (no gradients) */
+  --gradient-brand-lime: #141417;
+  --gradient-brand-cyan: #141417;
+  --gradient-brand-violet: #141417;
+  --gradient-brand-orange: #141417;
+  --gradient-brand-pink: #141417;
+  --gradient-brand-emerald: #141417;
 
   /* Dark Premium Portfolio — Inter everywhere */
   --font-sans: "Inter Variable", -apple-system, ui-sans-serif, system-ui, sans-serif;
@@ -288,7 +288,7 @@
   }
 
   .hero-glow {
-    background: radial-gradient(circle at 50% 30%, hsl(var(--primary) / 0.15), transparent 70%);
+    background: transparent;
   }
 
   .bg-noise {
@@ -343,19 +343,16 @@
     backface-visibility: hidden;
   }
 
-  /* Premium Metallic Chrome & Platinum */
+  /* Flat solid surfaces (no gradients) */
   .bg-metallic-platinum {
-    background: linear-gradient(135deg, #27272a 0%, #18181b 50%, #09090b 100%);
+    background: #18181b;
   }
   .bg-metallic-titanium {
-    background: linear-gradient(135deg, #1f1f23 0%, #131316 50%, #09090b 100%);
+    background: #131316;
   }
-  
+
   .text-gradient-chrome {
-    background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 30%, #a1a1aa 50%, #e4e4e7 70%, #ffffff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(var(--foreground));
   }
 
   .sticky-card {
@@ -483,9 +480,6 @@
   animation: gradient-shift 3s ease infinite;
 }
 
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
 
 .glass {
   backdrop-filter: blur(10px);
@@ -548,13 +542,7 @@
 }
 
 .text-gradient {
-  background: linear-gradient(135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--primary) / 0.8) 50%,
-      hsl(var(--primary) / 0.6) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: hsl(var(--primary));
 }
 
 @keyframes marquee {

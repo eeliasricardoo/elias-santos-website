@@ -50,7 +50,7 @@ export function FloatingElements() {
             top: `${elem.y}%`,
             width: `${elem.size}px`,
             height: `${elem.size}px`,
-            background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)',
+            background: 'hsl(var(--primary) / 0.5)',
             willChange: 'transform', // GPU acceleration
           }}
           animate={{

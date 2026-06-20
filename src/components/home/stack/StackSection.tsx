@@ -10,10 +10,10 @@ interface Tool {
   color: { bg: string; accent: string };
 }
 
-const lime = { bg: 'linear-gradient(135deg, #27272a, #1a1a1c)', accent: '#a1a1aa' };
-const cyan = { bg: 'linear-gradient(135deg, #1f1f23, #111113)', accent: '#a1a1aa' };
-const violet = { bg: 'linear-gradient(135deg, #18181b, #09090b)', accent: '#a1a1aa' };
-const orange = { bg: 'linear-gradient(135deg, #2e2e33, #18181b)', accent: '#a1a1aa' };
+const lime = { bg: '#141417', accent: '#a1a1aa' };
+const cyan = { bg: '#141417', accent: '#a1a1aa' };
+const violet = { bg: '#141417', accent: '#a1a1aa' };
+const orange = { bg: '#141417', accent: '#a1a1aa' };
 
 const tools: Tool[] = [
   {

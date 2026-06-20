@@ -5,7 +5,6 @@ import { useMounted } from '@/hooks/use-mounted';
 import { Marquee } from '@/components/magicui/marquee';
 
 import { useIntersectionPause } from '@/hooks/use-intersection-pause';
-import { useInViewOnce } from '@/hooks/use-optimized-inview';
 
 interface Testimonial {
   id: number;
@@ -104,18 +103,12 @@ export function TestimonialsSection() {
   const mounted = useMounted();
 
   const { ref, isVisible } = useIntersectionPause();
-  const { ref: headerRef, isInView: headerInView } = useInViewOnce();
-  const { ref: contentRef, isInView: contentInView } = useInViewOnce({ rootMargin: '0px' });
 
   return (
     <section id='testimonials' className='relative py-20 px-4' ref={ref}>
       <div className='max-w-6xl mx-auto space-y-12'>
         {/* Header */}
-        <div
-          ref={headerRef as any}
-          className={`text-center space-y-6 transition-all duration-700 ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
+        <div className="text-center space-y-6">
           <span className='font-mono text-xs uppercase tracking-widest text-muted-foreground'>
             <span className='text-foreground font-semibold'>/03</span> Testimonials
           </span>
@@ -126,11 +119,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Marquee com depoimentos - Uma única linha infinita */}
-        <div
-          ref={contentRef as any}
-          className={`relative transition-all duration-700 delay-200 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-            }`}
-        >
+        <div className="relative">
           <div className='relative'>
             {/* Gradientes nas bordas */}
             <div className='absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />

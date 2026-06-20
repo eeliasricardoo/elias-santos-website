@@ -1,10 +1,8 @@
 'use client';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { OptimizedImage } from '@/components/performance/OptimizedImage';
-import { Parallax } from '@/components/motion';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -93,40 +91,22 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectCardProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
-
-  // Subtle scale + fade as the card gets covered by the next one — reads as depth, not a glitch
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.72]);
-
   const imageOnLeft = index % 2 === 1;
 
   return (
     <div
-      ref={containerRef}
       className="sticky-card w-full pb-[4vh] md:pb-[6vh] last:pb-0"
       style={{
         '--index': index,
         zIndex: index + 1,
       } as React.CSSProperties}
     >
-      <motion.div
-        style={{ scale, opacity }}
-        className="w-full origin-top"
-      >
-        <motion.a
+      <div className="w-full">
+        <a
           href={project.link}
           target={isExternal ? '_blank' : undefined}
           rel={isExternal ? 'noopener noreferrer' : undefined}
-          initial={{ opacity: 0, y: 48, filter: 'blur(8px)' }}
-          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="group block rounded-2xl md:rounded-3xl border border-border/40 bg-card shadow-2xl overflow-hidden transition-all duration-300 hover:border-border/80"
+          className="group block rounded-2xl md:rounded-3xl border border-border/40 bg-card shadow-2xl overflow-hidden transition-colors duration-300 hover:border-border/80"
         >
           <div className="grid md:grid-cols-2 items-stretch min-h-[440px] md:min-h-[520px]">
             {/* Text side */}
@@ -180,8 +160,8 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
                   backgroundSize: '24px 24px',
                 }}
               />
-              {/* Screenshot as floating mockup — drifts on scroll for depth */}
-              <Parallax amount={36} className="relative z-10 w-full max-w-md">
+              {/* Screenshot as floating mockup */}
+              <div className="relative z-10 w-full max-w-md">
                 <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
                   <OptimizedImage
                     src={project.image}
@@ -192,11 +172,11 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
                     lazy={true}
                   />
                 </div>
-              </Parallax>
+              </div>
             </div>
           </div>
-        </motion.a>
-      </motion.div>
+        </a>
+      </div>
     </div>
   );
 }
@@ -215,9 +195,7 @@ export function ProjectsSection({
         transition={{ duration: 0.6 }}
         className="mb-16 md:mb-24 text-left max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
       >
-        <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          <span className="text-foreground font-semibold">/02</span> Work
-        </span>
+
         <h2 className="mt-3 text-3xl md:text-5xl font-bold mb-4">{title}</h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">{description}</p>
       </motion.div>

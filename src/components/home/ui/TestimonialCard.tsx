@@ -1,6 +1,5 @@
 'use client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 
 interface Testimonial {
@@ -29,18 +28,17 @@ export function TestimonialCard({
       className={`flex-shrink-0 w-[80vw] max-w-sm sm:w-96 bg-card rounded-xl p-5 shadow-lg border border-border hover:shadow-xl transition-all duration-300 ${className}`}
     >
       <div className='flex items-start space-x-3'>
-        <Avatar className='w-10 h-10 flex-shrink-0'>
-          <AvatarImage
-            src={testimonial.image}
-            alt={testimonial.name}
-            className='object-cover'
-          />
-          <AvatarFallback
-            className={`bg-gradient-to-br ${testimonial.avatarGradient} text-white font-semibold text-sm`}
-          >
-            {testimonial.name.charAt(0)}
-          </AvatarFallback>
-        </Avatar>
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          width={40}
+          height={40}
+          loading='lazy'
+          className='w-10 h-10 flex-shrink-0 rounded-full object-cover bg-secondary'
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).style.visibility = 'hidden';
+          }}
+        />
 
         <div className='flex-1 min-w-0'>
           <div className='mb-2'>

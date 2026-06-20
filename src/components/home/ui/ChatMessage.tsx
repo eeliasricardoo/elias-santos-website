@@ -30,14 +30,14 @@ export function ChatMessage({
       className={`flex gap-4 p-4 ${isUser ? 'justify-end' : 'justify-start'} ${className}`}
     >
       {!isUser && (
-        <div className='w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md flex-shrink-0'>
+        <div className='w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-md flex-shrink-0'>
           <Bot className='w-4 h-4 text-primary-foreground' />
         </div>
       )}
       <div className={`max-w-[75%] ${isUser ? 'order-first' : ''}`}>
         <div
           className={`rounded-2xl px-4 py-3 text-sm shadow-sm backdrop-blur-sm ${isUser
-              ? 'bg-gradient-to-r from-primary to-primary/90 text-primary-foreground shadow-primary/20'
+              ? 'bg-primary text-primary-foreground shadow-primary/20'
               : 'bg-muted/40 text-foreground border border-border/20'
             }`}
         >
@@ -61,7 +61,7 @@ export function ChatMessage({
         </div>
       </div>
       {isUser && (
-        <div className='w-8 h-8 rounded-full bg-gradient-to-br from-muted to-muted/80 flex items-center justify-center shadow-md flex-shrink-0'>
+        <div className='w-8 h-8 rounded-full bg-muted flex items-center justify-center shadow-md flex-shrink-0'>
           <User className='w-4 h-4 text-muted-foreground' />
         </div>
       )}
