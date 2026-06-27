@@ -177,37 +177,8 @@
     --color-5: #27272a;
   }
 
-  /* Light theme — opt-in override (dark stays the default brand surface).
-     Applied by adding `.light` to <html>; see the no-flash script in Layout.astro. */
-  :root.light {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 93%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 93%;
-    --muted-foreground: 0 0% 25%;
-    --accent: 0 0% 93%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 74%;
-    --input: 0 0% 74%;
-    --ring: 0 0% 3.9%;
-  }
 }
 
-/* Light-mode variant — dark is the default, so `.light` on <html> is the opt-in.
-   Lets components darken the lime accent only where it sits on white (the lime
-   *fill* stays the signature in both themes; only lime-as-text needs help). */
-@custom-variant light (&:where(.light, .light *));
-
-/* Deep red for accent text on light surfaces — readable where #ef4444 isn't. */
 @theme inline {
   --color-electric-ink: hsl(var(--foreground));
 }
@@ -682,18 +653,10 @@
     transform: translateY(2px) !important;
     box-shadow: 0 1px 0 0 #a1a1aa !important;
   }
-  .light .btn-premium-retro:hover,
-  :root.light .btn-premium-retro:hover {
-    box-shadow: 0 1px 0 0 #27272a !important;
-  }
 }
 
 /* On all devices, active/press state looks pressed */
 .btn-premium-retro:active {
   transform: translateY(2px) !important;
   box-shadow: 0 1px 0 0 #a1a1aa !important;
-}
-.light .btn-premium-retro:active,
-:root.light .btn-premium-retro:active {
-  box-shadow: 0 1px 0 0 #27272a !important;
 }
