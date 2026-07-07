@@ -291,7 +291,7 @@ function CompaniesWall() {
             {/* Real content for assistive tech — the marquee below is a visual duplicate */}
             <p className="sr-only">{STORY_COMPANIES.map((c) => c.name).join(', ')}</p>
 
-            <div className="er-marquee items-center" style={{ animationDuration: '35s' }} aria-hidden="true">
+            <div className="er-marquee items-center" style={{ animationDuration: '22s' }} aria-hidden="true">
                 {strip.map((company, i) => (
                     // Fixed box (not just height) so wildly different aspect
                     // ratios — a wide short wordmark vs. a compact two-line
