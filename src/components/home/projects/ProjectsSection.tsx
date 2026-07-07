@@ -137,7 +137,7 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
                 className={cn(
                   buttonVariants({ variant: 'premium', size: 'lg' }),
                   'h-12 w-fit',
-                  'group-active:translate-y-[2px] group-active:shadow-[0_1px_0_0_#a1a1aa] light:group-active:shadow-[0_1px_0_0_#27272a]',
+                  'group-active:translate-y-[2px] group-active:shadow-[0_1px_0_0_hsl(var(--foreground)/0.4)]',
                 )}
               >
                 View complete case

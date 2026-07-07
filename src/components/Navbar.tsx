@@ -52,8 +52,8 @@ export function Navbar() {
       <nav
         className={`pointer-events-auto flex items-center gap-1 rounded-full border py-2 pl-2 pr-2 transition-all duration-300 ${
           scrolled
-            ? 'border-border/70 bg-background/80 shadow-xl shadow-black/30 backdrop-blur-2xl'
-            : 'border-border/40 bg-background/50 shadow-lg shadow-black/10 backdrop-blur-xl'
+            ? 'border-border/70 bg-background/80 shadow-xl shadow-foreground/20 backdrop-blur-2xl'
+            : 'border-border/40 bg-background/50 shadow-lg shadow-foreground/10 backdrop-blur-xl'
         }`}
       >
         {/* Logo */}
@@ -63,7 +63,7 @@ export function Navbar() {
           className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 transition-all hover:border-electric/60 hover:bg-background active:scale-95"
         >
           <span className="font-mono text-sm font-bold tracking-tighter text-foreground">
-            ER<span className="text-electric light:text-electric-ink">_</span>
+            ER<span className="text-electric">_</span>
           </span>
         </a>
 
@@ -77,7 +77,7 @@ export function Navbar() {
                 href={`${prefix}#${l.id}`}
                 onClick={() => track(AnalyticsEvents.NAVIGATION_CLICK(l.id))}
                 className={`relative rounded-full px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors ${
-                  isActive ? 'text-electric light:text-electric-ink' : 'text-muted-foreground hover:text-foreground'
+                  isActive ? 'text-electric' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 <span className="relative z-10">{l.label}</span>

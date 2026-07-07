@@ -103,8 +103,8 @@ export function HeroContent() {
       >
         {HERO_CONTENT.metrics.map((metric) => (
           <div key={metric.label} className="flex items-baseline gap-3">
-            <span className="text-muted-foreground/50 light:text-muted-foreground/80">{metric.label}</span>
-            <span className="text-muted-foreground/25 light:text-muted-foreground/40">—</span>
+            <span className="text-muted-foreground/80">{metric.label}</span>
+            <span className="text-muted-foreground/40">—</span>
             <span className="text-foreground font-semibold">
               {metric.value}
             </span>
