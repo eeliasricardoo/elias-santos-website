@@ -205,13 +205,6 @@ export function HeroAct() {
                             >
                                 {STORY_IDENTITY.remote}
                             </motion.p>
-                            <motion.a
-                                variants={lineUp}
-                                href={STORY_IDENTITY.site}
-                                className="text-sm underline underline-offset-4 opacity-80 transition-opacity hover:opacity-100 md:text-base"
-                            >
-                                {STORY_IDENTITY.siteLabel}
-                            </motion.a>
                         </motion.div>
                     </motion.div>
                 </div>

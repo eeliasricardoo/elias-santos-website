@@ -10,6 +10,7 @@ import { StatsAct } from './StatsAct';
 import { OutroAct } from './OutroAct';
 import { TickerBand } from './TickerBand';
 import { CursorDot } from './CursorDot';
+import { StoryIntro } from './StoryIntro';
 import './story.css';
 
 /**
@@ -69,6 +70,9 @@ export function ScrollStory() {
                 } as React.CSSProperties
             }
         >
+            {/* Opening sequence — once per session */}
+            <StoryIntro />
+
             {/* Fixed nav */}
             <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
                 <div className="flex items-center justify-between px-6 py-5 md:px-12">

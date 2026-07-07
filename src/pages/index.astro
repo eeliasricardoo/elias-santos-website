@@ -4,6 +4,26 @@ import { ScrollStory } from "@/components/landing/ScrollStory";
 ---
 
 <Layout title="Elias Ricardo — Senior UX Engineer">
+	<!-- Paints a paper overlay before hydration so the hero never flashes;
+	     StoryIntro removes it and runs the animated opening. -->
+	<script is:inline>
+		(() => {
+			try {
+				const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+				if (!sessionStorage.getItem("elias-portfolio-loaded") && !reduce) {
+					document.body.style.overflow = "hidden";
+					const overlay = document.createElement("div");
+					overlay.id = "temp-preloader-overlay";
+					overlay.style.position = "fixed";
+					overlay.style.inset = "0";
+					overlay.style.zIndex = "99999";
+					overlay.style.backgroundColor = "#C9CAC6";
+					document.body.appendChild(overlay);
+				}
+			} catch (e) {}
+		})();
+	</script>
+
 	<main class="relative">
 		<ScrollStory client:load />
 	</main>

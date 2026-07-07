@@ -6,7 +6,6 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { WebVitalsMonitor } from "@/components/performance/WebVitalsMonitor";
 import { TypingLoader } from "@/components/ui/TypingLoader";
-
 interface Props {
 	title: string;
 	description?: string;
@@ -68,7 +67,7 @@ const canonicalURL = Astro.site
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="min-h-screen bg-background font-sans antialiased overflow-x-clip">
+	<body class="min-h-screen bg-background font-sans antialiased overflow-x-clip overscroll-none">
 		<script is:inline>
 			(() => {
 				try {
