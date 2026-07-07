@@ -9,7 +9,7 @@ import { ProjectsAct } from './ProjectsAct';
 import { StatsAct } from './StatsAct';
 import { AboutAct } from './AboutAct';
 import { OutroAct } from './OutroAct';
-import { TickerBand } from './TickerBand';
+
 import { CursorDot } from './CursorDot';
 import { StoryIntro } from './StoryIntro';
 import './story.css';
@@ -107,12 +107,12 @@ export function ScrollStory() {
                 <AboutAct />
             </div>
             <ManifestoAct />
-            <TickerBand tilt />
+
             <div id="er-work">
                 <ProjectsAct />
             </div>
             <StatsAct />
-            <TickerBand reverse />
+
             <div id="er-contact">
                 <OutroAct />
             </div>
