@@ -37,7 +37,7 @@ const respond = (cmd: string): readonly string[] => {
  * numbered entries (companies), and "Label:" sentences all get their own
  * accent. Anything that doesn't match a pattern falls back to plain dim text.
  */
-function OutputLine({ line }: { line: string }) {
+function OutputLine({ line, onAction }: { line: string; onAction?: (cmd: string) => void }) {
     if (/^access granted\.?$/i.test(line) || line.startsWith('→') || line.startsWith('Opening ')) {
         return (
             <p style={{ color: SHELL_ACCENTS.success }} className="font-medium">
@@ -52,7 +52,17 @@ function OutputLine({ line }: { line: string }) {
         return (
             <p className="flex items-center gap-4 py-1.5 md:w-[28rem]">
                 <span style={{ color: SHELL_ACCENTS.value }}>[{index}]</span>
-                <a href={link} className="underline decoration-white/20 hover:decoration-white transition-all underline-offset-4 font-medium" style={{ color: SHELL_ACCENTS.command }}>
+                <a 
+                    href={link} 
+                    onClick={(e) => {
+                        if (onAction) {
+                            e.preventDefault();
+                            onAction(`open ${index}`);
+                        }
+                    }}
+                    className="underline decoration-white/20 hover:decoration-white transition-all underline-offset-4 font-medium cursor-pointer" 
+                    style={{ color: SHELL_ACCENTS.command }}
+                >
                     {title}
                 </a>
                 {metric && <span className="opacity-50 text-xs ml-auto whitespace-nowrap">{metric}</span>}
@@ -251,7 +261,7 @@ function Shell() {
                             </span>
                         </p>
                         {entry.output.map((line, j) => (
-                            <OutputLine key={j} line={line} />
+                            <OutputLine key={j} line={line} onAction={typeAndRun} />
                         ))}
                     </div>
                 ))}
