@@ -1,0 +1,174 @@
+/* ER_ scroll-story landing — scoped styles */
+
+.er-story {
+    background: var(--er-paper);
+    color: var(--er-ink);
+    font-family: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
+}
+
+.er-story ::selection {
+    background: var(--er-ink);
+    color: var(--er-paper);
+}
+
+/* Headings stay monospaced like the banner — overrides the global
+   Inter display rule (h1–h3) from global.css */
+.er-story h1,
+.er-story h2,
+.er-story h3 {
+    font-family: inherit;
+    letter-spacing: -0.04em;
+    line-height: inherit;
+}
+
+/* Organic blob silhouette, slowly morphing like a living shape */
+.er-blob {
+    border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+    animation: er-blob-morph 18s ease-in-out infinite alternate;
+}
+
+@keyframes er-blob-morph {
+    0% {
+        border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+    }
+    33% {
+        border-radius: 45% 55% 48% 52% / 55% 45% 58% 42%;
+    }
+    66% {
+        border-radius: 52% 48% 42% 58% / 45% 52% 48% 55%;
+    }
+    100% {
+        border-radius: 48% 52% 58% 42% / 52% 48% 55% 45%;
+    }
+}
+
+/* Blinking terminal cursor on ER_ */
+.er-cursor {
+    animation: er-cursor-blink 1.1s step-end infinite;
+}
+
+@keyframes er-cursor-blink {
+    0%,
+    55% {
+        opacity: 1;
+    }
+    56%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Scroll hint line growing downwards */
+.er-scroll-line {
+    animation: er-scroll-drop 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    transform-origin: top;
+}
+
+@keyframes er-scroll-drop {
+    0% {
+        transform: scaleY(0);
+        opacity: 1;
+    }
+    70% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 0;
+    }
+}
+
+/* Link underline sweep */
+.er-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.er-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.er-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Inverted marquee band */
+.er-marquee {
+    display: flex;
+    width: max-content;
+    animation: er-marquee 26s linear infinite;
+}
+
+.er-marquee--reverse {
+    animation-direction: reverse;
+}
+
+@keyframes er-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Rotating circular badge */
+.er-spin {
+    animation: er-spin 22s linear infinite;
+}
+
+@keyframes er-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Floating satellite blobs */
+.er-float {
+    animation: er-float 7s ease-in-out infinite alternate;
+}
+
+.er-float--slow {
+    animation-duration: 11s;
+    animation-delay: -3s;
+}
+
+@keyframes er-float {
+    from {
+        transform: translateY(-12px) rotate(-4deg);
+    }
+    to {
+        transform: translateY(14px) rotate(5deg);
+    }
+}
+
+/* Outlined display numbers */
+.er-outline-text {
+    -webkit-text-stroke: 2px var(--er-paper);
+    color: transparent;
+}
+
+/* Film grain over the whole story */
+.er-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .er-blob,
+    .er-cursor,
+    .er-scroll-line,
+    .er-marquee,
+    .er-spin,
+    .er-float {
+        animation: none;
+    }
+}
