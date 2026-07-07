@@ -108,7 +108,7 @@ export function Navbar() {
           asChild
           variant="premium"
           size="sm"
-          className="h-9 px-4 flex items-center gap-2"
+          className="h-9 px-4 flex items-center gap-2 rounded-full"
         >
           <a
             href="https://calendly.com/eeliasricardoo"
