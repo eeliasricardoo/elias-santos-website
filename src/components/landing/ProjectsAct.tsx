@@ -9,14 +9,15 @@ import {
     useVelocity,
     useReducedMotion,
 } from 'framer-motion';
-import { STORY_PROJECTS, type StoryProject } from './story-data';
+import { STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from './story-data';
 
 /**
  * Every case cover gets the same treatment: charcoal panel with a dot
  * grid, a ghost index number, and the screenshot inside an identical
- * browser frame — one pattern for all five projects.
+ * browser frame — one pattern for all five projects. A per-project accent
+ * (glow, top rule, metric chip) keeps the cover alive before you ever hover.
  */
-function CaseCover({ project }: { project: StoryProject }) {
+function CaseCover({ project, accent }: { project: StoryProject; accent: string }) {
     return (
         <div className="relative aspect-[16/10] overflow-hidden" style={{ background: 'var(--er-ink)' }}>
             {/* Dot grid */}
@@ -28,6 +29,12 @@ function CaseCover({ project }: { project: StoryProject }) {
                 }}
             />
 
+            {/* Accent glow — always faintly present, blooms on hover */}
+            <div
+                className="pointer-events-none absolute -top-16 right-0 h-56 w-56 rounded-full opacity-20 blur-3xl transition-opacity duration-500 ease-out group-hover:opacity-40"
+                style={{ background: accent }}
+            />
+
             {/* Ghost index */}
             <span
                 className="pointer-events-none absolute -right-1 -top-7 font-bold leading-none"
@@ -36,11 +43,24 @@ function CaseCover({ project }: { project: StoryProject }) {
                 {project.index}
             </span>
 
+            {/* Metric chip — the proof, visible without hovering */}
+            {project.metric && (
+                <span
+                    className="absolute left-4 top-4 z-10 rounded-full border px-3 py-1 text-[10px] font-medium tracking-[0.15em] backdrop-blur-sm"
+                    style={{ borderColor: `color-mix(in srgb, ${accent} 55%, transparent)`, color: accent, background: 'rgba(38,38,38,0.55)' }}
+                >
+                    {project.metric}
+                </span>
+            )}
+
             {/* Browser frame — slides up slightly on hover */}
             <div
                 className="absolute bottom-0 left-[9%] right-[9%] top-[16%] flex flex-col overflow-hidden rounded-t-lg border border-b-0 shadow-2xl transition-transform duration-500 ease-out group-hover:-translate-y-2"
                 style={{ borderColor: 'var(--er-ink-line)', background: 'var(--er-ink-soft)' }}
             >
+                {/* Accent rule */}
+                <div className="h-[3px] w-full shrink-0" style={{ background: accent }} />
+
                 {/* Chrome bar */}
                 <div
                     className="flex items-center gap-1.5 border-b px-3 py-2"
@@ -61,36 +81,55 @@ function CaseCover({ project }: { project: StoryProject }) {
                     </span>
                 </div>
 
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="min-h-0 w-full flex-1 object-cover object-top grayscale transition-all duration-700 ease-out group-hover:grayscale-0"
-                />
+                <div className="relative min-h-0 flex-1 overflow-hidden">
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover object-top brightness-95 contrast-[1.05] grayscale-[45%] transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
+                    />
+
+                    {/* View-project overlay — the click affordance the flat screenshot lacked */}
+                    <div
+                        className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 backdrop-blur-[2px] transition-opacity duration-300 ease-out group-hover:opacity-100"
+                        style={{ background: 'rgba(38,38,38,0.45)' }}
+                    >
+                        <span
+                            className="flex items-center gap-2 rounded-full border px-5 py-2.5 text-xs font-bold tracking-[0.2em] backdrop-blur-sm"
+                            style={{ borderColor: accent, color: accent, background: 'rgba(38,38,38,0.6)' }}
+                        >
+                            VIEW PROJECT
+                            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     );
 }
 
-function ProjectCard({ project }: { project: StoryProject }) {
+function ProjectCard({ project, accent }: { project: StoryProject; accent: string }) {
     return (
         <a
             href={project.link}
             className="group relative flex w-[82vw] shrink-0 flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 sm:w-[64vw] lg:w-[42vw] xl:w-[36vw]"
             style={{ background: 'var(--er-ink-soft)', borderColor: 'var(--er-ink-line)' }}
         >
-            <CaseCover project={project} />
+            <CaseCover project={project} accent={accent} />
 
             <div className="flex flex-1 flex-col gap-3 p-6 md:p-8" style={{ color: 'var(--er-paper)' }}>
-                <div className="flex items-baseline justify-between text-xs tracking-[0.25em] opacity-60">
-                    <span>//{project.index}</span>
-                    {project.metric && <span>{project.metric}</span>}
+                <div className="flex items-baseline justify-between text-xs tracking-[0.25em]">
+                    <span style={{ color: accent }}>//{project.index}</span>
+                    {project.metric && <span className="opacity-60">{project.metric}</span>}
                 </div>
 
                 <h3 className="text-xl font-bold tracking-tight md:text-2xl">
                     {project.title}
-                    <span className="ml-2 inline-block opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    <span
+                        className="ml-2 inline-block opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+                        style={{ color: accent }}
+                    >
                         →
                     </span>
                 </h3>
@@ -175,8 +214,8 @@ export function ProjectsAct() {
 
                 {reduce ? (
                     <div className="flex flex-col gap-8 px-6 md:px-12">
-                        {STORY_PROJECTS.map((p) => (
-                            <ProjectCard key={p.index} project={p} />
+                        {STORY_PROJECTS.map((p, i) => (
+                            <ProjectCard key={p.index} project={p} accent={PROJECT_ACCENTS[i % PROJECT_ACCENTS.length]} />
                         ))}
                     </div>
                 ) : (
@@ -185,8 +224,8 @@ export function ProjectsAct() {
                         className="flex items-stretch gap-6 pl-6 pr-[18vw] will-change-transform md:gap-8 md:pl-12"
                         style={{ x, skewX }}
                     >
-                        {STORY_PROJECTS.map((p) => (
-                            <ProjectCard key={p.index} project={p} />
+                        {STORY_PROJECTS.map((p, i) => (
+                            <ProjectCard key={p.index} project={p} accent={PROJECT_ACCENTS[i % PROJECT_ACCENTS.length]} />
                         ))}
                     </motion.div>
                 )}

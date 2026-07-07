@@ -150,6 +150,19 @@
     }
 }
 
+/* Shell command chips — invert on hover like the manifesto highlights */
+.er-chip {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.er-chip:hover,
+.er-chip:focus-visible {
+    background: var(--er-paper);
+    color: var(--er-ink);
+}
+
 /* Outlined display numbers */
 .er-outline-text {
     -webkit-text-stroke: 2px var(--er-paper);

@@ -7,6 +7,7 @@ import { HeroAct } from './HeroAct';
 import { ManifestoAct } from './ManifestoAct';
 import { ProjectsAct } from './ProjectsAct';
 import { StatsAct } from './StatsAct';
+import { AboutAct } from './AboutAct';
 import { OutroAct } from './OutroAct';
 import { TickerBand } from './TickerBand';
 import { CursorDot } from './CursorDot';
@@ -15,8 +16,8 @@ import './story.css';
 
 /**
  * ER_ scroll-story landing.
- * Five acts driven by scroll: banner blob → manifesto → work filmstrip
- * → proof → inverted reveal. Palette and identity live in story-data.ts.
+ * Six acts driven by scroll: banner blob → live shell dossier → manifesto
+ * → work filmstrip → proof → inverted reveal. Palette and identity live in story-data.ts.
  */
 export function ScrollStory() {
     const lenisRef = useRef<Lenis | null>(null);
@@ -88,6 +89,9 @@ export function ScrollStory() {
 
                     <div className="pointer-events-auto flex items-center gap-6 text-[11px] tracking-[0.25em] text-white mix-blend-difference md:gap-10">
                         <span className="hidden opacity-70 md:inline">{STORY_IDENTITY.remote}</span>
+                        <button type="button" onClick={() => scrollTo('#er-about')} className="er-link">
+                            ABOUT
+                        </button>
                         <button type="button" onClick={() => scrollTo('#er-work')} className="er-link">
                             WORK
                         </button>
@@ -99,6 +103,9 @@ export function ScrollStory() {
             </nav>
 
             <HeroAct />
+            <div id="er-about">
+                <AboutAct />
+            </div>
             <ManifestoAct />
             <TickerBand tilt />
             <div id="er-work">

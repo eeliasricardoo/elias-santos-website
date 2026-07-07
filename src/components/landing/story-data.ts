@@ -9,6 +9,16 @@ export const STORY_PALETTE = {
     inkLine: '#3d3d3d',
 } as const;
 
+// Scoped to the ER_SHELL only — the rest of the site stays monochromatic,
+// but a terminal reads as a terminal when it can tell a key from a value.
+export const SHELL_ACCENTS = {
+    prompt: '#8FBF8A', // visitor@er:~$
+    command: '#D9A662', // typed / executed command, and object-like keys
+    value: '#7FB0C4', // values, index numbers
+    success: '#8FBF8A', // "Access granted." etc.
+    error: '#D98080', // "command not found"
+} as const;
+
 export const STORY_IDENTITY = {
     logo: 'ER',
     name: 'Elias Ricardo',
@@ -44,6 +54,54 @@ export const STORY_STATS = [
     { value: '<0.8s', label: 'LCP on this site · open source' },
 ] as const;
 
+// ——— Act — About. Everything here is copy: edit freely, the act renders whatever it finds. ———
+
+export interface StoryCompany {
+    name: string;
+    logo: string;
+    /** Native logo aspect ratio (width / height). */
+    ratio: number;
+    /** Optional visual bump for logos that read small next to the others at the same box size. */
+    scale?: number;
+}
+
+// Logos live in public/logos/companies, shown in their real brand colors on
+// the paper band (see CompaniesWall). Each sits in a fixed-size box so very
+// different aspect ratios still read as roughly the same optical size.
+export const STORY_COMPANIES: readonly StoryCompany[] = [
+    { name: 'Toolzz', logo: '/logos/companies/toolzz.svg', ratio: 975.79 / 236.68 },
+    { name: 'Stanley Black & Decker', logo: '/logos/companies/stanley-black-decker.svg', ratio: 9.8, scale: 1.3 },
+    { name: 'Oliver Agency', logo: '/logos/companies/oliver-agency.svg', ratio: 150 / 27 },
+    { name: 'Trailmerge', logo: '/logos/companies/trailmerge.svg', ratio: 145 / 32 },
+    { name: 'Zurich Insurance', logo: '/logos/companies/zurich-insurance.svg', ratio: 805 / 190 },
+    { name: 'Superbid', logo: '/logos/companies/superbid.png', ratio: 684 / 160 },
+    { name: 'Stellantis', logo: '/logos/companies/stellantis.svg', ratio: 512 / 108 },
+    { name: 'Serasa Experian', logo: '/logos/companies/serasa-experian.svg', ratio: 383 / 210 },
+] as const;
+
+// Interactive shell responses. Keys are the commands visitors can type;
+// 'help' and 'clear' are handled by the component itself.
+export const SHELL_COMMANDS = ['whoami', 'companies', 'hiking', 'contact', 'sudo hire'] as const;
+
+export const SHELL_RESPONSES: Record<string, readonly string[]> = {
+    whoami: [
+        'Elias Ricardo — product designer who codes.',
+        'Remote from Brazil, working worldwide.',
+        'Currently: open to senior product design roles.',
+    ],
+    companies: STORY_COMPANIES.map((c, i) => `${String(i + 1).padStart(2, '0')}  ${c.name}`),
+    hiking: [
+        'Trails > treadmills.',
+        'Most of my best design calls happened offline, halfway up a hill.',
+    ],
+    contact: [
+        `email     ${STORY_IDENTITY.email}`,
+        'github    github.com/eeliasricardoo',
+        'linkedin  linkedin.com/in/eeliasricardoo',
+    ],
+    'sudo hire': ['Access granted.', `→ ${STORY_IDENTITY.email}`],
+};
+
 export interface StoryProject {
     index: string;
     title: string;
@@ -54,6 +112,17 @@ export interface StoryProject {
     metric: string | null;
     external?: boolean;
 }
+
+// One accent per case cover — reuses the ER_SHELL palette so the "code
+// color" language reads consistently across the site. Cycles if there are
+// ever more projects than colors.
+export const PROJECT_ACCENTS = [
+    SHELL_ACCENTS.command, // amber
+    SHELL_ACCENTS.value, // cyan
+    SHELL_ACCENTS.error, // coral
+    SHELL_ACCENTS.success, // green
+    '#B79FD9', // violet — the one hue outside the shell palette
+] as const;
 
 export const STORY_PROJECTS: readonly StoryProject[] = [
     {
