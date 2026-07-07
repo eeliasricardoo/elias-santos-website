@@ -146,11 +146,10 @@ export function HeroAct() {
                                 transition={{ type: 'spring', damping: 18, stiffness: 100, delay: 0.15 }}
                             >
                                 <div
-                                    className="er-blob overflow-hidden border-[3px]"
+                                    className="er-blob overflow-hidden"
                                     style={{
                                         width: 'clamp(200px, 30vw, 360px)',
                                         height: 'clamp(200px, 30vw, 360px)',
-                                        borderColor: 'var(--er-paper)',
                                     }}
                                 >
                                     <img
@@ -159,7 +158,7 @@ export function HeroAct() {
                                         width={400}
                                         height={400}
                                         fetchPriority="high"
-                                        className="h-full w-full scale-[1.06] object-cover grayscale contrast-[1.05]"
+                                        className="h-full w-full scale-[1.06] object-cover contrast-[1.05]"
                                     />
                                 </div>
 
