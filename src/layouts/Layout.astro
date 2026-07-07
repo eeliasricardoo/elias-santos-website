@@ -5,7 +5,6 @@ import PersonSchema from "@/components/seo/PersonSchema.astro";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { WebVitalsMonitor } from "@/components/performance/WebVitalsMonitor";
-import { TypingLoader } from "@/components/ui/TypingLoader";
 interface Props {
 	title: string;
 	description?: string;
@@ -68,23 +67,6 @@ const canonicalURL = Astro.site
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen bg-background font-sans antialiased overflow-x-clip overscroll-none">
-		<script is:inline>
-			(() => {
-				try {
-					if (!sessionStorage.getItem("elias-portfolio-loaded")) {
-						document.body.style.overflow = "hidden";
-						const overlay = document.createElement("div");
-						overlay.id = "temp-preloader-overlay";
-						overlay.style.position = "fixed";
-						overlay.style.inset = "0";
-						overlay.style.zIndex = "99998";
-						overlay.style.backgroundColor = "#030712";
-						document.body.appendChild(overlay);
-					}
-				} catch (e) {}
-			})();
-		</script>
-		<TypingLoader client:only="react" />
 		<slot />
 	</body>
 </html>

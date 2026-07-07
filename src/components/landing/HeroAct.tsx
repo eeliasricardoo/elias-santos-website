@@ -12,8 +12,8 @@ import {
 import { STORY_IDENTITY } from './story-data';
 
 const lineUp = {
-    hidden: { y: 22, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } },
+    hidden: { y: 30, opacity: 0, filter: 'blur(8px)' },
+    show: { y: 0, opacity: 1, filter: 'blur(0px)', transition: { type: 'spring', damping: 20, stiffness: 100, mass: 0.8 } },
 };
 
 /** Circular rotating badge — mono type on an SVG circle path */
@@ -107,9 +107,9 @@ export function HeroAct() {
                     aria-hidden="true"
                     className="absolute inset-0 will-change-transform"
                     style={{ x: reduce ? 0 : blobMX, y: reduce ? 0 : blobMY }}
-                    initial={reduce ? false : { scale: 0.82, opacity: 0 }}
+                    initial={reduce ? false : { scale: 0.3, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 25, stiffness: 120, mass: 1 }}
                 >
                     <motion.div
                         className="er-blob absolute left-1/2 top-1/2 will-change-transform"
@@ -141,9 +141,9 @@ export function HeroAct() {
                         >
                             <motion.div
                                 className="relative"
-                                initial={reduce ? false : { scale: 0.7, opacity: 0, rotate: -6 }}
-                                animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+                                initial={reduce ? false : { scale: 0.5, opacity: 0, rotate: -15, filter: 'blur(10px)' }}
+                                animate={{ scale: 1, opacity: 1, rotate: 0, filter: 'blur(0px)' }}
+                                transition={{ type: 'spring', damping: 18, stiffness: 100, delay: 0.15 }}
                             >
                                 <div
                                     className="er-blob overflow-hidden border-[3px]"
@@ -184,7 +184,7 @@ export function HeroAct() {
                             animate="show"
                             variants={{
                                 hidden: {},
-                                show: { transition: { staggerChildren: 0.12, delayChildren: 0.7 } },
+                                show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
                             }}
                         >
                             <motion.h1
@@ -216,9 +216,9 @@ export function HeroAct() {
                 >
                     <motion.div
                         className="h-full w-full"
-                        initial={reduce ? false : { opacity: 0, scale: 0.7 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.9, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                        initial={reduce ? false : { opacity: 0, scale: 0.5, rotate: -45 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{ type: 'spring', damping: 20, stiffness: 100, delay: 0.8 }}
                     >
                         <SpinBadge />
                     </motion.div>
