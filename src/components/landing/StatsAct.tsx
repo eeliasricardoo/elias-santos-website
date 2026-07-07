@@ -51,9 +51,7 @@ export function StatsAct() {
                                 aria-hidden="true"
                             />
 
-                            <span className="shrink-0 pt-1 text-xs tracking-[0.25em] opacity-40">
-                                {String(i + 1).padStart(2, '0')}
-                            </span>
+
 
                             <motion.div
                                 className="flex flex-col gap-3 will-change-transform"

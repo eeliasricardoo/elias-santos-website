@@ -5,8 +5,8 @@ import Lenis from 'lenis';
 import { STORY_PALETTE, STORY_IDENTITY } from './story-data';
 import { HeroAct } from './HeroAct';
 import { ManifestoAct } from './ManifestoAct';
-import { ProjectsAct } from './ProjectsAct';
-import { StatsAct } from './StatsAct';
+
+
 import { AboutAct } from './AboutAct';
 import { OutroAct } from './OutroAct';
 
@@ -108,10 +108,8 @@ export function ScrollStory() {
             </div>
             <ManifestoAct />
 
-            <div id="er-work">
-                <ProjectsAct />
-            </div>
-            <StatsAct />
+
+
 
             <div id="er-contact">
                 <OutroAct />

@@ -81,7 +81,7 @@ export const STORY_COMPANIES: readonly StoryCompany[] = [
 
 // Interactive shell responses. Keys are the commands visitors can type;
 // 'help' and 'clear' are handled by the component itself.
-export const SHELL_COMMANDS = ['whoami', 'companies', 'hiking', 'contact', 'sudo hire'] as const;
+export const SHELL_COMMANDS = ['whoami', 'work', 'contact', 'sudo hire'] as const;
 
 export const SHELL_RESPONSES: Record<string, readonly string[]> = {
     whoami: [
@@ -137,13 +137,13 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
     },
     {
         index: '02',
-        title: 'EnglishRoom',
+        title: 'Ranking Engine',
         description:
-            'A single-screen 1:1 classroom — live video, activities, and notes on one surface, from tokens to WebRTC.',
-        tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
-        link: '/portfolio/englishroom',
-        image: '/portfolios/englishroom/landing.webp',
-        metric: 'solo build',
+            'Gamification for an EdTech platform — live leaderboards built with SSR and caching to survive launch day.',
+        tags: ['Gamification', 'SSR', 'Caching'],
+        link: '/portfolio/ranking',
+        image: '/portfolios/ranking/ranking.webp',
+        metric: null,
     },
     {
         index: '03',
@@ -157,22 +157,22 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
     },
     {
         index: '04',
+        title: 'EnglishRoom',
+        description:
+            'A single-screen 1:1 classroom — live video, activities, and notes on one surface, from tokens to WebRTC.',
+        tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
+        link: '/portfolio/englishroom',
+        image: '/portfolios/englishroom/landing.webp',
+        metric: 'solo build',
+    },
+    {
+        index: '05',
         title: 'ChatAI Ecosystem',
         description:
             'My personal AI workspace — chat, image analysis and generation. Where I learn patterns before client work.',
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
-        metric: null,
-    },
-    {
-        index: '05',
-        title: 'Ranking Engine',
-        description:
-            'Gamification for an EdTech platform — live leaderboards built with SSR and caching to survive launch day.',
-        tags: ['Gamification', 'SSR', 'Caching'],
-        link: '/portfolio/ranking',
-        image: '/portfolios/ranking/ranking.webp',
         metric: null,
     },
 ] as const;

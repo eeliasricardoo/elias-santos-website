@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { STORY_COMPANIES, SHELL_COMMANDS, SHELL_RESPONSES, SHELL_ACCENTS } from './story-data';
+import { STORY_COMPANIES, SHELL_COMMANDS, SHELL_RESPONSES, SHELL_ACCENTS, STORY_PROJECTS } from './story-data';
 
 const HELP_OUTPUT: readonly string[] = [
     'available commands:',
@@ -11,7 +11,7 @@ const HELP_OUTPUT: readonly string[] = [
 ];
 
 // Commands the shell types by itself when it scrolls into view.
-const AUTOPLAY_SCRIPT = ['whoami', 'companies', 'hiking'] as const;
+const AUTOPLAY_SCRIPT = ['whoami', 'work'] as const;
 const TYPE_SPEED_MS = 55;
 
 interface ShellEntry {
@@ -19,10 +19,17 @@ interface ShellEntry {
     output: readonly string[];
 }
 
-const respond = (cmd: string): readonly string[] =>
-    cmd === 'help'
-        ? HELP_OUTPUT
-        : (SHELL_RESPONSES[cmd] ?? [`command not found: ${cmd} — try 'help'`]);
+const respond = (cmd: string): readonly string[] => {
+    if (cmd === 'help') return HELP_OUTPUT;
+    if (cmd === 'work') {
+        return [
+            'Click a case study to view, or type "open <id>":',
+            '',
+            ...STORY_PROJECTS.map(p => `project:${p.index}|${p.title}|${p.metric || ''}|${p.link}`),
+        ];
+    }
+    return SHELL_RESPONSES[cmd] ?? [`command not found: ${cmd} — try 'help'`];
+};
 
 /**
  * Renders one output line with the coloring a real shell/editor would give
@@ -31,10 +38,24 @@ const respond = (cmd: string): readonly string[] =>
  * accent. Anything that doesn't match a pattern falls back to plain dim text.
  */
 function OutputLine({ line }: { line: string }) {
-    if (/^access granted\.?$/i.test(line) || line.startsWith('→')) {
+    if (/^access granted\.?$/i.test(line) || line.startsWith('→') || line.startsWith('Opening ')) {
         return (
             <p style={{ color: SHELL_ACCENTS.success }} className="font-medium">
                 {line}
+            </p>
+        );
+    }
+
+    const projectMatch = line.match(/^project:([^|]+)\|([^|]+)\|([^|]*)\|([^|]+)$/);
+    if (projectMatch) {
+        const [, index, title, metric, link] = projectMatch;
+        return (
+            <p className="flex items-center gap-4 py-1.5 md:w-[28rem]">
+                <span style={{ color: SHELL_ACCENTS.value }}>[{index}]</span>
+                <a href={link} className="underline decoration-white/20 hover:decoration-white transition-all underline-offset-4 font-medium" style={{ color: SHELL_ACCENTS.command }}>
+                    {title}
+                </a>
+                {metric && <span className="opacity-50 text-xs ml-auto whitespace-nowrap">{metric}</span>}
             </p>
         );
     }
@@ -105,6 +126,17 @@ function Shell() {
             setValue('');
             return;
         }
+        if (cmd.startsWith('open ')) {
+            const num = cmd.split(' ')[1];
+            const proj = STORY_PROJECTS.find(p => p.index === num);
+            if (proj) {
+                 setEntries((prev) => [...prev, { cmd, output: [`Opening ${proj.title}...`] }]);
+                 setTimeout(() => window.location.href = proj.link, 600);
+                 setValue('');
+                 return;
+            }
+        }
+
         setEntries((prev) => [...prev, { cmd, output: respond(cmd) }]);
         setValue('');
     };
@@ -344,7 +376,7 @@ export function AboutAct() {
 
             <CompaniesWall />
 
-            <div className="px-6 pt-28 md:px-12 md:pt-36">
+            <div className="px-6 pt-28 md:px-12 md:pt-36" id="er-work">
                 <p className="mb-14 text-xs tracking-[0.35em] opacity-50">//ABOUT — THE HUMAN</p>
 
                 <motion.div variants={fadeUp} {...inView} className="mx-auto w-full max-w-5xl">
