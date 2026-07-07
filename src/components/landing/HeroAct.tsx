@@ -87,7 +87,7 @@ export function HeroAct() {
     return (
         <div ref={containerRef} className={reduce ? '' : 'h-[220vh]'} onMouseMove={handleMouse}>
             <div
-                className={`${reduce ? 'relative' : 'sticky top-0'} h-screen overflow-hidden`}
+                className={`${reduce ? 'relative' : 'sticky top-0'} h-screen overflow-hidden translate-z-0 backface-hidden`}
                 style={{ background: 'var(--er-paper)' }}
             >
                 {/* Satellite blobs floating on the paper margins */}
@@ -105,14 +105,14 @@ export function HeroAct() {
                 {/* The blob — outer layer follows the mouse, inner layer swells with scroll */}
                 <motion.div
                     aria-hidden="true"
-                    className="absolute inset-0 will-change-transform"
+                    className="absolute inset-0"
                     style={{ x: reduce ? 0 : blobMX, y: reduce ? 0 : blobMY }}
                     initial={reduce ? false : { scale: 0.3, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: 'spring', damping: 25, stiffness: 120, mass: 1 }}
                 >
                     <motion.div
-                        className="er-blob absolute left-1/2 top-1/2 will-change-transform"
+                        className="er-blob absolute left-1/2 top-1/2"
                         style={{
                             width: '150vmin',
                             height: '118vmin',
@@ -127,7 +127,7 @@ export function HeroAct() {
                 {/* Identity lockup — sits inside the blob, paper-colored */}
                 <div className="relative z-10 flex h-full items-center justify-center px-6">
                     <motion.div
-                        className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-16 will-change-transform"
+                        className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-16"
                         style={{ x: reduce ? 0 : typeMX, y: reduce ? 0 : typeMY }}
                     >
                         {/* Portrait in an organic blob mask, signed with an ER_ badge */}

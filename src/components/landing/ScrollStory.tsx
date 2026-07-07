@@ -74,7 +74,7 @@ export function ScrollStory() {
             <StoryIntro />
 
             {/* Fixed nav */}
-            <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
+            <nav className="pointer-events-none fixed inset-x-0 top-0 z-50 translate-z-0 backface-hidden">
                 <div className="flex items-center justify-between px-6 py-5 md:px-12">
                     <button
                         type="button"
