@@ -72,11 +72,11 @@ export function DesignSystemSection() {
                 }`}
                 style={
                   i === 0
-                    ? { backgroundColor: 'var(--brand, #d9f99d)' }
+                    ? { backgroundColor: 'var(--brand, hsl(var(--foreground)))' }
                     : i === 4
                     ? { backgroundColor: '#dc2626' }
                     : i === 5
-                    ? { textDecoration: 'underline', border: 'none', color: 'var(--brand, #d9f99d)' }
+                    ? { textDecoration: 'underline', border: 'none', color: 'var(--brand, hsl(var(--foreground)))' }
                     : undefined
                 }
               >

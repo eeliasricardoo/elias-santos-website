@@ -11,7 +11,7 @@ export function WhyItExistsSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="font-mono text-xs uppercase tracking-widest"
-        style={{ color: 'var(--brand, #d9f99d)' }}
+        style={{ color: 'var(--brand, hsl(var(--foreground)))' }}
       >
         Why it exists
       </motion.p>
@@ -39,9 +39,9 @@ export function WhyItExistsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="rounded-xl border p-6"
-          style={{ borderColor: 'color-mix(in srgb, var(--brand, #d9f99d) 25%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, #d9f99d) 4%, transparent)' }}
+          style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 25%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 4%, transparent)' }}
         >
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand, #d9f99d)' }}>The bet</p>
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>The bet</p>
           <p className="mt-3 text-[15px] leading-relaxed text-foreground/85">
             EnglishRoom collapses the lesson into one surface. Video, interactive activities
             (drilling, quizzes, flashcards, guided reading), live chat, and the teacher&apos;s private

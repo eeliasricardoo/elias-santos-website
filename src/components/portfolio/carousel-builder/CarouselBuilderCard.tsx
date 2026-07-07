@@ -48,7 +48,7 @@ export function CarouselBuilderCard() {
                 AI
               </span>
             </div>
-            <div className='absolute -top-0.5 -right-0.5 w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full border border-card' />
+            <div className='absolute -top-0.5 -right-0.5 w-2 h-2 md:w-2.5 md:h-2.5 bg-foreground rounded-full border border-card' />
           </div>
           <div>
             <h3 className='text-sm md:text-base lg:text-lg font-semibold text-foreground'>

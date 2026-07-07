@@ -47,7 +47,7 @@ export function AudienceSection() {
             </div>
 
             <p className="text-base text-muted-foreground/80">
-                <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--brand, #d9f99d)' }}>
+                <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
                     Jobs-to-be-done
                 </span>{' '}
                 — framed as the outcomes my colleagues were &quot;hiring&quot; the tool to achieve, not features I wanted to build.

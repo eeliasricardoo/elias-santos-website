@@ -40,7 +40,7 @@ export function HowItWasBuiltSection() {
             transition={{ duration: 0.5, delay: i * 0.06 }}
             className="rounded-xl border border-border/20 bg-card p-5"
           >
-            <h3 className="font-semibold text-foreground text-sm" style={{ color: 'var(--brand, #d9f99d)' }}>{t.name}</h3>
+            <h3 className="font-semibold text-foreground text-sm" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>{t.name}</h3>
             <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">{t.text}</p>
           </motion.div>
         ))}
@@ -51,7 +51,7 @@ export function HowItWasBuiltSection() {
         <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
           {scope.map((s) => (
             <li key={s} className="flex gap-2 text-[14px] leading-relaxed text-muted-foreground">
-              <Check className="mt-0.5 w-4 h-4 flex-shrink-0" style={{ color: 'var(--brand, #d9f99d)' }} />
+              <Check className="mt-0.5 w-4 h-4 flex-shrink-0" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} />
               {s}
             </li>
           ))}

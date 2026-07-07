@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
+import { BrowserFrame } from '../ui/BrowserFrame';
 import { SectionHeading } from './SectionHeading';
 
 const showcases = [
@@ -41,13 +42,7 @@ export function TeacherSideSection() {
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className="flex flex-col gap-4"
           >
-            <div className="rounded-xl overflow-hidden border border-white/5 shadow-2xl bg-gray-100 dark:bg-gray-800">
-              <div className="flex items-center gap-2 px-3 py-2 bg-gray-200 dark:bg-gray-900 border-b border-white/5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                <span className="ml-2 font-mono text-[10px] text-gray-500 dark:text-gray-400">{s.route}</span>
-              </div>
+            <BrowserFrame route={s.route}>
               <ImageLightbox
                 src={s.image}
                 alt={s.title}
@@ -57,9 +52,9 @@ export function TeacherSideSection() {
                 sizes="(max-width: 768px) 100vw, 440px"
                 quality={82}
               />
-            </div>
+            </BrowserFrame>
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-widest" style={{ color: 'var(--brand, #d9f99d)' }}>{s.label}</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>{s.label}</p>
               <h3 className="mt-1.5 text-xl font-bold text-foreground">{s.title}</h3>
               <p className="mt-2 text-muted-foreground leading-relaxed text-[15px]">{s.description}</p>
             </div>

@@ -47,6 +47,7 @@ export function ScrollIndicator() {
   return (
     <div
       ref={containerRef}
+      aria-hidden='true'
       className='fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block transition-opacity duration-300'
       style={{ opacity: 0 }}
     >

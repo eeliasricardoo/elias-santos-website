@@ -48,7 +48,7 @@ export default function RankingTesting() {
   return (
     <section className='space-y-8'>
       <div className='text-center'>
-        <h3 className='text-2xl font-bold mb-4'>Testing & Iterations</h3>
+        <h2 className='text-2xl font-bold mb-4'>Testing & Iterations</h2>
         <p className='text-lg text-muted-foreground max-w-3xl mx-auto'>
           Comprehensive testing and iterative improvements based on user
           feedback and accessibility requirements.
@@ -57,11 +57,11 @@ export default function RankingTesting() {
 
       {/* Tests Conducted */}
       <div className='space-y-4'>
-        <h4 className='text-xl font-semibold border-b border-border pb-2'>
+        <h3 className='text-xl font-semibold border-b border-border pb-2'>
           Tests Conducted
-        </h4>
+        </h3>
         <div className='space-y-4 text-lg'>
-          <div className='bg-muted/20 backdrop-blur-xl border border-border rounded-xl p-6'>
+          <div className='bg-muted/20 border border-border/40 rounded-xl p-6'>
             <div className='grid gap-6 md:grid-cols-3'>
               {tests.map(test => (
                 <TestCard
@@ -78,9 +78,9 @@ export default function RankingTesting() {
 
       {/* Key Adjustments */}
       <div className='space-y-4'>
-        <h4 className='text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2'>
+        <h3 className='text-xl font-semibold border-b border-border pb-2'>
           Key Adjustments
-        </h4>
+        </h3>
         <div className='space-y-4 text-lg'>
           <div className='bg-muted/20 rounded-xl p-6'>
             <div className='space-y-4'>
@@ -99,11 +99,11 @@ export default function RankingTesting() {
 
       {/* Conclusion */}
       <div className='space-y-4'>
-        <h4 className='text-xl font-semibold border-b border-gray-200 dark:border-gray-700 pb-2'>
+        <h3 className='text-xl font-semibold border-b border-border pb-2'>
           Conclusion
-        </h4>
+        </h3>
         <div className='space-y-4 text-lg'>
-          <div className='bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-xl border border-blue-200 dark:border-blue-700/50 rounded-xl p-6'>
+          <div className='bg-muted/20 border border-border/40 rounded-xl p-6'>
             <div className='space-y-4'>
               <p className='text-foreground leading-relaxed'>
                 The ranking system provides gamified engagement, allowing

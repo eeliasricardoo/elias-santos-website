@@ -57,7 +57,7 @@ export function JourneySection() {
             className="bg-card grid gap-4 p-6 md:grid-cols-[auto_1fr_1fr_1fr] md:items-start"
           >
             <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-1">
-              <span className="font-mono text-sm font-bold tabular-nums" style={{ color: 'var(--brand, #d9f99d)' }}>
+              <span className="font-mono text-sm font-bold tabular-nums" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
                 /{String(index + 1).padStart(2, '0')}
               </span>
             </div>
@@ -70,7 +70,7 @@ export function JourneySection() {
               <p className="mt-1 text-[13px] text-muted-foreground">{step.pain}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider" style={{ color: 'var(--brand, #d9f99d)' }}>EnglishRoom</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>EnglishRoom</p>
               <p className="mt-1 text-[13px] text-foreground/85">{step.win}</p>
             </div>
           </motion.div>

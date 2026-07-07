@@ -104,7 +104,7 @@ export function DevelopmentJourneySection() {
                   <span className='text-sm font-medium text-muted-foreground'>
                     {phase.phase}
                   </span>
-                  <CheckCircle className='w-4 h-4' style={{ color: 'var(--brand, #d9f99d)' }} />
+                  <CheckCircle className='w-4 h-4' style={{ color: 'var(--brand, hsl(var(--foreground)))' }} />
                 </div>
                 <h3 className='font-semibold text-foreground text-lg'>
                   {phase.title}

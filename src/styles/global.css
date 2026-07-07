@@ -1,5 +1,3 @@
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/space-grotesk";
 @import "@fontsource-variable/jetbrains-mono";
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
@@ -27,122 +25,40 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Electric accent — the single signature color (Monochromatic Premium) */
+  /* Electric accent — resolves to ink (Paper & Ink is monochromatic) */
   --color-electric: hsl(var(--foreground));
 
-  /* Case-study brand palette — monochromatic tones */
+  /* Case-study brand palette — ink tones at decreasing strength.
+     Floor is 0.75 so brand-colored text keeps ≥4.5:1 contrast on paper. */
   --color-brand-lime: hsl(var(--foreground));
-  --color-brand-lime-deep: hsl(var(--foreground) / 0.8);
-  --color-brand-cyan: hsl(var(--foreground) / 0.9);
-  --color-brand-cyan-deep: hsl(var(--foreground) / 0.7);
-  --color-brand-violet: hsl(var(--foreground) / 0.8);
-  --color-brand-violet-deep: hsl(var(--foreground) / 0.6);
-  --color-brand-orange: hsl(var(--foreground) / 0.7);
-  --color-brand-orange-deep: hsl(var(--foreground) / 0.5);
-  --color-brand-pink: hsl(var(--foreground) / 0.6);
-  --color-brand-pink-deep: hsl(var(--foreground) / 0.4);
-  --color-brand-emerald: hsl(var(--foreground) / 0.5);
-  --color-brand-emerald-deep: hsl(var(--foreground) / 0.3);
+  --color-brand-lime-deep: hsl(var(--foreground) / 0.85);
+  --color-brand-cyan: hsl(var(--foreground) / 0.95);
+  --color-brand-cyan-deep: hsl(var(--foreground) / 0.8);
+  --color-brand-violet: hsl(var(--foreground) / 0.9);
+  --color-brand-violet-deep: hsl(var(--foreground) / 0.8);
+  --color-brand-orange: hsl(var(--foreground) / 0.85);
+  --color-brand-orange-deep: hsl(var(--foreground) / 0.75);
+  --color-brand-pink: hsl(var(--foreground) / 0.8);
+  --color-brand-pink-deep: hsl(var(--foreground) / 0.75);
+  --color-brand-emerald: hsl(var(--foreground) / 0.75);
+  --color-brand-emerald-deep: hsl(var(--foreground) / 0.75);
 
-  /* Flat solid panel backgrounds for projects (no gradients) */
-  --gradient-brand-lime: #141417;
-  --gradient-brand-cyan: #141417;
-  --gradient-brand-violet: #141417;
-  --gradient-brand-orange: #141417;
-  --gradient-brand-pink: #141417;
-  --gradient-brand-emerald: #141417;
+  /* Flat solid panel backgrounds for projects (charcoal ink) */
+  --gradient-brand-lime: #262626;
+  --gradient-brand-cyan: #262626;
+  --gradient-brand-violet: #262626;
+  --gradient-brand-orange: #262626;
+  --gradient-brand-pink: #262626;
+  --gradient-brand-emerald: #262626;
 
-  /* Paper & Ink Theme — Monospace everywhere */
+  /* Paper & Ink — monospace everywhere */
   --font-sans: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
   --font-display: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
   --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
 }
 
-/* ✅ Otimizações de Performance */
-@layer base {
-
-  /* Optimização de rendering */
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-
-  /* Reduzir animações em dispositivos com baixa performance */
-  @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-
-  /* Otimização para scroll suave */
-  /* Otimização para scroll suave (Removido para usar Lenis) */
-  html {
-    /* scroll-behavior: smooth; */
-  }
-
-  /* Performance melhorada para elementos transformados */
-  .will-change-transform {
-    will-change: transform;
-  }
-
-  .will-change-opacity {
-    will-change: opacity;
-  }
-
-  /* Scroll otimizado para mobile */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 20px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground) / 0.5);
-  }
-
-  /* Otimização específica para carrossel em mobile */
-  @media (max-width: 768px) {
-    .animate-scroll-companies {
-      animation: none;
-    }
-
-    .scrollbar-hide {
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-    }
-
-    .scrollbar-hide>* {
-      scroll-snap-align: start;
-    }
-  }
+@theme inline {
+  --color-electric-ink: hsl(var(--foreground));
 }
 
 @layer base {
@@ -168,43 +84,12 @@
     --input: 0 0% 23.9%;
     --ring: 0 0% 14.9%;
     --radius: 0rem;
-
-    /* Rainbow Button Colors - Monochromatic Premium Metallic */
-    --color-1: #ffffff;
-    --color-2: #e4e4e7;
-    --color-3: #a1a1aa;
-    --color-4: #52525b;
-    --color-5: #27272a;
   }
 
-}
-
-@theme inline {
-  --color-electric-ink: hsl(var(--foreground));
-}
-
-@layer base {
   * {
     border-color: hsl(var(--border));
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    /* ✅ Evita scroll horizontal acidental no mobile */
-    overflow-x: clip;
-    max-width: 100%;
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
-    /* ✅ Otimização de performance */
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* ✅ Previne layout shift durante carregamento */
-    font-display: swap;
-    /* ✅ Otimização: GPU acceleration para elementos pesados (Removido do body para não quebrar position: fixed) */
-    will-change: auto;
   }
 
   html {
@@ -214,26 +99,46 @@
     color-scheme: light;
   }
 
-  #__next {
+  body {
     background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    /* Evita scroll horizontal acidental no mobile */
+    overflow-x: clip;
+    max-width: 100%;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Dark Premium Portfolio: thin, tightly-tracked headlines */
+  /* Paper & Ink: tightly-tracked mono headlines */
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 300;
     letter-spacing: -0.02em;
     line-height: 1.1;
+  }
+
+  ::selection {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  /* Reduzir animações para quem prefere menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
   .will-change-transform {
     will-change: transform;
   }
@@ -242,24 +147,12 @@
     will-change: opacity;
   }
 
-  .contain-layout {
-    contain: layout;
-  }
-
-  .contain-paint {
-    contain: paint;
-  }
-
   .line-clamp-4 {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     line-clamp: 4;
-  }
-
-  .hero-glow {
-    background: transparent;
   }
 
   .bg-noise {
@@ -271,15 +164,11 @@
     background-size: 28px 28px;
   }
 
-  /* Text outline — editorial signature on "FUTURE" */
+  /* Text outline — editorial signature */
   .text-stroke {
     -webkit-text-stroke: 2px hsl(var(--foreground));
     color: transparent;
     paint-order: stroke fill;
-  }
-  .text-stroke-electric {
-    -webkit-text-stroke: 2px var(--color-electric);
-    color: transparent;
   }
 
   .text-electric {
@@ -314,18 +203,6 @@
     backface-visibility: hidden;
   }
 
-  /* Flat solid surfaces (no gradients) */
-  .bg-metallic-platinum {
-    background: #18181b;
-  }
-  .bg-metallic-titanium {
-    background: #131316;
-  }
-
-  .text-gradient-chrome {
-    color: hsl(var(--foreground));
-  }
-
   .sticky-card {
     position: sticky;
     top: calc(80px + var(--index) * 8px);
@@ -335,146 +212,28 @@
       top: calc(110px + var(--index) * 14px);
     }
   }
-}
 
-/* ✅ Animações otimizadas para performance */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
   }
 
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes shine {
-  0% {
-    background-position: -200% center;
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
   }
 
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.animate-shine {
-  animation: shine 2s linear infinite;
-}
-
-@keyframes bounce-dot {
-
-  0%,
-  80%,
-  100% {
-    transform: scale(0);
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
   }
 
-  40% {
-    transform: scale(1);
-  }
-}
-
-
-.animate-bounce-dot {
-  animation: bounce-dot 1.4s ease-in-out infinite both;
-}
-
-@keyframes scroll-wheel {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 20px;
   }
 
-  100% {
-    transform: translateY(12px);
-    opacity: 0;
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
   }
-}
-
-.animate-scroll-wheel {
-  animation: scroll-wheel 1.5s cubic-bezier(0.76, 0, 0.24, 1) infinite;
-}
-
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 20s linear infinite;
-}
-
-
-
-
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes gradient-shift {
-
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-gradient {
-  animation: gradient-shift 3s ease infinite;
-}
-
-
-.glass {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.glass-strong {
-  backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-@media (max-width: 768px) {
-  .glass {
-    backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.05);
-  }
-}
-
-.hover-lift {
-  transition: transform 0.2s ease-in-out;
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
 }
 
 ::-webkit-scrollbar {
@@ -494,26 +253,50 @@
   background: hsl(var(--muted-foreground) / 0.5);
 }
 
-::selection {
-  background: rgba(255, 255, 255, 0.85);
-  color: #000000;
+/* ─── Animations ─────────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-.focus-ring:focus {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.safe-area-top {
-  padding-top: env(safe-area-inset-top);
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
 }
 
-.safe-area-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
+.animate-scroll-wheel {
+  animation: scroll-wheel 1.5s cubic-bezier(0.76, 0, 0.24, 1) infinite;
 }
 
-.text-gradient {
-  color: hsl(var(--primary));
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
 }
 
 @keyframes marquee {
@@ -554,95 +337,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-.transition-smooth {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.active-scale:active {
-  transform: scale(0.95);
-}
-
-.disabled-opacity:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-@keyframes rainbow {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-rainbow {
-  animation: rainbow 3s ease infinite;
-  /* Force GPU acceleration to prevent forced reflows */
-  will-change: background-position;
-  transform: translate3d(0, 0, 0);
-  /* Optimize compositing */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-/* ─── Dark Premium Portfolio — signature effects ─────────────────────── */
-
-/* Moving glow blob (used by AnimatedBackground) */
-@keyframes blobMove {
-  0%   { transform: translate(0, 0) scale(1); }
-  33%  { transform: translate(30px, -20px) scale(1.05); }
-  66%  { transform: translate(-15px, 30px) scale(0.95); }
-  100% { transform: translate(20px, -10px) scale(1.02); }
-}
-
-.animate-blob {
-  animation: blobMove 14s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-/* Vignette — darkens the edges of the viewport */
-.vignette {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
-}
-
-/* Sliding shine over highlighted text */
-@keyframes textShine {
-  0%   { -webkit-mask-position: 200% center; mask-position: 200% center; }
-  100% { -webkit-mask-position: -100% center; mask-position: -100% center; }
-}
-
-.text-shine {
-  display: inline-block;
-  -webkit-mask-image: linear-gradient(to right, transparent 30%, #eee 50%, transparent 70%);
-  mask-image: linear-gradient(to right, transparent 30%, #eee 50%, transparent 70%);
-  -webkit-mask-size: 150% auto;
-  mask-size: 150% auto;
-  animation: textShine 5s ease-in-out infinite;
-}
-
-/* ─── Retro Premium Button Behavior ──────────────────────── */
+/* ─── Retro press button ─────────────────────────────────────── */
 .btn-premium-retro {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s !important;
 }
@@ -651,12 +346,12 @@
 @media (hover: hover) {
   .btn-premium-retro:hover {
     transform: translateY(2px) !important;
-    box-shadow: 0 1px 0 0 #a1a1aa !important;
+    box-shadow: 0 1px 0 0 hsl(var(--foreground) / 0.4) !important;
   }
 }
 
 /* On all devices, active/press state looks pressed */
 .btn-premium-retro:active {
   transform: translateY(2px) !important;
-  box-shadow: 0 1px 0 0 #a1a1aa !important;
+  box-shadow: 0 1px 0 0 hsl(var(--foreground) / 0.4) !important;
 }

@@ -14,10 +14,20 @@ const rows: { name: string; highlight?: boolean; cells: Cell[] }[] = [
   { name: 'EnglishRoom', highlight: true, cells: ['yes', 'yes', 'yes', 'yes', 'yes'] },
 ];
 
+const CELL_LABELS: Record<Cell, string> = { yes: 'Yes', partial: 'Partial', no: 'No' };
+
 function CellIcon({ v }: { v: Cell }) {
-  if (v === 'yes') return <Check className="w-4 h-4 text-emerald-500" />;
-  if (v === 'partial') return <Minus className="w-4 h-4 text-amber-500" />;
-  return <X className="w-4 h-4 text-muted-foreground/40" />;
+  const icon =
+    v === 'yes' ? <Check aria-hidden="true" className="w-4 h-4 text-foreground" /> :
+    v === 'partial' ? <Minus aria-hidden="true" className="w-4 h-4 text-muted-foreground" /> :
+    <X aria-hidden="true" className="w-4 h-4 text-muted-foreground/40" />;
+
+  return (
+    <>
+      {icon}
+      <span className="sr-only">{CELL_LABELS[v]}</span>
+    </>
+  );
 }
 
 export function LandscapeSection() {
@@ -45,7 +55,7 @@ export function LandscapeSection() {
               <tr
                 key={r.name}
                 className="border-b border-border last:border-0"
-                style={r.highlight ? { backgroundColor: 'color-mix(in srgb, var(--brand, #d9f99d) 8%, transparent)' } : undefined}
+                style={r.highlight ? { backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 8%, transparent)' } : undefined}
               >
                 <td className={`p-4 text-left text-[13px] ${r.highlight ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>{r.name}</td>
                 {r.cells.map((v, i) => (

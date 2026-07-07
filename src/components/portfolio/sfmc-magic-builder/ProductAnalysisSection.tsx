@@ -39,8 +39,8 @@ export function ProductAnalysisSection() {
                     href="https://sfmc-magic-builder.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white"
-                    style={{ backgroundColor: 'var(--brand, #8b5cf6)' }}
+                    className="inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-background"
+                    style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}
                 >
                     Open the live tool
                     <ExternalLink className="h-4 w-4" />

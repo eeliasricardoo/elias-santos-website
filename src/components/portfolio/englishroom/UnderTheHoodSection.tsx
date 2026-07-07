@@ -35,7 +35,7 @@ export function UnderTheHoodSection() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="rounded-xl border border-border/20 bg-card p-5 space-y-3"
           >
-            <div style={{ color: 'var(--brand, #d9f99d)' }}>{l.icon}</div>
+            <div style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>{l.icon}</div>
             <h3 className="font-semibold text-foreground text-sm">{l.title}</h3>
             <p className="text-[13px] leading-relaxed text-muted-foreground">{l.text}</p>
           </motion.div>
@@ -45,7 +45,7 @@ export function UnderTheHoodSection() {
       <div className="grid gap-4 md:grid-cols-2">
         {notes.map((n) => (
           <div key={n.title} className="flex gap-3 rounded-xl border border-border/20 bg-muted/20 p-5">
-            <div className="mt-0.5 flex-shrink-0" style={{ color: 'var(--brand, #d9f99d)' }}>{n.icon}</div>
+            <div className="mt-0.5 flex-shrink-0" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>{n.icon}</div>
             <div>
               <h4 className="font-semibold text-foreground text-sm">{n.title}</h4>
               <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">{n.text}</p>

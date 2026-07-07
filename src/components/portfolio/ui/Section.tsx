@@ -13,7 +13,7 @@ export function Section({ title, children, className = '' }: SectionProps) {
       <h2 className='flex items-center gap-3 text-2xl md:text-3xl font-bold mb-2'>
         <span
           className='inline-block h-6 w-1.5 rounded-full flex-shrink-0'
-          style={{ backgroundColor: 'var(--brand, #d9f99d)' }}
+          style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}
         />
         {title}
       </h2>

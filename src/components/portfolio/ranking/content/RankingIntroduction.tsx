@@ -31,7 +31,7 @@ export default function RankingIntroduction() {
       <AnimatedContainer>
         {/* Barra de progresso animada */}
         <div className="mb-6">
-          <div className="bg-gray-800 rounded-full h-4 overflow-hidden border border-border/30">
+          <div className="bg-muted rounded-full h-4 overflow-hidden border border-border/30">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: '85%' }}
@@ -40,7 +40,7 @@ export default function RankingIntroduction() {
                 ease: 'easeOut',
                 delay: 0.5,
               }}
-              className="bg-gray-400 h-full rounded-full shadow-lg"
+              className="bg-foreground h-full rounded-full"
             />
           </div>
           <div className="flex justify-between text-sm text-foreground mt-2">
@@ -64,21 +64,21 @@ export default function RankingIntroduction() {
               label: 'Top Student',
               level: 15,
               xp: '8,500',
-              color: 'bg-gray-700',
+              color: 'bg-foreground',
             },
             {
               pos: 2,
               label: 'Active Learner',
               level: 12,
               xp: '7,200',
-              color: 'bg-gray-500',
+              color: 'bg-foreground/70',
             },
             {
               pos: 3,
               label: 'Dedicated Student',
               level: 10,
               xp: '6,800',
-              color: 'bg-gray-400',
+              color: 'bg-foreground/50',
             },
           ].map((item, idx) => (
             <div
@@ -89,7 +89,7 @@ export default function RankingIntroduction() {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1 + idx * 0.4 }}
-                className={`flex items-center justify-center w-10 h-10 rounded-full shadow-lg text-white text-sm font-bold ${item.color}`}
+                className={`flex items-center justify-center w-10 h-10 rounded-full text-background text-sm font-bold ${item.color}`}
               >
                 {item.pos}
               </motion.div>

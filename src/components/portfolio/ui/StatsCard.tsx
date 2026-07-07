@@ -12,7 +12,7 @@ export function StatsCard({ value, label, className = '' }: StatsCardProps) {
     <div
       className={`bg-card rounded-lg px-6 py-4 text-center flex-1 border border-border/20 ${className}`}
     >
-      <div className='text-2xl font-bold' style={{ color: 'var(--brand, #d9f99d)' }}>
+      <div className='text-2xl font-bold' style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
         {value}
       </div>
       <div className='font-mono text-xs uppercase tracking-widest text-muted-foreground'>

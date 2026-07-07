@@ -21,7 +21,7 @@ export function SectionHeading({ eyebrow, index, title, description }: SectionHe
       {(eyebrow || index !== undefined) && (
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-3">
           {index !== undefined && (
-            <span style={{ color: 'var(--brand, #d9f99d)' }}>/{String(index).padStart(2, '0')}</span>
+            <span style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>/{String(index).padStart(2, '0')}</span>
           )}
           {eyebrow}
         </span>
@@ -29,7 +29,7 @@ export function SectionHeading({ eyebrow, index, title, description }: SectionHe
       <h2 className="flex items-start gap-3 text-3xl md:text-4xl font-bold text-foreground leading-[1.1]">
         <span
           className="mt-1.5 inline-block h-7 w-1.5 rounded-full flex-shrink-0"
-          style={{ backgroundColor: 'var(--brand, #d9f99d)' }}
+          style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}
         />
         {title}
       </h2>

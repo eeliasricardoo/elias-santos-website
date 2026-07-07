@@ -10,13 +10,10 @@ metrics:
     label: "Time Reduction"
   - value: "15min"
     label: "Creation Time"
-    color: "text-green-500"
   - value: "50+"
     label: "Templates"
-    color: "text-blue-500"
   - value: "4.8/5"
     label: "User Rating"
-    color: "text-purple-500"
 tags: ["React", "No-Code", "Automation"]
 cardDescription: "No-code tool to create professional carousels in minutes with real-time preview."
 ---

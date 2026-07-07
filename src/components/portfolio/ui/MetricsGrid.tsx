@@ -5,8 +5,7 @@ import { motion } from 'framer-motion';
 export interface MetricItem {
     value: string;
     label: string;
-    color?: string; // e.g., 'text-green-500', 'text-blue-500'
-    className?: string; // for custom text colors if needed
+    className?: string;
 }
 
 interface MetricsGridProps {
@@ -27,7 +26,7 @@ export function MetricsGrid({ metrics }: MetricsGridProps) {
                 >
                     <div
                         className={`text-3xl md:text-4xl font-bold leading-none ${metric.className || ''}`}
-                        style={{ color: 'var(--brand, #d9f99d)' }}
+                        style={{ color: 'var(--brand, hsl(var(--foreground)))' }}
                     >
                         {metric.value}
                     </div>

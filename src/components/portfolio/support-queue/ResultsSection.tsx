@@ -113,17 +113,15 @@ export function ResultsSection() {
                       <span>Before: {metric.before}</span>
                       <span>After: {metric.after}</span>
                     </div>
-                    <div className='w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2'>
+                    <div className='w-full bg-muted rounded-full h-2'>
                       <div
-                        className={`h-2 rounded-full bg-gradient-to-r ${metric.color}`}
+                        className='h-2 rounded-full bg-foreground'
                         style={{ width: '75%' }}
                       />
                     </div>
                   </div>
 
-                  <div
-                    className={`text-2xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}
-                  >
+                  <div className='text-2xl font-bold text-foreground'>
                     {metric.improvement.includes('%')
                       ? `-${metric.improvement}`
                       : metric.improvement}

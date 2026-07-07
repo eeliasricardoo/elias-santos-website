@@ -16,11 +16,11 @@ export function AdjustmentCard({
     <div className='flex items-start space-x-4'>
       <div
         className='w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1'
-        style={{ backgroundColor: 'color-mix(in srgb, var(--brand, #d9f99d) 18%, transparent)' }}
+        style={{ backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 18%, transparent)' }}
       >
         <svg
           className='w-4 h-4'
-          style={{ color: 'var(--brand, #d9f99d)' }}
+          style={{ color: 'var(--brand, hsl(var(--foreground)))' }}
           fill='none'
           stroke='currentColor'
           viewBox='0 0 24 24'

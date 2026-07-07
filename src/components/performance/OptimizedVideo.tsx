@@ -27,7 +27,7 @@ export function OptimizedVideo({
     return (
         <div
             ref={containerRef}
-            className={cn("relative overflow-hidden bg-gray-100 dark:bg-gray-800", containerClassName)}
+            className={cn("relative overflow-hidden bg-muted", containerClassName)}
         >
             {isInView ? (
                 <video

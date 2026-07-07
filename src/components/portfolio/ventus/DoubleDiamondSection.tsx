@@ -35,8 +35,8 @@ export function DoubleDiamondSection() {
             transition={{ duration: 0.8 }}
             className='text-center space-y-4'
           >
-            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
-              <Eye className='w-8 h-8 text-[color:var(--brand,#d9f99d)]' />
+            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,hsl(var(--foreground)))_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+              <Eye className='w-8 h-8 text-[color:var(--brand,hsl(var(--foreground)))]' />
             </div>
             <h3 className='font-semibold text-foreground'>Discover</h3>
             <p className='text-sm text-muted-foreground'>
@@ -51,8 +51,8 @@ export function DoubleDiamondSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className='text-center space-y-4'
           >
-            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
-              <Target className='w-8 h-8 text-[color:var(--brand,#d9f99d)]' />
+            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,hsl(var(--foreground)))_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+              <Target className='w-8 h-8 text-[color:var(--brand,hsl(var(--foreground)))]' />
             </div>
             <h3 className='font-semibold text-foreground'>Define</h3>
             <p className='text-sm text-muted-foreground'>
@@ -67,8 +67,8 @@ export function DoubleDiamondSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className='text-center space-y-4'
           >
-            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
-              <Code className='w-8 h-8 text-[color:var(--brand,#d9f99d)]' />
+            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,hsl(var(--foreground)))_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+              <Code className='w-8 h-8 text-[color:var(--brand,hsl(var(--foreground)))]' />
             </div>
             <h3 className='font-semibold text-foreground'>Develop</h3>
             <p className='text-sm text-muted-foreground'>
@@ -83,8 +83,8 @@ export function DoubleDiamondSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className='text-center space-y-4'
           >
-            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,#d9f99d)_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
-              <Rocket className='w-8 h-8 text-[color:var(--brand,#d9f99d)]' />
+            <div className='w-16 h-16 bg-[color-mix(in_srgb,var(--brand,hsl(var(--foreground)))_12%,transparent)] rounded-full flex items-center justify-center mx-auto'>
+              <Rocket className='w-8 h-8 text-[color:var(--brand,hsl(var(--foreground)))]' />
             </div>
             <h3 className='font-semibold text-foreground'>Deliver</h3>
             <p className='text-sm text-muted-foreground'>
@@ -98,7 +98,7 @@ export function DoubleDiamondSection() {
       <div className='grid md:grid-cols-3 gap-6 mt-12'>
         <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
           <div className='flex items-center space-x-3'>
-            <Lightbulb className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
+            <Lightbulb className='w-6 h-6 text-[color:var(--brand,hsl(var(--foreground)))]' />
             <h4 className='font-semibold text-foreground'>
               Structured Thinking
             </h4>
@@ -112,7 +112,7 @@ export function DoubleDiamondSection() {
 
         <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
           <div className='flex items-center space-x-3'>
-            <Zap className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
+            <Zap className='w-6 h-6 text-[color:var(--brand,hsl(var(--foreground)))]' />
             <h4 className='font-semibold text-foreground'>
               Rapid Convergence
             </h4>
@@ -125,7 +125,7 @@ export function DoubleDiamondSection() {
 
         <div className='bg-card border border-border/20 rounded-xl p-6 space-y-4'>
           <div className='flex items-center space-x-3'>
-            <CheckCircle className='w-6 h-6 text-[color:var(--brand,#d9f99d)]' />
+            <CheckCircle className='w-6 h-6 text-[color:var(--brand,hsl(var(--foreground)))]' />
             <h4 className='font-semibold text-foreground'>
               Quality Assurance
             </h4>

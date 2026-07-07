@@ -43,6 +43,7 @@ export function ProgressIndicator() {
   return (
     <div
       ref={progressRef}
+      aria-hidden='true'
       className='fixed top-0 left-0 right-0 h-1 bg-foreground origin-left z-50 will-change-transform'
       style={{ transform: 'scaleX(0)' }}
     />

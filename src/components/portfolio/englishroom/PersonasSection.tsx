@@ -85,7 +85,7 @@ export function PersonasSection() {
                   <p className="text-base font-bold tracking-tight text-foreground">{p.name}</p>
                   <span
                     className="rounded-md px-1.5 py-0.5 font-mono text-[10px] font-semibold"
-                    style={{ color: 'var(--brand, #d9f99d)', backgroundColor: 'color-mix(in srgb, var(--brand, #d9f99d) 12%, transparent)' }}
+                    style={{ color: 'var(--brand, hsl(var(--foreground)))', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 12%, transparent)' }}
                   >
                     {p.role}
                   </span>
@@ -104,18 +104,18 @@ export function PersonasSection() {
             </div>
 
             <div className="p-6">
-              <p className="pl-3 text-[15px] italic leading-relaxed text-foreground/80 border-l-2" style={{ borderColor: 'color-mix(in srgb, var(--brand, #d9f99d) 50%, transparent)' }}>
+              <p className="pl-3 text-[15px] italic leading-relaxed text-foreground/80 border-l-2" style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 50%, transparent)' }}>
                 “{p.quote}”
               </p>
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 <div>
                   <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                    <Target className="w-3 h-3" style={{ color: 'var(--brand, #d9f99d)' }} /> Goals
+                    <Target className="w-3 h-3" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} /> Goals
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {p.goals.map((g) => (
                       <li key={g} className="flex gap-1.5 text-[13px] leading-relaxed text-muted-foreground">
-                        <Check className="mt-0.5 w-3 h-3 flex-shrink-0" style={{ color: 'var(--brand, #d9f99d)' }} />
+                        <Check className="mt-0.5 w-3 h-3 flex-shrink-0" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} />
                         {g}
                       </li>
                     ))}

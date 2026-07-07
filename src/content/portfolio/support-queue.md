@@ -10,10 +10,8 @@ metrics:
     label: "Response Time Reduction"
   - value: "4.1 → 4.3"
     label: "CSAT Improvement"
-    color: "text-green-500"
   - value: "-9%"
     label: "Reopened Tickets Drop"
-    color: "text-blue-500"
 tags: ["UX/UI", "Real-time", "Optimization"]
 cardDescription: "Omnichannel chat system reducing wait time by 22% through intelligent queuing."
 ---

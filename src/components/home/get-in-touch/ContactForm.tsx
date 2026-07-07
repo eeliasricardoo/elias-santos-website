@@ -188,7 +188,8 @@ export function ContactForm({
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className='flex items-center justify-center space-x-2 text-green-600 bg-green-50 border border-green-200 rounded-lg p-4'
+                  role='status'
+                  className='flex items-center justify-center space-x-2 text-foreground bg-muted/40 border border-border rounded-lg p-4'
                 >
                   <CheckCircle className='w-5 h-5' />
                   <span className='font-medium'>
@@ -202,7 +203,8 @@ export function ContactForm({
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className='flex items-center justify-center space-x-2 text-red-600 bg-red-50 border border-red-200 rounded-lg p-4'
+                  role='alert'
+                  className='flex items-center justify-center space-x-2 text-destructive bg-destructive/10 border border-destructive/30 rounded-lg p-4'
                 >
                   <AlertCircle className='w-5 h-5' />
                   <span className='font-medium'>

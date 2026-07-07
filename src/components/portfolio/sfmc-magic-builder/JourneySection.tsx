@@ -36,7 +36,7 @@ export function JourneySection() {
             </ul>
 
             <div className="flex flex-col gap-4">
-                <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--brand, #d9f99d)' }}>
+                <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
                     Key decisions & trade-offs
                 </span>
                 <div className="grid gap-px overflow-hidden rounded-lg border border-border/30 bg-border/30 md:grid-cols-3">

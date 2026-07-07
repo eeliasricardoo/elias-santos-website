@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
+import { BrowserFrame } from './BrowserFrame';
 import { PROJECT_BRANDS, type BrandColor } from '@/constants/project-brands';
 
 interface CaseStudyHeroProps {
@@ -44,7 +45,7 @@ export function CaseStudyHero({
                     <div className={`font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
                         <span
                             className="inline-block h-2 w-2 rounded-full"
-                            style={{ backgroundColor: brandColor || '#d9f99d' }}
+                            style={{ backgroundColor: brandColor || 'hsl(var(--foreground))' }}
                         />
                         {badge}
                     </div>
@@ -66,21 +67,15 @@ export function CaseStudyHero({
             >
                 <div className="relative w-full">
                     {video ? (
-                        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-gray-100 dark:bg-gray-800">
+                        <BrowserFrame>
                             <OptimizedVideo
                                 srcBase={video.src.replace(/\.(mp4|webm|gif)$/, '')}
                                 alt={image?.alt || title}
                                 className="w-full h-full object-cover"
                             />
-                        </div>
+                        </BrowserFrame>
                     ) : image ? (
-                        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-gray-100 dark:bg-gray-800">
-                            {/* Browser chrome */}
-                            <div className="flex items-center gap-2 px-4 py-3 bg-gray-200 dark:bg-gray-900 border-b border-white/5">
-                                <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                                <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                                <span className="w-3 h-3 rounded-full bg-green-500/70" />
-                            </div>
+                        <BrowserFrame>
                             <ImageLightbox
                                 src={image.src}
                                 alt={image.alt}
@@ -90,7 +85,7 @@ export function CaseStudyHero({
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                                 quality={85}
                             />
-                        </div>
+                        </BrowserFrame>
                     ) : null}
                 </div>
             </motion.div>

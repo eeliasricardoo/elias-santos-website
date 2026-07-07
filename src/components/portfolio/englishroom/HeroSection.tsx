@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, KeyRound, User } from 'lucide-react';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
+import { BrowserFrame } from '../ui/BrowserFrame';
 
 const stats = [
   { value: '3', label: 'user roles' },
@@ -33,7 +34,7 @@ export function HeroSection() {
         className="space-y-6"
       >
         <div className="flex flex-wrap items-center gap-3">
-          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--brand, #d9f99d)' }}>
+          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
             Portfolio &amp; Reflection
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
@@ -54,7 +55,7 @@ export function HeroSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 rounded-lg px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
-          style={{ backgroundColor: 'var(--brand, #d9f99d)' }}
+          style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}
         >
           Open the live product <ArrowUpRight className="w-4 h-4" />
         </a>
@@ -77,12 +78,7 @@ export function HeroSection() {
         transition={{ delay: 0.2, duration: 0.8 }}
         className="space-y-3"
       >
-        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-gray-100 dark:bg-gray-800">
-          <div className="flex items-center gap-2 px-4 py-3 bg-gray-200 dark:bg-gray-900 border-b border-white/5">
-            <span className="w-3 h-3 rounded-full bg-red-500/70" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-            <span className="w-3 h-3 rounded-full bg-green-500/70" />
-          </div>
+        <BrowserFrame route="school-dpcy.vercel.app">
           <ImageLightbox
             src="/portfolios/englishroom/landing.webp"
             alt="EnglishRoom live landing page"
@@ -92,7 +88,7 @@ export function HeroSection() {
             sizes="(max-width: 768px) 100vw, 900px"
             quality={85}
           />
-        </div>
+        </BrowserFrame>
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-mono text-[11px] text-muted-foreground">school-dpcy.vercel.app · live on Vercel</span>
           <span className="text-muted-foreground/40">·</span>
@@ -112,13 +108,13 @@ export function HeroSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="rounded-xl border p-5"
-        style={{ borderColor: 'color-mix(in srgb, var(--brand, #d9f99d) 25%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, #d9f99d) 5%, transparent)' }}
+        style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 25%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 5%, transparent)' }}
       >
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex-1 space-y-4">
             <div>
               <p className="flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                <KeyRound className="w-4 h-4" style={{ color: 'var(--brand, #d9f99d)' }} /> Try it with a demo account
+                <KeyRound className="w-4 h-4" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} /> Try it with a demo account
               </p>
               <p className="mt-1 text-[13px] text-muted-foreground">Sign in to the live product and navigate it yourself.</p>
             </div>
@@ -139,7 +135,7 @@ export function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full lg:w-auto items-center justify-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-90"
-            style={{ backgroundColor: 'var(--brand, #d9f99d)' }}
+            style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}
           >
             Open live product <ArrowUpRight className="w-4 h-4" />
           </a>

@@ -39,7 +39,7 @@ export function FormField({
     >
       <label htmlFor={name} className='text-sm font-medium text-foreground'>
         {label}
-        {required && <span className='text-red-500 ml-1'>*</span>}
+        {required && <span aria-hidden='true' className='text-destructive ml-1'>*</span>}
       </label>
       {type === 'textarea' ? (
         <Textarea

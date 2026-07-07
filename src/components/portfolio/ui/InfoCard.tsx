@@ -37,7 +37,7 @@ export function InfoCard({
         <div className='mb-3'>
           <svg
             className='w-6 h-6'
-            style={{ color: 'var(--brand, #d9f99d)' }}
+            style={{ color: 'var(--brand, hsl(var(--foreground)))' }}
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
