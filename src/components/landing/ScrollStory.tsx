@@ -5,7 +5,8 @@ import Lenis from 'lenis';
 import { STORY_PALETTE, STORY_IDENTITY } from './story-data';
 import { HeroAct } from './HeroAct';
 import { ManifestoAct } from './ManifestoAct';
-
+import { ProjectsAct } from './ProjectsAct';
+import { StatsAct } from './StatsAct';
 
 import { AboutAct } from './AboutAct';
 import { OutroAct } from './OutroAct';
@@ -89,13 +90,13 @@ export function ScrollStory() {
 
                     <div className="pointer-events-auto flex items-center gap-6 text-[11px] tracking-[0.25em] text-white mix-blend-difference md:gap-10">
                         <span className="hidden opacity-70 md:inline">{STORY_IDENTITY.remote}</span>
-                        <button type="button" onClick={() => scrollTo('#er-about')} className="er-link">
+                        <button type="button" onClick={() => scrollTo('#how-i-work')} className="er-link">
                             ABOUT
                         </button>
-                        <button type="button" onClick={() => scrollTo('#er-work')} className="er-link">
+                        <button type="button" onClick={() => scrollTo('#projects')} className="er-link">
                             WORK
                         </button>
-                        <button type="button" onClick={() => scrollTo('#er-contact')} className="er-link">
+                        <button type="button" onClick={() => scrollTo('#get-in-touch')} className="er-link">
                             CONTACT
                         </button>
                     </div>
@@ -103,15 +104,17 @@ export function ScrollStory() {
             </nav>
 
             <HeroAct />
-            <div id="er-about">
+            <div id="how-i-work">
                 <AboutAct />
             </div>
             <ManifestoAct />
 
+            <div id="projects">
+                <ProjectsAct />
+            </div>
+            <StatsAct />
 
-
-
-            <div id="er-contact">
+            <div id="get-in-touch">
                 <OutroAct />
             </div>
 
