@@ -55,6 +55,7 @@ function OutputLine({ line, onAction }: { line: string; onAction?: (cmd: string)
                 <a 
                     href={link} 
                     onClick={(e) => {
+                        e.stopPropagation();
                         if (onAction) {
                             e.preventDefault();
                             onAction(`open ${index}`);
