@@ -6,10 +6,10 @@ import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 import {
     HeroSection,
     WhyItExistsSection,
-    ArchitectureSection,
-    MigrationStorySection,
+    PersonasSection,
+    LandscapeSection,
+    JourneySection,
     DesignSystemSection,
-    SecuritySection,
     ResultsSection,
     CallToActionSection,
 } from "@/components/portfolio/netflix";
@@ -19,16 +19,16 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 
 <Layout
     title="DramaFlix — Case Study"
-    description="Case study of DramaFlix: a high-performance serverless streaming platform migrated to Neon Postgres and JWT, scaling lookups by 15,000x and reducing costs by 92%."
+    description="Case study of DramaFlix: a high-performance streaming platform designed with a strict focus on UX/UI and accessibility for senior users."
 >
     <ProjectStructuredData
         client:load
         name="DramaFlix"
-        description="Case study of DramaFlix: a high-performance serverless streaming platform migrated to Neon Postgres and JWT, scaling lookups by 15,000x and reducing costs by 92%."
+        description="Case study of DramaFlix: a high-performance streaming platform designed with a strict focus on UX/UI and accessibility for senior users."
         image="/portfolios/netflix/hero-featured.jpg"
         url="/portfolio/netflix"
-        technologies={["TanStack Start", "React 19", "Neon DB", "Tailwind CSS v4", "Bunny Stream"]}
-        category="UX Engineering & System Architecture Case Study"
+        technologies={["UX/UI Design", "Design System", "Acessibilidade", "React 19"]}
+        category="UX/UI & Product Design Case Study"
         datePublished="2026-06-17"
         author="Elias Ricardo"
     />
@@ -38,10 +38,10 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
     <CaseStudyLayout client:load brand="red">
         <HeroSection client:load />
         <WhyItExistsSection client:visible />
-        <ArchitectureSection client:visible />
-        <MigrationStorySection client:visible />
+        <PersonasSection client:visible />
+        <LandscapeSection client:visible />
+        <JourneySection client:visible />
         <DesignSystemSection client:visible />
-        <SecuritySection client:visible />
         <ResultsSection client:visible />
         <CallToActionSection client:visible />
     </CaseStudyLayout>

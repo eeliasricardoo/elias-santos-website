@@ -5,31 +5,31 @@ import { CaseStudySection, MetricsGrid, type MetricItem } from '@/components/por
 const metrics: MetricItem[] = [
     { value: '300', label: 'Concurrent Active Users' },
     { value: '48px+', label: 'Min Touch Target' },
-    { value: '92% ↓', label: 'Hosting/DB Costs' },
-    { value: '<0.8s', label: 'LCP Loading Time' },
+    { value: '100%', label: 'Contrast Compliance' },
+    { value: '<0.8s', label: 'Playback Start Time' },
 ];
 
 export function ResultsSection() {
     return (
-        <CaseStudySection eyebrow="Impact" index={5} title="Results and performance">
+        <CaseStudySection eyebrow="Impact" index={6} title="Results and performance">
             <p>
-                Migrating to our custom serverless stack and building with high accessibility principles created significant visual and infrastructure results:
+                Focusing on senior-first design principles combined with an optimized serverless system created substantial results for both usability and active scale:
             </p>
 
             <MetricsGrid metrics={metrics} />
 
             <ul className="list-disc pl-6 space-y-4 mt-8">
                 <li>
-                    <strong className="text-foreground">Simultaneous Users:</strong> The platform easily supports more than <strong className="text-foreground">300 concurrent users</strong> actively streaming videos simultaneously with zero buffering.
+                    <strong className="text-foreground">Active Streaming Audience:</strong> The platform actively supports over <strong className="text-foreground">300 concurrent users</strong> browsing and playing classic cinema streams simultaneously with zero buffering.
                 </li>
                 <li>
-                    <strong className="text-foreground">Acessibilidade UI:</strong> Reached full compliance on tap dimensions, using minimum <strong className="text-foreground">48px targets</strong> to provide comfort for elder hands and prevent input errors.
+                    <strong className="text-foreground">Tactile Accessibility:</strong> Integrated a strict spacing design system ensuring every primary interactive control uses touch dimensions exceeding <strong className="text-foreground">48px</strong>.
                 </li>
                 <li>
-                    <strong className="text-foreground">Hosting Efficiency:</strong> Operating costs were slashed from an average of $25/mo to <strong className="text-foreground">$0-$19/mo (a 92% reduction)</strong>, driven by serverless Neon DB sleep-on-idle behaviors.
+                    <strong className="text-foreground">Visual Inclusivity:</strong> Complies with WCAG AA requirements for typographic color contrast, preventing visual fatigue and text blur for senior eyes.
                 </li>
                 <li>
-                    <strong className="text-foreground">Database Speeds:</strong> Eliminating O(n) loops inside Deno Webhooks in favor of indexed direct lookup SQL routines boosted lookup performance by <strong className="text-foreground">15,000x</strong> (O(1) search complexity).
+                    <strong className="text-foreground">Instantaneous Feedback:</strong> Compressed playback start latencies to under <strong className="text-foreground">0.8 seconds</strong>, giving users instant confirmation of their actions.
                 </li>
             </ul>
         </CaseStudySection>
