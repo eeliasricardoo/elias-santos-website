@@ -46,7 +46,7 @@ export function WhyItExistsSection() {
       </div>
 
       <p className="max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-        To achieve this, I took on the complete lifecycle of the project: researching the online behaviors of senior demographics, modeling their user flow, designing the high-accessibility visual assets, and writing the entire frontend and backend implementation. The resulting design supports standard, LGBT, and picante catalogs with frictionless payment gates (Cakto, Lowify) and direct streaming connections via Bunny CDN.
+        To achieve this, I took on the complete lifecycle of the project: researching the online behaviors of senior demographics, modeling their user flow, designing the high-accessibility visual assets, and writing the entire frontend and backend implementation. The resulting design supports standard, LGBT, and picante catalogs with frictionless checkout integrations and seamless video delivery systems.
       </p>
     </section>
   );

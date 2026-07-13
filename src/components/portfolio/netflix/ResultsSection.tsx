@@ -13,7 +13,7 @@ export function ResultsSection() {
     return (
         <CaseStudySection eyebrow="Impact" index={6} title="Results and performance">
             <p>
-                Focusing on senior-first design principles combined with an optimized serverless system created substantial results for both usability and active scale:
+                Focusing on senior-first design principles combined with a highly responsive architecture created substantial results for both usability and active scale:
             </p>
 
             <MetricsGrid metrics={metrics} />

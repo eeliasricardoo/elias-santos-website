@@ -26,7 +26,7 @@ const comparison = [
   {
     feature: 'Authentication & Sign Up',
     standard: 'Intricate password rules and constant multi-factor authentication checkups.',
-    senior: 'Simple phone number verification and permanent silent session cookies.',
+    senior: 'Simple phone number verification and automatic session persistence.',
     isSuccess: true,
   }
 ];

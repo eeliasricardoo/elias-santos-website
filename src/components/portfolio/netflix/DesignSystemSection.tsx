@@ -5,12 +5,12 @@ import { Palette, Layers, Sparkles, BookOpen } from 'lucide-react';
 
 export function DesignSystemSection() {
   return (
-    <CaseStudySection eyebrow="Design System" index={5} title="High-Contrast OKLCH & Storybook 10">
+    <CaseStudySection eyebrow="Design System" index={5} title="High-Contrast Aesthetics & Component Library">
       <p>
-        A streaming application requires a dark-first, premium interface where content is the absolute hero. DramaFlix implements a unified design system documented in <strong className="text-foreground">Storybook v10</strong>, utilizing Tailwind CSS v4 and the OKLCH color space for uniform brightness interpolation.
+        A streaming application requires a dark-first, premium interface where content is the absolute hero. DramaFlix implements a unified design system documented in a central interactive library, utilizing high-contrast tokens and a unified spacing system.
       </p>
 
-      <div className="grid gap-6 md:grid-cols-2 mt-4">
+      <div className="grid gap-6 md:grid-cols-2 mt-4 font-sans">
         <div className="space-y-4">
           <div className="flex gap-3 items-start">
             <div className="p-2 rounded bg-foreground/5 text-foreground mt-1">
@@ -19,7 +19,7 @@ export function DesignSystemSection() {
             <div>
               <h5 className="font-mono text-sm font-semibold text-foreground">High-Contrast Readability</h5>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
-                Colors are defined in OKLCH to ensure predictable high-contrast ratios. The deep obsidian backdrop combined with crisp white fonts complies with WCAG AA guidelines, reducing eye strain and aiding legibility for senior users.
+                The visual palette ensures strict, comfortable contrast boundaries. The deep obsidian backdrop combined with crisp white typography complies with international accessibility guidelines, reducing eye strain and aiding readability for senior users.
               </p>
             </div>
           </div>
@@ -43,9 +43,9 @@ export function DesignSystemSection() {
               <BookOpen className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">Storybook Documentation</h5>
+              <h5 className="font-mono text-sm font-semibold text-foreground">Component Library</h5>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
-                All application components, from buttons and inputs to catalog layouts (Top10Row, FeaturedCarousel, CatalogHeader), are documented through an interactive Storybook dashboard with dynamic mock responses.
+                All application components, from catalog rows and banners to category menus, are documented in an interactive design playground showing states, responsive behaviors, and content boundaries.
               </p>
             </div>
           </div>
@@ -62,14 +62,6 @@ export function DesignSystemSection() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="mt-4 p-4 rounded-xl border border-border/40 bg-card/20 font-mono text-xs text-muted-foreground space-y-2">
-        <p className="text-foreground font-semibold">// Accessible Color Semantics Example (from styles.css)</p>
-        <p>--background: oklch(0.07 0.008 255); <span className="opacity-45">/* Obsidian Dark Backdrop */</span></p>
-        <p>--foreground: oklch(0.96 0.004 255); <span className="opacity-45">/* Crisp Off-White Text */</span></p>
-        <p>--primary: oklch(0.577 0.245 27.325); <span className="opacity-45">/* Crimson Accent Action Button */</span></p>
-        <p>--picante: oklch(0.585 0.22 22); <span className="opacity-45">/* Oversized high-contrast +18 tag */</span></p>
       </div>
     </CaseStudySection>
   );

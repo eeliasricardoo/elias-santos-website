@@ -8,7 +8,7 @@ export function HeroSection() {
       brand="red"
       badge="UX/UI & Accessibility Case Study"
       title="DramaFlix"
-      subtitle="A premium video streaming platform designed from scratch with a rigorous focus on accessibility for older adults. Engineered with oversized buttons, simplified visual paths, and a serverless architecture actively supporting 300 concurrent users."
+      subtitle="A premium video streaming platform designed from scratch with a rigorous focus on accessibility for older adults. Engineered with oversized buttons, simplified visual paths, and a high-performance system actively supporting 300 concurrent users."
       image={{
         src: '/portfolios/netflix/hero-featured.jpg',
         alt: 'DramaFlix accessible streaming platform'
