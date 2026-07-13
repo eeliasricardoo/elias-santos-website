@@ -6,34 +6,34 @@ import { CaseStudySection } from '@/components/portfolio/ui';
 
 const personas = [
   {
-    name: 'Augusto Silva',
+    name: 'Maria Souza (Dona Maria)',
     role: 'Senior User',
-    meta: 'Retired Accountant, 72 · Rio de Janeiro, BR',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&q=80&auto=format&fit=crop&crop=faces',
+    meta: 'Retired Schoolteacher, 68 · Rio de Janeiro, BR',
+    avatar: 'https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?w=160&h=160&q=80&auto=format&fit=crop&crop=faces',
     stats: [
-      { label: 'Vision', value: 'Moderate Presbyopia' },
+      { label: 'Vision', value: 'Mild Cataracts' },
       { label: 'Device', value: 'Tablet & Smart TV' },
-      { label: 'Favorite Content', value: 'Classic Cinema' },
+      { label: 'Favorite Content', value: 'Classic Telenovelas' },
     ],
-    quote: 'I love classic films, but modern interfaces are so cluttered I get lost before the movie even starts.',
+    quote: 'I love watching my old telenovelas and movies, but modern apps have such tiny text and complex steps that I have to call my grandkids to play them.',
     goals: [
-      'Find and play old movies without needing help from grandkids',
-      'Read titles and descriptions clearly without magnifying glasses',
-      'Sign in and navigate without dealing with complex verification codes',
+      'Find and watch old movies independently without asking for help',
+      'Read titles, cast lists, and descriptions clearly without eye strain',
+      'Start a stream easily without typing complex passwords or verification codes',
     ],
     frustrations: [
-      'Menus that auto-hide or require precise sliding gestures',
-      'Small, low-contrast buttons that look like background text',
-      'Intrusive checkout forms with tiny fields when activating subscriptions',
+      'Tiny fonts and low-contrast details that blend into the dark backdrop',
+      'Navigation controls and sliders that hide automatically too quickly',
+      'Over-complicated signup flows with tiny input fields',
     ],
   }
 ];
 
 export function PersonasSection() {
   return (
-    <CaseStudySection eyebrow="User Persona" index={2} title="Designing for Seu Augusto">
+    <CaseStudySection eyebrow="User Persona" index={2} title="Designing for Dona Maria">
       <p>
-        To build a streaming app that truly solves accessibility, every design decision had to be anchored on a real user. We framed the product experience around <strong className="text-foreground">Seu Augusto</strong>, representing a large senior demographic that loves retro movies but faces constant friction with standard digital UI patterns.
+        To build a streaming app that truly solves accessibility, every design decision had to be anchored on a real user. We framed the product experience around <strong className="text-foreground">Dona Maria</strong>, representing a large senior demographic that loves retro media but faces constant visual and cognitive friction with standard digital UI patterns.
       </p>
 
       <div className="mt-4">
