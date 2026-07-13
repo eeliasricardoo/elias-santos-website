@@ -1,0 +1,52 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Calendar, ArrowRight } from 'lucide-react';
+
+export function CallToActionSection() {
+  const handleLetsTalk = () => {
+    window.open('https://calendly.com/eeliasricardoo', '_blank');
+  };
+
+  return (
+    <section className="text-center space-y-8 border-t border-border/40 pt-12">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="space-y-6"
+      >
+        <h2 className="text-3xl font-bold text-foreground">
+          Scaling architectures is a design decision
+        </h2>
+
+        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <p>
+            DramaFlix exists because engineering bounds define user experience. Fast, O(1) query patterns directly dictate whether users remain immersed in the catalog or close the page. If that's how you view UX Engineering, let's talk.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 cursor-pointer"
+            onClick={handleLetsTalk}
+          >
+            <Calendar className="w-4 h-4 mr-2" />
+            Let's Talk
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="cursor-pointer"
+            onClick={() => window.location.href = '/portfolio/englishroom'}
+          >
+            Next Project
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </div>
+      </motion.div>
+    </section>
+  );
+}

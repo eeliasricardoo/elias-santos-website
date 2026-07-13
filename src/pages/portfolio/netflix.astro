@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/Navbar";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import {
+    HeroSection,
+    WhyItExistsSection,
+    ArchitectureSection,
+    MigrationStorySection,
+    DesignSystemSection,
+    SecuritySection,
+    ResultsSection,
+    CallToActionSection,
+} from "@/components/portfolio/netflix";
+import { ProgressIndicator } from "@/components/home/ProgressIndicator";
+import { ScrollIndicator } from "@/components/home/ScrollIndicator";
+---
+
+<Layout
+    title="DramaFlix — Case Study"
+    description="Case study of DramaFlix: a high-performance serverless streaming platform migrated to Neon Postgres and JWT, scaling lookups by 15,000x and reducing costs by 92%."
+>
+    <ProjectStructuredData
+        client:load
+        name="DramaFlix"
+        description="Case study of DramaFlix: a high-performance serverless streaming platform migrated to Neon Postgres and JWT, scaling lookups by 15,000x and reducing costs by 92%."
+        image="/portfolios/netflix/hero-featured.jpg"
+        url="/portfolio/netflix"
+        technologies={["TanStack Start", "React 19", "Neon DB", "Tailwind CSS v4", "Bunny Stream"]}
+        category="UX Engineering & System Architecture Case Study"
+        datePublished="2026-06-17"
+        author="Elias Ricardo"
+    />
+    <Navbar client:load />
+    <ProgressIndicator client:load />
+
+    <CaseStudyLayout client:load brand="red">
+        <HeroSection client:load />
+        <WhyItExistsSection client:visible />
+        <ArchitectureSection client:visible />
+        <MigrationStorySection client:visible />
+        <DesignSystemSection client:visible />
+        <SecuritySection client:visible />
+        <ResultsSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <ScrollIndicator client:load />
+</Layout>

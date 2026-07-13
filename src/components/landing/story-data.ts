@@ -122,6 +122,7 @@ export const PROJECT_ACCENTS = [
     SHELL_ACCENTS.error, // coral
     SHELL_ACCENTS.success, // green
     '#B79FD9', // violet — the one hue outside the shell palette
+    '#E50914', // Netflix Red for DramaFlix
 ] as const;
 
 export const STORY_PROJECTS: readonly StoryProject[] = [
@@ -174,5 +175,15 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
         metric: null,
+    },
+    {
+        index: '06',
+        title: 'DramaFlix',
+        description:
+            'A premium streaming platform inspired by Netflix, migrated to serverless Neon DB and custom JWT auth, optimizing lookups by 15,000x and cutting costs by 92%.',
+        tags: ['TanStack Start', 'React 19', 'Neon DB', 'Design System'],
+        link: '/portfolio/netflix',
+        image: '/portfolios/netflix/hero-featured.jpg',
+        metric: 'lookups 15k× faster',
     },
 ] as const;

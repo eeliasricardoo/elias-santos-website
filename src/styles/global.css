@@ -42,6 +42,8 @@
   --color-brand-pink-deep: hsl(var(--foreground) / 0.75);
   --color-brand-emerald: hsl(var(--foreground) / 0.75);
   --color-brand-emerald-deep: hsl(var(--foreground) / 0.75);
+  --color-brand-red: hsl(var(--foreground));
+  --color-brand-red-deep: hsl(var(--foreground) / 0.85);
 
   /* Flat solid panel backgrounds for projects (charcoal ink) */
   --gradient-brand-lime: #262626;
@@ -50,6 +52,7 @@
   --gradient-brand-orange: #262626;
   --gradient-brand-pink: #262626;
   --gradient-brand-emerald: #262626;
+  --gradient-brand-red: #262626;
 
   /* Paper & Ink — monospace everywhere */
   --font-sans: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
