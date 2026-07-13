@@ -26,7 +26,7 @@ export function WhyItExistsSection() {
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-destructive">The UX Problem</p>
           <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-            Standard streaming interfaces are visually cluttered and complex. Tiny text, low-contrast menus, complex navigations, and very small touch elements make it incredibly frustrating and alienating for older adults. From a system perspective, although my initial bootstrap stack using Supabase and Deno Edge Functions worked well for early testing, scaling beyond 50 active users required a more robust solution to avoid database connection exhaustion and edge execution timeouts.
+            Standard streaming platforms ignore the digital divide. Visually cluttered layouts, complex search parameters, and low-contrast typography create massive cognitive barriers for older adults. Furthermore, hidden menu overlays and tiny, icon-only navigation elements alienate senior users who suffer from visual or motor precision decline, resulting in frustration and quick drop-offs.
           </p>
         </motion.div>
 
@@ -40,13 +40,13 @@ export function WhyItExistsSection() {
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>The UX Bet</p>
           <p className="mt-3 text-[15px] leading-relaxed text-foreground/85">
-            By building a dedicated design system with oversized, clear-labeled touch targets (48px+ targets), bold layout flows, and high contrast, we could create an inclusive experience for older adults. On the engineering side, I migrated the database to Neon Postgres and implemented a custom serverless JWT authentication system, allowing the platform to scale fluidly to over <strong>300 concurrent active users</strong>.
+            By designing a simplified streaming interface tailored for older users—featuring high-contrast typography, large touch targets (48px+ bounds), and clear text labels instead of abstract icons—we could create a comfortable digital cinema. To support this smooth experience, I engineered the entire backend from scratch, scaling it to accommodate over <strong>300 concurrent users</strong> without load-time friction.
           </p>
         </motion.div>
       </div>
 
       <p className="max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-        To bring this vision to life, I designed and built the entire streaming architecture from scratch—taking on the full lifecycle: researching user behaviors, designing the high-accessibility visual layers, and writing the complete implementation. The resulting platform features a clean catalog of standard, LGBT, and picante titles, complete with direct payment webhook integrations (Cakto, Lowify) and token-secured video streaming from Bunny CDN.
+        To achieve this, I took on the complete lifecycle of the project: researching the online behaviors of senior demographics, modeling their user flow, designing the high-accessibility visual assets, and writing the entire frontend and backend implementation. The resulting design supports standard, LGBT, and picante catalogs with frictionless payment gates (Cakto, Lowify) and direct streaming connections via Bunny CDN.
       </p>
     </section>
   );

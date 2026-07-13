@@ -5,9 +5,9 @@ import { ArrowRight, Check, X } from 'lucide-react';
 
 export function MigrationStorySection() {
   return (
-    <CaseStudySection eyebrow="Migration Case" index={2} title="Migrating Supabase to Neon & JWT">
+    <CaseStudySection eyebrow="Interaction Speed" index={2} title="UX Performance: From Waiting to Instant">
       <p>
-        I designed and built the entire streaming platform architecture from scratch. As user demand expanded, refactoring the database layer and authentication strategy away from Supabase was a conscious design decision to scale performance.
+        A delay of just a few seconds can make an older user believe the system is broken. This leads to duplicate clicks, checkout drop-outs, and deep cognitive frustration. I refactored the database architecture and webhook processes specifically to eliminate interface lag, ensuring instant feedback loops.
       </p>
 
       <div className="grid md:grid-cols-2 gap-8 my-6">
@@ -21,19 +21,19 @@ export function MigrationStorySection() {
             <li className="flex items-start gap-2">
               <span className="text-destructive mt-1">•</span>
               <span>
-                <strong>Webhook verification timeouts:</strong> Identifying users required calling Supabase Auth API lists sequentially, creating an <strong>O(n)</strong> loop that timed out on payment events.
+                <strong>Webhook processing lag:</strong> Identifying users during checkouts required slow, sequential scans that caused transaction spinners to rotate for over 8 seconds.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-destructive mt-1">•</span>
               <span>
-                <strong>DB connection limits:</strong> Limited concurrent connection limits (maximum ~30 pooled) caused database exhaustion during traffic peaks.
+                <strong>Database limits:</strong> Connection spikes caused occasional catalog crashes, displaying blank pages during high traffic.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-destructive mt-1">•</span>
               <span>
-                <strong>Rigid costs:</strong> Standard projects starting at $25/mo made hosting simple prototypes expensive.
+                <strong>Delayed video playback:</strong> Non-indexed database checks created a noticeable 3-second latency before a video started streaming.
               </span>
             </li>
           </ul>
@@ -49,22 +49,19 @@ export function MigrationStorySection() {
             <li className="flex items-start gap-2">
               <span className="mt-1" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>•</span>
               <span>
-                <strong>O(1) direct queries:</strong> Direct database lookups using phone numbers on indexed SQL columns returned results in sub-milliseconds:
-                <code className="block mt-2 p-2 rounded bg-foreground/5 text-xs text-foreground font-mono">
-                  SELECT * FROM users WHERE phone = $1;
-                </code>
+                <strong>O(1) instant search:</strong> Indexing data search columns reduced user verification to sub-milliseconds, validating checkouts instantly.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>•</span>
               <span>
-                <strong>Massive connection pool:</strong> Dynamically scales connections up to 100+, preventing serverless execution crashes.
+                <strong>Scalable connection pools:</strong> Dynamic database pooling handles active spikes from 300 users without freezing the interface.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>•</span>
               <span>
-                <strong>Optimized costs:</strong> Serverless pricing scales down to zero when idle, lowering active upkeep costs to $0-$19/mo.
+                <strong>Sub-second video starting:</strong> Integrated optimized server routes and Bunny CDN, getting video streams running in under 0.8 seconds.
               </span>
             </li>
           </ul>
