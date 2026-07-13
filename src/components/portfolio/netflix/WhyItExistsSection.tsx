@@ -26,7 +26,7 @@ export function WhyItExistsSection() {
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-destructive">The UX Problem</p>
           <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-            Standard streaming interfaces are visually cluttered and complex. Tiny text, low-contrast menus, complex navigations, and very small touch elements make it incredibly frustrating and alienating for older adults. Furthermore, the legacy backend was severely bottlenecked by Deno webhook timeouts and Supabase connection limits, collapsing with only 50 active users.
+            Standard streaming interfaces are visually cluttered and complex. Tiny text, low-contrast menus, complex navigations, and very small touch elements make it incredibly frustrating and alienating for older adults. From a system perspective, although my initial bootstrap stack using Supabase and Deno Edge Functions worked well for early testing, scaling beyond 50 active users required a more robust solution to avoid database connection exhaustion and edge execution timeouts.
           </p>
         </motion.div>
 
@@ -40,13 +40,13 @@ export function WhyItExistsSection() {
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>The UX Bet</p>
           <p className="mt-3 text-[15px] leading-relaxed text-foreground/85">
-            By building a dedicated design system with oversized, clear-labeled touch targets (48px+ targets), bold layout flows, and high contrast, we could create an inclusive experience for older adults. Under the hood, migrating the database connection pools to Neon and implementing custom serverless JWT auth allowed us to easily scale to over <strong>300 concurrent active users</strong>.
+            By building a dedicated design system with oversized, clear-labeled touch targets (48px+ targets), bold layout flows, and high contrast, we could create an inclusive experience for older adults. On the engineering side, I migrated the database to Neon Postgres and implemented a custom serverless JWT authentication system, allowing the platform to scale fluidly to over <strong>300 concurrent active users</strong>.
           </p>
         </motion.div>
       </div>
 
       <p className="max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-        To bring this vision to life, I took on the complete lifecycle: researching user behaviors, designing the high-accessibility visual layers, and writing the entire implementation myself. The resulting platform features a clean catalog of standard, LGBT, and picante titles, complete with direct payment webhook integrations (Cakto, Lowify) and token-secured video streaming from Bunny CDN.
+        To bring this vision to life, I designed and built the entire streaming architecture from scratch—taking on the full lifecycle: researching user behaviors, designing the high-accessibility visual layers, and writing the complete implementation. The resulting platform features a clean catalog of standard, LGBT, and picante titles, complete with direct payment webhook integrations (Cakto, Lowify) and token-secured video streaming from Bunny CDN.
       </p>
     </section>
   );

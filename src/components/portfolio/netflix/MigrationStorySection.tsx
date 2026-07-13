@@ -7,14 +7,14 @@ export function MigrationStorySection() {
   return (
     <CaseStudySection eyebrow="Migration Case" index={2} title="Migrating Supabase to Neon & JWT">
       <p>
-        The defining engineering challenge of this project was migrating the database layer and authentication strategy away from Supabase to achieve lower latency, better connection pooling, and simpler data query logic.
+        I designed and built the entire streaming platform architecture from scratch. As user demand expanded, refactoring the database layer and authentication strategy away from Supabase was a conscious design decision to scale performance.
       </p>
 
       <div className="grid md:grid-cols-2 gap-8 my-6">
         {/* Supabase - Before */}
         <div className="rounded-xl border border-destructive/20 bg-destructive/[0.01] p-6 space-y-4">
           <div className="flex justify-between items-center">
-            <span className="font-mono text-xs uppercase tracking-wider text-destructive font-semibold">Legacy: Supabase Stack</span>
+            <span className="font-mono text-xs uppercase tracking-wider text-destructive font-semibold">Initial Prototype Stack</span>
             <X className="h-5 w-5 text-destructive" />
           </div>
           <ul className="space-y-3 text-[14px]">
@@ -42,7 +42,7 @@ export function MigrationStorySection() {
         {/* Neon - After */}
         <div className="rounded-xl border border-success/20 bg-success/[0.01] p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 25%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 2%, transparent)' }}>
           <div className="flex justify-between items-center">
-            <span className="font-mono text-xs uppercase tracking-wider font-semibold" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>Target: Neon + JWT Stack</span>
+            <span className="font-mono text-xs uppercase tracking-wider font-semibold" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>Scaling Architecture</span>
             <Check className="h-5 w-5" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} />
           </div>
           <ul className="space-y-3 text-[14px]">
