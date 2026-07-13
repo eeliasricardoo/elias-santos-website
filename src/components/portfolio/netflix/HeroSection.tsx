@@ -6,12 +6,12 @@ export function HeroSection() {
   return (
     <CaseStudyHero
       brand="red"
-      badge="UX Engineering & System Architecture Case Study"
+      badge="UX/UI & Accessibility Case Study"
       title="DramaFlix"
-      subtitle="A premium video streaming platform migrated from Supabase to a custom Neon Postgres + serverless JWT architecture, optimizing data lookup speed by 15,000x and reducing hosting costs by 92%."
+      subtitle="A premium video streaming platform designed from scratch with a rigorous focus on accessibility for older adults. Engineered with oversized buttons, simplified visual paths, and a serverless architecture actively supporting 300 concurrent users."
       image={{
         src: '/portfolios/netflix/hero-featured.jpg',
-        alt: 'DramaFlix streaming interface showcase'
+        alt: 'DramaFlix accessible streaming platform'
       }}
       video={{
         src: '/portfolios/netflix/a_da_ca_fba_dmp_.mp4'

@@ -17,9 +17,9 @@ export function DesignSystemSection() {
               <Palette className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">Chromatic Tokens in OKLCH</h5>
+              <h5 className="font-mono text-sm font-semibold text-foreground">High-Contrast Readability</h5>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
-                Colors are defined in OKLCH to allow predictable alpha blending (e.g., <code className="text-foreground">bg-primary/15</code> for catalog row indicators) and uniform contrast. The obsidian backdrop and pure white accent button replicate standard high-contrast theatrical streaming styles.
+                Colors are defined in OKLCH to ensure predictable high-contrast ratios. The deep obsidian backdrop combined with crisp white fonts complies with WCAG AA guidelines, reducing eye strain and aiding legibility for senior users.
               </p>
             </div>
           </div>
@@ -29,9 +29,9 @@ export function DesignSystemSection() {
               <Layers className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">Content Categorization Badges</h5>
+              <h5 className="font-mono text-sm font-semibold text-foreground">Oversized Touch Targets</h5>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
-                Visual tags identify categories like standard content, LGBT themes, and +18 content (using the signature <code className="text-foreground">--picante</code> gradient). Keeping colors mapped semantically ensures modification of actions doesn't break content tags.
+                All primary interface buttons, interactive cards, and navigation drawer links enforce a minimum target size of 48px. This accommodates natural motor skill decline and completely eliminates accidental misclicks.
               </p>
             </div>
           </div>

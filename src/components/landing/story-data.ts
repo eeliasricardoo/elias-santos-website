@@ -117,17 +117,27 @@ export interface StoryProject {
 // color" language reads consistently across the site. Cycles if there are
 // ever more projects than colors.
 export const PROJECT_ACCENTS = [
+    '#E50914', // Netflix Red for DramaFlix
     SHELL_ACCENTS.command, // amber
     SHELL_ACCENTS.value, // cyan
     SHELL_ACCENTS.error, // coral
     SHELL_ACCENTS.success, // green
     '#B79FD9', // violet — the one hue outside the shell palette
-    '#E50914', // Netflix Red for DramaFlix
 ] as const;
 
 export const STORY_PROJECTS: readonly StoryProject[] = [
     {
         index: '01',
+        title: 'DramaFlix',
+        description:
+            'A premium streaming platform focused on accessibility for older adults. Designed with oversized touch targets and a serverless stack supporting 300 concurrent users.',
+        tags: ['UX/UI Design', 'Accessibility', 'Design System', 'React 19'],
+        link: '/portfolio/netflix',
+        image: '/portfolios/netflix/hero-featured.jpg',
+        metric: '300 active users',
+    },
+    {
+        index: '02',
         title: 'EmailFlow Pro',
         description:
             'Campaign emails at Serasa Experian took 80 minutes of manual code. I built the tool that cut it to 10.',
@@ -137,7 +147,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: '80min → 10min',
     },
     {
-        index: '02',
+        index: '03',
         title: 'Ranking Engine',
         description:
             'Gamification for an EdTech platform — live leaderboards built with SSR and caching to survive launch day.',
@@ -147,7 +157,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: null,
     },
     {
-        index: '03',
+        index: '04',
         title: 'Support Queue',
         description:
             'Every ticket landed in the same pile. I researched, designed a priority system, and shipped it.',
@@ -157,7 +167,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: 'avg wait −22%',
     },
     {
-        index: '04',
+        index: '05',
         title: 'EnglishRoom',
         description:
             'A single-screen 1:1 classroom — live video, activities, and notes on one surface, from tokens to WebRTC.',
@@ -167,7 +177,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: 'solo build',
     },
     {
-        index: '05',
+        index: '06',
         title: 'ChatAI Ecosystem',
         description:
             'My personal AI workspace — chat, image analysis and generation. Where I learn patterns before client work.',
@@ -175,15 +185,5 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
         metric: null,
-    },
-    {
-        index: '06',
-        title: 'DramaFlix',
-        description:
-            'A premium streaming platform inspired by Netflix, migrated to serverless Neon DB and custom JWT auth, optimizing lookups by 15,000x and cutting costs by 92%.',
-        tags: ['TanStack Start', 'React 19', 'Neon DB', 'Design System'],
-        link: '/portfolio/netflix',
-        image: '/portfolios/netflix/hero-featured.jpg',
-        metric: 'lookups 15k× faster',
     },
 ] as const;

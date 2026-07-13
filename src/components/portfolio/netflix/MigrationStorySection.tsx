@@ -87,7 +87,7 @@ export function MigrationStorySection() {
             <p className="text-[10px] uppercase font-mono text-muted-foreground">Monthly Cost</p>
           </div>
           <div className="p-3">
-            <p className="text-2xl font-bold text-foreground">15k+</p>
+            <p className="text-2xl font-bold text-foreground">300</p>
             <p className="text-[10px] uppercase font-mono text-muted-foreground">Concurrent Users</p>
           </div>
         </div>
