@@ -118,7 +118,8 @@ export function ScrollStory() {
                 <OutroAct />
             </div>
 
-            {/* Custom cursor over everything */}
+            {/* Film grain + custom cursor over everything */}
+            <div className="er-grain pointer-events-none fixed inset-0 z-[60] opacity-[0.05]" aria-hidden="true" />
             <CursorDot />
         </div>
     );

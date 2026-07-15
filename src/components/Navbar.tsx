@@ -52,8 +52,8 @@ export function Navbar() {
       <nav
         className={`pointer-events-auto flex items-center gap-1 rounded-full border py-2 pl-2 pr-2 transition-all duration-300 ${
           scrolled
-            ? 'border-border/70 bg-background/80 shadow-xl shadow-foreground/20 backdrop-blur-2xl'
-            : 'border-border/40 bg-background/50 shadow-lg shadow-foreground/10 backdrop-blur-xl'
+            ? 'border-border/70 bg-background/80 shadow-xl shadow-black/30 backdrop-blur-2xl'
+            : 'border-border/40 bg-background/50 shadow-lg shadow-black/10 backdrop-blur-xl'
         }`}
       >
         {/* Logo */}

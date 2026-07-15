@@ -168,16 +168,6 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
     },
     {
         index: '05',
-        title: 'EnglishRoom',
-        description:
-            'A single-screen 1:1 classroom — live video, activities, and notes on one surface, from tokens to WebRTC.',
-        tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
-        link: '/portfolio/englishroom',
-        image: '/portfolios/englishroom/landing.webp',
-        metric: 'solo build',
-    },
-    {
-        index: '06',
         title: 'ChatAI Ecosystem',
         description:
             'My personal AI workspace — chat, image analysis and generation. Where I learn patterns before client work.',
