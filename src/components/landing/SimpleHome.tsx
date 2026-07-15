@@ -43,21 +43,21 @@ export function SimpleHome() {
                         <button
                             type="button"
                             onClick={() => scrollTo('work')}
-                            className="hover:text-white transition"
+                            className="hidden sm:inline-flex hover:text-white transition"
                         >
                             WORK
                         </button>
                         <button
                             type="button"
                             onClick={() => scrollTo('about')}
-                            className="hover:text-white transition"
+                            className="hidden sm:inline-flex hover:text-white transition"
                         >
                             ABOUT
                         </button>
                         <button
                             type="button"
                             onClick={() => scrollTo('contact')}
-                            className="hover:text-white transition"
+                            className="hidden sm:inline-flex hover:text-white transition"
                         >
                             CONTACT
                         </button>
@@ -84,7 +84,7 @@ export function SimpleHome() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     
                     {/* Left Column - Content */}
-                    <div className="lg:col-span-8 flex flex-col gap-6">
+                    <div className="lg:col-span-8 flex flex-col gap-6 order-2 lg:order-1">
                         <div className="flex items-center gap-3 text-xs font-mono tracking-widest text-zinc-500 uppercase">
                             <span>{STORY_IDENTITY.remote}</span>
                             <span>•</span>
@@ -93,7 +93,7 @@ export function SimpleHome() {
                         
                         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl leading-[1.1] text-white">
                             Human intention,<br />
-                            amplified by tech.
+                            amplified by AI.
                         </h1>
 
                         <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
@@ -149,7 +149,7 @@ export function SimpleHome() {
                     </div>
 
                     {/* Right Column - Portrait */}
-                    <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-end">
+                    <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-end order-1 lg:order-2">
                         <div className="w-full max-w-[280px] sm:max-w-[320px] aspect-square overflow-hidden rounded-lg border border-zinc-850 bg-zinc-950">
                             <img
                                 src="/profile-photo.webp"
@@ -252,14 +252,14 @@ export function SimpleHome() {
                                             ))}
                                         </div>
 
-                                        <div className="mt-4">
-                                            <a
-                                                href={project.link}
-                                                className="inline-flex items-center gap-1.5 text-sm font-medium text-white hover:text-zinc-300 transition group"
+                                        <div className="mt-6">
+                                            <ShinyButton
+                                                onClick={() => window.location.href = project.link}
+                                                className="flex items-center gap-1.5"
                                             >
-                                                View Case Study 
-                                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                            </a>
+                                                View Case Study
+                                                <ArrowRight className="h-3.5 w-3.5" />
+                                            </ShinyButton>
                                         </div>
                                     </div>
                                 </div>
@@ -279,13 +279,13 @@ export function SimpleHome() {
                         <div className="lg:col-span-7 flex flex-col gap-6">
                             <p className="text-xs font-mono tracking-widest text-zinc-500 uppercase">// ABOUT THE HUMAN</p>
                             <h3 className="text-3xl font-bold tracking-tight text-white">
-                                Human intention, amplified by tech.
+                                Human intention, amplified by AI.
                             </h3>
                             <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
-                                I am a Product Designer and UX Engineer who codes. Over the years, I&apos;ve designed complex software and written high-quality frontend code for global startups and enterprises. I believe great products are born from rapid design prototyping, deep user research, and sound frontend architecture.
+                                Today, anyone can generate a user interface with AI in seconds. But a great product needs direction, clear design, and real user empathy. To me, &quot;Human intention, amplified by AI&quot; means using technology to build faster, but keeping human vision in control.
                             </p>
                             <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
-                                Currently based in Brazil and working remotely worldwide. I run lightweight, collaborative design sessions and craft component libraries that keep teams moving fast.
+                                Outside of work, I love travel and new adventures. I pay close attention to details and I am always open to change. I love learning about new AI tools, and I really have fun doing this every day.
                             </p>
                         </div>
 
