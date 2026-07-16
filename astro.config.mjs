@@ -64,7 +64,7 @@ function fontPreloadIntegration() {
 // https://astro.build/config
 export default defineConfig({
   // Site URL for canonical URLs and SEO (update with your actual domain)
-  site: 'https://eliasricardo.com',
+  site: 'https://eeliasricardoo.com',
 
   integrations: [react(), sitemap(), fontPreloadIntegration()],
 

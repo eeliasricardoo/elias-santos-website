@@ -1,7 +1,7 @@
 # meu-site
 > **Senior UX Engineer Portfolio · AI as pair, never pilot.**
 
-[eliasricardo.com](https://eliasricardo.com) · [LinkedIn](https://linkedin.com/in/eeliasricardoo) · [Calendly](https://calendly.com/eeliasricardoo) · [Email](mailto:eeliasricardoo@gmail.com)
+[eeliasricardoo.com](https://eeliasricardoo.com) · [LinkedIn](https://linkedin.com/in/eeliasricardoo) · [Calendly](https://calendly.com/eeliasricardoo) · [Email](mailto:eeliasricardoo@gmail.com)
 
 ---
 
@@ -90,4 +90,4 @@ I am open to Senior UX Engineering roles and contract work worldwide. Let's disc
 * **🗓️ Schedule a Call:** [Calendly](https://calendly.com/eeliasricardoo)
 * **💼 LinkedIn:** [/in/eeliasricardoo](https://linkedin.com/in/eeliasricardoo)
 * **✉️ Direct Email:** [eeliasricardoo@gmail.com](mailto:eeliasricardoo@gmail.com)
-* **📄 Download Resume (PDF):** [Resume](https://eliasricardo.com/resume.pdf)
+* **📄 Download Resume (PDF):** [Resume](https://eeliasricardoo.com/resume.pdf)

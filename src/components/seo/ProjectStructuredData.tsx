@@ -28,17 +28,17 @@ export function ProjectStructuredData({
     '@type': 'CreativeWork',
     name,
     description,
-    image: image.startsWith('http') ? image : `https://eliasricardo.com${image}`,
-    url: url.startsWith('http') ? url : `https://eliasricardo.com${url}`,
+    image: image.startsWith('http') ? image : `https://eeliasricardoo.com${image}`,
+    url: url.startsWith('http') ? url : `https://eeliasricardoo.com${url}`,
     author: {
       '@type': 'Person',
       name: author,
-      url: 'https://eliasricardo.com',
+      url: 'https://eeliasricardoo.com',
     },
     creator: {
       '@type': 'Person',
       name: author,
-      url: 'https://eliasricardo.com',
+      url: 'https://eeliasricardoo.com',
     },
     datePublished,
     ...(dateModified && { dateModified }),
@@ -51,7 +51,7 @@ export function ProjectStructuredData({
     isPartOf: {
       '@type': 'CollectionPage',
       name: 'Portfolio de Projetos',
-      url: 'https://eliasricardo.com/portfolio',
+      url: 'https://eeliasricardoo.com/portfolio',
     },
   };
 

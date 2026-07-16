@@ -1,7 +1,7 @@
 export const SEO_CONFIG = {
   site: {
     name: 'Elias Ricardo',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eliasricardo.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eeliasricardoo.com',
     description:
       'Senior UX Engineer — research, interface design, and production React code. Case studies with measured outcomes at Serasa Experian and EdTech.',
     author: 'Elias Ricardo',
@@ -95,8 +95,8 @@ export const SEO_CONFIG = {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Elias Ricardo',
-      url: 'https://eliasricardo.com',
-      image: 'https://eliasricardo.com/profile-photo.webp',
+      url: 'https://eeliasricardoo.com',
+      image: 'https://eeliasricardoo.com/profile-photo.webp',
       sameAs: [
         'https://linkedin.com/in/eeliasricardoo',
         'https://github.com/eliassantos',
@@ -126,7 +126,7 @@ export const SEO_CONFIG = {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Elias Ricardo Portfolio',
-      url: 'https://eliasricardo.com',
+      url: 'https://eeliasricardoo.com',
       description: 'Professional portfolio of Elias Ricardo',
       author: {
         '@type': 'Person',
