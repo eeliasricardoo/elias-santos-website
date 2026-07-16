@@ -10,6 +10,7 @@ import {
     useReducedMotion,
 } from 'framer-motion';
 import { STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from './story-data';
+import { ProjectWireframe } from '@/components/portfolio/ui';
 
 /**
  * Every case cover gets the same treatment: charcoal panel with a dot
@@ -56,7 +57,7 @@ function CaseCover({ project, accent }: { project: StoryProject; accent: string 
             {/* Browser frame — slides up slightly on hover */}
             <div
                 className="absolute bottom-0 left-[9%] right-[9%] top-[16%] flex flex-col overflow-hidden rounded-t-lg border border-b-0 shadow-2xl transition-transform duration-500 ease-out group-hover:-translate-y-2"
-                style={{ borderColor: 'var(--er-ink-line)', background: 'var(--er-ink-soft)' }}
+                style={{ borderColor: '#e5e5e5', background: '#ffffff' }}
             >
                 {/* Accent rule */}
                 <div className="h-[3px] w-full shrink-0" style={{ background: accent }} />
@@ -64,7 +65,7 @@ function CaseCover({ project, accent }: { project: StoryProject; accent: string 
                 {/* Chrome bar */}
                 <div
                     className="flex items-center gap-1.5 border-b px-3 py-2"
-                    style={{ borderColor: 'var(--er-ink-line)' }}
+                    style={{ borderColor: '#e5e5e5' }}
                 >
                     {[0, 1, 2].map((d) => (
                         <span
@@ -82,12 +83,9 @@ function CaseCover({ project, accent }: { project: StoryProject; accent: string 
                 </div>
 
                 <div className="relative min-h-0 flex-1 overflow-hidden">
-                    <img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover object-top brightness-95 contrast-[1.05] grayscale-[45%] transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
+                    <ProjectWireframe 
+                        title={project.title} 
+                        accent={accent} 
                     />
 
                     {/* View-project overlay — the click affordance the flat screenshot lacked */}

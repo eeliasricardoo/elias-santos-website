@@ -5,6 +5,7 @@ import { Mail, Github, Linkedin, Calendar, ExternalLink, ArrowRight, Check, Copy
 import { STORY_IDENTITY, STORY_PROJECTS, STORY_COMPANIES, STORY_STATS, PROJECT_ACCENTS } from './story-data';
 import { Button } from '@/components/ui/button';
 import { ShinyButton } from '@/components/magicui/shiny-button';
+import { ProjectWireframe } from '@/components/portfolio/ui';
 
 export function SimpleHome() {
     const [copied, setCopied] = useState(false);
@@ -209,14 +210,9 @@ export function SimpleHome() {
                                     key={project.index}
                                     className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
                                 >
-                                    {/* Left: Simple screenshot with border */}
-                                    <div className="lg:col-span-6 group relative overflow-hidden rounded-lg border border-zinc-900 bg-zinc-950 aspect-[16/10]">
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            loading="lazy"
-                                            className="h-full w-full object-cover object-top brightness-[0.9] transition-transform duration-505 group-hover:scale-[1.01] group-hover:brightness-100 grayscale hover:grayscale-0"
-                                        />
+                                    {/* Left: Coded wireframe mockup */}
+                                    <div className="lg:col-span-6 group relative overflow-hidden rounded-lg border border-neutral-200 bg-white aspect-[16/10]">
+                                        <ProjectWireframe title={project.title} accent={accentColor} />
                                     </div>
 
                                     {/* Right: Project details */}

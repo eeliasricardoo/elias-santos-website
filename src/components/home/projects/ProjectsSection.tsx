@@ -5,6 +5,7 @@ import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { OptimizedImage } from '@/components/performance/OptimizedImage';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { ProjectWireframe } from '@/components/portfolio/ui';
 
 const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
@@ -162,14 +163,10 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
               />
               {/* Screenshot as floating mockup */}
               <div className="relative z-10 w-full max-w-md">
-                <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700">
-                  <OptimizedImage
-                    src={project.image}
-                    alt={project.title}
-                    width={project.width}
-                    height={project.height}
-                    className="w-full h-full object-cover object-top"
-                    lazy={true}
+                <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700 aspect-[16/10]">
+                  <ProjectWireframe
+                    title={project.title}
+                    accent={color.accent}
                   />
                 </div>
               </div>

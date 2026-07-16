@@ -16,3 +16,4 @@ export { CaseStudySection } from './CaseStudySection';
 export { MetricsGrid, type MetricItem } from './MetricsGrid';
 export { CaseFigure } from './CaseFigure';
 export { BrowserFrame } from './BrowserFrame';
+export { ProjectWireframe } from './ProjectWireframe';
