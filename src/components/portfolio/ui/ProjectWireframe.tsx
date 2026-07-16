@@ -1,25 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { 
-    Play, 
-    Sparkles, 
-    MessageSquare, 
-    Send, 
-    Plus, 
-    Layers, 
-    Type, 
-    Image as ImageIcon, 
-    Video, 
-    Users, 
-    Check, 
-    Tv, 
+import {
+    Play,
+    Plus,
+    Sparkles,
+    Send,
+    Type,
+    Image as ImageIcon,
     MousePointer,
-    FileText,
-    TrendingUp,
-    PhoneCall,
+    Video,
+    Star,
     Terminal,
-    ArrowRight
+    ArrowRight,
+    ArrowUp,
+    Search,
 } from 'lucide-react';
 
 interface ProjectWireframeProps {
@@ -40,81 +34,126 @@ function getProjectKey(title: string): string {
     return 'generic';
 }
 
-export function ProjectWireframe({ title, accent = 'var(--accent, #7FB0C4)', className }: ProjectWireframeProps) {
-    const key = getProjectKey(title);
+// Dark app-window shell shared by every mock. Matches the black/zinc site
+// theme so covers read as product screenshots, not pasted-in wireframes.
+const SHELL =
+    'relative flex h-full min-h-[220px] w-full select-none flex-col overflow-hidden bg-[#0a0a0b] font-sans text-zinc-400 antialiased';
 
-    // Clean light grey border and white paper bg. No black borders or dark modules inside.
-    const containerClasses = "relative w-full h-full min-h-[220px] select-none overflow-hidden bg-white border border-neutral-200 font-sans text-neutral-500 shadow-sm";
-    
-    // Clean blueprint-style grid line background (hashtag/grid effect)
-    const LineGrid = () => (
-        <div 
-            className="absolute inset-0 pointer-events-none opacity-20"
+/** Faint blueprint grid, dark edition. */
+function GridOverlay() {
+    return (
+        <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
             style={{
-                backgroundImage: `
-                    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
-                `,
-                backgroundSize: '16px 16px',
+                backgroundImage:
+                    'linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px)',
+                backgroundSize: '24px 24px',
             }}
         />
     );
+}
 
-    // 1. DramaFlix Wireframe (Accessibility Streaming TV App)
+/** Soft radial accent glow anchored behind each mock's focal point. */
+function Glow({ accent, className = '' }: { accent: string; className?: string }) {
+    return (
+        <div
+            aria-hidden
+            className={`pointer-events-none absolute rounded-full blur-2xl ${className}`}
+            style={{ background: `radial-gradient(closest-side, ${accent}2e, transparent)` }}
+        />
+    );
+}
+
+/** macOS-style title bar that frames every mock as a real app window. */
+function WindowChrome({ label }: { label: string }) {
+    return (
+        <div className="relative z-10 flex h-7 shrink-0 items-center border-b border-white/[0.06] bg-white/[0.02] px-2.5">
+            <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-zinc-800" />
+                <span className="h-2 w-2 rounded-full bg-zinc-800" />
+                <span className="h-2 w-2 rounded-full bg-zinc-800" />
+            </div>
+            <span className="absolute left-1/2 -translate-x-1/2 rounded border border-white/[0.06] bg-black/40 px-2 py-px font-mono text-[8px] tracking-wider text-zinc-500">
+                {label}
+            </span>
+        </div>
+    );
+}
+
+/** Skeleton text line. Tone via className (defaults to a quiet fill). */
+function Bar({ className = '' }: { className?: string }) {
+    return <div className={`rounded-full bg-white/10 ${className}`} />;
+}
+
+export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: ProjectWireframeProps) {
+    const key = getProjectKey(title);
+    const shell = `${SHELL} ${className}`;
+
+    // 1. DramaFlix — streaming for older adults: oversized targets, visible focus.
     if (key === 'dramafix') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                {/* Navbar */}
-                <div className="absolute top-0 left-0 right-0 h-9 border-b border-neutral-200 bg-white/95 backdrop-blur-sm flex items-center justify-between px-3 z-10">
-                    <div className="flex items-center gap-2">
-                        <Tv className="w-4 h-4" style={{ color: accent }} />
-                        <span className="text-[10px] font-bold tracking-wider" style={{ color: accent }}>DRAMAFLIX</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                        <div className="h-1.5 w-8 rounded bg-neutral-100" />
-                        <div className="h-1.5 w-8 rounded bg-neutral-100" />
-                        <div className="px-1.5 py-0.5 rounded text-[8px] border border-neutral-200 bg-neutral-50 font-mono scale-90 text-neutral-400 font-semibold shadow-sm">ACCESSIBILITY: ON</div>
-                    </div>
-                </div>
-
-                {/* Main Content */}
-                <div className="pt-10 p-3 h-full flex flex-col gap-2.5">
-                    {/* Hero Movie Banner */}
-                    <div className="relative flex-1 rounded border border-neutral-200 bg-neutral-50/40 overflow-hidden p-3 flex flex-col justify-end shadow-sm">
-                        <div className="absolute right-3 top-3 w-6 h-6 rounded-full border border-neutral-200 bg-white flex items-center justify-center shadow-sm">
-                            <Play className="w-3 h-3 fill-neutral-650 text-neutral-600 translate-x-0.5" />
-                        </div>
-                        <div className="flex flex-col gap-1.5 max-w-[70%]">
-                            <div className="h-3 rounded bg-neutral-300 w-2/3" />
-                            <div className="h-1.5 rounded bg-neutral-200 w-full" />
-                            <div className="h-1.5 rounded bg-neutral-200 w-5/6" />
-                        </div>
-                        {/* Play Button - Large High-contrast target */}
-                        <div 
-                            className="absolute right-3 bottom-3 px-3 py-1.5 rounded font-bold text-[9px] tracking-wider text-white flex items-center gap-1 shadow-sm transition-transform duration-300 group-hover:scale-105"
-                            style={{ backgroundColor: accent }}
-                        >
-                            <Play className="w-2.5 h-2.5 fill-white text-white" />
-                            WATCH
-                        </div>
-                    </div>
-
-                    {/* Movie Row */}
-                    <div className="h-14 flex gap-2">
-                        {[1, 2, 3, 4].map((i) => (
-                            <div 
-                                key={i} 
-                                className="flex-1 rounded border border-neutral-200 bg-white relative overflow-hidden group-hover:border-neutral-300 transition-colors shadow-sm"
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="dramaflix.app" />
+                <div className="relative z-10 flex flex-1 flex-col gap-2.5 p-3">
+                    {/* App nav */}
+                    <div className="flex shrink-0 items-center justify-between">
+                        <span className="text-[10px] font-black tracking-[0.22em]" style={{ color: accent }}>
+                            DRAMAFLIX
+                        </span>
+                        <div className="flex items-center gap-2.5">
+                            <Bar className="h-1 w-7" />
+                            <Bar className="h-1 w-7" />
+                            <span
+                                className="rounded-sm border px-1.5 py-0.5 font-mono text-[7px] font-semibold tracking-widest"
+                                style={{ borderColor: `${accent}66`, color: accent }}
                             >
-                                <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                                    <Play className="w-4 h-4 text-neutral-400" />
-                                </div>
-                                <div className="absolute bottom-1.5 left-1 right-1 h-1.5 rounded bg-neutral-100" />
-                                {/* Accessibility indicator highlight on the first card */}
-                                {i === 1 && (
-                                    <div className="absolute inset-0 border-2 animate-pulse shadow-sm" style={{ borderColor: accent }} />
+                                A11Y ON
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Billboard */}
+                    <div className="relative flex-1 overflow-hidden rounded-md border border-white/[0.07] bg-gradient-to-tr from-white/[0.06] via-white/[0.02] to-transparent p-3">
+                        <Glow accent={accent} className="-right-12 -top-16 h-48 w-48" />
+                        <div className="flex h-full flex-col justify-end gap-1.5">
+                            <span className="font-mono text-[7px] tracking-[0.3em] text-zinc-500">SEASON 1 · EPISODE 4</span>
+                            <div className="h-2.5 w-28 rounded-sm bg-white/25" />
+                            <div className="h-1.5 w-36 rounded-sm bg-white/10" />
+                            <div className="mt-1.5 flex items-center gap-2">
+                                <span
+                                    className="flex items-center gap-1.5 rounded px-3 py-1.5 text-[9px] font-bold tracking-wide text-white shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5"
+                                    style={{ backgroundColor: accent }}
+                                >
+                                    <Play className="h-2.5 w-2.5 fill-current" />
+                                    WATCH NOW
+                                </span>
+                                <span className="rounded border border-white/15 px-2 py-1.5 font-mono text-[8px] text-zinc-300">
+                                    + MY LIST
+                                </span>
+                                <span className="ml-auto hidden items-center gap-1 font-mono text-[8px] text-zinc-600 sm:flex">
+                                    TEXT SIZE
+                                    <span className="text-zinc-500">A</span>
+                                    <span className="text-zinc-400">A</span>
+                                    <span className="text-[10px] text-zinc-200">A</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Poster row — first card carries the TV focus ring */}
+                    <div className="flex h-14 shrink-0 gap-2">
+                        {[0, 1, 2, 3].map((i) => (
+                            <div
+                                key={i}
+                                className="relative flex-1 overflow-hidden rounded-md border border-white/[0.07] bg-white/[0.04]"
+                                style={i === 0 ? { boxShadow: `0 0 0 1.5px ${accent}, 0 0 18px ${accent}40` } : undefined}
+                            >
+                                {i === 0 && (
+                                    <Play className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 text-zinc-300" />
                                 )}
+                                <div className="absolute inset-x-1.5 bottom-1.5 h-1 rounded-full bg-white/10" />
                             </div>
                         ))}
                     </div>
@@ -123,161 +162,162 @@ export function ProjectWireframe({ title, accent = 'var(--accent, #7FB0C4)', cla
         );
     }
 
-    // 2. EmailFlow Pro (Visual SFMC Drag-and-Drop Builder)
+    // 2. EmailFlow Pro — drag-and-drop SFMC builder with an AI copy panel.
     if (key === 'emailflow') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                {/* Visual Workspace Grid */}
-                <div className="absolute inset-0 flex">
-                    {/* Left Sidebar - Design Blocks */}
-                    <div className="w-16 border-r border-neutral-200 bg-neutral-50/80 p-1.5 flex flex-col gap-1.5 z-10">
-                        <div className="text-[7px] font-mono tracking-wider text-neutral-400 uppercase mb-1">BLOCKS</div>
-                        <div className="h-6 rounded border border-neutral-200 bg-white flex flex-col items-center justify-center gap-0.5 text-[6px] shadow-sm">
-                            <Type className="w-2.5 h-2.5 text-neutral-500" />
-                            <span className="text-neutral-400 font-medium">TEXT</span>
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="emailflow — sfmc" />
+                <div className="relative z-10 flex flex-1 overflow-hidden">
+                    {/* Blocks palette */}
+                    <div className="flex w-16 shrink-0 flex-col gap-1.5 border-r border-white/[0.06] bg-white/[0.02] p-2">
+                        <span className="font-mono text-[7px] tracking-[0.2em] text-zinc-600">BLOCKS</span>
+                        <div className="flex h-7 flex-col items-center justify-center gap-0.5 rounded border border-white/[0.08] bg-white/[0.03] text-zinc-500">
+                            <Type className="h-2.5 w-2.5" />
+                            <span className="text-[6px] font-medium tracking-wider">TEXT</span>
                         </div>
-                        <div className="h-6 rounded border border-neutral-200 bg-white flex flex-col items-center justify-center gap-0.5 text-[6px] text-neutral-400 shadow-sm">
-                            <ImageIcon className="w-2.5 h-2.5 text-neutral-450" />
-                            <span>IMAGE</span>
+                        <div className="flex h-7 flex-col items-center justify-center gap-0.5 rounded border border-white/[0.08] bg-white/[0.03] text-zinc-500">
+                            <ImageIcon className="h-2.5 w-2.5" />
+                            <span className="text-[6px] font-medium tracking-wider">IMAGE</span>
                         </div>
-                        <div 
-                            className="h-6 rounded border bg-white flex flex-col items-center justify-center gap-0.5 text-[6px] transition-colors shadow-sm font-semibold"
-                            style={{ borderColor: accent, color: accent }}
+                        <div
+                            className="flex h-7 flex-col items-center justify-center gap-0.5 rounded border bg-white/[0.03] font-semibold transition-transform duration-500 group-hover:-translate-y-0.5"
+                            style={{ borderColor: accent, color: accent, boxShadow: `0 0 14px ${accent}33` }}
                         >
-                            <Layers className="w-2.5 h-2.5" />
-                            <span>BUTTON</span>
+                            <MousePointer className="h-2.5 w-2.5" />
+                            <span className="text-[6px] tracking-wider">BUTTON</span>
                         </div>
                     </div>
 
-                    {/* Center - Email Builder Canvas */}
-                    <div className="flex-1 p-2 flex flex-col items-center justify-center overflow-hidden">
-                        <div className="w-40 border border-neutral-200 bg-white rounded flex flex-col shadow-sm overflow-hidden scale-95 origin-center">
-                            {/* Email Header */}
-                            <div className="h-4 border-b border-neutral-200 bg-neutral-50/20 flex items-center justify-center px-2">
-                                <div className="h-1 rounded bg-neutral-200 w-12" />
+                    {/* Canvas — the email itself stays light, like a real client */}
+                    <div className="relative flex flex-1 items-center justify-center p-3">
+                        <Glow accent={accent} className="-bottom-16 left-1/2 h-44 w-44 -translate-x-1/2" />
+                        <div className="relative w-36 overflow-hidden rounded-md bg-zinc-100 shadow-2xl">
+                            <div className="flex h-4 items-center justify-center border-b border-zinc-200 bg-white">
+                                <div className="h-1 w-12 rounded-full bg-zinc-300" />
                             </div>
-                            
-                            {/* Email Hero Image */}
-                            <div className="h-12 border-b border-neutral-200 bg-neutral-50/10 relative flex items-center justify-center">
-                                <div className="absolute inset-0 border border-neutral-200 m-1 flex items-center justify-center text-[7px] text-neutral-300">
-                                    <ImageIcon className="w-4 h-4 opacity-20" />
-                                </div>
+                            <div className="flex h-11 items-center justify-center border-b border-zinc-200 bg-zinc-200/60">
+                                <ImageIcon className="h-3.5 w-3.5 text-zinc-400" />
                             </div>
-
-                            {/* Email Text Body */}
-                            <div className="p-2 flex flex-col gap-1">
-                                <div className="h-1.5 rounded bg-neutral-200 w-full" />
-                                <div className="h-1.5 rounded bg-neutral-150 w-5/6" />
+                            <div className="flex flex-col gap-1 p-2">
+                                <div className="h-1.5 w-full rounded-full bg-zinc-300" />
+                                <div className="h-1.5 w-5/6 rounded-full bg-zinc-200" />
                             </div>
-
-                            {/* Selected CTA Button being edited */}
-                            <div className="p-1.5 pt-0 flex justify-center relative">
-                                <div 
-                                    className="px-4 py-1 text-[7px] font-bold rounded flex items-center justify-center text-white shadow-sm"
+                            <div className="relative flex justify-center px-2 pb-2.5">
+                                <span
+                                    className="rounded px-3.5 py-1 text-[7px] font-bold tracking-wide text-white"
                                     style={{ backgroundColor: accent }}
                                 >
-                                    CLICK HERE
-                                </div>
-                                <div className="absolute -right-1 top-0 w-2 h-2 rounded bg-neutral-100 border border-neutral-300 shadow-sm" />
+                                    CLAIM OFFER
+                                </span>
+                                <span
+                                    className="absolute -top-1 right-1 rounded-sm px-1 py-px font-mono text-[6px] font-semibold text-black"
+                                    style={{ backgroundColor: accent }}
+                                >
+                                    BUTTON
+                                </span>
+                                <span
+                                    className="pointer-events-none absolute inset-x-4 -inset-y-0.5 rounded border border-dashed"
+                                    style={{ borderColor: `${accent}88` }}
+                                />
                             </div>
                         </div>
                     </div>
 
-                    {/* Floating AI Panel */}
-                    <div className="absolute right-2 top-2 bottom-2 w-24 rounded border border-neutral-200 bg-white/95 backdrop-blur-sm p-1.5 flex flex-col gap-1.5 z-10 shadow-md transition-transform duration-300 group-hover:-translate-x-1">
-                        <div className="flex items-center gap-1 text-[7px] font-bold text-neutral-700">
-                            <Sparkles className="w-2.5 h-2.5 text-amber-500 fill-amber-500" />
-                            <span>AI TOOL</span>
+                    {/* AI copy panel */}
+                    <div className="flex w-[88px] shrink-0 flex-col gap-1.5 border-l border-white/[0.06] bg-white/[0.02] p-2">
+                        <span className="flex items-center gap-1 font-mono text-[7px] tracking-[0.2em] text-zinc-500">
+                            <Sparkles className="h-2 w-2" style={{ color: accent }} />
+                            AI COPY
+                        </span>
+                        <div
+                            className="rounded border bg-black/40 p-1.5 text-[7px] leading-snug text-zinc-300"
+                            style={{ borderColor: `${accent}55` }}
+                        >
+                            &ldquo;Claim your offer today&rdquo;
                         </div>
-                        <div className="h-[1px] bg-neutral-150 w-full" />
-                        <div className="flex-1 flex flex-col gap-1 overflow-hidden">
-                            <div className="text-[6px] bg-neutral-50 border border-neutral-200 p-1 rounded leading-normal text-neutral-500 font-medium">
-                                &quot;Claim your offer today&quot;
-                            </div>
-                            <div className="text-[6px] bg-neutral-50/40 border border-dashed border-neutral-200 p-1 rounded scale-95 text-neutral-450">
-                                &quot;Get my discount&quot;
-                            </div>
+                        <div className="rounded border border-white/[0.08] bg-black/20 p-1.5 text-[7px] leading-snug text-zinc-600">
+                            &ldquo;Get my discount&rdquo;
                         </div>
-                        <div 
-                            className="h-3.5 rounded flex items-center justify-center text-[6px] font-bold text-white font-mono cursor-pointer shadow-sm animate-pulse"
+                        <span
+                            className="mt-auto rounded py-1 text-center text-[7px] font-bold tracking-widest text-white transition-transform duration-500 group-hover:-translate-y-0.5"
                             style={{ backgroundColor: accent }}
                         >
                             APPLY
-                        </div>
+                        </span>
                     </div>
                 </div>
             </div>
         );
     }
 
-    // 3. EnglishRoom Wireframe (WebRTC Classroom)
+    // 3. EnglishRoom — WebRTC classroom: video feeds + shared whiteboard.
     if (key === 'englishroom') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                <div className="absolute inset-0 flex p-2 gap-2">
-                    {/* Left Column - Video Feeds */}
-                    <div className="w-[35%] flex flex-col gap-2">
-                        {/* Teacher Box */}
-                        <div className="flex-1 rounded border border-neutral-200 bg-neutral-50 relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
-                            <Video className="w-5 h-5 opacity-20 text-neutral-400" />
-                            {/* WebRTC Indicator badge */}
-                            <div className="absolute left-1.5 top-1.5 flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 absolute" />
-                                <span className="text-[6px] font-bold font-mono text-neutral-500 scale-90">TEACHER</span>
-                            </div>
-                            <div className="absolute bottom-1 left-1.5 h-2 w-16 bg-white border border-neutral-200 rounded flex items-center px-1 shadow-sm">
-                                <div className="h-0.5 rounded bg-neutral-300 w-10" />
-                            </div>
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="englishroom.live" />
+                <div className="relative z-10 flex flex-1 gap-2 p-2.5">
+                    {/* Video column */}
+                    <div className="flex w-[34%] shrink-0 flex-col gap-2">
+                        <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-md border border-white/[0.08] bg-white/[0.03]">
+                            <Video className="h-4 w-4 text-zinc-700" />
+                            <span className="absolute left-1.5 top-1.5 flex items-center gap-1 font-mono text-[6px] font-semibold tracking-wider text-zinc-400">
+                                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
+                                TEACHER
+                            </span>
+                            <span className="absolute bottom-1.5 right-1.5 flex h-2.5 items-end gap-px">
+                                <span className="w-0.5 rounded-full bg-zinc-500" style={{ height: '40%' }} />
+                                <span className="w-0.5 rounded-full" style={{ height: '100%', backgroundColor: accent }} />
+                                <span className="w-0.5 rounded-full bg-zinc-500" style={{ height: '60%' }} />
+                            </span>
                         </div>
-                        {/* Student Box */}
-                        <div className="flex-1 rounded border border-neutral-200 bg-neutral-50/40 relative overflow-hidden flex flex-col items-center justify-center">
-                            <Video className="w-5 h-5 opacity-15 text-neutral-400" />
-                            <div className="absolute left-1.5 top-1.5 text-[6px] font-mono text-neutral-400">STUDENT</div>
-                            <div className="absolute bottom-1 left-1.5 h-2 w-12 bg-white border border-neutral-200 rounded flex items-center px-1 shadow-sm">
-                                <div className="h-0.5 rounded bg-neutral-300 w-8" />
-                            </div>
-                            {/* Audio wave indicator */}
-                            <div className="absolute right-1.5 bottom-1 flex gap-0.5 items-end h-2">
-                                <div className="w-0.5 h-1 bg-neutral-350 animate-pulse" />
-                                <div className="w-0.5 h-2 bg-neutral-500 animate-pulse" style={{ animationDelay: '0.2s' }} />
-                                <div className="w-0.5 h-1 bg-neutral-350 animate-pulse" style={{ animationDelay: '0.4s' }} />
-                            </div>
+                        <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-md border border-white/[0.06] bg-white/[0.02]">
+                            <Video className="h-4 w-4 text-zinc-800" />
+                            <span className="absolute left-1.5 top-1.5 font-mono text-[6px] tracking-wider text-zinc-600">STUDENT</span>
                         </div>
+                        <span className="text-center font-mono text-[6px] tracking-wider text-zinc-600">RTT 38MS · P2P</span>
                     </div>
 
-                    {/* Right Column - Whiteboard Canvas */}
-                    <div className="flex-1 rounded border border-neutral-200 bg-white p-2 flex flex-col shadow-sm">
-                        <div className="flex items-center justify-between border-b border-neutral-100 pb-1.5 mb-1.5">
-                            <div className="flex items-center gap-1.5">
-                                <div className="h-2 w-2 rounded bg-neutral-100" />
-                                <div className="h-1 rounded bg-neutral-250 w-16" />
-                            </div>
+                    {/* Whiteboard — stays light, like a real board */}
+                    <div className="relative flex flex-1 flex-col overflow-hidden rounded-md bg-zinc-100 shadow-2xl">
+                        <Glow accent={accent} className="-right-14 -top-14 h-40 w-40" />
+                        <div className="flex items-center justify-between border-b border-zinc-200 bg-white px-2 py-1">
+                            <div className="h-1 w-14 rounded-full bg-zinc-300" />
                             <div className="flex gap-1">
-                                <div className="w-2.5 h-2.5 rounded bg-neutral-50 flex items-center justify-center text-[5px] font-bold border border-neutral-200">A</div>
-                                <div className="w-2.5 h-2.5 rounded border flex items-center justify-center text-[5px]" style={{ borderColor: accent, color: accent }}>✏️</div>
+                                <span className="flex h-3 w-3 items-center justify-center rounded-sm border border-zinc-200 bg-white text-[6px] font-bold text-zinc-500">
+                                    A
+                                </span>
+                                <span
+                                    className="flex h-3 w-3 items-center justify-center rounded-sm border text-[6px]"
+                                    style={{ borderColor: accent, color: accent }}
+                                >
+                                    <MousePointer className="h-1.5 w-1.5" />
+                                </span>
                             </div>
                         </div>
-                        
-                        {/* Whiteboard content area */}
-                        <div className="flex-1 relative border border-dashed border-neutral-200 rounded bg-neutral-50/10 flex flex-col items-center justify-center p-2 text-center">
-                            <div className="text-[8px] font-bold tracking-wider text-neutral-700 mb-1">VERB TO BE</div>
-                            <div className="flex gap-2 items-center">
-                                <div className="px-1.5 py-0.5 border border-neutral-200 rounded text-[6px] font-mono bg-white shadow-sm text-neutral-600">I</div>
-                                <span className="text-[6px] text-neutral-350 font-bold">→</span>
-                                <div 
-                                    className="px-2 py-0.5 rounded text-[6px] font-mono text-white font-bold shadow-sm"
+                        <div className="flex flex-1 flex-col items-center justify-center gap-1.5 p-2 text-center">
+                            <span className="text-[9px] font-black tracking-[0.2em] text-zinc-700">VERB TO BE</span>
+                            <div className="flex items-center gap-2">
+                                <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[7px] text-zinc-600 shadow-sm">
+                                    I
+                                </span>
+                                <ArrowRight className="h-2 w-2 text-zinc-400" />
+                                <span
+                                    className="rounded px-2 py-0.5 font-mono text-[7px] font-bold text-white shadow-sm transition-transform duration-500 group-hover:-translate-y-0.5"
                                     style={{ backgroundColor: accent }}
                                 >
                                     AM
-                                </div>
+                                </span>
                             </div>
-                            <div className="flex gap-2 items-center mt-1">
-                                <div className="px-1.5 py-0.5 border border-neutral-200 rounded text-[6px] font-mono bg-white shadow-sm text-neutral-400">YOU</div>
-                                <span className="text-[6px] text-neutral-305">→</span>
-                                <div className="px-2 py-0.5 border border-neutral-200 rounded text-[6px] font-mono text-neutral-500 bg-neutral-50 font-semibold shadow-sm">ARE</div>
+                            <div className="flex items-center gap-2">
+                                <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[7px] text-zinc-500 shadow-sm">
+                                    YOU
+                                </span>
+                                <ArrowRight className="h-2 w-2 text-zinc-300" />
+                                <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[7px] font-semibold text-zinc-600 shadow-sm">
+                                    ARE
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -286,200 +326,179 @@ export function ProjectWireframe({ title, accent = 'var(--accent, #7FB0C4)', cla
         );
     }
 
-    // 4. Ranking Engine Wireframe (Gamification Dashboard) - Spacing and Border fixes
+    // 4. Ranking Engine — live gamification leaderboard.
     if (key === 'ranking') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                <div className="absolute inset-0 p-4 flex flex-col justify-between">
-                    {/* Detailed Podium Area - Heights and padding adjusted to avoid overlap */}
-                    <div className="flex items-end justify-center h-20 gap-3 border-b border-neutral-200 pb-2 shrink-0">
-                        {/* 2nd Place */}
-                        <div className="flex flex-col items-center w-12">
-                            <div className="w-5 h-5 rounded-full border border-neutral-200 bg-white flex items-center justify-center text-[6px] shadow-sm font-bold text-neutral-500">JD</div>
-                            <span className="text-[5px] font-semibold text-neutral-400 mt-0.5">Julia D.</span>
-                            <span className="text-[4px] font-mono text-neutral-450 leading-none">1,920 XP</span>
-                            <div className="w-full bg-neutral-50 border border-neutral-200 rounded-t h-5 flex flex-col justify-between p-0.5 items-center mt-1 shadow-sm">
-                                <span className="text-[6px] font-mono text-neutral-400 font-bold leading-none">2nd</span>
-                                <div className="h-0.5 rounded bg-neutral-200 w-8" />
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="ranking.engine" />
+                <div className="relative z-10 flex flex-1 flex-col gap-2 p-3">
+                    <Glow accent={accent} className="-top-10 left-1/2 h-40 w-56 -translate-x-1/2" />
+
+                    {/* Header */}
+                    <div className="flex shrink-0 items-center justify-between">
+                        <span className="font-mono text-[8px] font-semibold tracking-[0.25em] text-zinc-300">LEADERBOARD</span>
+                        <span className="flex items-center gap-1.5 font-mono text-[7px] tracking-wider text-zinc-500">
+                            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
+                            LIVE · 1,204 ONLINE
+                        </span>
+                    </div>
+
+                    {/* Podium */}
+                    <div className="flex flex-1 items-end justify-center gap-3 border-b border-white/[0.06] pb-2">
+                        {/* 2nd */}
+                        <div className="flex w-14 flex-col items-center gap-1">
+                            <span className="flex h-5 w-5 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-[6px] font-bold text-zinc-400">
+                                JD
+                            </span>
+                            <span className="font-mono text-[6px] text-zinc-500">1,920 XP</span>
+                            <div className="flex h-9 w-full items-start justify-center rounded-t border border-b-0 border-white/[0.08] bg-white/[0.04] pt-1">
+                                <span className="font-mono text-[7px] font-bold text-zinc-500">2</span>
                             </div>
                         </div>
-
-                        {/* 1st Place */}
-                        <div className="flex flex-col items-center w-14 z-10">
-                            {/* Restructuring spacing to keep ER inside card bounds and not touching stat cards */}
-                            <div className="w-7 h-7 rounded-full border bg-white flex items-center justify-center text-[7px] font-bold shadow-sm" style={{ borderColor: accent, color: accent }}>
-                                ER
-                            </div>
-                            <span className="text-[5.5px] font-bold text-neutral-700 mt-0.5">Elias R.</span>
-                            <span className="text-[5px] font-mono font-bold leading-none" style={{ color: accent }}>2,480 XP</span>
-                            <div 
-                                className="w-full rounded-t h-9 flex flex-col justify-between p-0.5 items-center transition-all duration-300 group-hover:-translate-y-0.5 shadow-sm mt-1"
-                                style={{ backgroundColor: `${accent}05`, border: `1px solid ${accent}` }}
+                        {/* 1st */}
+                        <div className="flex w-16 flex-col items-center gap-1">
+                            <span
+                                className="flex h-6 w-6 items-center justify-center rounded-full border bg-black/40 text-[7px] font-bold transition-transform duration-500 group-hover:-translate-y-0.5"
+                                style={{ borderColor: accent, color: accent, boxShadow: `0 0 16px ${accent}44` }}
                             >
-                                <span className="text-[7px] font-mono font-bold leading-none" style={{ color: accent }}>1st</span>
-                                <div className="h-0.5 rounded w-10" style={{ backgroundColor: accent }} />
+                                ER
+                            </span>
+                            <span className="font-mono text-[6.5px] font-bold" style={{ color: accent }}>
+                                2,480 XP
+                            </span>
+                            <div
+                                className="flex h-14 w-full items-start justify-center rounded-t border border-b-0 pt-1"
+                                style={{ borderColor: `${accent}88`, backgroundColor: `${accent}14` }}
+                            >
+                                <span className="font-mono text-[8px] font-black" style={{ color: accent }}>
+                                    1
+                                </span>
                             </div>
                         </div>
-
-                        {/* 3rd Place */}
-                        <div className="flex flex-col items-center w-12">
-                            <div className="w-5 h-5 rounded-full border border-neutral-200 bg-white flex items-center justify-center text-[6px] shadow-sm font-bold text-neutral-500">MT</div>
-                            <span className="text-[5px] font-semibold text-neutral-400 mt-0.5">Marc T.</span>
-                            <span className="text-[4px] font-mono text-neutral-450 leading-none">1,550 XP</span>
-                            <div className="w-full bg-neutral-50 border border-neutral-200 rounded-t h-4 flex flex-col justify-between p-0.5 items-center mt-1 shadow-sm">
-                                <span className="text-[6px] font-mono text-neutral-400 font-bold leading-none">3rd</span>
-                                <div className="h-0.5 rounded bg-neutral-200 w-8" />
+                        {/* 3rd */}
+                        <div className="flex w-14 flex-col items-center gap-1">
+                            <span className="flex h-5 w-5 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-[6px] font-bold text-zinc-400">
+                                MT
+                            </span>
+                            <span className="font-mono text-[6px] text-zinc-500">1,550 XP</span>
+                            <div className="flex h-6 w-full items-start justify-center rounded-t border border-b-0 border-white/[0.08] bg-white/[0.04] pt-1">
+                                <span className="font-mono text-[7px] font-bold text-zinc-500">3</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Table item list (Scroll-like rows) - Spacing optimized */}
-                    <div className="flex-1 flex flex-col gap-1 mt-1 overflow-hidden min-h-0">
-                        {/* Rank 4 */}
-                        <div className="flex items-center justify-between bg-white p-1 px-2 rounded border border-neutral-200 shadow-sm shrink-0">
-                            <div className="flex items-center gap-1.5">
-                                <span className="text-[6px] font-mono text-neutral-400 w-3">4th</span>
-                                <div className="w-4 h-4 rounded-full border border-neutral-200 bg-neutral-50 flex items-center justify-center text-[5.5px] font-bold text-neutral-500">AM</div>
-                                <span className="text-[6px] font-semibold text-neutral-600">Alex M.</span>
+                    {/* Trailing ranks */}
+                    <div className="flex shrink-0 flex-col gap-1">
+                        {[
+                            { rank: '4', initials: 'AM', name: 'Alex M.', xp: '1,240', delta: '2' },
+                            { rank: '5', initials: 'ST', name: 'Sarah T.', xp: '1,150', delta: '1' },
+                        ].map((row) => (
+                            <div
+                                key={row.rank}
+                                className="flex items-center justify-between rounded border border-white/[0.06] bg-white/[0.02] px-2 py-1"
+                            >
+                                <span className="flex items-center gap-1.5">
+                                    <span className="w-2 font-mono text-[7px] text-zinc-600">{row.rank}</span>
+                                    <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[5px] font-bold text-zinc-500">
+                                        {row.initials}
+                                    </span>
+                                    <span className="text-[7px] font-semibold text-zinc-400">{row.name}</span>
+                                </span>
+                                <span className="flex items-center gap-1.5 font-mono text-[6.5px] text-zinc-500">
+                                    {row.xp} XP
+                                    <span className="flex items-center gap-0.5" style={{ color: accent }}>
+                                        <ArrowUp className="h-1.5 w-1.5" />
+                                        {row.delta}
+                                    </span>
+                                </span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[5.5px] font-mono text-neutral-400">1,240 XP</span>
-                                <Check className="w-2.5 h-2.5 text-emerald-500" />
-                            </div>
-                        </div>
-
-                        {/* Rank 5 */}
-                        <div className="flex items-center justify-between bg-white p-1 px-2 rounded border border-neutral-200 shadow-sm shrink-0">
-                            <div className="flex items-center gap-1.5">
-                                <span className="text-[6px] font-mono text-neutral-400 w-3">5th</span>
-                                <div className="w-4 h-4 rounded-full border border-neutral-200 bg-neutral-50 flex items-center justify-center text-[5.5px] font-bold text-neutral-500">ST</div>
-                                <span className="text-[6px] font-semibold text-neutral-600">Sarah T.</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[5.5px] font-mono text-neutral-400">1,150 XP</span>
-                                <Check className="w-2.5 h-2.5 text-emerald-500" />
-                            </div>
-                        </div>
-
-                        {/* Rank 6 (Highlighted User Row) */}
-                        <div 
-                            className="flex items-center justify-between p-1 px-2 rounded border shadow-sm shrink-0 bg-white"
-                            style={{ borderColor: `${accent}30` }}
-                        >
-                            <div className="flex items-center gap-1.5">
-                                <span className="text-[6px] font-mono font-bold w-3" style={{ color: accent }}>6th</span>
-                                <div className="w-4 h-4 rounded-full border bg-neutral-50 flex items-center justify-center text-[5.5px] font-bold" style={{ borderColor: accent, color: accent }}>YO</div>
-                                <span className="text-[6px] font-bold text-neutral-700">You (Visitor)</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[5.5px] font-mono font-bold" style={{ color: accent }}>1,080 XP</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
         );
     }
 
-    // 5. Support Queue Wireframe (Omnichannel Support desk)
+    // 5. Support Queue — triage desk with priorities and SLA.
     if (key === 'support') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                <div className="absolute inset-0 flex">
-                    {/* Left Sidebar - Channels & List */}
-                    <div className="w-20 border-r border-neutral-200 bg-neutral-50/90 flex flex-col">
-                        <div className="p-1 border-b border-neutral-200 flex items-center gap-1 justify-between bg-neutral-100/30">
-                            <div className="h-1.5 rounded bg-neutral-250 w-10" />
-                            <div className="w-1.5 h-1.5 rounded bg-neutral-250" />
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="support — triage" />
+                <div className="relative z-10 flex flex-1 overflow-hidden">
+                    {/* Queue */}
+                    <div className="flex w-24 shrink-0 flex-col gap-1.5 border-r border-white/[0.06] bg-white/[0.02] p-2">
+                        <span className="flex items-center justify-between font-mono text-[7px] tracking-[0.2em] text-zinc-600">
+                            QUEUE
+                            <span className="text-zinc-500">7</span>
+                        </span>
+                        <div
+                            className="flex flex-col gap-1 rounded border bg-black/40 p-1.5 transition-transform duration-500 group-hover:-translate-y-0.5"
+                            style={{ borderColor: `${accent}77`, boxShadow: `0 0 14px ${accent}22` }}
+                        >
+                            <span className="flex items-center justify-between">
+                                <span
+                                    className="rounded-sm px-1 py-px font-mono text-[6px] font-bold text-black"
+                                    style={{ backgroundColor: accent }}
+                                >
+                                    P1
+                                </span>
+                                <span className="font-mono text-[6px]" style={{ color: accent }}>
+                                    0:42
+                                </span>
+                            </span>
+                            <span className="text-[7px] font-semibold leading-tight text-zinc-300">Payment failed</span>
                         </div>
-                        <div className="flex-1 flex flex-col gap-1.5 p-1 overflow-hidden">
-                            {/* Active urgent item */}
-                            <div 
-                                className="p-1.5 rounded border flex flex-col gap-0.5 cursor-pointer relative shadow-sm"
-                                style={{ borderColor: `${accent}40`, backgroundColor: 'rgba(255,255,255,0.95)' }}
-                            >
-                                <div className="flex justify-between items-center">
-                                    <div className="h-1 rounded bg-neutral-400 w-6" />
-                                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" style={{ backgroundColor: accent }} />
-                                    <span className="w-1.5 h-1.5 rounded-full absolute right-1.5 bg-red-500" style={{ backgroundColor: accent }} />
-                                </div>
-                                <div className="h-0.5 rounded bg-neutral-300 w-8" />
-                                <div className="flex justify-between items-center mt-0.5 text-[5px] font-mono text-neutral-450 font-medium">
-                                    <span>CHAT</span>
-                                    <span>2.4m</span>
-                                </div>
+                        {[
+                            { p: 'P2', t: 'Login issue' },
+                            { p: 'P3', t: 'Billing doubt' },
+                        ].map((item) => (
+                            <div key={item.p} className="flex flex-col gap-1 rounded border border-white/[0.07] bg-white/[0.02] p-1.5">
+                                <span className="flex items-center justify-between">
+                                    <span className="rounded-sm border border-white/10 px-1 py-px font-mono text-[6px] text-zinc-500">
+                                        {item.p}
+                                    </span>
+                                    <span className="font-mono text-[6px] text-zinc-600">12m</span>
+                                </span>
+                                <span className="text-[7px] leading-tight text-zinc-600">{item.t}</span>
                             </div>
-                            
-                            {/* Static items */}
-                            {[1, 2].map((i) => (
-                                <div key={i} className="p-1 border border-neutral-200 rounded bg-white opacity-60 flex flex-col gap-0.5 scale-95 origin-left shadow-sm">
-                                    <div className="h-1 rounded bg-neutral-250 w-6" />
-                                    <div className="h-0.5 rounded bg-neutral-150 w-10" />
-                                </div>
-                            ))}
-                        </div>
+                        ))}
                     </div>
 
-                    {/* Middle Column - Chat Thread Workspace */}
-                    <div className="flex-1 flex flex-col bg-neutral-50/10">
-                        {/* Conversation Header */}
-                        <div className="h-6 border-b border-neutral-200 bg-white px-2 flex items-center justify-between">
-                            <div className="flex items-center gap-1.5">
-                                <div className="w-3.5 h-3.5 rounded-full border border-neutral-200 bg-neutral-50 flex items-center justify-center text-[6px] shadow-sm text-neutral-500">👤</div>
-                                <div className="h-1 rounded bg-neutral-450 w-16" />
-                            </div>
-                            <span 
-                                className="px-1 py-0.5 rounded text-[5px] font-bold font-mono tracking-widest text-white shadow-sm scale-95"
+                    {/* Thread */}
+                    <div className="relative flex flex-1 flex-col">
+                        <Glow accent={accent} className="-right-12 -top-12 h-40 w-40" />
+                        <div className="flex h-6 shrink-0 items-center justify-between border-b border-white/[0.06] px-2.5">
+                            <span className="flex items-center gap-1.5">
+                                <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[5px] font-bold text-zinc-400">
+                                    MC
+                                </span>
+                                <span className="text-[7.5px] font-semibold text-zinc-300">Maria C.</span>
+                            </span>
+                            <span
+                                className="rounded-sm px-1.5 py-px font-mono text-[6px] font-bold tracking-widest text-black"
                                 style={{ backgroundColor: accent }}
                             >
-                                URGENT
+                                SLA 2:41
                             </span>
                         </div>
-                        
-                        {/* Message Stream */}
-                        <div className="flex-1 p-2 flex flex-col gap-2 overflow-hidden justify-end">
-                            {/* Client Message */}
-                            <div className="flex gap-1 max-w-[80%] items-start self-start">
-                                <div className="w-2.5 h-2.5 rounded-full bg-neutral-200 border border-neutral-200 shrink-0 scale-75 shadow-sm" />
-                                <div className="rounded bg-white p-1.5 border border-neutral-200 shadow-sm text-neutral-600">
-                                    <div className="h-1 rounded bg-neutral-400 w-14 mb-0.5" />
-                                    <div className="h-0.5 rounded bg-neutral-250 w-8" />
-                                </div>
+                        <div className="flex flex-1 flex-col justify-end gap-1.5 p-2.5">
+                            <div className="max-w-[75%] self-start rounded-md rounded-tl-none border border-white/[0.07] bg-white/[0.03] p-1.5">
+                                <Bar className="mb-1 h-1 w-20 bg-white/20" />
+                                <Bar className="h-1 w-12" />
                             </div>
-
-                            {/* Agent Message */}
-                            <div className="flex gap-1 max-w-[80%] items-start self-end justify-end">
-                                <div className="rounded p-1.5 text-right border shadow-sm" style={{ borderColor: `${accent}15`, backgroundColor: 'white' }}>
-                                    <div className="h-1 rounded w-16 mb-0.5 animate-pulse" style={{ backgroundColor: accent }} />
-                                    <div className="h-0.5 rounded bg-neutral-350 w-10" />
-                                </div>
+                            <div
+                                className="max-w-[75%] self-end rounded-md rounded-tr-none border bg-black/40 p-1.5"
+                                style={{ borderColor: `${accent}44` }}
+                            >
+                                <Bar className="mb-1 h-1 w-24 bg-white/20" />
+                                <Bar className="h-1 w-14" />
                             </div>
                         </div>
-
-                        {/* Bottom Input Area */}
-                        <div className="h-6 border-t border-neutral-200 bg-white px-2 flex items-center gap-1 justify-between shadow-sm">
-                            <div className="h-1 rounded bg-neutral-200 w-24" />
-                            <Send className="w-2 h-2 text-neutral-400" />
-                        </div>
-                    </div>
-
-                    {/* Action Toast Alert - Waiting time redesign accent feature */}
-                    <div className="absolute bottom-8 right-2 left-22 rounded border border-neutral-200 bg-white/95 shadow-md p-1.5 flex items-center justify-between z-10 animate-bounce">
-                        <div className="flex items-center gap-1.5">
-                            <PhoneCall className="w-3 h-3 text-red-500 animate-pulse" />
-                            <div className="flex flex-col">
-                                <span className="text-[5px] text-neutral-450 font-mono font-medium">AUTO DISTRIBUTION</span>
-                                <span className="text-[6px] font-bold text-neutral-700">Next: John Doe</span>
-                            </div>
-                        </div>
-                        <div 
-                            className="px-1.5 py-0.5 rounded text-[5px] font-bold text-white cursor-pointer shadow-sm hover:scale-105 transition-transform"
-                            style={{ backgroundColor: accent }}
-                        >
-                            ACCEPT
+                        <div className="mx-2.5 mb-2.5 flex h-6 shrink-0 items-center justify-between rounded border border-white/[0.08] bg-white/[0.02] px-2">
+                            <Bar className="h-1 w-20" />
+                            <Send className="h-2.5 w-2.5" style={{ color: accent }} />
                         </div>
                     </div>
                 </div>
@@ -487,83 +506,82 @@ export function ProjectWireframe({ title, accent = 'var(--accent, #7FB0C4)', cla
         );
     }
 
-    // 6. ChatAI Ecosystem Wireframe (multimodal AI workspace)
+    // 6. ChatAI Ecosystem — multimodal AI workspace with streaming output.
     if (key === 'chatai') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                <div className="absolute inset-0 flex">
-                    {/* Left Sidebar - Chat History list */}
-                    <div className="w-14 border-r border-neutral-200 bg-neutral-50/90 p-1 flex flex-col gap-1 z-10 shadow-sm">
-                        <div className="flex justify-between items-center mb-1 scale-90">
-                            <div className="h-1 rounded bg-neutral-300 w-6" />
-                            <Plus className="w-2 h-2 text-neutral-400 animate-spin" style={{ animationDuration: '6s' }} />
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="ventus — workspace" />
+                <div className="relative z-10 flex flex-1 overflow-hidden">
+                    {/* Sessions */}
+                    <div className="flex w-16 shrink-0 flex-col gap-1.5 border-r border-white/[0.06] bg-white/[0.02] p-2">
+                        <span className="flex items-center justify-between font-mono text-[7px] tracking-[0.2em] text-zinc-600">
+                            CHATS
+                            <Plus className="h-2 w-2 text-zinc-500" />
+                        </span>
+                        <div className="flex h-4 items-center gap-1 rounded border border-white/[0.07] bg-white/[0.02] px-1">
+                            <Bar className="h-0.5 w-8" />
                         </div>
-                        <div className="h-3 rounded border border-neutral-200 bg-white flex items-center gap-1 px-1 shadow-sm opacity-80">
-                            <MessageSquare className="w-1.5 h-1.5 text-neutral-450" />
-                            <div className="h-0.5 rounded bg-neutral-250 w-6" />
+                        <div
+                            className="flex h-4 items-center gap-1 rounded border bg-black/40 px-1"
+                            style={{ borderColor: `${accent}77` }}
+                        >
+                            <Sparkles className="h-1.5 w-1.5 shrink-0" style={{ color: accent }} />
+                            <div className="h-0.5 flex-1 rounded-full" style={{ backgroundColor: `${accent}66` }} />
                         </div>
-                        <div className="h-3 rounded border bg-white flex items-center gap-1 px-1 shadow-sm" style={{ borderColor: accent }}>
-                            <Sparkles className="w-1.5 h-1.5" style={{ color: accent }} />
-                            <div className="h-0.5 rounded w-6" style={{ backgroundColor: accent }} />
-                        </div>
-                        <div className="h-3 rounded border border-neutral-200 bg-white flex items-center gap-1 px-1 opacity-45 shadow-sm">
-                            <FileText className="w-1.5 h-1.5 text-neutral-350" />
-                            <div className="h-0.5 rounded bg-neutral-200 w-4" />
+                        <div className="flex h-4 items-center gap-1 rounded border border-white/[0.05] bg-white/[0.01] px-1 opacity-60">
+                            <Bar className="h-0.5 w-6" />
                         </div>
                     </div>
 
-                    {/* Chat Workspace */}
-                    <div className="flex-1 flex flex-col p-2 gap-2 overflow-hidden justify-between">
-                        {/* Top Model selector dropdown */}
-                        <div className="flex items-center justify-between border-b border-neutral-200 pb-1">
-                            <div className="flex items-center gap-1 text-[7px] border border-neutral-200 px-1.5 py-0.5 rounded bg-white shadow-sm font-semibold text-neutral-700">
-                                <Sparkles className="w-2 h-2" style={{ color: accent }} />
-                                <span className="font-mono">Gemini 1.5 Pro</span>
-                            </div>
-                            <div className="h-1 rounded bg-neutral-150 w-12" />
+                    {/* Conversation */}
+                    <div className="relative flex flex-1 flex-col p-2.5">
+                        <Glow accent={accent} className="-left-12 bottom-0 h-44 w-44" />
+                        <div className="flex shrink-0 items-center justify-between border-b border-white/[0.06] pb-1.5">
+                            <span className="flex items-center gap-1 rounded border border-white/[0.08] bg-white/[0.02] px-1.5 py-0.5 font-mono text-[7px] text-zinc-300">
+                                <Sparkles className="h-2 w-2" style={{ color: accent }} />
+                                claude-sonnet-4.5
+                            </span>
+                            <Search className="h-2.5 w-2.5 text-zinc-600" />
                         </div>
 
-                        {/* Dialogue Bubbles */}
-                        <div className="flex-1 flex flex-col gap-2 overflow-hidden justify-end">
-                            {/* User Message */}
-                            <div className="rounded bg-neutral-50 border border-neutral-200 p-1.5 max-w-[85%] self-end flex flex-col gap-0.5 shadow-sm text-neutral-700">
-                                <div className="h-1 rounded bg-neutral-400 w-24" />
+                        <div className="flex flex-1 flex-col justify-end gap-1.5 py-2">
+                            <div className="max-w-[70%] self-end rounded-md rounded-tr-none border border-white/[0.08] bg-white/[0.04] p-1.5">
+                                <Bar className="h-1 w-24 bg-white/20" />
                             </div>
-
-                            {/* Assistant message with streaming code block */}
-                            <div className="rounded bg-white border border-neutral-200 p-1.5 max-w-[90%] self-start flex flex-col gap-1 shadow-sm text-neutral-700">
-                                <div className="flex items-center gap-1">
-                                    <Sparkles className="w-2.5 h-2.5 text-emerald-500 fill-emerald-500" />
-                                    <div className="h-1 rounded bg-neutral-400 w-12" />
-                                </div>
-                                
-                                {/* Simulated IDE/code view - Light Theme Editor */}
-                                <div className="rounded bg-neutral-50 p-1 font-mono text-[5px] flex flex-col gap-0.5 border border-neutral-200 text-neutral-500 shadow-inner">
-                                    <div className="flex gap-1.5 opacity-60">
-                                        <span className="text-neutral-400">01</span>
-                                        <div className="h-1 rounded w-16" style={{ backgroundColor: accent }} />
+                            <div className="max-w-[85%] self-start rounded-md rounded-tl-none border border-white/[0.07] bg-white/[0.02] p-1.5">
+                                <span className="mb-1 flex items-center gap-1 font-mono text-[6px] tracking-widest" style={{ color: accent }}>
+                                    <Sparkles className="h-1.5 w-1.5" />
+                                    VENTUS
+                                </span>
+                                <Bar className="mb-1.5 h-1 w-28 bg-white/15" />
+                                {/* Streaming code block */}
+                                <div className="flex flex-col gap-1 rounded border border-white/[0.07] bg-black/60 p-1.5 font-mono">
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="text-[6px] text-zinc-700">01</span>
+                                        <div className="h-1 w-16 rounded-full" style={{ backgroundColor: `${accent}99` }} />
                                     </div>
-                                    <div className="flex gap-1.5">
-                                        <span className="text-neutral-400">02</span>
-                                        <div className="h-1 rounded bg-neutral-300 w-24" />
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="text-[6px] text-zinc-700">02</span>
+                                        <Bar className="h-1 w-24 bg-white/20" />
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="text-[6px] text-zinc-700">03</span>
+                                        <Bar className="h-1 w-10" />
+                                        <span className="h-2 w-1" style={{ backgroundColor: accent }} />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Interactive prompt input */}
-                        <div className="h-6 border border-neutral-200 rounded bg-white flex items-center px-1.5 gap-1.5 justify-between shadow-sm">
-                            <div className="flex items-center gap-1 flex-1">
-                                <Sparkles className="w-2.5 h-2.5 text-neutral-300 animate-pulse" />
-                                <div className="h-1 rounded bg-neutral-200 w-20" />
-                            </div>
-                            <div 
-                                className="w-4.5 h-4.5 rounded-full flex items-center justify-center cursor-pointer shadow-sm hover:scale-105 transition-transform"
+                        <div className="flex h-6 shrink-0 items-center justify-between rounded border border-white/[0.08] bg-white/[0.02] px-2">
+                            <Bar className="h-1 w-24" />
+                            <span
+                                className="flex h-4 w-4 items-center justify-center rounded-full transition-transform duration-500 group-hover:-translate-y-0.5"
                                 style={{ backgroundColor: accent }}
                             >
-                                <Send className="w-2 h-2 text-white fill-white" />
-                            </div>
+                                <Send className="h-2 w-2 text-black" />
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -571,72 +589,67 @@ export function ProjectWireframe({ title, accent = 'var(--accent, #7FB0C4)', cla
         );
     }
 
-    // 7. Portfolio (meu-site recursive layout)
+    // 7. Portfolio — this site, in miniature.
     if (key === 'portfolio') {
         return (
-            <div className={containerClasses}>
-                <LineGrid />
-                {/* Header navbar */}
-                <div className="absolute top-0 left-0 right-0 h-8 border-b border-neutral-200 bg-white/95 backdrop-blur-sm flex items-center justify-between px-3">
-                    <div className="flex items-center gap-1">
-                        <Terminal className="w-3.5 h-3.5" style={{ color: accent }} />
-                        <span className="text-[9px] font-bold font-mono tracking-tighter text-neutral-700">ER_</span>
-                    </div>
-                    <div className="flex gap-2">
-                        <div className="h-1 rounded bg-neutral-200 w-6" />
-                        <div className="h-1 rounded bg-neutral-200 w-6" />
-                        <div className="h-1 rounded bg-neutral-200 w-6" />
-                    </div>
-                </div>
-
-                {/* Hero design */}
-                <div className="absolute top-8 bottom-0 left-0 right-0 p-3 flex flex-col justify-center items-center gap-2">
-                    <div className="text-[10px] font-mono tracking-widest text-neutral-400 scale-90 uppercase font-medium">// SENIOR UX ENGINEER</div>
-                    
-                    <h3 className="text-xs font-extrabold text-neutral-800 text-center leading-tight">
-                        Human intention,<br />
-                        <span style={{ color: accent }}>amplified by AI.</span>
-                    </h3>
-
-                    <div className="flex gap-1.5 mt-1 scale-90">
-                        <div 
-                            className="px-2 py-0.5 rounded text-[6px] font-bold text-white flex items-center gap-1 cursor-pointer shadow-sm hover:scale-105 transition-transform"
-                            style={{ backgroundColor: accent }}
-                        >
-                            VIEW WORK <ArrowRight className="w-1.5 h-1.5 text-white" />
-                        </div>
-                        <div className="px-2 py-0.5 rounded text-[6px] font-mono border border-neutral-200 bg-white text-neutral-500 shadow-sm font-semibold">
-                            CONTACT
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="eeliasricardoo.com" />
+                <div className="relative z-10 flex flex-1 flex-col">
+                    <Glow accent={accent} className="-top-10 left-1/2 h-44 w-64 -translate-x-1/2" />
+                    <div className="flex h-7 shrink-0 items-center justify-between border-b border-white/[0.06] px-3">
+                        <span className="flex items-center gap-1 font-mono text-[9px] font-bold text-zinc-200">
+                            <Terminal className="h-2.5 w-2.5" style={{ color: accent }} />
+                            ER_
+                        </span>
+                        <div className="flex gap-2">
+                            <Bar className="h-1 w-6" />
+                            <Bar className="h-1 w-6" />
+                            <Bar className="h-1 w-6" />
                         </div>
                     </div>
-                    
-                    {/* Visual miniature cursor indicator */}
-                    <div className="absolute bottom-2 right-4 flex items-center gap-1 opacity-90">
-                        <MousePointer className="w-2.5 h-2.5 text-neutral-750 animate-bounce" />
-                        <span className="text-[5px] font-mono bg-white p-0.5 rounded border border-neutral-200 shadow-sm text-neutral-650 font-medium">click</span>
+                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-3">
+                        <span className="font-mono text-[7px] tracking-[0.3em] text-zinc-500">// SENIOR UX ENGINEER</span>
+                        <h3 className="text-center text-xs font-extrabold leading-tight text-zinc-100">
+                            Human intention,
+                            <br />
+                            <span style={{ color: accent }}>amplified by AI.</span>
+                        </h3>
+                        <div className="mt-1 flex gap-1.5">
+                            <span
+                                className="flex items-center gap-1 rounded px-2 py-1 text-[7px] font-bold text-black transition-transform duration-500 group-hover:-translate-y-0.5"
+                                style={{ backgroundColor: accent }}
+                            >
+                                VIEW WORK
+                                <ArrowRight className="h-1.5 w-1.5" />
+                            </span>
+                            <span className="rounded border border-white/15 px-2 py-1 font-mono text-[7px] text-zinc-400">CONTACT</span>
+                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 
-    // Fallback Generic interface mock
+    // Fallback — generic product frame.
     return (
-        <div className={containerClasses}>
-            <LineGrid />
-            <div className="absolute inset-0 flex flex-col p-3 justify-between">
-                <div className="flex justify-between items-center">
-                    <div className="h-2 rounded w-16" style={{ backgroundColor: accent }} />
-                    <div className="h-1.5 rounded bg-neutral-200 w-10" />
+        <div className={shell}>
+            <GridOverlay />
+            <WindowChrome label="preview" />
+            <div className="relative z-10 flex flex-1 flex-col justify-between p-3">
+                <Glow accent={accent} className="-right-12 -top-12 h-40 w-40" />
+                <div className="flex items-center justify-between">
+                    <div className="h-2 w-16 rounded-full" style={{ backgroundColor: `${accent}99` }} />
+                    <Bar className="h-1.5 w-10" />
                 </div>
-                <div className="flex-1 flex flex-col justify-center gap-1.5">
-                    <div className="h-3 rounded bg-neutral-200 w-3/4" />
-                    <div className="h-1.5 rounded bg-neutral-200 w-full" />
-                    <div className="h-1.5 rounded bg-neutral-200 w-5/6" />
+                <div className="flex flex-col gap-1.5">
+                    <Bar className="h-2.5 w-3/4 bg-white/20" />
+                    <Bar className="h-1.5 w-full" />
+                    <Bar className="h-1.5 w-5/6" />
                 </div>
-                <div className="flex justify-between items-center border-t border-neutral-200 pt-2">
-                    <div className="h-1 rounded bg-neutral-200 w-12" />
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: accent }} />
+                <div className="flex items-center justify-between border-t border-white/[0.06] pt-2">
+                    <Bar className="h-1 w-12" />
+                    <Star className="h-3 w-3" style={{ color: accent }} />
                 </div>
             </div>
         </div>

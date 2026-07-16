@@ -211,7 +211,7 @@ export function SimpleHome() {
                                     className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
                                 >
                                     {/* Left: Coded wireframe mockup */}
-                                    <div className="lg:col-span-6 group relative overflow-hidden rounded-lg border border-neutral-200 bg-white aspect-[16/10]">
+                                    <div className="lg:col-span-6 group relative overflow-hidden rounded-xl border border-zinc-800/80 bg-[#0a0a0b] aspect-[16/10] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] transition-colors duration-500 hover:border-zinc-700">
                                         <ProjectWireframe title={project.title} accent={accentColor} />
                                     </div>
 
