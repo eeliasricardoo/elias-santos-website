@@ -12,7 +12,7 @@ const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 const projects = [
   {
     title: 'EmailFlow Pro',
-    description: 'At Serasa Experian, producing a campaign email in Salesforce Marketing Cloud took me 80 minutes of manual code work. I built the tool that cut it to 10 — designed in Lovable, engineered in Cursor.',
+    description: 'Campaign email production at Serasa Experian was bottlenecked by manual HTML coding. I designed and engineered EmailFlow Pro, a visual builder that cut layout creation from 80 minutes to just 10.',
     tags: ['React', 'AI', 'UX Engineering'],
     link: '/portfolio/sfmc-magic-builder',
     image: '/portfolios/sfmc-magic-builder/interface-top.webp',
@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: 'EnglishRoom',
-    description: 'English lessons were scattered across Zoom, docs, and chat. I built a single-screen 1:1 classroom — live video, activities, and notes on one surface — designed from tokens up to the live WebRTC room.',
+    description: 'Online lessons are often disjointed, scattered across multiple tabs and tools. I built a unified 1:1 virtual classroom integrating low-latency WebRTC video, interactive canvas, and shared notes.',
     tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
     link: '/portfolio/englishroom',
     image: '/portfolios/englishroom/landing.webp',
@@ -34,7 +34,7 @@ const projects = [
   },
   {
     title: 'ChatAI: Personal AI Ecosystem',
-    description: 'My personal AI workspace and testing lab — chat, image analysis and generation in one interface. Where I learn streaming and multimodal patterns before they reach client work.',
+    description: 'To trust AI in production, you have to break it first. I built a custom workspace to prototype, benchmark, and de-risk token streaming, multimodal models, and orchestration before client work.',
     tags: ['Next.js', 'AI', 'Streaming'],
     link: '/portfolio/ventuschat',
     image: '/portfolios/ventus/v9.webp',
@@ -45,7 +45,7 @@ const projects = [
   },
   {
     title: 'Ranking Engine',
-    description: 'A gamification engine for an EdTech platform — live leaderboards, badges, real-time scoring. I designed the mechanics, then built it with SSR and caching to survive launch-day traffic.',
+    description: 'EdTech engagement relies on real-time feedback. I designed the gamification loop and engineered a scale-ready leaderboard system using SSR and caching to process millions of score events.',
     tags: ['Gamification', 'SSR', 'Caching'],
     link: '/portfolio/ranking',
     image: '/portfolios/ranking/ranking.webp',
@@ -56,7 +56,7 @@ const projects = [
   },
   {
     title: 'Support Queue',
-    description: 'The support queue had no triage logic — every ticket landed in the same pile. I researched the problem, designed a priority system, and shipped it. Average wait time dropped 22%.',
+    description: 'Without triage logic, customer support operations suffered from high backlog overhead. I analyzed the queues, designed an automated prioritization system, and successfully slashed wait times by 22%.',
     tags: ['UX/UI', 'Real-time', 'Optimization'],
     link: '/portfolio/support-queue',
     image: '/portfolios/fila-atendimento/1.webp',
@@ -67,7 +67,7 @@ const projects = [
   },
   {
     title: 'UX Engineer Portfolio',
-    description: 'This very website — built to showcase UX engineering best practices, design tokens, micro-interactions, and fast load times. Open-sourced to show how I structure production Astro code.',
+    description: 'A high-performance portfolio engineered to demonstrate design token systems, micro-animations, and speed optimization. Fully open-sourced to showcase production-grade Astro patterns.',
     tags: ['Astro', 'React', 'Design System', 'Framer Motion'],
     link: 'https://github.com/eeliasricardoo/meu-site',
     image: '/oq-image.png',

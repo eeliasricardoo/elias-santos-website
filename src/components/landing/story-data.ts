@@ -130,7 +130,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         index: '01',
         title: 'DramaFlix',
         description:
-            'A premium streaming platform focused on accessibility for older adults. Designed with oversized touch targets and a serverless stack supporting 300 concurrent users.',
+            'Many streaming services ignore older adults. I designed and engineered a high-performance web app with senior-friendly accessibility controls and a serverless backend supporting 300+ active users.',
         tags: ['UX/UI Design', 'Accessibility', 'Design System', 'React 19'],
         link: '/portfolio/netflix',
         image: '/portfolios/netflix/hero-featured.jpg',
@@ -140,7 +140,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         index: '02',
         title: 'EmailFlow Pro',
         description:
-            'Campaign emails at Serasa Experian took 80 minutes of manual code. I built the tool that cut it to 10.',
+            'Email production at Serasa Experian was bottlenecked by manual HTML coding. I built a visual compiler that reduced campaign build times from 80 minutes down to just 10.',
         tags: ['React', 'AI', 'UX Engineering'],
         link: '/portfolio/sfmc-magic-builder',
         image: '/portfolios/sfmc-magic-builder/interface-top.webp',
@@ -150,7 +150,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         index: '03',
         title: 'Ranking Engine',
         description:
-            'Gamification for an EdTech platform — live leaderboards built with SSR and caching to survive launch day.',
+            'Gamification for an EdTech platform. I designed and built real-time leaderboards using server-side rendering (SSR) and aggressive caching to handle massive launch-day traffic spikes.',
         tags: ['Gamification', 'SSR', 'Caching'],
         link: '/portfolio/ranking',
         image: '/portfolios/ranking/ranking.webp',
@@ -160,7 +160,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         index: '04',
         title: 'Support Queue',
         description:
-            'Every ticket landed in the same pile. I researched, designed a priority system, and shipped it.',
+            'Customer support lacked a triage system, leaving all tickets in a single pool. I researched user pain points, designed an automated priority queue, and reduced average wait times by 22%.',
         tags: ['UX/UI', 'Real-time', 'Optimization'],
         link: '/portfolio/support-queue',
         image: '/portfolios/fila-atendimento/1.webp',
@@ -170,7 +170,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         index: '05',
         title: 'ChatAI Ecosystem',
         description:
-            'My personal AI workspace — chat, image analysis and generation. Where I learn patterns before client work.',
+            'Reading docs only gets you so far. I designed and built a multimodal AI sandbox to master and de-risk token streaming and model orchestration before client work.',
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
