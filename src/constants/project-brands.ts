@@ -15,7 +15,7 @@ export interface ProjectBrand {
 }
 
 export const PROJECT_BRANDS: Record<BrandColor, ProjectBrand> = {
-  lime: { bg: 'var(--color-brand-lime)', gradient: 'var(--gradient-brand-lime)', accent: 'var(--color-brand-lime-deep)', label: 'CRIMSON / FEATURED' },
+  lime: { bg: 'var(--color-brand-lime)', gradient: 'var(--gradient-brand-lime)', accent: 'var(--color-brand-lime-deep)', label: 'LIME / FEATURED' },
   cyan: { bg: 'var(--color-brand-cyan)', gradient: 'var(--gradient-brand-cyan)', accent: 'var(--color-brand-cyan-deep)', label: 'ROSE / PERSONAL' },
   violet: { bg: 'var(--color-brand-violet)', gradient: 'var(--gradient-brand-violet)', accent: 'var(--color-brand-violet-deep)', label: 'RUBY / TOOL' },
   orange: { bg: 'var(--color-brand-orange)', gradient: 'var(--gradient-brand-orange)', accent: 'var(--color-brand-orange-deep)', label: 'BLUSH / PLATFORM' },
@@ -29,7 +29,7 @@ export const BRAND_ORDER: BrandColor[] = ['lime', 'cyan', 'violet', 'orange', 'p
 
 /** Maps a case-study route slug to its brand color. */
 export const PROJECT_BRAND_BY_SLUG: Record<string, BrandColor> = {
-  englishroom: 'lime',
+  ilevar: 'lime',
   ventuschat: 'cyan',
   'sfmc-magic-builder': 'violet',
   ranking: 'orange',

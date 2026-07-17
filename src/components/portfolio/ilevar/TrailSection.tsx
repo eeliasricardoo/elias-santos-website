@@ -13,7 +13,7 @@ export function TrailSection() {
         eyebrow="Gamification & CEFR Trails"
         index={7}
         title="A trail you can feel progress on"
-        description="Traditional textbooks split learning into boring, linear modules. EnglishRoom maps a gamified learning trail directly to the CEFR scale (A1 → C1) — making progress tangible, visual, and engaging."
+        description="Traditional textbooks split learning into boring, linear modules. ilevar maps a gamified learning trail directly to the CEFR scale (A1 → C1) — making progress tangible, visual, and engaging, whichever language you're learning."
       />
 
       <div className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-center">
@@ -69,9 +69,11 @@ export function TrailSection() {
         </motion.div>
 
         <p className="text-[15px] leading-relaxed text-muted-foreground">
-          Each node is a real lesson. When a teacher marks it complete, the student&apos;s node advances
-          — a tangible feedback loop mapped to the CEFR scale (A1 → C1). Progress stops being an
-          abstract streak and becomes a visible path with a clear next step.
+          Each node is a StudentTrackItem tied to a LessonTemplate. In a 1:1 lesson, completing it
+          advances one student&apos;s node. In a class group, one lesson applies the same
+          LessonTemplate and advances every enrolled student&apos;s trail at once — progress stops
+          being an abstract streak and becomes a visible path with a clear next step, for the whole
+          group or just one student.
         </p>
       </div>
     </section>

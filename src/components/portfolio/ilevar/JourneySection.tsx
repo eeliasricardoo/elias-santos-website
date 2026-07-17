@@ -12,15 +12,15 @@ const steps = [
   },
   {
     title: 'Choose a teacher',
-    sub: 'Browses vetted teachers by level and specialty.',
+    sub: 'Browses vetted teachers by language, level, and specialty.',
     pain: 'Hard to judge fit elsewhere.',
-    win: 'Profiles with levels, specialties, live availability.',
+    win: 'Profiles with languages taught, CEFR levels, live availability.',
   },
   {
-    title: 'Book',
-    sub: 'Picks a slot in her own timezone.',
+    title: 'Book — solo or in a group',
+    sub: 'Picks a 1:1 slot in her timezone, or joins an open class group.',
     pain: 'Email back-and-forth, timezone math.',
-    win: 'Self-serve calendar, instant confirmation.',
+    win: 'Self-serve calendar for both formats, instant confirmation.',
   },
   {
     title: 'Attend lesson',
@@ -70,7 +70,7 @@ export function JourneySection() {
               <p className="mt-1 text-[13px] text-muted-foreground">{step.pain}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>EnglishRoom</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>ilevar</p>
               <p className="mt-1 text-[13px] text-foreground/85">{step.win}</p>
             </div>
           </motion.div>

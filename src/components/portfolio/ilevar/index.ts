@@ -1,4 +1,4 @@
-// EnglishRoom case study components
+// ilevar case study components
 export { HeroSection } from './HeroSection';
 export { WhyItExistsSection } from './WhyItExistsSection';
 export { PersonasSection } from './PersonasSection';

@@ -26,7 +26,7 @@ function getProjectKey(title: string): string {
     const t = title.toLowerCase();
     if (t.includes('drama') || t.includes('netflix')) return 'dramafix';
     if (t.includes('emailflow') || t.includes('magic-builder') || t.includes('sfmc') || t.includes('flow')) return 'emailflow';
-    if (t.includes('english')) return 'englishroom';
+    if (t.includes('ilevar') || t.includes('english')) return 'ilevar';
     if (t.includes('ranking')) return 'ranking';
     if (t.includes('support') || t.includes('queue') || t.includes('fila')) return 'support';
     if (t.includes('chat') || t.includes('ventus')) return 'chatai';
@@ -251,75 +251,85 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
         );
     }
 
-    // 3. EnglishRoom — WebRTC classroom: video feeds + shared whiteboard.
-    if (key === 'englishroom') {
+    // 3. ilevar — live classroom that seats 1:1 or a class group, plus a CEFR trail.
+    if (key === 'ilevar') {
         return (
             <div className={shell}>
                 <GridOverlay />
-                <WindowChrome label="englishroom.live" />
-                <div className="relative z-10 flex flex-1 gap-2 p-2.5">
-                    {/* Video column */}
-                    <div className="flex w-[34%] shrink-0 flex-col gap-2">
-                        <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-md border border-white/[0.08] bg-white/[0.03]">
-                            <Video className="h-4 w-4 text-zinc-700" />
-                            <span className="absolute left-1.5 top-1.5 flex items-center gap-1 font-mono text-[6px] font-semibold tracking-wider text-zinc-400">
-                                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
-                                TEACHER
-                            </span>
-                            <span className="absolute bottom-1.5 right-1.5 flex h-2.5 items-end gap-px">
-                                <span className="w-0.5 rounded-full bg-zinc-500" style={{ height: '40%' }} />
-                                <span className="w-0.5 rounded-full" style={{ height: '100%', backgroundColor: accent }} />
-                                <span className="w-0.5 rounded-full bg-zinc-500" style={{ height: '60%' }} />
-                            </span>
-                        </div>
-                        <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-md border border-white/[0.06] bg-white/[0.02]">
-                            <Video className="h-4 w-4 text-zinc-800" />
-                            <span className="absolute left-1.5 top-1.5 font-mono text-[6px] tracking-wider text-zinc-600">STUDENT</span>
-                        </div>
-                        <span className="text-center font-mono text-[6px] tracking-wider text-zinc-600">RTT 38MS · P2P</span>
-                    </div>
-
-                    {/* Whiteboard — stays light, like a real board */}
-                    <div className="relative flex flex-1 flex-col overflow-hidden rounded-md bg-zinc-100 shadow-2xl">
-                        <Glow accent={accent} className="-right-14 -top-14 h-40 w-40" />
-                        <div className="flex items-center justify-between border-b border-zinc-200 bg-white px-2 py-1">
-                            <div className="h-1 w-14 rounded-full bg-zinc-300" />
-                            <div className="flex gap-1">
-                                <span className="flex h-3 w-3 items-center justify-center rounded-sm border border-zinc-200 bg-white text-[6px] font-bold text-zinc-500">
-                                    A
-                                </span>
-                                <span
-                                    className="flex h-3 w-3 items-center justify-center rounded-sm border text-[6px]"
-                                    style={{ borderColor: accent, color: accent }}
-                                >
-                                    <MousePointer className="h-1.5 w-1.5" />
+                <WindowChrome label="ilevar.app" />
+                <div className="relative z-10 flex flex-1 flex-col gap-2 p-2.5">
+                    <div className="flex flex-1 gap-2">
+                        {/* Video grid — teacher + group of students, not just 1:1 */}
+                        <div className="grid flex-1 grid-cols-2 gap-1.5">
+                            <div className="relative col-span-2 flex items-center justify-center overflow-hidden rounded-md border border-white/[0.08] bg-white/[0.03]">
+                                <Video className="h-3.5 w-3.5 text-zinc-700" />
+                                <span className="absolute left-1.5 top-1.5 flex items-center gap-1 font-mono text-[6px] font-semibold tracking-wider text-zinc-400">
+                                    <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
+                                    TEACHER
                                 </span>
                             </div>
+                            {['S1', 'S2', 'S3'].map((s, i) => (
+                                <div
+                                    key={s}
+                                    className={`relative flex items-center justify-center overflow-hidden rounded-md border border-white/[0.06] bg-white/[0.02] ${i === 2 ? 'col-span-2' : ''}`}
+                                >
+                                    <span className="font-mono text-[6px] tracking-wider text-zinc-600">{s}</span>
+                                </div>
+                            ))}
                         </div>
-                        <div className="flex flex-1 flex-col items-center justify-center gap-1.5 p-2 text-center">
-                            <span className="text-[9px] font-black tracking-[0.2em] text-zinc-700">VERB TO BE</span>
-                            <div className="flex items-center gap-2">
-                                <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[7px] text-zinc-600 shadow-sm">
-                                    I
-                                </span>
-                                <ArrowRight className="h-2 w-2 text-zinc-400" />
+
+                        {/* Activity — stays light, like a real lesson card */}
+                        <div className="relative flex w-[46%] shrink-0 flex-col overflow-hidden rounded-md bg-zinc-100 shadow-2xl">
+                            <Glow accent={accent} className="-right-14 -top-14 h-40 w-40" />
+                            <div className="flex items-center justify-between border-b border-zinc-200 bg-white px-2 py-1">
+                                <span className="font-mono text-[6px] font-bold tracking-widest text-zinc-500">DRILLING</span>
                                 <span
-                                    className="rounded px-2 py-0.5 font-mono text-[7px] font-bold text-white shadow-sm transition-transform duration-500 group-hover:-translate-y-0.5"
+                                    className="rounded-sm px-1 py-px font-mono text-[6px] font-bold text-white"
                                     style={{ backgroundColor: accent }}
                                 >
-                                    AM
+                                    B1
                                 </span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[7px] text-zinc-500 shadow-sm">
-                                    YOU
-                                </span>
-                                <ArrowRight className="h-2 w-2 text-zinc-300" />
-                                <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[7px] font-semibold text-zinc-600 shadow-sm">
-                                    ARE
-                                </span>
+                            <div className="flex flex-1 flex-col items-center justify-center gap-1.5 p-2 text-center">
+                                <span className="text-[8px] font-black tracking-[0.15em] text-zinc-700">PAST SIMPLE</span>
+                                <div className="flex items-center gap-1.5">
+                                    <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[6.5px] text-zinc-600 shadow-sm">
+                                        She go
+                                    </span>
+                                    <ArrowRight className="h-1.5 w-1.5 text-zinc-400" />
+                                    <span
+                                        className="rounded px-1.5 py-0.5 font-mono text-[6.5px] font-bold text-white shadow-sm transition-transform duration-500 group-hover:-translate-y-0.5"
+                                        style={{ backgroundColor: accent }}
+                                    >
+                                        went
+                                    </span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* CEFR trail strip */}
+                    <div className="flex shrink-0 items-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1.5">
+                        {['A1', 'A2', 'B1', 'B2', 'C1'].map((n, i) => (
+                            <div key={n} className="flex flex-1 items-center last:flex-none">
+                                <span
+                                    className="flex h-3.5 w-3.5 items-center justify-center rounded-full font-mono text-[6px] font-bold"
+                                    style={
+                                        i <= 2
+                                            ? { backgroundColor: accent, color: '#000' }
+                                            : { border: '1px solid rgba(255,255,255,0.15)', color: '#71717a' }
+                                    }
+                                >
+                                    {n}
+                                </span>
+                                {i < 4 && (
+                                    <span
+                                        className="h-px flex-1"
+                                        style={{ backgroundColor: i < 2 ? accent : 'rgba(255,255,255,0.1)' }}
+                                    />
+                                )}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

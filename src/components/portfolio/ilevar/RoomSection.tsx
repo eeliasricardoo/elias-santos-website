@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Video, MessageSquare, NotebookPen } from 'lucide-react';
+import { Video, MessageSquare, NotebookPen, Users } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 
 const options = ['go', 'goes', 'going', 'gone'];
@@ -12,8 +12,8 @@ export function RoomSection() {
       <SectionHeading
         eyebrow="The single-screen Room"
         index={6}
-        title="Then the lesson happens — on one surface"
-        description="Video anchors presence; the activity is the focal task; chat and teacher notes stay peripheral and collapsible. The teacher drives an activity and the student sees it render in real time — no tab switch."
+        title="One Room component, driven by lesson.isGroup"
+        description="Video anchors presence; the activity is the focal task; chat and teacher notes stay peripheral and collapsible. When isGroup is true, a StudentsPanel replaces the single student tile — same layout, same activity engine, no separate build for class groups."
       />
 
       <motion.div
@@ -40,20 +40,28 @@ export function RoomSection() {
           <div className="flex flex-col gap-px bg-border/60">
             {/* Video */}
             <div className="bg-card p-4">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                  <Users className="w-3 h-3" /> StudentsPanel · 3 enrolled
+                </span>
+                <span className="font-mono text-[9px] text-muted-foreground">lesson.isGroup: true</span>
+              </div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
                 {[
                   { ini: 'EC', name: 'Emily Clarke', role: 'Teacher' },
-                  { ini: 'YO', name: 'You', role: 'Student' },
+                  { ini: 'S1', name: 'Student 1', role: 'Student' },
+                  { ini: 'S2', name: 'Student 2', role: 'Student' },
+                  { ini: 'S3', name: 'Student 3', role: 'Student' },
                 ].map((u) => (
                   <div key={u.ini} className="relative aspect-video rounded-lg border border-border bg-muted/40 flex items-center justify-center">
                     <div className="flex flex-col items-center gap-1">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full font-mono text-xs font-bold text-background" style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}>
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full font-mono text-[11px] font-bold text-background" style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}>
                         {u.ini}
                       </span>
-                      <span className="text-[11px] font-medium text-foreground">{u.name}</span>
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{u.role}</span>
+                      <span className="text-[10px] font-medium text-foreground">{u.name}</span>
+                      <span className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">{u.role}</span>
                     </div>
-                    <Video className="absolute right-2 top-2 w-3.5 h-3.5 text-muted-foreground/50" />
+                    <Video className="absolute right-2 top-2 w-3 h-3 text-muted-foreground/50" />
                   </div>
                 ))}
               </div>

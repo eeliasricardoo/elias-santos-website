@@ -24,7 +24,7 @@ export function CallToActionSection() {
 
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            EnglishRoom is the kind of product I like to build end to end — from
+            ilevar is the kind of product I like to build end to end — from
             design tokens to live WebRTC — where the interface gets out of the way
             so the work can happen. If that&apos;s the kind of UX you&apos;re hiring for,
             let&apos;s talk.

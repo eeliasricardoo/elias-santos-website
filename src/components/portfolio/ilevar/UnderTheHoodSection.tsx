@@ -1,19 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Globe, Server, Database, Sparkles, Bot, ShieldCheck } from 'lucide-react';
+import { Globe, Server, Database, Sparkles, ShieldCheck, Clock } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 
 const layers = [
   { icon: <Globe className="w-5 h-5" />, title: 'Browser', text: 'Server Components first — JS ships only where the Room and dashboard need interactivity.' },
   { icon: <Server className="w-5 h-5" />, title: 'Next.js 16 App Router', text: 'Data, auth, and layout resolve on the server — no client-side request waterfalls.' },
-  { icon: <Database className="w-5 h-5" />, title: 'Supabase + Prisma', text: 'Supabase owns auth, sessions, and RLS; a typed Prisma schema owns the relational model.' },
-  { icon: <Sparkles className="w-5 h-5" />, title: 'Daily.co + OpenAI', text: 'Daily.co handles WebRTC video; OpenAI drafts activities, plans, and summaries.' },
+  { icon: <Database className="w-5 h-5" />, title: 'Supabase + Prisma', text: 'Supabase owns auth and sessions; a typed Prisma schema owns Organization, OrgMembership, Lesson, ClassGroup, and the CEFR Track model.' },
+  { icon: <Sparkles className="w-5 h-5" />, title: 'Daily.co + OpenAI', text: 'Daily.co handles WebRTC video for both room sizes; OpenAI drafts activity content, lesson plans, and post-lesson summaries.' },
 ];
 
 const notes = [
-  { icon: <Bot className="w-4 h-4" />, title: 'AI in the loop, teacher in control', text: 'OpenAI generates activity content, lesson plans, and post-lesson summaries — but the teacher stays in control.' },
-  { icon: <ShieldCheck className="w-4 h-4" />, title: 'Hardened by default', text: 'CSP, HSTS, X-Frame-Options: DENY, and a scoped Permissions-Policy are set in next.config.ts.' },
+  { icon: <Clock className="w-4 h-4" />, title: 'Two crons, one materialization pattern', text: 'RecurringSeries (1:1) and ClassGroupSchedule (group) both describe a weekly pattern; a cron job materializes each into concrete Lesson rows on a rolling window, so students only ever book a slot that really exists.' },
+  { icon: <ShieldCheck className="w-4 h-4" />, title: 'Rate limiting survives serverless', text: 'RateLimitHit is a Postgres table, not an in-memory counter — because Vercel functions don\'t share memory between invocations, in-memory rate limiting would silently reset on every cold start.' },
 ];
 
 export function UnderTheHoodSection() {

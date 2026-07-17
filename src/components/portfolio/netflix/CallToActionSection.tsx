@@ -40,7 +40,7 @@ export function CallToActionSection() {
             variant="outline"
             size="lg"
             className="cursor-pointer"
-            onClick={() => window.location.href = '/portfolio/englishroom'}
+            onClick={() => window.location.href = '/portfolio/ilevar'}
           >
             Next Project
             <ArrowRight className="w-4 h-4 ml-2" />

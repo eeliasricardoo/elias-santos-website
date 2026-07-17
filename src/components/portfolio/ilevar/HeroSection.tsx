@@ -1,20 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, KeyRound, User } from 'lucide-react';
-import { ImageLightbox } from '@/components/ui/image-lightbox';
+import { ArrowUpRight, KeyRound, User, Video, Trophy } from 'lucide-react';
 import { BrowserFrame } from '../ui/BrowserFrame';
 
 const stats = [
-  { value: '3', label: 'user roles' },
-  { value: '30+', label: 'CEFR lessons' },
-  { value: '1:1', label: 'live video room' },
+  { value: '14', label: 'activity types' },
+  { value: 'EN·ES·PT', label: 'content languages' },
+  { value: '1:1 + group', label: 'live rooms' },
   { value: '100%', label: 'solo build' },
 ];
 
 const stack = [
   'Next.js 16 · RSC', 'React 19', 'TypeScript', 'Tailwind v4',
-  'Supabase', 'Prisma', 'Daily.co · WebRTC', 'OpenAI', 'Vercel',
+  'Supabase', 'Prisma', 'Daily.co · WebRTC', 'OpenAI', 'next-intl', 'Vercel',
 ];
 
 const accounts = [
@@ -22,7 +21,7 @@ const accounts = [
   { role: 'Teacher', email: 'professor@test.com' },
 ];
 
-const LIVE_URL = 'https://school-dpcy.vercel.app';
+const LIVE_URL = 'https://ilevar.com';
 
 export function HeroSection() {
   return (
@@ -43,11 +42,11 @@ export function HeroSection() {
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.03]">
-          EnglishRoom
+          ilevar
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
-          A unified 1:1 English classroom that keeps students focused and cuts context switching —
-          designed from tokens up to live WebRTC surfaces.
+          A live classroom for language teachers — one Room that seats a 1:1 lesson or a whole
+          class group, with the same video, activities, and CEFR-mapped progress trail underneath.
         </p>
 
         <a
@@ -71,27 +70,61 @@ export function HeroSection() {
         </dl>
       </motion.div>
 
-      {/* Hero media */}
+      {/* Hero media — recreated in code, not a screenshot: the schema behind it, not a photo of it */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
         className="space-y-3"
       >
-        <BrowserFrame route="school-dpcy.vercel.app">
-          <ImageLightbox
-            src="/portfolios/englishroom/landing.webp"
-            alt="EnglishRoom live landing page"
-            width={1200}
-            height={750}
-            className="w-full object-cover object-top cursor-pointer"
-            sizes="(max-width: 768px) 100vw, 900px"
-            quality={85}
-          />
+        <BrowserFrame route="/dashboard">
+          <div className="grid gap-3 bg-card p-5 md:grid-cols-[1.3fr_1fr]">
+            <div className="flex flex-col gap-3">
+              <div className="rounded-lg border border-border p-3">
+                <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
+                  Lesson.isGroup: true
+                </p>
+                <div className="mt-2 grid grid-cols-4 gap-1.5">
+                  {['Teacher', 'S1', 'S2', 'S3'].map((p) => (
+                    <div key={p} className="flex aspect-video items-center justify-center rounded border border-border bg-muted/30">
+                      <Video className="h-3.5 w-3.5 text-muted-foreground/50" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-lg border border-border p-3">
+                <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  <Trophy className="w-3 h-3" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} /> CEFR trail
+                </p>
+                <div className="mt-2 flex items-center gap-1">
+                  {['A1', 'A2', 'B1', 'B2', 'C1'].map((n, i) => (
+                    <span
+                      key={n}
+                      className="flex h-6 flex-1 items-center justify-center rounded font-mono text-[10px] font-semibold"
+                      style={i <= 1 ? { backgroundColor: 'var(--brand, hsl(var(--foreground)))', color: 'hsl(var(--background))' } : { border: '1px solid hsl(var(--border))', color: 'hsl(var(--muted-foreground))' }}
+                    >
+                      {n}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2 rounded-lg border border-border p-3">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Booking.status</p>
+              {[
+                { s: 'CONFIRMED', name: '1:1 · Mariana A.' },
+                { s: 'PENDING', name: 'Class group · Turma B1' },
+                { s: 'COMPLETED', name: '1:1 · Lucas F.' },
+              ].map((b) => (
+                <div key={b.name} className="flex items-center justify-between rounded border border-border bg-muted/20 px-2.5 py-2">
+                  <span className="text-[12px] text-foreground/85">{b.name}</span>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{b.s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </BrowserFrame>
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-mono text-[11px] text-muted-foreground">school-dpcy.vercel.app · live on Vercel</span>
-          <span className="text-muted-foreground/40">·</span>
           <span className="text-[11px] text-muted-foreground">Built with</span>
           {stack.map((t) => (
             <span key={t} className="rounded border border-border bg-muted/40 px-1.5 py-0.5 text-[10px] text-muted-foreground">

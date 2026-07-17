@@ -3,15 +3,15 @@
 import { Check, Minus, X } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 
-const columns = ['Live human teacher', 'Single-screen lesson', 'In-lesson activities', 'CEFR progress', 'Self-serve booking'];
+const columns = ['Live human teacher', 'Single-screen lesson', 'In-lesson activities', '1:1 + class groups', 'CEFR trail'];
 
 type Cell = 'yes' | 'partial' | 'no';
 
 const rows: { name: string; highlight?: boolean; cells: Cell[] }[] = [
-  { name: 'DIY (Zoom + Docs + WhatsApp)', cells: ['yes', 'no', 'no', 'no', 'no'] },
-  { name: 'Tutor marketplaces (italki, Preply)', cells: ['yes', 'no', 'partial', 'partial', 'yes'] },
-  { name: 'Self-serve apps (Duolingo)', cells: ['no', 'yes', 'yes', 'partial', 'no'] },
-  { name: 'EnglishRoom', highlight: true, cells: ['yes', 'yes', 'yes', 'yes', 'yes'] },
+  { name: 'DIY (Zoom + Docs + WhatsApp)', cells: ['yes', 'no', 'no', 'partial', 'no'] },
+  { name: 'Tutor marketplaces (italki, Preply)', cells: ['yes', 'no', 'partial', 'no', 'partial'] },
+  { name: 'Self-serve apps (Duolingo)', cells: ['no', 'yes', 'yes', 'no', 'partial'] },
+  { name: 'ilevar', highlight: true, cells: ['yes', 'yes', 'yes', 'yes', 'yes'] },
 ];
 
 const CELL_LABELS: Record<Cell, string> = { yes: 'Yes', partial: 'Partial', no: 'No' };
@@ -36,8 +36,8 @@ export function LandscapeSection() {
       <SectionHeading
         eyebrow="The landscape"
         index={3}
-        title="Where EnglishRoom sits"
-        description="The category splits into three. Each solves part of the problem, but none put a live teacher and an interactive, single-screen lesson in the same place."
+        title="Where ilevar sits"
+        description="The category splits into three. Each solves part of the problem, but none put a live teacher, an interactive single-screen lesson, and both lesson formats (1:1 and class groups) on the same model."
       />
 
       <div className="overflow-x-auto rounded-xl border border-border">

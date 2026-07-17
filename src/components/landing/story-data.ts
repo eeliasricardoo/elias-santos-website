@@ -176,4 +176,14 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/ventus/v9.webp',
         metric: null,
     },
+    {
+        index: '06',
+        title: 'ilevar',
+        description:
+            'Language teachers run 1:1 and group lessons across Zoom, WhatsApp, and disconnected docs. I built a live classroom that puts video, interactive activities, and a CEFR-mapped progress trail on one screen.',
+        tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
+        link: '/portfolio/ilevar',
+        image: '/placeholder.jpg',
+        metric: '1:1 + group · solo build',
+    },
 ] as const;

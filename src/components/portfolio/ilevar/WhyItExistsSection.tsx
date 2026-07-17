@@ -26,7 +26,7 @@ export function WhyItExistsSection() {
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-destructive">The problem</p>
           <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-            Most online English lessons are stitched together from three disconnected tools: a video
+            Most online language lessons are stitched together from three disconnected tools: a video
             call (Zoom), a worksheet (Google Docs / PDF), and a chat (WhatsApp). The student&apos;s
             attention is split across tabs, and the teacher spends the lesson screen-sharing instead
             of teaching.
@@ -43,20 +43,21 @@ export function WhyItExistsSection() {
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>The bet</p>
           <p className="mt-3 text-[15px] leading-relaxed text-foreground/85">
-            EnglishRoom collapses the lesson into one surface. Video, interactive activities
-            (drilling, quizzes, flashcards, guided reading), live chat, and the teacher&apos;s private
-            notes all live inside a single room — so the lesson never breaks context.
+            ilevar collapses the lesson into one surface — and one data model. A <code className="font-mono text-[13px]">Lesson</code>{' '}
+            is a <code className="font-mono text-[13px]">Lesson</code> whether it seats one student or a whole class
+            group; video, one of 14 activity types, live chat, and the teacher&apos;s private notes all
+            live inside the same room, so the lesson never breaks context.
           </p>
         </motion.div>
       </div>
 
       <p className="max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
         Around that core, the platform is a real two-sided product:{' '}
-        <strong className="text-foreground">Students</strong> browse the marketplace, book slots,
-        follow CEFR-aligned learning trails, and review AI summaries;{' '}
-        <strong className="text-foreground">Teachers</strong> set availability, prepare lesson plans
-        with AI, and run the live room; <strong className="text-foreground">Admins</strong> vet and
-        approve teacher profiles.
+        <strong className="text-foreground">Students</strong> browse the marketplace, book 1:1 slots
+        or join a class group, follow CEFR-aligned learning trails, and review AI summaries;{' '}
+        <strong className="text-foreground">Teachers</strong> set availability, run class groups
+        alongside their 1:1 roster, prepare lesson plans with AI, and run the live room;{' '}
+        <strong className="text-foreground">Admins</strong> vet and approve teacher profiles.
       </p>
     </section>
   );

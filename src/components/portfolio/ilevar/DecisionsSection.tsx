@@ -6,18 +6,18 @@ import { SectionHeading } from './SectionHeading';
 const decisions = [
   {
     n: '01',
-    title: "A design decision I'm proud of — The single-screen Room",
-    text: "The hardest UX call was the live classroom. The obvious build is 'Zoom + a sidebar.' Instead I designed the Room as one composed surface — VideoPanel + ActivityPanel + ChatSidebar + TeacherNotesPanel — with a clear hierarchy: video anchors presence, activity is the focal task, chat/notes are peripheral and collapsible. The teacher drives an activity; the student sees it render in real time without a tab switch.",
+    title: "A design decision I'm proud of — Lesson.isGroup instead of two products",
+    text: "The obvious build for '1:1 plus class groups' is two separate features: a booking model and a class model, each with its own Room. Instead, Lesson carries a single isGroup flag; studentId is nullable and only set for 1:1, classGroupId only for groups, and the Room, the activity engine, and LessonSummary don't know or care which one they're rendering. One teacher-facing roster mixes both formats as ordinary rows.",
   },
   {
     n: '02',
-    title: "A design decision I'd reverse — The AI-slop component library",
-    text: 'Early on, to move fast, I pulled in flashy animated components (aurora gradient background, infinite marquee testimonials). Later I recognized the problem: those patterns read as un-serious and AI-slop. Testimonials were rebuilt as a static, token-driven editorial grid (reducing JS to zero). Lessons learned: polish must be contextual, and impressive components in isolation can still break brand trust.',
+    title: "A design decision I'd reverse — building RecurringSeries before ClassGroupSchedule existed",
+    text: "1:1 recurring bookings shipped first, with their own cron-materialization logic written from scratch. When class groups needed the same weekly-pattern behavior, I ended up re-deriving nearly the same mechanism as ClassGroupSchedule instead of extracting a shared materializer up front. The two crons read like siblings today, but they didn't start that way — I'd factor the shared 'weekly pattern → rolling window of Lessons' logic into one utility before building the second consumer, not after.",
   },
   {
     n: '03',
-    title: 'Keeping visual and component consistency',
-    text: 'Consistency is enforced at three levels: (1) tokens over literals — no hardcoded hexes, theme-aware variables; (2) primitives over re-invention — enumerated button/input variants via CVA; (3) standards captured as artifacts — written design rules, so corrections compound instead of repeating.',
+    title: 'Trusting the schema as the source of truth for the case itself',
+    text: "The product was renamed EnglishRoom → ilevar mid-build, and the ambition grew from English-only to a multi-language platform (TeacherProfile.languages, Activity.targetLanguage: EN | ES | PT). Old screenshots and old copy kept describing the earlier, narrower product. Rewriting this case meant going back to prisma/schema.prisma and the actual routes as ground truth, rather than lightly editing stale marketing copy that no longer matched what the code does.",
   },
 ];
 
