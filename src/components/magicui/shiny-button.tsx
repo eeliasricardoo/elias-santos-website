@@ -16,7 +16,7 @@ export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>
         ref={ref}
         className={cn(
           "relative overflow-hidden rounded-md px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer",
-          "bg-zinc-950 text-zinc-350 border border-zinc-800 hover:text-white hover:border-zinc-700 active:scale-[0.98]",
+          "bg-zinc-950 text-zinc-300 border border-zinc-800 hover:text-white hover:border-zinc-700 active:scale-[0.98]",
           className
         )}
         {...props}

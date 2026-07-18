@@ -40,25 +40,25 @@ export function SimpleHome() {
                         <span className="text-zinc-500 font-mono">_</span>
                     </a>
 
-                    <nav className="flex items-center gap-6 text-xs font-mono tracking-wider text-zinc-400 md:gap-8">
+                    <nav className="flex items-center gap-4 text-xs font-mono tracking-wider text-zinc-400 sm:gap-6 md:gap-8">
                         <button
                             type="button"
                             onClick={() => scrollTo('work')}
-                            className="hidden sm:inline-flex hover:text-white transition"
+                            className="inline-flex py-2 hover:text-white transition"
                         >
                             WORK
                         </button>
                         <button
                             type="button"
                             onClick={() => scrollTo('about')}
-                            className="hidden sm:inline-flex hover:text-white transition"
+                            className="inline-flex py-2 hover:text-white transition"
                         >
                             ABOUT
                         </button>
                         <button
                             type="button"
                             onClick={() => scrollTo('contact')}
-                            className="hidden sm:inline-flex hover:text-white transition"
+                            className="hidden sm:inline-flex py-2 hover:text-white transition"
                         >
                             CONTACT
                         </button>
@@ -81,15 +81,15 @@ export function SimpleHome() {
             </header>
 
             {/* Typographic & Visual Hero */}
-            <section className="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-28">
+            <section className="mx-auto max-w-6xl px-6 py-8 md:px-12 md:py-28">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     
                     {/* Left Column - Content */}
                     <div className="lg:col-span-8 flex flex-col gap-6 order-2 lg:order-1">
-                        <div className="flex items-center gap-3 text-xs font-mono tracking-widest text-zinc-500 uppercase">
-                            <span>{STORY_IDENTITY.remote}</span>
-                            <span>•</span>
-                            <span>SENIOR UX ENGINEER</span>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono tracking-widest text-zinc-500 uppercase">
+                            <span className="whitespace-nowrap">{STORY_IDENTITY.remote}</span>
+                            <span className="hidden sm:inline">•</span>
+                            <span className="whitespace-nowrap">SENIOR UX ENGINEER</span>
                         </div>
                         
                         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl leading-[1.1] text-white">
@@ -101,17 +101,17 @@ export function SimpleHome() {
                             Hi, I&apos;m <span className="text-white font-medium">Elias Ricardo</span>, a Senior UX Engineer and Product Designer.
                         </p>
 
-                        <div className="flex flex-wrap gap-4 mt-2">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-2">
                             <ShinyButton
                                 onClick={() => scrollTo('work')}
-                                className="flex items-center gap-1.5"
+                                className="flex w-full sm:w-auto items-center justify-center gap-1.5"
                             >
                                 Explore Projects ↓
                             </ShinyButton>
 
                             <button
                                 onClick={handleCopyEmail}
-                                className="inline-flex items-center gap-2 border border-zinc-800 bg-zinc-950 hover:bg-zinc-900 transition-all text-zinc-300 font-mono text-xs px-5 py-3 rounded-md cursor-pointer hover:text-white hover:border-zinc-700 active:scale-95 duration-200"
+                                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-zinc-800 bg-zinc-950 hover:bg-zinc-900 transition-all text-zinc-300 font-mono text-xs px-5 py-3 rounded-md cursor-pointer hover:text-white hover:border-zinc-700 active:scale-95 duration-200"
                             >
                                 {copied ? (
                                     <>
@@ -150,8 +150,8 @@ export function SimpleHome() {
                     </div>
 
                     {/* Right Column - Portrait */}
-                    <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-end order-1 lg:order-2">
-                        <div className="w-full max-w-[280px] sm:max-w-[320px] aspect-square overflow-hidden rounded-lg border border-zinc-850 bg-zinc-950">
+                    <div className="lg:col-span-4 flex flex-col justify-center items-start lg:items-end order-1 lg:order-2">
+                        <div className="w-full lg:max-w-[320px] aspect-square overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950">
                             <img
                                 src="/profile-photo.webp"
                                 alt="Elias Ricardo"
@@ -193,16 +193,16 @@ export function SimpleHome() {
             </section>
 
             {/* Selected Work List */}
-            <section id="work" className="border-t border-zinc-900 bg-zinc-950/20 py-20">
+            <section id="work" className="scroll-mt-16 border-t border-zinc-900 bg-zinc-950/20 py-16 md:py-20">
                 <div className="mx-auto max-w-6xl px-6 md:px-12">
                     <div className="border-b border-zinc-900 pb-5 mb-16 flex items-baseline justify-between">
                         <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">SELECTED WORK</h2>
                         <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                            // 01 — 05
+                            // 01 — {String(STORY_PROJECTS.length).padStart(2, '0')}
                         </span>
                     </div>
 
-                    <div className="flex flex-col gap-24 md:gap-32">
+                    <div className="flex flex-col gap-16 md:gap-32">
                         {STORY_PROJECTS.map((project, idx) => {
                             const accentColor = PROJECT_ACCENTS[idx % PROJECT_ACCENTS.length];
                             return (
@@ -211,7 +211,7 @@ export function SimpleHome() {
                                     className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
                                 >
                                     {/* Left: Coded wireframe mockup */}
-                                    <div className="lg:col-span-6 group relative overflow-hidden rounded-xl border border-zinc-800/80 bg-[#0a0a0b] aspect-[16/10] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] transition-colors duration-500 hover:border-zinc-700">
+                                    <div className="lg:col-span-6 group relative overflow-hidden rounded-xl border border-zinc-800/80 bg-[#0a0a0b] aspect-[4/3] min-h-[220px] sm:aspect-[16/10] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] transition-colors duration-500 hover:border-zinc-700">
                                         <ProjectWireframe title={project.title} accent={accentColor} />
                                     </div>
 
@@ -248,10 +248,10 @@ export function SimpleHome() {
                                             ))}
                                         </div>
 
-                                        <div className="mt-6">
+                                        <div className="mt-4 md:mt-6">
                                             <ShinyButton
                                                 onClick={() => window.location.href = project.link}
-                                                className="flex items-center gap-1.5"
+                                                className="flex w-full sm:w-auto items-center justify-center gap-1.5"
                                             >
                                                 View Case Study
                                                 <ArrowRight className="h-3.5 w-3.5" />
@@ -267,7 +267,7 @@ export function SimpleHome() {
 
 
             {/* About & Stack Section */}
-            <section id="about" className="border-t border-zinc-900 bg-zinc-950/10 py-20">
+            <section id="about" className="scroll-mt-16 border-t border-zinc-900 bg-zinc-950/10 py-16 md:py-20">
                 <div className="mx-auto max-w-6xl px-6 md:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                         
@@ -305,7 +305,7 @@ export function SimpleHome() {
                                     <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-3">Engineering</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {['React', 'Next.js', 'Astro', 'TypeScript', 'Tailwind CSS', 'WebRTC', 'Vercel', 'Performance Tuning'].map(tag => (
-                                            <span key={tag} className="border border-zinc-850 bg-zinc-950/60 rounded px-2.5 py-1 text-xs font-mono text-zinc-400">
+                                            <span key={tag} className="border border-zinc-800 bg-zinc-950/60 rounded px-2.5 py-1 text-xs font-mono text-zinc-400">
                                                 {tag}
                                             </span>
                                         ))}
@@ -318,7 +318,7 @@ export function SimpleHome() {
             </section>
 
             {/* Contact / CTA */}
-            <section id="contact" className="border-t border-zinc-900 bg-zinc-950/20 py-20 md:py-32">
+            <section id="contact" className="scroll-mt-16 border-t border-zinc-900 bg-zinc-950/20 py-20 md:py-32">
                 <div className="mx-auto max-w-6xl px-6 md:px-12 text-center flex flex-col items-center gap-6">
                     <p className="text-xs font-mono tracking-widest text-zinc-500 uppercase">// GET IN TOUCH</p>
                     
@@ -330,7 +330,7 @@ export function SimpleHome() {
                         I am currently open to senior product design and UX engineering opportunities.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
+                    <div className="flex w-full max-w-xs flex-col items-stretch gap-3 mt-6 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
                         <ShinyButton
                             onClick={() => window.location.href = `mailto:${STORY_IDENTITY.email}`}
                             className="px-8 py-4 text-sm"
