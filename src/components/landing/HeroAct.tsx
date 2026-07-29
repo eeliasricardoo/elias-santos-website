@@ -149,8 +149,8 @@ export function HeroAct() {
                                 <div
                                     className="er-blob overflow-hidden border-[3px]"
                                     style={{
-                                        width: 'clamp(200px, 30vw, 360px)',
-                                        height: 'clamp(200px, 30vw, 360px)',
+                                        width: 'clamp(130px, 20vw, 360px)',
+                                        height: 'clamp(130px, 20vw, 360px)',
                                         borderColor: 'var(--er-paper)',
                                     }}
                                 >

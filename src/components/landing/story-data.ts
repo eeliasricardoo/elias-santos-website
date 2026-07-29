@@ -109,6 +109,7 @@ export interface StoryProject {
     tags: readonly string[];
     link: string;
     image: string;
+    video?: string;
     metric: string | null;
     external?: boolean;
 }
@@ -134,6 +135,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         tags: ['UX/UI Design', 'Accessibility', 'Design System', 'React 19'],
         link: '/portfolio/netflix',
         image: '/portfolios/netflix/hero-featured.jpg',
+        video: '/portfolios/netflix/a_da_ca_fba_dmp_.mp4',
         metric: '300 active users',
     },
     {
@@ -144,6 +146,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         tags: ['React', 'AI', 'UX Engineering'],
         link: '/portfolio/sfmc-magic-builder',
         image: '/portfolios/sfmc-magic-builder/interface-top.webp',
+        video: '/portfolios/oliver.webm',
         metric: '80min → 10min',
     },
     {
@@ -154,6 +157,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         tags: ['Gamification', 'SSR', 'Caching'],
         link: '/portfolio/ranking',
         image: '/portfolios/ranking/ranking.webp',
+        video: '/portfolios/ranking/ranking-demo.webm',
         metric: null,
     },
     {
@@ -164,6 +168,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         tags: ['UX/UI', 'Real-time', 'Optimization'],
         link: '/portfolio/support-queue',
         image: '/portfolios/fila-atendimento/1.webp',
+        video: '/portfolios/framer-ui.webm',
         metric: 'avg wait −22%',
     },
     {
@@ -174,6 +179,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
+        video: '/portfolios/ventus/video.webm',
         metric: null,
     },
     {
@@ -183,7 +189,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
             'Language teachers run 1:1 and group lessons across Zoom, WhatsApp, and disconnected docs. I built a live classroom that puts video, interactive activities, and a CEFR-mapped progress trail on one screen.',
         tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
         link: '/portfolio/ilevar',
-        image: '/placeholder.jpg',
+        image: '/portfolios/englishroom/s_dashboard_lt.webp',
         metric: '1:1 + group · solo build',
     },
 ] as const;
