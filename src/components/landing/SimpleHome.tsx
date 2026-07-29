@@ -330,18 +330,12 @@ export function SimpleHome() {
                         I am currently open to senior product design and UX engineering opportunities.
                     </p>
 
-                    <div className="flex w-full max-w-xs flex-col items-stretch gap-3 mt-6 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
+                    <div className="flex w-full max-w-xs justify-center mt-6 sm:w-auto">
                         <ShinyButton
                             onClick={() => window.location.href = `mailto:${STORY_IDENTITY.email}`}
                             className="px-8 py-4 text-sm"
                         >
                             Send an Email
-                        </ShinyButton>
-                        <ShinyButton
-                            onClick={() => window.open('https://calendly.com/eeliasricardoo', '_blank', 'noopener,noreferrer')}
-                            className="px-8 py-4 text-sm"
-                        >
-                            Book on Calendly
                         </ShinyButton>
                     </div>
 
