@@ -84,11 +84,33 @@ export function SimpleHome() {
             <section className="mx-auto max-w-6xl px-6 py-8 md:px-12 md:py-28">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     
-                    {/* Left Column - Content */}
-                    <div className="lg:col-span-8 flex flex-col gap-6 order-2 lg:order-1">
-                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono tracking-widest text-zinc-500 uppercase">
+                    {/* Main Content Column */}
+                    <div className="lg:col-span-8 flex flex-col gap-6">
+                        
+                        {/* Mobile Header: Integrated Avatar + Metadata */}
+                        <div className="flex items-center gap-4 lg:hidden pb-2 border-b border-zinc-900/80">
+                            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-zinc-800 bg-zinc-950 shadow-md">
+                                <img
+                                    src="/profile-photo.webp"
+                                    alt="Elias Ricardo"
+                                    width={100}
+                                    height={100}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                                <div className="flex items-center gap-2">
+                                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                                    <span className="text-white font-semibold text-xs tracking-normal">Elias Ricardo</span>
+                                </div>
+                                <span className="text-[10px] text-zinc-500">{STORY_IDENTITY.remote} • SENIOR UX ENGINEER</span>
+                            </div>
+                        </div>
+
+                        {/* Desktop Status Eyebrow */}
+                        <div className="hidden lg:flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono tracking-widest text-zinc-500 uppercase">
                             <span className="whitespace-nowrap">{STORY_IDENTITY.remote}</span>
-                            <span className="hidden sm:inline">•</span>
+                            <span>•</span>
                             <span className="whitespace-nowrap">SENIOR UX ENGINEER</span>
                         </div>
                         
@@ -149,9 +171,9 @@ export function SimpleHome() {
                         </div>
                     </div>
 
-                    {/* Right Column - Portrait */}
-                    <div className="lg:col-span-4 flex flex-col justify-center items-start lg:items-end order-1 lg:order-2">
-                        <div className="w-full lg:max-w-[320px] aspect-square overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950">
+                    {/* Desktop Right Column - Full Portrait */}
+                    <div className="hidden lg:flex lg:col-span-4 flex-col justify-center items-end">
+                        <div className="w-full max-w-[320px] aspect-square overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 shadow-2xl">
                             <img
                                 src="/profile-photo.webp"
                                 alt="Elias Ricardo"
@@ -332,16 +354,18 @@ export function SimpleHome() {
 
                     <div className="flex w-full max-w-xs flex-col items-stretch gap-3 mt-6 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
                         <ShinyButton
-                            onClick={() => window.location.href = `mailto:${STORY_IDENTITY.email}`}
-                            className="px-8 py-4 text-sm"
-                        >
-                            Send an Email
-                        </ShinyButton>
-                        <ShinyButton
                             onClick={() => window.open('https://calendly.com/eeliasricardoo', '_blank', 'noopener,noreferrer')}
-                            className="px-8 py-4 text-sm"
+                            className="px-8 py-4 text-sm font-bold"
+                            variant="primary"
                         >
                             Book on Calendly
+                        </ShinyButton>
+                        <ShinyButton
+                            onClick={() => window.location.href = `mailto:${STORY_IDENTITY.email}`}
+                            className="px-8 py-4 text-sm"
+                            variant="secondary"
+                        >
+                            Send an Email
                         </ShinyButton>
                     </div>
 

@@ -10,7 +10,7 @@ import {
     useReducedMotion,
 } from 'framer-motion';
 import { STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from './story-data';
-import { ProjectWireframe } from '@/components/portfolio/ui';
+import { ProjectWireframe, HoverVideoPreview } from '@/components/portfolio/ui';
 
 /**
  * Every case cover gets the same treatment: charcoal panel with a dot
@@ -83,9 +83,11 @@ function CaseCover({ project, accent }: { project: StoryProject; accent: string 
                 </div>
 
                 <div className="relative min-h-0 flex-1 overflow-hidden">
-                    <ProjectWireframe 
-                        title={project.title} 
-                        accent={accent} 
+                    <HoverVideoPreview
+                        title={project.title}
+                        accent={accent}
+                        video={project.video}
+                        image={project.image}
                     />
 
                     {/* View-project overlay — the click affordance the flat screenshot lacked */}
