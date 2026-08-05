@@ -129,6 +129,16 @@ export const PROJECT_ACCENTS = [
 export const STORY_PROJECTS: readonly StoryProject[] = [
     {
         index: '01',
+        title: 'ilevar',
+        description:
+            'An end-to-end live classroom platform designed and engineered from UX/UI research & brand design system to full-stack WebRTC architecture — putting video, 14 interactive activities, and a CEFR-mapped progress trail on one screen.',
+        tags: ['Full-Stack', 'End-to-End', 'UX/UI Design System', 'Next.js 16 & WebRTC'],
+        link: '/portfolio/ilevar',
+        image: '/mascot/gennai-hero.png',
+        metric: 'Full-Stack · End-to-End',
+    },
+    {
+        index: '02',
         title: 'DramaFlix',
         description:
             'Many streaming services ignore older adults. I designed and engineered a high-performance web app with senior-friendly accessibility controls and a serverless backend supporting 300+ active users.',
@@ -139,7 +149,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: '300 active users',
     },
     {
-        index: '02',
+        index: '03',
         title: 'EmailFlow Pro',
         description:
             'Email production at Serasa Experian was bottlenecked by manual HTML coding. I built a visual compiler that reduced campaign build times from 80 minutes down to just 10.',
@@ -150,7 +160,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: '80min → 10min',
     },
     {
-        index: '03',
+        index: '04',
         title: 'Ranking Engine',
         description:
             'Gamification for an EdTech platform. I designed and built real-time leaderboards using server-side rendering (SSR) and aggressive caching to handle massive launch-day traffic spikes.',
@@ -161,7 +171,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: null,
     },
     {
-        index: '04',
+        index: '05',
         title: 'Support Queue',
         description:
             'Customer support lacked a triage system, leaving all tickets in a single pool. I researched user pain points, designed an automated priority queue, and reduced average wait times by 22%.',
@@ -172,7 +182,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         metric: 'avg wait −22%',
     },
     {
-        index: '05',
+        index: '06',
         title: 'ChatAI Ecosystem',
         description:
             'Reading docs only gets you so far. I designed and built a multimodal AI sandbox to master and de-risk token streaming and model orchestration before client work.',
@@ -181,15 +191,5 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/ventus/v9.webp',
         video: '/portfolios/ventus/video.webm',
         metric: null,
-    },
-    {
-        index: '06',
-        title: 'ilevar',
-        description:
-            'Language teachers run 1:1 and group lessons across Zoom, WhatsApp, and disconnected docs. I built a live classroom that puts video, interactive activities, and a CEFR-mapped progress trail on one screen.',
-        tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
-        link: '/portfolio/ilevar',
-        image: '/portfolios/englishroom/s_dashboard_lt.webp',
-        metric: '1:1 + group · solo build',
     },
 ] as const;

@@ -10,8 +10,7 @@ export function WhyItExistsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="font-mono text-xs uppercase tracking-widest"
-        style={{ color: 'var(--brand, hsl(var(--foreground)))' }}
+        className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold"
       >
         Why it exists
       </motion.p>
@@ -22,9 +21,9 @@ export function WhyItExistsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-xl border border-destructive/25 bg-destructive/[0.04] p-6"
+          className="rounded-xl border border-destructive/30 bg-destructive/10 p-6"
         >
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-destructive">The problem</p>
+          <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-red-400">The problem</p>
           <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
             Most online language lessons are stitched together from three disconnected tools: a video
             call (Zoom), a worksheet (Google Docs / PDF), and a chat (WhatsApp). The student&apos;s
@@ -38,10 +37,9 @@ export function WhyItExistsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-xl border p-6"
-          style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 25%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 4%, transparent)' }}
+          className="rounded-xl border border-sky-500/30 bg-sky-500/10 p-6"
         >
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>The bet</p>
+          <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-sky-400">The bet</p>
           <p className="mt-3 text-[15px] leading-relaxed text-foreground/85">
             ilevar collapses the lesson into one surface — and one data model. A <code className="font-mono text-[13px]">Lesson</code>{' '}
             is a <code className="font-mono text-[13px]">Lesson</code> whether it seats one student or a whole class

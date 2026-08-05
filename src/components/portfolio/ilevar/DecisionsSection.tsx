@@ -36,7 +36,7 @@ export function DecisionsSection() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="flex gap-5 rounded-xl border border-border/20 bg-card p-6"
           >
-            <span className="font-mono text-2xl font-bold tabular-nums leading-none" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>{d.n}</span>
+            <span className="font-mono text-2xl font-bold tabular-nums leading-none text-sky-400">{d.n}</span>
             <div>
               <h3 className="font-semibold text-foreground">{d.title}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{d.text}</p>

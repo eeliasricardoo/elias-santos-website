@@ -11,6 +11,17 @@ const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
 const projects = [
   {
+    title: 'ilevar',
+    description: 'An end-to-end live classroom platform designed and engineered from UX/UI research & brand design system to full-stack WebRTC architecture — putting video, 14 interactive activity engines, and a CEFR progress trail on one screen.',
+    tags: ['Full-Stack', 'End-to-End', 'UX/UI Design System', 'Next.js 16 & WebRTC'],
+    link: '/portfolio/ilevar',
+    image: '/mascot/gennai-hero.png',
+    width: 1220,
+    height: 762,
+    metric: 'Full-Stack · End-to-End',
+    company: 'EdTech Product',
+  },
+  {
     title: 'EmailFlow Pro',
     description: 'Campaign email production at Serasa Experian was bottlenecked by manual HTML coding. I designed and engineered EmailFlow Pro, a visual builder that cut layout creation from 80 minutes to just 10.',
     tags: ['React', 'AI', 'UX Engineering'],
@@ -21,17 +32,6 @@ const projects = [
     height: 694,
     metric: 'Email prod 80min → 10min',
     company: 'Serasa Experian',
-  },
-  {
-    title: 'ilevar',
-    description: 'Language teachers run 1:1 and group lessons across Zoom, WhatsApp, and a stack of disconnected docs. I built ilevar, a live classroom that puts video, drilling and reading activities, and a CEFR-mapped progress trail on one screen — for any language, not just English.',
-    tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
-    link: '/portfolio/ilevar',
-    image: '/portfolios/englishroom/s_dashboard_lt.webp',
-    width: 1220,
-    height: 762,
-    metric: '1:1 + group · solo build',
-    company: 'Personal project',
   },
   {
     title: 'ChatAI: Personal AI Ecosystem',
