@@ -253,19 +253,21 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
 
     // 3. ilevar — live classroom that seats 1:1 or a class group, plus a CEFR trail.
     if (key === 'ilevar') {
+        const brandAccent = '#38bdf8';
+        const brandBlue = '#0563A8';
         return (
             <div className={shell}>
                 <GridOverlay />
                 <WindowChrome label="ilevar.app" />
                 <div className="relative z-10 flex flex-1 flex-col gap-2 p-2.5">
-                    <div className="flex flex-1 gap-2">
-                        {/* Video grid — teacher + group of students, not just 1:1 */}
+                    <div className="flex flex-1 gap-2 items-stretch">
+                        {/* Video grid — teacher + group of students */}
                         <div className="grid flex-1 grid-cols-2 gap-1.5">
-                            <div className="relative col-span-2 flex items-center justify-center overflow-hidden rounded-md border border-white/[0.08] bg-white/[0.03]">
-                                <Video className="h-3.5 w-3.5 text-zinc-700" />
-                                <span className="absolute left-1.5 top-1.5 flex items-center gap-1 font-mono text-[6px] font-semibold tracking-wider text-zinc-400">
-                                    <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
-                                    TEACHER
+                            <div className="relative col-span-2 flex items-center justify-center overflow-hidden rounded-md border border-sky-500/20 bg-sky-500/5">
+                                <Video className="h-3.5 w-3.5 text-sky-400" />
+                                <span className="absolute left-1.5 top-1.5 flex items-center gap-1 font-mono text-[6px] font-semibold tracking-wider text-sky-300">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />
+                                    LIVE · TEACHER
                                 </span>
                             </div>
                             {['S1', 'S2', 'S3'].map((s, i) => (
@@ -273,51 +275,44 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
                                     key={s}
                                     className={`relative flex items-center justify-center overflow-hidden rounded-md border border-white/[0.06] bg-white/[0.02] ${i === 2 ? 'col-span-2' : ''}`}
                                 >
-                                    <span className="font-mono text-[6px] tracking-wider text-zinc-600">{s}</span>
+                                    <span className="font-mono text-[6px] tracking-wider text-zinc-400">{s}</span>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Activity — stays light, like a real lesson card */}
-                        <div className="relative flex w-[46%] shrink-0 flex-col overflow-hidden rounded-md bg-zinc-100 shadow-2xl">
-                            <Glow accent={accent} className="-right-14 -top-14 h-40 w-40" />
-                            <div className="flex items-center justify-between border-b border-zinc-200 bg-white px-2 py-1">
-                                <span className="font-mono text-[6px] font-bold tracking-widest text-zinc-500">DRILLING</span>
-                                <span
-                                    className="rounded-sm px-1 py-px font-mono text-[6px] font-bold text-white"
-                                    style={{ backgroundColor: accent }}
-                                >
-                                    B1
+                        {/* Gennai Mascot Flying Feature Panel */}
+                        <div className="relative flex w-[48%] shrink-0 flex-col items-center justify-between overflow-hidden rounded-lg bg-gradient-to-b from-[#08192e] to-[#040e1a] border border-sky-500/30 p-2 shadow-2xl">
+                            {/* Comic Speech Bubble */}
+                            <div className="rounded border border-sky-400/40 bg-card/90 px-1.5 py-0.5 text-center shadow-md">
+                                <span className="font-mono text-[6.5px] font-bold text-sky-300">
+                                    &ldquo;Speak like you mean it!&rdquo; ✨
                                 </span>
                             </div>
-                            <div className="flex flex-1 flex-col items-center justify-center gap-1.5 p-2 text-center">
-                                <span className="text-[8px] font-black tracking-[0.15em] text-zinc-700">PAST SIMPLE</span>
-                                <div className="flex items-center gap-1.5">
-                                    <span className="rounded border border-zinc-300 bg-white px-1.5 py-0.5 font-mono text-[6.5px] text-zinc-600 shadow-sm">
-                                        She go
-                                    </span>
-                                    <ArrowRight className="h-1.5 w-1.5 text-zinc-400" />
-                                    <span
-                                        className="rounded px-1.5 py-0.5 font-mono text-[6.5px] font-bold text-white shadow-sm transition-transform duration-500 group-hover:-translate-y-0.5"
-                                        style={{ backgroundColor: accent }}
-                                    >
-                                        went
-                                    </span>
-                                </div>
+
+                            {/* Gennai Mascot Flying Image */}
+                            <img
+                                src="/mascot/gennai-floating.png"
+                                alt="Gennai Mascot"
+                                className="h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(56,189,248,0.3)] group-hover:scale-105 transition-transform duration-500"
+                            />
+
+                            {/* Badge */}
+                            <div className="rounded bg-sky-500/20 px-1.5 py-0.5 border border-sky-400/40 text-[6px] font-mono font-bold text-white uppercase tracking-wider">
+                                Gennai AI Classroom
                             </div>
                         </div>
                     </div>
 
                     {/* CEFR trail strip */}
-                    <div className="flex shrink-0 items-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1.5">
+                    <div className="flex shrink-0 items-center gap-1 rounded-md border border-white/[0.08] bg-white/[0.03] px-2 py-1.5">
                         {['A1', 'A2', 'B1', 'B2', 'C1'].map((n, i) => (
                             <div key={n} className="flex flex-1 items-center last:flex-none">
                                 <span
-                                    className="flex h-3.5 w-3.5 items-center justify-center rounded-full font-mono text-[6px] font-bold"
+                                    className="flex h-3.5 w-3.5 items-center justify-center rounded-full font-mono text-[6px] font-bold text-white shadow-sm"
                                     style={
                                         i <= 2
-                                            ? { backgroundColor: accent, color: '#000' }
-                                            : { border: '1px solid rgba(255,255,255,0.15)', color: '#71717a' }
+                                            ? { backgroundColor: brandBlue }
+                                            : { border: '1px solid rgba(255,255,255,0.15)', color: '#94a3b8' }
                                     }
                                 >
                                     {n}
@@ -325,7 +320,7 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
                                 {i < 4 && (
                                     <span
                                         className="h-px flex-1"
-                                        style={{ backgroundColor: i < 2 ? accent : 'rgba(255,255,255,0.1)' }}
+                                        style={{ backgroundColor: i < 2 ? brandAccent : 'rgba(255,255,255,0.1)' }}
                                     />
                                 )}
                             </div>
