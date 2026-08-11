@@ -6,7 +6,7 @@ import { BrowserFrame } from '../ui/BrowserFrame';
 import { IlevarLogo } from './IlevarLogo';
 
 const stats = [
-  { value: 'End-to-End', label: 'UX/UI & Full-Stack' },
+  { value: 'UX Engineering', label: 'Product Design & Frontend' },
   { value: '14', label: 'activity engines' },
   { value: '1:1 + group', label: 'live rooms' },
   { value: 'Design System', label: 'OKLCH tokens' },
@@ -34,13 +34,13 @@ export function HeroSection() {
           <div className="space-y-6 flex-1 text-center md:text-left">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
               <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
-                Full-Stack Case Study
+                UX Engineering Case Study
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-[11px] font-semibold text-sky-400">
-                <Sparkles className="w-3 h-3 text-sky-400" /> End-to-End Product Architecture &amp; Design System
+                <Sparkles className="w-3 h-3 text-sky-400" /> Product Architecture &amp; Design System
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
-                <Layers className="w-3 h-3" /> Full-Stack Architecture
+                <Layers className="w-3 h-3" /> Frontend &amp; WebRTC Architecture
               </span>
             </div>
 
@@ -49,7 +49,7 @@ export function HeroSection() {
             </div>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-              An end-to-end live classroom platform — from UX/UI research, brand design system (OKLCH tokens), and interface design to full-stack WebRTC architecture, real-time activity engines, and AI lesson prep.
+              A live classroom platform — from UX research, brand design system (OKLCH tokens), and interface design to production WebRTC architecture, real-time activity engines, and AI lesson prep.
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
