@@ -131,6 +131,11 @@
     color: hsl(var(--background));
   }
 
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid hsl(var(--foreground));
+    outline-offset: 3px;
+  }
+
   /* Reduzir animações para quem prefere menos movimento */
   @media (prefers-reduced-motion: reduce) {
     *,

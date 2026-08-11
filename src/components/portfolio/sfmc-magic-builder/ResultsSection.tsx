@@ -3,30 +3,29 @@
 import { CaseStudySection, MetricsGrid, type MetricItem } from '@/components/portfolio/ui';
 
 const metrics: MetricItem[] = [
-    { value: '10 min', label: 'Production Time (from 80m)' },
-    { value: '-87.5%', label: 'Efficiency Gain' },
-    { value: 'Zero', label: 'Human/AI Errors' },
-    { value: 'Instant', label: 'Client-Side Processing' },
+    { value: '80 → 10–20 min', label: 'Campaign production time' },
+    { value: 'Client-side', label: 'Processing model' },
+    { value: 'Deterministic', label: 'Transformation rules' },
 ];
 
 export function ResultsSection() {
     return (
-        <CaseStudySection eyebrow="Impact" index={8} title="Results and performance">
+        <CaseStudySection eyebrow="Outcome" index={9} title="A shorter, more verifiable workflow">
             <p>
-                The efficiency of the <strong className="text-foreground">UX + AI + Code</strong> triad was measured in real-time:
+                The measurable result was a reduction in campaign production time from approximately <strong className="text-foreground">80 minutes to 10–20 minutes per campaign</strong>. The tool also moved the risky steps into visible, repeatable checks.
             </p>
 
             <MetricsGrid metrics={metrics} />
 
             <ul className="list-disc pl-6 space-y-4 mt-8">
                 <li>
-                    <strong className="text-foreground">Production Time:</strong> From 80 minutes to <strong className="text-foreground">10 minutes</strong> per email (<strong className="text-foreground">-87.5%</strong>).
+                    <strong className="text-foreground">Production time:</strong> Approximately 80 minutes to 10–20 minutes per campaign.
                 </li>
                 <li>
-                    <strong className="text-foreground">Data Quality:</strong> Human errors and AI hallucinations were reduced to <strong className="text-foreground">zero</strong>.
+                    <strong className="text-foreground">Verification:</strong> Image URLs, links, AMPScript placement, and processed output became visible checks in the workflow.
                 </li>
                 <li>
-                    <strong className="text-foreground">Vercel Performance:</strong> Processing happens <em>client-side</em>. This means it's instant and secure (data never leaves the browser).
+                    <strong className="text-foreground">Processing:</strong> The app runs client-side, so customer HTML stays in the browser during processing.
                 </li>
             </ul>
         </CaseStudySection>

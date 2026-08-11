@@ -34,7 +34,7 @@ export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>
       <button
         ref={ref}
         className={cn(
-          "relative overflow-hidden rounded-md px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-lg inline-flex items-center justify-center gap-2",
+          "relative min-h-11 overflow-hidden rounded-md px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-lg inline-flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black",
           variantStyles[variant],
           className
         )}

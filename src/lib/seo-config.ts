@@ -3,7 +3,7 @@ export const SEO_CONFIG = {
     name: 'Elias Ricardo',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eeliasricardoo.com',
     description:
-      'Senior UX Engineer — research, interface design, and production React code. Case studies with measured outcomes at Serasa Experian and EdTech.',
+      'Senior UX Engineer working across product design and frontend engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
     author: 'Elias Ricardo',
     language: 'en-US',
     locale: 'en_US',
@@ -18,12 +18,15 @@ export const SEO_CONFIG = {
   defaultMeta: {
     title: 'Elias Ricardo — Senior UX Engineer',
     description:
-      'Senior UX Engineer — research, interface design, and production React code. Email production cut 87.5% at Serasa Experian; support wait down 22%. Case studies inside.',
+      'Senior UX Engineer working across product design and frontend engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
     keywords: [
       'Elias Ricardo',
-      'UX Design',
-      'UI Design',
-      'Frontend Developer',
+      'UX Engineering',
+      'Design Engineer',
+      'UI Engineer',
+      'Product Design',
+      'Design Systems',
+      'Frontend Engineering',
       'React',
       'Next.js',
       'TypeScript',
@@ -42,11 +45,13 @@ export const SEO_CONFIG = {
     home: {
       title: 'Elias Ricardo — Senior UX Engineer',
       description:
-        'Senior UX Engineer — research, interface design, and production React code. Email production cut 87.5% at Serasa Experian; support wait down 22%. Case studies inside.',
+        'Senior UX Engineer working across product design and frontend engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
       keywords: [
         'Portfolio',
-        'UX Design',
-        'UI Design',
+        'UX Engineering',
+        'Design Engineer',
+        'UI Engineer',
+        'Product Design',
         'Frontend Developer',
         'React',
         'Next.js',
@@ -55,12 +60,13 @@ export const SEO_CONFIG = {
     portfolio: {
       title: 'Portfolio - Elias Ricardo',
       description:
-        'Discover Elias Ricardo projects in UX/UI Design and web development. Complete case studies and innovative solutions.',
+        'Selected UX Engineering case studies by Elias Ricardo, showing product design, design systems, React interfaces, and production frontend work.',
       keywords: [
         'Portfolio',
         'Projects',
-        'UX Design',
-        'UI Design',
+        'UX Engineering',
+        'Design Engineer',
+        'UI Engineer',
         'Case Studies',
       ],
     },

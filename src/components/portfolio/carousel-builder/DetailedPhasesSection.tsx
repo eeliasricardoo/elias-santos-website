@@ -123,7 +123,7 @@ export function DetailedPhasesSection() {
           className='w-full rounded-2xl overflow-hidden shadow-2xl border border-border/20 bg-card/80'
         >
           <ImageLightbox
-            src='/documentation/v1 - funcionando .png'
+            src='/documentation/v1 - funcionando.png'
             alt='Working MVP with carousel generation'
             width={800}
             height={600}

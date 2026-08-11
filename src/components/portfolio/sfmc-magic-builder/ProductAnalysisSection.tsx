@@ -5,7 +5,7 @@ import { ExternalLink } from 'lucide-react';
 
 export function ProductAnalysisSection() {
     return (
-        <CaseStudySection eyebrow="Product" index={7} title="EmailFlow Pro, end to end">
+        <CaseStudySection eyebrow="Implementation" index={8} title="The tool, end to end">
             <p>
                 The result is a client-side single-page app with three inputs and one trustworthy output. You paste the raw email,
                 hand it the data SFMC gives you, and it assembles a production-ready version — nothing leaves the browser.

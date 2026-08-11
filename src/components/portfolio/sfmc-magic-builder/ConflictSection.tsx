@@ -5,7 +5,7 @@ import { CaseStudySection } from '@/components/portfolio/ui';
 export function ConflictSection() {
     return (
         <>
-            <CaseStudySection eyebrow="Problem" index={3} title="The cost of &quot;manual labor&quot;">
+            <CaseStudySection eyebrow="Problem" index={4} title="The cost of &quot;manual labor&quot;">
                 <p>
                     Developing for Salesforce Marketing Cloud (SFMC) requires absolute precision — these emails went out to millions of Serasa Experian customers. My manual workflow was a massive bottleneck:
                 </p>
@@ -25,7 +25,7 @@ export function ConflictSection() {
                 </p>
             </CaseStudySection>
 
-            <CaseStudySection eyebrow="Constraint" index={4} title="Why generic AI (ChatGPT) failed">
+            <CaseStudySection eyebrow="Constraint" index={5} title="Why generic AI (ChatGPT) failed">
                 <p>
                     My first instinct was to use ChatGPT. I tried custom GPTs and complex prompts, but it revealed the limits of conversational AI:
                 </p>

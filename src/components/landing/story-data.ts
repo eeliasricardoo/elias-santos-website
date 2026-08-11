@@ -22,7 +22,7 @@ export const SHELL_ACCENTS = {
 export const STORY_IDENTITY = {
     logo: 'ER',
     name: 'Elias Ricardo',
-    roles: 'Product Design · AI · Frontend',
+    roles: 'Senior UX Engineer · Product Design · Frontend',
     remote: '//REMOTE — WORLDWIDE//',
     site: 'https://eeliasricardoo.com',
     siteLabel: 'eeliasricardoo.com',
@@ -49,7 +49,7 @@ export const TICKER_ITEMS = [
 ] as const;
 
 export const STORY_STATS = [
-    { value: '−87.5%', label: 'email production time · Serasa Experian' },
+    { value: '80 → 10–20 min', label: 'email production time · Serasa Experian' },
     { value: '−22%', label: 'average support wait · triage redesign' },
     { value: '<0.8s', label: 'LCP on this site · open source' },
 ] as const;
@@ -87,7 +87,7 @@ export const SHELL_RESPONSES: Record<string, readonly string[]> = {
     whoami: [
         'Elias Ricardo — product designer who codes.',
         'Remote from Brazil, working worldwide.',
-        'Currently: open to senior product design roles.',
+        'Currently: open to Senior UX Engineer roles.',
     ],
     companies: STORY_COMPANIES.map((c, i) => `${String(i + 1).padStart(2, '0')}  ${c.name}`),
     hiking: [
@@ -129,57 +129,57 @@ export const PROJECT_ACCENTS = [
 export const STORY_PROJECTS: readonly StoryProject[] = [
     {
         index: '01',
-        title: 'ilevar',
+        title: 'EmailFlow Pro',
         description:
-            'An end-to-end live classroom platform designed and engineered from UX/UI research & brand design system to full-stack WebRTC architecture — putting video, 14 interactive activities, and a CEFR-mapped progress trail on one screen.',
-        tags: ['Full-Stack', 'End-to-End', 'UX/UI Design System', 'Next.js 16 & WebRTC'],
-        link: '/portfolio/ilevar',
-        image: '/mascot/gennai-hero.png',
-        metric: 'Full-Stack · End-to-End',
+            'Email production at Serasa Experian was bottlenecked by manual HTML coding. I mapped the workflow, designed a visual builder, and engineered the React interface that reduced campaign build time from about 80 minutes to 10–20.',
+        tags: ['UX Engineering', 'Product Design', 'React · AI'],
+        link: '/portfolio/sfmc-magic-builder',
+        image: '/portfolios/sfmc-magic-builder/interface-top.webp',
+        video: '/portfolios/oliver.webm',
+        metric: '80min → 10–20min',
     },
     {
         index: '02',
+        title: 'ilevar',
+        description:
+            'A live classroom platform shaped from research and interaction design through design tokens, reusable interfaces, and WebRTC implementation. The experience brings video, interactive activities, and progress into one coherent product surface.',
+        tags: ['UX Engineering', 'Product Design', 'Next.js · WebRTC'],
+        link: '/portfolio/ilevar',
+        image: '/mascot/gennai-hero.png',
+        metric: null,
+    },
+    {
+        index: '03',
         title: 'DramaFlix',
         description:
-            'Many streaming services ignore older adults. I designed and engineered a high-performance web app with senior-friendly accessibility controls and a serverless backend supporting 300+ active users.',
-        tags: ['UX/UI Design', 'Accessibility', 'Design System', 'React 19'],
+            'A streaming experience designed and engineered with accessible controls, a documented design system, and a focus on making content easier to discover and use for older adults.',
+        tags: ['UX Engineering', 'Product Design', 'React · Accessibility'],
         link: '/portfolio/netflix',
         image: '/portfolios/netflix/hero-featured.jpg',
         video: '/portfolios/netflix/a_da_ca_fba_dmp_.mp4',
         metric: '300 active users',
     },
     {
-        index: '03',
-        title: 'EmailFlow Pro',
-        description:
-            'Email production at Serasa Experian was bottlenecked by manual HTML coding. I built a visual compiler that reduced campaign build times from 80 minutes down to just 10.',
-        tags: ['React', 'AI', 'UX Engineering'],
-        link: '/portfolio/sfmc-magic-builder',
-        image: '/portfolios/sfmc-magic-builder/interface-top.webp',
-        video: '/portfolios/oliver.webm',
-        metric: '80min → 10min',
-    },
-    {
         index: '04',
-        title: 'Ranking Engine',
-        description:
-            'Gamification for an EdTech platform. I designed and built real-time leaderboards using server-side rendering (SSR) and aggressive caching to handle massive launch-day traffic spikes.',
-        tags: ['Gamification', 'SSR', 'Caching'],
-        link: '/portfolio/ranking',
-        image: '/portfolios/ranking/ranking.webp',
-        video: '/portfolios/ranking/ranking-demo.webm',
-        metric: null,
-    },
-    {
-        index: '05',
         title: 'Support Queue',
         description:
-            'Customer support lacked a triage system, leaving all tickets in a single pool. I researched user pain points, designed an automated priority queue, and reduced average wait times by 22%.',
-        tags: ['UX/UI', 'Real-time', 'Optimization'],
+            'Customer support lacked a triage system, leaving all tickets in a single pool. I researched pain points, designed the priority model and interface, and reduced average wait times by 22%.',
+        tags: ['UX Engineering', 'Product Design', 'Real-time UI'],
         link: '/portfolio/support-queue',
         image: '/portfolios/fila-atendimento/1.webp',
         video: '/portfolios/framer-ui.webm',
         metric: 'avg wait −22%',
+    },
+    {
+        index: '05',
+        title: 'Ranking Engine',
+        description:
+            'An EdTech gamification system shaped through research, user journeys, and interface design, then implemented around real-time leaderboard behavior, SSR, and caching.',
+        tags: ['UX Engineering', 'Product Design', 'SSR · Caching'],
+        link: '/portfolio/ranking',
+        image: '/portfolios/ranking/ranking.webp',
+        video: '/portfolios/ranking/ranking-demo.webm',
+        metric: null,
     },
     {
         index: '06',

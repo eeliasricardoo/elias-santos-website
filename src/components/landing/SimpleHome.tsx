@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Github, Linkedin, Calendar, ExternalLink, ArrowRight, Check, Copy } from 'lucide-react';
-import { STORY_IDENTITY, STORY_PROJECTS, STORY_COMPANIES, STORY_STATS, PROJECT_ACCENTS } from './story-data';
+import { Github, Linkedin, ArrowRight, Check, Copy } from 'lucide-react';
+import { STORY_IDENTITY, STORY_PROJECTS, STORY_COMPANIES, PROJECT_ACCENTS } from './story-data';
 import { Button } from '@/components/ui/button';
 import { ShinyButton } from '@/components/magicui/shiny-button';
 import { ProjectWireframe } from '@/components/portfolio/ui';
@@ -115,12 +115,12 @@ export function SimpleHome() {
                         </div>
                         
                         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl leading-[1.1] text-white">
-                            Human intention,<br />
-                            amplified by AI.
+                            Designing the experience.<br />
+                            Engineering the interface.
                         </h1>
 
                         <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
-                            Hi, I&apos;m <span className="text-white font-medium">Elias Ricardo</span>, a Senior UX Engineer and Product Designer.
+                            I&apos;m <span className="text-white font-medium">Elias Ricardo</span>, a Senior UX Engineer working at the intersection of product design and frontend engineering — from discovery and design systems to production-ready interfaces.
                         </p>
 
                         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-2">
@@ -128,7 +128,7 @@ export function SimpleHome() {
                                 onClick={() => scrollTo('work')}
                                 className="flex w-full sm:w-auto items-center justify-center gap-1.5"
                             >
-                                Explore Projects ↓
+                                View Selected Work ↓
                             </ShinyButton>
 
                             <button
@@ -218,7 +218,7 @@ export function SimpleHome() {
             <section id="work" className="scroll-mt-16 border-t border-zinc-900 bg-zinc-950/20 py-16 md:py-20">
                 <div className="mx-auto max-w-6xl px-6 md:px-12">
                     <div className="border-b border-zinc-900 pb-5 mb-16 flex items-baseline justify-between">
-                        <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">SELECTED WORK</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">SELECTED WORK</h2>
                         <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
                             // 01 — {String(STORY_PROJECTS.length).padStart(2, '0')}
                         </span>
@@ -295,15 +295,15 @@ export function SimpleHome() {
                         
                         {/* Bio */}
                         <div className="lg:col-span-7 flex flex-col gap-6">
-                            <p className="text-xs font-mono tracking-widest text-zinc-500 uppercase">// ABOUT THE HUMAN</p>
+                            <p className="text-xs font-mono tracking-widest text-zinc-500 uppercase">// ABOUT THE WORK</p>
                             <h3 className="text-3xl font-bold tracking-tight text-white">
-                                Human intention, amplified by AI.
+                                Design thinking that makes it to production.
                             </h3>
                             <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
-                                Today, anyone can generate a user interface with AI in seconds. But a great product needs direction, clear design, and real user empathy. To me, &quot;Human intention, amplified by AI&quot; means using technology to build faster, but keeping human vision in control.
+                                I started in product design and gradually moved closer to implementation. Over the years, I found that my best work happens between design and engineering — understanding the user problem, shaping the interaction, building the system behind the interface, and working with engineers to ship it. That&apos;s what led me to UX Engineering.
                             </p>
                             <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
-                                Outside of work, I love travel and new adventures. I pay close attention to details and I am always open to change. I love learning about new AI tools, and I really have fun doing this every day.
+                                I work across LATAM, the US, and Europe. AI is part of my toolkit for prototyping and workflow automation, but the responsibility stays human: make the problem clearer, the interface more useful, and the implementation more resilient.
                             </p>
                         </div>
 
@@ -313,9 +313,9 @@ export function SimpleHome() {
                             
                             <div className="flex flex-col gap-6">
                                 <div>
-                                    <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-3">Design</h4>
+                                    <h4 className="text-xs font-mono text-white uppercase tracking-widest mb-3">UX Engineering</h4>
                                     <div className="flex flex-wrap gap-2">
-                                        {['Product Design', 'UI/UX Design', 'User Research', 'Interactive Prototyping', 'Design Systems', 'Figma'].map(tag => (
+                                        {['Design Systems', 'Component Architecture', 'Design-to-Code', 'Interaction Design', 'Accessibility / WCAG', 'Responsive UI', 'Rapid Prototyping'].map(tag => (
                                             <span key={tag} className="border border-zinc-800 bg-zinc-950/60 rounded px-2.5 py-1 text-xs font-mono text-zinc-400">
                                                 {tag}
                                             </span>
@@ -324,10 +324,30 @@ export function SimpleHome() {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-3">Engineering</h4>
+                                    <h4 className="text-xs font-mono text-white uppercase tracking-widest mb-3">Product Design</h4>
                                     <div className="flex flex-wrap gap-2">
-                                        {['React', 'Next.js', 'Astro', 'TypeScript', 'Tailwind CSS', 'WebRTC', 'Vercel', 'Performance Tuning'].map(tag => (
+                                        {['UX Research', 'Product Discovery', 'User Flows', 'Journey Mapping', 'Information Architecture', 'Usability Testing', 'Figma'].map(tag => (
                                             <span key={tag} className="border border-zinc-800 bg-zinc-950/60 rounded px-2.5 py-1 text-xs font-mono text-zinc-400">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="text-xs font-mono text-white uppercase tracking-widest mb-3">Frontend Engineering</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Astro', 'REST APIs', 'WebRTC', 'Frontend Performance'].map(tag => (
+                                            <span key={tag} className="border border-zinc-800 bg-zinc-950/60 rounded px-2.5 py-1 text-xs font-mono text-zinc-400">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-3">AI &amp; Automation</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['Claude', 'Claude Code', 'Cursor', 'OpenAI', 'AI-assisted Development', 'Workflow Automation'].map(tag => (
+                                            <span key={tag} className="border border-zinc-800 bg-zinc-950/60 rounded px-2.5 py-1 text-xs font-mono text-zinc-500">
                                                 {tag}
                                             </span>
                                         ))}
@@ -349,7 +369,7 @@ export function SimpleHome() {
                     </h2>
                     
                     <p className="text-zinc-400 text-base md:text-lg max-w-xl font-light">
-                        I am currently open to senior product design and UX engineering opportunities.
+                        I&apos;m currently open to Senior UX Engineer, Design Engineer, and UI Engineer opportunities where product design and frontend engineering come together.
                     </p>
 
                     <div className="flex w-full max-w-xs flex-col items-stretch gap-3 mt-6 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
