@@ -90,17 +90,17 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
     const key = getProjectKey(title);
     const shell = `${SHELL} ${className}`;
 
-    // 1. DramaFlix — streaming for older adults: oversized targets, visible focus.
+    // 1. Streaming platform — for older adults: oversized targets, visible focus.
     if (key === 'dramafix') {
         return (
             <div className={shell}>
                 <GridOverlay />
-                <WindowChrome label="dramaflix.app" />
+                <WindowChrome label="streaming.app" />
                 <div className="relative z-10 flex flex-1 flex-col gap-2.5 p-3">
                     {/* App nav */}
                     <div className="flex shrink-0 items-center justify-between">
                         <span className="text-[10px] font-black tracking-[0.22em]" style={{ color: accent }}>
-                            DRAMAFLIX
+                            STREAM+
                         </span>
                         <div className="flex items-center gap-2.5">
                             <Bar className="h-1 w-7" />

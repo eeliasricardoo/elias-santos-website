@@ -1,4 +1,4 @@
-// DramaFlix (Netflix Clone) case study components
+// Streaming platform case study components (real client project; name withheld)
 export { HeroSection } from './HeroSection';
 export { WhyItExistsSection } from './WhyItExistsSection';
 export { PersonasSection } from './PersonasSection';
