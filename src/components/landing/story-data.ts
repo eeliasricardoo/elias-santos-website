@@ -22,7 +22,7 @@ export const SHELL_ACCENTS = {
 export const STORY_IDENTITY = {
     logo: 'ER',
     name: 'Elias Ricardo',
-    roles: 'Senior UX Engineer · Product Design · Frontend',
+    roles: 'Senior Product Designer & UX Engineer · Frontend',
     remote: '//REMOTE — WORLDWIDE//',
     site: 'https://eeliasricardoo.com',
     siteLabel: 'eeliasricardoo.com',
@@ -87,7 +87,7 @@ export const SHELL_RESPONSES: Record<string, readonly string[]> = {
     whoami: [
         'Elias Ricardo — product designer who codes.',
         'Remote from Brazil, working worldwide.',
-        'Currently: open to Senior UX Engineer roles.',
+        'Currently: open to Senior Product Designer / UX Engineer roles.',
     ],
     companies: STORY_COMPANIES.map((c, i) => `${String(i + 1).padStart(2, '0')}  ${c.name}`),
     hiking: [

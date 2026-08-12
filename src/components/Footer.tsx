@@ -38,7 +38,7 @@ export function Footer() {
                   Elias Ricardo
                 </h2>
                 <p className='text-muted-foreground text-xs md:text-sm'>
-                  Senior UX Engineer
+                  Senior Product Designer & UX Engineer
                 </p>
               </div>
             </div>

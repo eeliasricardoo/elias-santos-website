@@ -103,7 +103,7 @@ export function SimpleHome() {
                                     <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                                     <span className="text-white font-semibold text-xs tracking-normal">Elias Ricardo</span>
                                 </div>
-                                <span className="text-[10px] text-zinc-500">{STORY_IDENTITY.remote} • SENIOR UX ENGINEER</span>
+                                <span className="text-[10px] text-zinc-500">{STORY_IDENTITY.remote} • PRODUCT DESIGNER · UX ENGINEER</span>
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@ export function SimpleHome() {
                         <div className="hidden lg:flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono tracking-widest text-zinc-500 uppercase">
                             <span className="whitespace-nowrap">{STORY_IDENTITY.remote}</span>
                             <span>•</span>
-                            <span className="whitespace-nowrap">SENIOR UX ENGINEER</span>
+                            <span className="whitespace-nowrap">PRODUCT DESIGNER · UX ENGINEER</span>
                         </div>
                         
                         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl leading-[1.1] text-white">
@@ -120,7 +120,7 @@ export function SimpleHome() {
                         </h1>
 
                         <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
-                            I&apos;m <span className="text-white font-medium">Elias Ricardo</span>, a Senior UX Engineer working at the intersection of product design and frontend engineering — from discovery and design systems to production-ready interfaces.
+                            Hi, I&apos;m <span className="text-white font-medium">Elias Ricardo</span>, a Senior Product Designer and UX Engineer.
                         </p>
 
                         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-2">
@@ -369,7 +369,7 @@ export function SimpleHome() {
                     </h2>
                     
                     <p className="text-zinc-400 text-base md:text-lg max-w-xl font-light">
-                        I&apos;m currently open to Senior UX Engineer, Design Engineer, and UI Engineer opportunities where product design and frontend engineering come together.
+                        I&apos;m currently open to Senior Product Designer, UX Engineer, and Design Engineer opportunities where product design and frontend engineering come together.
                     </p>
 
                     <div className="flex w-full max-w-xs flex-col items-stretch gap-3 mt-6 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">

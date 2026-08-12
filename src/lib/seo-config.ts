@@ -3,7 +3,7 @@ export const SEO_CONFIG = {
     name: 'Elias Ricardo',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://eeliasricardoo.com',
     description:
-      'Senior UX Engineer working across product design and frontend engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
+      'Senior Product Designer and UX Engineer working at the intersection of design and engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
     author: 'Elias Ricardo',
     language: 'en-US',
     locale: 'en_US',
@@ -16,11 +16,12 @@ export const SEO_CONFIG = {
   },
 
   defaultMeta: {
-    title: 'Elias Ricardo — Senior UX Engineer',
+    title: 'Elias Ricardo — Senior Product Designer & UX Engineer',
     description:
-      'Senior UX Engineer working across product design and frontend engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
+      'Senior Product Designer and UX Engineer working at the intersection of design and engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
     keywords: [
       'Elias Ricardo',
+      'Product Designer',
       'UX Engineering',
       'Design Engineer',
       'UI Engineer',
@@ -43,11 +44,12 @@ export const SEO_CONFIG = {
 
   pages: {
     home: {
-      title: 'Elias Ricardo — Senior UX Engineer',
+      title: 'Elias Ricardo — Senior Product Designer & UX Engineer',
       description:
-        'Senior UX Engineer working across product design and frontend engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
+        'Senior Product Designer and UX Engineer working at the intersection of design and engineering, specializing in design systems, React/Next.js interfaces, interaction design, and production-ready digital products.',
       keywords: [
         'Portfolio',
+        'Product Designer',
         'UX Engineering',
         'Design Engineer',
         'UI Engineer',
@@ -108,7 +110,7 @@ export const SEO_CONFIG = {
         'https://github.com/eliassantos',
         'https://twitter.com/eliassantos',
       ],
-      jobTitle: 'Senior UX Engineer',
+      jobTitle: 'Senior Product Designer & UX Engineer',
       worksFor: {
         '@type': 'Organization',
         name: 'Freelancer',
@@ -125,7 +127,7 @@ export const SEO_CONFIG = {
         'Interface Design',
       ],
       description:
-        'Senior UX Engineer — research, interface design, and production React code, with measured outcomes.',
+        'Senior Product Designer & UX Engineer — research, interface design, and production React code, with measured outcomes.',
     },
 
     website: {
