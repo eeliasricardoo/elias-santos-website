@@ -5,32 +5,33 @@ import { PROJECT_BRANDS, BRAND_ORDER } from '@/constants/project-brands';
 import { OptimizedImage } from '@/components/performance/OptimizedImage';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { ProjectWireframe } from '@/components/portfolio/ui';
+import { ProjectWireframe, HoverVideoPreview } from '@/components/portfolio/ui';
 
 const projectColors = BRAND_ORDER.map((c) => PROJECT_BRANDS[c]);
 
 const projects = [
+  {
+    title: 'ilevar',
+    description: 'An end-to-end live classroom platform designed and engineered from UX/UI research & brand design system to full-stack WebRTC architecture — putting video, 14 interactive activity engines, and a CEFR progress trail on one screen.',
+    tags: ['Full-Stack', 'End-to-End', 'UX/UI Design System', 'Next.js 16 & WebRTC'],
+    link: '/portfolio/ilevar',
+    image: '/mascot/gennai-hero.png',
+    width: 1220,
+    height: 762,
+    metric: 'Full-Stack · End-to-End',
+    company: 'EdTech Product',
+  },
   {
     title: 'EmailFlow Pro',
     description: 'Campaign email production at Serasa Experian was bottlenecked by manual HTML coding. I designed and engineered EmailFlow Pro, a visual builder that cut layout creation from 80 minutes to just 10.',
     tags: ['React', 'AI', 'UX Engineering'],
     link: '/portfolio/sfmc-magic-builder',
     image: '/portfolios/sfmc-magic-builder/interface-top.webp',
+    video: '/portfolios/oliver.webm',
     width: 1220,
     height: 694,
     metric: 'Email prod 80min → 10min',
     company: 'Serasa Experian',
-  },
-  {
-    title: 'ilevar',
-    description: 'Language teachers run 1:1 and group lessons across Zoom, WhatsApp, and a stack of disconnected docs. I built ilevar, a live classroom that puts video, drilling and reading activities, and a CEFR-mapped progress trail on one screen — for any language, not just English.',
-    tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
-    link: '/portfolio/ilevar',
-    image: '/placeholder.jpg',
-    width: 1220,
-    height: 762,
-    metric: '1:1 + group · solo build',
-    company: 'Personal project',
   },
   {
     title: 'ChatAI: Personal AI Ecosystem',
@@ -38,6 +39,7 @@ const projects = [
     tags: ['Next.js', 'AI', 'Streaming'],
     link: '/portfolio/ventuschat',
     image: '/portfolios/ventus/v9.webp',
+    video: '/portfolios/ventus/video.webm',
     width: 800,
     height: 399,
     metric: null,
@@ -49,6 +51,7 @@ const projects = [
     tags: ['Gamification', 'SSR', 'Caching'],
     link: '/portfolio/ranking',
     image: '/portfolios/ranking/ranking.webp',
+    video: '/portfolios/ranking/ranking-demo.webm',
     width: 800,
     height: 406,
     metric: null,
@@ -60,6 +63,7 @@ const projects = [
     tags: ['UX/UI', 'Real-time', 'Optimization'],
     link: '/portfolio/support-queue',
     image: '/portfolios/fila-atendimento/1.webp',
+    video: '/portfolios/framer-ui.webm',
     width: 800,
     height: 399,
     metric: 'Avg wait −22%',
@@ -164,9 +168,11 @@ function ProjectCard({ project, index, color, isFeatured, isExternal }: ProjectC
               {/* Screenshot as floating mockup */}
               <div className="relative z-10 w-full max-w-md">
                 <div className="w-full rounded-xl overflow-hidden shadow-2xl group-hover:scale-[1.03] transition-transform duration-700 aspect-[16/10]">
-                  <ProjectWireframe
+                  <HoverVideoPreview
                     title={project.title}
                     accent={color.accent}
+                    video={project.video}
+                    image={project.image}
                   />
                 </div>
               </div>

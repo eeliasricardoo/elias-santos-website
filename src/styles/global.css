@@ -32,8 +32,8 @@
 
   /* Case-study brand palette — ink tones at decreasing strength.
      Floor is 0.75 so brand-colored text keeps ≥4.5:1 contrast on paper. */
-  --color-brand-lime: hsl(var(--foreground));
-  --color-brand-lime-deep: hsl(var(--foreground) / 0.85);
+  --color-brand-lime: #38bdf8;
+  --color-brand-lime-deep: #0563A8;
   --color-brand-cyan: hsl(var(--foreground) / 0.95);
   --color-brand-cyan-deep: hsl(var(--foreground) / 0.8);
   --color-brand-violet: hsl(var(--foreground) / 0.9);
@@ -129,6 +129,11 @@
   ::selection {
     background: hsl(var(--foreground));
     color: hsl(var(--background));
+  }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid hsl(var(--foreground));
+    outline-offset: 3px;
   }
 
   /* Reduzir animações para quem prefere menos movimento */

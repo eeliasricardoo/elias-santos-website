@@ -7,7 +7,7 @@ export function DesignSystemSection() {
   return (
     <CaseStudySection eyebrow="Design System" index={5} title="High-Contrast Aesthetics & Component Library">
       <p>
-        A streaming application requires a dark-first, premium interface where content is the absolute hero. DramaFlix implements a unified design system documented in a central interactive library, utilizing high-contrast tokens and a unified spacing system.
+        A streaming application requires a dark-first, premium interface where content is the absolute hero. The platform implements a unified design system documented in a central interactive library, utilizing high-contrast tokens and a unified spacing system.
       </p>
 
       <div className="grid gap-6 md:grid-cols-2 mt-4 font-sans">

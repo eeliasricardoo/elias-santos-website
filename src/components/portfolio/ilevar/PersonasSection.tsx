@@ -9,7 +9,7 @@ const personas = [
     name: 'Mariana Alves',
     role: 'Student',
     meta: 'Product Manager, 29 · São Paulo, BR',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&h=160&q=80&auto=format&fit=crop&crop=faces',
+    avatar: '/portfolios/ilevar/mariana_alves.jpg',
     stats: [
       { label: 'Learning', value: 'Business Spanish' },
       { label: 'Cadence', value: '2× / week, 1:1' },
@@ -31,7 +31,7 @@ const personas = [
     name: 'Emily Clarke',
     role: 'Teacher',
     meta: 'Freelance teacher, 38 · Manchester, UK',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=160&h=160&q=80&auto=format&fit=crop&crop=faces',
+    avatar: '/portfolios/ilevar/emily_clarke.jpg',
     stats: [
       { label: 'Teaches', value: 'English, Spanish' },
       { label: 'Format', value: '1:1 + 2 class groups' },
@@ -83,10 +83,7 @@ export function PersonasSection() {
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="text-base font-bold tracking-tight text-foreground">{p.name}</p>
-                  <span
-                    className="rounded-md px-1.5 py-0.5 font-mono text-[10px] font-semibold"
-                    style={{ color: 'var(--brand, hsl(var(--foreground)))', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 12%, transparent)' }}
-                  >
+                  <span className="rounded-md px-2 py-0.5 font-mono text-[10px] font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20">
                     {p.role}
                   </span>
                 </div>
@@ -104,7 +101,7 @@ export function PersonasSection() {
             </div>
 
             <div className="p-6">
-              <p className="pl-3 text-[15px] italic leading-relaxed text-foreground/80 border-l-2" style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 50%, transparent)' }}>
+              <p className="pl-3 text-[15px] italic leading-relaxed text-foreground/90 border-l-2 border-sky-400">
                 “{p.quote}”
               </p>
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
@@ -115,20 +112,20 @@ export function PersonasSection() {
                   <ul className="mt-2 space-y-1.5">
                     {p.goals.map((g) => (
                       <li key={g} className="flex gap-1.5 text-[13px] leading-relaxed text-muted-foreground">
-                        <Check className="mt-0.5 w-3 h-3 flex-shrink-0" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} />
+                        <Check className="mt-0.5 w-3 h-3 flex-shrink-0 text-sky-400" />
                         {g}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                    <CircleAlert className="w-3 h-3 text-destructive" /> Frustrations
+                  <p className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                    <CircleAlert className="w-3 h-3 text-red-400" /> Frustrations
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {p.frustrations.map((f) => (
                       <li key={f} className="flex gap-1.5 text-[13px] leading-relaxed text-muted-foreground">
-                        <X className="mt-0.5 w-3 h-3 flex-shrink-0 text-destructive/60" />
+                        <X className="mt-0.5 w-3 h-3 flex-shrink-0 text-red-400" />
                         {f}
                       </li>
                     ))}

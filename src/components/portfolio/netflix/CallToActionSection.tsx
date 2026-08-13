@@ -23,7 +23,7 @@ export function CallToActionSection() {
 
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            DramaFlix exists because engineering bounds define user experience. Fast, O(1) query patterns directly dictate whether users remain immersed in the catalog or close the page. If that's how you view UX Engineering, let's talk.
+            This platform exists because engineering bounds define user experience. Fast, O(1) query patterns directly dictate whether users remain immersed in the catalog or close the page. If that's how you view UX Engineering, let's talk.
           </p>
         </div>
 

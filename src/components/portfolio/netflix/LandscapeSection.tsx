@@ -44,7 +44,7 @@ export function LandscapeSection() {
             <tr className="border-b border-border bg-muted/40 font-mono text-xs uppercase tracking-wider text-muted-foreground">
               <th className="p-4 font-semibold">Interaction Area</th>
               <th className="p-4 font-semibold text-destructive">Standard Streaming</th>
-              <th className="p-4 font-semibold text-success" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>DramaFlix UX</th>
+              <th className="p-4 font-semibold text-success" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>Redesigned UX</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-border">

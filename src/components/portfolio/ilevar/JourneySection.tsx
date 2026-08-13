@@ -57,7 +57,7 @@ export function JourneySection() {
             className="bg-card grid gap-4 p-6 md:grid-cols-[auto_1fr_1fr_1fr] md:items-start"
           >
             <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-1">
-              <span className="font-mono text-sm font-bold tabular-nums" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
+              <span className="font-mono text-sm font-bold tabular-nums text-sky-400">
                 /{String(index + 1).padStart(2, '0')}
               </span>
             </div>
@@ -66,12 +66,12 @@ export function JourneySection() {
               <p className="mt-1 text-[13px] text-muted-foreground">{step.sub}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-destructive">Pain</p>
+              <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-red-400">Pain</p>
               <p className="mt-1 text-[13px] text-muted-foreground">{step.pain}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>ilevar</p>
-              <p className="mt-1 text-[13px] text-foreground/85">{step.win}</p>
+              <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-sky-400">ilevar</p>
+              <p className="mt-1 text-[13px] text-foreground/90">{step.win}</p>
             </div>
           </motion.div>
         ))}

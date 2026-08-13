@@ -1,6 +1,7 @@
 export * from './HeroSection';
 export * from './PhilosophySection';
 export * from './AudienceSection';
+export * from './RoleSection';
 export * from './ConflictSection';
 export * from './JourneySection';
 export * from './ValidationSection';

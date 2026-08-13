@@ -59,7 +59,7 @@ const fixes = [
 
 export function ValidationSection() {
     return (
-        <CaseStudySection eyebrow="Validation" index={6} title="What I tested — and what broke">
+        <CaseStudySection eyebrow="Validation" index={7} title="What I tested — and what broke">
             <p>
                 A tool my team would trust with millions of sends can&apos;t be validated by &quot;it looks fine.&quot; The bar was strict:
                 <strong className="text-foreground"> the assembled email had to match the version we already produced by hand</strong> — same

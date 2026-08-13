@@ -55,7 +55,7 @@ export function RoomSection() {
                 ].map((u) => (
                   <div key={u.ini} className="relative aspect-video rounded-lg border border-border bg-muted/40 flex items-center justify-center">
                     <div className="flex flex-col items-center gap-1">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full font-mono text-[11px] font-bold text-background" style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}>
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full font-mono text-[11px] font-bold text-white shadow-sm" style={{ backgroundColor: 'var(--brand-deep, #0563A8)' }}>
                         {u.ini}
                       </span>
                       <span className="text-[10px] font-medium text-foreground">{u.name}</span>
@@ -72,8 +72,8 @@ export function RoomSection() {
                 {['Drilling', 'Quiz', 'Flashcards'].map((t, i) => (
                   <span
                     key={t}
-                    className={`rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider ${i === 1 ? 'text-background' : 'border border-border text-muted-foreground'}`}
-                    style={i === 1 ? { backgroundColor: 'var(--brand, hsl(var(--foreground)))' } : undefined}
+                    className={`rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider ${i === 1 ? 'text-white font-bold' : 'border border-border text-muted-foreground'}`}
+                    style={i === 1 ? { backgroundColor: 'var(--brand-deep, #0563A8)' } : undefined}
                   >
                     {t}
                   </span>
@@ -86,8 +86,8 @@ export function RoomSection() {
                 {options.map((o) => (
                   <span
                     key={o}
-                    className={`rounded-lg border px-3 py-2 text-sm ${o === 'goes' ? 'text-foreground' : 'border-border text-muted-foreground'}`}
-                    style={o === 'goes' ? { borderColor: 'var(--brand, hsl(var(--foreground)))', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 10%, transparent)' } : undefined}
+                    className={`rounded-lg border px-3 py-2 text-sm ${o === 'goes' ? 'text-foreground font-semibold' : 'border-border text-muted-foreground'}`}
+                    style={o === 'goes' ? { borderColor: 'var(--brand, #38bdf8)', backgroundColor: 'rgba(56, 189, 248, 0.12)' } : undefined}
                   >
                     {o}
                   </span>
@@ -101,16 +101,16 @@ export function RoomSection() {
           <div className="flex flex-col gap-px bg-border/60">
             <div className="bg-card p-5">
               <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                <MessageSquare className="w-3 h-3" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} /> Chat
+                <MessageSquare className="w-3 h-3 text-sky-400" /> Chat
               </p>
               <div className="mt-3 space-y-2">
                 <div className="max-w-[85%] rounded-lg rounded-tl-sm bg-muted/50 px-3 py-2 text-[13px] text-foreground">Nice — now try the quiz 👇</div>
-                <div className="ml-auto max-w-[85%] rounded-lg rounded-tr-sm px-3 py-2 text-[13px] text-background" style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}>got it</div>
+                <div className="ml-auto max-w-[85%] rounded-lg rounded-tr-sm px-3 py-2 text-[13px] text-white font-medium" style={{ backgroundColor: 'var(--brand-deep, #0563A8)' }}>got it</div>
               </div>
             </div>
             <div className="bg-card p-5 flex-1">
               <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                <NotebookPen className="w-3 h-3" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} /> Teacher notes
+                <NotebookPen className="w-3 h-3 text-sky-400" /> Teacher notes
               </p>
               <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
                 Confident with routines. Review 3rd-person <span className="font-mono text-foreground">-s</span> next session.

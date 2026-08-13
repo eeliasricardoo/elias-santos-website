@@ -22,7 +22,7 @@ const tradeoffs = [
 
 export function JourneySection() {
     return (
-        <CaseStudySection eyebrow="Approach" index={5} title="UX engineering with Lovable & Cursor">
+        <CaseStudySection eyebrow="Key decisions" index={6} title="Design for trust, engineer for repeatability">
             <p>
                 If the tool I needed didn&apos;t exist, I had to build it — without asking for budget, a dev team, or permission. I ran an AI-assisted development cycle in two stages:
             </p>

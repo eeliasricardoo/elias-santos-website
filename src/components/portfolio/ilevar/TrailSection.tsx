@@ -26,7 +26,7 @@ export function TrailSection() {
         >
           <div className="flex items-center justify-between">
             <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-              <Trophy className="w-3 h-3" style={{ color: 'var(--brand, hsl(var(--foreground)))' }} /> Your learning trail
+              <Trophy className="w-3 h-3 text-sky-400" /> Your learning trail
             </p>
             <span className="font-mono text-xs text-muted-foreground">
               <span className="font-bold text-foreground">4</span>/8 · Level B1
@@ -41,13 +41,13 @@ export function TrailSection() {
               return (
                 <div key={n} className="flex flex-1 items-center last:flex-none">
                   <span
-                    className={`flex h-9 w-9 items-center justify-center rounded-full font-mono text-xs font-bold ${current ? 'text-background' : done ? 'text-background' : 'text-muted-foreground'}`}
-                    style={current || done ? { backgroundColor: 'var(--brand, hsl(var(--foreground)))' } : { border: '1px solid hsl(var(--border))' }}
+                    className={`flex h-9 w-9 items-center justify-center rounded-full font-mono text-xs font-bold ${current || done ? 'text-white shadow-sm' : 'text-muted-foreground'}`}
+                    style={current || done ? { backgroundColor: 'var(--brand-deep, #0563A8)' } : { border: '1px solid hsl(var(--border))' }}
                   >
                     {n}
                   </span>
                   {i < nodes.length - 1 && (
-                    <span className="h-0.5 flex-1" style={{ backgroundColor: i < 2 ? 'var(--brand, hsl(var(--foreground)))' : 'hsl(var(--border))' }} />
+                    <span className="h-0.5 flex-1" style={{ backgroundColor: i < 2 ? 'var(--brand-deep, #0563A8)' : 'hsl(var(--border))' }} />
                   )}
                 </div>
               );
@@ -55,14 +55,14 @@ export function TrailSection() {
           </div>
 
           {/* current lesson card */}
-          <div className="mt-6 rounded-lg border p-4" style={{ borderColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 30%, transparent)', backgroundColor: 'color-mix(in srgb, var(--brand, hsl(var(--foreground))) 6%, transparent)' }}>
+          <div className="mt-6 rounded-lg border border-sky-500/30 bg-sky-500/10 p-4">
             <div className="flex items-center gap-2">
-              <span className="rounded px-1.5 py-0.5 font-mono text-[10px] font-bold text-background" style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}>B1</span>
+              <span className="rounded px-1.5 py-0.5 font-mono text-[10px] font-bold text-white bg-[#0563A8]">B1</span>
               <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">In progress</span>
             </div>
             <h4 className="mt-2 font-semibold text-foreground">Present Simple in Depth</h4>
             <p className="text-[12px] text-muted-foreground">Grammar · 3rd person -s</p>
-            <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold" style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
+            <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-sky-400">
               Continue lesson <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </div>

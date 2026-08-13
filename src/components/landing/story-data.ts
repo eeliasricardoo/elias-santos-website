@@ -22,7 +22,7 @@ export const SHELL_ACCENTS = {
 export const STORY_IDENTITY = {
     logo: 'ER',
     name: 'Elias Ricardo',
-    roles: 'Product Design · AI · Frontend',
+    roles: 'Senior Product Designer & UX Engineer · Frontend',
     remote: '//REMOTE — WORLDWIDE//',
     site: 'https://eeliasricardoo.com',
     siteLabel: 'eeliasricardoo.com',
@@ -49,7 +49,7 @@ export const TICKER_ITEMS = [
 ] as const;
 
 export const STORY_STATS = [
-    { value: '−87.5%', label: 'email production time · Serasa Experian' },
+    { value: '80 → 10–20 min', label: 'email production time · Serasa Experian' },
     { value: '−22%', label: 'average support wait · triage redesign' },
     { value: '<0.8s', label: 'LCP on this site · open source' },
 ] as const;
@@ -87,7 +87,7 @@ export const SHELL_RESPONSES: Record<string, readonly string[]> = {
     whoami: [
         'Elias Ricardo — product designer who codes.',
         'Remote from Brazil, working worldwide.',
-        'Currently: open to senior product design roles.',
+        'Currently: open to Senior Product Designer / UX Engineer roles.',
     ],
     companies: STORY_COMPANIES.map((c, i) => `${String(i + 1).padStart(2, '0')}  ${c.name}`),
     hiking: [
@@ -109,6 +109,7 @@ export interface StoryProject {
     tags: readonly string[];
     link: string;
     image: string;
+    video?: string;
     metric: string | null;
     external?: boolean;
 }
@@ -128,62 +129,67 @@ export const PROJECT_ACCENTS = [
 export const STORY_PROJECTS: readonly StoryProject[] = [
     {
         index: '01',
-        title: 'DramaFlix',
+        title: 'EmailFlow Pro',
         description:
-            'Many streaming services ignore older adults. I designed and engineered a high-performance web app with senior-friendly accessibility controls and a serverless backend supporting 300+ active users.',
-        tags: ['UX/UI Design', 'Accessibility', 'Design System', 'React 19'],
-        link: '/portfolio/netflix',
-        image: '/portfolios/netflix/hero-featured.jpg',
-        metric: '300 active users',
+            'Email production at Serasa Experian was bottlenecked by manual HTML coding. I mapped the workflow, designed a visual builder, and engineered the React interface that reduced campaign build time from about 80 minutes to 10–20.',
+        tags: ['UX Engineering', 'Product Design', 'React · AI'],
+        link: '/portfolio/sfmc-magic-builder',
+        image: '/portfolios/sfmc-magic-builder/interface-top.webp',
+        video: '/portfolios/oliver.webm',
+        metric: '80min → 10–20min',
     },
     {
         index: '02',
-        title: 'EmailFlow Pro',
+        title: 'ilevar',
         description:
-            'Email production at Serasa Experian was bottlenecked by manual HTML coding. I built a visual compiler that reduced campaign build times from 80 minutes down to just 10.',
-        tags: ['React', 'AI', 'UX Engineering'],
-        link: '/portfolio/sfmc-magic-builder',
-        image: '/portfolios/sfmc-magic-builder/interface-top.webp',
-        metric: '80min → 10min',
+            'A live classroom platform shaped from research and interaction design through design tokens, reusable interfaces, and WebRTC implementation. The experience brings video, interactive activities, and progress into one coherent product surface.',
+        tags: ['UX Engineering', 'Product Design', 'Next.js · WebRTC'],
+        link: '/portfolio/ilevar',
+        image: '/mascot/gennai-hero.png',
+        metric: null,
     },
     {
         index: '03',
-        title: 'Ranking Engine',
+        title: 'DramaFlix',
         description:
-            'Gamification for an EdTech platform. I designed and built real-time leaderboards using server-side rendering (SSR) and aggressive caching to handle massive launch-day traffic spikes.',
-        tags: ['Gamification', 'SSR', 'Caching'],
-        link: '/portfolio/ranking',
-        image: '/portfolios/ranking/ranking.webp',
-        metric: null,
+            'A streaming experience designed and engineered with accessible controls, a documented design system, and a focus on making content easier to discover and use for older adults.',
+        tags: ['UX Engineering', 'Product Design', 'React · Accessibility'],
+        link: '/portfolio/netflix',
+        image: '/portfolios/netflix/hero-featured.jpg',
+        video: '/portfolios/netflix/a_da_ca_fba_dmp_.mp4',
+        metric: '300 active users',
     },
     {
         index: '04',
         title: 'Support Queue',
         description:
-            'Customer support lacked a triage system, leaving all tickets in a single pool. I researched user pain points, designed an automated priority queue, and reduced average wait times by 22%.',
-        tags: ['UX/UI', 'Real-time', 'Optimization'],
+            'Customer support lacked a triage system, leaving all tickets in a single pool. I researched pain points, designed the priority model and interface, and reduced average wait times by 22%.',
+        tags: ['UX Engineering', 'Product Design', 'Real-time UI'],
         link: '/portfolio/support-queue',
         image: '/portfolios/fila-atendimento/1.webp',
+        video: '/portfolios/framer-ui.webm',
         metric: 'avg wait −22%',
     },
     {
         index: '05',
+        title: 'Ranking Engine',
+        description:
+            'An EdTech gamification system shaped through research, user journeys, and interface design, then implemented around real-time leaderboard behavior, SSR, and caching.',
+        tags: ['UX Engineering', 'Product Design', 'SSR · Caching'],
+        link: '/portfolio/ranking',
+        image: '/portfolios/ranking/ranking.webp',
+        video: '/portfolios/ranking/ranking-demo.webm',
+        metric: null,
+    },
+    {
+        index: '06',
         title: 'ChatAI Ecosystem',
         description:
             'Reading docs only gets you so far. I designed and built a multimodal AI sandbox to master and de-risk token streaming and model orchestration before client work.',
         tags: ['Next.js', 'AI', 'Streaming'],
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
+        video: '/portfolios/ventus/video.webm',
         metric: null,
-    },
-    {
-        index: '06',
-        title: 'ilevar',
-        description:
-            'Language teachers run 1:1 and group lessons across Zoom, WhatsApp, and disconnected docs. I built a live classroom that puts video, interactive activities, and a CEFR-mapped progress trail on one screen.',
-        tags: ['Next.js 16', 'WebRTC', 'UX Engineering'],
-        link: '/portfolio/ilevar',
-        image: '/placeholder.jpg',
-        metric: '1:1 + group · solo build',
     },
 ] as const;
