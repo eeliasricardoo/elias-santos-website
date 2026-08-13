@@ -115,8 +115,8 @@ export function SimpleHome() {
                         </div>
                         
                         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl leading-[1.1] text-white">
-                            Designing the experience.<br />
-                            Engineering the interface.
+                            Human intention,<br />
+                            amplified by AI.
                         </h1>
 
                         <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
