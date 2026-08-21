@@ -38,25 +38,35 @@ export function HoverVideoPreview({
         }
     }, [isHovered, video]);
 
+    const hasMedia = Boolean(video || (image && image !== '/placeholder.jpg'));
+
     return (
         <div
             className={`relative h-full w-full overflow-hidden ${className}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Base layer: Wireframe or Static Image */}
-            <div className={`h-full w-full transition-opacity duration-500 ${isHovered && videoLoaded ? 'opacity-0' : 'opacity-100'}`}>
-                {image && image !== '/placeholder.jpg' ? (
+            {/* Base layer: Coded Wireframe */}
+            <div className="h-full w-full">
+                <ProjectWireframe title={title} accent={accent} />
+            </div>
+
+            {/* Hover Image Layer (when no video is present) */}
+            {image && !video && image !== '/placeholder.jpg' && (
+                <div
+                    className={`absolute inset-0 h-full w-full transition-all duration-500 pointer-events-none ${
+                        isHovered ? 'opacity-100 scale-[1.02]' : 'opacity-0 scale-100'
+                    }`}
+                >
                     <img
                         src={image}
                         alt={title}
                         className="h-full w-full object-cover object-top"
                         loading="lazy"
                     />
-                ) : (
-                    <ProjectWireframe title={title} accent={accent} />
-                )}
-            </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                </div>
+            )}
 
             {/* Hover Video Layer */}
             {video && (
@@ -67,20 +77,20 @@ export function HoverVideoPreview({
                     loop
                     playsInline
                     onCanPlay={() => setVideoLoaded(true)}
-                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 pointer-events-none ${
+                    className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 pointer-events-none ${
                         isHovered && videoLoaded ? 'opacity-100 scale-[1.02]' : 'opacity-0 scale-100'
                     }`}
                 />
             )}
 
-            {/* Video Active Indicator Badge (Top right) */}
-            {video && isHovered && videoLoaded && (
+            {/* Media Active Indicator Badge (Top right) */}
+            {hasMedia && isHovered && (videoLoaded || !video) && (
                 <div
-                    className="absolute top-2 right-2 z-20 flex items-center gap-1.5 rounded-full px-2 py-0.5 font-mono text-[8px] font-semibold tracking-wider text-white backdrop-blur-md transition-opacity duration-300"
-                    style={{ backgroundColor: 'rgba(0, 0, 0, 0.65)', border: `1px solid ${accent}` }}
+                    className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[8px] font-semibold tracking-wider text-white backdrop-blur-md shadow-lg transition-opacity duration-300"
+                    style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)', border: `1px solid ${accent}` }}
                 >
                     <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ backgroundColor: accent }} />
-                    LIVE PREVIEW
+                    {video ? 'LIVE PREVIEW' : 'UI PREVIEW'}
                 </div>
             )}
         </div>

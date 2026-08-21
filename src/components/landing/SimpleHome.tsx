@@ -1,14 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { Github, Linkedin, ArrowRight, Check, Copy } from 'lucide-react';
+import { Github, Linkedin, ArrowRight, Check, Copy, FileText, Mail, Send } from 'lucide-react';
 import { STORY_IDENTITY, STORY_PROJECTS, STORY_COMPANIES, PROJECT_ACCENTS } from './story-data';
 import { Button } from '@/components/ui/button';
 import { ShinyButton } from '@/components/magicui/shiny-button';
 import { ProjectWireframe } from '@/components/portfolio/ui';
+import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 
 export function SimpleHome() {
     const [copied, setCopied] = useState(false);
+    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText(STORY_IDENTITY.email);
@@ -25,6 +27,11 @@ export function SimpleHome() {
 
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
+            <ContactModal
+                isOpen={isContactModalOpen}
+                onClose={() => setIsContactModalOpen(false)}
+            />
+
             {/* Clean Sticky Header */}
             <header className="sticky top-0 z-50 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
@@ -48,6 +55,12 @@ export function SimpleHome() {
                         >
                             WORK
                         </button>
+                        <a
+                            href="/portfolio"
+                            className="hidden sm:inline-flex py-2 hover:text-white transition"
+                        >
+                            ALL WORK
+                        </a>
                         <button
                             type="button"
                             onClick={() => scrollTo('about')}
@@ -57,7 +70,7 @@ export function SimpleHome() {
                         </button>
                         <button
                             type="button"
-                            onClick={() => scrollTo('contact')}
+                            onClick={() => setIsContactModalOpen(true)}
                             className="hidden sm:inline-flex py-2 hover:text-white transition"
                         >
                             CONTACT
@@ -147,6 +160,16 @@ export function SimpleHome() {
                                     </>
                                 )}
                             </button>
+
+                            <a
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-zinc-800/80 bg-zinc-950/60 hover:bg-zinc-900 transition-all text-zinc-400 font-mono text-xs px-4 py-3 rounded-md hover:text-white hover:border-zinc-700 active:scale-95 duration-200"
+                            >
+                                <FileText className="h-3.5 w-3.5" />
+                                Resume (PDF)
+                            </a>
                         </div>
 
                         <div className="flex items-center gap-6 mt-4 text-xs font-mono text-zinc-500">
@@ -167,6 +190,12 @@ export function SimpleHome() {
                             >
                                 <Linkedin className="h-3.5 w-3.5" />
                                 LINKEDIN
+                            </a>
+                            <a
+                                href="/portfolio"
+                                className="hover:text-white transition flex items-center gap-1"
+                            >
+                                ALL WORK ({STORY_PROJECTS.length})
                             </a>
                         </div>
                     </div>
@@ -372,13 +401,30 @@ export function SimpleHome() {
                         I&apos;m currently open to Senior Product Designer, UX Engineer, and Design Engineer opportunities where product design and frontend engineering come together.
                     </p>
 
-                    <div className="flex w-full max-w-xs justify-center mt-6 sm:w-auto">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 w-full max-w-md">
                         <ShinyButton
-                            onClick={() => window.location.href = `mailto:${STORY_IDENTITY.email}`}
-                            className="px-8 py-4 text-sm"
+                            onClick={() => setIsContactModalOpen(true)}
+                            className="w-full sm:w-auto px-8 py-4 text-sm"
                         >
-                            Send an Email
+                            Send a Message
                         </ShinyButton>
+
+                        <button
+                            onClick={handleCopyEmail}
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-zinc-800 bg-zinc-950 hover:bg-zinc-900 transition-all text-zinc-300 font-mono text-xs px-5 py-4 rounded-md hover:text-white hover:border-zinc-700 active:scale-95 duration-200"
+                        >
+                            {copied ? (
+                                <>
+                                    <Check className="h-3.5 w-3.5 text-green-500" />
+                                    Copied email
+                                </>
+                            ) : (
+                                <>
+                                    <Copy className="h-3.5 w-3.5" />
+                                    {STORY_IDENTITY.email}
+                                </>
+                            )}
+                        </button>
                     </div>
 
                     <div className="flex items-center gap-6 mt-12 text-xs font-mono text-zinc-500">

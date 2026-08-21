@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { PortfolioArchive } from "@/components/portfolio/PortfolioArchive";
+---
+
+<Layout
+    title="All Work & Case Studies | Elias Ricardo"
+    description="Selected case studies and engineering deep dives across product design, design systems, and frontend architectures."
+>
+    <main id="main-content" class="relative">
+        <PortfolioArchive client:load />
+    </main>
+</Layout>

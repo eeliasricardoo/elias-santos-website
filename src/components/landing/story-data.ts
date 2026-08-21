@@ -118,7 +118,7 @@ export interface StoryProject {
 // color" language reads consistently across the site. Cycles if there are
 // ever more projects than colors.
 export const PROJECT_ACCENTS = [
-    '#E50914', // Netflix Red for DramaFlix
+    '#E50914', // Crimson Red for Streaming Platform
     SHELL_ACCENTS.command, // amber
     SHELL_ACCENTS.value, // cyan
     SHELL_ACCENTS.error, // coral
@@ -145,19 +145,19 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
             'A live classroom platform shaped from research and interaction design through design tokens, reusable interfaces, and WebRTC implementation. The experience brings video, interactive activities, and progress into one coherent product surface.',
         tags: ['UX Engineering', 'Product Design', 'Next.js · WebRTC'],
         link: '/portfolio/ilevar',
-        image: '/mascot/gennai-hero.png',
-        metric: null,
+        image: '/portfolios/englishroom/s_dashboard_lt.webp',
+        metric: 'WebRTC · 14 Activities',
     },
     {
         index: '03',
-        title: 'DramaFlix',
+        title: 'Streaming Platform',
         description:
             'A streaming experience designed and engineered with accessible controls, a documented design system, and a focus on making content easier to discover and use for older adults.',
         tags: ['UX Engineering', 'Product Design', 'React · Accessibility'],
         link: '/portfolio/netflix',
         image: '/portfolios/netflix/hero-featured.jpg',
         video: '/portfolios/netflix/a_da_ca_fba_dmp_.mp4',
-        metric: '300 active users',
+        metric: '300 users · WCAG AA',
     },
     {
         index: '04',
@@ -179,7 +179,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         link: '/portfolio/ranking',
         image: '/portfolios/ranking/ranking.webp',
         video: '/portfolios/ranking/ranking-demo.webm',
-        metric: null,
+        metric: 'Sub-100ms Sync',
     },
     {
         index: '06',
@@ -190,6 +190,16 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         link: '/portfolio/ventuschat',
         image: '/portfolios/ventus/v9.webp',
         video: '/portfolios/ventus/video.webm',
-        metric: null,
+        metric: 'Multimodal AI Stream',
+    },
+    {
+        index: '07',
+        title: 'Carousel AI Generator',
+        description:
+            'An AI-powered design tool that turns long-form text and ideas into structured, high-conversion multi-slide social carousels with instant theme switching and responsive preview.',
+        tags: ['UX Engineering', 'AI Automation', 'React · Canvas'],
+        link: '/portfolio/carousel-builder',
+        image: '/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png',
+        metric: '−90% creation time',
     },
 ] as const;

@@ -24,12 +24,13 @@ interface ProjectWireframeProps {
 
 function getProjectKey(title: string): string {
     const t = title.toLowerCase();
-    if (t.includes('drama') || t.includes('netflix')) return 'dramafix';
+    if (t.includes('stream') || t.includes('drama') || t.includes('netflix')) return 'dramafix';
     if (t.includes('emailflow') || t.includes('magic-builder') || t.includes('sfmc') || t.includes('flow')) return 'emailflow';
     if (t.includes('ilevar') || t.includes('english')) return 'ilevar';
     if (t.includes('ranking')) return 'ranking';
     if (t.includes('support') || t.includes('queue') || t.includes('fila')) return 'support';
     if (t.includes('chat') || t.includes('ventus')) return 'chatai';
+    if (t.includes('carousel') || t.includes('post') || t.includes('generator')) return 'carousel';
     if (t.includes('portfolio') || t.includes('site') || t.includes('meu-site') || t.includes('ux engineer')) return 'portfolio';
     return 'generic';
 }
@@ -594,7 +595,83 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
         );
     }
 
-    // 7. Portfolio — this site, in miniature.
+    // 7. Carousel AI Generator — multi-slide editor with layout controls.
+    if (key === 'carousel') {
+        return (
+            <div className={shell}>
+                <GridOverlay />
+                <WindowChrome label="carousel.studio — ai" />
+                <div className="relative z-10 flex flex-1 flex-col gap-2 p-3">
+                    <Glow accent={accent} className="-top-12 -right-8 h-44 w-44" />
+                    
+                    {/* Top control bar */}
+                    <div className="flex shrink-0 items-center justify-between border-b border-white/[0.06] pb-2">
+                        <div className="flex items-center gap-1.5 font-mono text-[7px] text-zinc-300">
+                            <Sparkles className="h-2 w-2" style={{ color: accent }} />
+                            <span>AI PROMPT &rarr; 5 SLIDES</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <span className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[6px] text-zinc-400">1080x1350</span>
+                            <span
+                                className="rounded px-2 py-0.5 font-mono text-[6.5px] font-bold text-black"
+                                style={{ backgroundColor: accent }}
+                            >
+                                EXPORT
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Slides preview strip */}
+                    <div className="flex flex-1 items-center justify-center gap-2 py-1">
+                        {/* Slide 1 - Active */}
+                        <div
+                            className="relative flex aspect-[4/5] h-full flex-col justify-between rounded border p-2 transition-transform duration-500 group-hover:-translate-y-0.5"
+                            style={{ borderColor: accent, backgroundColor: '#121214', boxShadow: `0 0 16px ${accent}33` }}
+                        >
+                            <span className="font-mono text-[6px] font-bold tracking-wider" style={{ color: accent }}>01 / COVER</span>
+                            <div className="flex flex-col gap-1">
+                                <div className="h-1.5 w-3/4 rounded-full bg-white/40" />
+                                <div className="h-1 w-1/2 rounded-full" style={{ backgroundColor: accent }} />
+                            </div>
+                            <div className="flex items-center justify-between border-t border-white/10 pt-1">
+                                <div className="h-1 w-4 rounded-full bg-white/20" />
+                                <ArrowRight className="h-1.5 w-1.5" style={{ color: accent }} />
+                            </div>
+                        </div>
+
+                        {/* Slide 2 */}
+                        <div className="relative flex aspect-[4/5] h-full flex-col justify-between rounded border border-white/[0.08] bg-white/[0.03] p-2 opacity-85">
+                            <span className="font-mono text-[6px] text-zinc-500">02 / CORE</span>
+                            <div className="flex flex-col gap-1">
+                                <div className="h-1 w-full rounded-full bg-white/20" />
+                                <div className="h-1 w-4/5 rounded-full bg-white/15" />
+                                <div className="h-1 w-2/3 rounded-full bg-white/10" />
+                            </div>
+                            <div className="h-1 w-4 rounded-full bg-white/10" />
+                        </div>
+
+                        {/* Slide 3 */}
+                        <div className="hidden sm:flex relative aspect-[4/5] h-full flex-col justify-between rounded border border-white/[0.06] bg-white/[0.02] p-2 opacity-60">
+                            <span className="font-mono text-[6px] text-zinc-600">03 / CTA</span>
+                            <div className="flex flex-col gap-1">
+                                <div className="h-1 w-full rounded-full bg-white/15" />
+                                <div className="h-1 w-3/4 rounded-full bg-white/10" />
+                            </div>
+                            <div className="h-1.5 w-8 rounded-full" style={{ backgroundColor: `${accent}88` }} />
+                        </div>
+                    </div>
+
+                    {/* Bottom status */}
+                    <div className="flex shrink-0 items-center justify-between font-mono text-[6.5px] text-zinc-500">
+                        <span>Theme: Dark Minimal</span>
+                        <span className="text-zinc-400">90% faster workflow</span>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // 8. Portfolio — this site, in miniature.
     if (key === 'portfolio') {
         return (
             <div className={shell}>
