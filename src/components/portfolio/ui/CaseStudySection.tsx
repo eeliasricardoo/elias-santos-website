@@ -35,19 +35,17 @@ export function CaseStudySection({
                 {title && (
                     <div className="flex flex-col gap-3">
                         {(eyebrow || index !== undefined) && (
-                            <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-3">
+                            <span className="px-sign inline-flex w-fit items-center gap-2 px-3 py-1.5 font-pixel-label text-[11px]">
                                 {index !== undefined && (
-                                    <span style={{ color: 'var(--brand, hsl(var(--foreground)))' }}>
-                                        /{String(index).padStart(2, '0')}
-                                    </span>
+                                    <span className="text-[var(--px-gold)]">{String(index).padStart(2, '0')}</span>
                                 )}
                                 {eyebrow}
                             </span>
                         )}
-                        <h2 className="flex items-center gap-3 text-3xl md:text-4xl font-bold text-foreground leading-[1.1]">
+                        <h2 className="flex items-center gap-3 text-3xl md:text-4xl text-foreground leading-[1.1]">
                             <span
-                                className="inline-block h-7 w-1.5 rounded-full flex-shrink-0"
-                                style={{ backgroundColor: 'var(--brand, hsl(var(--foreground)))' }}
+                                className="inline-block h-4 w-4 flex-shrink-0 shadow-[0_0_0_3px_var(--px-line)]"
+                                style={{ backgroundColor: 'var(--brand, var(--px-gold))' }}
                             />
                             {title}
                         </h2>

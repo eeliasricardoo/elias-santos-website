@@ -17,7 +17,7 @@ export function DesignSystemSection() {
               <Palette className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">High-Contrast Readability</h5>
+              <h3 className="font-mono text-sm font-semibold text-foreground">High-Contrast Readability</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
                 The visual palette ensures strict, comfortable contrast boundaries. The deep obsidian backdrop combined with crisp white typography complies with international accessibility guidelines, reducing eye strain and aiding readability for senior users.
               </p>
@@ -29,7 +29,7 @@ export function DesignSystemSection() {
               <Layers className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">Oversized Touch Targets</h5>
+              <h3 className="font-mono text-sm font-semibold text-foreground">Oversized Touch Targets</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
                 All primary interface buttons, interactive cards, and navigation drawer links enforce a minimum target size of 48px. This accommodates natural motor skill decline and completely eliminates accidental misclicks.
               </p>
@@ -43,7 +43,7 @@ export function DesignSystemSection() {
               <BookOpen className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">Component Library</h5>
+              <h3 className="font-mono text-sm font-semibold text-foreground">Component Library</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
                 All application components, from catalog rows and banners to category menus, are documented in an interactive design playground showing states, responsive behaviors, and content boundaries.
               </p>
@@ -55,7 +55,7 @@ export function DesignSystemSection() {
               <Sparkles className="h-4 w-4" />
             </div>
             <div>
-              <h5 className="font-mono text-sm font-semibold text-foreground">Accessibility Testing</h5>
+              <h3 className="font-mono text-sm font-semibold text-foreground">Accessibility Testing</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mt-1">
                 Design system elements were tested under simulated low-vision conditions. High-contrast overlays, larger baseline fonts (16px to 18px), and distinct outlines ensure clear navigation pathways.
               </p>

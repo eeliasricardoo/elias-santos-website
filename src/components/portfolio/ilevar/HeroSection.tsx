@@ -28,7 +28,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative overflow-hidden rounded-3xl border border-[#0563A8]/20 bg-gradient-to-b from-[#061527] via-[#0563A8]/15 to-transparent p-6 sm:p-10 shadow-2xl"
+        className="relative overflow-hidden bg-card p-6 sm:p-10"
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-6 flex-1 text-center md:text-left">
@@ -44,9 +44,12 @@ export function HeroSection() {
               </span>
             </div>
 
-            <div className="pt-2">
-              <IlevarLogo size="xl" />
-            </div>
+            <h1 className="pt-2">
+              <span className="sr-only">ilevar</span>
+              <span aria-hidden="true">
+                <IlevarLogo size="xl" />
+              </span>
+            </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
               A live classroom platform — from UX research, brand design system (OKLCH tokens), and interface design to production WebRTC architecture, real-time activity engines, and AI lesson prep.

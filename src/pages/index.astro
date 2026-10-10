@@ -1,11 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { SimpleHome } from "@/components/landing/SimpleHome";
+import { PixelHome } from "@/components/pixel/PixelHome";
 ---
 
 <Layout title="Elias Ricardo | Senior Product Designer & UX Engineer">
-	<main id="main-content" class="relative">
-		<SimpleHome client:load />
-	</main>
+	<link slot="head" rel="preload" as="image" href="/pixel/utopia-overlook.webp" type="image/webp" fetchpriority="high" />
+	<PixelHome client:load />
 </Layout>
-

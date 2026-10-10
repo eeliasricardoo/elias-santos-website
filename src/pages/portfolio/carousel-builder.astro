@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Navbar } from "@/components/Navbar";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { Mascot } from "@/components/pixel/Mascot";
 import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
@@ -15,8 +16,6 @@ import {
     ResultsSection,
     CallToActionSection,
 } from "@/components/portfolio/carousel-builder";
-import { ProgressIndicator } from "@/components/home/ProgressIndicator";
-import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 ---
 
 <Layout
@@ -34,8 +33,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
         datePublished="2025-08-01"
         author="Elias Ricardo"
     />
-    <Navbar client:load />
-    <ProgressIndicator client:load />
+    <SubpageHeader client:load current="case" />
 
     <CaseStudyLayout client:load brand="violet">
         <!-- Hero Section -->
@@ -66,5 +64,6 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
         <CallToActionSection client:visible />
     </CaseStudyLayout>
 
-    <ScrollIndicator client:load />
+    <PixelFooter client:visible />
+    <Mascot client:idle />
 </Layout>

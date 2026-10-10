@@ -60,7 +60,7 @@ export function TrailSection() {
               <span className="rounded px-1.5 py-0.5 font-mono text-[10px] font-bold text-white bg-[#0563A8]">B1</span>
               <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">In progress</span>
             </div>
-            <h4 className="mt-2 font-semibold text-foreground">Present Simple in Depth</h4>
+            <h3 className="mt-2 font-semibold text-foreground">Present Simple in Depth</h3>
             <p className="text-[12px] text-muted-foreground">Grammar · 3rd person -s</p>
             <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-sky-400">
               Continue lesson <ArrowRight className="w-3.5 h-3.5" />

@@ -124,7 +124,7 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
                             <div className="h-1.5 w-36 rounded-sm bg-white/10" />
                             <div className="mt-1.5 flex items-center gap-2">
                                 <span
-                                    className="flex items-center gap-1.5 rounded px-3 py-1.5 text-[9px] font-bold tracking-wide text-white shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5"
+                                    className="flex items-center gap-1.5 rounded px-3 py-1.5 text-[9px] font-bold tracking-wide text-[#0b1220] shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5"
                                     style={{ backgroundColor: accent }}
                                 >
                                     <Play className="h-2.5 w-2.5 fill-current" />
@@ -241,7 +241,7 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
                             &ldquo;Get my discount&rdquo;
                         </div>
                         <span
-                            className="mt-auto rounded py-1 text-center text-[7px] font-bold tracking-widest text-white transition-transform duration-500 group-hover:-translate-y-0.5"
+                            className="mt-auto rounded py-1 text-center text-[7px] font-bold tracking-widest text-[#0b1220] transition-transform duration-500 group-hover:-translate-y-0.5"
                             style={{ backgroundColor: accent }}
                         >
                             APPLY

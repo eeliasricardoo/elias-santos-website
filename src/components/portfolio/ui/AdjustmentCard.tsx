@@ -34,9 +34,9 @@ export function AdjustmentCard({
         </svg>
       </div>
       <div>
-        <h5 className='font-semibold text-foreground mb-1'>
+        <h3 className='font-semibold text-foreground mb-1'>
           {title}
-        </h5>
+        </h3>
         <p className='text-muted-foreground'>{description}</p>
       </div>
     </div>

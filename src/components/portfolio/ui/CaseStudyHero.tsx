@@ -5,6 +5,7 @@ import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
 import { BrowserFrame } from './BrowserFrame';
 import { PROJECT_BRANDS, type BrandColor } from '@/constants/project-brands';
+import { Stroke } from '@/components/pixel/hero-fx';
 
 interface CaseStudyHeroProps {
     badge?: string;
@@ -42,16 +43,18 @@ export function CaseStudyHero({
                 className="space-y-6"
             >
                 {badge && (
-                    <div className={`font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
-                        <span
-                            className="inline-block h-2 w-2 rounded-full"
-                            style={{ backgroundColor: brandColor || 'hsl(var(--foreground))' }}
-                        />
-                        {badge}
+                    <div className={`flex ${align === 'center' ? 'justify-center' : ''}`}>
+                        <span className="px-sign px-swing-in inline-flex items-center gap-2 px-3 py-2 font-pixel-label text-[11px]">
+                            <span
+                                className="inline-block h-2.5 w-2.5"
+                                style={{ backgroundColor: brandColor || 'var(--px-gold)' }}
+                            />
+                            {badge}
+                        </span>
                     </div>
                 )}
-                <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.05]">
-                    {title}
+                <h1 className="text-5xl md:text-7xl">
+                    <Stroke text={title} />
                 </h1>
                 <p className={`text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>
                     {subtitle}

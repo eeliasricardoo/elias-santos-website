@@ -1,7 +1,12 @@
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/space-grotesk";
 @import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/pixelify-sans/400.css";
+@import "@fontsource/pixelify-sans/600.css";
+@import "@fontsource/pixelify-sans/700.css";
+@import "@fontsource/silkscreen/400.css";
 @import "tailwindcss";
+@import "../components/pixel/pixel.css";
 @plugin "tailwindcss-animate";
 
 /* Tailwind v4 theme — maps the shadcn HSL tokens (defined in :root below)
@@ -68,26 +73,28 @@
 
 @layer base {
   :root {
-    /* Dark Premium Portfolio — pure black surface, near-black cards (#0a0a0a) */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    /* Utopia pixel palette — cream paper, navy ink, signboard teal, gold.
+       Mirrors the --px-* tokens in components/pixel/pixel.css so every
+       shadcn-token component (case studies, dialogs) speaks the same style. */
+    --background: 43 79% 94%;        /* #fbf4e2 */
+    --foreground: 217 48% 17%;       /* #16263f */
+    --card: 40 100% 97%;             /* #fffaf0 */
+    --card-foreground: 217 48% 17%;
+    --popover: 40 100% 97%;
+    --popover-foreground: 217 48% 17%;
+    --primary: 174 46% 21%;          /* #1d4f4a */
+    --primary-foreground: 90 52% 93%;
+    --secondary: 198 74% 94%;        /* #e4f4fb */
+    --secondary-foreground: 217 48% 17%;
+    --muted: 44 52% 87%;
+    --muted-foreground: 215 28% 34%; /* #3f5470 */
+    --accent: 44 100% 61%;           /* #ffc93a */
+    --accent-foreground: 217 48% 17%;
+    --destructive: 356 76% 61%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 46% 19%;           /* #1a2547 */
+    --input: 225 46% 19%;
+    --ring: 217 67% 51%;
     --radius: 0.5rem;
   }
 
@@ -101,7 +108,7 @@
     background-color: hsl(var(--background));
     overflow-x: clip;
     max-width: 100%;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {

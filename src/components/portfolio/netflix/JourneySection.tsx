@@ -50,7 +50,7 @@ export function JourneySection() {
                 <Icon className="h-6 w-6" />
               </div>
               <div className="space-y-2">
-                <h4 className="font-mono text-sm font-semibold text-foreground">{step.title}</h4>
+                <h3 className="font-mono text-sm font-semibold text-foreground">{step.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>

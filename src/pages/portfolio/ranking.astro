@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Navbar } from "@/components/Navbar";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { Mascot } from "@/components/pixel/Mascot";
 import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 import {
     RankingHeader,
@@ -17,8 +18,6 @@ import {
     RankingCTA,
 } from "@/components/portfolio/ranking";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
-import { ProgressIndicator } from "@/components/home/ProgressIndicator";
-import { ScrollIndicator } from "@/components/home/ScrollIndicator";
 ---
 
 <Layout
@@ -36,8 +35,7 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
         datePublished="2025-08-01"
         author="Elias Ricardo"
     />
-    <Navbar client:load />
-    <ProgressIndicator client:load />
+    <SubpageHeader client:load current="case" />
 
     <CaseStudyLayout client:load brand="orange">
         <RankingHeader client:load />
@@ -54,5 +52,6 @@ import { ScrollIndicator } from "@/components/home/ScrollIndicator";
         <RankingCTA client:visible />
     </CaseStudyLayout>
 
-    <ScrollIndicator client:load />
+    <PixelFooter client:visible />
+    <Mascot client:idle />
 </Layout>

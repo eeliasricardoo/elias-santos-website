@@ -118,7 +118,7 @@ export interface StoryProject {
 // color" language reads consistently across the site. Cycles if there are
 // ever more projects than colors.
 export const PROJECT_ACCENTS = [
-    '#E50914', // Crimson Red for Streaming Platform
+    '#FF3B45', // Crimson Red for Streaming Platform (lifted from #E50914 for 4.5:1 on the dark mocks)
     SHELL_ACCENTS.command, // amber
     SHELL_ACCENTS.value, // cyan
     SHELL_ACCENTS.error, // coral

@@ -1,13 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { PortfolioArchive } from "@/components/portfolio/PortfolioArchive";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { Mascot } from "@/components/pixel/Mascot";
 ---
 
 <Layout
     title="All Work & Case Studies | Elias Ricardo"
     description="Selected case studies and engineering deep dives across product design, design systems, and frontend architectures."
 >
+    <SubpageHeader client:load current="archive" />
     <main id="main-content" class="relative">
         <PortfolioArchive client:load />
     </main>
+    <PixelFooter client:visible />
+    <Mascot client:idle />
 </Layout>

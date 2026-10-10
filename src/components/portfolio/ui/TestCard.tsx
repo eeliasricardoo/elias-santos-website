@@ -29,9 +29,9 @@ export function TestCard({ icon, title, description }: TestCardProps) {
           />
         </svg>
       </div>
-      <h5 className='font-semibold text-foreground mb-2'>
+      <h3 className='font-semibold text-foreground mb-2'>
         {title}
-      </h5>
+      </h3>
       <p className='text-muted-foreground text-sm'>{description}</p>
     </div>
   );
