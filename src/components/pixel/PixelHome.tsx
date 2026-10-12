@@ -13,7 +13,7 @@ import { ABOUT_FACTS, CASE_LINES, HERO_INTRO } from './pixel-copy';
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
 /** The cases shown on the home page, in order. Everything else lives in /portfolio. */
-const HOME_CASES = ['02', '01', '04'];
+const HOME_CASES = ['02', '03', '01', '04', '05'];
 
 /** Adds `.is-in` to every `.px-reveal` once it scrolls into view. */
 function useReveal() {
@@ -185,7 +185,7 @@ export function PixelHome() {
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
                         <SectionHeading index="01" label="Work" title="Selected work">
-                            Three cases. Each one starts with a real problem and ends in production.
+                            Five cases. Each one starts with a real problem and ends in production.
                         </SectionHeading>
 
                         <CaseCard project={featured} accent={PROJECT_ACCENTS[0]} featured />
