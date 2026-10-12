@@ -4,6 +4,7 @@ import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
 import { Mascot } from "@/components/pixel/Mascot";
 import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
 import {
     HeroSection,
     PhilosophySection,
@@ -38,6 +39,8 @@ import {
 
     <CaseStudyLayout client:load brand="violet">
         <HeroSection client:load />
+
+        <CaseSummary project="01" />
 
         <PhilosophySection client:visible />
 

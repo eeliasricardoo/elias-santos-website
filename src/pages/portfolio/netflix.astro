@@ -4,27 +4,30 @@ import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
 import { Mascot } from "@/components/pixel/Mascot";
 import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
 import {
     HeroSection,
-    WhyItExistsSection,
-    PersonasSection,
-    LandscapeSection,
-    JourneySection,
-    DesignSystemSection,
-    ResultsSection,
+    ProblemSection,
+    RoleSection,
+    FlowSection,
+    StatesSection,
+    SpeedSection,
+    AdminSection,
+    SystemSection,
+    StackSection,
     CallToActionSection,
 } from "@/components/portfolio/netflix";
 ---
 
 <Layout
-    title="Streaming Platform — Case Study"
-    description="Case study of a high-performance streaming platform built for a real client, designed with a strict focus on UX/UI and accessibility for senior users."
+    title="Streaming Platform — Case Study | Elias Ricardo"
+    description="Case study of a subscription streaming platform with 500+ active users, designed and built end to end by one person: user flows, access rules, design system and admin panel."
 >
     <ProjectStructuredData
         client:load
         name="Streaming Platform"
-        description="Case study of a high-performance streaming platform built for a real client, designed with a strict focus on UX/UI and accessibility for senior users."
-        image="/portfolios/netflix/hero-featured.jpg"
+        description="Case study of a subscription streaming platform with 500+ active users, designed and built end to end by one person: user flows, access rules, design system and admin panel."
+        image="/oq-image.png"
         url="/portfolio/netflix"
         technologies={["UX Engineering", "Product Design", "Design System", "React 19"]}
         category="UX/UI & Product Design Case Study"
@@ -35,12 +38,16 @@ import {
 
     <CaseStudyLayout client:load brand="red">
         <HeroSection client:load />
-        <WhyItExistsSection client:visible />
-        <PersonasSection client:visible />
-        <LandscapeSection client:visible />
-        <JourneySection client:visible />
-        <DesignSystemSection client:visible />
-        <ResultsSection client:visible />
+
+        <CaseSummary project="03" />
+        <ProblemSection client:visible />
+        <RoleSection client:visible />
+        <FlowSection client:visible />
+        <StatesSection client:visible />
+        <SpeedSection client:visible />
+        <AdminSection client:visible />
+        <SystemSection client:visible />
+        <StackSection client:visible />
         <CallToActionSection client:visible />
     </CaseStudyLayout>
 

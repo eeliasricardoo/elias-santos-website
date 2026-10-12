@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState, type CSSProperties } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 import { PIXEL_POSTS, type PixelPost } from './pixel-copy';
@@ -21,10 +21,9 @@ export function PostsShelf() {
                             onClick={() => setOpen(post)}
                             onMouseEnter={() => mascotReact({ mood: 'smirk', say: `"${post.title}" — ${post.slides} slides.`, hold: 1200 })}
                             className="px-post group block w-full text-left"
-                            style={{ '--tilt': `${post.tilt}deg` } as CSSProperties}
                             aria-label={`Open carousel: ${post.title} (${post.slides} slides, in Portuguese)`}
                         >
-                            <div className="px-frame px-frame-drop overflow-hidden" style={{ '--px-frame': 'var(--px-line-hi)' } as CSSProperties}>
+                            <div className="px-frame overflow-hidden">
                                 <div className="relative aspect-[4/5] overflow-hidden bg-[var(--px-bg-2)]">
                                     <img
                                         src={slideSrc(post, 1)}
@@ -34,11 +33,11 @@ export function PostsShelf() {
                                         className="h-full w-full object-cover object-top"
                                     />
                                     <span className="absolute right-2 top-2 px-chip !bg-black/70 !text-white">
-                                        {post.slides} SLIDES
+                                        {post.slides} slides
                                     </span>
                                 </div>
                             </div>
-                            <p className="mt-5 font-pixel text-lg font-semibold leading-tight text-[var(--px-ink)] group-hover:text-[var(--px-blue-hi)]">
+                            <p className="mt-4 font-pixel text-base font-semibold leading-snug text-[var(--px-ink)]">
                                 {post.title}
                             </p>
                             <p className="mt-1.5 text-sm leading-snug text-[var(--px-muted)]">{post.subtitle}</p>
@@ -86,7 +85,7 @@ function PostViewer({ post, onClose }: { post: PixelPost | null; onClose: () => 
     return (
         <Dialog.Root open={!!post} onOpenChange={(o) => !o && onClose()}>
             <Dialog.Portal>
-                <Dialog.Overlay className="fixed inset-0 z-[80] bg-[#0f2d2a]/85 backdrop-blur-sm" />
+                <Dialog.Overlay className="fixed inset-0 z-[80] bg-[#101216]/85 backdrop-blur-sm" />
                 <Dialog.Content
                     className="px-root fixed left-1/2 top-1/2 z-[81] flex max-h-[94vh] w-[min(560px,calc(100vw-32px))] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 !bg-transparent outline-none"
 
@@ -107,7 +106,7 @@ function PostViewer({ post, onClose }: { post: PixelPost | null; onClose: () => 
 
                             <div
                                 className="px-frame px-frame-drop mx-auto w-full overflow-hidden"
-                                style={{ '--px-frame': 'var(--px-line-hi)', maxWidth: `calc((94vh - 140px) * ${post.ratio})` } as CSSProperties}
+                                style={{ maxWidth: `calc((94vh - 140px) * ${post.ratio})` }}
                             >
                                 <img
                                     key={index}
@@ -120,11 +119,11 @@ function PostViewer({ post, onClose }: { post: PixelPost | null; onClose: () => 
 
                             <div className="flex items-center justify-between gap-3">
                                 <button type="button" onClick={() => go(-1)} disabled={index === 1} className="px-btn px-btn--sm disabled:opacity-40" aria-label="Previous slide">
-                                    <ArrowLeft className="h-3.5 w-3.5" /> PREV
+                                    <ArrowLeft className="h-3.5 w-3.5" /> Prev
                                 </button>
                                 <div className="flex items-center gap-1.5" aria-hidden="true">
                                     {Array.from({ length: post.slides }, (_, i) => (
-                                        <span key={i} className={`h-2 w-2 ${i + 1 === index ? 'bg-[var(--px-blue-hi)]' : 'bg-[var(--px-line)]'}`} />
+                                        <span key={i} className={`h-1.5 w-1.5 rounded-full ${i + 1 === index ? 'bg-white' : 'bg-white/30'}`} />
                                     ))}
                                 </div>
                                 <span className="sr-only" aria-live="polite">
@@ -137,7 +136,7 @@ function PostViewer({ post, onClose }: { post: PixelPost | null; onClose: () => 
                                     className="px-btn px-btn--primary px-btn--sm disabled:opacity-40"
                                     aria-label="Next slide"
                                 >
-                                    NEXT <ArrowRight className="h-3.5 w-3.5" />
+                                    Next <ArrowRight className="h-3.5 w-3.5" />
                                 </button>
                             </div>
                         </>

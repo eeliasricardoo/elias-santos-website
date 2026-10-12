@@ -5,55 +5,54 @@ import { Mascot } from "@/components/pixel/Mascot";
 import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
 
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
 import {
     HeroSection,
-    WhyItExistsSection,
-    PersonasSection,
-    LandscapeSection,
-    JourneySection,
-    HowItWorksSection,
-    RoomSection,
-    TrailSection,
-    TeacherSideSection,
-    UnderTheHoodSection,
-    DecisionsSection,
-    DesignSystemSection,
-    HowItWasBuiltSection,
+    ProblemSection,
+    RoleSection,
+    FlowSection,
+    StatesSection,
+    AiSection,
+    FigmaSection,
+    BuildSection,
+    SupportSection,
+    ClaritySection,
+    StackSection,
     CallToActionSection,
 } from "@/components/portfolio/ilevar";
 ---
 
 <Layout
-    title="ilevar — UX Engineering & Product Design Case Study"
-    description="Case study of ilevar: a live classroom platform shaped from UX research and product design through design systems, reusable interfaces, and Next.js/WebRTC implementation."
+    title="ilevar — UX Engineering Case Study | Elias Ricardo"
+    description="ilevar case study: a platform for language schools and teachers, designed in Figma, built in Next.js and supported by the same UX Engineer — design system, live classroom, in-product support and Clarity."
 >
     <ProjectStructuredData
         client:load
         name="ilevar"
-        description="Case study of ilevar: a live classroom platform shaped from UX research and product design through design systems, reusable interfaces, and Next.js/WebRTC implementation."
-        image="/portfolios/englishroom/s_dashboard_lt.webp"
+        description="ilevar case study: a platform for language schools and teachers, designed in Figma, built in Next.js and supported by the same UX Engineer — design system, live classroom, in-product support and Clarity."
+        image="/portfolios/ilevar/dashboard.webp"
         url="/portfolio/ilevar"
-        technologies={["UX Engineering", "Product Design", "Design Systems", "Next.js 16", "WebRTC"]}
+        technologies={["UX Engineering", "Figma", "Design Systems", "Next.js 16", "WebRTC", "Microsoft Clarity"]}
         category="UX Engineering & Product Design Case Study"
-        datePublished="2025-08-01"
+        datePublished="2026-10-12"
         author="Elias Ricardo"
     />
     <SubpageHeader client:load current="case" />
 
     <CaseStudyLayout client:load brand="lime">
         <HeroSection client:load />
-        <WhyItExistsSection client:visible />
-        <PersonasSection client:visible />
-        <LandscapeSection client:visible />
-        <JourneySection client:visible />
-        <HowItWorksSection client:visible />
-        <RoomSection client:visible />
-        <TrailSection client:visible />
-        <TeacherSideSection client:visible />
-        <UnderTheHoodSection client:visible />
-        <DecisionsSection client:visible />
-        <DesignSystemSection client:visible />
-        <HowItWasBuiltSection client:visible />
+
+        <CaseSummary project="02" />
+        <ProblemSection client:visible />
+        <RoleSection client:visible />
+        <FlowSection client:visible />
+        <StatesSection client:visible />
+        <AiSection client:visible />
+        <FigmaSection client:visible />
+        <BuildSection client:visible />
+        <SupportSection client:visible />
+        <ClaritySection client:visible />
+        <StackSection client:visible />
         <CallToActionSection client:visible />
     </CaseStudyLayout>
 

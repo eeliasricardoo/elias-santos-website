@@ -5,7 +5,6 @@ import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
 import { BrowserFrame } from './BrowserFrame';
 import { PROJECT_BRANDS, type BrandColor } from '@/constants/project-brands';
-import { Stroke } from '@/components/pixel/hero-fx';
 
 interface CaseStudyHeroProps {
     badge?: string;
@@ -44,18 +43,12 @@ export function CaseStudyHero({
             >
                 {badge && (
                     <div className={`flex ${align === 'center' ? 'justify-center' : ''}`}>
-                        <span className="px-sign px-swing-in inline-flex items-center gap-2 px-3 py-2 font-pixel-label text-[11px]">
-                            <span
-                                className="inline-block h-2.5 w-2.5"
-                                style={{ backgroundColor: brandColor || 'var(--px-gold)' }}
-                            />
+                        <span className="font-pixel-label text-[11px] text-[var(--px-dim)]">
                             {badge}
                         </span>
                     </div>
                 )}
-                <h1 className="text-5xl md:text-7xl">
-                    <Stroke text={title} />
-                </h1>
+                <h1 className="text-4xl md:text-6xl">{title}</h1>
                 <p className={`text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>
                     {subtitle}
                 </p>

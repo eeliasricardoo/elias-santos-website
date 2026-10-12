@@ -91,7 +91,7 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
     const key = getProjectKey(title);
     const shell = `${SHELL} ${className}`;
 
-    // 1. Streaming platform — for older adults: oversized targets, visible focus.
+    // 1. Streaming platform — billboard with one primary action, poster row.
     if (key === 'dramafix') {
         return (
             <div className={shell}>
@@ -110,7 +110,7 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
                                 className="rounded-sm border px-1.5 py-0.5 font-mono text-[7px] font-semibold tracking-widest"
                                 style={{ borderColor: `${accent}66`, color: accent }}
                             >
-                                A11Y ON
+                                MY PLAN
                             </span>
                         </div>
                     </div>
@@ -132,12 +132,6 @@ export function ProjectWireframe({ title, accent = '#7FB0C4', className = '' }: 
                                 </span>
                                 <span className="rounded border border-white/15 px-2 py-1.5 font-mono text-[8px] text-zinc-300">
                                     + MY LIST
-                                </span>
-                                <span className="ml-auto hidden items-center gap-1 font-mono text-[8px] text-zinc-600 sm:flex">
-                                    TEXT SIZE
-                                    <span className="text-zinc-500">A</span>
-                                    <span className="text-zinc-400">A</span>
-                                    <span className="text-[10px] text-zinc-200">A</span>
                                 </span>
                             </div>
                         </div>

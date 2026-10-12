@@ -28,9 +28,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className='px-case px-frame px-frame-drop sm:max-w-[600px] z-[120] gap-0 p-0 overflow-hidden !rounded-none border-transparent bg-background'>
+      <DialogContent className='px-case px-frame px-frame-drop sm:max-w-[600px] z-[120] gap-0 p-0 overflow-hidden bg-background'>
         <DialogHeader className='px-bar px-6 py-4'>
-          <DialogTitle className='font-pixel text-2xl font-semibold text-[var(--px-on-sign)]'>
+          <DialogTitle className='font-pixel text-xl font-semibold text-[var(--px-ink)]'>
             Get in Touch
           </DialogTitle>
         </DialogHeader>

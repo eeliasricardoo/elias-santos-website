@@ -18,6 +18,7 @@ import {
     RankingCTA,
 } from "@/components/portfolio/ranking";
 import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
 ---
 
 <Layout
@@ -39,6 +40,8 @@ import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
 
     <CaseStudyLayout client:load brand="orange">
         <RankingHeader client:load />
+
+        <CaseSummary project="05" />
         <RankingIntroduction client:visible />
         <RankingProblem client:visible />
         <RankingObjectives client:visible />

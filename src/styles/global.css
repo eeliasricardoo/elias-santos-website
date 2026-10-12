@@ -1,10 +1,6 @@
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/space-grotesk";
 @import "@fontsource-variable/jetbrains-mono";
-@import "@fontsource/pixelify-sans/400.css";
-@import "@fontsource/pixelify-sans/600.css";
-@import "@fontsource/pixelify-sans/700.css";
-@import "@fontsource/silkscreen/400.css";
 @import "tailwindcss";
 @import "../components/pixel/pixel.css";
 @plugin "tailwindcss-animate";
@@ -73,28 +69,28 @@
 
 @layer base {
   :root {
-    /* Utopia pixel palette — cream paper, navy ink, signboard teal, gold.
-       Mirrors the --px-* tokens in components/pixel/pixel.css so every
-       shadcn-token component (case studies, dialogs) speaks the same style. */
-    --background: 43 79% 94%;        /* #fbf4e2 */
-    --foreground: 217 48% 17%;       /* #16263f */
-    --card: 40 100% 97%;             /* #fffaf0 */
-    --card-foreground: 217 48% 17%;
-    --popover: 40 100% 97%;
-    --popover-foreground: 217 48% 17%;
-    --primary: 174 46% 21%;          /* #1d4f4a */
-    --primary-foreground: 90 52% 93%;
-    --secondary: 198 74% 94%;        /* #e4f4fb */
-    --secondary-foreground: 217 48% 17%;
-    --muted: 44 52% 87%;
-    --muted-foreground: 215 28% 34%; /* #3f5470 */
-    --accent: 44 100% 61%;           /* #ffc93a */
-    --accent-foreground: 217 48% 17%;
-    --destructive: 356 76% 61%;
+    /* Neutral paper, near-black ink, hairline borders. Mirrors the --px-*
+       tokens in components/pixel/pixel.css so every shadcn-token component
+       (case studies, dialogs) speaks the same style. */
+    --background: 0 0% 100%;
+    --foreground: 220 16% 7%;        /* #101216 */
+    --card: 0 0% 100%;
+    --card-foreground: 220 16% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 16% 7%;
+    --primary: 220 16% 7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 60 11% 96%;         /* #f6f6f3 */
+    --secondary-foreground: 220 16% 7%;
+    --muted: 60 11% 96%;
+    --muted-foreground: 219 8% 34%;  /* #50555e */
+    --accent: 60 11% 96%;
+    --accent-foreground: 220 16% 7%;
+    --destructive: 0 64% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 225 46% 19%;           /* #1a2547 */
-    --input: 225 46% 19%;
-    --ring: 217 67% 51%;
+    --border: 51 9% 85%;             /* #dddcd6 */
+    --input: 51 9% 85%;
+    --ring: 228 71% 49%;             /* #2447d6 */
     --radius: 0.5rem;
   }
 
@@ -123,7 +119,6 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Dark Premium Portfolio: thin, tightly-tracked headlines */
   h1,
   h2,
   h3 {

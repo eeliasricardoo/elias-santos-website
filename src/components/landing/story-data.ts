@@ -111,7 +111,17 @@ export interface StoryProject {
     image: string;
     video?: string;
     metric: string | null;
+    /** When the work happened, as shown on cards and case pages. Omitted when not confirmed. */
+    period?: string;
     external?: boolean;
+    /** Real product screenshot for the card cover. Without one the card falls back to the coded mock. */
+    cover?: string;
+    /** Landing-style cover: placeholder headline over a brand gradient, with `cover` shown in a window. */
+    hero?: { headline: string; sub: string; from: string; to: string };
+    /** Canvas colour behind the cover screenshot. */
+    tint: string;
+    /** The case in three lines, shown at the top of its case study. */
+    summary: { problem: string; role: string; result: string };
 }
 
 // One accent per case cover — reuses the ER_SHELL palette so the "code
@@ -137,27 +147,50 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/sfmc-magic-builder/interface-top.webp',
         video: '/portfolios/oliver.webm',
         metric: '80min → 10–20min',
+        period: '2025',
+        cover: '/portfolios/sfmc-magic-builder/interface-top.webp',
+        hero: { headline: "Campaign emails in 10 minutes, not 80.", sub: "A visual builder for Salesforce Marketing Cloud.", from: '#34309a', to: '#131230' },
+        tint: '#e8e6f5',
+        summary: {
+            problem: "Campaign emails at Serasa Experian were hand-coded in HTML for Salesforce Marketing Cloud. Each one took about 80 minutes.",
+            role: "I was the designer producing those emails. I mapped the workflow, designed the tool and built it in React with AI-assisted development.",
+            result: "Build time went from about 80 minutes to 10–20 per email.",
+        },
     },
     {
         index: '02',
         title: 'ilevar',
         description:
-            'A live classroom platform shaped from research and interaction design through design tokens, reusable interfaces, and WebRTC implementation. The experience brings video, interactive activities, and progress into one coherent product surface.',
-        tags: ['UX Engineering', 'Product Design', 'Next.js · WebRTC'],
+            'A platform for language schools where AI prepares the lesson and the homework, and a real teacher still teaches it live. I designed the system in Figma, built it in Next.js, and I stay close to the schools that use it.',
+        tags: ['UX Engineering', 'Design System', 'Next.js · WebRTC'],
         link: '/portfolio/ilevar',
-        image: '/portfolios/englishroom/s_dashboard_lt.webp',
-        metric: 'WebRTC · 14 Activities',
+        image: '/portfolios/ilevar/dashboard.webp',
+        metric: 'AI lesson prep · live class',
+        period: '2026 – present',
+        cover: '/portfolios/ilevar/hero-poster.webp',
+        tint: '#dde7f6',
+        summary: {
+            problem: "Teachers lose weekends building lessons, online classes turn into calls students only watch, and nothing connects the class to what the student practises next.",
+            role: 'UX Engineer across the whole loop: user flows and edge cases, the design system in Figma and in code, support for schools, and Clarity to check what people actually do.',
+            result: 'In production at ilevar.com: AI drafts the lesson and the homework, a teacher runs the class live with 16 activity types, and every lesson stays in the student\'s notebook.',
+        },
     },
     {
         index: '03',
         title: 'Streaming Platform',
         description:
-            'A streaming experience designed and engineered with accessible controls, a documented design system, and a focus on making content easier to discover and use for older adults.',
-        tags: ['UX Engineering', 'Product Design', 'React · Accessibility'],
+            'A subscription streaming service with more than 500 active users. I designed and built all of it: the viewer app, the design system, the payment and access logic, and the admin panel the client runs it from.',
+        tags: ['Product Design', 'UX Engineering', 'React · Design System'],
         link: '/portfolio/netflix',
         image: '/portfolios/netflix/hero-featured.jpg',
-        video: '/portfolios/netflix/a_da_ca_fba_dmp_.mp4',
-        metric: '300 users · WCAG AA',
+        metric: '500+ active users',
+        period: '2026 – present',
+        tint: '#f2e2df',
+        summary: {
+            problem: "Subscribers pay at an external checkout, so the product has to turn a payment into working access before they come back, and answer correctly every time someone presses play.",
+            role: "Sole designer and developer: user flows, access rules, interface, design system, serverless back end and the admin panel.",
+            result: "In production with more than 500 active users, run day to day by a non-technical client from the admin I designed.",
+        },
     },
     {
         index: '04',
@@ -169,6 +202,15 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/fila-atendimento/1.webp',
         video: '/portfolios/framer-ui.webm',
         metric: 'avg wait −22%',
+        period: '2024',
+        cover: '/portfolios/fila-atendimento/10.webp',
+        hero: { headline: "The longest wait goes first.", sub: "Triage and assignment for omnichannel support.", from: '#0f5552', to: '#081c1f' },
+        tint: '#e5e8ee',
+        summary: {
+            problem: "Support had no triage. Every ticket sat in one pool, and customers waited longer than needed for a first human reply.",
+            role: "I researched the pain points, then designed queue ordering by waiting time and a pop-up for immediate assignment.",
+            result: "Average wait time down 22%.",
+        },
     },
     {
         index: '05',
@@ -180,6 +222,15 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/ranking/ranking.webp',
         video: '/portfolios/ranking/ranking-demo.webm',
         metric: 'Sub-100ms Sync',
+        period: '2023',
+        cover: '/portfolios/ranking/ranking.png',
+        hero: { headline: "A leaderboard that keeps everyone playing.", sub: "Real-time ranking for an EdTech platform.", from: '#9a5410', to: '#2a1505' },
+        tint: '#f4ead9',
+        summary: {
+            problem: "An EdTech platform wanted more student engagement from a ranking that stays competitive without discouraging anyone.",
+            role: "Research, user journeys and interface design, then the real-time leaderboard with SSR and caching.",
+            result: "A leaderboard that syncs in under 100ms.",
+        },
     },
     {
         index: '06',
@@ -191,6 +242,15 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/ventus/v9.webp',
         video: '/portfolios/ventus/video.webm',
         metric: 'Multimodal AI Stream',
+        period: '2025',
+        cover: '/portfolios/ventus/Imge.webp',
+        hero: { headline: "Text, images and models in one chat.", sub: "A sandbox for streaming and model orchestration.", from: '#44248a', to: '#0f0a20' },
+        tint: '#e3e4f0',
+        summary: {
+            problem: "I didn't want to learn token streaming and model orchestration for the first time on a client deadline.",
+            role: "I designed and built a multimodal AI chat sandbox in Next.js.",
+            result: "A working lab for streaming, multimodal generation and model orchestration.",
+        },
     },
     {
         index: '07',
@@ -201,5 +261,14 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         link: '/portfolio/carousel-builder',
         image: '/portfolios/carousel-builder/Captura de tela 2025-08-01 001703.png',
         metric: '−90% creation time',
+        period: '2025',
+        cover: '/portfolios/carousel-builder/carousel-builder-cover.webp',
+        hero: { headline: "From a paragraph to a carousel.", sub: "AI structures the slides; you pick the theme.", from: '#8a1f5f', to: '#1f0a18' },
+        tint: '#f0e3ec',
+        summary: {
+            problem: "Turning long-form text into a social carousel by hand is slow.",
+            role: "I designed and built an AI tool that structures the text into slides, with theme switching and a responsive preview.",
+            result: "About 90% less time per carousel.",
+        },
     },
 ] as const;

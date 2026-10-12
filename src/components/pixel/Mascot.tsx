@@ -256,10 +256,10 @@ export function Mascot() {
                     react('wink', 1400);
                     say("I'm back.");
                 }}
-                className="px-mascot px-chip !text-[var(--px-ink)] hover:!text-[var(--px-blue-hi)]"
+                className="px-mascot px-chip border border-[var(--px-line)] !bg-[var(--px-panel)] !text-[var(--px-ink)]"
                 aria-label="Bring back the Elias mascot"
             >
-                <span className="px-dot" /> CALL ELIAS
+                <span className="px-dot" /> Call Elias
             </button>
             </>
         );
@@ -291,8 +291,7 @@ export function Mascot() {
                     type="button"
                     onClick={() => toggleHidden(true)}
                     aria-label="Hide mascot"
-                    className="absolute -top-1 -left-2 grid h-6 w-6 place-items-center bg-[var(--px-panel)] text-[var(--px-muted)] hover:text-[var(--px-ink)]"
-                    style={{ boxShadow: '0 0 0 2px var(--px-line)' }}
+                    className="absolute -top-1 -left-2 grid h-6 w-6 place-items-center rounded-full border border-[var(--px-line)] bg-[var(--px-panel)] text-[var(--px-muted)] hover:text-[var(--px-ink)]"
                 >
                     <X className="h-3 w-3" />
                 </button>
