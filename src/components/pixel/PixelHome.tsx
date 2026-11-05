@@ -6,7 +6,6 @@ import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type 
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 import { Mascot } from './Mascot';
 import { mascotReact } from './mascot-bus';
-import { PostsShelf } from './PostsShelf';
 import { CaseCover } from './CaseCover';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
 import { ABOUT_FACTS, CASE_LINES, HERO_INTRO } from './pixel-copy';
@@ -77,7 +76,6 @@ export function PixelHome() {
             >
                 {[
                     ['work', 'Work'],
-                    ['posts', 'Posts'],
                     ['about', 'About'],
                 ].map(([id, label]) => (
                     <button key={id} type="button" onClick={() => scrollTo(id)} className={navLinkClass}>
@@ -227,21 +225,6 @@ export function PixelHome() {
                     </div>
                 </section>
 
-                {/* ——— Posts ——— */}
-                <section
-                    id="posts"
-                    data-mascot-line="I draw these to think out loud. They're in Portuguese — the drawings help."
-                    data-mascot-mood="wink"
-                    className="scroll-mt-20 py-20 md:py-28"
-                >
-                    <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
-                        <SectionHeading index="03" label="Writing" title="Field notes">
-                            Illustrated essays on design, research and AI that I publish on Instagram and LinkedIn. Click one to read it.
-                        </SectionHeading>
-                        <PostsShelf />
-                    </div>
-                </section>
-
                 {/* ——— Contact ——— */}
                 <ContactSection onContact={() => setContactOpen(true)} onCopy={copyEmail} copied={copied} />
             </main>
@@ -278,7 +261,7 @@ function ContactSection({ onContact, onCopy, copied }: { onContact: () => void; 
     return (
         <section id="contact" data-mascot-line="Your move." data-mascot-mood="smirk" className="px-dark scroll-mt-20 bg-[var(--px-panel-2)] text-[var(--px-on-sign)]">
             <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-24 sm:px-6 md:px-12 md:py-28">
-                <p className="font-pixel-label text-[11px] text-white/60">04 · Get in touch</p>
+                <p className="font-pixel-label text-[11px] text-white/60">03 · Get in touch</p>
                 <h2 className="text-5xl text-white sm:text-6xl">Let's talk.</h2>
                 <p className="max-w-xl text-lg leading-relaxed text-white/75">
                     I'm open to Senior Product Designer, UX Engineer and Design Engineer roles where product design and frontend engineering meet.
