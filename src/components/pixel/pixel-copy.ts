@@ -14,6 +14,7 @@ export const CASE_LINES: Record<string, { mood: MascotMood; say: string }> = {
     '06': { mood: 'squint', say: 'Built to understand token streaming before a client needed it.' },
     '07': { mood: 'wink', say: 'Text in, carousel out. Like the ones further down.' },
     '08': { mood: 'surprised', say: 'No remotes, no phone. Your home becomes the interface.' },
+    '09': { mood: 'smirk', say: '6:30 AM jobsite friction, solved with Stanley brand DNA.' },
 };
 
 export interface PixelPost {

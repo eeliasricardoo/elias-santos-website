@@ -290,4 +290,23 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
             result: "A two-step menu-first and gesture-confirmed AR interface that anchors contextual controls directly to physical devices.",
         },
     },
+    {
+        index: '09',
+        title: 'Stanley Black & Decker',
+        description:
+            'A jobsite mobile experience for professional tradespeople and crew leaders. I analyzed the brand visual DNA, mapped the jobsite friction of 6:30 AM startup, and designed a centralized Morning Setup checklist in Figma.',
+        tags: ['Product Design', 'Mobile App', 'Design System · Figma'],
+        link: '/portfolio/stanley-black-decker',
+        image: '/portfolios/stanley-black-decker/prototype-screen-1.webp',
+        metric: 'Jobsite Mobile · DeWalt & Stanley',
+        period: '2026',
+        cover: '/portfolios/stanley-black-decker/hero-cover.webp',
+        hero: { headline: "Jobsite tools, ready before work begins.", sub: "A centralized Morning Setup flow for professional crew leaders.", from: '#231e07', to: '#0a0802' },
+        tint: '#f5ecd6',
+        summary: {
+            problem: "Jobsite crew leaders face morning chaos: tools in different trucks, uncharged batteries, and task confusion without a single source of truth.",
+            role: "Product Designer: desk research, field persona mapping (Marco Silva), agile paper prototyping, Stanley brand design system adaptation, and interactive Figma mobile prototype.",
+            result: "A centralized 60-second Morning Setup checklist in high-contrast Stanley Yellow and dark UI that confirms tool readiness and task alignment before work begins.",
+        },
+    },
 ] as const;

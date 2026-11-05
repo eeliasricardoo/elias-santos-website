@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
+import {
+    HeroSection,
+    BriefSection,
+    DeskResearchSection,
+    PersonaSection,
+    ProblemOpportunitySection,
+    DesignDecisionsSection,
+    PrototypingSection,
+    CallToActionSection,
+} from "@/components/portfolio/stanley-black-decker";
+---
+
+<Layout
+    title="Stanley Black & Decker — Jobsite Mobile App Case Study | Elias Ricardo"
+    description="Stanley Black & Decker case study: a jobsite mobile tool readiness experience for professional crew leaders. Desk research, persona modeling, agile prototyping, and brand design system adaptation."
+>
+    <ProjectStructuredData
+        client:load
+        name="Stanley Black & Decker"
+        description="Stanley Black & Decker case study: a jobsite mobile tool readiness experience for professional crew leaders. Desk research, persona modeling, agile prototyping, and brand design system adaptation."
+        image="/portfolios/stanley-black-decker/brand-yellow-palette.webp"
+        url="/portfolio/stanley-black-decker"
+        technologies={["Product Design", "Mobile UX", "Design Systems", "Field Research", "Figma Prototyping"]}
+        category="Product Design & Mobile UX Case Study"
+        datePublished="2026-02-21"
+        author="Elias Ricardo"
+    />
+    <SubpageHeader client:load current="case" />
+
+    <CaseStudyLayout client:load brand="orange">
+        <HeroSection client:load />
+
+        <CaseSummary project="09" />
+        <BriefSection client:visible />
+        <DeskResearchSection client:visible />
+        <PersonaSection client:visible />
+        <ProblemOpportunitySection client:visible />
+        <DesignDecisionsSection client:visible />
+        <PrototypingSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <PixelFooter client:visible />
+</Layout>
