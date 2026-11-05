@@ -271,4 +271,23 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
             result: "About 90% less time per carousel.",
         },
     },
+    {
+        index: '08',
+        title: 'Spatial Home',
+        description:
+            'A gesture-controlled AR experience for the connected home. I explored how spatial interfaces, hand tracking, and anchored controls can eliminate fragmented apps and remotes — prototyped in Figma for AR glasses.',
+        tags: ['Spatial UI', 'Product Design', 'Interaction Design · Figma'],
+        link: '/portfolio/spatial-home',
+        image: '/portfolios/spatial-home/spatial-home-menu.webp',
+        metric: 'AR Glasses · Spatial UI',
+        period: '2025',
+        cover: '/portfolios/spatial-home/spatial-home-menu.webp',
+        hero: { headline: "Your home becomes the interface.", sub: "A gesture-controlled AR experience for the connected home.", from: '#0a364a', to: '#061622' },
+        tint: '#d8eef4',
+        summary: {
+            problem: "Smart home control is fragmented across physical remotes, separate phone apps, and confusing device lists.",
+            role: "Product Designer & UX Engineer: discovery, concept evolution from mobile AR to glasses, qualitative research, spatial interaction model, and interactive Figma prototype.",
+            result: "A two-step menu-first and gesture-confirmed AR interface that anchors contextual controls directly to physical devices.",
+        },
+    },
 ] as const;

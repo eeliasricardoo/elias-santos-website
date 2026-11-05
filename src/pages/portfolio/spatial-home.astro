@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { Mascot } from "@/components/pixel/Mascot";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
+import {
+    HeroSection,
+    OverviewSection,
+    EvolutionSection,
+    ResearchSection,
+    InteractionTradeoffSection,
+    InteractionModelSection,
+    TelevisionFlowSection,
+    BeyondTvSection,
+    DesignDecisionsSection,
+    CallToActionSection,
+} from "@/components/portfolio/spatial-home";
+---
+
+<Layout
+    title="Spatial Home — AR Glasses Interaction Design Case Study | Elias Ricardo"
+    description="Spatial Home case study: a gesture-controlled AR experience for the connected home. Spatial UI, interaction design, hand tracking, and prototyping for augmented reality glasses."
+>
+    <ProjectStructuredData
+        client:load
+        name="Spatial Home"
+        description="Spatial Home case study: a gesture-controlled AR experience for the connected home. Spatial UI, interaction design, hand tracking, and prototyping for augmented reality glasses."
+        image="/portfolios/spatial-home/spatial-home-menu.webp"
+        url="/portfolio/spatial-home"
+        technologies={["Spatial UI", "Product Design", "Interaction Design", "AR Glasses", "Figma Prototyping", "Hand Tracking"]}
+        category="Product Design & Spatial Interaction Case Study"
+        datePublished="2025-08-28"
+        author="Elias Ricardo"
+    />
+    <SubpageHeader client:load current="case" />
+
+    <CaseStudyLayout client:load brand="cyan">
+        <HeroSection client:load />
+
+        <CaseSummary project="08" />
+        <OverviewSection client:visible />
+        <EvolutionSection client:visible />
+        <ResearchSection client:visible />
+        <InteractionTradeoffSection client:visible />
+        <InteractionModelSection client:visible />
+        <TelevisionFlowSection client:visible />
+        <BeyondTvSection client:visible />
+        <DesignDecisionsSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <PixelFooter client:visible />
+    <Mascot client:idle />
+</Layout>

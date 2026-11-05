@@ -1,9 +1,13 @@
 import type { StoryProject } from '@/components/landing/story-data';
 import { ProjectWireframe } from '@/components/portfolio/ui';
 import { CatalogCover } from '@/components/portfolio/netflix/mocks';
+import { SpatialHomeCover } from '@/components/portfolio/spatial-home';
 
 /** Cases that cannot show real screens get a purpose-built mock, keyed by project index. */
-const MOCK_COVERS: Record<string, () => React.ReactNode> = { '03': CatalogCover };
+const MOCK_COVERS: Record<string, () => React.ReactNode> = {
+    '03': CatalogCover,
+    '08': SpatialHomeCover,
+};
 
 /**
  * Landing-style cover: the product's name and a one-line pitch on a brand

@@ -13,7 +13,7 @@ import { ABOUT_FACTS, CASE_LINES, HERO_INTRO } from './pixel-copy';
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
 /** The cases shown on the home page, in order. Everything else lives in /portfolio. */
-const HOME_CASES = ['02', '03', '01', '04', '05'];
+const HOME_CASES = ['02', '08', '03', '01', '04'];
 
 /** Adds `.is-in` to every `.px-reveal` once it scrolls into view. */
 function useReveal() {

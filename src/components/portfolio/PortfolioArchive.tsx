@@ -7,7 +7,7 @@ import { CaseCover } from '@/components/pixel/CaseCover';
 import { mascotReact } from '@/components/pixel/mascot-bus';
 import { CASE_LINES } from '@/components/pixel/pixel-copy';
 
-const FILTER_TAGS = ['All', 'UX Engineering', 'Product Design', 'AI Automation', 'React', 'WebRTC'] as const;
+const FILTER_TAGS = ['All', 'UX Engineering', 'Product Design', 'Spatial UI', 'AI Automation', 'React', 'WebRTC'] as const;
 
 export function PortfolioArchive() {
     const [selectedTag, setSelectedTag] = useState<string>('All');

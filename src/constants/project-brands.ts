@@ -35,4 +35,5 @@ export const PROJECT_BRAND_BY_SLUG: Record<string, BrandColor> = {
   ranking: 'orange',
   'support-queue': 'pink',
   netflix: 'red',
+  'spatial-home': 'cyan',
 };
