@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type CSSProperties } from 'react';
 import { ArrowRight, Check, Copy, FileText, Github, Linkedin } from 'lucide-react';
-import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, STORY_STATS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
+import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 import { Mascot } from './Mascot';
 import { mascotReact } from './mascot-bus';
@@ -136,19 +136,6 @@ export function PixelHome() {
                                 className="aspect-[4/5] w-full max-w-md rounded-2xl object-cover lg:ml-auto"
                             />
                         </div>
-                    </div>
-
-                    {/* Results */}
-                    <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 md:px-12">
-                        <dl className="grid grid-cols-1 gap-x-10 gap-y-6 border-t border-[var(--px-line)] pt-8 sm:grid-cols-3">
-                            {STORY_STATS.map((s) => (
-                                <div key={s.label}>
-                                    <dt className="sr-only">{s.label}</dt>
-                                    <dd className="font-pixel text-3xl font-semibold tracking-tight text-[var(--px-ink)]">{s.value}</dd>
-                                    <dd className="mt-1 text-sm leading-snug text-[var(--px-muted)]">{s.label}</dd>
-                                </div>
-                            ))}
-                        </dl>
                     </div>
                 </section>
 
