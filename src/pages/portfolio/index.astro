@@ -2,7 +2,6 @@
 import Layout from "@/layouts/Layout.astro";
 import { PortfolioArchive } from "@/components/portfolio/PortfolioArchive";
 import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
-import { Mascot } from "@/components/pixel/Mascot";
 ---
 
 <Layout
@@ -14,5 +13,4 @@ import { Mascot } from "@/components/pixel/Mascot";
         <PortfolioArchive client:load />
     </main>
     <PixelFooter client:visible />
-    <Mascot client:idle />
 </Layout>

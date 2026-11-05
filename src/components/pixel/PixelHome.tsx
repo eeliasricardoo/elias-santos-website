@@ -4,7 +4,6 @@ import { useEffect, useState, type CSSProperties } from 'react';
 import { ArrowRight, Check, Copy, FileText, Github, Linkedin } from 'lucide-react';
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
-import { Mascot } from './Mascot';
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
@@ -230,8 +229,6 @@ export function PixelHome() {
             </main>
 
             <PixelFooter />
-
-            <Mascot />
         </div>
     );
 }

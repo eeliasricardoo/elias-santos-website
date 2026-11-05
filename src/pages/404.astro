@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
-import { Mascot } from "@/components/pixel/Mascot";
 import { NotFound } from "@/components/pixel/NotFound";
 ---
 
@@ -9,5 +8,4 @@ import { NotFound } from "@/components/pixel/NotFound";
     <SubpageHeader client:load />
     <NotFound client:load />
     <PixelFooter client:visible />
-    <Mascot client:load />
 </Layout>
