@@ -92,7 +92,7 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="pb-[40px]">
+                <section id="top" className="pb-[80px]">
                     {/* Full-width Pixel sky banner */}
                     <div className="relative h-28 sm:h-36 md:h-44 lg:h-48 w-full overflow-hidden bg-[#93c7f8]">
                         <img
@@ -138,6 +138,24 @@ export function PixelHome() {
                             <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--px-muted)]">
                                 {HERO_INTRO}
                             </p>
+
+                            <div className="mt-2 flex flex-wrap items-center gap-3">
+                                <button
+                                    type="button"
+                                    onClick={() => scrollTo('work')}
+                                    className="px-btn px-btn--primary"
+                                    onMouseEnter={() => mascotReact({ mood: 'wink', hold: 900 })}
+                                >
+                                    View work
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setContactOpen(true)}
+                                    className="px-btn"
+                                >
+                                    Contact
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>
