@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, type CSSProperties } from 'react';
-import { ArrowRight, Check, Copy, FileText, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, Check, Copy, Github, Linkedin } from 'lucide-react';
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 import { mascotReact } from './mascot-bus';
@@ -92,73 +92,52 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="px-4 pb-10 pt-4 sm:px-6 md:px-12 md:pb-14 md:pt-6">
-                    <div className="mx-auto max-w-6xl">
-                        <div className="px-frame overflow-hidden border border-[var(--px-line)] bg-white shadow-sm">
-                            {/* Pixel sky cover banner */}
-                            <div className="relative h-32 sm:h-44 md:h-52 lg:h-56 w-full overflow-hidden bg-[#93c7f8]">
+                <section id="top" className="pb-12 sm:pb-16 md:pb-20">
+                    {/* Full-width Pixel sky banner */}
+                    <div className="relative h-36 sm:h-48 md:h-60 lg:h-64 w-full overflow-hidden bg-[#93c7f8]">
+                        <img
+                            src="/pixel/hero-sky.webp"
+                            alt="Pixel art sky with fluffy clouds and distant mountains"
+                            width={2000}
+                            height={1090}
+                            fetchPriority="high"
+                            className="h-full w-full object-cover object-bottom"
+                            style={{ imageRendering: 'pixelated' }}
+                        />
+                    </div>
+
+                    {/* Profile content */}
+                    <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
+                        {/* Overlapping circular avatar */}
+                        <div className="-mt-14 sm:-mt-18 md:-mt-22 mb-5 sm:mb-7">
+                            <div className="relative inline-block">
                                 <img
-                                    src="/pixel/hero-sky.webp"
-                                    alt="Pixel art sky with fluffy clouds and distant mountains"
-                                    width={2000}
-                                    height={1090}
+                                    src="/optimized/profile-photo-1080w.webp"
+                                    alt="Elias Ricardo"
+                                    width={1080}
+                                    height={1080}
                                     fetchPriority="high"
-                                    className="h-full w-full object-cover object-bottom"
-                                    style={{ imageRendering: 'pixelated' }}
+                                    className="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full object-cover ring-4 ring-white shadow-lg bg-white"
                                 />
                             </div>
+                        </div>
 
-                            {/* Profile content with overlapping circular avatar */}
-                            <div className="px-5 pb-6 pt-0 sm:px-8 sm:pb-8 md:px-10 md:pb-10">
-                                {/* Top row: Overlapping Avatar */}
-                                <div className="-mt-12 sm:-mt-16 md:-mt-20 mb-4 sm:mb-6">
-                                    <div className="relative inline-block">
-                                        <img
-                                            src="/optimized/profile-photo-1080w.webp"
-                                            alt="Elias Ricardo"
-                                            width={1080}
-                                            height={1080}
-                                            fetchPriority="high"
-                                            className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 rounded-full object-cover ring-4 ring-white shadow-xl bg-white"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Main Hero Info & Actions */}
-                                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
-                                    <div className="flex flex-col items-start gap-3 sm:gap-4 lg:col-span-8">
-                                        <div>
-                                            <p className="text-xl font-semibold text-[var(--px-ink)]">Elias Ricardo</p>
-                                            <p className="font-pixel-label text-xs text-[var(--px-dim)] mt-0.5">
-                                                Senior Product Designer & UX Engineer
-                                            </p>
-                                        </div>
-
-                                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[var(--px-ink)] leading-tight">
-                                            Human intention,<br className="sm:hidden" /> amplified by AI.
-                                        </h1>
-
-                                        <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--px-muted)]">
-                                            {HERO_INTRO}
-                                        </p>
-                                    </div>
-
-                                    <div className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col lg:items-stretch lg:justify-end">
-                                        <button
-                                            type="button"
-                                            onClick={() => scrollTo('work')}
-                                            className="px-btn px-btn--primary"
-                                            onMouseEnter={() => mascotReact({ mood: 'wink', hold: 900 })}
-                                        >
-                                            View work
-                                        </button>
-                                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-btn">
-                                            <FileText className="h-4 w-4" aria-hidden="true" /> Resume
-                                            <NewTab />
-                                        </a>
-                                    </div>
-                                </div>
+                        {/* Main Hero Info */}
+                        <div className="flex max-w-4xl flex-col items-start gap-4 sm:gap-5">
+                            <div>
+                                <p className="text-xl sm:text-2xl font-semibold text-[var(--px-ink)]">Elias Ricardo</p>
+                                <p className="font-pixel-label text-xs sm:text-sm text-[var(--px-dim)] mt-0.5">
+                                    Senior Product Designer & UX Engineer
+                                </p>
                             </div>
+
+                            <h1 className="text-2xl sm:text-5xl lg:text-[4rem] font-semibold tracking-tight text-[var(--px-ink)] leading-tight">
+                                Human intention,<br className="sm:hidden" /> amplified by AI.
+                            </h1>
+
+                            <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--px-muted)]">
+                                {HERO_INTRO}
+                            </p>
                         </div>
                     </div>
                 </section>
