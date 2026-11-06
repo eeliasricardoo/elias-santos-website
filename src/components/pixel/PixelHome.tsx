@@ -92,7 +92,7 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="pb-8 sm:pb-10 md:pb-12">
+                <section id="top" className="pb-[40px]">
                     {/* Full-width Pixel sky banner */}
                     <div className="relative h-28 sm:h-36 md:h-44 lg:h-48 w-full overflow-hidden bg-[#93c7f8]">
                         <img
