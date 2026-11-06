@@ -92,11 +92,11 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="px-4 pb-14 pt-6 sm:px-6 md:px-12 md:pb-20 md:pt-10">
+                <section id="top" className="px-4 pb-10 pt-4 sm:px-6 md:px-12 md:pb-14 md:pt-6">
                     <div className="mx-auto max-w-6xl">
                         <div className="px-frame overflow-hidden border border-[var(--px-line)] bg-white shadow-sm">
                             {/* Pixel sky cover banner */}
-                            <div className="relative h-44 sm:h-60 md:h-72 lg:h-80 w-full overflow-hidden bg-[#93c7f8]">
+                            <div className="relative h-32 sm:h-44 md:h-52 lg:h-56 w-full overflow-hidden bg-[#93c7f8]">
                                 <img
                                     src="/pixel/hero-sky.webp"
                                     alt="Pixel art sky with fluffy clouds and distant mountains"
@@ -109,9 +109,9 @@ export function PixelHome() {
                             </div>
 
                             {/* Profile content with overlapping circular avatar */}
-                            <div className="px-5 pb-8 pt-0 sm:px-8 sm:pb-10 md:px-10 md:pb-12">
+                            <div className="px-5 pb-6 pt-0 sm:px-8 sm:pb-8 md:px-10 md:pb-10">
                                 {/* Top row: Overlapping Avatar */}
-                                <div className="-mt-16 sm:-mt-20 md:-mt-24 mb-6 sm:mb-8">
+                                <div className="-mt-12 sm:-mt-16 md:-mt-20 mb-4 sm:mb-6">
                                     <div className="relative inline-block">
                                         <img
                                             src="/optimized/profile-photo-1080w.webp"
@@ -119,14 +119,14 @@ export function PixelHome() {
                                             width={1080}
                                             height={1080}
                                             fetchPriority="high"
-                                            className="h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 rounded-full object-cover ring-4 ring-white shadow-xl bg-white"
+                                            className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 rounded-full object-cover ring-4 ring-white shadow-xl bg-white"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Main Hero Info & Actions */}
-                                <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
-                                    <div className="flex flex-col items-start gap-5 lg:col-span-8">
+                                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
+                                    <div className="flex flex-col items-start gap-3 sm:gap-4 lg:col-span-8">
                                         <div>
                                             <p className="text-xl font-semibold text-[var(--px-ink)]">Elias Ricardo</p>
                                             <p className="font-pixel-label text-xs text-[var(--px-dim)] mt-0.5">
@@ -134,7 +134,7 @@ export function PixelHome() {
                                             </p>
                                         </div>
 
-                                        <h1 className="text-[1.85rem] sm:text-4xl md:text-5xl lg:text-[3.75rem] font-semibold tracking-tight text-[var(--px-ink)] leading-tight">
+                                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[var(--px-ink)] leading-tight">
                                             Human intention,<br className="sm:hidden" /> amplified by AI.
                                         </h1>
 
