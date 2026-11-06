@@ -92,9 +92,9 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="pb-12 sm:pb-16 md:pb-20">
+                <section id="top" className="pb-8 sm:pb-10 md:pb-12">
                     {/* Full-width Pixel sky banner */}
-                    <div className="relative h-36 sm:h-48 md:h-60 lg:h-64 w-full overflow-hidden bg-[#93c7f8]">
+                    <div className="relative h-28 sm:h-36 md:h-44 lg:h-48 w-full overflow-hidden bg-[#93c7f8]">
                         <img
                             src="/pixel/hero-sky.webp"
                             alt="Pixel art sky with fluffy clouds and distant mountains"
@@ -109,7 +109,7 @@ export function PixelHome() {
                     {/* Profile content */}
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
                         {/* Overlapping circular avatar */}
-                        <div className="-mt-14 sm:-mt-18 md:-mt-22 mb-5 sm:mb-7">
+                        <div className="-mt-12 sm:-mt-14 md:-mt-16 mb-4 sm:mb-5">
                             <div className="relative inline-block">
                                 <img
                                     src="/optimized/profile-photo-1080w.webp"
@@ -117,13 +117,13 @@ export function PixelHome() {
                                     width={1080}
                                     height={1080}
                                     fetchPriority="high"
-                                    className="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full object-cover ring-4 ring-white shadow-lg bg-white"
+                                    className="h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 rounded-full object-cover ring-4 ring-white shadow-lg bg-white"
                                 />
                             </div>
                         </div>
 
                         {/* Main Hero Info */}
-                        <div className="flex max-w-4xl flex-col items-start gap-4 sm:gap-5">
+                        <div className="flex max-w-4xl flex-col items-start gap-3 sm:gap-4">
                             <div>
                                 <p className="text-xl sm:text-2xl font-semibold text-[var(--px-ink)]">Elias Ricardo</p>
                                 <p className="font-pixel-label text-xs sm:text-sm text-[var(--px-dim)] mt-0.5">
@@ -131,8 +131,8 @@ export function PixelHome() {
                                 </p>
                             </div>
 
-                            <h1 className="text-2xl sm:text-5xl lg:text-[4rem] font-semibold tracking-tight text-[var(--px-ink)] leading-tight">
-                                Human intention,<br className="sm:hidden" /> amplified by AI.
+                            <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight text-[var(--px-ink)] leading-[1.15]">
+                                Human intention, <span className="whitespace-nowrap">amplified by AI.</span>
                             </h1>
 
                             <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--px-muted)]">
