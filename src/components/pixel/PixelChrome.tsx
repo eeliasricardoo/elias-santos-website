@@ -1,35 +1,12 @@
 'use client';
 
 import { useEffect, useState, type MouseEvent, type ReactNode } from 'react';
-import { Pause, Play } from 'lucide-react';
 import { STORY_IDENTITY } from '@/components/landing/story-data';
 import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
-import { mascotReact } from './mascot-bus';
-import { useMotionPaused } from './motion-prefs';
 
 /** Screen-reader hint for links that open a new tab. */
 export function NewTab() {
     return <span className="sr-only"> (opens in a new tab)</span>;
-}
-
-/** Pause / resume every animation on the site (WCAG 2.2.2). */
-export function MotionToggle() {
-    const [paused, setPaused] = useMotionPaused();
-    return (
-        <button
-            type="button"
-            onClick={() => {
-                setPaused(!paused);
-                mascotReact({ mood: paused ? 'wink' : 'idle2', say: paused ? 'Animations back on.' : 'Animations paused.', announce: true });
-            }}
-            aria-pressed={paused}
-            aria-label="Pause animations"
-            title={paused ? 'Resume animations' : 'Pause animations'}
-            className="grid h-9 w-9 place-items-center text-[var(--px-muted)] hover:text-[var(--px-ink)]"
-        >
-            {paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
-        </button>
-    );
 }
 
 function useScrollProgress() {
@@ -69,7 +46,6 @@ export function PixelHeader({
                 </a>
                 <nav className="flex items-center gap-1 text-sm sm:gap-2" aria-label="Main">
                     {children}
-                    <MotionToggle />
                 </nav>
             </div>
             <div className="px-progress" aria-hidden="true">
