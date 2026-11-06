@@ -1,14 +1,10 @@
 import type { StoryProject } from '@/components/landing/story-data';
 import { ProjectWireframe } from '@/components/portfolio/ui';
 import { CatalogCover } from '@/components/portfolio/netflix/mocks';
-import { SpatialHomeCover } from '@/components/portfolio/spatial-home';
-import { StanleyCover } from '@/components/portfolio/stanley-black-decker';
 
 /** Cases that cannot show real screens get a purpose-built mock, keyed by project index. */
 const MOCK_COVERS: Record<string, () => React.ReactNode> = {
     '03': CatalogCover,
-    '08': SpatialHomeCover,
-    '09': StanleyCover,
 };
 
 /**
