@@ -6,11 +6,9 @@ import { STORY_IDENTITY, STORY_PROJECTS, STORY_COMPANIES, PROJECT_ACCENTS } from
 import { Button } from '@/components/ui/button';
 import { ShinyButton } from '@/components/magicui/shiny-button';
 import { ProjectWireframe } from '@/components/portfolio/ui';
-import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 
 export function SimpleHome() {
     const [copied, setCopied] = useState(false);
-    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText(STORY_IDENTITY.email);
@@ -27,11 +25,6 @@ export function SimpleHome() {
 
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
-            <ContactModal
-                isOpen={isContactModalOpen}
-                onClose={() => setIsContactModalOpen(false)}
-            />
-
             {/* Clean Sticky Header */}
             <header className="sticky top-0 z-50 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
@@ -68,13 +61,14 @@ export function SimpleHome() {
                         >
                             ABOUT
                         </button>
-                        <button
-                            type="button"
-                            onClick={() => setIsContactModalOpen(true)}
+                        <a
+                            href="https://calendly.com/eeliasricardoo"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="hidden sm:inline-flex py-2 hover:text-white transition"
                         >
                             CONTACT
-                        </button>
+                        </a>
                         <a
                             href="/resume.pdf"
                             target="_blank"
@@ -403,10 +397,10 @@ export function SimpleHome() {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 w-full max-w-md">
                         <ShinyButton
-                            onClick={() => setIsContactModalOpen(true)}
+                            onClick={() => window.open('https://calendly.com/eeliasricardoo', '_blank', 'noopener,noreferrer')}
                             className="w-full sm:w-auto px-8 py-4 text-sm"
                         >
-                            Send a Message
+                            Schedule a Call
                         </ShinyButton>
 
                         <button

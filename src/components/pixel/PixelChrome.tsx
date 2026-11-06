@@ -2,7 +2,8 @@
 
 import { useEffect, useState, type MouseEvent, type ReactNode } from 'react';
 import { STORY_IDENTITY } from '@/components/landing/story-data';
-import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
+
+export const CALENDLY = 'https://calendly.com/eeliasricardoo';
 
 /** Screen-reader hint for links that open a new tab. */
 export function NewTab() {
@@ -59,29 +60,25 @@ export const navLinkClass = 'px-2 py-2 text-[var(--px-muted)] hover:text-[var(--
 
 /** Header for every page other than home: links back into the home sections. */
 export function SubpageHeader({ current }: { current?: 'archive' | 'case' }) {
-    const [contactOpen, setContactOpen] = useState(false);
     return (
-        <>
-            <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
-            <PixelHeader>
-                <a href="/" className={`${navLinkClass} hidden sm:inline`}>
-                    Home
-                </a>
-                <a href="/#work" className={navLinkClass}>
-                    Work
-                </a>
-                <a href="/portfolio" className={`${navLinkClass} ${current === 'archive' ? '!text-[var(--px-ink)]' : ''}`} aria-current={current === 'archive' ? 'page' : undefined}>
-                    All work
-                </a>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline`}>
-                    Resume
-                    <NewTab />
-                </a>
-                <button type="button" onClick={() => setContactOpen(true)} className="px-btn px-btn--primary px-btn--sm ml-2">
-                    Contact
-                </button>
-            </PixelHeader>
-        </>
+        <PixelHeader>
+            <a href="/" className={`${navLinkClass} hidden sm:inline`}>
+                Home
+            </a>
+            <a href="/#work" className={navLinkClass}>
+                Work
+            </a>
+            <a href="/portfolio" className={`${navLinkClass} ${current === 'archive' ? '!text-[var(--px-ink)]' : ''}`} aria-current={current === 'archive' ? 'page' : undefined}>
+                All work
+            </a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline`}>
+                Resume
+                <NewTab />
+            </a>
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="px-btn px-btn--primary px-btn--sm ml-2">
+                Contact
+            </a>
+        </PixelHeader>
     );
 }
 

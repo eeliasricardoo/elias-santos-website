@@ -3,7 +3,6 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { ArrowRight, Check, Copy, Github, Linkedin } from 'lucide-react';
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
-import { ContactModal } from '@/components/home/get-in-touch/ContactModal';
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
@@ -47,7 +46,6 @@ function SectionHeading({ index, label, title, children }: { index: string; labe
 
 export function PixelHome() {
     const [copied, setCopied] = useState(false);
-    const [contactOpen, setContactOpen] = useState(false);
     useReveal();
 
     const copyEmail = () => {
@@ -64,8 +62,6 @@ export function PixelHome() {
 
     return (
         <div className="px-root min-h-screen overflow-x-clip">
-            <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
-
             <PixelHeader
                 logoHref="#"
                 onLogoClick={(e) => {
@@ -85,9 +81,14 @@ export function PixelHome() {
                     Resume
                     <NewTab />
                 </a>
-                <button type="button" onClick={() => setContactOpen(true)} className="px-btn px-btn--primary px-btn--sm ml-2 hidden sm:inline-flex">
+                <a
+                    href={CALENDLY}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-btn px-btn--primary px-btn--sm ml-2 hidden sm:inline-flex"
+                >
                     Contact
-                </button>
+                </a>
             </PixelHeader>
 
             <main id="main-content">
@@ -148,13 +149,14 @@ export function PixelHome() {
                                 >
                                     View work
                                 </button>
-                                <button
-                                    type="button"
-                                    onClick={() => setContactOpen(true)}
+                                <a
+                                    href={CALENDLY}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="px-btn"
                                 >
                                     Contact
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -249,7 +251,7 @@ export function PixelHome() {
                 </section>
 
                 {/* ——— Contact ——— */}
-                <ContactSection onContact={() => setContactOpen(true)} onCopy={copyEmail} copied={copied} />
+                <ContactSection onCopy={copyEmail} copied={copied} />
             </main>
 
             <PixelFooter />
@@ -278,7 +280,7 @@ function CaseCard({ project, accent, featured = false }: { project: StoryProject
     );
 }
 
-function ContactSection({ onContact, onCopy, copied }: { onContact: () => void; onCopy: () => void; copied: boolean }) {
+function ContactSection({ onCopy, copied }: { onCopy: () => void; copied: boolean }) {
     return (
         <section id="contact" data-mascot-line="Your move." data-mascot-mood="smirk" className="px-dark scroll-mt-20 bg-[var(--px-panel-2)] text-[var(--px-on-sign)]">
             <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-24 sm:px-6 md:px-12 md:py-28">
@@ -289,17 +291,14 @@ function ContactSection({ onContact, onCopy, copied }: { onContact: () => void; 
                 </p>
 
                 <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-                    <button type="button" onClick={onContact} className="px-btn px-btn--primary">
-                        Send a message
-                    </button>
+                    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="px-btn px-btn--primary">
+                        Schedule a call
+                        <NewTab />
+                    </a>
                     <button type="button" onClick={onCopy} className="px-btn">
                         {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                         {copied ? 'Copied' : STORY_IDENTITY.email}
                     </button>
-                    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="px-btn">
-                        Schedule a call
-                        <NewTab />
-                    </a>
                 </div>
 
                 <div className="mt-4 flex items-center gap-6 text-sm text-white/75">
