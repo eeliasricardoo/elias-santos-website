@@ -94,7 +94,7 @@ export function PixelHome() {
                 {/* ——— Hero ——— */}
                 <section id="top" className="pb-[80px]">
                     {/* Full-width Pixel sky banner */}
-                    <div className="relative h-28 sm:h-36 md:h-44 lg:h-48 w-full overflow-hidden bg-[#93c7f8]">
+                    <div className="relative h-[152px] sm:h-[184px] md:h-[216px] lg:h-[232px] w-full overflow-hidden bg-[#93c7f8]">
                         <img
                             src="/pixel/hero-sky.webp"
                             alt="Pixel art sky with fluffy clouds and distant mountains"
