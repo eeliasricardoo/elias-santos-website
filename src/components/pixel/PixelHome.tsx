@@ -92,61 +92,79 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="relative isolate overflow-hidden border-b border-[var(--px-line)]">
-                    {/* Sky pixel-art background */}
-                    <div className="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden" aria-hidden="true">
-                        <img
-                            src="/pixel/hero-sky.webp"
-                            alt=""
-                            width={2000}
-                            height={1090}
-                            fetchPriority="high"
-                            className="h-full w-full object-cover object-bottom"
-                            style={{ imageRendering: 'pixelated' }}
-                        />
-                        {/* Soft atmospheric gradient to balance contrast across mobile and desktop */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/15 to-transparent sm:from-white/20 sm:via-transparent sm:to-white/10" />
-                    </div>
-
-                    <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-4 pb-16 pt-14 sm:px-6 md:px-12 md:pt-24 lg:grid-cols-12 lg:gap-12 lg:pb-24">
-                        <div className="flex flex-col items-start gap-6 lg:col-span-6">
-                            <p className="px-sign px-rise flex items-center gap-2 px-3 py-1.5 text-sm backdrop-blur-sm">
-                                <span className="px-dot" /> Open to senior roles · Remote from Brazil
-                            </p>
-
-                            <h1 className="px-rise text-[2.75rem] sm:text-6xl lg:text-[4.25rem]" style={{ '--d': '100ms' } as CSSProperties}>
-                                Human intention, amplified by AI.
-                            </h1>
-
-                            <p className="px-rise max-w-xl text-lg leading-relaxed text-[var(--px-ink)]" style={{ '--d': '200ms' } as CSSProperties}>
-                                {HERO_INTRO}
-                            </p>
-
-                            <div className="px-rise mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={{ '--d': '300ms' } as CSSProperties}>
-                                <button
-                                    type="button"
-                                    onClick={() => scrollTo('work')}
-                                    className="px-btn px-btn--primary shadow-md"
-                                    onMouseEnter={() => mascotReact({ mood: 'wink', hold: 900 })}
-                                >
-                                    View work
-                                </button>
-                                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-btn shadow-sm backdrop-blur-sm">
-                                    <FileText className="h-4 w-4" aria-hidden="true" /> Resume
-                                    <NewTab />
-                                </a>
+                <section id="top" className="px-4 pb-14 pt-6 sm:px-6 md:px-12 md:pb-20 md:pt-10">
+                    <div className="mx-auto max-w-6xl">
+                        <div className="px-frame overflow-hidden border border-[var(--px-line)] bg-white shadow-sm">
+                            {/* Pixel sky cover banner */}
+                            <div className="relative h-44 sm:h-60 md:h-72 lg:h-80 w-full overflow-hidden bg-[#93c7f8]">
+                                <img
+                                    src="/pixel/hero-sky.webp"
+                                    alt="Pixel art sky with fluffy clouds and distant mountains"
+                                    width={2000}
+                                    height={1090}
+                                    fetchPriority="high"
+                                    className="h-full w-full object-cover object-bottom"
+                                    style={{ imageRendering: 'pixelated' }}
+                                />
                             </div>
-                        </div>
 
-                        <div className="px-rise lg:col-span-5 lg:col-start-8" style={{ '--d': '250ms' } as CSSProperties}>
-                            <img
-                                src="/optimized/profile-photo-1080w.webp"
-                                alt="Elias Ricardo, in a black turtleneck."
-                                width={1080}
-                                height={1080}
-                                fetchPriority="high"
-                                className="aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl ring-1 ring-black/10 lg:ml-auto"
-                            />
+                            {/* Profile content with overlapping circular avatar */}
+                            <div className="px-5 pb-8 pt-0 sm:px-8 sm:pb-10 md:px-10 md:pb-12">
+                                {/* Top row: Overlapping Avatar + Status Pill */}
+                                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 -mt-16 sm:-mt-20 md:-mt-24 mb-6 sm:mb-8">
+                                    <div className="relative inline-block">
+                                        <img
+                                            src="/optimized/profile-photo-1080w.webp"
+                                            alt="Elias Ricardo"
+                                            width={1080}
+                                            height={1080}
+                                            fetchPriority="high"
+                                            className="h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 rounded-full object-cover ring-4 ring-white shadow-xl bg-white"
+                                        />
+                                    </div>
+
+                                    <div className="flex items-center gap-3 self-start sm:self-end">
+                                        <p className="px-sign flex items-center gap-2 px-3 py-1.5 text-sm">
+                                            <span className="px-dot" /> Open to senior roles · Remote from Brazil
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Main Hero Info & Actions */}
+                                <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+                                    <div className="flex flex-col items-start gap-5 lg:col-span-8">
+                                        <div>
+                                            <p className="text-xl font-semibold text-[var(--px-ink)]">Elias Ricardo</p>
+                                            <p className="font-pixel-label text-xs text-[var(--px-dim)] mt-0.5">
+                                                Senior Product Designer & UX Engineer
+                                            </p>
+                                        </div>
+
+                                        <h1 className="text-[1.85rem] sm:text-4xl md:text-5xl lg:text-[3.75rem] font-semibold tracking-tight text-[var(--px-ink)] leading-tight">
+                                            Human intention,<br className="sm:hidden" /> amplified by AI.
+                                        </h1>
+
+                                        <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--px-muted)]">
+                                            {HERO_INTRO}
+                                        </p>
+                                    </div>
+
+                                    <div className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col lg:items-stretch lg:justify-end">
+                                        <button
+                                            type="button"
+                                            onClick={() => scrollTo('work')}
+                                            className="px-btn px-btn--primary"
+                                            onMouseEnter={() => mascotReact({ mood: 'wink', hold: 900 })}
+                                        >
+                                            View work
+                                        </button>
+                                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-btn">
+                                            <FileText className="h-4 w-4" aria-hidden="true" /> Resume
+                                            <NewTab />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
