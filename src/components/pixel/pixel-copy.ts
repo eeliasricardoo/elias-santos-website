@@ -2,7 +2,7 @@
 import type { MascotMood } from './mascot-bus';
 
 export const HERO_INTRO =
-    "Hi, I'm Elias — Senior Product Designer & UX Engineer. I research the problem, design the interface, and ship the React component. No handoff meeting required.";
+    'Turning complex problems into clear, intuitive, and human-centered product experiences.';
 
 /** One line per case, said when the visitor hovers its card. Keyed by project index. */
 export const CASE_LINES: Record<string, { mood: MascotMood; say: string }> = {
