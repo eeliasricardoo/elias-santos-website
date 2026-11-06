@@ -73,6 +73,7 @@ export const STORY_COMPANIES: readonly StoryCompany[] = [
     { name: 'Stanley Black & Decker', logo: '/logos/companies/stanley-black-decker.svg', ratio: 9.8, scale: 1.3 },
     { name: 'Oliver Agency', logo: '/logos/companies/oliver-agency.svg', ratio: 150 / 27 },
     { name: 'Trailmerge', logo: '/logos/companies/trailmerge.svg', ratio: 145 / 32 },
+    { name: 'Solvedex', logo: '/logos/companies/solvedex.png', ratio: 818 / 200 },
     { name: 'Zurich Insurance', logo: '/logos/companies/zurich-insurance.svg', ratio: 805 / 190 },
     { name: 'Superbid', logo: '/logos/companies/superbid.png', ratio: 684 / 160 },
     { name: 'Stellantis', logo: '/logos/companies/stellantis.svg', ratio: 512 / 108 },
