@@ -23,17 +23,24 @@ function useReveal() {
                         io.unobserve(e.target);
                     }
                 }),
-            { rootMargin: '0px 0px -10% 0px' },
+            { rootMargin: '200px 0px 200px 0px' },
         );
-        document.querySelectorAll('.px-reveal').forEach((el) => io.observe(el));
+        document.querySelectorAll('.px-reveal').forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 200) {
+                el.classList.add('is-in');
+            } else {
+                io.observe(el);
+            }
+        });
         return () => io.disconnect();
     }, []);
 }
 
 function SectionHeading({ index, label, title, children }: { index: string; label: string; title: string; children?: React.ReactNode }) {
     return (
-        <div className="px-reveal mb-8 sm:mb-10 md:mb-14 flex flex-col gap-3 sm:gap-5 md:flex-row md:items-end md:justify-between">
-            <div className="flex flex-col items-start gap-2.5 sm:gap-4">
+        <div className="mb-6 sm:mb-10 md:mb-14 flex flex-col gap-2.5 sm:gap-5 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-col items-start gap-2 sm:gap-4">
                 <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">
                     {index} · {label}
                 </p>
@@ -93,7 +100,7 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="pb-10 sm:pb-16 md:pb-[80px]">
+                <section id="top" className="pb-5 sm:pb-12 md:pb-[80px]">
                     {/* Full-width Pixel sky banner */}
                     <div className="relative h-[152px] sm:h-[184px] md:h-[216px] lg:h-[232px] w-full overflow-hidden bg-[#93c7f8]">
                         <img
@@ -164,10 +171,10 @@ export function PixelHome() {
 
                 {/* ——— Companies ——— */}
                 <section aria-label="Companies I've shipped for" className="border-y border-[var(--px-line)] bg-[var(--px-bg-2)]">
-                    <div className="mx-auto max-w-6xl px-4 pt-6 sm:pt-8 sm:px-6 md:px-12">
+                    <div className="mx-auto max-w-6xl px-4 pt-3.5 sm:pt-8 sm:px-6 md:px-12">
                         <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Shipped for</p>
                     </div>
-                    <div className="px-marquee-wrap overflow-hidden py-6 sm:py-8 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+                    <div className="px-marquee-wrap overflow-hidden py-3.5 sm:py-8 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
                         <ul className="px-marquee items-center">
                             {[...STORY_COMPANIES, ...STORY_COMPANIES].map((c, i) => (
                                 <li key={`${c.name}-${i}`} className="mx-6 sm:mx-10 flex h-10 w-36 sm:w-40 shrink-0 items-center justify-center" aria-hidden={i >= STORY_COMPANIES.length}>
@@ -191,7 +198,7 @@ export function PixelHome() {
                     id="work"
                     data-mascot-line="Start with the first one — it's my favourite."
                     data-mascot-mood="smirk"
-                    className="scroll-mt-16 sm:scroll-mt-20 py-14 sm:py-20 md:py-28"
+                    className="scroll-mt-16 sm:scroll-mt-20 pt-6 pb-14 sm:py-20 md:py-28"
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
                         <SectionHeading index="01" label="Work" title="Selected work">
@@ -263,7 +270,7 @@ function CaseCard({ project, accent, featured = false }: { project: StoryProject
     const line = CASE_LINES[project.index];
     return (
         <article
-            className={`px-work px-reveal group grid grid-cols-1 gap-5 sm:gap-6 ${featured ? 'lg:grid-cols-12 lg:items-center lg:gap-12' : ''}`}
+            className={`px-work ${featured ? '' : 'px-reveal'} group grid grid-cols-1 gap-5 sm:gap-6 ${featured ? 'lg:grid-cols-12 lg:items-center lg:gap-12' : ''}`}
             onMouseEnter={() => line && mascotReact({ ...line, hold: 1400 })}
         >
             <CaseCover project={project} accent={accent} className={featured ? 'lg:col-span-7' : ''} />
