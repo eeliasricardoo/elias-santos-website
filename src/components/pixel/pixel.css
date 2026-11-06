@@ -190,11 +190,14 @@
 .px-marquee {
   display: flex;
   width: max-content;
-  animation: px-marquee 38s linear infinite;
+  animation: px-marquee 30s linear infinite;
+  will-change: transform;
 }
 
-.px-marquee-wrap:hover .px-marquee {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+  .px-marquee-wrap:hover .px-marquee {
+    animation-play-state: paused;
+  }
 }
 
 /* ——— Reveal on scroll ——— */
@@ -303,15 +306,14 @@
 }
 
 @keyframes px-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .px-rise,
   .px-mascot-enter,
-  .px-mascot__bob,
-  .px-marquee {
+  .px-mascot__bob {
     animation: none !important;
   }
 
@@ -336,18 +338,4 @@
 /* Light-on-dark accents from the old dark theme, re-tuned for white */
 .px-case .text-sky-400 {
   color: #0b6aa8;
-}
-
-/* Site-wide "pause animations" toggle (html[data-motion="paused"]). */
-html[data-motion="paused"] *,
-html[data-motion="paused"] *::before,
-html[data-motion="paused"] *::after {
-  animation: none !important;
-  transition: none !important;
-  scroll-behavior: auto !important;
-}
-
-html[data-motion="paused"] .px-reveal {
-  opacity: 1;
-  transform: none;
 }

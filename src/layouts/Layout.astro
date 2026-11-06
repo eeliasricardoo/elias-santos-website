@@ -69,7 +69,10 @@ const absoluteOgImage = new URL(ogImage, activeOrigin).href;
 		<WebVitalsMonitor client:idle />
 
 		<script is:inline>
-			try { if (localStorage.getItem("er-motion") === "paused") document.documentElement.dataset.motion = "paused"; } catch (e) {}
+			try {
+				localStorage.removeItem("er-motion");
+				delete document.documentElement.dataset.motion;
+			} catch (e) {}
 		</script>
 		<slot name="head" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
