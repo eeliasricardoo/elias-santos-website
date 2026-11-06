@@ -31,11 +31,11 @@ export function PortfolioArchive() {
 
     return (
         <div className="relative overflow-x-clip">
-            <div className="relative mx-auto max-w-6xl px-4 pb-24 pt-14 sm:px-6 md:px-12 md:pt-20">
+            <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 sm:pb-24 sm:pt-14 md:px-12 md:pt-20">
                 {/* Hero */}
-                <div className="flex flex-col items-start gap-6 pb-10">
+                <div className="flex flex-col items-start gap-4 sm:gap-6 pb-6 sm:pb-10">
                     <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Archive</p>
-                    <h1 className="text-5xl sm:text-6xl">All work &amp; case studies</h1>
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl">All work &amp; case studies</h1>
                     <p className="max-w-2xl text-base leading-relaxed text-[var(--px-muted)] md:text-lg">
                         Digital products, design systems, AI tooling and interaction engineering — each one researched, designed and shipped.
                     </p>

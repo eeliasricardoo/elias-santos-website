@@ -15,20 +15,20 @@ function HeroCover({ project }: { project: StoryProject }) {
     const hero = project.hero!;
     return (
         <div className="absolute inset-0 flex flex-col text-white" style={{ background: `linear-gradient(160deg, ${hero.from} 0%, ${hero.to} 100%)` }}>
-            <div className="flex shrink-0 items-center justify-between px-[5%] pt-[3.5%]">
-                <span className="text-[10px] font-bold tracking-wide">{project.title}</span>
-                <span className="rounded-full bg-white px-2 py-1 text-[8px] font-medium uppercase tracking-wider text-black">Open</span>
+            <div className="flex shrink-0 items-center justify-between px-[5%] pt-[3%] sm:pt-[3.5%]">
+                <span className="text-[10px] sm:text-xs font-bold tracking-wide">{project.title}</span>
+                <span className="rounded-full bg-white px-2 py-0.5 sm:py-1 text-[8px] sm:text-[9px] font-medium uppercase tracking-wider text-black">Open</span>
             </div>
 
             <div className="flex min-h-0 flex-1 items-center gap-[4%] pb-[4%] pl-[5%]">
-                <div className="flex w-[38%] shrink-0 flex-col items-start gap-2.5">
-                    <p className="font-pixel text-[clamp(14px,4.2cqw,30px)] font-bold leading-[1.08]">{hero.headline}</p>
-                    <p className="text-[clamp(8px,1.7cqw,12px)] leading-snug text-white/70">{hero.sub}</p>
+                <div className="flex w-[42%] sm:w-[38%] shrink-0 flex-col items-start gap-1.5 sm:gap-2.5">
+                    <p className="font-pixel text-[clamp(11px,3.8cqw,28px)] font-bold leading-[1.12]">{hero.headline}</p>
+                    <p className="text-[clamp(8px,1.6cqw,12px)] leading-tight sm:leading-snug text-white/70 line-clamp-3 sm:line-clamp-none">{hero.sub}</p>
                 </div>
 
                 {/* The window runs off the right edge, like a product shot on a landing page. */}
-                <div className="h-[80%] min-w-0 flex-1 overflow-hidden rounded-l-md border border-r-0 border-white/20 bg-[#0b0b0e] shadow-2xl">
-                    <div className="flex items-center gap-1 border-b border-white/10 px-2 py-1.5">
+                <div className="h-[84%] sm:h-[80%] min-w-0 flex-1 overflow-hidden rounded-l-md border border-r-0 border-white/20 bg-[#0b0b0e] shadow-2xl">
+                    <div className="flex items-center gap-1 border-b border-white/10 px-2 py-1 sm:py-1.5">
                         <span className="h-1 w-1 rounded-full bg-white/30" />
                         <span className="h-1 w-1 rounded-full bg-white/30" />
                         <span className="h-1 w-1 rounded-full bg-white/30" />
@@ -56,7 +56,7 @@ export function CaseCover({ project, accent, className = '' }: { project: StoryP
             tabIndex={-1}
             aria-hidden="true"
         >
-            <div className="px-cover__shot absolute inset-x-[8%] top-1/2 -translate-y-1/2 overflow-hidden rounded-lg">
+            <div className="px-cover__shot absolute inset-x-[4%] sm:inset-x-[6%] md:inset-x-[8%] top-1/2 -translate-y-1/2 overflow-hidden rounded-lg">
                 {framed ? (
                     <div className="relative aspect-[16/10] bg-[#0a0a0b] [container-type:inline-size]">
                         {Mock ? <Mock /> : project.hero ? <HeroCover project={project} /> : <ProjectWireframe title={project.title} accent={accent} />}

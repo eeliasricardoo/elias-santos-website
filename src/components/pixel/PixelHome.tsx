@@ -32,12 +32,12 @@ function useReveal() {
 
 function SectionHeading({ index, label, title, children }: { index: string; label: string; title: string; children?: React.ReactNode }) {
     return (
-        <div className="px-reveal mb-10 flex flex-col gap-5 md:mb-14 md:flex-row md:items-end md:justify-between">
-            <div className="flex flex-col items-start gap-4">
+        <div className="px-reveal mb-8 sm:mb-10 md:mb-14 flex flex-col gap-3 sm:gap-5 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-col items-start gap-2.5 sm:gap-4">
                 <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">
                     {index} · {label}
                 </p>
-                <h2 className="text-4xl sm:text-5xl">{title}</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl">{title}</h2>
             </div>
             {children && <div className="max-w-sm text-sm leading-relaxed text-[var(--px-muted)] md:text-right">{children}</div>}
         </div>
@@ -85,7 +85,7 @@ export function PixelHome() {
                     href={CALENDLY}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-btn px-btn--primary px-btn--sm ml-2 hidden sm:inline-flex"
+                    className="px-btn px-btn--primary px-btn--sm ml-1.5 text-xs sm:text-sm sm:ml-2 inline-flex"
                 >
                     Contact
                 </a>
@@ -93,7 +93,7 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top" className="pb-[80px]">
+                <section id="top" className="pb-10 sm:pb-16 md:pb-[80px]">
                     {/* Full-width Pixel sky banner */}
                     <div className="relative h-[152px] sm:h-[184px] md:h-[216px] lg:h-[232px] w-full overflow-hidden bg-[#93c7f8]">
                         <img
@@ -132,19 +132,19 @@ export function PixelHome() {
                                 </p>
                             </div>
 
-                            <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight text-[var(--px-ink)] leading-[1.15]">
+                            <h1 className="text-[1.75rem] leading-[1.18] sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight text-[var(--px-ink)]">
                                 Human intention, <span className="whitespace-nowrap">amplified by AI.</span>
                             </h1>
 
-                            <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--px-muted)]">
+                            <p className="max-w-2xl text-[15px] sm:text-lg leading-relaxed text-[var(--px-muted)]">
                                 {HERO_INTRO}
                             </p>
 
-                            <div className="mt-2 flex flex-wrap items-center gap-3">
+                            <div className="mt-2 flex w-full sm:w-auto items-center gap-3">
                                 <button
                                     type="button"
                                     onClick={() => scrollTo('work')}
-                                    className="px-btn px-btn--primary"
+                                    className="px-btn px-btn--primary flex-1 sm:flex-initial justify-center text-center"
                                     onMouseEnter={() => mascotReact({ mood: 'wink', hold: 900 })}
                                 >
                                     View work
@@ -153,7 +153,7 @@ export function PixelHome() {
                                     href={CALENDLY}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-btn"
+                                    className="px-btn flex-1 sm:flex-initial justify-center text-center"
                                 >
                                     Contact
                                 </a>
@@ -164,13 +164,13 @@ export function PixelHome() {
 
                 {/* ——— Companies ——— */}
                 <section aria-label="Companies I've shipped for" className="border-y border-[var(--px-line)] bg-[var(--px-bg-2)]">
-                    <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 md:px-12">
+                    <div className="mx-auto max-w-6xl px-4 pt-6 sm:pt-8 sm:px-6 md:px-12">
                         <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Shipped for</p>
                     </div>
-                    <div className="px-marquee-wrap overflow-hidden py-8 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+                    <div className="px-marquee-wrap overflow-hidden py-6 sm:py-8 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
                         <ul className="px-marquee items-center">
                             {[...STORY_COMPANIES, ...STORY_COMPANIES].map((c, i) => (
-                                <li key={`${c.name}-${i}`} className="mx-10 flex h-10 w-40 shrink-0 items-center justify-center" aria-hidden={i >= STORY_COMPANIES.length}>
+                                <li key={`${c.name}-${i}`} className="mx-6 sm:mx-10 flex h-10 w-36 sm:w-40 shrink-0 items-center justify-center" aria-hidden={i >= STORY_COMPANIES.length}>
                                     <img
                                         src={c.logo}
                                         alt={i < STORY_COMPANIES.length ? c.name : ''}
@@ -191,7 +191,7 @@ export function PixelHome() {
                     id="work"
                     data-mascot-line="Start with the first one — it's my favourite."
                     data-mascot-mood="smirk"
-                    className="scroll-mt-20 py-20 md:py-28"
+                    className="scroll-mt-16 sm:scroll-mt-20 py-14 sm:py-20 md:py-28"
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
                         <SectionHeading index="01" label="Work" title="Selected work">
@@ -200,14 +200,14 @@ export function PixelHome() {
 
                         <CaseCard project={featured} accent={PROJECT_ACCENTS[0]} featured />
 
-                        <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2">
+                        <div className="mt-10 sm:mt-16 grid grid-cols-1 gap-x-10 gap-y-10 sm:gap-y-14 md:grid-cols-2">
                             {rest.map((p, i) => (
                                 <CaseCard key={p.index} project={p} accent={PROJECT_ACCENTS[(i + 1) % PROJECT_ACCENTS.length]} />
                             ))}
                         </div>
 
-                        <div className="mt-16 flex justify-center">
-                            <a href="/portfolio" className="px-btn">
+                        <div className="mt-10 sm:mt-16 flex justify-center">
+                            <a href="/portfolio" className="px-btn w-full sm:w-auto justify-center text-center">
                                 See all {STORY_PROJECTS.length} case studies <ArrowRight className="h-4 w-4" />
                             </a>
                         </div>
@@ -219,13 +219,13 @@ export function PixelHome() {
                     id="about"
                     data-mascot-line="The short version of me. No skill bars, promise."
                     data-mascot-mood="smirk"
-                    className="scroll-mt-20 border-y border-[var(--px-line)] bg-[var(--px-bg-2)] py-20 md:py-28"
+                    className="scroll-mt-16 sm:scroll-mt-20 border-y border-[var(--px-line)] bg-[var(--px-bg-2)] py-14 sm:py-20 md:py-28"
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
                         <SectionHeading index="02" label="About" title="Design that ships." />
 
-                        <div className="px-reveal grid grid-cols-1 gap-12 lg:grid-cols-12">
-                            <div className="space-y-5 text-lg leading-relaxed text-[var(--px-ink)] lg:col-span-7">
+                        <div className="px-reveal grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-12">
+                            <div className="space-y-4 sm:space-y-5 text-base sm:text-lg leading-relaxed text-[var(--px-ink)] lg:col-span-7">
                                 <p>
                                     I started in product design and kept moving closer to implementation. My best work happens{' '}
                                     <strong className="font-semibold">between design and engineering</strong> — understanding the user problem,
@@ -240,7 +240,7 @@ export function PixelHome() {
 
                             <dl className="self-start border-t border-[var(--px-line)] text-sm lg:col-span-4 lg:col-start-9">
                                 {ABOUT_FACTS.map((f) => (
-                                    <div key={f.label} className="flex items-baseline justify-between gap-4 border-b border-[var(--px-line)] py-3">
+                                    <div key={f.label} className="flex items-baseline justify-between gap-4 border-b border-[var(--px-line)] py-2.5 sm:py-3">
                                         <dt className="font-pixel-label text-[11px] text-[var(--px-dim)]">{f.label}</dt>
                                         <dd className="text-right text-[var(--px-ink)]">{f.value}</dd>
                                     </div>
@@ -263,16 +263,16 @@ function CaseCard({ project, accent, featured = false }: { project: StoryProject
     const line = CASE_LINES[project.index];
     return (
         <article
-            className={`px-work px-reveal group grid grid-cols-1 gap-6 ${featured ? 'lg:grid-cols-12 lg:items-center lg:gap-12' : ''}`}
+            className={`px-work px-reveal group grid grid-cols-1 gap-5 sm:gap-6 ${featured ? 'lg:grid-cols-12 lg:items-center lg:gap-12' : ''}`}
             onMouseEnter={() => line && mascotReact({ ...line, hold: 1400 })}
         >
             <CaseCover project={project} accent={accent} className={featured ? 'lg:col-span-7' : ''} />
 
-            <div className={`flex flex-col items-start gap-3 ${featured ? 'lg:col-span-5' : ''}`}>
+            <div className={`flex flex-col items-start gap-2.5 sm:gap-3 ${featured ? 'lg:col-span-5' : ''}`}>
                 <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">{[project.period, project.metric].filter(Boolean).join(' · ')}</p>
-                <h3 className={`text-[var(--px-ink)] ${featured ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'}`}>{project.title}</h3>
-                <p className="text-base leading-relaxed text-[var(--px-muted)]">{project.description}</p>
-                <a href={project.link} className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--px-ink)] underline decoration-[var(--px-line)] underline-offset-4 hover:decoration-[var(--px-ink)]">
+                <h3 className={`text-[var(--px-ink)] ${featured ? 'text-2xl sm:text-3xl md:text-4xl' : 'text-xl sm:text-2xl md:text-3xl'}`}>{project.title}</h3>
+                <p className="text-sm sm:text-base leading-relaxed text-[var(--px-muted)]">{project.description}</p>
+                <a href={project.link} className="mt-1 sm:mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--px-ink)] underline decoration-[var(--px-line)] underline-offset-4 hover:decoration-[var(--px-ink)]">
                     Read case study <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
             </div>
@@ -282,20 +282,20 @@ function CaseCard({ project, accent, featured = false }: { project: StoryProject
 
 function ContactSection({ onCopy, copied }: { onCopy: () => void; copied: boolean }) {
     return (
-        <section id="contact" data-mascot-line="Your move." data-mascot-mood="smirk" className="px-dark scroll-mt-20 bg-[var(--px-panel-2)] text-[var(--px-on-sign)]">
-            <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-24 sm:px-6 md:px-12 md:py-28">
+        <section id="contact" data-mascot-line="Your move." data-mascot-mood="smirk" className="px-dark scroll-mt-16 sm:scroll-mt-20 bg-[var(--px-panel-2)] text-[var(--px-on-sign)]">
+            <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 sm:gap-6 px-4 py-16 sm:py-24 md:px-12 md:py-28">
                 <p className="font-pixel-label text-[11px] text-white/60">03 · Get in touch</p>
-                <h2 className="text-5xl text-white sm:text-6xl">Let's talk.</h2>
-                <p className="max-w-xl text-lg leading-relaxed text-white/75">
+                <h2 className="text-4xl text-white sm:text-5xl md:text-6xl font-semibold">Let's talk.</h2>
+                <p className="max-w-xl text-base sm:text-lg leading-relaxed text-white/75">
                     I'm open to Senior Product Designer, UX Engineer and Design Engineer roles where product design and frontend engineering meet.
                 </p>
 
                 <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-                    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="px-btn px-btn--primary">
+                    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="px-btn px-btn--primary justify-center text-center">
                         Schedule a call
                         <NewTab />
                     </a>
-                    <button type="button" onClick={onCopy} className="px-btn">
+                    <button type="button" onClick={onCopy} className="px-btn justify-center text-center">
                         {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                         {copied ? 'Copied' : STORY_IDENTITY.email}
                     </button>

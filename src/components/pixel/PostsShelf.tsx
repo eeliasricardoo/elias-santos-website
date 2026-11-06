@@ -13,7 +13,7 @@ export function PostsShelf() {
 
     return (
         <>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 lg:grid-cols-4">
+            <ul className="grid grid-cols-2 gap-x-3.5 gap-y-8 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4">
                 {PIXEL_POSTS.map((post, i) => (
                     <li key={post.id} className="px-reveal" style={{ transitionDelay: `${i * 80}ms` }}>
                         <button
@@ -32,15 +32,15 @@ export function PostsShelf() {
                                         decoding="async"
                                         className="h-full w-full object-cover object-top"
                                     />
-                                    <span className="absolute right-2 top-2 px-chip !bg-black/70 !text-white">
+                                    <span className="absolute right-1.5 top-1.5 sm:right-2 sm:top-2 px-chip !bg-black/70 !text-white text-[10px] sm:text-xs">
                                         {post.slides} slides
                                     </span>
                                 </div>
                             </div>
-                            <p className="mt-4 font-pixel text-base font-semibold leading-snug text-[var(--px-ink)]">
+                            <p className="mt-3 sm:mt-4 font-pixel text-sm sm:text-base font-semibold leading-snug text-[var(--px-ink)]">
                                 {post.title}
                             </p>
-                            <p className="mt-1.5 text-sm leading-snug text-[var(--px-muted)]">{post.subtitle}</p>
+                            <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm leading-snug text-[var(--px-muted)]">{post.subtitle}</p>
                         </button>
                     </li>
                 ))}
