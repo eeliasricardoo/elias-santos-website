@@ -110,8 +110,8 @@ export function PixelHome() {
 
                             {/* Profile content with overlapping circular avatar */}
                             <div className="px-5 pb-8 pt-0 sm:px-8 sm:pb-10 md:px-10 md:pb-12">
-                                {/* Top row: Overlapping Avatar + Status Pill */}
-                                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 -mt-16 sm:-mt-20 md:-mt-24 mb-6 sm:mb-8">
+                                {/* Top row: Overlapping Avatar */}
+                                <div className="-mt-16 sm:-mt-20 md:-mt-24 mb-6 sm:mb-8">
                                     <div className="relative inline-block">
                                         <img
                                             src="/optimized/profile-photo-1080w.webp"
@@ -121,12 +121,6 @@ export function PixelHome() {
                                             fetchPriority="high"
                                             className="h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 rounded-full object-cover ring-4 ring-white shadow-xl bg-white"
                                         />
-                                    </div>
-
-                                    <div className="flex items-center gap-3 self-start sm:self-end">
-                                        <p className="px-sign flex items-center gap-2 px-3 py-1.5 text-sm">
-                                            <span className="px-dot" /> Open to senior roles · Remote from Brazil
-                                        </p>
                                     </div>
                                 </div>
 
