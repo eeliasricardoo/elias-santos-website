@@ -92,10 +92,25 @@ export function PixelHome() {
 
             <main id="main-content">
                 {/* ——— Hero ——— */}
-                <section id="top">
+                <section id="top" className="relative isolate overflow-hidden border-b border-[var(--px-line)]">
+                    {/* Sky pixel-art background */}
+                    <div className="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden" aria-hidden="true">
+                        <img
+                            src="/pixel/hero-sky.webp"
+                            alt=""
+                            width={2000}
+                            height={1090}
+                            fetchPriority="high"
+                            className="h-full w-full object-cover object-bottom"
+                            style={{ imageRendering: 'pixelated' }}
+                        />
+                        {/* Soft atmospheric gradient to balance contrast across mobile and desktop */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/15 to-transparent sm:from-white/20 sm:via-transparent sm:to-white/10" />
+                    </div>
+
                     <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-4 pb-16 pt-14 sm:px-6 md:px-12 md:pt-24 lg:grid-cols-12 lg:gap-12 lg:pb-24">
                         <div className="flex flex-col items-start gap-6 lg:col-span-6">
-                            <p className="px-sign px-rise flex items-center gap-2 px-3 py-1.5 text-sm">
+                            <p className="px-sign px-rise flex items-center gap-2 px-3 py-1.5 text-sm backdrop-blur-sm">
                                 <span className="px-dot" /> Open to senior roles · Remote from Brazil
                             </p>
 
@@ -103,7 +118,7 @@ export function PixelHome() {
                                 Human intention, amplified by AI.
                             </h1>
 
-                            <p className="px-rise max-w-xl text-lg leading-relaxed text-[var(--px-muted)]" style={{ '--d': '200ms' } as CSSProperties}>
+                            <p className="px-rise max-w-xl text-lg leading-relaxed text-[var(--px-ink)]" style={{ '--d': '200ms' } as CSSProperties}>
                                 {HERO_INTRO}
                             </p>
 
@@ -111,12 +126,12 @@ export function PixelHome() {
                                 <button
                                     type="button"
                                     onClick={() => scrollTo('work')}
-                                    className="px-btn px-btn--primary"
+                                    className="px-btn px-btn--primary shadow-md"
                                     onMouseEnter={() => mascotReact({ mood: 'wink', hold: 900 })}
                                 >
                                     View work
                                 </button>
-                                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-btn">
+                                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-btn shadow-sm backdrop-blur-sm">
                                     <FileText className="h-4 w-4" aria-hidden="true" /> Resume
                                     <NewTab />
                                 </a>
@@ -130,7 +145,7 @@ export function PixelHome() {
                                 width={1080}
                                 height={1080}
                                 fetchPriority="high"
-                                className="aspect-[4/5] w-full max-w-md rounded-2xl object-cover lg:ml-auto"
+                                className="aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl ring-1 ring-black/10 lg:ml-auto"
                             />
                         </div>
                     </div>
