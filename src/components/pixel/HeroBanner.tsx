@@ -215,7 +215,7 @@ export function HeroBanner() {
         <div
             data-sky={weather}
             data-time={time}
-            className="px-sky relative h-[196px] sm:h-[240px] md:h-[284px] lg:h-[312px] w-full overflow-hidden bg-[#93c7f8]"
+            className="px-sky relative h-[156px] sm:h-[200px] md:h-[244px] lg:h-[272px] w-full overflow-hidden bg-[#93c7f8]"
         >
             <div className="px-sky-scene absolute inset-0">
                 <img
