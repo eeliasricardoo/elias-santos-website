@@ -84,7 +84,8 @@ export function OptimizedImage({
 
     // Determine if image is in optimized directory
     const isOptimized = src.includes('/optimized/');
-    const optimizedBasePath = isOptimized ? basePath : `/optimized${basePath}`;
+    // encodeURI: file names with spaces would otherwise break the srcset candidates.
+    const optimizedBasePath = encodeURI(isOptimized ? basePath : `/optimized${basePath}`);
 
     // Only generate responsive srcset if we don't know it's a small image (width < 640)
     const isSmall = typeof props.width === 'number' && props.width < 640;
@@ -96,7 +97,9 @@ export function OptimizedImage({
         : undefined;
 
     // Default sizes if not provided
-    const defaultSizes = '(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 33vw';
+    // Most images on this site span the content column; under-declaring here made
+    // browsers pick the 640w file for 1100px-wide screenshots.
+    const defaultSizes = '(max-width: 1200px) 100vw, 1100px';
 
     return (
         <picture>
@@ -147,7 +150,8 @@ export function OptimizedBackground({ src, children, className = '' }: Optimized
     const lastDot = src.lastIndexOf('.');
     const basePath = src.substring(0, lastDot);
     const isOptimized = src.includes('/optimized/');
-    const optimizedBasePath = isOptimized ? basePath : `/optimized${basePath}`;
+    // encodeURI: file names with spaces would otherwise break the srcset candidates.
+    const optimizedBasePath = encodeURI(isOptimized ? basePath : `/optimized${basePath}`);
 
     return (
         <div

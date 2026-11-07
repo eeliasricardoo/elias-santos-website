@@ -19,6 +19,8 @@ export function ImageLightbox({
   width = 800,
   height = 600,
   className,
+  priority,
+  sizes = '(max-width: 1200px) 100vw, 1100px',
   children,
 }: ImageLightboxProps) {
   if (children) {
@@ -32,6 +34,8 @@ export function ImageLightbox({
         alt={alt}
         width={width}
         height={height}
+        priority={priority}
+        sizes={sizes}
         className={cn(
           'w-full h-full object-cover',
           className

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ImageLightbox } from '@/components/ui/image-lightbox';
 import { OptimizedVideo } from '@/components/performance/OptimizedVideo';
 import { BrowserFrame } from './BrowserFrame';
-import { PROJECT_BRANDS, type BrandColor } from '@/constants/project-brands';
+import type { BrandColor } from '@/constants/project-brands';
 
 interface CaseStudyHeroProps {
     badge?: string;
@@ -17,74 +17,53 @@ interface CaseStudyHeroProps {
     video?: {
         src: string;
     };
+    /** Kept for API compatibility; heroes are always left-aligned, like the landing. */
     align?: 'center' | 'left';
-    /** Color-codes this case study with its project brand (subtle accent). */
+    /** Kept for API compatibility (brand is applied by CaseStudyLayout). */
     brand?: BrandColor;
 }
 
-export function CaseStudyHero({
-    badge,
-    title,
-    subtitle,
-    image,
-    video,
-    align = 'center',
-    brand
-}: CaseStudyHeroProps) {
-    const brandColor = brand ? PROJECT_BRANDS[brand].bg : undefined;
-
+export function CaseStudyHero({ badge, title, subtitle, image, video }: CaseStudyHeroProps) {
     return (
-        <section className={`${align === 'center' ? 'text-center' : 'text-left'} space-y-8`}>
+        <section className="px-case-hero flex flex-col gap-10 md:gap-14">
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-6"
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="flex max-w-4xl flex-col items-start gap-5 md:gap-6"
             >
-                {badge && (
-                    <div className={`flex ${align === 'center' ? 'justify-center' : ''}`}>
-                        <span className="font-pixel-label text-[11px] text-[var(--px-dim)]">
-                            {badge}
-                        </span>
-                    </div>
-                )}
-                <h1 className="text-4xl md:text-6xl">{title}</h1>
-                <p className={`text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>
-                    {subtitle}
-                </p>
+                {badge && <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">{badge}</p>}
+                <h1 className="text-[2.5rem] leading-[1.04] sm:text-6xl md:text-7xl">{title}</h1>
+                <p className="max-w-3xl text-lg leading-relaxed text-[var(--px-muted)] sm:text-xl md:text-2xl md:leading-relaxed">{subtitle}</p>
             </motion.div>
 
-            {/* Media - Full Width */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="relative -mx-8 md:-mx-16 lg:-mx-24 xl:-mx-32"
-            >
-                <div className="relative w-full">
-                    {video ? (
-                        <BrowserFrame>
+            {(video || image) && (
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <BrowserFrame>
+                        {video ? (
                             <OptimizedVideo
                                 srcBase={video.src.replace(/\.(mp4|webm|gif)$/, '')}
                                 alt={image?.alt || title}
-                                className="w-full h-full object-cover"
+                                className="h-full w-full object-cover"
                             />
-                        </BrowserFrame>
-                    ) : image ? (
-                        <BrowserFrame>
+                        ) : image ? (
                             <ImageLightbox
                                 src={image.src}
                                 alt={image.alt}
                                 width={1200}
                                 height={800}
-                                className="w-full object-contain cursor-pointer"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                                quality={85}
+                                priority
+                                className="w-full object-contain"
+                                sizes="(max-width: 1200px) 100vw, 1100px"
                             />
-                        </BrowserFrame>
-                    ) : null}
-                </div>
-            </motion.div>
+                        ) : null}
+                    </BrowserFrame>
+                </motion.div>
+            )}
         </section>
     );
 }

@@ -123,14 +123,15 @@ export function BriefSection() {
                 communicating assignments, and preventing costly delays under tight deadlines.
             </p>
 
-            <div className="overflow-hidden rounded-xl border border-[var(--px-line)] bg-black shadow-sm">
+            {/* Portrait footage: sized by height so it doesn't run 1,700px tall at full column width. */}
+            <div className="w-fit max-w-full overflow-hidden rounded-xl border border-[var(--px-line)] bg-black shadow-sm">
                 <video
                     src={`${IMG}/stanley-brand-video.mp4`}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="block h-auto w-full"
+                    className="block h-auto max-h-[78vh] w-auto max-w-full"
                 />
             </div>
             <p className="text-sm text-[var(--px-dim)]">

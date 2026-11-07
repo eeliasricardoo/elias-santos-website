@@ -461,3 +461,139 @@
 .px-case .text-sky-400 {
   color: #0b6aa8;
 }
+
+/* ——— Case-study design system ———
+   One canvas for every case (modern and legacy sections alike), matching the
+   landing: max-w-6xl container, left-aligned type, hairline section rhythm,
+   12px frames, text at a reading measure and media at full width. */
+
+.px-case-main {
+  --case-gap: clamp(4rem, 9vw, 7.5rem);
+  --case-measure: 44rem;
+}
+
+/* Section rhythm: every top-level chapter after the hero sits under a hairline.
+   Chapters live in astro-slot / astro-island wrappers (display: contents). */
+.px-case-main > section, .px-case-main > astro-island > section,
+.px-case-main > astro-slot > section, .px-case-main > astro-slot > astro-island > section {
+  margin-top: var(--case-gap);
+  padding-top: var(--case-gap);
+  border-top: 1px solid var(--px-line);
+}
+.px-case-main > section:first-child, .px-case-main > astro-island:first-child > section,
+.px-case-main > astro-slot > section:first-child, .px-case-main > astro-slot > astro-island:first-child > section,
+.px-case-main .px-case-hero {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.px-case-main > section.px-case-summary,
+.px-case-main > astro-slot > section.px-case-summary {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: revert-layer;
+  border-top-width: 1px;
+}
+/* The chapter right after the summary panel doesn't need another rule. */
+.px-case-main > .px-case-summary + astro-island > section, .px-case-main > .px-case-summary + section,
+.px-case-main > astro-slot > .px-case-summary + astro-island > section, .px-case-main > astro-slot > .px-case-summary + section {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Display titles: one scale for every chapter, legacy h2s included. */
+.px-case-main .px-case-title,
+.px-case-main section > h2,
+.px-case-main section > div > h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 1.2rem + 2.2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--px-ink);
+  text-wrap: balance;
+}
+.px-case-main h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--px-ink);
+}
+
+/* Reading measure for running text; cards and grids stay full width. */
+.px-case-main :is(p, li, blockquote) {
+  max-width: var(--case-measure);
+  text-wrap: pretty;
+}
+.px-case-main .px-case-hero p {
+  max-width: 48rem;
+}
+
+/* Left alignment everywhere, like the landing (legacy pages centred whole chapters). */
+.px-case-main .text-center {
+  text-align: left;
+}
+.px-case-main :is(p, h1, h2, h3, h4, ul).mx-auto {
+  margin-inline: 0;
+}
+.px-case-main .text-center:is(.items-center, .flex-col.items-center),
+.px-case-main .text-center > .items-center {
+  align-items: flex-start;
+}
+.px-case-main .text-center > .justify-center,
+.px-case-main .text-center.justify-center {
+  justify-content: flex-start;
+}
+/* Centred italic intros read as captions; make them a calm lead instead. */
+.px-case-main section > div > p.italic,
+.px-case-main section > p.italic {
+  font-style: normal;
+  font-size: 1.125rem;
+  color: var(--px-muted);
+}
+
+/* Media no longer breaks out of the column (it used to overflow on laptops). */
+.px-case-main [class*="-mx-"] {
+  margin-inline: 0;
+}
+
+/* Frames: same radius, hairline and soft drop as the landing cards. */
+.px-case-main :is(.rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl) {
+  border-radius: 12px;
+}
+.px-case-main :is(.shadow-sm, .shadow, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl) {
+  box-shadow:
+    0 1px 2px rgba(16, 18, 22, 0.05),
+    0 18px 40px -18px rgba(16, 18, 22, 0.18);
+}
+.px-case-main :is(.border-border\/20, .border-border\/30, .border-border\/40, .border-border\/50) {
+  border-color: var(--px-line);
+}
+.px-case-main img {
+  border-radius: inherit;
+}
+
+/* Legacy card surfaces → the landing's paper band. */
+.px-case-main :is(.bg-muted\/10, .bg-muted\/20, .bg-muted\/30, .bg-muted\/50, .bg-card, .bg-secondary\/50) {
+  background-color: var(--px-bg-2);
+}
+
+/* Big legacy stat numbers keep the display face. */
+.px-case-main :is(.text-4xl, .text-5xl).font-bold {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* Case content is never hidden behind a scroll reveal. Framer's whileInView
+   blocks could stay at opacity 0 when an island hydrated after the block had
+   already scrolled past, leaving blank screens for fast readers. Covers both
+   the SSR form (opacity:0) and the client form (opacity: 0). */
+.px-case-main :is([style*="opacity:0;"], [style*="opacity: 0;"], [style$="opacity:0"], [style$="opacity: 0"]) {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Safety net for tall portrait media at full column width. */
+.px-case-main video {
+  max-height: 85vh;
+}

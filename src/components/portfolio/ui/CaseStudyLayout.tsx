@@ -11,6 +11,11 @@ interface CaseStudyLayoutProps {
     brand?: BrandColor;
 }
 
+/**
+ * Case-study canvas. Same container as the landing (max-w-6xl, same gutters);
+ * text keeps a reading measure and media uses the full width (see `.px-case`
+ * rules in pixel.css). Top-level sections are separated by a hairline rhythm.
+ */
 export function CaseStudyLayout({ children, brand }: CaseStudyLayoutProps) {
     // Section islands share one framer-motion instance: skipping here skips everywhere,
     // for both the OS "reduce motion" setting and the site's pause toggle.
@@ -19,13 +24,14 @@ export function CaseStudyLayout({ children, brand }: CaseStudyLayoutProps) {
         MotionGlobalConfig.skipAnimations = motionOff;
     }, [motionOff]);
 
-    const brandStyle = brand
-        ? ({ '--brand': PROJECT_BRANDS[brand].bg } as CSSProperties)
-        : undefined;
+    const brandStyle = brand ? ({ '--brand': PROJECT_BRANDS[brand].bg } as CSSProperties) : undefined;
 
     return (
         <div className="px-case relative overflow-x-clip" style={brandStyle}>
-            <main id="main-content" className="relative max-w-4xl mx-auto py-12 px-4 flex flex-col gap-24 pt-16 min-h-screen">
+            <main
+                id="main-content"
+                className="px-case-main relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 pb-20 pt-10 sm:px-6 sm:pt-16 md:px-12 md:pb-28"
+            >
                 {children}
             </main>
         </div>

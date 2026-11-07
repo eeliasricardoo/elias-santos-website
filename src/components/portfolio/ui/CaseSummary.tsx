@@ -14,11 +14,14 @@ export function CaseSummary({ project }: { project: string }) {
     ];
 
     return (
-        <section aria-label="Summary" className={`-mt-8 grid grid-cols-1 gap-8 border-y border-[var(--px-line)] py-8 ${period ? 'md:grid-cols-[8rem_1fr_1fr_1fr]' : 'md:grid-cols-3'}`}>
+        <section
+            aria-label="Summary"
+            className={`px-case-summary grid grid-cols-1 gap-x-10 gap-y-7 rounded-xl border border-[var(--px-line)] bg-[var(--px-bg-2)] p-6 sm:grid-cols-2 sm:p-8 md:p-10 ${period ? 'lg:grid-cols-[9rem_1fr_1fr_1fr]' : 'lg:grid-cols-3'}`}
+        >
             {rows.map((row) => (
-                <div key={row.label} className="space-y-2">
+                <div key={row.label} className="flex flex-col gap-2.5">
                     <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">{row.label}</p>
-                    <p className="text-base leading-relaxed text-[var(--px-ink)]">{row.text}</p>
+                    <p className="text-[15px] leading-relaxed text-[var(--px-ink)]">{row.text}</p>
                 </div>
             ))}
         </section>
