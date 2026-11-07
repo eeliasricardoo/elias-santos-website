@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Copy, Github, Lin
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
+import { WritingCover } from './WritingCover';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
 import { ABOUT_FACTS, CASE_LINES, HERO_INTRO, WRITING_ARTICLES } from './pixel-copy';
 
@@ -316,23 +317,10 @@ export function PixelHome() {
                                     href={article.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex flex-col justify-between w-[290px] sm:w-[340px] md:w-[380px] shrink-0 snap-start border border-[var(--px-line)] bg-[var(--px-panel)] rounded-xl overflow-hidden transition-all duration-200 hover:border-[var(--px-ink)] hover:shadow-md"
+                                    className="px-work group flex flex-col justify-between w-[300px] sm:w-[350px] md:w-[380px] shrink-0 snap-start border border-[var(--px-line)] bg-[var(--px-panel)] rounded-xl overflow-hidden transition-all duration-200 hover:border-[var(--px-ink)] hover:shadow-lg"
                                     onMouseEnter={() => mascotReact({ mood: 'smirk', say: 'Read on Medium.', hold: 1200 })}
                                 >
-                                    {/* Cover Image with Language Chip */}
-                                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--px-bg-2)] border-b border-[var(--px-line)]">
-                                        <img
-                                            src={article.cover}
-                                            alt=""
-                                            loading="lazy"
-                                            decoding="async"
-                                            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                        {/* Language Badge */}
-                                        <span className="absolute top-2.5 right-2.5 rounded px-2 py-0.5 text-[10px] font-mono font-semibold tracking-wider bg-black/80 text-white backdrop-blur shadow-sm">
-                                            {article.language}
-                                        </span>
-                                    </div>
+                                    <WritingCover article={article} />
 
                                     {/* Card Content */}
                                     <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
@@ -349,10 +337,15 @@ export function PixelHome() {
                                             </p>
                                         </div>
 
-                                        <div className="mt-4 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--px-ink)] pt-3.5 border-t border-[var(--px-line)]/50 group-hover:border-[var(--px-ink)]/20 transition-colors">
-                                            <span>Read on Medium</span>
-                                            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                                            <NewTab />
+                                        <div className="mt-4 flex items-center justify-between text-xs sm:text-sm font-medium text-[var(--px-ink)] pt-3.5 border-t border-[var(--px-line)]/50 group-hover:border-[var(--px-ink)]/20 transition-colors">
+                                            <span className="flex items-center gap-1.5">
+                                                <span>Read on Medium</span>
+                                                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                                                <NewTab />
+                                            </span>
+                                            <span className="rounded bg-[var(--px-bg-2)] px-2 py-0.5 font-mono text-[10px] text-[var(--px-dim)] border border-[var(--px-line)]">
+                                                {article.language}
+                                            </span>
                                         </div>
                                     </div>
                                 </a>
