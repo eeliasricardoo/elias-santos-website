@@ -41,11 +41,11 @@ export function PixelHeader({
     const progress = useScrollProgress();
     return (
         <header className="sticky top-0 z-50 border-b border-[var(--px-line)] bg-white/90 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 md:px-12">
-                <a href={logoHref} onClick={onLogoClick} className="font-pixel text-lg font-semibold text-[var(--px-ink)]" aria-label="Elias Ricardo — home">
+            <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 md:px-12">
+                <a href={logoHref} onClick={onLogoClick} className="font-pixel text-base sm:text-lg font-semibold text-[var(--px-ink)] shrink-0" aria-label="Elias Ricardo — home">
                     Elias Ricardo
                 </a>
-                <nav className="flex items-center gap-1 text-sm sm:gap-2" aria-label="Main">
+                <nav className="flex items-center gap-0.5 sm:gap-2 text-xs sm:text-sm" aria-label="Main">
                     {children}
                 </nav>
             </div>
@@ -56,7 +56,7 @@ export function PixelHeader({
     );
 }
 
-export const navLinkClass = 'px-2 py-2 text-[var(--px-muted)] hover:text-[var(--px-ink)]';
+export const navLinkClass = 'px-1.5 py-1 text-xs sm:text-sm sm:px-2 sm:py-2 text-[var(--px-muted)] hover:text-[var(--px-ink)]';
 
 /** Header for every page other than home: links back into the home sections. */
 export function SubpageHeader({ current }: { current?: 'archive' | 'case' }) {
@@ -71,7 +71,7 @@ export function SubpageHeader({ current }: { current?: 'archive' | 'case' }) {
             <a href="/portfolio" className={`${navLinkClass} ${current === 'archive' ? '!text-[var(--px-ink)]' : ''}`} aria-current={current === 'archive' ? 'page' : undefined}>
                 All work
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline`}>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline-block`}>
                 Resume
                 <NewTab />
             </a>
@@ -94,6 +94,10 @@ export function PixelFooter() {
                     </a>
                     <a href={STORY_IDENTITY.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--px-ink)]">
                         LinkedIn
+                        <NewTab />
+                    </a>
+                    <a href={STORY_IDENTITY.medium} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--px-ink)]">
+                        Medium
                         <NewTab />
                     </a>
                 </span>

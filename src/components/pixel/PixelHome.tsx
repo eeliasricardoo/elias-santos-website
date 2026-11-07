@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState, type CSSProperties } from 'react';
-import { ArrowRight, Check, Copy, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, Check, Copy, Github, Linkedin } from 'lucide-react';
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
-import { ABOUT_FACTS, CASE_LINES, HERO_INTRO } from './pixel-copy';
+import { ABOUT_FACTS, CASE_LINES, HERO_INTRO, WRITING_ARTICLES } from './pixel-copy';
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
 /** The cases shown on the home page, in order. Everything else lives in /portfolio. */
@@ -76,15 +76,16 @@ export function PixelHome() {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
             >
-                {[
-                    ['work', 'Work'],
-                    ['about', 'About'],
-                ].map(([id, label]) => (
-                    <button key={id} type="button" onClick={() => scrollTo(id)} className={navLinkClass}>
-                        {label}
-                    </button>
-                ))}
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline`}>
+                <button type="button" onClick={() => scrollTo('work')} className={navLinkClass}>
+                    Work
+                </button>
+                <button type="button" onClick={() => scrollTo('about')} className={navLinkClass}>
+                    About
+                </button>
+                <button type="button" onClick={() => scrollTo('writing')} className={`${navLinkClass} hidden md:inline-block`}>
+                    Writing
+                </button>
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline-block`}>
                     Resume
                     <NewTab />
                 </a>
@@ -92,7 +93,7 @@ export function PixelHome() {
                     href={CALENDLY}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-btn px-btn--primary px-btn--sm ml-1.5 text-xs sm:text-sm sm:ml-2 inline-flex"
+                    className="px-btn px-btn--primary !px-2.5 !py-1 text-xs sm:text-sm sm:!px-3 sm:!py-1.5 ml-1 sm:ml-2 inline-flex shrink-0"
                 >
                     Contact
                 </a>
@@ -257,6 +258,68 @@ export function PixelHome() {
                     </div>
                 </section>
 
+                {/* ——— 03 Writing ——— */}
+                <section
+                    id="writing"
+                    data-mascot-line="Articles & case notes on Medium."
+                    data-mascot-mood="wink"
+                    className="scroll-mt-16 sm:scroll-mt-20 border-b border-[var(--px-line)] bg-[var(--px-bg)] py-14 sm:py-20 md:py-28"
+                >
+                    <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
+                        <SectionHeading index="03" label="Writing" title="Essays & case notes">
+                            Thoughts on AI, interaction design, and the human craft behind digital systems.
+                        </SectionHeading>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                            {WRITING_ARTICLES.map((article) => (
+                                <a
+                                    key={article.url}
+                                    href={article.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex flex-col justify-between border border-[var(--px-line)] bg-[var(--px-panel)] p-5 sm:p-7 transition-all duration-200 hover:border-[var(--px-ink)] hover:shadow-sm"
+                                    onMouseEnter={() => mascotReact({ mood: 'smirk', say: 'Read on Medium.', hold: 1200 })}
+                                >
+                                    <div className="flex flex-col gap-2.5 sm:gap-3">
+                                        <div className="flex items-center justify-between text-[11px] font-pixel-label text-[var(--px-dim)]">
+                                            <span>{article.tag}</span>
+                                            <span>{article.date} · {article.readTime}</span>
+                                        </div>
+                                        <h3 className="text-lg sm:text-xl font-medium leading-snug text-[var(--px-ink)] group-hover:text-[var(--px-ink)] transition-colors">
+                                            {article.title}
+                                        </h3>
+                                        <p className="text-xs sm:text-sm leading-relaxed text-[var(--px-muted)]">
+                                            {article.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-5 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--px-ink)] pt-3.5 border-t border-[var(--px-line)]/50 group-hover:border-[var(--px-ink)]/20 transition-colors">
+                                        <span>Read on Medium</span>
+                                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                                        <NewTab />
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+
+                        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-[var(--px-line)] pt-6">
+                            <span className="text-xs sm:text-sm text-[var(--px-muted)]">
+                                10 stories and UX case studies published on Medium
+                            </span>
+                            <a
+                                href={STORY_IDENTITY.medium}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--px-ink)] underline decoration-[var(--px-line)] underline-offset-4 hover:decoration-[var(--px-ink)]"
+                            >
+                                View all stories on Medium
+                                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                                <NewTab />
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
                 {/* ——— Contact ——— */}
                 <ContactSection onCopy={copyEmail} copied={copied} />
             </main>
@@ -291,7 +354,7 @@ function ContactSection({ onCopy, copied }: { onCopy: () => void; copied: boolea
     return (
         <section id="contact" data-mascot-line="Your move." data-mascot-mood="smirk" className="px-dark scroll-mt-16 sm:scroll-mt-20 bg-[var(--px-panel-2)] text-[var(--px-on-sign)]">
             <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 sm:gap-6 px-4 py-16 sm:py-24 md:px-12 md:py-28">
-                <p className="font-pixel-label text-[11px] text-white/60">03 · Get in touch</p>
+                <p className="font-pixel-label text-[11px] text-white/60">04 · Get in touch</p>
                 <h2 className="text-4xl text-white sm:text-5xl md:text-6xl font-semibold">Let's talk.</h2>
                 <p className="max-w-xl text-base sm:text-lg leading-relaxed text-white/75">
                     I'm open to Senior Product Designer, UX Engineer and Design Engineer roles where product design and frontend engineering meet.
@@ -308,13 +371,17 @@ function ContactSection({ onCopy, copied }: { onCopy: () => void; copied: boolea
                     </button>
                 </div>
 
-                <div className="mt-4 flex items-center gap-6 text-sm text-white/75">
+                <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-white/75">
                     <a href={STORY_IDENTITY.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white">
                         <Github className="h-4 w-4" aria-hidden="true" /> GitHub
                         <NewTab />
                     </a>
                     <a href={STORY_IDENTITY.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white">
                         <Linkedin className="h-4 w-4" aria-hidden="true" /> LinkedIn
+                        <NewTab />
+                    </a>
+                    <a href={STORY_IDENTITY.medium} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white">
+                        <BookOpen className="h-4 w-4" aria-hidden="true" /> Medium
                         <NewTab />
                     </a>
                 </div>

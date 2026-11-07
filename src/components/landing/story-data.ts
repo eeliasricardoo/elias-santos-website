@@ -29,6 +29,7 @@ export const STORY_IDENTITY = {
     email: 'eeliasricardoo@gmail.com',
     github: 'https://github.com/eeliasricardoo',
     linkedin: 'https://linkedin.com/in/eeliasricardoo',
+    medium: 'https://medium.com/@eeliasricardoo',
 } as const;
 
 // Broken into words so the manifesto can reveal them one by one on scroll.
