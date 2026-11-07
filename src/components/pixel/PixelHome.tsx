@@ -6,6 +6,7 @@ import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type 
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
 import { WritingCover } from './WritingCover';
+import { HeroBanner } from './HeroBanner';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
 import { ABOUT_FACTS, CASE_LINES, HERO_INTRO, WRITING_ARTICLES } from './pixel-copy';
 
@@ -112,18 +113,8 @@ export function PixelHome() {
             <main id="main-content">
                 {/* ——— Hero ——— */}
                 <section id="top" className="pb-5 sm:pb-12 md:pb-[80px]">
-                    {/* Full-width Pixel sky banner */}
-                    <div className="relative h-[152px] sm:h-[184px] md:h-[216px] lg:h-[232px] w-full overflow-hidden bg-[#93c7f8]">
-                        <img
-                            src="/pixel/hero-sky.webp"
-                            alt="Pixel art sky with fluffy clouds and distant mountains"
-                            width={2000}
-                            height={1090}
-                            fetchPriority="high"
-                            className="h-full w-full object-cover object-bottom"
-                            style={{ imageRendering: 'pixelated' }}
-                        />
-                    </div>
+                    {/* Full-width pixel sky banner with voxel field */}
+                    <HeroBanner />
 
                     {/* Profile content */}
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">

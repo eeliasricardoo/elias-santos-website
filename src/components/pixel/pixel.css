@@ -310,7 +310,129 @@
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
+/* ——— Hero sky: clouds drift left, mountains stay (mask hides the moving copy near the ground) ——— */
+.px-sky-drift {
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 42%, transparent 60%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 42%, transparent 60%);
+}
+
+.px-sky-drift__strip {
+  animation: px-sky-drift 240s linear infinite;
+  will-change: transform;
+}
+
+@keyframes px-sky-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-66.6667%, 0, 0); }
+}
+
+/* Live sky states (data-sky = weather, data-time = day|night on .px-sky).
+   The scene and both cloud strips share one tint, so clouds and sky stay coherent. */
+.px-sky {
+  --sky-w: brightness(1);
+  --sky-t: brightness(1);
+}
+.px-sky[data-sky='partly'] { --sky-w: saturate(0.9) brightness(0.98); }
+.px-sky[data-sky='cloudy'] { --sky-w: saturate(0.35) brightness(0.86); }
+.px-sky[data-sky='rain']   { --sky-w: saturate(0.3) brightness(0.68); }
+.px-sky[data-sky='storm']  { --sky-w: saturate(0.25) brightness(0.5) contrast(1.05); }
+.px-sky[data-sky='snow']   { --sky-w: saturate(0.3) brightness(0.96); }
+.px-sky[data-sky='fog']    { --sky-w: saturate(0.4) brightness(1.02) contrast(0.85); }
+/* sepia → hue-rotate tints everything navy (a plain hue-rotate turns the cream clouds olive) */
+.px-sky[data-time='night'] { --sky-t: brightness(0.6) sepia(0.9) hue-rotate(185deg) saturate(2.6) brightness(0.55); }
+
+.px-sky-scene,
+.px-sky-clouds {
+  filter: var(--sky-w) var(--sky-t);
+  transition: filter 1.2s ease;
+}
+
+/* Second, faster cloud layer: offset in phase and height, only when it's not clear. */
+.px-sky-clouds--extra {
+  transform: translateY(-16%);
+  opacity: 0;
+  transition: opacity 1.2s ease, filter 1.2s ease;
+}
+.px-sky-clouds--extra .px-sky-drift__strip {
+  animation-duration: 150s;
+  animation-delay: -70s;
+}
+.px-sky[data-sky='partly'] .px-sky-clouds--extra { opacity: 0.55; }
+.px-sky[data-sky='cloudy'] .px-sky-clouds--extra,
+.px-sky[data-sky='rain'] .px-sky-clouds--extra,
+.px-sky[data-sky='storm'] .px-sky-clouds--extra,
+.px-sky[data-sky='snow'] .px-sky-clouds--extra,
+.px-sky[data-sky='fog'] .px-sky-clouds--extra { opacity: 1; }
+
+.px-sky-sunlight {
+  background: radial-gradient(circle at 75% 22%, rgb(255 214 120 / 0.55), rgb(255 214 120 / 0.18) 30%, transparent 60%);
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.px-sky[data-time='day'][data-sky='clear'] .px-sky-sunlight { opacity: 1; }
+.px-sky[data-time='day'][data-sky='partly'] .px-sky-sunlight { opacity: 0.6; }
+
+.px-sky-fog {
+  background: linear-gradient(180deg, rgb(236 240 244 / 0.25), rgb(236 240 244 / 0.7) 70%, rgb(236 240 244 / 0.85));
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.px-sky[data-sky='fog'] .px-sky-fog { opacity: 1; }
+.px-sky[data-sky='fog'][data-time='night'] .px-sky-fog { opacity: 0.35; }
+
+.px-sky-flash {
+  background: rgb(235 240 255);
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+.px-sky-flash.is-on { animation: px-sky-flash 0.7s steps(1, end); }
+@keyframes px-sky-flash {
+  0% { opacity: 0.75; }
+  12% { opacity: 0.1; }
+  24% { opacity: 0.55; }
+  45%, 100% { opacity: 0; }
+}
+
+.px-sky-twinkle { animation: px-sky-twinkle 3.2s steps(2, end) infinite; }
+@keyframes px-sky-twinkle {
+  50% { opacity: 0.25; }
+}
+
+.px-sky-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  color: #fff;
+  background: rgb(16 18 22 / 0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.px-sky-chip__dot {
+  width: 6px;
+  height: 6px;
+  background: #8ea5ff;
+  animation: px-sky-twinkle 2s steps(2, end) infinite;
+}
+
+:root[data-motion='paused'] .px-sky-drift__strip,
+:root[data-motion='paused'] .px-sky-twinkle,
+:root[data-motion='paused'] .px-sky-chip__dot {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .px-sky-drift__strip {
+    animation: none;
+    transform: translate3d(-66.6667%, 0, 0);
+  }
+
+  .px-sky-twinkle,
+  .px-sky-chip__dot {
+    animation: none;
+  }
+
   .px-rise,
   .px-mascot-enter,
   .px-mascot__bob {
