@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState, type CSSProperties } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, Check, Copy, Github, Linkedin } from 'lucide-react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Copy, Github, Linkedin } from 'lucide-react';
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
@@ -53,7 +53,16 @@ function SectionHeading({ index, label, title, children }: { index: string; labe
 
 export function PixelHome() {
     const [copied, setCopied] = useState(false);
+    const writingScrollRef = useRef<HTMLDivElement>(null);
     useReveal();
+
+    const scrollWriting = (direction: 'left' | 'right') => {
+        if (writingScrollRef.current) {
+            const firstCard = writingScrollRef.current.firstElementChild as HTMLElement | null;
+            const scrollAmount = firstCard ? firstCard.offsetWidth + 20 : 360;
+            writingScrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+        }
+    };
 
     const copyEmail = () => {
         navigator.clipboard.writeText(STORY_IDENTITY.email);
@@ -266,37 +275,85 @@ export function PixelHome() {
                     className="scroll-mt-16 sm:scroll-mt-20 border-b border-[var(--px-line)] bg-[var(--px-bg)] py-14 sm:py-20 md:py-28"
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
-                        <SectionHeading index="03" label="Writing" title="Essays & case notes">
-                            Thoughts on AI, interaction design, and the human craft behind digital systems.
-                        </SectionHeading>
+                        <div className="mb-6 sm:mb-10 md:mb-12 flex flex-col gap-3 sm:gap-5 md:flex-row md:items-end md:justify-between">
+                            <div className="flex flex-col items-start gap-2 sm:gap-4">
+                                <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">03 · Writing</p>
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl">Essays & case notes</h2>
+                            </div>
+                            <div className="flex items-center justify-between gap-4 md:justify-end">
+                                <p className="hidden max-w-xs text-sm leading-relaxed text-[var(--px-muted)] md:block md:text-right">
+                                    Thoughts on AI, interaction design, and the human craft behind digital systems.
+                                </p>
+                                <div className="flex items-center gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => scrollWriting('left')}
+                                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--px-line)] bg-[var(--px-panel)] text-[var(--px-ink)] transition-colors hover:border-[var(--px-ink)] hover:bg-[var(--px-bg-2)]"
+                                        aria-label="Previous articles"
+                                    >
+                                        <ArrowLeft className="h-4 w-4" />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => scrollWriting('right')}
+                                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--px-line)] bg-[var(--px-panel)] text-[var(--px-ink)] transition-colors hover:border-[var(--px-ink)] hover:bg-[var(--px-bg-2)]"
+                                        aria-label="Next articles"
+                                    >
+                                        <ArrowRight className="h-4 w-4" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        {/* Horizontal Carousel Track */}
+                        <div
+                            ref={writingScrollRef}
+                            className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                        >
                             {WRITING_ARTICLES.map((article) => (
                                 <a
                                     key={article.url}
                                     href={article.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex flex-col justify-between border border-[var(--px-line)] bg-[var(--px-panel)] p-5 sm:p-7 transition-all duration-200 hover:border-[var(--px-ink)] hover:shadow-sm"
+                                    className="group flex flex-col justify-between w-[290px] sm:w-[340px] md:w-[380px] shrink-0 snap-start border border-[var(--px-line)] bg-[var(--px-panel)] rounded-xl overflow-hidden transition-all duration-200 hover:border-[var(--px-ink)] hover:shadow-md"
                                     onMouseEnter={() => mascotReact({ mood: 'smirk', say: 'Read on Medium.', hold: 1200 })}
                                 >
-                                    <div className="flex flex-col gap-2.5 sm:gap-3">
-                                        <div className="flex items-center justify-between text-[11px] font-pixel-label text-[var(--px-dim)]">
-                                            <span>{article.tag}</span>
-                                            <span>{article.date} · {article.readTime}</span>
-                                        </div>
-                                        <h3 className="text-lg sm:text-xl font-medium leading-snug text-[var(--px-ink)] group-hover:text-[var(--px-ink)] transition-colors">
-                                            {article.title}
-                                        </h3>
-                                        <p className="text-xs sm:text-sm leading-relaxed text-[var(--px-muted)]">
-                                            {article.description}
-                                        </p>
+                                    {/* Cover Image with Language Chip */}
+                                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--px-bg-2)] border-b border-[var(--px-line)]">
+                                        <img
+                                            src={article.cover}
+                                            alt=""
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                        {/* Language Badge */}
+                                        <span className="absolute top-2.5 right-2.5 rounded px-2 py-0.5 text-[10px] font-mono font-semibold tracking-wider bg-black/80 text-white backdrop-blur shadow-sm">
+                                            {article.language}
+                                        </span>
                                     </div>
 
-                                    <div className="mt-5 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--px-ink)] pt-3.5 border-t border-[var(--px-line)]/50 group-hover:border-[var(--px-ink)]/20 transition-colors">
-                                        <span>Read on Medium</span>
-                                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                                        <NewTab />
+                                    {/* Card Content */}
+                                    <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                                        <div className="flex flex-col gap-2.5">
+                                            <div className="flex items-center justify-between text-[11px] font-pixel-label text-[var(--px-dim)]">
+                                                <span>{article.tag}</span>
+                                                <span>{article.date} · {article.readTime}</span>
+                                            </div>
+                                            <h3 className="text-base sm:text-lg font-medium leading-snug text-[var(--px-ink)] group-hover:text-[var(--px-ink)] transition-colors line-clamp-2">
+                                                {article.title}
+                                            </h3>
+                                            <p className="text-xs sm:text-sm leading-relaxed text-[var(--px-muted)] line-clamp-3">
+                                                {article.description}
+                                            </p>
+                                        </div>
+
+                                        <div className="mt-4 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--px-ink)] pt-3.5 border-t border-[var(--px-line)]/50 group-hover:border-[var(--px-ink)]/20 transition-colors">
+                                            <span>Read on Medium</span>
+                                            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                                            <NewTab />
+                                        </div>
                                     </div>
                                 </a>
                             ))}
