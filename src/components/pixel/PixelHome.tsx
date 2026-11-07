@@ -300,7 +300,7 @@ export function PixelHome() {
                         {/* Horizontal Carousel Track */}
                         <div
                             ref={writingScrollRef}
-                            className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                            className="relative flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                         >
                             {WRITING_ARTICLES.map((article) => (
                                 <a
