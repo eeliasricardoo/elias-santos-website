@@ -68,7 +68,7 @@ export function HeroSection() {
         <section className="flex flex-col gap-10">
             <div className="flex flex-col items-start gap-6">
                 <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">
-                    Product Design · Mobile App · Industrial Jobsite Ecosystem
+                    Design Challenge · Product Design · Mobile App
                 </p>
                 <h1 className="text-5xl md:text-7xl">Stanley Black &amp; Decker</h1>
                 <p className="max-w-3xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
@@ -99,10 +99,10 @@ export function HeroSection() {
 
             <Facts
                 items={[
-                    { value: '15+ brands', label: 'Stanley, DeWalt, Craftsman, Black+Decker' },
+                    { value: '6:30 AM', label: 'the moment the whole flow is designed for' },
+                    { value: '60 s', label: 'target time from opening the app to crew ready' },
                     { value: '5–8 workers', label: 'crew size managed on site by leader' },
-                    { value: '1 setup flow', label: 'single source of truth at 6:30 AM' },
-                    { value: '1,840', label: 'design system components adapted to brand' },
+                    { value: '1 setup flow', label: 'single source of truth for tools, batteries and tasks' },
                 ]}
             />
         </section>
@@ -218,10 +218,10 @@ export function PersonaSection() {
                     <div className="overflow-hidden rounded-2xl border border-[var(--px-line)] bg-[#12151b] p-6 text-center">
                         <img
                             src={`${IMG}/persona-marco-silva.webp`}
-                            alt="Marco Silva - Jobsite Crew Leader"
+                            alt="Marco Santos - Jobsite Crew Leader"
                             className="mx-auto h-32 w-32 rounded-full object-cover border-2 border-[var(--px-line)]"
                         />
-                        <h4 className="mt-4 font-pixel text-xl text-[var(--px-ink)]">Marco Silva</h4>
+                        <h4 className="mt-4 font-pixel text-xl text-[var(--px-ink)]">Marco Santos</h4>
                         <p className="text-xs font-mono uppercase tracking-wider text-[var(--px-dim)]">Age 42 · Crew Leader</p>
                         <div className="mt-4 flex flex-col gap-1.5 border-t border-[var(--px-line)] pt-4 text-left text-xs text-muted-foreground">
                             <div><strong className="text-[var(--px-ink)]">Industry:</strong> Residential &amp; Light Commercial</div>
