@@ -64,6 +64,7 @@ export const ABOUT_FACTS: { label: string; value: string }[] = [
     { label: 'Works with', value: 'LATAM · US · Europe' },
     { label: 'Languages', value: 'PT · EN · ES' },
     { label: 'Status', value: 'Open to senior roles' },
+    { label: 'Availability', value: 'Full-time · Remote · USD contracts' },
 ];
 
 export interface WritingArticle {
