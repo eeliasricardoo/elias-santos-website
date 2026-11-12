@@ -3,6 +3,7 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CaseStudySection } from '../ui/CaseStudySection';
 import { BrowserFrame } from '../ui/BrowserFrame';
+import { ZoomImage } from '../ui/ZoomImage';
 import { ClaritySignals, LessonFlow, RoomStates } from './diagrams';
 
 const LIVE_URL = 'https://ilevar.com';
@@ -14,7 +15,7 @@ function Shot({ src, alt, caption, route }: { src: string; alt: string; caption:
     return (
         <figure className="flex flex-col gap-3">
             <BrowserFrame route={route}>
-                <img src={src} alt={alt} loading="lazy" decoding="async" className="block h-auto w-full" />
+                <ZoomImage src={src} alt={alt} />
             </BrowserFrame>
             <figcaption className="text-sm leading-relaxed text-[var(--px-dim)]">{caption}</figcaption>
         </figure>
@@ -48,7 +49,7 @@ function Board({ src, alt, caption, className = '' }: { src: string; alt: string
     return (
         <figure className={`flex flex-col gap-3 ${className}`}>
             <div className="overflow-hidden rounded-xl border border-[var(--px-line)] bg-white">
-                <img src={src} alt={alt} loading="lazy" decoding="async" className="block h-auto w-full" />
+                <ZoomImage src={src} alt={alt} />
             </div>
             <figcaption className="text-sm leading-relaxed text-[var(--px-dim)]">{caption}</figcaption>
         </figure>
@@ -141,7 +142,7 @@ export function ProblemSection() {
 
 export function AiSection() {
     return (
-        <CaseStudySection eyebrow="Design decision" index={5} title="The AI output is a draft, and the interface says so">
+        <CaseStudySection eyebrow="Design decision" index={6} title="The AI output is a draft, and the interface says so">
             <p>
                 The teacher gives a topic, a level and a duration, and the AI assembles a timed plan. The decision that shaped the screen
                 was what happens next. A generated lesson that goes straight to students would save the most time, and it would also
@@ -166,7 +167,7 @@ export function AiSection() {
 
 export function FlowSection() {
     return (
-        <CaseStudySection eyebrow="User flow" index={3} title="One loop, two people, one shared room">
+        <CaseStudySection eyebrow="User flow" index={4} title="One loop, two people, one shared room">
             <p>
                 Before drawing screens I mapped the product as a single loop seen from two sides. The teacher's path and the student's path
                 only truly meet in one place, the live room, so every other screen is judged by one question: does it get this person into
@@ -196,7 +197,7 @@ export function FlowSection() {
 
 export function StatesSection() {
     return (
-        <CaseStudySection eyebrow="Edge cases" index={4} title="Designing the moments when the room is not available">
+        <CaseStudySection eyebrow="Edge cases" index={5} title="Designing the moments when the room is not available">
             <p>
                 A room link gets shared, bookmarked and opened at the wrong time. Most of the experience of a live product is decided in
                 those moments, so I designed the states before the happy path: a lesson is scheduled, live, completed or cancelled, and
@@ -246,7 +247,7 @@ export function RoleSection() {
 
 export function FigmaSection() {
     return (
-        <CaseStudySection eyebrow="Figma" index={6} title="A design system that matches the code, token for token">
+        <CaseStudySection eyebrow="Figma" index={3} title="A design system that matches the code, token for token">
             <p>
                 The Figma file is organised the way the product is built: Foundations, Icons, then Atoms, Molecules and Organisms, then
                 Patterns, where components are combined into real screens. The colour collection holds 134 tokens, and every one carries the

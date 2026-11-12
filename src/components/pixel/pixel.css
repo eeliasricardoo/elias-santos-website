@@ -218,16 +218,26 @@
 }
 
 /* ——— Case cards ——— */
+.px-cover {
+  box-shadow: 0 0 0 1px rgba(16, 18, 22, 0.08);
+}
+
 .px-cover__shot {
-  box-shadow:
-    0 0 0 1px rgba(16, 18, 22, 0.08),
-    0 24px 48px -16px rgba(16, 18, 22, 0.35);
-  transition: transform 300ms ease;
+  transition: transform 400ms ease;
 }
 
 .px-work:hover .px-cover__shot,
 .px-work:focus-within .px-cover__shot {
-  transform: translateY(-6px);
+  transform: scale(1.025);
+}
+
+/* ——— Case chapter bar ——— */
+.px-chapters {
+  scrollbar-width: none;
+}
+
+.px-chapters::-webkit-scrollbar {
+  display: none;
 }
 
 /* ——— Post covers ——— */
@@ -591,6 +601,11 @@
 .px-case-main :is([style*="opacity:0;"], [style*="opacity: 0;"], [style$="opacity:0"], [style$="opacity: 0"]) {
   opacity: 1 !important;
   transform: none !important;
+}
+
+/* Chapter-bar jumps land with the title clear of the sticky header and bar. */
+.px-case-main [data-case-nav] {
+  scroll-margin-top: 5rem;
 }
 
 /* Safety net for tall portrait media at full column width. */

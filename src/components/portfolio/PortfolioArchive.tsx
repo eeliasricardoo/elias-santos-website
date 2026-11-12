@@ -10,14 +10,23 @@ import { CASE_LINES } from '@/components/pixel/pixel-copy';
 /** Concepts and design challenges — shown apart from shipped work so they don't read as delivered products. */
 const EXPLORATIONS = ['08', '09'];
 
-const FILTER_TAGS = ['All', 'UX Engineering', 'Product Design', 'Mobile App', 'Spatial UI', 'AI Automation', 'React', 'WebRTC'] as const;
+/** Few enough to sit on one line; each one matches at least three cases. */
+const FILTER_TAGS = ['All', 'Product Design', 'Design System', 'UX Engineering', 'AI'] as const;
+
+/** Same opening order as the home page; everything else keeps its catalogue order. */
+const LEAD_ORDER = ['02', '01', '03'];
+const rank = (p: StoryProject) => {
+    const i = LEAD_ORDER.indexOf(p.index);
+    return i === -1 ? LEAD_ORDER.length : i;
+};
+const ORDERED_PROJECTS = [...STORY_PROJECTS].sort((a, b) => rank(a) - rank(b));
 
 export function PortfolioArchive() {
     const [selectedTag, setSelectedTag] = useState<string>('All');
     const [searchQuery, setSearchQuery] = useState('');
 
     const filteredProjects = useMemo(() => {
-        return STORY_PROJECTS.filter((project) => {
+        return ORDERED_PROJECTS.filter((project) => {
             const matchesTag =
                 selectedTag === 'All' ||
                 project.tags.some((tag) => tag.toLowerCase().includes(selectedTag.toLowerCase()));
@@ -103,33 +112,38 @@ export function PortfolioArchive() {
 
 function ProjectGrid({ projects, headingLevel = 'h2' }: { projects: StoryProject[]; headingLevel?: 'h2' | 'h3' }) {
     const Heading = headingLevel;
+    // An odd count would leave one card alone on the last row, so the first one takes a full row instead.
+    const leadWide = projects.length > 1 && projects.length % 2 === 1;
     return (
         <div className="grid grid-cols-1 gap-x-10 gap-y-16 pt-6 md:grid-cols-2">
-            {projects.map((project) => {
+            {projects.map((project, i) => {
                 const idx = STORY_PROJECTS.indexOf(project);
                 const accent = PROJECT_ACCENTS[idx % PROJECT_ACCENTS.length];
                 const line = CASE_LINES[project.index];
+                const wide = leadWide && i === 0;
                 return (
                     <article
                         key={project.index}
-                        className="px-work group flex flex-col items-start gap-4"
+                        className={`px-work group ${wide ? 'grid grid-cols-1 gap-4 md:col-span-2 lg:grid-cols-12 lg:items-center lg:gap-12' : 'flex flex-col items-start gap-4'}`}
                         onMouseEnter={() => line && mascotReact({ ...line, hold: 1400 })}
                     >
-                        <CaseCover project={project} accent={accent} className="w-full" />
+                        <CaseCover project={project} accent={accent} className={wide ? 'w-full lg:col-span-7' : 'w-full'} />
 
-                        <p className="mt-2 font-pixel-label text-[11px] text-[var(--px-dim)]">{[project.period, project.metric].filter(Boolean).join(' · ')}</p>
-                        <Heading className="text-3xl text-[var(--px-ink)]">{project.title}</Heading>
-                        <p className="text-sm leading-relaxed text-[var(--px-muted)] md:text-base">{project.description}</p>
-                        <ul className="flex flex-wrap gap-2.5">
-                            {project.tags.map((tag) => (
-                                <li key={tag} className="px-chip">
-                                    {tag}
-                                </li>
-                            ))}
-                        </ul>
-                        <a href={project.link} className="px-btn mt-2">
-                            Read case study
-                        </a>
+                        <div className={`flex flex-col items-start gap-4 ${wide ? 'lg:col-span-5' : ''}`}>
+                            <p className="mt-2 font-pixel-label text-[11px] text-[var(--px-dim)]">{[project.period, project.metric].filter(Boolean).join(' · ')}</p>
+                            <Heading className="text-3xl text-[var(--px-ink)]">{project.title}</Heading>
+                            <p className="text-sm leading-relaxed text-[var(--px-muted)] md:text-base">{project.description}</p>
+                            <ul className="flex flex-wrap gap-2.5">
+                                {project.tags.map((tag) => (
+                                    <li key={tag} className="px-chip">
+                                        {tag}
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href={project.link} className="px-btn mt-2">
+                                Read case study
+                            </a>
+                        </div>
                     </article>
                 );
             })}

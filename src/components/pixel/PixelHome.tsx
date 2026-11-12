@@ -11,10 +11,11 @@ import { ABOUT_FACTS, CASE_LINES, HERO_INTRO } from './pixel-copy';
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
 /**
- * The cases shown on the home page, in order. Only shipped work: recruiters skim ~3 cases,
- * so concepts and challenges (Spatial Home, Stanley) live in /portfolio under "Explorations".
+ * The cases shown on the home page, in order: the strongest three first, then the rest of the
+ * shipped work. Concepts and challenges (Spatial Home, Stanley) live in /portfolio under
+ * "Explorations". Keep the count odd so the grid under the featured case has no orphan.
  */
-const HOME_CASES = ['02', '01', '03'];
+const HOME_CASES = ['02', '01', '03', '04', '05', '06', '07'];
 
 /** Adds `.is-in` to every `.px-reveal` once it scrolls into view. */
 function useReveal() {

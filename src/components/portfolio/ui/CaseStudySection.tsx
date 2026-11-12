@@ -23,7 +23,7 @@ interface CaseStudySectionProps {
  */
 export function CaseStudySection({ title, subtitle, eyebrow, index, children, className, delay = 0 }: CaseStudySectionProps) {
     return (
-        <section className={cn('px-case-section flex flex-col gap-8 md:gap-10', className)}>
+        <section data-case-nav={title && eyebrow ? eyebrow : undefined} className={cn('px-case-section flex flex-col gap-8 md:gap-10', className)}>
             <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
