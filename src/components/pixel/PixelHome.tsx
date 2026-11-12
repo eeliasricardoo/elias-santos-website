@@ -1,14 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Copy, Github, Linkedin } from 'lucide-react';
+import { useEffect, useState, type CSSProperties } from 'react';
+import { ArrowRight, BookOpen, Check, Copy, Github, Linkedin } from 'lucide-react';
 import { STORY_COMPANIES, STORY_IDENTITY, STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { mascotReact } from './mascot-bus';
 import { CaseCover } from './CaseCover';
-import { WritingCover } from './WritingCover';
 import { HeroBanner } from './HeroBanner';
 import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
-import { ABOUT_FACTS, CASE_LINES, HERO_INTRO, WRITING_ARTICLES } from './pixel-copy';
+import { ABOUT_FACTS, CASE_LINES, HERO_INTRO } from './pixel-copy';
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
 /**
@@ -58,16 +57,7 @@ function SectionHeading({ index, label, title, children }: { index: string; labe
 
 export function PixelHome() {
     const [copied, setCopied] = useState(false);
-    const writingScrollRef = useRef<HTMLDivElement>(null);
     useReveal();
-
-    const scrollWriting = (direction: 'left' | 'right') => {
-        if (writingScrollRef.current) {
-            const firstCard = writingScrollRef.current.firstElementChild as HTMLElement | null;
-            const scrollAmount = firstCard ? firstCard.offsetWidth + 20 : 360;
-            writingScrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-        }
-    };
 
     const copyEmail = () => {
         navigator.clipboard.writeText(STORY_IDENTITY.email);
@@ -95,9 +85,6 @@ export function PixelHome() {
                 </button>
                 <button type="button" onClick={() => scrollTo('about')} className={navLinkClass}>
                     About
-                </button>
-                <button type="button" onClick={() => scrollTo('writing')} className={`${navLinkClass} hidden md:inline-block`}>
-                    Writing
                 </button>
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${navLinkClass} hidden md:inline-block`}>
                     Resume
@@ -260,108 +247,6 @@ export function PixelHome() {
                     </div>
                 </section>
 
-                {/* ——— 03 Writing ——— */}
-                <section
-                    id="writing"
-                    data-mascot-line="Articles & case notes on Medium."
-                    data-mascot-mood="wink"
-                    className="scroll-mt-16 sm:scroll-mt-20 border-b border-[var(--px-line)] bg-[var(--px-bg)] py-14 sm:py-20 md:py-28"
-                >
-                    <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
-                        <div className="mb-6 sm:mb-10 md:mb-12 flex flex-col gap-3 sm:gap-5 md:flex-row md:items-end md:justify-between">
-                            <div className="flex flex-col items-start gap-2 sm:gap-4">
-                                <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">03 · Writing</p>
-                                <h2 className="text-3xl sm:text-4xl md:text-5xl">Essays & case notes</h2>
-                            </div>
-                            <div className="flex items-center justify-between gap-4 md:justify-end">
-                                <p className="hidden max-w-xs text-sm leading-relaxed text-[var(--px-muted)] md:block md:text-right">
-                                    Thoughts on AI, interaction design, and the human craft behind digital systems.
-                                </p>
-                                <div className="flex items-center gap-2">
-                                    <button
-                                        type="button"
-                                        onClick={() => scrollWriting('left')}
-                                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--px-line)] bg-[var(--px-panel)] text-[var(--px-ink)] transition-colors hover:border-[var(--px-ink)] hover:bg-[var(--px-bg-2)]"
-                                        aria-label="Previous articles"
-                                    >
-                                        <ArrowLeft className="h-4 w-4" />
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => scrollWriting('right')}
-                                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--px-line)] bg-[var(--px-panel)] text-[var(--px-ink)] transition-colors hover:border-[var(--px-ink)] hover:bg-[var(--px-bg-2)]"
-                                        aria-label="Next articles"
-                                    >
-                                        <ArrowRight className="h-4 w-4" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Horizontal Carousel Track */}
-                        <div
-                            ref={writingScrollRef}
-                            className="relative flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                        >
-                            {WRITING_ARTICLES.map((article) => (
-                                <a
-                                    key={article.url}
-                                    href={article.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-work group flex flex-col justify-between w-[300px] sm:w-[350px] md:w-[380px] shrink-0 snap-start border border-[var(--px-line)] bg-[var(--px-panel)] rounded-xl overflow-hidden transition-all duration-200 hover:border-[var(--px-ink)] hover:shadow-lg"
-                                    onMouseEnter={() => mascotReact({ mood: 'smirk', say: 'Read on Medium.', hold: 1200 })}
-                                >
-                                    <WritingCover article={article} />
-
-                                    {/* Card Content */}
-                                    <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
-                                        <div className="flex flex-col gap-2.5">
-                                            <div className="flex items-center justify-between text-[11px] font-pixel-label text-[var(--px-dim)]">
-                                                <span>{article.tag}</span>
-                                                <span>{article.date} · {article.readTime}</span>
-                                            </div>
-                                            <h3 className="text-base sm:text-lg font-medium leading-snug text-[var(--px-ink)] group-hover:text-[var(--px-ink)] transition-colors line-clamp-2">
-                                                {article.title}
-                                            </h3>
-                                            <p className="text-xs sm:text-sm leading-relaxed text-[var(--px-muted)] line-clamp-3">
-                                                {article.description}
-                                            </p>
-                                        </div>
-
-                                        <div className="mt-4 flex items-center justify-between text-xs sm:text-sm font-medium text-[var(--px-ink)] pt-3.5 border-t border-[var(--px-line)]/50 group-hover:border-[var(--px-ink)]/20 transition-colors">
-                                            <span className="flex items-center gap-1.5">
-                                                <span>Read on Medium</span>
-                                                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                                                <NewTab />
-                                            </span>
-                                            <span className="rounded bg-[var(--px-bg-2)] px-2 py-0.5 font-mono text-[10px] text-[var(--px-dim)] border border-[var(--px-line)]">
-                                                {article.language}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
-
-                        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-[var(--px-line)] pt-6">
-                            <span className="text-xs sm:text-sm text-[var(--px-muted)]">
-                                10 stories and UX case studies published on Medium
-                            </span>
-                            <a
-                                href={STORY_IDENTITY.medium}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--px-ink)] underline decoration-[var(--px-line)] underline-offset-4 hover:decoration-[var(--px-ink)]"
-                            >
-                                View all stories on Medium
-                                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                                <NewTab />
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
                 {/* ——— Contact ——— */}
                 <ContactSection onCopy={copyEmail} copied={copied} />
             </main>
@@ -396,7 +281,7 @@ function ContactSection({ onCopy, copied }: { onCopy: () => void; copied: boolea
     return (
         <section id="contact" data-mascot-line="Your move." data-mascot-mood="smirk" className="px-dark scroll-mt-16 sm:scroll-mt-20 bg-[var(--px-panel-2)] text-[var(--px-on-sign)]">
             <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 sm:gap-6 px-4 py-16 sm:py-24 md:px-12 md:py-28">
-                <p className="font-pixel-label text-[11px] text-white/60">04 · Get in touch</p>
+                <p className="font-pixel-label text-[11px] text-white/60">03 · Get in touch</p>
                 <h2 className="text-4xl text-white sm:text-5xl md:text-6xl font-semibold">Let's talk.</h2>
                 <p className="max-w-xl text-base sm:text-lg leading-relaxed text-white/75">
                     I'm open to Senior Product Designer, UX Engineer and Design Engineer roles where product design and frontend engineering meet.
