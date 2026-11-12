@@ -11,8 +11,11 @@ import { NewTab, PixelFooter, PixelHeader, navLinkClass } from './PixelChrome';
 import { ABOUT_FACTS, CASE_LINES, HERO_INTRO, WRITING_ARTICLES } from './pixel-copy';
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
-/** The cases shown on the home page, in order. Everything else lives in /portfolio. */
-const HOME_CASES = ['02', '01', '03', '08', '09'];
+/**
+ * The cases shown on the home page, in order. Only shipped work: recruiters skim ~3 cases,
+ * so concepts and challenges (Spatial Home, Stanley) live in /portfolio under "Explorations".
+ */
+const HOME_CASES = ['02', '01', '03'];
 
 /** Adds `.is-in` to every `.px-reveal` once it scrolls into view. */
 function useReveal() {
@@ -136,7 +139,7 @@ export function PixelHome() {
                         <div className="flex max-w-4xl flex-col items-start gap-3 sm:gap-4">
                             <div>
                                 <p className="text-xl sm:text-2xl font-semibold text-[var(--px-ink)]">Elias Ricardo</p>
-                                <p className="font-pixel-label text-xs sm:text-sm text-[var(--px-dim)] mt-0.5">
+                                <p className="text-sm sm:text-base font-medium text-[var(--px-muted)] mt-0.5">
                                     Senior Product Designer & UX Engineer
                                 </p>
                             </div>
@@ -398,6 +401,7 @@ function ContactSection({ onCopy, copied }: { onCopy: () => void; copied: boolea
                 <p className="max-w-xl text-base sm:text-lg leading-relaxed text-white/75">
                     I'm open to Senior Product Designer, UX Engineer and Design Engineer roles where product design and frontend engineering meet.
                 </p>
+                <p className="font-pixel-label text-[11px] text-white/60">Full-time · Remote · Open to USD contracts</p>
 
                 <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
                     <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="px-btn px-btn--primary justify-center text-center">

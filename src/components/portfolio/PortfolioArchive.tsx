@@ -2,10 +2,13 @@
 
 import { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
-import { STORY_PROJECTS, PROJECT_ACCENTS } from '@/components/landing/story-data';
+import { STORY_PROJECTS, PROJECT_ACCENTS, type StoryProject } from '@/components/landing/story-data';
 import { CaseCover } from '@/components/pixel/CaseCover';
 import { mascotReact } from '@/components/pixel/mascot-bus';
 import { CASE_LINES } from '@/components/pixel/pixel-copy';
+
+/** Concepts and design challenges — shown apart from shipped work so they don't read as delivered products. */
+const EXPLORATIONS = ['08', '09'];
 
 const FILTER_TAGS = ['All', 'UX Engineering', 'Product Design', 'Mobile App', 'Spatial UI', 'AI Automation', 'React', 'WebRTC'] as const;
 
@@ -37,7 +40,7 @@ export function PortfolioArchive() {
                     <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Archive</p>
                     <h1 className="text-3xl sm:text-5xl md:text-6xl">All work &amp; case studies</h1>
                     <p className="max-w-2xl text-base leading-relaxed text-[var(--px-muted)] md:text-lg">
-                        Digital products, design systems, AI tooling and interaction engineering — each one researched, designed and shipped.
+                        Digital products, design systems, AI tooling and interaction engineering — researched, designed and shipped.
                     </p>
                 </div>
 
@@ -73,37 +76,20 @@ export function PortfolioArchive() {
                     </label>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 gap-x-10 gap-y-16 pt-6 md:grid-cols-2">
-                    {filteredProjects.map((project) => {
-                        const idx = STORY_PROJECTS.indexOf(project);
-                        const accent = PROJECT_ACCENTS[idx % PROJECT_ACCENTS.length];
-                        const line = CASE_LINES[project.index];
-                        return (
-                            <article
-                                key={project.index}
-                                className="px-work group flex flex-col items-start gap-4"
-                                onMouseEnter={() => line && mascotReact({ ...line, hold: 1400 })}
-                            >
-                                <CaseCover project={project} accent={accent} className="w-full" />
+                {/* Shipped work */}
+                <ProjectGrid projects={filteredProjects.filter((p) => !EXPLORATIONS.includes(p.index))} />
 
-                                <p className="mt-2 font-pixel-label text-[11px] text-[var(--px-dim)]">{[project.period, project.metric].filter(Boolean).join(' · ')}</p>
-                                <h2 className="text-3xl text-[var(--px-ink)]">{project.title}</h2>
-                                <p className="text-sm leading-relaxed text-[var(--px-muted)] md:text-base">{project.description}</p>
-                                <ul className="flex flex-wrap gap-2.5">
-                                    {project.tags.map((tag) => (
-                                        <li key={tag} className="px-chip">
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <a href={project.link} className="px-btn mt-2">
-                                    Read case study
-                                </a>
-                            </article>
-                        );
-                    })}
-                </div>
+                {/* Concepts & challenges */}
+                {filteredProjects.some((p) => EXPLORATIONS.includes(p.index)) && (
+                    <section aria-labelledby="explorations" className="mt-20 sm:mt-28 border-t border-[var(--px-line)] pt-10 sm:pt-14">
+                        <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Explorations</p>
+                        <h2 id="explorations" className="mt-3 text-2xl sm:text-4xl">Concepts &amp; design challenges</h2>
+                        <p className="mt-3 max-w-2xl text-base leading-relaxed text-[var(--px-muted)]">
+                            Self-initiated concepts and a hiring challenge — not shipped products, but a look at how I explore new problems.
+                        </p>
+                        <ProjectGrid headingLevel="h3" projects={filteredProjects.filter((p) => EXPLORATIONS.includes(p.index))} />
+                    </section>
+                )}
 
                 {filteredProjects.length === 0 && (
                     <div className="px-frame mx-auto mt-6 max-w-md px-6 py-10 text-center text-lg">
@@ -111,6 +97,42 @@ export function PortfolioArchive() {
                     </div>
                 )}
             </div>
+        </div>
+    );
+}
+
+function ProjectGrid({ projects, headingLevel = 'h2' }: { projects: StoryProject[]; headingLevel?: 'h2' | 'h3' }) {
+    const Heading = headingLevel;
+    return (
+        <div className="grid grid-cols-1 gap-x-10 gap-y-16 pt-6 md:grid-cols-2">
+            {projects.map((project) => {
+                const idx = STORY_PROJECTS.indexOf(project);
+                const accent = PROJECT_ACCENTS[idx % PROJECT_ACCENTS.length];
+                const line = CASE_LINES[project.index];
+                return (
+                    <article
+                        key={project.index}
+                        className="px-work group flex flex-col items-start gap-4"
+                        onMouseEnter={() => line && mascotReact({ ...line, hold: 1400 })}
+                    >
+                        <CaseCover project={project} accent={accent} className="w-full" />
+
+                        <p className="mt-2 font-pixel-label text-[11px] text-[var(--px-dim)]">{[project.period, project.metric].filter(Boolean).join(' · ')}</p>
+                        <Heading className="text-3xl text-[var(--px-ink)]">{project.title}</Heading>
+                        <p className="text-sm leading-relaxed text-[var(--px-muted)] md:text-base">{project.description}</p>
+                        <ul className="flex flex-wrap gap-2.5">
+                            {project.tags.map((tag) => (
+                                <li key={tag} className="px-chip">
+                                    {tag}
+                                </li>
+                            ))}
+                        </ul>
+                        <a href={project.link} className="px-btn mt-2">
+                            Read case study
+                        </a>
+                    </article>
+                );
+            })}
         </div>
     );
 }
