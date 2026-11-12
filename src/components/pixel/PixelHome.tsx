@@ -203,9 +203,7 @@ export function PixelHome() {
                     className="scroll-mt-16 sm:scroll-mt-20 pt-6 pb-14 sm:py-20 md:py-28"
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
-                        <SectionHeading index="01" label="Work" title="Selected work">
-                            Three products in production, then two projects taken to prototype. Each one starts with a real problem.
-                        </SectionHeading>
+                        <SectionHeading index="01" label="Work" title="Selected work" />
 
                         <CaseCard project={featured} accent={PROJECT_ACCENTS[0]} featured />
 
