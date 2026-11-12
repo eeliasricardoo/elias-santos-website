@@ -12,7 +12,7 @@ import { ABOUT_FACTS, CASE_LINES, HERO_INTRO, WRITING_ARTICLES } from './pixel-c
 
 const CALENDLY = 'https://calendly.com/eeliasricardoo';
 /** The cases shown on the home page, in order. Everything else lives in /portfolio. */
-const HOME_CASES = ['02', '08', '09', '03', '01'];
+const HOME_CASES = ['02', '01', '03', '08', '09'];
 
 /** Adds `.is-in` to every `.px-reveal` once it scrolls into view. */
 function useReveal() {
@@ -172,9 +172,9 @@ export function PixelHome() {
                 </section>
 
                 {/* ——— Companies ——— */}
-                <section aria-label="Companies I've shipped for" className="border-y border-[var(--px-line)] bg-[var(--px-bg-2)]">
+                <section aria-label="Companies I've worked with" className="border-y border-[var(--px-line)] bg-[var(--px-bg-2)]">
                     <div className="mx-auto max-w-6xl px-4 pt-3.5 sm:pt-8 sm:px-6 md:px-12">
-                        <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Shipped for</p>
+                        <p className="font-pixel-label text-[11px] text-[var(--px-dim)]">Worked with</p>
                     </div>
                     <div className="px-marquee-wrap overflow-hidden py-3.5 sm:py-8 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
                         <ul className="px-marquee items-center">
@@ -204,7 +204,7 @@ export function PixelHome() {
                 >
                     <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-12">
                         <SectionHeading index="01" label="Work" title="Selected work">
-                            Five cases. Each one starts with a real problem and ends in production.
+                            Three products in production, then two projects taken to prototype. Each one starts with a real problem.
                         </SectionHeading>
 
                         <CaseCard project={featured} accent={PROJECT_ACCENTS[0]} featured />
