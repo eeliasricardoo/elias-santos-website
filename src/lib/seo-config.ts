@@ -38,7 +38,7 @@ export const SEO_CONFIG = {
       'User Experience',
       'Brazil',
     ],
-    image: '/oq-image.png',
+    image: '/og/home.jpg',
     type: 'website',
   },
 
