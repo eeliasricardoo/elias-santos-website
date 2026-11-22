@@ -308,6 +308,16 @@ export function FigmaSection() {
                     <span className="sr-only"> (opens in a new tab)</span>
                 </a>
             </p>
+            <p>
+                The decisions behind the system, and the checks that keep it in shape, have their own case study:{' '}
+                <a
+                    href="/portfolio/ilevar-design-system"
+                    className="font-medium text-[var(--px-ink)] underline decoration-[var(--px-line)] underline-offset-4 hover:decoration-[var(--px-ink)]"
+                >
+                    ilevar design system
+                </a>
+                .
+            </p>
         </CaseStudySection>
     );
 }
@@ -442,8 +452,8 @@ export function CallToActionSection() {
                     Schedule a call
                     <span className="sr-only"> (opens in a new tab)</span>
                 </a>
-                <a href="/portfolio/sfmc-magic-builder" className="px-btn">
-                    Next case: EmailFlow Pro <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <a href="/portfolio/ilevar-design-system" className="px-btn">
+                    Next case: the ilevar design system <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
             </div>
         </section>

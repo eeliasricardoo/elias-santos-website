@@ -1,0 +1,85 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
+
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
+import {
+    HeroSection,
+    ProblemSection,
+    ProcessSection,
+    GlanceSection,
+    ButtonSection,
+    ColourSection,
+    StatesSection,
+    AccessibilitySection,
+    TwiceSection,
+    AiSection,
+    WrongSection,
+    ConsentSection,
+    AgentsSection,
+    ImpactSection,
+    NextSection,
+    CallToActionSection,
+    PartDivider,
+    ContentsSection,
+    ShowreelSection,
+    CanvasSection,
+    ComponentsSection,
+    ReferencesSection,
+} from "@/components/portfolio/ilevar-ds";
+---
+
+<Layout
+    ogImage="/og/ilevar.jpg"
+    title="ilevar Design System — Case Study | Elias Ricardo"
+    description="A design system for a product built with AI coding agents: one visual language in Figma and code, every state designed, AI features designed for trust, and rules that people and agents both follow."
+>
+    <ProjectStructuredData
+        client:load
+        name="ilevar design system"
+        description="A design system for a product built with AI coding agents: one visual language in Figma and code, every state designed, AI features designed for trust, and rules that people and agents both follow."
+        image="/portfolios/ilevar/ds-index.webp"
+        url="/portfolio/ilevar-design-system"
+        technologies={["Design Systems", "Figma", "Design Tokens", "AI UX", "AI coding agents", "WCAG"]}
+        category="Design System Case Study"
+        datePublished="2026-11-20"
+        author="Elias Ricardo"
+    />
+    <SubpageHeader client:load current="case" />
+
+    <CaseStudyLayout client:load brand="lime">
+        <HeroSection client:load />
+
+        <CaseSummary project="10" />
+        <ContentsSection client:visible />
+
+        <PartDivider client:visible part="Part I" title="The system" text="What was breaking, how I worked, and the principles, components and states that made ilevar look like one product again." />
+        <ProblemSection client:visible />
+        <ProcessSection client:visible />
+        <ShowreelSection client:visible />
+        <GlanceSection client:visible />
+        <CanvasSection client:visible />
+        <ButtonSection client:visible />
+        <ColourSection client:visible />
+        <StatesSection client:visible />
+        <ComponentsSection client:visible />
+        <AccessibilitySection client:visible />
+        <TwiceSection client:visible />
+
+        <PartDivider client:visible part="Part II" title="Design for the AI era" text="AI writes lessons for teachers, makes mistakes, asks for access, and writes code for the product itself. Each of those needed design." />
+        <AiSection client:visible />
+        <WrongSection client:visible />
+        <ConsentSection client:visible />
+        <AgentsSection client:visible />
+
+        <PartDivider client:visible part="Part III" title="Results" text="What changed, measured where the system lives, what is still open, and where every number comes from." />
+        <ImpactSection client:visible />
+        <NextSection client:visible />
+        <ReferencesSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <PixelFooter client:visible />
+</Layout>
