@@ -14,7 +14,7 @@ const EXPLORATIONS = ['08', '09'];
 const FILTER_TAGS = ['All', 'Product Design', 'Design System', 'UX Engineering', 'AI'] as const;
 
 /** Same opening order as the home page; everything else keeps its catalogue order. */
-const LEAD_ORDER = ['02', '01', '03'];
+const LEAD_ORDER = ['02', '10', '01', '03'];
 const rank = (p: StoryProject) => {
     const i = LEAD_ORDER.indexOf(p.index);
     return i === -1 ? LEAD_ORDER.length : i;

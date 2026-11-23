@@ -169,7 +169,7 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
         image: '/portfolios/ilevar/dashboard.webp',
         metric: 'AI lesson prep · live class',
         period: '2026 – present',
-        cover: '/portfolios/ilevar/hero-poster.webp',
+        cover: '/portfolios/ilevar/landing-new-poster.webp',
         tint: '#dde7f6',
         summary: {
             problem: "Teachers lose weekends building lessons, online classes turn into calls students only watch, and nothing connects the class to what the student practises next.",
@@ -313,6 +313,24 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
     },
     {
         index: '10',
+        title: 'ilevar Design System',
+        description:
+            'A product built at AI speed was starting to look generated. One system in Figma and code gave it a single voice: every state designed, AI features designed for trust, and rules that people and coding agents both follow.',
+        tags: ['Design System', 'AI UX', 'Figma · Tokens'],
+        link: '/portfolio/ilevar-design-system',
+        image: '/portfolios/ilevar/ds-index.webp',
+        metric: '607 components · 1,426 variants',
+        period: '2026 – present',
+        cover: '/portfolios/ilevar/ds-cover.webp',
+        tint: '#dbe8f5',
+        summary: {
+            problem: 'Built fast with coding agents, ilevar grew screen by screen and started to look generated: two primary buttons, hand-made copies of components, colour that meant nothing.',
+            role: 'Designer and owner of the system: the audit, the decisions, the Figma library with every state, the AI feature design, and the rules agents follow in code.',
+            result: 'One visual language from landing to live room: 2 identities down to 1, 3 colour maps per meaning down to 1, every colour paired for WCAG AA, 113 automated checks, and 607 components with 1,426 variants in Figma that people and AI agents follow.',
+        },
+    },
+    {
+        index: '11',
         title: 'Saile',
         description:
             'A vocal plugin for FL Studio that moves your voice toward a song you choose, with one knob. I designed the Simple and Advanced views in Figma, then built the plugin in C++ so the window matches the file.',
