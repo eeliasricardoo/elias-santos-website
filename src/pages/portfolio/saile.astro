@@ -1,0 +1,57 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { SubpageHeader, PixelFooter } from "@/components/pixel/PixelChrome";
+import { ProjectStructuredData } from "@/components/seo/ProjectStructuredData";
+import { CaseStudyLayout } from "@/components/portfolio/ui/CaseStudyLayout";
+import { CaseSummary } from "@/components/portfolio/ui/CaseSummary";
+import {
+    HeroSection,
+    ProblemSection,
+    RoleSection,
+    SimpleSection,
+    CopilotSection,
+    AdvancedSection,
+    SystemSection,
+    PerformanceSection,
+    StatusSection,
+    StackSection,
+    CallToActionSection,
+} from "@/components/portfolio/saile";
+---
+
+<Layout
+    ogImage="/portfolios/saile/match.webp"
+    title="Saile — Case Study | Elias Ricardo"
+    description="Case study of Saile, a vocal plugin for FL Studio that moves your voice toward a reference song with one knob. Designed in Figma first, then built in C++ with JUCE."
+>
+    <ProjectStructuredData
+        client:load
+        name="Saile"
+        description="Case study of Saile, a vocal plugin for FL Studio that moves your voice toward a reference song with one knob. Designed in Figma first, then built in C++ with JUCE."
+        image="/portfolios/saile/match.webp"
+        url="/portfolio/saile"
+        technologies={["Product Design", "Figma", "Design System", "C++ · JUCE"]}
+        category="UX/UI & Product Design Case Study"
+        datePublished="2026-11-22"
+        author="Elias Ricardo"
+    />
+    <SubpageHeader client:load current="case" />
+
+    <CaseStudyLayout client:load>
+        <HeroSection client:load />
+
+        <CaseSummary project="10" />
+        <ProblemSection client:visible />
+        <RoleSection client:visible />
+        <SimpleSection client:visible />
+        <CopilotSection client:visible />
+        <AdvancedSection client:visible />
+        <SystemSection client:visible />
+        <PerformanceSection client:visible />
+        <StatusSection client:visible />
+        <StackSection client:visible />
+        <CallToActionSection client:visible />
+    </CaseStudyLayout>
+
+    <PixelFooter client:visible />
+</Layout>

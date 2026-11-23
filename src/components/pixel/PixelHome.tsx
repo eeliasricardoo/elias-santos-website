@@ -15,7 +15,7 @@ const CALENDLY = 'https://calendly.com/eeliasricardoo';
  * shipped work. Concepts and challenges (Spatial Home, Stanley) live in /portfolio under
  * "Explorations". Keep the count odd so the grid under the featured case has no orphan.
  */
-const HOME_CASES = ['02', '01', '03', '04', '05', '06', '07'];
+const HOME_CASES = ['02', '01', '10', '03', '04', '05', '06', '07'];
 
 /** Adds `.is-in` to every `.px-reveal` once it scrolls into view. */
 function useReveal() {

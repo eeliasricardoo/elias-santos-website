@@ -311,4 +311,22 @@ export const STORY_PROJECTS: readonly StoryProject[] = [
             result: "A centralized 60-second Morning Setup checklist in high-contrast Stanley Yellow and dark UI that confirms tool readiness and task alignment before work begins.",
         },
     },
+    {
+        index: '10',
+        title: 'Saile',
+        description:
+            'A vocal plugin for FL Studio that moves your voice toward a song you choose, with one knob. I designed the Simple and Advanced views in Figma, then built the plugin in C++ so the window matches the file.',
+        tags: ['Product Design', 'Design System · Figma', 'Audio · C++'],
+        link: '/portfolio/saile',
+        image: '/portfolios/saile/match.webp',
+        metric: '46 screens · 8 modules',
+        period: '2026',
+        cover: '/portfolios/saile/reference.webp',
+        tint: '#e9e9ec',
+        summary: {
+            problem: "Mixing a vocal means knowing which of eight engineer-named tools fixes what you hear, so most producers just compare by ear against a favourite song.",
+            role: "Designer and builder: flows, 46 screens and the token system in Figma, then the plugin in C++ and JUCE, with Claude Code writing most of the code.",
+            result: "A one-knob Match view, an Advanced view with a graph per module, and a Copilot that only suggests. In development; not yet tested on real vocals inside FL Studio.",
+        },
+    },
 ] as const;
